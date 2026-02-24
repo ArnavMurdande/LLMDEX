@@ -1,0 +1,153 @@
+name: Daily LLM Benchmark Update + Deploy
+
+on:
+  schedule:
+    # 4:00 PM IST = 10:30 AM UTC
+    - cron: "30 10 * * *"
+  workflow_dispatch: # Manual trigger
+
+jobs:
+  update-data:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pages: write
+      id-token: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install Chrome
+        uses: browser-actions/setup-chrome@v1
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      # ──────────────────────────────────────────
+      # Run the main scraper + merge pipeline
+      # ──────────────────────────────────────────
+      - name: Run Scraper Pipeline
+        id: pipeline
+        run: python pipeline/run_pipeline.py
+        env:
+          PYTHONPATH: .
+
+      # ── Build family history data ──
+      - name: Build Family History
+        if: success()
+        run: python pipeline/build_family_history.py
+        env:
+          PYTHONPATH: .
+
+      # ── Upload pipeline report as CI artifact ──
+      - name: Upload Pipeline Report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: pipeline-report-${{ github.run_number }}
+          path: data/pipeline_reports/
+          retention-days: 90
+
+      # ── Upload archived datasets as CI artifact ──
+      - name: Upload Dataset Archives
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: dataset-archive-${{ github.run_number }}
+          path: |
+            data/raw_snapshot/archive/
+            data/cleaned/archive/
+            data/index/archive/
+          retention-days: 365
+
+      # ── Commit data files back to main branch ──
+      - name: Commit and Push Data
+        if: success()
+        run: |
+          git config --global user.name "GitHub Actions Bot"
+          git config --global user.email "actions@github.com"
+
+          # Add all latest data files (these power the website)
+          git add data/models.json data/models.csv || true
+          git add data/index/latest.json data/index/latest.csv || true
+          git add data/cleaned/latest.json data/cleaned/latest.csv || true
+          git add data/raw_snapshot/latest.json data/raw_snapshot/latest.csv || true
+          git add data/history/family_growth.json || true
+          git add data/column_definitions.json || true
+
+          git diff --quiet && git diff --staged --quiet || (
+            git commit -m "Update benchmark data $(date -u +%Y-%m-%d) [skip ci]" &&
+            git push
+          )
+
+      # ── On failure: upload report for debugging ──
+      - name: Upload Failure Report
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: failure-report-${{ github.run_number }}
+          path: data/pipeline_reports/
+          retention-days: 30
+
+  # ──────────────────────────────────────────
+  # Deploy website to GitHub Pages
+  # ──────────────────────────────────────────
+  deploy-pages:
+    needs: update-data
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+      contents: read
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Checkout repository (with latest data)
+        uses: actions/checkout@v4
+        with:
+          ref: main # Get the latest commit (including data updates)
+
+      # Pull the latest changes (the data commit from the previous job)
+      - name: Pull latest data
+        run: git pull origin main || true
+
+      # Build a deploy folder: website at root + data alongside
+      - name: Build deploy directory
+        run: |
+          mkdir -p _site/data
+          # Copy website files to root of _site
+          cp -r website/* _site/
+          # Copy data files (the website fetches from ../data/)
+          # Since website is now at root, we need data at ./data/
+          # Update fetch paths from ../data/ to ./data/
+          sed -i 's|\.\./data/|./data/|g' _site/app.js
+          sed -i 's|\.\./data/|./data/|g' _site/index.html
+          # Copy only the data files the website needs
+          cp -r data/index _site/data/index || true
+          cp -r data/sentiment _site/data/sentiment || true
+          cp -r data/history _site/data/history || true
+          cp data/models.json _site/data/models.json || true
+          cp data/column_definitions.json _site/data/column_definitions.json || true
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

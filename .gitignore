@@ -1,0 +1,44 @@
+# ─── Secrets ───
+.env
+
+# ─── Logs ───
+pipeline.log
+*.log
+
+# ─── Python ───
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.eggs/
+dist/
+build/
+
+# ─── Virtual environments ───
+venv/
+.venv/
+env/
+
+# ─── IDE ───
+.vscode/
+.idea/
+
+# ─── OS ───
+.DS_Store
+Thumbs.db
+
+# ─── Archives (CI artifacts, not committed) ───
+data/raw_snapshot/archive/
+data/cleaned/archive/
+data/index/archive/
+data/pipeline_reports/
+
+# ─── Debug artifacts ───
+*_source.html
+*_debug.html
+
+# ─── Selenium/Chrome cache ───
+data/sentiment/mention_cache/
+
+# ─── Build output ───
+_site/

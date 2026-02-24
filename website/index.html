@@ -1,0 +1,641 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LLMDEX | LLM Benchmark Intelligence Index</title>
+    <meta
+      name="description"
+      content="LLMDEX — A transparent, multi-source analytics index for Large Language Models. Aggregating LiveBench, LMSYS Arena, LLM-Stats, and more into auditable rankings with performance, value, and efficiency leaderboards."
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="bento.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Space+Grotesk:wght@300;500;700&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+  </head>
+  <body>
+    <div class="overlay"></div>
+
+    <nav class="navbar glass" id="main-nav">
+      <div class="logo">LLM<span class="highlight">DEX</span></div>
+      <button
+        class="hamburger"
+        id="hamburger-btn"
+        aria-label="Toggle navigation"
+        style="
+          display: none;
+          background: none;
+          border: none;
+          color: #f8fafc;
+          font-size: 1.5rem;
+          cursor: pointer;
+        "
+      >
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="nav-links" id="nav-links">
+        <a href="#dashboard" class="active">Dashboard</a>
+        <a href="#leaderboards">Leaderboards</a>
+        <a href="#sentiment-section">Sentiment</a>
+        <a href="#history-section">Trends</a>
+        <a href="#advisor-section">Advisor</a>
+        <a href="#methodology">Methodology</a>
+        <a href="https://github.com/your-repo" target="_blank"
+          ><i class="fab fa-github"></i
+        ></a>
+      </div>
+    </nav>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- HERO SECTION                               -->
+    <!-- ═══════════════════════════════════════════ -->
+    <header class="hero" id="hero">
+      <div class="hero-content">
+        <h1 class="animate-text">
+          Benchmark Intelligence<br /><span class="gradient-text"
+            >for AI Decision Makers</span
+          >
+        </h1>
+        <p class="hero-desc">
+          LLMDEX aggregates performance data from 5 independent benchmark
+          sources — LiveBench, LMSYS Chatbot Arena, Artificial Analysis,
+          LLM-Stats, and Vellum — into a unified, auditable index. Our
+          <strong>three independent leaderboards</strong> separate raw
+          intelligence, composite value, and cost efficiency — eliminating
+          ranking confusion. Every number is traceable, bias-corrected, and
+          explainable.
+        </p>
+        <p class="hero-sub">
+          <strong>Who is this for?</strong> AI engineers, procurement teams, and
+          researchers who need reliable, comparative data to evaluate LLMs —
+          without the marketing spin.
+        </p>
+        <div class="cta-group">
+          <a href="#leaderboards" class="btn primary">View Leaderboards</a>
+          <a href="#advisor-section" class="btn secondary"
+            ><i class="fas fa-robot"></i> AI Advisor</a
+          >
+          <a
+            href="../data/index/latest.csv"
+            class="btn secondary"
+            id="download-csv-link"
+            download
+            ><i class="fas fa-download"></i> Download CSV</a
+          >
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="orb-container">
+          <div class="orb"></div>
+          <div class="orb orb-2"></div>
+        </div>
+      </div>
+    </header>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- DASHBOARD SECTION                          -->
+    <!-- ═══════════════════════════════════════════ -->
+    <main id="dashboard" class="dashboard-section">
+      <!-- Error / Warning banners injected by JS -->
+      <div id="banner-area"></div>
+
+      <div class="section-header">
+        <h2>Market Overview</h2>
+        <div class="live-indicator">
+          <span class="pulse"></span> Live Update
+        </div>
+      </div>
+
+      <!-- Key Metrics Cards -->
+      <div class="metrics-grid">
+        <div class="metric-card glass" id="card-top-performer">
+          <h3><i class="fas fa-crown"></i> Top Performer</h3>
+          <div class="value skeleton" id="top-model">—</div>
+          <div class="sub" id="top-score">Performance: N/A</div>
+        </div>
+        <div class="metric-card glass" id="card-best-value">
+          <h3><i class="fas fa-star"></i> Best Value</h3>
+          <div class="value skeleton" id="val-model">—</div>
+          <div class="sub" id="val-score">N/A</div>
+        </div>
+        <div class="metric-card glass" id="card-most-efficient">
+          <h3><i class="fas fa-bolt"></i> Most Efficient</h3>
+          <div class="value skeleton" id="eff-model">—</div>
+          <div class="sub" id="eff-score">N/A</div>
+        </div>
+        <div class="metric-card glass" id="card-models-tracked">
+          <h3><i class="fas fa-database"></i> Models Tracked</h3>
+          <div class="value skeleton" id="total-models">—</div>
+          <div class="sub" id="source-count">Across — sources</div>
+        </div>
+      </div>
+
+      <!-- Charts Area -->
+      <div class="charts-container">
+        <div class="chart-card glass full-width">
+          <h3>Performance vs. Cost Frontier</h3>
+          <div id="scatter-chart" class="skeleton-chart"></div>
+        </div>
+
+        <div class="chart-row">
+          <div class="chart-card glass">
+            <div class="chart-header">
+              <h3>Capability Radar</h3>
+              <select id="radar-model-selector" class="radar-selector">
+                <option value="">Loading...</option>
+              </select>
+            </div>
+            <div id="radar-chart" class="skeleton-chart"></div>
+          </div>
+          <div class="chart-card glass">
+            <h3>Efficiency Ranking (Percentile)</h3>
+            <div id="bar-chart" class="skeleton-chart"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Model Comparison Mode -->
+      <div
+        class="comparison-section glass"
+        id="comparison-section"
+        style="display: none"
+      >
+        <div class="section-header">
+          <h3><i class="fas fa-columns"></i> Model Comparison</h3>
+          <button
+            class="btn-close"
+            id="close-comparison"
+            title="Close comparison"
+          >
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+        <div id="comparison-radar"></div>
+      </div>
+    </main>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- THREE LEADERBOARDS (Part 1 + Part 9)       -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section id="leaderboards" class="data-table-section">
+      <div class="container">
+        <div class="section-header">
+          <h2>Leaderboards</h2>
+          <div class="leaderboard-tabs">
+            <button
+              class="tab-btn active"
+              data-tab="performance-tab"
+              id="btn-perf-tab"
+            >
+              <i class="fas fa-brain"></i> Performance
+            </button>
+            <button class="tab-btn" data-tab="value-tab" id="btn-value-tab">
+              <i class="fas fa-star"></i> Value
+            </button>
+            <button class="tab-btn" data-tab="efficiency-tab" id="btn-eff-tab">
+              <i class="fas fa-bolt"></i> Efficiency
+            </button>
+          </div>
+        </div>
+
+        <!-- Tab descriptions -->
+        <div class="tab-description glass" id="tab-desc-area">
+          <p id="tab-description-text">
+            <strong>Performance Leaderboard:</strong> Pure intelligence ranking
+            based on bias-corrected benchmark scores. No cost or speed
+            influence. Models are ranked by adjusted_performance which accounts
+            for data completeness.
+          </p>
+        </div>
+
+        <!-- Table Controls -->
+        <div class="table-controls">
+          <div class="filter-bar glass">
+            <div class="filter-search">
+              <i class="fas fa-search filter-search-icon"></i>
+              <input
+                type="text"
+                id="search-input"
+                placeholder="Search models..."
+              />
+            </div>
+            <select id="provider-filter">
+              <option value="All">All Providers</option>
+              <option value="OpenAI">OpenAI</option>
+              <option value="Anthropic">Anthropic</option>
+              <option value="Google">Google</option>
+              <option value="Meta">Meta</option>
+              <option value="DeepSeek">DeepSeek</option>
+              <option value="Mistral AI">Mistral AI</option>
+              <option value="Alibaba">Alibaba</option>
+              <option value="Zhipu AI">Zhipu AI</option>
+              <option value="xAI">xAI</option>
+              <option value="Moonshot">Moonshot</option>
+              <option value="MiniMax">MiniMax</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+          <button class="btn compare-btn" id="compare-btn" disabled>
+            <i class="fas fa-columns"></i> Compare (<span id="compare-count"
+              >0</span
+            >)
+          </button>
+        </div>
+
+        <div class="table-wrapper glass">
+          <table id="models-table">
+            <thead>
+              <tr id="table-header-row">
+                <!-- Populated dynamically per tab -->
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Populated by JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- BENCHMARK BREAKDOWN MODAL (Part 5)         -->
+    <!-- ═══════════════════════════════════════════ -->
+    <div id="benchmark-modal" class="modal-overlay" style="display: none">
+      <div class="modal-content glass">
+        <div class="modal-header">
+          <h3 id="modal-model-name">Model Breakdown</h3>
+          <button class="btn-close" id="modal-close">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+        <div class="modal-body" id="modal-body">
+          <!-- Filled dynamically -->
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- COMMUNITY SENTIMENT PANEL (Part 6)         -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section id="sentiment-section" class="sentiment-section">
+      <div class="container">
+        <div class="section-header">
+          <h2><i class="fas fa-comments"></i> Community Sentiment</h2>
+          <span class="experimental-badge">
+            <i class="fas fa-flask"></i> Experimental
+          </span>
+        </div>
+
+        <!-- Explanation panel (required) -->
+        <div class="sentiment-explainer glass">
+          <div class="explainer-icon"><i class="fas fa-info-circle"></i></div>
+          <div class="explainer-content">
+            <strong>What does community sentiment mean?</strong>
+            <p>
+              Community sentiment summarizes public opinions from Reddit, Hacker
+              News, and GitHub. It reflects how people <em>feel</em> about a
+              model — not benchmark performance. This data is experimental and
+              does <strong>NOT</strong> influence rankings.
+            </p>
+          </div>
+        </div>
+
+        <!-- 3 sentiment charts row -->
+        <div class="sentiment-charts-row">
+          <div class="chart-card glass">
+            <h3>
+              <i class="fas fa-thumbs-up"></i> Most Positively Received Models
+            </h3>
+            <p class="chart-subtitle">
+              Based on Reddit + Hacker News + GitHub mentions
+            </p>
+            <div id="sentiment-liked-chart" class="sentiment-chart-slot"></div>
+          </div>
+          <div class="chart-card glass">
+            <h3><i class="fas fa-bolt"></i> Most Controversial Models</h3>
+            <p class="chart-subtitle">
+              Based on Reddit + Hacker News + GitHub mentions
+            </p>
+            <div
+              id="sentiment-controversy-chart"
+              class="sentiment-chart-slot"
+            ></div>
+          </div>
+          <div class="chart-card glass">
+            <h3><i class="fas fa-fire"></i> Most Discussed Models</h3>
+            <p class="chart-subtitle">
+              Based on Reddit + Hacker News + GitHub mentions
+            </p>
+            <div
+              id="sentiment-trending-chart"
+              class="sentiment-chart-slot"
+            ></div>
+          </div>
+        </div>
+
+        <!-- Sentiment cards grid -->
+        <div class="sentiment-grid" id="sentiment-grid">
+          <p class="loading-text">Loading sentiment data...</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- MODEL FAMILY GROWTH EXPLORER (Part 8)      -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section id="history-section" class="history-section">
+      <div class="container">
+        <div class="section-header">
+          <h2>
+            <i class="fas fa-layer-group"></i> Model Family Growth Explorer
+          </h2>
+        </div>
+        <p class="section-desc">
+          Track how model families improve over generations. This chart shows
+          major releases, not daily updates.
+        </p>
+        <div class="history-controls">
+          <div class="family-selector-wrapper">
+            <i class="fas fa-sitemap family-selector-icon"></i>
+            <select id="family-selector" class="family-dropdown">
+              <option value="">Select a model family...</option>
+            </select>
+            <i class="fas fa-chevron-down family-selector-arrow"></i>
+          </div>
+        </div>
+        <div class="chart-card glass" style="min-height: 520px">
+          <div id="family-chart" class="skeleton-chart">
+            <p
+              style="
+                text-align: center;
+                color: var(--text-secondary);
+                padding: 2rem;
+              "
+            >
+              Select a model family to view performance evolution across
+              generations.
+            </p>
+          </div>
+        </div>
+        <p class="family-explanation-text">
+          This chart shows how model families improve over generations. It
+          tracks major releases, not daily updates.
+        </p>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- AI ADVISOR ASSISTANT (Part 7)              -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section id="advisor-section" class="advisor-section">
+      <div class="container">
+        <div class="section-header">
+          <h2><i class="fas fa-robot"></i> AI Model Advisor</h2>
+        </div>
+        <p class="section-desc">
+          Ask questions about model performance, costs, and rankings — or use
+          the quick priority matcher below.
+        </p>
+
+        <!-- ═══ GEMINI-POWERED CHATBOT (ABOVE priority selector) ═══ -->
+        <div class="advisor-chatbot glass" id="advisor-chatbot">
+          <div class="chatbot-header">
+            <div class="chatbot-header-left">
+              <div class="chatbot-avatar">
+                <i class="fas fa-sparkles"></i>
+              </div>
+              <div>
+                <h4>
+                  Data-Grounded AI Advisor <span class="beta-badge">Beta</span>
+                </h4>
+                <span class="chatbot-subtitle"
+                  >Powered by LLMDEX data — no hallucination, no internet
+                  access</span
+                >
+              </div>
+            </div>
+            <div class="chatbot-header-right">
+              <button
+                class="chatbot-clear-btn"
+                id="chatbot-clear-btn"
+                title="Clear conversation"
+              >
+                <i class="fas fa-trash-alt"></i>
+              </button>
+            </div>
+          </div>
+          <div class="chatbot-messages" id="chatbot-messages">
+            <div class="chat-message bot-message">
+              <div class="chat-avatar"><i class="fas fa-robot"></i></div>
+              <div class="chat-bubble">
+                <p>
+                  Hello! I'm the LLMDEX Data-Advisor. I can answer questions
+                  about model performance, costs, and rankings using
+                  <strong>only verified benchmark data</strong>.
+                </p>
+                <div class="chat-suggestions">
+                  <button
+                    class="suggestion-chip"
+                    data-query="Which model has the best performance-to-cost ratio?"
+                  >
+                    Best value?
+                  </button>
+                  <button
+                    class="suggestion-chip"
+                    data-query="Compare the top 3 models for coding tasks"
+                  >
+                    Top coding models?
+                  </button>
+                  <button
+                    class="suggestion-chip"
+                    data-query="What is the cheapest high-performance model?"
+                  >
+                    Cheapest good model?
+                  </button>
+                  <button
+                    class="suggestion-chip"
+                    data-query="Which model has the largest context window?"
+                  >
+                    Largest context?
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="chatbot-input-area">
+            <div class="chatbot-input-wrapper">
+              <input
+                type="text"
+                id="chatbot-input"
+                class="chatbot-input"
+                placeholder="Ask about models, rankings, costs..."
+                maxlength="500"
+                autocomplete="off"
+              />
+              <button class="chatbot-send-btn" id="chatbot-send-btn" disabled>
+                <i class="fas fa-paper-plane"></i>
+              </button>
+            </div>
+            <span class="chatbot-disclaimer"
+              >Responses are based solely on LLMDEX benchmark data. AI-generated
+              analysis — verify important decisions independently.</span
+            >
+          </div>
+        </div>
+
+        <!-- ═══ EXISTING PRIORITY-BASED ADVISOR (kept intact) ═══ -->
+        <div class="advisor-interface glass" style="margin-top: 1.5rem">
+          <div class="advisor-priorities">
+            <h4><i class="fas fa-sliders-h"></i> Quick Match by Priorities:</h4>
+            <div class="priority-chips" id="priority-chips">
+              <button class="priority-chip" data-priority="performance">
+                <i class="fas fa-brain"></i> Performance
+              </button>
+              <button class="priority-chip" data-priority="cost">
+                <i class="fas fa-dollar-sign"></i> Cost
+              </button>
+              <button class="priority-chip" data-priority="coding">
+                <i class="fas fa-code"></i> Coding
+              </button>
+              <button class="priority-chip" data-priority="reasoning">
+                <i class="fas fa-puzzle-piece"></i> Reasoning
+              </button>
+              <button class="priority-chip" data-priority="efficiency">
+                <i class="fas fa-bolt"></i> Efficiency
+              </button>
+              <button class="priority-chip" data-priority="context">
+                <i class="fas fa-expand-arrows-alt"></i> Context Window
+              </button>
+            </div>
+            <div class="advisor-selected">
+              <span class="selected-label">Selected (in order):</span>
+              <div id="selected-priorities" class="selected-chips"></div>
+            </div>
+            <button class="btn primary" id="advisor-go-btn" disabled>
+              <i class="fas fa-search"></i> Find Best Models
+            </button>
+          </div>
+          <div
+            class="advisor-results"
+            id="advisor-results"
+            style="display: none"
+          >
+            <!-- Populated by JS -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tooltip container -->
+    <div id="column-tooltip" class="column-tooltip" style="display: none">
+      <div class="tooltip-header">
+        <strong id="tooltip-title"></strong>
+        <button class="tooltip-close" id="tooltip-close">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="tooltip-body">
+        <div class="tooltip-row">
+          <span class="tooltip-label">Definition</span>
+          <p id="tooltip-definition"></p>
+        </div>
+        <div class="tooltip-row">
+          <span class="tooltip-label">Formula</span>
+          <p id="tooltip-formula"></p>
+        </div>
+        <div class="tooltip-row">
+          <span class="tooltip-label">Data Sources</span>
+          <p id="tooltip-sources"></p>
+        </div>
+        <div class="tooltip-row">
+          <span class="tooltip-label">Limitations</span>
+          <p id="tooltip-limitations"></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- METHODOLOGY SECTION                        -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section id="methodology" class="methodology-section">
+      <div class="container">
+        <h2>Methodology</h2>
+        <p class="methodology-intro">
+          LLMDEX is designed as a financial-grade analytics index. Every ranking
+          decision is documented, every data point is traceable, and no value is
+          ever fabricated. Below is how the system works.
+        </p>
+
+        <div class="methodology-grid">
+          <div class="method-card glass">
+            <h3><i class="fas fa-database"></i> Data Sources</h3>
+            <p>
+              We aggregate data from 5 independent benchmark sources: LiveBench,
+              LMSYS Chatbot Arena, Artificial Analysis, LLM-Stats, and Vellum.
+              Each source is independently validated before inclusion. Source
+              confidence weights range from 0.70 (LLM-Stats) to 0.95 (LMSYS
+              Arena).
+            </p>
+          </div>
+          <div class="method-card glass">
+            <h3><i class="fas fa-brain"></i> Performance Leaderboard</h3>
+            <p>
+              Pure intelligence ranking. Bias-corrected using confidence
+              weighting: adjusted_performance = performance × (0.85 + 0.15 ×
+              coverage). Models with more benchmark coverage are not unfairly
+              advantaged. No cost or speed influence.
+            </p>
+          </div>
+          <div class="method-card glass">
+            <h3><i class="fas fa-star"></i> Value Leaderboard</h3>
+            <p>
+              Composite: 50% Performance + 30% Cost Efficiency + 20% Speed.
+              Missing components redistribute weight proportionally. Uses
+              adjusted performance for fairness.
+            </p>
+          </div>
+          <div class="method-card glass">
+            <h3><i class="fas fa-bolt"></i> Efficiency Leaderboard</h3>
+            <p>
+              Efficiency = Performance / Blended Cost, normalized as percentile
+              ranks to prevent chart distortion. Only models with adjusted
+              performance ≥ 60 qualify. Free models receive maximum efficiency.
+            </p>
+          </div>
+          <div class="method-card glass">
+            <h3><i class="fas fa-shield-alt"></i> Bias Correction</h3>
+            <p>
+              Models with sparse data get a confidence penalty:
+              confidence_factor = benchmarks_available / 5. This prevents models
+              with a single high score from dominating the leaderboard unfairly.
+            </p>
+          </div>
+          <div class="method-card glass">
+            <h3><i class="fas fa-exclamation-triangle"></i> Limitations</h3>
+            <p>
+              No single metric captures "intelligence." Benchmarks test narrow
+              capabilities. Costs change frequently. Community sentiment is
+              experimental and never influences ranking. Use LLMDEX as one input
+              to your evaluation, not the only one.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="glass">
+      <p>
+        &copy; 2026 LLMDEX. Open Source Analytics. Correctness > Visuals. Trust
+        > Hype.
+      </p>
+    </footer>
+
+    <script src="bento.js?v=1"></script>
+    <script src="app.js?v=7"></script>
+  </body>
+</html>

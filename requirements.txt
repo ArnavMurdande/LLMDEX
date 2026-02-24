@@ -1,0 +1,15 @@
+# Core pipeline dependencies
+selenium>=4.15.0
+webdriver-manager>=4.0.0
+requests>=2.31.0
+pandas>=2.0.0
+numpy>=1.24.0
+
+# Sentiment analysis
+vaderSentiment>=3.3.2
+google-generativeai>=0.3.0
+
+# API server (optional, for local dev)
+flask>=3.0.0
+flask-cors>=4.0.0
+python-dotenv>=1.0.0
