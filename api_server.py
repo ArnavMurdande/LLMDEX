@@ -36,7 +36,7 @@ from utils.logger import setup_logging
 
 logger = logging.getLogger(__name__)
 
-PORT = 8080
+PORT = int(os.environ.get("PORT", 8080))
 WEBSITE_DIR = os.path.join(os.path.dirname(__file__), "website")
 
 
