@@ -541,6 +541,108 @@
       "predecessor": "Grok 3 mini Reasoning (high)"
     }
   ],
+  "DeepSeek V/Coder": [
+    {
+      "name": "DeepSeek-V2-Chat",
+      "performance": 0.0,
+      "rank": 287.0,
+      "provider": "DeepSeek",
+      "family_order": null,
+      "improvement_abs": 0.0,
+      "improvement_pct": 0.0,
+      "predecessor": null
+    },
+    {
+      "name": "DeepSeek Coder V2 Lite Instruct",
+      "performance": 1.75,
+      "rank": 259.0,
+      "provider": "DeepSeek",
+      "family_order": null,
+      "improvement_abs": 1.75,
+      "improvement_pct": 0,
+      "predecessor": "DeepSeek-V2-Chat"
+    },
+    {
+      "name": "DeepSeek-Coder-V2",
+      "performance": 8.4,
+      "rank": 98.0,
+      "provider": "DeepSeek",
+      "family_order": null,
+      "improvement_abs": 6.65,
+      "improvement_pct": 380.0,
+      "predecessor": "DeepSeek Coder V2 Lite Instruct"
+    },
+    {
+      "name": "deepseek-v2.5-1210",
+      "performance": 8.78,
+      "rank": 354.0,
+      "provider": "DeepSeek",
+      "family_order": null,
+      "improvement_abs": 0.38,
+      "improvement_pct": 4.52,
+      "predecessor": "DeepSeek-Coder-V2"
+    },
+    {
+      "name": "DeepSeek-V2.5 (Dec '24)",
+      "performance": 9.39,
+      "rank": 95.0,
+      "provider": "DeepSeek",
+      "family_order": null,
+      "improvement_abs": 0.61,
+      "improvement_pct": 6.95,
+      "predecessor": "deepseek-v2.5-1210"
+    },
+    {
+      "name": "DeepSeek V3 (Dec '24)",
+      "performance": 19.76,
+      "rank": 72.0,
+      "provider": "DeepSeek",
+      "family_order": null,
+      "improvement_abs": 10.37,
+      "improvement_pct": 110.44,
+      "predecessor": "DeepSeek-V2.5 (Dec '24)"
+    },
+    {
+      "name": "DeepSeek V3 0324",
+      "performance": 25.01,
+      "rank": 51.0,
+      "provider": "DeepSeek",
+      "family_order": null,
+      "improvement_abs": 5.25,
+      "improvement_pct": 26.57,
+      "predecessor": "DeepSeek V3 (Dec '24)"
+    },
+    {
+      "name": "DeepSeek V3.1 (Non-reasoning)",
+      "performance": 31.24,
+      "rank": 33.0,
+      "provider": "DeepSeek",
+      "family_order": null,
+      "improvement_abs": 6.23,
+      "improvement_pct": 24.91,
+      "predecessor": "DeepSeek V3 0324"
+    },
+    {
+      "name": "DeepSeek V3.2 Speciale",
+      "performance": 36.25,
+      "rank": 24.0,
+      "provider": "DeepSeek",
+      "family_order": null,
+      "improvement_abs": 5.01,
+      "improvement_pct": 16.04,
+      "predecessor": "DeepSeek V3.1 (Non-reasoning)"
+    },
+    {
+      "name": "DeepSeek V3.2 (Non-reasoning)",
+      "performance": 37.51,
+      "rank": 20.0,
+      "provider": "DeepSeek",
+      "family_order": null,
+      "improvement_abs": 1.26,
+      "improvement_pct": 3.48,
+      "predecessor": "DeepSeek V3.2 Speciale"
+    }
+  ],
   "Gemini Flash": [
     {
       "name": "Gemini 1.5 Flash-8B",
@@ -701,108 +803,6 @@
       "improvement_abs": 7.75,
       "improvement_pct": 26.68,
       "predecessor": "Gemini 3 Flash Preview (Non-reasoning)"
-    }
-  ],
-  "DeepSeek V/Coder": [
-    {
-      "name": "DeepSeek-V2-Chat",
-      "performance": 0.0,
-      "rank": 287.0,
-      "provider": "DeepSeek",
-      "family_order": null,
-      "improvement_abs": 0.0,
-      "improvement_pct": 0.0,
-      "predecessor": null
-    },
-    {
-      "name": "DeepSeek Coder V2 Lite Instruct",
-      "performance": 1.75,
-      "rank": 259.0,
-      "provider": "DeepSeek",
-      "family_order": null,
-      "improvement_abs": 1.75,
-      "improvement_pct": 0,
-      "predecessor": "DeepSeek-V2-Chat"
-    },
-    {
-      "name": "DeepSeek-Coder-V2",
-      "performance": 8.4,
-      "rank": 98.0,
-      "provider": "DeepSeek",
-      "family_order": null,
-      "improvement_abs": 6.65,
-      "improvement_pct": 380.0,
-      "predecessor": "DeepSeek Coder V2 Lite Instruct"
-    },
-    {
-      "name": "deepseek-v2.5-1210",
-      "performance": 8.78,
-      "rank": 354.0,
-      "provider": "DeepSeek",
-      "family_order": null,
-      "improvement_abs": 0.38,
-      "improvement_pct": 4.52,
-      "predecessor": "DeepSeek-Coder-V2"
-    },
-    {
-      "name": "DeepSeek-V2.5 (Dec '24)",
-      "performance": 9.39,
-      "rank": 95.0,
-      "provider": "DeepSeek",
-      "family_order": null,
-      "improvement_abs": 0.61,
-      "improvement_pct": 6.95,
-      "predecessor": "deepseek-v2.5-1210"
-    },
-    {
-      "name": "DeepSeek V3 (Dec '24)",
-      "performance": 19.76,
-      "rank": 72.0,
-      "provider": "DeepSeek",
-      "family_order": null,
-      "improvement_abs": 10.37,
-      "improvement_pct": 110.44,
-      "predecessor": "DeepSeek-V2.5 (Dec '24)"
-    },
-    {
-      "name": "DeepSeek V3 0324",
-      "performance": 25.01,
-      "rank": 51.0,
-      "provider": "DeepSeek",
-      "family_order": null,
-      "improvement_abs": 5.25,
-      "improvement_pct": 26.57,
-      "predecessor": "DeepSeek V3 (Dec '24)"
-    },
-    {
-      "name": "DeepSeek V3.1 (Non-reasoning)",
-      "performance": 31.24,
-      "rank": 33.0,
-      "provider": "DeepSeek",
-      "family_order": null,
-      "improvement_abs": 6.23,
-      "improvement_pct": 24.91,
-      "predecessor": "DeepSeek V3 0324"
-    },
-    {
-      "name": "DeepSeek V3.2 Speciale",
-      "performance": 36.25,
-      "rank": 24.0,
-      "provider": "DeepSeek",
-      "family_order": null,
-      "improvement_abs": 5.01,
-      "improvement_pct": 16.04,
-      "predecessor": "DeepSeek V3.1 (Non-reasoning)"
-    },
-    {
-      "name": "DeepSeek V3.2 (Non-reasoning)",
-      "performance": 37.51,
-      "rank": 20.0,
-      "provider": "DeepSeek",
-      "family_order": null,
-      "improvement_abs": 1.26,
-      "improvement_pct": 3.48,
-      "predecessor": "DeepSeek V3.2 Speciale"
     }
   ],
   "GPT Base/Flagship": [
@@ -2437,108 +2437,6 @@
       "predecessor": "Jamba 1.5 Mini"
     }
   ],
-  "Microsoft": [
-    {
-      "name": "Phi-4 Multimodal Instruct",
-      "performance": 1.66,
-      "rank": 261.0,
-      "provider": "Microsoft",
-      "family_order": null,
-      "improvement_abs": 0.0,
-      "improvement_pct": 0.0,
-      "predecessor": null
-    },
-    {
-      "name": "Phi-4 Mini Instruct",
-      "performance": 2.27,
-      "rank": 250.0,
-      "provider": "Microsoft",
-      "family_order": null,
-      "improvement_abs": 0.61,
-      "improvement_pct": 36.75,
-      "predecessor": "Phi-4 Multimodal Instruct"
-    },
-    {
-      "name": "phi-3-mini-4k-instruct",
-      "performance": 4.73,
-      "rank": 464.0,
-      "provider": "Microsoft",
-      "family_order": null,
-      "improvement_abs": 2.46,
-      "improvement_pct": 108.37,
-      "predecessor": "Phi-4 Mini Instruct"
-    },
-    {
-      "name": "phi-3-mini-128k-instruct",
-      "performance": 4.75,
-      "rank": 463.0,
-      "provider": "Microsoft",
-      "family_order": null,
-      "improvement_abs": 0.02,
-      "improvement_pct": 0.42,
-      "predecessor": "phi-3-mini-4k-instruct"
-    },
-    {
-      "name": "phi-3-mini-4k-instruct-june-2024",
-      "performance": 5.04,
-      "rank": 455.0,
-      "provider": "Microsoft",
-      "family_order": null,
-      "improvement_abs": 0.29,
-      "improvement_pct": 6.11,
-      "predecessor": "phi-3-mini-128k-instruct"
-    },
-    {
-      "name": "wizardlm-13b",
-      "performance": 5.17,
-      "rank": 452.0,
-      "provider": "Microsoft",
-      "family_order": null,
-      "improvement_abs": 0.13,
-      "improvement_pct": 2.58,
-      "predecessor": "phi-3-mini-4k-instruct-june-2024"
-    },
-    {
-      "name": "phi-3-small-8k-instruct",
-      "performance": 5.62,
-      "rank": 441.0,
-      "provider": "Microsoft",
-      "family_order": null,
-      "improvement_abs": 0.45,
-      "improvement_pct": 8.7,
-      "predecessor": "wizardlm-13b"
-    },
-    {
-      "name": "wizardlm-70b",
-      "performance": 5.9,
-      "rank": 428.0,
-      "provider": "Microsoft",
-      "family_order": null,
-      "improvement_abs": 0.28,
-      "improvement_pct": 4.98,
-      "predecessor": "phi-3-small-8k-instruct"
-    },
-    {
-      "name": "phi-3-medium-4k-instruct",
-      "performance": 6.18,
-      "rank": 423.0,
-      "provider": "Microsoft",
-      "family_order": null,
-      "improvement_abs": 0.28,
-      "improvement_pct": 4.75,
-      "predecessor": "wizardlm-70b"
-    },
-    {
-      "name": "Phi-4",
-      "performance": 17.52,
-      "rank": 83.0,
-      "provider": "Microsoft",
-      "family_order": null,
-      "improvement_abs": 11.34,
-      "improvement_pct": 183.5,
-      "predecessor": "phi-3-medium-4k-instruct"
-    }
-  ],
   "Qwen Base": [
     {
       "name": "Qwen Chat 72B",
@@ -3089,6 +2987,108 @@
       "improvement_abs": 4.43,
       "improvement_pct": 11.18,
       "predecessor": "Qwen3.5 27B (Non-reasoning)"
+    }
+  ],
+  "Microsoft": [
+    {
+      "name": "Phi-4 Multimodal Instruct",
+      "performance": 1.66,
+      "rank": 261.0,
+      "provider": "Microsoft",
+      "family_order": null,
+      "improvement_abs": 0.0,
+      "improvement_pct": 0.0,
+      "predecessor": null
+    },
+    {
+      "name": "Phi-4 Mini Instruct",
+      "performance": 2.27,
+      "rank": 250.0,
+      "provider": "Microsoft",
+      "family_order": null,
+      "improvement_abs": 0.61,
+      "improvement_pct": 36.75,
+      "predecessor": "Phi-4 Multimodal Instruct"
+    },
+    {
+      "name": "phi-3-mini-4k-instruct",
+      "performance": 4.73,
+      "rank": 464.0,
+      "provider": "Microsoft",
+      "family_order": null,
+      "improvement_abs": 2.46,
+      "improvement_pct": 108.37,
+      "predecessor": "Phi-4 Mini Instruct"
+    },
+    {
+      "name": "phi-3-mini-128k-instruct",
+      "performance": 4.75,
+      "rank": 463.0,
+      "provider": "Microsoft",
+      "family_order": null,
+      "improvement_abs": 0.02,
+      "improvement_pct": 0.42,
+      "predecessor": "phi-3-mini-4k-instruct"
+    },
+    {
+      "name": "phi-3-mini-4k-instruct-june-2024",
+      "performance": 5.04,
+      "rank": 455.0,
+      "provider": "Microsoft",
+      "family_order": null,
+      "improvement_abs": 0.29,
+      "improvement_pct": 6.11,
+      "predecessor": "phi-3-mini-128k-instruct"
+    },
+    {
+      "name": "wizardlm-13b",
+      "performance": 5.17,
+      "rank": 452.0,
+      "provider": "Microsoft",
+      "family_order": null,
+      "improvement_abs": 0.13,
+      "improvement_pct": 2.58,
+      "predecessor": "phi-3-mini-4k-instruct-june-2024"
+    },
+    {
+      "name": "phi-3-small-8k-instruct",
+      "performance": 5.62,
+      "rank": 441.0,
+      "provider": "Microsoft",
+      "family_order": null,
+      "improvement_abs": 0.45,
+      "improvement_pct": 8.7,
+      "predecessor": "wizardlm-13b"
+    },
+    {
+      "name": "wizardlm-70b",
+      "performance": 5.9,
+      "rank": 428.0,
+      "provider": "Microsoft",
+      "family_order": null,
+      "improvement_abs": 0.28,
+      "improvement_pct": 4.98,
+      "predecessor": "phi-3-small-8k-instruct"
+    },
+    {
+      "name": "phi-3-medium-4k-instruct",
+      "performance": 6.18,
+      "rank": 423.0,
+      "provider": "Microsoft",
+      "family_order": null,
+      "improvement_abs": 0.28,
+      "improvement_pct": 4.75,
+      "predecessor": "wizardlm-70b"
+    },
+    {
+      "name": "Phi-4",
+      "performance": 17.52,
+      "rank": 83.0,
+      "provider": "Microsoft",
+      "family_order": null,
+      "improvement_abs": 11.34,
+      "improvement_pct": 183.5,
+      "predecessor": "phi-3-medium-4k-instruct"
     }
   ],
   "DeepSeek R": [
