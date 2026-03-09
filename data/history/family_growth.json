@@ -1919,58 +1919,6 @@
       "predecessor": "GPT-5 mini (high)"
     }
   ],
-  "Claude Opus": [
-    {
-      "name": "Claude 3 Opus",
-      "performance": 19.39,
-      "rank": 74.0,
-      "provider": "Anthropic",
-      "family_order": null,
-      "improvement_abs": 0.0,
-      "improvement_pct": 0.0,
-      "predecessor": null
-    },
-    {
-      "name": "Claude 4 Opus (Non-reasoning)",
-      "performance": 28.95,
-      "rank": 38.0,
-      "provider": "Anthropic",
-      "family_order": null,
-      "improvement_abs": 9.56,
-      "improvement_pct": 49.3,
-      "predecessor": "Claude 3 Opus"
-    },
-    {
-      "name": "Claude 4.1 Opus (Reasoning)",
-      "performance": 33.69,
-      "rank": 28.0,
-      "provider": "Anthropic",
-      "family_order": null,
-      "improvement_abs": 4.74,
-      "improvement_pct": 16.37,
-      "predecessor": "Claude 4 Opus (Non-reasoning)"
-    },
-    {
-      "name": "Claude Opus 4.5 (Reasoning)",
-      "performance": 47.5,
-      "rank": 7.0,
-      "provider": "Anthropic",
-      "family_order": null,
-      "improvement_abs": 13.81,
-      "improvement_pct": 40.99,
-      "predecessor": "Claude 4.1 Opus (Reasoning)"
-    },
-    {
-      "name": "Claude Opus 4.6 (Non-reasoning, High Effort)",
-      "performance": 51.4,
-      "rank": 3.0,
-      "provider": "Anthropic",
-      "family_order": null,
-      "improvement_abs": 3.9,
-      "improvement_pct": 8.21,
-      "predecessor": "Claude Opus 4.5 (Reasoning)"
-    }
-  ],
   "OpenAI": [
     {
       "name": "o1-pro",
@@ -2061,6 +2009,58 @@
       "improvement_abs": 8.43,
       "improvement_pct": 25.1,
       "predecessor": "o4-mini (high)"
+    }
+  ],
+  "Claude Opus": [
+    {
+      "name": "Claude 3 Opus",
+      "performance": 19.39,
+      "rank": 74.0,
+      "provider": "Anthropic",
+      "family_order": null,
+      "improvement_abs": 0.0,
+      "improvement_pct": 0.0,
+      "predecessor": null
+    },
+    {
+      "name": "Claude 4 Opus (Non-reasoning)",
+      "performance": 28.95,
+      "rank": 38.0,
+      "provider": "Anthropic",
+      "family_order": null,
+      "improvement_abs": 9.56,
+      "improvement_pct": 49.3,
+      "predecessor": "Claude 3 Opus"
+    },
+    {
+      "name": "Claude 4.1 Opus (Reasoning)",
+      "performance": 33.69,
+      "rank": 28.0,
+      "provider": "Anthropic",
+      "family_order": null,
+      "improvement_abs": 4.74,
+      "improvement_pct": 16.37,
+      "predecessor": "Claude 4 Opus (Non-reasoning)"
+    },
+    {
+      "name": "Claude Opus 4.5 (Reasoning)",
+      "performance": 47.5,
+      "rank": 7.0,
+      "provider": "Anthropic",
+      "family_order": null,
+      "improvement_abs": 13.81,
+      "improvement_pct": 40.99,
+      "predecessor": "Claude 4.1 Opus (Reasoning)"
+    },
+    {
+      "name": "Claude Opus 4.6 (Non-reasoning, High Effort)",
+      "performance": 51.4,
+      "rank": 3.0,
+      "provider": "Anthropic",
+      "family_order": null,
+      "improvement_abs": 3.9,
+      "improvement_pct": 8.21,
+      "predecessor": "Claude Opus 4.5 (Reasoning)"
     }
   ],
   "Amazon": [
@@ -2435,6 +2435,108 @@
       "improvement_abs": 4.69,
       "improvement_pct": 50.48,
       "predecessor": "Jamba 1.5 Mini"
+    }
+  ],
+  "Microsoft": [
+    {
+      "name": "Phi-4 Multimodal Instruct",
+      "performance": 1.66,
+      "rank": 261.0,
+      "provider": "Microsoft",
+      "family_order": null,
+      "improvement_abs": 0.0,
+      "improvement_pct": 0.0,
+      "predecessor": null
+    },
+    {
+      "name": "Phi-4 Mini Instruct",
+      "performance": 2.27,
+      "rank": 250.0,
+      "provider": "Microsoft",
+      "family_order": null,
+      "improvement_abs": 0.61,
+      "improvement_pct": 36.75,
+      "predecessor": "Phi-4 Multimodal Instruct"
+    },
+    {
+      "name": "phi-3-mini-4k-instruct",
+      "performance": 4.73,
+      "rank": 464.0,
+      "provider": "Microsoft",
+      "family_order": null,
+      "improvement_abs": 2.46,
+      "improvement_pct": 108.37,
+      "predecessor": "Phi-4 Mini Instruct"
+    },
+    {
+      "name": "phi-3-mini-128k-instruct",
+      "performance": 4.75,
+      "rank": 463.0,
+      "provider": "Microsoft",
+      "family_order": null,
+      "improvement_abs": 0.02,
+      "improvement_pct": 0.42,
+      "predecessor": "phi-3-mini-4k-instruct"
+    },
+    {
+      "name": "phi-3-mini-4k-instruct-june-2024",
+      "performance": 5.04,
+      "rank": 455.0,
+      "provider": "Microsoft",
+      "family_order": null,
+      "improvement_abs": 0.29,
+      "improvement_pct": 6.11,
+      "predecessor": "phi-3-mini-128k-instruct"
+    },
+    {
+      "name": "wizardlm-13b",
+      "performance": 5.17,
+      "rank": 452.0,
+      "provider": "Microsoft",
+      "family_order": null,
+      "improvement_abs": 0.13,
+      "improvement_pct": 2.58,
+      "predecessor": "phi-3-mini-4k-instruct-june-2024"
+    },
+    {
+      "name": "phi-3-small-8k-instruct",
+      "performance": 5.62,
+      "rank": 441.0,
+      "provider": "Microsoft",
+      "family_order": null,
+      "improvement_abs": 0.45,
+      "improvement_pct": 8.7,
+      "predecessor": "wizardlm-13b"
+    },
+    {
+      "name": "wizardlm-70b",
+      "performance": 5.9,
+      "rank": 428.0,
+      "provider": "Microsoft",
+      "family_order": null,
+      "improvement_abs": 0.28,
+      "improvement_pct": 4.98,
+      "predecessor": "phi-3-small-8k-instruct"
+    },
+    {
+      "name": "phi-3-medium-4k-instruct",
+      "performance": 6.18,
+      "rank": 423.0,
+      "provider": "Microsoft",
+      "family_order": null,
+      "improvement_abs": 0.28,
+      "improvement_pct": 4.75,
+      "predecessor": "wizardlm-70b"
+    },
+    {
+      "name": "Phi-4",
+      "performance": 17.52,
+      "rank": 83.0,
+      "provider": "Microsoft",
+      "family_order": null,
+      "improvement_abs": 11.34,
+      "improvement_pct": 183.5,
+      "predecessor": "phi-3-medium-4k-instruct"
     }
   ],
   "Qwen Base": [
@@ -2989,108 +3091,6 @@
       "predecessor": "Qwen3.5 27B (Non-reasoning)"
     }
   ],
-  "Microsoft": [
-    {
-      "name": "Phi-4 Multimodal Instruct",
-      "performance": 1.66,
-      "rank": 261.0,
-      "provider": "Microsoft",
-      "family_order": null,
-      "improvement_abs": 0.0,
-      "improvement_pct": 0.0,
-      "predecessor": null
-    },
-    {
-      "name": "Phi-4 Mini Instruct",
-      "performance": 2.27,
-      "rank": 250.0,
-      "provider": "Microsoft",
-      "family_order": null,
-      "improvement_abs": 0.61,
-      "improvement_pct": 36.75,
-      "predecessor": "Phi-4 Multimodal Instruct"
-    },
-    {
-      "name": "phi-3-mini-4k-instruct",
-      "performance": 4.73,
-      "rank": 464.0,
-      "provider": "Microsoft",
-      "family_order": null,
-      "improvement_abs": 2.46,
-      "improvement_pct": 108.37,
-      "predecessor": "Phi-4 Mini Instruct"
-    },
-    {
-      "name": "phi-3-mini-128k-instruct",
-      "performance": 4.75,
-      "rank": 463.0,
-      "provider": "Microsoft",
-      "family_order": null,
-      "improvement_abs": 0.02,
-      "improvement_pct": 0.42,
-      "predecessor": "phi-3-mini-4k-instruct"
-    },
-    {
-      "name": "phi-3-mini-4k-instruct-june-2024",
-      "performance": 5.04,
-      "rank": 455.0,
-      "provider": "Microsoft",
-      "family_order": null,
-      "improvement_abs": 0.29,
-      "improvement_pct": 6.11,
-      "predecessor": "phi-3-mini-128k-instruct"
-    },
-    {
-      "name": "wizardlm-13b",
-      "performance": 5.17,
-      "rank": 452.0,
-      "provider": "Microsoft",
-      "family_order": null,
-      "improvement_abs": 0.13,
-      "improvement_pct": 2.58,
-      "predecessor": "phi-3-mini-4k-instruct-june-2024"
-    },
-    {
-      "name": "phi-3-small-8k-instruct",
-      "performance": 5.62,
-      "rank": 441.0,
-      "provider": "Microsoft",
-      "family_order": null,
-      "improvement_abs": 0.45,
-      "improvement_pct": 8.7,
-      "predecessor": "wizardlm-13b"
-    },
-    {
-      "name": "wizardlm-70b",
-      "performance": 5.9,
-      "rank": 428.0,
-      "provider": "Microsoft",
-      "family_order": null,
-      "improvement_abs": 0.28,
-      "improvement_pct": 4.98,
-      "predecessor": "phi-3-small-8k-instruct"
-    },
-    {
-      "name": "phi-3-medium-4k-instruct",
-      "performance": 6.18,
-      "rank": 423.0,
-      "provider": "Microsoft",
-      "family_order": null,
-      "improvement_abs": 0.28,
-      "improvement_pct": 4.75,
-      "predecessor": "wizardlm-70b"
-    },
-    {
-      "name": "Phi-4",
-      "performance": 17.52,
-      "rank": 83.0,
-      "provider": "Microsoft",
-      "family_order": null,
-      "improvement_abs": 11.34,
-      "improvement_pct": 183.5,
-      "predecessor": "phi-3-medium-4k-instruct"
-    }
-  ],
   "DeepSeek R": [
     {
       "name": "DeepSeek R1 Distill Qwen 1.5B",
@@ -3469,6 +3469,28 @@
       "predecessor": "Sonar Pro"
     }
   ],
+  "Olmo": [
+    {
+      "name": "Olmo 3 7B Instruct",
+      "performance": 3.47,
+      "rank": 237.0,
+      "provider": null,
+      "family_order": null,
+      "improvement_abs": 0.0,
+      "improvement_pct": 0.0,
+      "predecessor": null
+    },
+    {
+      "name": "Olmo 3 7B Think",
+      "performance": 6.85,
+      "rank": 199.0,
+      "provider": null,
+      "family_order": null,
+      "improvement_abs": 3.38,
+      "improvement_pct": 97.41,
+      "predecessor": "Olmo 3 7B Instruct"
+    }
+  ],
   "Jamba": [
     {
       "name": "Jamba 1.6 Mini",
@@ -3519,28 +3541,6 @@
       "improvement_abs": 0.81,
       "improvement_pct": 21.95,
       "predecessor": "Jamba 1.6 Large"
-    }
-  ],
-  "Olmo": [
-    {
-      "name": "Olmo 3 7B Instruct",
-      "performance": 3.47,
-      "rank": 237.0,
-      "provider": null,
-      "family_order": null,
-      "improvement_abs": 0.0,
-      "improvement_pct": 0.0,
-      "predecessor": null
-    },
-    {
-      "name": "Olmo 3 7B Think",
-      "performance": 6.85,
-      "rank": 199.0,
-      "provider": null,
-      "family_order": null,
-      "improvement_abs": 3.38,
-      "improvement_pct": 97.41,
-      "predecessor": "Olmo 3 7B Instruct"
     }
   ],
   "Claude Base": [
