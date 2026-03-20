@@ -72,12 +72,12 @@
     },
     {
       "name": "GLM-5",
-      "performance": 43.2,
+      "performance": 43.19,
       "rank": 4.0,
       "provider": "Z.ai",
       "family_order": null,
-      "improvement_abs": 10.04,
-      "improvement_pct": 30.28,
+      "improvement_abs": 10.03,
+      "improvement_pct": 30.25,
       "predecessor": "GLM-4.7"
     }
   ],
@@ -105,7 +105,7 @@
     {
       "name": "minimax-m1",
       "performance": 9.66,
-      "rank": 329.0,
+      "rank": 330.0,
       "provider": "MiniMax",
       "family_order": null,
       "improvement_abs": 9.66,
@@ -115,7 +115,7 @@
     {
       "name": "minimax-m2.1-preview",
       "performance": 10.09,
-      "rank": 319.0,
+      "rank": 320.0,
       "provider": "MiniMax",
       "family_order": null,
       "improvement_abs": 0.43,
@@ -144,22 +144,22 @@
     },
     {
       "name": "MiniMax-M2.5",
-      "performance": 32.3,
+      "performance": 32.31,
       "rank": 19.0,
       "provider": "MiniMax",
       "family_order": null,
-      "improvement_abs": 8.63,
-      "improvement_pct": 36.46,
+      "improvement_abs": 8.64,
+      "improvement_pct": 36.5,
       "predecessor": "MiniMax-M2"
     },
     {
       "name": "MiniMax-M2.7",
-      "performance": 42.04,
+      "performance": 42.09,
       "rank": 5.0,
       "provider": "MiniMax",
       "family_order": null,
-      "improvement_abs": 9.74,
-      "improvement_pct": 30.15,
+      "improvement_abs": 9.78,
+      "improvement_pct": 30.27,
       "predecessor": "MiniMax-M2.5"
     }
   ],
@@ -187,7 +187,7 @@
     {
       "name": "kimi-k2-thinking-turbo",
       "performance": 11.01,
-      "rank": 303.0,
+      "rank": 304.0,
       "provider": "Moonshot",
       "family_order": null,
       "improvement_abs": 4.09,
@@ -197,7 +197,7 @@
     {
       "name": "kimi-k2.5-instant",
       "performance": 11.06,
-      "rank": 302.0,
+      "rank": 303.0,
       "provider": "Moonshot",
       "family_order": null,
       "improvement_abs": 0.05,
@@ -226,12 +226,12 @@
     },
     {
       "name": "Kimi K2.5",
-      "performance": 39.48,
+      "performance": 39.47,
       "rank": 6.0,
       "provider": "Moonshot",
       "family_order": null,
-      "improvement_abs": 21.02,
-      "improvement_pct": 113.87,
+      "improvement_abs": 21.01,
+      "improvement_pct": 113.81,
       "predecessor": "Kimi K2 Thinking"
     }
   ],
@@ -259,7 +259,7 @@
     {
       "name": "gemini-pro",
       "performance": 6.67,
-      "rank": 418.0,
+      "rank": 419.0,
       "provider": "Google",
       "family_order": null,
       "improvement_abs": 6.67,
@@ -269,7 +269,7 @@
     {
       "name": "gemini-pro-dev-api",
       "performance": 6.95,
-      "rank": 408.0,
+      "rank": 409.0,
       "provider": "Google",
       "family_order": null,
       "improvement_abs": 0.28,
@@ -308,12 +308,12 @@
     },
     {
       "name": "Gemini 3.1 Pro Preview",
-      "performance": 52.56,
+      "performance": 52.55,
       "rank": 1.0,
       "provider": "Google",
       "family_order": null,
-      "improvement_abs": 15.34,
-      "improvement_pct": 41.21,
+      "improvement_abs": 15.33,
+      "improvement_pct": 41.19,
       "predecessor": "Gemini 3 Pro Preview (high)"
     }
   ],
@@ -439,16 +439,6 @@
       "predecessor": "Qwen Chat 72B"
     },
     {
-      "name": "Qwen3 VL 8B",
-      "performance": 0.0,
-      "rank": 271.0,
-      "provider": "Alibaba",
-      "family_order": null,
-      "improvement_abs": 0.0,
-      "improvement_pct": 0,
-      "predecessor": "Qwen3 VL 30B A3B"
-    },
-    {
       "name": "Qwen3 Omni 30B A3B",
       "performance": 0.0,
       "rank": 267.0,
@@ -456,7 +446,17 @@
       "family_order": null,
       "improvement_abs": 0.0,
       "improvement_pct": 0,
-      "predecessor": "Qwen3 VL 8B"
+      "predecessor": "Qwen3 VL 30B A3B"
+    },
+    {
+      "name": "Qwen3 VL 8B",
+      "performance": 0.0,
+      "rank": 271.0,
+      "provider": "Alibaba",
+      "family_order": null,
+      "improvement_abs": 0.0,
+      "improvement_pct": 0,
+      "predecessor": "Qwen3 Omni 30B A3B"
     },
     {
       "name": "Qwen3 4B",
@@ -466,7 +466,7 @@
       "family_order": null,
       "improvement_abs": 0.0,
       "improvement_pct": 0,
-      "predecessor": "Qwen3 Omni 30B A3B"
+      "predecessor": "Qwen3 VL 8B"
     },
     {
       "name": "Qwen3 8B",
@@ -561,7 +561,7 @@
     {
       "name": "qwen1.5-4b-chat",
       "performance": 3.93,
-      "rank": 480.0,
+      "rank": 481.0,
       "provider": "Alibaba",
       "family_order": null,
       "improvement_abs": 0.46,
@@ -570,22 +570,22 @@
     },
     {
       "name": "qwen-14b-chat",
-      "performance": 4.94,
-      "rank": 462.0,
+      "performance": 4.93,
+      "rank": 463.0,
       "provider": "Alibaba",
       "family_order": null,
-      "improvement_abs": 1.01,
-      "improvement_pct": 25.7,
+      "improvement_abs": 1.0,
+      "improvement_pct": 25.45,
       "predecessor": "qwen1.5-4b-chat"
     },
     {
       "name": "qwen1.5-7b-chat",
       "performance": 5.05,
-      "rank": 458.0,
+      "rank": 459.0,
       "provider": "Alibaba",
       "family_order": null,
-      "improvement_abs": 0.11,
-      "improvement_pct": 2.23,
+      "improvement_abs": 0.12,
+      "improvement_pct": 2.43,
       "predecessor": "qwen-14b-chat"
     },
     {
@@ -601,7 +601,7 @@
     {
       "name": "qwen1.5-14b-chat",
       "performance": 6.02,
-      "rank": 431.0,
+      "rank": 432.0,
       "provider": "Alibaba",
       "family_order": null,
       "improvement_abs": 0.25,
@@ -611,7 +611,7 @@
     {
       "name": "qwen1.5-32b-chat",
       "performance": 6.29,
-      "rank": 424.0,
+      "rank": 425.0,
       "provider": "Alibaba",
       "family_order": null,
       "improvement_abs": 0.27,
@@ -621,7 +621,7 @@
     {
       "name": "qwen1.5-72b-chat",
       "performance": 6.9,
-      "rank": 411.0,
+      "rank": 412.0,
       "provider": "Alibaba",
       "family_order": null,
       "improvement_abs": 0.61,
@@ -631,7 +631,7 @@
     {
       "name": "qwen1.5-110b-chat",
       "performance": 6.92,
-      "rank": 410.0,
+      "rank": 411.0,
       "provider": "Alibaba",
       "family_order": null,
       "improvement_abs": 0.02,
@@ -641,7 +641,7 @@
     {
       "name": "qwen2-72b-instruct",
       "performance": 7.5,
-      "rank": 401.0,
+      "rank": 402.0,
       "provider": "Alibaba",
       "family_order": null,
       "improvement_abs": 0.58,
@@ -661,7 +661,7 @@
     {
       "name": "qwen2.5-72b-instruct",
       "performance": 8.36,
-      "rank": 378.0,
+      "rank": 379.0,
       "provider": "Alibaba",
       "family_order": null,
       "improvement_abs": 0.29,
@@ -671,7 +671,7 @@
     {
       "name": "qwen3-30b-a3b",
       "performance": 8.88,
-      "rank": 354.0,
+      "rank": 355.0,
       "provider": "Alibaba",
       "family_order": null,
       "improvement_abs": 0.52,
@@ -681,7 +681,7 @@
     {
       "name": "qwen3-next-80b-a3b-thinking",
       "performance": 9.74,
-      "rank": 326.0,
+      "rank": 327.0,
       "provider": "Alibaba",
       "family_order": null,
       "improvement_abs": 0.86,
@@ -701,7 +701,7 @@
     {
       "name": "qwen3-30b-a3b-instruct-2507",
       "performance": 10.03,
-      "rank": 321.0,
+      "rank": 322.0,
       "provider": "Alibaba",
       "family_order": null,
       "improvement_abs": 0.17,
@@ -721,7 +721,7 @@
     {
       "name": "qwen3-235b-a22b-thinking-2507",
       "performance": 10.37,
-      "rank": 310.0,
+      "rank": 311.0,
       "provider": "Alibaba",
       "family_order": null,
       "improvement_abs": 0.05,
@@ -731,7 +731,7 @@
     {
       "name": "qwen3-next-80b-a3b-instruct",
       "performance": 10.41,
-      "rank": 307.0,
+      "rank": 308.0,
       "provider": "Alibaba",
       "family_order": null,
       "improvement_abs": 0.04,
@@ -741,7 +741,7 @@
     {
       "name": "qwen3.5-flash",
       "performance": 10.41,
-      "rank": 308.0,
+      "rank": 309.0,
       "provider": "Alibaba",
       "family_order": null,
       "improvement_abs": 0.0,
@@ -751,7 +751,7 @@
     {
       "name": "qwen3-vl-235b-a22b-instruct",
       "performance": 10.49,
-      "rank": 306.0,
+      "rank": 307.0,
       "provider": "Alibaba",
       "family_order": null,
       "improvement_abs": 0.08,
@@ -770,27 +770,27 @@
     },
     {
       "name": "Qwen3.5 35B A3B",
-      "performance": 26.08,
+      "performance": 26.09,
       "rank": 27.0,
       "provider": "Alibaba",
       "family_order": null,
-      "improvement_abs": 14.26,
-      "improvement_pct": 120.64,
+      "improvement_abs": 14.27,
+      "improvement_pct": 120.73,
       "predecessor": "Qwen3 235B"
     },
     {
       "name": "Qwen3.5 27B",
-      "performance": 32.34,
+      "performance": 32.33,
       "rank": 18.0,
       "provider": "Alibaba",
       "family_order": null,
-      "improvement_abs": 6.26,
-      "improvement_pct": 24.0,
+      "improvement_abs": 6.24,
+      "improvement_pct": 23.92,
       "predecessor": "Qwen3.5 35B A3B"
     },
     {
       "name": "Qwen3.5 122B A10B",
-      "performance": 32.6,
+      "performance": 32.59,
       "rank": 16.0,
       "provider": "Alibaba",
       "family_order": null,
@@ -800,12 +800,12 @@
     },
     {
       "name": "Qwen3.5 397B A17B",
-      "performance": 37.01,
+      "performance": 37.02,
       "rank": 11.0,
       "provider": "Alibaba",
       "family_order": null,
-      "improvement_abs": 4.41,
-      "improvement_pct": 13.53,
+      "improvement_abs": 4.43,
+      "improvement_pct": 13.59,
       "predecessor": "Qwen3.5 122B A10B"
     }
   ],
@@ -843,7 +843,7 @@
     {
       "name": "deepseek-v2.5-1210",
       "performance": 8.78,
-      "rank": 358.0,
+      "rank": 359.0,
       "provider": "DeepSeek",
       "family_order": null,
       "improvement_abs": 0.39,
@@ -955,7 +955,7 @@
     {
       "name": "gemini-1.5-flash-8b-001",
       "performance": 7.44,
-      "rank": 403.0,
+      "rank": 404.0,
       "provider": "Google",
       "family_order": null,
       "improvement_abs": 7.44,
@@ -975,7 +975,7 @@
     {
       "name": "gemini-2.0-flash-lite-preview-02-05",
       "performance": 9.4,
-      "rank": 334.0,
+      "rank": 335.0,
       "provider": "Google",
       "family_order": null,
       "improvement_abs": 0.23,
@@ -995,7 +995,7 @@
     {
       "name": "gemini-2.5-flash-lite-preview-09-2025-no-thinking",
       "performance": 9.97,
-      "rank": 322.0,
+      "rank": 323.0,
       "provider": "Google",
       "family_order": null,
       "improvement_abs": 0.11,
@@ -1047,7 +1047,7 @@
     {
       "name": "step-1o-turbo-202506",
       "performance": 8.76,
-      "rank": 359.0,
+      "rank": 360.0,
       "provider": "StepFun",
       "family_order": null,
       "improvement_abs": 0.0,
@@ -1057,7 +1057,7 @@
     {
       "name": "step-2-16k-exp-202412",
       "performance": 9.01,
-      "rank": 351.0,
+      "rank": 352.0,
       "provider": "StepFun",
       "family_order": null,
       "improvement_abs": 0.25,
@@ -1067,7 +1067,7 @@
     {
       "name": "step-3",
       "performance": 9.3,
-      "rank": 337.0,
+      "rank": 338.0,
       "provider": "StepFun",
       "family_order": null,
       "improvement_abs": 0.29,
@@ -1076,13 +1076,65 @@
     },
     {
       "name": "Step 3.5 Flash",
-      "performance": 27.03,
+      "performance": 27.04,
       "rank": 25.0,
       "provider": "StepFun",
       "family_order": null,
-      "improvement_abs": 17.73,
-      "improvement_pct": 190.65,
+      "improvement_abs": 17.74,
+      "improvement_pct": 190.75,
       "predecessor": "step-3"
+    }
+  ],
+  "Claude Opus": [
+    {
+      "name": "Claude 3 Opus",
+      "performance": 9.72,
+      "rank": 78.0,
+      "provider": "Anthropic",
+      "family_order": null,
+      "improvement_abs": 0.0,
+      "improvement_pct": 0.0,
+      "predecessor": null
+    },
+    {
+      "name": "Claude 4 Opus",
+      "performance": 28.96,
+      "rank": 22.0,
+      "provider": "Anthropic",
+      "family_order": null,
+      "improvement_abs": 19.24,
+      "improvement_pct": 197.94,
+      "predecessor": "Claude 3 Opus"
+    },
+    {
+      "name": "Claude 4.1 Opus",
+      "performance": 33.28,
+      "rank": 13.0,
+      "provider": "Anthropic",
+      "family_order": null,
+      "improvement_abs": 4.32,
+      "improvement_pct": 14.92,
+      "predecessor": "Claude 4 Opus"
+    },
+    {
+      "name": "Claude Opus 4.5",
+      "performance": 43.54,
+      "rank": 3.0,
+      "provider": "Anthropic",
+      "family_order": null,
+      "improvement_abs": 10.26,
+      "improvement_pct": 30.83,
+      "predecessor": "Claude 4.1 Opus"
+    },
+    {
+      "name": "Claude Opus 4.6 (max)",
+      "performance": 43.63,
+      "rank": 2.0,
+      "provider": "Anthropic",
+      "family_order": null,
+      "improvement_abs": 0.09,
+      "improvement_pct": 0.21,
+      "predecessor": "Claude Opus 4.5"
     }
   ],
   "xAI": [
@@ -1129,7 +1181,7 @@
     {
       "name": "grok-2-mini-2024-08-13",
       "performance": 8.47,
-      "rank": 371.0,
+      "rank": 372.0,
       "provider": "xAI",
       "family_order": null,
       "improvement_abs": 3.86,
@@ -1139,7 +1191,7 @@
     {
       "name": "grok-2-2024-08-13",
       "performance": 9.04,
-      "rank": 347.0,
+      "rank": 348.0,
       "provider": "xAI",
       "family_order": null,
       "improvement_abs": 0.57,
@@ -1149,7 +1201,7 @@
     {
       "name": "grok-3-mini-beta",
       "performance": 9.5,
-      "rank": 332.0,
+      "rank": 333.0,
       "provider": "xAI",
       "family_order": null,
       "improvement_abs": 0.46,
@@ -1158,12 +1210,12 @@
     },
     {
       "name": "grok-4.1-thinking",
-      "performance": 11.77,
+      "performance": 11.76,
       "rank": 295.0,
       "provider": "xAI",
       "family_order": null,
-      "improvement_abs": 2.27,
-      "improvement_pct": 23.89,
+      "improvement_abs": 2.26,
+      "improvement_pct": 23.79,
       "predecessor": "grok-3-mini-beta"
     },
     {
@@ -1172,18 +1224,18 @@
       "rank": 50.0,
       "provider": "xAI",
       "family_order": null,
-      "improvement_abs": 0.04,
-      "improvement_pct": 0.34,
+      "improvement_abs": 0.05,
+      "improvement_pct": 0.43,
       "predecessor": "grok-4.1-thinking"
     },
     {
       "name": "grok-4.20-beta-0309-reasoning",
-      "performance": 12.1,
+      "performance": 12.11,
       "rank": 294.0,
       "provider": "xAI",
       "family_order": null,
-      "improvement_abs": 0.29,
-      "improvement_pct": 2.46,
+      "improvement_abs": 0.3,
+      "improvement_pct": 2.54,
       "predecessor": "Grok 3"
     },
     {
@@ -1192,8 +1244,8 @@
       "rank": 292.0,
       "provider": "xAI",
       "family_order": null,
-      "improvement_abs": 0.19,
-      "improvement_pct": 1.57,
+      "improvement_abs": 0.18,
+      "improvement_pct": 1.49,
       "predecessor": "grok-4.20-beta-0309-reasoning"
     },
     {
@@ -1228,12 +1280,12 @@
     },
     {
       "name": "Grok 4.1 Fast",
-      "performance": 29.25,
+      "performance": 29.26,
       "rank": 21.0,
       "provider": "xAI",
       "family_order": null,
-      "improvement_abs": 2.72,
-      "improvement_pct": 10.25,
+      "improvement_abs": 2.73,
+      "improvement_pct": 10.29,
       "predecessor": "Grok 4.20 Beta 0309"
     },
     {
@@ -1242,8 +1294,8 @@
       "rank": 17.0,
       "provider": "xAI",
       "family_order": null,
-      "improvement_abs": 3.17,
-      "improvement_pct": 10.84,
+      "improvement_abs": 3.16,
+      "improvement_pct": 10.8,
       "predecessor": "Grok 4.1 Fast"
     }
   ],
@@ -1270,12 +1322,12 @@
     },
     {
       "name": "gpt-5.4-high",
-      "performance": 12.17,
+      "performance": 12.16,
       "rank": 293.0,
       "provider": "OpenAI",
       "family_order": null,
-      "improvement_abs": 2.1,
-      "improvement_pct": 20.85,
+      "improvement_abs": 2.09,
+      "improvement_pct": 20.75,
       "predecessor": "GPT-5 nano (high)"
     },
     {
@@ -1284,8 +1336,8 @@
       "rank": 44.0,
       "provider": "OpenAI",
       "family_order": null,
-      "improvement_abs": 2.55,
-      "improvement_pct": 20.95,
+      "improvement_abs": 2.56,
+      "improvement_pct": 21.05,
       "predecessor": "gpt-5.4-high"
     },
     {
@@ -1379,58 +1431,6 @@
       "predecessor": "GPT-5.2 (xhigh)"
     }
   ],
-  "Claude Opus": [
-    {
-      "name": "Claude 3 Opus",
-      "performance": 9.72,
-      "rank": 78.0,
-      "provider": "Anthropic",
-      "family_order": null,
-      "improvement_abs": 0.0,
-      "improvement_pct": 0.0,
-      "predecessor": null
-    },
-    {
-      "name": "Claude 4 Opus",
-      "performance": 28.96,
-      "rank": 22.0,
-      "provider": "Anthropic",
-      "family_order": null,
-      "improvement_abs": 19.24,
-      "improvement_pct": 197.94,
-      "predecessor": "Claude 3 Opus"
-    },
-    {
-      "name": "Claude 4.1 Opus",
-      "performance": 33.28,
-      "rank": 13.0,
-      "provider": "Anthropic",
-      "family_order": null,
-      "improvement_abs": 4.32,
-      "improvement_pct": 14.92,
-      "predecessor": "Claude 4 Opus"
-    },
-    {
-      "name": "Claude Opus 4.5",
-      "performance": 43.54,
-      "rank": 3.0,
-      "provider": "Anthropic",
-      "family_order": null,
-      "improvement_abs": 10.26,
-      "improvement_pct": 30.83,
-      "predecessor": "Claude 4.1 Opus"
-    },
-    {
-      "name": "Claude Opus 4.6 (max)",
-      "performance": 43.62,
-      "rank": 2.0,
-      "provider": "Anthropic",
-      "family_order": null,
-      "improvement_abs": 0.08,
-      "improvement_pct": 0.18,
-      "predecessor": "Claude Opus 4.5"
-    }
-  ],
   "Amazon": [
     {
       "name": "Nova 2.0 Omni (medium)",
@@ -1443,16 +1443,6 @@
       "predecessor": null
     },
     {
-      "name": "Nova Premier",
-      "performance": 0.0,
-      "rank": 242.0,
-      "provider": "Amazon",
-      "family_order": null,
-      "improvement_abs": 0.0,
-      "improvement_pct": 0,
-      "predecessor": "Nova 2.0 Omni (medium)"
-    },
-    {
       "name": "Nova 2.0 Lite (medium)",
       "performance": 0.0,
       "rank": 240.0,
@@ -1460,7 +1450,17 @@
       "family_order": null,
       "improvement_abs": 0.0,
       "improvement_pct": 0,
-      "predecessor": "Nova Premier"
+      "predecessor": "Nova 2.0 Omni (medium)"
+    },
+    {
+      "name": "Nova Premier",
+      "performance": 0.0,
+      "rank": 242.0,
+      "provider": "Amazon",
+      "family_order": null,
+      "improvement_abs": 0.0,
+      "improvement_pct": 0,
+      "predecessor": "Nova 2.0 Lite (medium)"
     },
     {
       "name": "Nova 2.0 Pro Preview (medium)",
@@ -1470,7 +1470,7 @@
       "family_order": null,
       "improvement_abs": 6.16,
       "improvement_pct": 0,
-      "predecessor": "Nova 2.0 Lite (medium)"
+      "predecessor": "Nova Premier"
     },
     {
       "name": "Nova Micro",
@@ -1505,7 +1505,7 @@
     {
       "name": "nova-2-lite",
       "performance": 9.08,
-      "rank": 346.0,
+      "rank": 347.0,
       "provider": "Amazon",
       "family_order": null,
       "improvement_abs": 0.09,
@@ -1515,7 +1515,7 @@
     {
       "name": "amazon-nova-experimental-chat-10-09",
       "performance": 9.28,
-      "rank": 338.0,
+      "rank": 339.0,
       "provider": "Amazon",
       "family_order": null,
       "improvement_abs": 0.2,
@@ -1525,7 +1525,7 @@
     {
       "name": "amazon-nova-experimental-chat-10-20",
       "performance": 9.35,
-      "rank": 335.0,
+      "rank": 336.0,
       "provider": "Amazon",
       "family_order": null,
       "improvement_abs": 0.07,
@@ -1534,28 +1534,28 @@
     },
     {
       "name": "amazon-nova-experimental-chat-11-10",
-      "performance": 9.73,
-      "rank": 327.0,
+      "performance": 9.72,
+      "rank": 328.0,
       "provider": "Amazon",
       "family_order": null,
-      "improvement_abs": 0.38,
-      "improvement_pct": 4.06,
+      "improvement_abs": 0.37,
+      "improvement_pct": 3.96,
       "predecessor": "amazon-nova-experimental-chat-10-20"
     },
     {
       "name": "amazon-nova-experimental-chat-12-10",
       "performance": 10.3,
-      "rank": 311.0,
+      "rank": 312.0,
       "provider": "Amazon",
       "family_order": null,
-      "improvement_abs": 0.57,
-      "improvement_pct": 5.86,
+      "improvement_abs": 0.58,
+      "improvement_pct": 5.97,
       "predecessor": "amazon-nova-experimental-chat-11-10"
     },
     {
       "name": "amazon-nova-experimental-chat-26-01-10",
       "performance": 10.68,
-      "rank": 305.0,
+      "rank": 306.0,
       "provider": "Amazon",
       "family_order": null,
       "improvement_abs": 0.38,
@@ -1565,7 +1565,7 @@
     {
       "name": "amazon-nova-experimental-chat-26-02-10",
       "performance": 10.97,
-      "rank": 304.0,
+      "rank": 305.0,
       "provider": "Amazon",
       "family_order": null,
       "improvement_abs": 0.29,
@@ -1587,7 +1587,7 @@
     {
       "name": "claude-3-sonnet-20240229",
       "performance": 7.89,
-      "rank": 388.0,
+      "rank": 389.0,
       "provider": "Anthropic",
       "family_order": null,
       "improvement_abs": 7.89,
@@ -1597,7 +1597,7 @@
     {
       "name": "claude-3.5-sonnet-20240620",
       "performance": 9.17,
-      "rank": 343.0,
+      "rank": 344.0,
       "provider": "Anthropic",
       "family_order": null,
       "improvement_abs": 1.28,
@@ -1607,7 +1607,7 @@
     {
       "name": "claude-3.7-sonnet-20250219-thinking-32k",
       "performance": 10.12,
-      "rank": 315.0,
+      "rank": 316.0,
       "provider": "Anthropic",
       "family_order": null,
       "improvement_abs": 0.95,
@@ -1617,7 +1617,7 @@
     {
       "name": "claude-sonnet-4-20250514-thinking-32k",
       "performance": 10.26,
-      "rank": 313.0,
+      "rank": 314.0,
       "provider": "Anthropic",
       "family_order": null,
       "improvement_abs": 0.14,
@@ -1637,7 +1637,7 @@
     {
       "name": "claude-sonnet-4.5-20250929",
       "performance": 11.47,
-      "rank": 298.0,
+      "rank": 299.0,
       "provider": "Anthropic",
       "family_order": null,
       "improvement_abs": 0.59,
@@ -1697,16 +1697,6 @@
       "predecessor": null
     },
     {
-      "name": "Llama 3.2 1B",
-      "performance": 0.0,
-      "rank": 207.0,
-      "provider": "Meta",
-      "family_order": null,
-      "improvement_abs": 0.0,
-      "improvement_pct": 0,
-      "predecessor": "Llama 3.1 8B"
-    },
-    {
       "name": "Llama Nemotron Super 49B v1.5",
       "performance": 0.0,
       "rank": 212.0,
@@ -1714,7 +1704,17 @@
       "family_order": null,
       "improvement_abs": 0.0,
       "improvement_pct": 0,
-      "predecessor": "Llama 3.2 1B"
+      "predecessor": "Llama 3.1 8B"
+    },
+    {
+      "name": "Llama 3.2 1B",
+      "performance": 0.0,
+      "rank": 207.0,
+      "provider": "Meta",
+      "family_order": null,
+      "improvement_abs": 0.0,
+      "improvement_pct": 0,
+      "predecessor": "Llama Nemotron Super 49B v1.5"
     },
     {
       "name": "Llama 3.2 11B (Vision)",
@@ -1724,7 +1724,7 @@
       "family_order": null,
       "improvement_abs": 0.0,
       "improvement_pct": 0,
-      "predecessor": "Llama Nemotron Super 49B v1.5"
+      "predecessor": "Llama 3.2 1B"
     },
     {
       "name": "Llama 3.2 3B",
@@ -1737,6 +1737,16 @@
       "predecessor": "Llama 3.2 11B (Vision)"
     },
     {
+      "name": "Llama 3.3 70B",
+      "performance": 0.0,
+      "rank": 210.0,
+      "provider": "Meta",
+      "family_order": null,
+      "improvement_abs": 0.0,
+      "improvement_pct": 0,
+      "predecessor": "Llama 3.2 3B"
+    },
+    {
       "name": "Llama 3.3 Nemotron Super 49B",
       "performance": 0.0,
       "rank": 211.0,
@@ -1744,7 +1754,7 @@
       "family_order": null,
       "improvement_abs": 0.0,
       "improvement_pct": 0,
-      "predecessor": "Llama 3.2 3B"
+      "predecessor": "Llama 3.3 70B"
     },
     {
       "name": "Llama 3.1 Nemotron Nano 4B v1.1",
@@ -1777,16 +1787,6 @@
       "predecessor": "DeepHermes 3 - Llama-3.1 8B"
     },
     {
-      "name": "Llama 3.3 70B",
-      "performance": 0.0,
-      "rank": 210.0,
-      "provider": "Meta",
-      "family_order": null,
-      "improvement_abs": 0.0,
-      "improvement_pct": 0,
-      "predecessor": "Llama 3.2 90B (Vision)"
-    },
-    {
       "name": "Hermes 3 - Llama-3.1 70B",
       "performance": 0.0,
       "rank": 179.0,
@@ -1794,7 +1794,7 @@
       "family_order": null,
       "improvement_abs": 0.0,
       "improvement_pct": 0,
-      "predecessor": "Llama 3.3 70B"
+      "predecessor": "Llama 3.2 90B (Vision)"
     },
     {
       "name": "Llama 3.1 70B",
@@ -1839,7 +1839,7 @@
     {
       "name": "llama-13b",
       "performance": 1.48,
-      "rank": 493.0,
+      "rank": 494.0,
       "provider": "Meta",
       "family_order": null,
       "improvement_abs": 1.48,
@@ -1849,7 +1849,7 @@
     {
       "name": "llama-2-7b-chat",
       "performance": 4.3,
-      "rank": 478.0,
+      "rank": 479.0,
       "provider": "Meta",
       "family_order": null,
       "improvement_abs": 2.82,
@@ -1859,7 +1859,7 @@
     {
       "name": "llama-3.2-1b-instruct",
       "performance": 4.37,
-      "rank": 476.0,
+      "rank": 477.0,
       "provider": "Meta",
       "family_order": null,
       "improvement_abs": 0.07,
@@ -1869,7 +1869,7 @@
     {
       "name": "codellama-70b-instruct",
       "performance": 4.54,
-      "rank": 472.0,
+      "rank": 473.0,
       "provider": "Meta",
       "family_order": null,
       "improvement_abs": 0.17,
@@ -1879,7 +1879,7 @@
     {
       "name": "codellama-34b-instruct",
       "performance": 4.9,
-      "rank": 464.0,
+      "rank": 465.0,
       "provider": "Meta",
       "family_order": null,
       "improvement_abs": 0.36,
@@ -1889,7 +1889,7 @@
     {
       "name": "llama-2-13b-chat",
       "performance": 5.0,
-      "rank": 460.0,
+      "rank": 461.0,
       "provider": "Meta",
       "family_order": null,
       "improvement_abs": 0.1,
@@ -1899,7 +1899,7 @@
     {
       "name": "llama2-70b-steerlm-chat",
       "performance": 5.28,
-      "rank": 451.0,
+      "rank": 452.0,
       "provider": "Nvidia",
       "family_order": null,
       "improvement_abs": 0.28,
@@ -1909,7 +1909,7 @@
     {
       "name": "llama-3.2-3b-instruct",
       "performance": 5.53,
-      "rank": 448.0,
+      "rank": 449.0,
       "provider": "Meta",
       "family_order": null,
       "improvement_abs": 0.25,
@@ -1919,7 +1919,7 @@
     {
       "name": "llama-2-70b-chat",
       "performance": 5.61,
-      "rank": 446.0,
+      "rank": 447.0,
       "provider": "Meta",
       "family_order": null,
       "improvement_abs": 0.08,
@@ -1929,7 +1929,7 @@
     {
       "name": "llama-3.1-8b-instruct",
       "performance": 6.46,
-      "rank": 422.0,
+      "rank": 423.0,
       "provider": "Meta",
       "family_order": null,
       "improvement_abs": 0.85,
@@ -1939,7 +1939,7 @@
     {
       "name": "llama-3.1-tulu-3-8b",
       "performance": 6.66,
-      "rank": 419.0,
+      "rank": 420.0,
       "provider": "Ai2",
       "family_order": null,
       "improvement_abs": 0.2,
@@ -1949,7 +1949,7 @@
     {
       "name": "llama-3-8b-instruct",
       "performance": 6.7,
-      "rank": 417.0,
+      "rank": 418.0,
       "provider": "Meta",
       "family_order": null,
       "improvement_abs": 0.04,
@@ -1959,7 +1959,7 @@
     {
       "name": "llama-3-70b-instruct",
       "performance": 7.79,
-      "rank": 392.0,
+      "rank": 393.0,
       "provider": "Meta",
       "family_order": null,
       "improvement_abs": 1.09,
@@ -1969,7 +1969,7 @@
     {
       "name": "llama-3.1-nemotron-51b-instruct",
       "performance": 8.01,
-      "rank": 387.0,
+      "rank": 388.0,
       "provider": "Nvidia",
       "family_order": null,
       "improvement_abs": 0.22,
@@ -1979,7 +1979,7 @@
     {
       "name": "llama-3.1-tulu-3-70b",
       "performance": 8.02,
-      "rank": 386.0,
+      "rank": 387.0,
       "provider": "Ai2",
       "family_order": null,
       "improvement_abs": 0.01,
@@ -1989,7 +1989,7 @@
     {
       "name": "llama-3.1-70b-instruct",
       "performance": 8.16,
-      "rank": 381.0,
+      "rank": 382.0,
       "provider": "Meta",
       "family_order": null,
       "improvement_abs": 0.14,
@@ -1999,7 +1999,7 @@
     {
       "name": "llama-3.1-nemotron-70b-instruct",
       "performance": 8.28,
-      "rank": 379.0,
+      "rank": 380.0,
       "provider": "Nvidia",
       "family_order": null,
       "improvement_abs": 0.12,
@@ -2009,7 +2009,7 @@
     {
       "name": "llama-3.3-70b-instruct",
       "performance": 8.69,
-      "rank": 362.0,
+      "rank": 363.0,
       "provider": "Meta",
       "family_order": null,
       "improvement_abs": 0.41,
@@ -2019,7 +2019,7 @@
     {
       "name": "llama-3.3-nemotron-49b-super-v1",
       "performance": 8.87,
-      "rank": 355.0,
+      "rank": 356.0,
       "provider": "Nvidia",
       "family_order": null,
       "improvement_abs": 0.18,
@@ -2029,7 +2029,7 @@
     {
       "name": "llama-3.1-405b-instruct-fp8",
       "performance": 8.99,
-      "rank": 352.0,
+      "rank": 353.0,
       "provider": "Meta",
       "family_order": null,
       "improvement_abs": 0.12,
@@ -2039,7 +2039,7 @@
     {
       "name": "llama-3.1-405b-instruct-bf16",
       "performance": 9.03,
-      "rank": 349.0,
+      "rank": 350.0,
       "provider": "Meta",
       "family_order": null,
       "improvement_abs": 0.04,
@@ -2049,7 +2049,7 @@
     {
       "name": "nvidia-llama-3.3-nemotron-super-49b-v1.5",
       "performance": 9.19,
-      "rank": 342.0,
+      "rank": 343.0,
       "provider": "Nvidia",
       "family_order": null,
       "improvement_abs": 0.16,
@@ -2059,7 +2059,7 @@
     {
       "name": "llama-3.1-nemotron-ultra-253b-v1",
       "performance": 9.28,
-      "rank": 339.0,
+      "rank": 340.0,
       "provider": "Nvidia",
       "family_order": null,
       "improvement_abs": 0.09,
@@ -2091,7 +2091,7 @@
     {
       "name": "qwen-max-0919",
       "performance": 8.68,
-      "rank": 364.0,
+      "rank": 365.0,
       "provider": "Alibaba",
       "family_order": null,
       "improvement_abs": 0.0,
@@ -2109,14 +2109,24 @@
       "predecessor": "qwen-max-0919"
     },
     {
+      "name": "qwen3.5-max-preview",
+      "performance": 11.72,
+      "rank": 297.0,
+      "provider": "Alibaba",
+      "family_order": null,
+      "improvement_abs": 0.77,
+      "improvement_pct": 7.03,
+      "predecessor": "Qwen2.5 Max"
+    },
+    {
       "name": "Qwen3 Max Thinking",
       "performance": 21.03,
       "rank": 35.0,
       "provider": "Alibaba",
       "family_order": null,
-      "improvement_abs": 10.08,
-      "improvement_pct": 92.05,
-      "predecessor": "Qwen2.5 Max"
+      "improvement_abs": 9.31,
+      "improvement_pct": 79.44,
+      "predecessor": "qwen3.5-max-preview"
     }
   ],
   "GPT Base/Flagship": [
@@ -2133,7 +2143,7 @@
     {
       "name": "gpt4all-13b-snoozy",
       "performance": 3.43,
-      "rank": 484.0,
+      "rank": 485.0,
       "provider": "Nomic AI",
       "family_order": null,
       "improvement_abs": 3.43,
@@ -2143,7 +2153,7 @@
     {
       "name": "gpt-3.5-turbo-1106",
       "performance": 6.26,
-      "rank": 425.0,
+      "rank": 426.0,
       "provider": "OpenAI",
       "family_order": null,
       "improvement_abs": 2.83,
@@ -2153,7 +2163,7 @@
     {
       "name": "gpt-3.5-turbo-0125",
       "performance": 6.71,
-      "rank": 415.0,
+      "rank": 416.0,
       "provider": "OpenAI",
       "family_order": null,
       "improvement_abs": 0.45,
@@ -2163,7 +2173,7 @@
     {
       "name": "gpt-4-0613",
       "performance": 7.78,
-      "rank": 393.0,
+      "rank": 394.0,
       "provider": "OpenAI",
       "family_order": null,
       "improvement_abs": 1.07,
@@ -2173,7 +2183,7 @@
     {
       "name": "gpt-4-0314",
       "performance": 8.02,
-      "rank": 385.0,
+      "rank": 386.0,
       "provider": "OpenAI",
       "family_order": null,
       "improvement_abs": 0.24,
@@ -2183,7 +2193,7 @@
     {
       "name": "gpt-4-1106-preview",
       "performance": 8.56,
-      "rank": 369.0,
+      "rank": 370.0,
       "provider": "OpenAI",
       "family_order": null,
       "improvement_abs": 0.54,
@@ -2193,7 +2203,7 @@
     {
       "name": "gpt-4-0125-preview",
       "performance": 8.57,
-      "rank": 368.0,
+      "rank": 369.0,
       "provider": "OpenAI",
       "family_order": null,
       "improvement_abs": 0.01,
@@ -2203,7 +2213,7 @@
     {
       "name": "gpt-4o-2024-08-06",
       "performance": 9.03,
-      "rank": 348.0,
+      "rank": 349.0,
       "provider": "OpenAI",
       "family_order": null,
       "improvement_abs": 0.46,
@@ -2233,7 +2243,7 @@
     {
       "name": "gpt-4.5-preview-2025-02-27",
       "performance": 11.3,
-      "rank": 300.0,
+      "rank": 301.0,
       "provider": "OpenAI",
       "family_order": null,
       "improvement_abs": 1.52,
@@ -2252,12 +2262,12 @@
     },
     {
       "name": "gpt-5.3-chat-latest",
-      "performance": 11.76,
+      "performance": 11.75,
       "rank": 296.0,
       "provider": "OpenAI",
       "family_order": null,
-      "improvement_abs": 0.36,
-      "improvement_pct": 3.16,
+      "improvement_abs": 0.35,
+      "improvement_pct": 3.07,
       "predecessor": "GPT-4o (Aug)"
     },
     {
@@ -2266,8 +2276,8 @@
       "rank": 46.0,
       "provider": "OpenAI",
       "family_order": null,
-      "improvement_abs": 1.3,
-      "improvement_pct": 11.05,
+      "improvement_abs": 1.31,
+      "improvement_pct": 11.15,
       "predecessor": "gpt-5.3-chat-latest"
     }
   ],
@@ -2335,16 +2345,6 @@
       "predecessor": null
     },
     {
-      "name": "Mistral Small 3.1",
-      "performance": 0.0,
-      "rank": 231.0,
-      "provider": "Mistral AI",
-      "family_order": null,
-      "improvement_abs": 0.0,
-      "improvement_pct": 0,
-      "predecessor": "Mistral Small 3.2"
-    },
-    {
       "name": "Mistral Small 3",
       "performance": 0.0,
       "rank": 230.0,
@@ -2352,7 +2352,17 @@
       "family_order": null,
       "improvement_abs": 0.0,
       "improvement_pct": 0,
-      "predecessor": "Mistral Small 3.1"
+      "predecessor": "Mistral Small 3.2"
+    },
+    {
+      "name": "Mistral Small 3.1",
+      "performance": 0.0,
+      "rank": 231.0,
+      "provider": "Mistral AI",
+      "family_order": null,
+      "improvement_abs": 0.0,
+      "improvement_pct": 0,
+      "predecessor": "Mistral Small 3"
     },
     {
       "name": "Mistral Small (Sep)",
@@ -2362,7 +2372,7 @@
       "family_order": null,
       "improvement_abs": 0.0,
       "improvement_pct": 0,
-      "predecessor": "Mistral Small 3"
+      "predecessor": "Mistral Small 3.1"
     },
     {
       "name": "Mistral Saba",
@@ -2395,16 +2405,6 @@
       "predecessor": "DeepHermes 3 - Mistral 24B"
     },
     {
-      "name": "Mixtral 8x7B",
-      "performance": 0.0,
-      "rank": 234.0,
-      "provider": "Mistral AI",
-      "family_order": null,
-      "improvement_abs": 0.0,
-      "improvement_pct": 0,
-      "predecessor": "Mixtral 8x22B"
-    },
-    {
       "name": "Mistral Medium 3.1",
       "performance": 0.0,
       "rank": 227.0,
@@ -2412,7 +2412,17 @@
       "family_order": null,
       "improvement_abs": 0.0,
       "improvement_pct": 0,
-      "predecessor": "Mixtral 8x7B"
+      "predecessor": "Mixtral 8x22B"
+    },
+    {
+      "name": "Mixtral 8x7B",
+      "performance": 0.0,
+      "rank": 234.0,
+      "provider": "Mistral AI",
+      "family_order": null,
+      "improvement_abs": 0.0,
+      "improvement_pct": 0,
+      "predecessor": "Mistral Medium 3.1"
     },
     {
       "name": "Mistral Medium 3",
@@ -2422,7 +2432,7 @@
       "family_order": null,
       "improvement_abs": 0.0,
       "improvement_pct": 0,
-      "predecessor": "Mistral Medium 3.1"
+      "predecessor": "Mixtral 8x7B"
     },
     {
       "name": "Mistral Large 2 (Nov)",
@@ -2457,7 +2467,7 @@
     {
       "name": "mistral-7b-instruct",
       "performance": 4.34,
-      "rank": 477.0,
+      "rank": 478.0,
       "provider": "Mistral",
       "family_order": null,
       "improvement_abs": 2.03,
@@ -2467,7 +2477,7 @@
     {
       "name": "mistral-7b-instruct-v0.2",
       "performance": 5.17,
-      "rank": 455.0,
+      "rank": 456.0,
       "provider": "Mistral",
       "family_order": null,
       "improvement_abs": 0.83,
@@ -2477,7 +2487,7 @@
     {
       "name": "dolphin-2.2.1-mistral-7b",
       "performance": 5.21,
-      "rank": 453.0,
+      "rank": 454.0,
       "provider": "Cognitive Computations",
       "family_order": null,
       "improvement_abs": 0.04,
@@ -2487,7 +2497,7 @@
     {
       "name": "nous-hermes-2-mixtral-8x7b-dpo",
       "performance": 5.48,
-      "rank": 449.0,
+      "rank": 450.0,
       "provider": "NousResearch",
       "family_order": null,
       "improvement_abs": 0.27,
@@ -2497,7 +2507,7 @@
     {
       "name": "openhermes-2.5-mistral-7b",
       "performance": 5.7,
-      "rank": 442.0,
+      "rank": 443.0,
       "provider": "NousResearch",
       "family_order": null,
       "improvement_abs": 0.22,
@@ -2507,7 +2517,7 @@
     {
       "name": "mixtral-8x7b-instruct-v0.1",
       "performance": 6.16,
-      "rank": 428.0,
+      "rank": 429.0,
       "provider": "Mistral",
       "family_order": null,
       "improvement_abs": 0.46,
@@ -2517,7 +2527,7 @@
     {
       "name": "mixtral-8x22b-instruct-v0.1",
       "performance": 6.82,
-      "rank": 413.0,
+      "rank": 414.0,
       "provider": "Mistral",
       "family_order": null,
       "improvement_abs": 0.66,
@@ -2527,7 +2537,7 @@
     {
       "name": "mistral-large-2402",
       "performance": 7.09,
-      "rank": 406.0,
+      "rank": 407.0,
       "provider": "Mistral",
       "family_order": null,
       "improvement_abs": 0.27,
@@ -2537,7 +2547,7 @@
     {
       "name": "mistral-small-24b-instruct-2501",
       "performance": 7.76,
-      "rank": 394.0,
+      "rank": 395.0,
       "provider": "Mistral",
       "family_order": null,
       "improvement_abs": 0.67,
@@ -2547,7 +2557,7 @@
     {
       "name": "mistral-small-3.1-24b-instruct-2503",
       "performance": 8.37,
-      "rank": 377.0,
+      "rank": 378.0,
       "provider": "Mistral",
       "family_order": null,
       "improvement_abs": 0.61,
@@ -2557,7 +2567,7 @@
     {
       "name": "mistral-large-2411",
       "performance": 8.41,
-      "rank": 374.0,
+      "rank": 375.0,
       "provider": "Mistral",
       "family_order": null,
       "improvement_abs": 0.04,
@@ -2567,7 +2577,7 @@
     {
       "name": "mistral-large-2407",
       "performance": 8.59,
-      "rank": 367.0,
+      "rank": 368.0,
       "provider": "Mistral",
       "family_order": null,
       "improvement_abs": 0.18,
@@ -2577,7 +2587,7 @@
     {
       "name": "mistral-small-2506",
       "performance": 9.5,
-      "rank": 333.0,
+      "rank": 334.0,
       "provider": "Mistral",
       "family_order": null,
       "improvement_abs": 0.91,
@@ -2597,7 +2607,7 @@
     {
       "name": "mistral-medium-2505",
       "performance": 10.1,
-      "rank": 318.0,
+      "rank": 319.0,
       "provider": "Mistral",
       "family_order": null,
       "improvement_abs": 0.5,
@@ -2613,6 +2623,48 @@
       "improvement_abs": 1.82,
       "improvement_pct": 18.02,
       "predecessor": "mistral-medium-2505"
+    }
+  ],
+  "Claude Haiku": [
+    {
+      "name": "Claude 3 Haiku",
+      "performance": 0.0,
+      "rank": 132.0,
+      "provider": "Anthropic",
+      "family_order": null,
+      "improvement_abs": 0.0,
+      "improvement_pct": 0.0,
+      "predecessor": null
+    },
+    {
+      "name": "claude-3-haiku-20240307",
+      "performance": 7.48,
+      "rank": 403.0,
+      "provider": "Anthropic",
+      "family_order": null,
+      "improvement_abs": 7.48,
+      "improvement_pct": 0,
+      "predecessor": "Claude 3 Haiku"
+    },
+    {
+      "name": "Claude 3.5 Haiku",
+      "performance": 9.75,
+      "rank": 75.0,
+      "provider": "Anthropic",
+      "family_order": null,
+      "improvement_abs": 2.27,
+      "improvement_pct": 30.35,
+      "predecessor": "claude-3-haiku-20240307"
+    },
+    {
+      "name": "Claude 4.5 Haiku",
+      "performance": 26.27,
+      "rank": 26.0,
+      "provider": "Anthropic",
+      "family_order": null,
+      "improvement_abs": 16.52,
+      "improvement_pct": 169.44,
+      "predecessor": "Claude 3.5 Haiku"
     }
   ],
   "DeepSeek R": [
@@ -2687,6 +2739,68 @@
       "predecessor": "DeepSeek R1 Distill Llama 70B"
     }
   ],
+  "Ai2": [
+    {
+      "name": "olmo-7b-instruct",
+      "performance": 3.61,
+      "rank": 482.0,
+      "provider": "Ai2",
+      "family_order": null,
+      "improvement_abs": 0.0,
+      "improvement_pct": 0.0,
+      "predecessor": null
+    },
+    {
+      "name": "olmo-2-0325-32b-instruct",
+      "performance": 7.3,
+      "rank": 405.0,
+      "provider": "Ai2",
+      "family_order": null,
+      "improvement_abs": 3.69,
+      "improvement_pct": 102.22,
+      "predecessor": "olmo-7b-instruct"
+    },
+    {
+      "name": "molmo-2-8b",
+      "performance": 8.83,
+      "rank": 358.0,
+      "provider": "Ai2",
+      "family_order": null,
+      "improvement_abs": 1.53,
+      "improvement_pct": 20.96,
+      "predecessor": "olmo-2-0325-32b-instruct"
+    },
+    {
+      "name": "Olmo 3.1 32B Think",
+      "performance": 8.92,
+      "rank": 88.0,
+      "provider": "Ai2",
+      "family_order": null,
+      "improvement_abs": 0.09,
+      "improvement_pct": 1.02,
+      "predecessor": "molmo-2-8b"
+    },
+    {
+      "name": "Olmo 3 32B Think",
+      "performance": 9.36,
+      "rank": 84.0,
+      "provider": "Ai2",
+      "family_order": null,
+      "improvement_abs": 0.44,
+      "improvement_pct": 4.93,
+      "predecessor": "Olmo 3.1 32B Think"
+    },
+    {
+      "name": "Olmo 3.1 32B Instruct",
+      "performance": 9.96,
+      "rank": 72.0,
+      "provider": "Ai2",
+      "family_order": null,
+      "improvement_abs": 0.6,
+      "improvement_pct": 6.41,
+      "predecessor": "Olmo 3 32B Think"
+    }
+  ],
   "OpenAI": [
     {
       "name": "o1-pro",
@@ -2701,7 +2815,7 @@
     {
       "name": "o3-mini-high",
       "performance": 9.62,
-      "rank": 331.0,
+      "rank": 332.0,
       "provider": "OpenAI",
       "family_order": null,
       "improvement_abs": 8.46,
@@ -2779,68 +2893,6 @@
       "predecessor": "o4-mini (high)"
     }
   ],
-  "Ai2": [
-    {
-      "name": "olmo-7b-instruct",
-      "performance": 3.61,
-      "rank": 481.0,
-      "provider": "Ai2",
-      "family_order": null,
-      "improvement_abs": 0.0,
-      "improvement_pct": 0.0,
-      "predecessor": null
-    },
-    {
-      "name": "olmo-2-0325-32b-instruct",
-      "performance": 7.3,
-      "rank": 404.0,
-      "provider": "Ai2",
-      "family_order": null,
-      "improvement_abs": 3.69,
-      "improvement_pct": 102.22,
-      "predecessor": "olmo-7b-instruct"
-    },
-    {
-      "name": "molmo-2-8b",
-      "performance": 8.83,
-      "rank": 357.0,
-      "provider": "Ai2",
-      "family_order": null,
-      "improvement_abs": 1.53,
-      "improvement_pct": 20.96,
-      "predecessor": "olmo-2-0325-32b-instruct"
-    },
-    {
-      "name": "Olmo 3.1 32B Think",
-      "performance": 8.92,
-      "rank": 88.0,
-      "provider": "Ai2",
-      "family_order": null,
-      "improvement_abs": 0.09,
-      "improvement_pct": 1.02,
-      "predecessor": "molmo-2-8b"
-    },
-    {
-      "name": "Olmo 3 32B Think",
-      "performance": 9.36,
-      "rank": 84.0,
-      "provider": "Ai2",
-      "family_order": null,
-      "improvement_abs": 0.44,
-      "improvement_pct": 4.93,
-      "predecessor": "Olmo 3.1 32B Think"
-    },
-    {
-      "name": "Olmo 3.1 32B Instruct",
-      "performance": 9.96,
-      "rank": 72.0,
-      "provider": "Ai2",
-      "family_order": null,
-      "improvement_abs": 0.6,
-      "improvement_pct": 6.41,
-      "predecessor": "Olmo 3 32B Think"
-    }
-  ],
   "Alibaba": [
     {
       "name": "QwQ 32B-Preview",
@@ -2861,70 +2913,6 @@
       "improvement_abs": 4.14,
       "improvement_pct": 70.05,
       "predecessor": "QwQ 32B-Preview"
-    }
-  ],
-  "Claude Haiku": [
-    {
-      "name": "Claude 3 Haiku",
-      "performance": 0.0,
-      "rank": 132.0,
-      "provider": "Anthropic",
-      "family_order": null,
-      "improvement_abs": 0.0,
-      "improvement_pct": 0.0,
-      "predecessor": null
-    },
-    {
-      "name": "claude-3-haiku-20240307",
-      "performance": 7.48,
-      "rank": 402.0,
-      "provider": "Anthropic",
-      "family_order": null,
-      "improvement_abs": 7.48,
-      "improvement_pct": 0,
-      "predecessor": "Claude 3 Haiku"
-    },
-    {
-      "name": "Claude 3.5 Haiku",
-      "performance": 9.75,
-      "rank": 75.0,
-      "provider": "Anthropic",
-      "family_order": null,
-      "improvement_abs": 2.27,
-      "improvement_pct": 30.35,
-      "predecessor": "claude-3-haiku-20240307"
-    },
-    {
-      "name": "Claude 4.5 Haiku",
-      "performance": 26.27,
-      "rank": 26.0,
-      "provider": "Anthropic",
-      "family_order": null,
-      "improvement_abs": 16.52,
-      "improvement_pct": 169.44,
-      "predecessor": "Claude 3.5 Haiku"
-    }
-  ],
-  "AI21 Labs": [
-    {
-      "name": "Jamba 1.5 Mini",
-      "performance": 7.81,
-      "rank": 93.0,
-      "provider": "AI21 Labs",
-      "family_order": null,
-      "improvement_abs": 0.0,
-      "improvement_pct": 0.0,
-      "predecessor": null
-    },
-    {
-      "name": "Jamba 1.5 Large",
-      "performance": 8.96,
-      "rank": 87.0,
-      "provider": "AI21 Labs",
-      "family_order": null,
-      "improvement_abs": 1.15,
-      "improvement_pct": 14.72,
-      "predecessor": "Jamba 1.5 Mini"
     }
   ],
   "Ant Group": [
@@ -2949,11 +2937,33 @@
       "predecessor": "Ring-flash-2.0"
     }
   ],
+  "AI21 Labs": [
+    {
+      "name": "Jamba 1.5 Mini",
+      "performance": 7.81,
+      "rank": 93.0,
+      "provider": "AI21 Labs",
+      "family_order": null,
+      "improvement_abs": 0.0,
+      "improvement_pct": 0.0,
+      "predecessor": null
+    },
+    {
+      "name": "Jamba 1.5 Large",
+      "performance": 8.96,
+      "rank": 87.0,
+      "provider": "AI21 Labs",
+      "family_order": null,
+      "improvement_abs": 1.15,
+      "improvement_pct": 14.72,
+      "predecessor": "Jamba 1.5 Mini"
+    }
+  ],
   "Cohere": [
     {
       "name": "c4ai-aya-expanse-8b",
       "performance": 6.7,
-      "rank": 416.0,
+      "rank": 417.0,
       "provider": "Cohere",
       "family_order": null,
       "improvement_abs": 0.0,
@@ -2963,7 +2973,7 @@
     {
       "name": "command-r-08-2024",
       "performance": 7.25,
-      "rank": 405.0,
+      "rank": 406.0,
       "provider": "Cohere",
       "family_order": null,
       "improvement_abs": 0.55,
@@ -2973,7 +2983,7 @@
     {
       "name": "command-r-plus",
       "performance": 7.5,
-      "rank": 400.0,
+      "rank": 401.0,
       "provider": "Cohere",
       "family_order": null,
       "improvement_abs": 0.25,
@@ -2993,7 +3003,7 @@
     {
       "name": "c4ai-aya-expanse-32b",
       "performance": 7.61,
-      "rank": 398.0,
+      "rank": 399.0,
       "provider": "Cohere",
       "family_order": null,
       "improvement_abs": 0.09,
@@ -3003,7 +3013,7 @@
     {
       "name": "command-r-plus-08-2024",
       "performance": 7.8,
-      "rank": 391.0,
+      "rank": 392.0,
       "provider": "Cohere",
       "family_order": null,
       "improvement_abs": 0.19,
@@ -3045,7 +3055,7 @@
     {
       "name": "phi-3-mini-4k-instruct",
       "performance": 4.73,
-      "rank": 468.0,
+      "rank": 469.0,
       "provider": "Microsoft",
       "family_order": null,
       "improvement_abs": 4.73,
@@ -3055,7 +3065,7 @@
     {
       "name": "phi-3-mini-128k-instruct",
       "performance": 4.74,
-      "rank": 467.0,
+      "rank": 468.0,
       "provider": "Microsoft",
       "family_order": null,
       "improvement_abs": 0.01,
@@ -3065,7 +3075,7 @@
     {
       "name": "phi-3-mini-4k-instruct-june-2024",
       "performance": 5.03,
-      "rank": 459.0,
+      "rank": 460.0,
       "provider": "Microsoft",
       "family_order": null,
       "improvement_abs": 0.29,
@@ -3075,7 +3085,7 @@
     {
       "name": "wizardlm-13b",
       "performance": 5.16,
-      "rank": 456.0,
+      "rank": 457.0,
       "provider": "Microsoft",
       "family_order": null,
       "improvement_abs": 0.13,
@@ -3085,7 +3095,7 @@
     {
       "name": "phi-3-small-8k-instruct",
       "performance": 5.62,
-      "rank": 445.0,
+      "rank": 446.0,
       "provider": "Microsoft",
       "family_order": null,
       "improvement_abs": 0.46,
@@ -3095,7 +3105,7 @@
     {
       "name": "wizardlm-70b",
       "performance": 5.89,
-      "rank": 432.0,
+      "rank": 433.0,
       "provider": "Microsoft",
       "family_order": null,
       "improvement_abs": 0.27,
@@ -3105,7 +3115,7 @@
     {
       "name": "phi-3-medium-4k-instruct",
       "performance": 6.17,
-      "rank": 427.0,
+      "rank": 428.0,
       "provider": "Microsoft",
       "family_order": null,
       "improvement_abs": 0.28,
@@ -3125,9 +3135,9 @@
   ],
   "NVIDIA": [
     {
-      "name": "NVIDIA Nemotron Nano 9B V2",
+      "name": "NVIDIA Nemotron 3 Nano",
       "performance": 0.0,
-      "rank": 239.0,
+      "rank": 237.0,
       "provider": null,
       "family_order": null,
       "improvement_abs": 0.0,
@@ -3135,14 +3145,14 @@
       "predecessor": null
     },
     {
-      "name": "NVIDIA Nemotron 3 Nano",
+      "name": "NVIDIA Nemotron Nano 9B V2",
       "performance": 0.0,
-      "rank": 237.0,
+      "rank": 239.0,
       "provider": null,
       "family_order": null,
       "improvement_abs": 0.0,
       "improvement_pct": 0,
-      "predecessor": "NVIDIA Nemotron Nano 9B V2"
+      "predecessor": "NVIDIA Nemotron 3 Nano"
     },
     {
       "name": "NVIDIA Nemotron Nano 12B v2 VL",
@@ -3152,7 +3162,7 @@
       "family_order": null,
       "improvement_abs": 0.0,
       "improvement_pct": 0,
-      "predecessor": "NVIDIA Nemotron 3 Nano"
+      "predecessor": "NVIDIA Nemotron Nano 9B V2"
     },
     {
       "name": "NVIDIA Nemotron 3 Super",
@@ -3335,7 +3345,7 @@
     {
       "name": "qwen2.5-coder-32b-instruct",
       "performance": 7.69,
-      "rank": 397.0,
+      "rank": 398.0,
       "provider": "Alibaba",
       "family_order": null,
       "improvement_abs": 4.22,
@@ -3345,7 +3355,7 @@
     {
       "name": "qwen3-coder-480b-a35b-instruct",
       "performance": 10.12,
-      "rank": 317.0,
+      "rank": 318.0,
       "provider": "Alibaba",
       "family_order": null,
       "improvement_abs": 2.43,
@@ -3385,16 +3395,6 @@
       "predecessor": "Jamba Reasoning 3B"
     },
     {
-      "name": "Jamba 1.6 Large",
-      "performance": 0.0,
-      "rank": 183.0,
-      "provider": null,
-      "family_order": null,
-      "improvement_abs": 0.0,
-      "improvement_pct": 0,
-      "predecessor": "Jamba 1.7 Mini"
-    },
-    {
       "name": "Jamba 1.7 Large",
       "performance": 0.0,
       "rank": 185.0,
@@ -3402,7 +3402,17 @@
       "family_order": null,
       "improvement_abs": 0.0,
       "improvement_pct": 0,
-      "predecessor": "Jamba 1.6 Large"
+      "predecessor": "Jamba 1.7 Mini"
+    },
+    {
+      "name": "Jamba 1.6 Large",
+      "performance": 0.0,
+      "rank": 183.0,
+      "provider": null,
+      "family_order": null,
+      "improvement_abs": 0.0,
+      "improvement_pct": 0,
+      "predecessor": "Jamba 1.7 Large"
     }
   ],
   "ERNIE": [
@@ -3481,48 +3491,6 @@
       "predecessor": "Sarvam M"
     }
   ],
-  "Magistral": [
-    {
-      "name": "Magistral Small 1.2",
-      "performance": 0.0,
-      "rank": 217.0,
-      "provider": null,
-      "family_order": null,
-      "improvement_abs": 0.0,
-      "improvement_pct": 0.0,
-      "predecessor": null
-    },
-    {
-      "name": "Magistral Medium 1",
-      "performance": 0.0,
-      "rank": 215.0,
-      "provider": null,
-      "family_order": null,
-      "improvement_abs": 0.0,
-      "improvement_pct": 0,
-      "predecessor": "Magistral Small 1.2"
-    },
-    {
-      "name": "Magistral Small 1",
-      "performance": 0.0,
-      "rank": 216.0,
-      "provider": null,
-      "family_order": null,
-      "improvement_abs": 0.0,
-      "improvement_pct": 0,
-      "predecessor": "Magistral Medium 1"
-    },
-    {
-      "name": "Magistral Medium 1.2",
-      "performance": 2.31,
-      "rank": 125.0,
-      "provider": null,
-      "family_order": null,
-      "improvement_abs": 2.31,
-      "improvement_pct": 0,
-      "predecessor": "Magistral Small 1"
-    }
-  ],
   "Sonar": [
     {
       "name": "Sonar",
@@ -3565,6 +3533,48 @@
       "predecessor": "Sonar Reasoning"
     }
   ],
+  "Magistral": [
+    {
+      "name": "Magistral Small 1.2",
+      "performance": 0.0,
+      "rank": 217.0,
+      "provider": null,
+      "family_order": null,
+      "improvement_abs": 0.0,
+      "improvement_pct": 0.0,
+      "predecessor": null
+    },
+    {
+      "name": "Magistral Medium 1",
+      "performance": 0.0,
+      "rank": 215.0,
+      "provider": null,
+      "family_order": null,
+      "improvement_abs": 0.0,
+      "improvement_pct": 0,
+      "predecessor": "Magistral Small 1.2"
+    },
+    {
+      "name": "Magistral Small 1",
+      "performance": 0.0,
+      "rank": 216.0,
+      "provider": null,
+      "family_order": null,
+      "improvement_abs": 0.0,
+      "improvement_pct": 0,
+      "predecessor": "Magistral Medium 1"
+    },
+    {
+      "name": "Magistral Medium 1.2",
+      "performance": 2.31,
+      "rank": 125.0,
+      "provider": null,
+      "family_order": null,
+      "improvement_abs": 2.31,
+      "improvement_pct": 0,
+      "predecessor": "Magistral Small 1"
+    }
+  ],
   "Hermes": [
     {
       "name": "Hermes 4 70B",
@@ -3585,198 +3595,6 @@
       "improvement_abs": 0.0,
       "improvement_pct": 0,
       "predecessor": "Hermes 4 70B"
-    }
-  ],
-  "Google": [
-    {
-      "name": "Gemma 3 1B",
-      "performance": 0.0,
-      "rank": 163.0,
-      "provider": "Google",
-      "family_order": null,
-      "improvement_abs": 0.0,
-      "improvement_pct": 0.0,
-      "predecessor": null
-    },
-    {
-      "name": "Gemma 3 270M",
-      "performance": 0.0,
-      "rank": 164.0,
-      "provider": "Google",
-      "family_order": null,
-      "improvement_abs": 0.0,
-      "improvement_pct": 0,
-      "predecessor": "Gemma 3 1B"
-    },
-    {
-      "name": "Gemma 3n E2B",
-      "performance": 0.0,
-      "rank": 167.0,
-      "provider": "Google",
-      "family_order": null,
-      "improvement_abs": 0.0,
-      "improvement_pct": 0,
-      "predecessor": "Gemma 3 270M"
-    },
-    {
-      "name": "Gemma 3n E4B (May)",
-      "performance": 0.0,
-      "rank": 168.0,
-      "provider": "Google",
-      "family_order": null,
-      "improvement_abs": 0.0,
-      "improvement_pct": 0,
-      "predecessor": "Gemma 3n E2B"
-    },
-    {
-      "name": "Gemma 3 4B",
-      "performance": 0.0,
-      "rank": 166.0,
-      "provider": "Google",
-      "family_order": null,
-      "improvement_abs": 0.0,
-      "improvement_pct": 0,
-      "predecessor": "Gemma 3n E4B (May)"
-    },
-    {
-      "name": "Gemma 3 27B",
-      "performance": 0.0,
-      "rank": 165.0,
-      "provider": "Google",
-      "family_order": null,
-      "improvement_abs": 0.0,
-      "improvement_pct": 0,
-      "predecessor": "Gemma 3 4B"
-    },
-    {
-      "name": "Gemma 3 12B",
-      "performance": 0.0,
-      "rank": 162.0,
-      "provider": "Google",
-      "family_order": null,
-      "improvement_abs": 0.0,
-      "improvement_pct": 0,
-      "predecessor": "Gemma 3 27B"
-    },
-    {
-      "name": "gemma-2b-it",
-      "performance": 3.97,
-      "rank": 479.0,
-      "provider": "Google",
-      "family_order": null,
-      "improvement_abs": 3.97,
-      "improvement_pct": 0,
-      "predecessor": "Gemma 3 12B"
-    },
-    {
-      "name": "gemma-1.1-2b-it",
-      "performance": 4.44,
-      "rank": 473.0,
-      "provider": "Google",
-      "family_order": null,
-      "improvement_abs": 0.47,
-      "improvement_pct": 11.84,
-      "predecessor": "gemma-2b-it"
-    },
-    {
-      "name": "gemma-7b-it",
-      "performance": 4.89,
-      "rank": 465.0,
-      "provider": "Google",
-      "family_order": null,
-      "improvement_abs": 0.45,
-      "improvement_pct": 10.14,
-      "predecessor": "gemma-1.1-2b-it"
-    },
-    {
-      "name": "palm-2",
-      "performance": 4.91,
-      "rank": 463.0,
-      "provider": "Google",
-      "family_order": null,
-      "improvement_abs": 0.02,
-      "improvement_pct": 0.41,
-      "predecessor": "gemma-7b-it"
-    },
-    {
-      "name": "gemma-1.1-7b-it",
-      "performance": 5.81,
-      "rank": 438.0,
-      "provider": "Google",
-      "family_order": null,
-      "improvement_abs": 0.9,
-      "improvement_pct": 18.33,
-      "predecessor": "palm-2"
-    },
-    {
-      "name": "gemma-2-2b-it",
-      "performance": 6.2,
-      "rank": 426.0,
-      "provider": "Google",
-      "family_order": null,
-      "improvement_abs": 0.39,
-      "improvement_pct": 6.71,
-      "predecessor": "gemma-1.1-7b-it"
-    },
-    {
-      "name": "gemma-2-9b-it",
-      "performance": 7.59,
-      "rank": 399.0,
-      "provider": "Google",
-      "family_order": null,
-      "improvement_abs": 1.39,
-      "improvement_pct": 22.42,
-      "predecessor": "gemma-2-2b-it"
-    },
-    {
-      "name": "gemma-2-27b-it",
-      "performance": 8.05,
-      "rank": 382.0,
-      "provider": "Google",
-      "family_order": null,
-      "improvement_abs": 0.46,
-      "improvement_pct": 6.06,
-      "predecessor": "gemma-2-9b-it"
-    },
-    {
-      "name": "gemma-3-4b-it",
-      "performance": 8.37,
-      "rank": 376.0,
-      "provider": "Google",
-      "family_order": null,
-      "improvement_abs": 0.32,
-      "improvement_pct": 3.98,
-      "predecessor": "gemma-2-27b-it"
-    },
-    {
-      "name": "gemma-3n-e4b-it",
-      "performance": 8.69,
-      "rank": 361.0,
-      "provider": "Google",
-      "family_order": null,
-      "improvement_abs": 0.32,
-      "improvement_pct": 3.82,
-      "predecessor": "gemma-3-4b-it"
-    },
-    {
-      "name": "gemma-3-12b-it",
-      "performance": 9.17,
-      "rank": 344.0,
-      "provider": "Google",
-      "family_order": null,
-      "improvement_abs": 0.48,
-      "improvement_pct": 5.52,
-      "predecessor": "gemma-3n-e4b-it"
-    },
-    {
-      "name": "gemma-3-27b-it",
-      "performance": 9.67,
-      "rank": 328.0,
-      "provider": "Google",
-      "family_order": null,
-      "improvement_abs": 0.5,
-      "improvement_pct": 5.45,
-      "predecessor": "gemma-3-12b-it"
     }
   ],
   "Solar": [
@@ -3847,7 +3665,7 @@
     {
       "name": "dolly-v2-12b",
       "performance": 1.65,
-      "rank": 492.0,
+      "rank": 493.0,
       "provider": "Databricks",
       "family_order": null,
       "improvement_abs": 1.65,
@@ -3857,7 +3675,7 @@
     {
       "name": "dbrx-instruct-preview",
       "performance": 6.11,
-      "rank": 429.0,
+      "rank": 430.0,
       "provider": "Databricks",
       "family_order": null,
       "improvement_abs": 4.46,
@@ -3937,6 +3755,198 @@
       "predecessor": "Granite 4.0 H Small"
     }
   ],
+  "Google": [
+    {
+      "name": "Gemma 3 270M",
+      "performance": 0.0,
+      "rank": 164.0,
+      "provider": "Google",
+      "family_order": null,
+      "improvement_abs": 0.0,
+      "improvement_pct": 0.0,
+      "predecessor": null
+    },
+    {
+      "name": "Gemma 3n E2B",
+      "performance": 0.0,
+      "rank": 167.0,
+      "provider": "Google",
+      "family_order": null,
+      "improvement_abs": 0.0,
+      "improvement_pct": 0,
+      "predecessor": "Gemma 3 270M"
+    },
+    {
+      "name": "Gemma 3 1B",
+      "performance": 0.0,
+      "rank": 163.0,
+      "provider": "Google",
+      "family_order": null,
+      "improvement_abs": 0.0,
+      "improvement_pct": 0,
+      "predecessor": "Gemma 3n E2B"
+    },
+    {
+      "name": "Gemma 3n E4B (May)",
+      "performance": 0.0,
+      "rank": 168.0,
+      "provider": "Google",
+      "family_order": null,
+      "improvement_abs": 0.0,
+      "improvement_pct": 0,
+      "predecessor": "Gemma 3 1B"
+    },
+    {
+      "name": "Gemma 3 4B",
+      "performance": 0.0,
+      "rank": 166.0,
+      "provider": "Google",
+      "family_order": null,
+      "improvement_abs": 0.0,
+      "improvement_pct": 0,
+      "predecessor": "Gemma 3n E4B (May)"
+    },
+    {
+      "name": "Gemma 3 27B",
+      "performance": 0.0,
+      "rank": 165.0,
+      "provider": "Google",
+      "family_order": null,
+      "improvement_abs": 0.0,
+      "improvement_pct": 0,
+      "predecessor": "Gemma 3 4B"
+    },
+    {
+      "name": "Gemma 3 12B",
+      "performance": 0.0,
+      "rank": 162.0,
+      "provider": "Google",
+      "family_order": null,
+      "improvement_abs": 0.0,
+      "improvement_pct": 0,
+      "predecessor": "Gemma 3 27B"
+    },
+    {
+      "name": "gemma-2b-it",
+      "performance": 3.97,
+      "rank": 480.0,
+      "provider": "Google",
+      "family_order": null,
+      "improvement_abs": 3.97,
+      "improvement_pct": 0,
+      "predecessor": "Gemma 3 12B"
+    },
+    {
+      "name": "gemma-1.1-2b-it",
+      "performance": 4.44,
+      "rank": 474.0,
+      "provider": "Google",
+      "family_order": null,
+      "improvement_abs": 0.47,
+      "improvement_pct": 11.84,
+      "predecessor": "gemma-2b-it"
+    },
+    {
+      "name": "gemma-7b-it",
+      "performance": 4.89,
+      "rank": 466.0,
+      "provider": "Google",
+      "family_order": null,
+      "improvement_abs": 0.45,
+      "improvement_pct": 10.14,
+      "predecessor": "gemma-1.1-2b-it"
+    },
+    {
+      "name": "palm-2",
+      "performance": 4.91,
+      "rank": 464.0,
+      "provider": "Google",
+      "family_order": null,
+      "improvement_abs": 0.02,
+      "improvement_pct": 0.41,
+      "predecessor": "gemma-7b-it"
+    },
+    {
+      "name": "gemma-1.1-7b-it",
+      "performance": 5.81,
+      "rank": 439.0,
+      "provider": "Google",
+      "family_order": null,
+      "improvement_abs": 0.9,
+      "improvement_pct": 18.33,
+      "predecessor": "palm-2"
+    },
+    {
+      "name": "gemma-2-2b-it",
+      "performance": 6.2,
+      "rank": 427.0,
+      "provider": "Google",
+      "family_order": null,
+      "improvement_abs": 0.39,
+      "improvement_pct": 6.71,
+      "predecessor": "gemma-1.1-7b-it"
+    },
+    {
+      "name": "gemma-2-9b-it",
+      "performance": 7.59,
+      "rank": 400.0,
+      "provider": "Google",
+      "family_order": null,
+      "improvement_abs": 1.39,
+      "improvement_pct": 22.42,
+      "predecessor": "gemma-2-2b-it"
+    },
+    {
+      "name": "gemma-2-27b-it",
+      "performance": 8.05,
+      "rank": 383.0,
+      "provider": "Google",
+      "family_order": null,
+      "improvement_abs": 0.46,
+      "improvement_pct": 6.06,
+      "predecessor": "gemma-2-9b-it"
+    },
+    {
+      "name": "gemma-3-4b-it",
+      "performance": 8.37,
+      "rank": 377.0,
+      "provider": "Google",
+      "family_order": null,
+      "improvement_abs": 0.32,
+      "improvement_pct": 3.98,
+      "predecessor": "gemma-2-27b-it"
+    },
+    {
+      "name": "gemma-3n-e4b-it",
+      "performance": 8.69,
+      "rank": 362.0,
+      "provider": "Google",
+      "family_order": null,
+      "improvement_abs": 0.32,
+      "improvement_pct": 3.82,
+      "predecessor": "gemma-3-4b-it"
+    },
+    {
+      "name": "gemma-3-12b-it",
+      "performance": 9.17,
+      "rank": 345.0,
+      "provider": "Google",
+      "family_order": null,
+      "improvement_abs": 0.48,
+      "improvement_pct": 5.52,
+      "predecessor": "gemma-3n-e4b-it"
+    },
+    {
+      "name": "gemma-3-27b-it",
+      "performance": 9.67,
+      "rank": 329.0,
+      "provider": "Google",
+      "family_order": null,
+      "improvement_abs": 0.5,
+      "improvement_pct": 5.45,
+      "predecessor": "gemma-3-12b-it"
+    }
+  ],
   "Reka": [
     {
       "name": "Reka Flash",
@@ -3963,7 +3973,7 @@
     {
       "name": "ernie-5.0-preview-1203",
       "performance": 11.11,
-      "rank": 301.0,
+      "rank": 302.0,
       "provider": "Baidu",
       "family_order": null,
       "improvement_abs": 0.0,
@@ -3973,7 +3983,7 @@
     {
       "name": "ernie-5.0-0110",
       "performance": 11.47,
-      "rank": 299.0,
+      "rank": 300.0,
       "provider": "Baidu",
       "family_order": null,
       "improvement_abs": 0.36,
@@ -3985,7 +3995,7 @@
     {
       "name": "hunyuan-standard-256k",
       "performance": 6.92,
-      "rank": 409.0,
+      "rank": 410.0,
       "provider": "Tencent",
       "family_order": null,
       "improvement_abs": 0.0,
@@ -3995,7 +4005,7 @@
     {
       "name": "hunyuan-large-vision",
       "performance": 8.18,
-      "rank": 380.0,
+      "rank": 381.0,
       "provider": "Tencent",
       "family_order": null,
       "improvement_abs": 1.26,
@@ -4005,7 +4015,7 @@
     {
       "name": "hunyuan-standard-2025-02-10",
       "performance": 8.53,
-      "rank": 370.0,
+      "rank": 371.0,
       "provider": "Tencent",
       "family_order": null,
       "improvement_abs": 0.35,
@@ -4015,7 +4025,7 @@
     {
       "name": "hunyuan-large-2025-02-10",
       "performance": 8.84,
-      "rank": 356.0,
+      "rank": 357.0,
       "provider": "Tencent",
       "family_order": null,
       "improvement_abs": 0.31,
@@ -4025,7 +4035,7 @@
     {
       "name": "hunyuan-turbo-0110",
       "performance": 9.14,
-      "rank": 345.0,
+      "rank": 346.0,
       "provider": "Tencent",
       "family_order": null,
       "improvement_abs": 0.3,
@@ -4035,7 +4045,7 @@
     {
       "name": "hunyuan-turbos-20250226",
       "performance": 9.31,
-      "rank": 336.0,
+      "rank": 337.0,
       "provider": "Tencent",
       "family_order": null,
       "improvement_abs": 0.17,
@@ -4045,7 +4055,7 @@
     {
       "name": "hunyuan-turbos-20250416",
       "performance": 10.04,
-      "rank": 320.0,
+      "rank": 321.0,
       "provider": "Tencent",
       "family_order": null,
       "improvement_abs": 0.73,
@@ -4055,7 +4065,7 @@
     {
       "name": "hunyuan-t1-20250711",
       "performance": 10.12,
-      "rank": 316.0,
+      "rank": 317.0,
       "provider": "Tencent",
       "family_order": null,
       "improvement_abs": 0.08,
@@ -4065,7 +4075,7 @@
     {
       "name": "hunyuan-vision-1.5-thinking",
       "performance": 10.3,
-      "rank": 312.0,
+      "rank": 313.0,
       "provider": "Tencent",
       "family_order": null,
       "improvement_abs": 0.18,
@@ -4077,7 +4087,7 @@
     {
       "name": "nemotron-4-340b-instruct",
       "performance": 7.82,
-      "rank": 390.0,
+      "rank": 391.0,
       "provider": "Nvidia",
       "family_order": null,
       "improvement_abs": 0.0,
@@ -4087,7 +4097,7 @@
     {
       "name": "nvidia-nemotron-3-nano-30b-a3b-bf16",
       "performance": 8.68,
-      "rank": 363.0,
+      "rank": 364.0,
       "provider": "Nvidia",
       "family_order": null,
       "improvement_abs": 0.86,
@@ -4097,7 +4107,7 @@
     {
       "name": "nvidia-nemotron-3-super-120b-a12b",
       "performance": 9.65,
-      "rank": 330.0,
+      "rank": 331.0,
       "provider": "Nvidia",
       "family_order": null,
       "improvement_abs": 0.97,
@@ -4109,7 +4119,7 @@
     {
       "name": "qwen2.5-plus-1127",
       "performance": 8.62,
-      "rank": 365.0,
+      "rank": 366.0,
       "provider": "Alibaba",
       "family_order": null,
       "improvement_abs": 0.0,
@@ -4119,7 +4129,7 @@
     {
       "name": "qwen-plus-0125",
       "performance": 9.26,
-      "rank": 340.0,
+      "rank": 341.0,
       "provider": "Alibaba",
       "family_order": null,
       "improvement_abs": 0.64,
@@ -4131,7 +4141,7 @@
     {
       "name": "yi-34b-chat",
       "performance": 5.88,
-      "rank": 434.0,
+      "rank": 435.0,
       "provider": "01 AI",
       "family_order": null,
       "improvement_abs": 0.0,
@@ -4141,7 +4151,7 @@
     {
       "name": "yi-1.5-34b-chat",
       "performance": 6.49,
-      "rank": 420.0,
+      "rank": 421.0,
       "provider": "01 AI",
       "family_order": null,
       "improvement_abs": 0.61,
@@ -4151,7 +4161,7 @@
     {
       "name": "yi-lightning",
       "performance": 8.89,
-      "rank": 353.0,
+      "rank": 354.0,
       "provider": "01 AI",
       "family_order": null,
       "improvement_abs": 2.4,
@@ -4163,7 +4173,7 @@
     {
       "name": "glm-4-0520",
       "performance": 7.74,
-      "rank": 395.0,
+      "rank": 396.0,
       "provider": "Zhipu AI",
       "family_order": null,
       "improvement_abs": 0.0,
@@ -4173,7 +4183,7 @@
     {
       "name": "glm-4-plus",
       "performance": 8.7,
-      "rank": 360.0,
+      "rank": 361.0,
       "provider": "Zhipu AI",
       "family_order": null,
       "improvement_abs": 0.96,
@@ -4185,7 +4195,7 @@
     {
       "name": "athene-70b-0725",
       "performance": 8.42,
-      "rank": 372.0,
+      "rank": 373.0,
       "provider": "NexusFlow",
       "family_order": null,
       "improvement_abs": 0.0,
@@ -4195,7 +4205,7 @@
     {
       "name": "athene-v2-chat",
       "performance": 8.6,
-      "rank": 366.0,
+      "rank": 367.0,
       "provider": "NexusFlow",
       "family_order": null,
       "improvement_abs": 0.18,
@@ -4207,7 +4217,7 @@
     {
       "name": "ministral-8b-2410",
       "performance": 6.99,
-      "rank": 407.0,
+      "rank": 408.0,
       "provider": "Mistral",
       "family_order": null,
       "improvement_abs": 0.0,
@@ -4217,7 +4227,7 @@
     {
       "name": "magistral-medium-2506",
       "performance": 8.39,
-      "rank": 375.0,
+      "rank": 376.0,
       "provider": "Mistral",
       "family_order": null,
       "improvement_abs": 1.4,
@@ -4228,8 +4238,8 @@
   "Reka AI": [
     {
       "name": "reka-flash-21b-20240226",
-      "performance": 6.77,
-      "rank": 414.0,
+      "performance": 6.76,
+      "rank": 415.0,
       "provider": "Reka AI",
       "family_order": null,
       "improvement_abs": 0.0,
@@ -4239,17 +4249,17 @@
     {
       "name": "reka-flash-21b-20240226-online",
       "performance": 6.9,
-      "rank": 412.0,
+      "rank": 413.0,
       "provider": "Reka AI",
       "family_order": null,
-      "improvement_abs": 0.13,
-      "improvement_pct": 1.92,
+      "improvement_abs": 0.14,
+      "improvement_pct": 2.07,
       "predecessor": "reka-flash-21b-20240226"
     },
     {
       "name": "reka-flash-20240904",
       "performance": 7.71,
-      "rank": 396.0,
+      "rank": 397.0,
       "provider": "Reka AI",
       "family_order": null,
       "improvement_abs": 0.81,
@@ -4259,7 +4269,7 @@
     {
       "name": "reka-core-20240904",
       "performance": 8.05,
-      "rank": 383.0,
+      "rank": 384.0,
       "provider": "Reka AI",
       "family_order": null,
       "improvement_abs": 0.34,
@@ -4271,7 +4281,7 @@
     {
       "name": "granite-3.0-2b-instruct",
       "performance": 5.3,
-      "rank": 450.0,
+      "rank": 451.0,
       "provider": "IBM",
       "family_order": null,
       "improvement_abs": 0.0,
@@ -4281,7 +4291,7 @@
     {
       "name": "granite-3.1-2b-instruct",
       "performance": 5.78,
-      "rank": 440.0,
+      "rank": 441.0,
       "provider": "IBM",
       "family_order": null,
       "improvement_abs": 0.48,
@@ -4291,7 +4301,7 @@
     {
       "name": "granite-3.0-8b-instruct",
       "performance": 5.84,
-      "rank": 435.0,
+      "rank": 436.0,
       "provider": "IBM",
       "family_order": null,
       "improvement_abs": 0.06,
@@ -4301,7 +4311,7 @@
     {
       "name": "granite-3.1-8b-instruct",
       "performance": 6.39,
-      "rank": 423.0,
+      "rank": 424.0,
       "provider": "IBM",
       "family_order": null,
       "improvement_abs": 0.55,
@@ -4311,7 +4321,7 @@
     {
       "name": "ibm-granite-h-small",
       "performance": 8.03,
-      "rank": 384.0,
+      "rank": 385.0,
       "provider": "IBM",
       "family_order": null,
       "improvement_abs": 1.64,
@@ -4323,7 +4333,7 @@
     {
       "name": "smollm2-1.7b-instruct",
       "performance": 4.44,
-      "rank": 474.0,
+      "rank": 475.0,
       "provider": "HuggingFace",
       "family_order": null,
       "improvement_abs": 0.0,
@@ -4332,28 +4342,28 @@
     },
     {
       "name": "zephyr-7b-alpha",
-      "performance": 4.7,
-      "rank": 470.0,
+      "performance": 4.69,
+      "rank": 471.0,
       "provider": "HuggingFace",
       "family_order": null,
-      "improvement_abs": 0.26,
-      "improvement_pct": 5.86,
+      "improvement_abs": 0.25,
+      "improvement_pct": 5.63,
       "predecessor": "smollm2-1.7b-instruct"
     },
     {
       "name": "zephyr-7b-beta",
       "performance": 4.78,
-      "rank": 466.0,
+      "rank": 467.0,
       "provider": "HuggingFace",
       "family_order": null,
-      "improvement_abs": 0.08,
-      "improvement_pct": 1.7,
+      "improvement_abs": 0.09,
+      "improvement_pct": 1.92,
       "predecessor": "zephyr-7b-alpha"
     },
     {
       "name": "zephyr-orpo-141b-A35b-v0.1",
       "performance": 6.48,
-      "rank": 421.0,
+      "rank": 422.0,
       "provider": "HuggingFace",
       "family_order": null,
       "improvement_abs": 1.7,
@@ -4365,7 +4375,7 @@
     {
       "name": "openchat-3.5-0106",
       "performance": 5.84,
-      "rank": 437.0,
+      "rank": 438.0,
       "provider": "OpenChat",
       "family_order": null,
       "improvement_abs": 0.0,
@@ -4375,7 +4385,7 @@
     {
       "name": "openchat-3.5",
       "performance": 5.84,
-      "rank": 436.0,
+      "rank": 437.0,
       "provider": "OpenChat",
       "family_order": null,
       "improvement_abs": 0.0,
@@ -4386,8 +4396,8 @@
   "LMSYS": [
     {
       "name": "fastchat-t5-3b",
-      "performance": 1.88,
-      "rank": 491.0,
+      "performance": 1.87,
+      "rank": 492.0,
       "provider": "LMSYS",
       "family_order": null,
       "improvement_abs": 0.0,
@@ -4397,17 +4407,17 @@
     {
       "name": "vicuna-7b",
       "performance": 4.44,
-      "rank": 475.0,
+      "rank": 476.0,
       "provider": "LMSYS",
       "family_order": null,
-      "improvement_abs": 2.56,
-      "improvement_pct": 136.17,
+      "improvement_abs": 2.57,
+      "improvement_pct": 137.43,
       "predecessor": "fastchat-t5-3b"
     },
     {
       "name": "vicuna-13b",
       "performance": 4.99,
-      "rank": 461.0,
+      "rank": 462.0,
       "provider": "LMSYS",
       "family_order": null,
       "improvement_abs": 0.55,
@@ -4417,7 +4427,7 @@
     {
       "name": "vicuna-33b",
       "performance": 5.64,
-      "rank": 443.0,
+      "rank": 444.0,
       "provider": "LMSYS",
       "family_order": null,
       "improvement_abs": 0.65,
@@ -4429,7 +4439,7 @@
     {
       "name": "koala-13b",
       "performance": 3.52,
-      "rank": 482.0,
+      "rank": 483.0,
       "provider": "UC Berkeley",
       "family_order": null,
       "improvement_abs": 0.0,
@@ -4439,7 +4449,7 @@
     {
       "name": "starling-lm-7b-alpha",
       "performance": 5.54,
-      "rank": 447.0,
+      "rank": 448.0,
       "provider": "UC Berkeley",
       "family_order": null,
       "improvement_abs": 2.02,
@@ -4451,7 +4461,7 @@
     {
       "name": "mpt-7b-chat",
       "performance": 3.34,
-      "rank": 485.0,
+      "rank": 486.0,
       "provider": "MosaicML",
       "family_order": null,
       "improvement_abs": 0.0,
@@ -4461,7 +4471,7 @@
     {
       "name": "mpt-30b-chat",
       "performance": 5.17,
-      "rank": 454.0,
+      "rank": 455.0,
       "provider": "MosaicML",
       "family_order": null,
       "improvement_abs": 1.83,
@@ -4473,7 +4483,7 @@
     {
       "name": "chatglm-6b",
       "performance": 1.96,
-      "rank": 490.0,
+      "rank": 491.0,
       "provider": "Tsinghua",
       "family_order": null,
       "improvement_abs": 0.0,
@@ -4483,7 +4493,7 @@
     {
       "name": "chatglm2-6b",
       "performance": 2.56,
-      "rank": 488.0,
+      "rank": 489.0,
       "provider": "Tsinghua",
       "family_order": null,
       "improvement_abs": 0.6,
@@ -4493,7 +4503,7 @@
     {
       "name": "chatglm3-6b",
       "performance": 3.22,
-      "rank": 486.0,
+      "rank": 487.0,
       "provider": "Tsinghua",
       "family_order": null,
       "improvement_abs": 0.66,
