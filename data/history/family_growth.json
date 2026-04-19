@@ -143,7 +143,7 @@
       "predecessor": "Claude 4.1 Opus (Reasoning)"
     },
     {
-      "name": "Claude Opus 4.6 (Non-reasoning, High Effort)",
+      "name": "Claude Opus 4.6 (Non-reasoning)",
       "performance": 75.49,
       "rank": 5.0,
       "provider": "Anthropic",
@@ -160,7 +160,7 @@
       "family_order": null,
       "improvement_abs": 4.66,
       "improvement_pct": 6.17,
-      "predecessor": "Claude Opus 4.6 (Non-reasoning, High Effort)"
+      "predecessor": "Claude Opus 4.6 (Non-reasoning)"
     }
   ],
   "Qwen Base": [
@@ -1337,7 +1337,7 @@
       "predecessor": "Kimi K2 Thinking"
     },
     {
-      "name": "Kimi K2.5 (Non-reasoning)",
+      "name": "Kimi K2.5 (Reasoning)",
       "performance": 71.01,
       "rank": 17.0,
       "provider": "Moonshot",
@@ -1347,11 +1347,11 @@
       "predecessor": "Kimi K2"
     }
   ],
-  "GPT High": [
+  "GPT Medium": [
     {
-      "name": "gpt-5.4-nano-high",
-      "performance": 10.44,
-      "rank": 329.0,
+      "name": "GPT-5 nano (medium)",
+      "performance": 43.88,
+      "rank": 78.0,
       "provider": "OpenAI",
       "family_order": null,
       "improvement_abs": 0.0,
@@ -1359,84 +1359,24 @@
       "predecessor": null
     },
     {
-      "name": "gpt-5.4-high",
-      "performance": 12.08,
-      "rank": 310.0,
+      "name": "GPT-5.4 nano (medium)",
+      "performance": 44.51,
+      "rank": 157.0,
       "provider": "OpenAI",
       "family_order": null,
-      "improvement_abs": 1.64,
-      "improvement_pct": 15.71,
-      "predecessor": "gpt-5.4-nano-high"
+      "improvement_abs": 0.63,
+      "improvement_pct": 1.44,
+      "predecessor": "GPT-5 nano (medium)"
     },
     {
-      "name": "GPT-5 Codex (high)",
-      "performance": 56.55,
-      "rank": 116.0,
-      "provider": "OpenAI",
-      "family_order": null,
-      "improvement_abs": 44.47,
-      "improvement_pct": 368.13,
-      "predecessor": "gpt-5.4-high"
-    },
-    {
-      "name": "GPT-5.1 Codex (high)",
-      "performance": 58.76,
-      "rank": 107.0,
-      "provider": "OpenAI",
-      "family_order": null,
-      "improvement_abs": 2.21,
-      "improvement_pct": 3.91,
-      "predecessor": "GPT-5 Codex (high)"
-    },
-    {
-      "name": "GPT-5.2 Codex (xhigh)",
-      "performance": 62.52,
-      "rank": 105.0,
-      "provider": "OpenAI",
-      "family_order": null,
-      "improvement_abs": 3.76,
-      "improvement_pct": 6.4,
-      "predecessor": "GPT-5.1 Codex (high)"
-    },
-    {
-      "name": "GPT-5.1 (high)",
-      "performance": 63.17,
-      "rank": 39.0,
-      "provider": "OpenAI",
-      "family_order": null,
-      "improvement_abs": 0.65,
-      "improvement_pct": 1.04,
-      "predecessor": "GPT-5.2 Codex (xhigh)"
-    },
-    {
-      "name": "GPT-5.3 Codex (xhigh)",
-      "performance": 64.06,
-      "rank": 104.0,
-      "provider": "OpenAI",
-      "family_order": null,
-      "improvement_abs": 0.89,
-      "improvement_pct": 1.41,
-      "predecessor": "GPT-5.1 (high)"
-    },
-    {
-      "name": "GPT-5 (high)",
-      "performance": 64.31,
-      "rank": 33.0,
-      "provider": "OpenAI",
-      "family_order": null,
-      "improvement_abs": 0.25,
-      "improvement_pct": 0.39,
-      "predecessor": "GPT-5.3 Codex (xhigh)"
-    },
-    {
-      "name": "GPT-5.2 (xhigh)",
+      "name": "GPT-5.2 (medium)",
       "performance": 70.26,
       "rank": 18.0,
       "provider": "OpenAI",
       "family_order": null,
-      "improvement_abs": 5.95,
-      "improvement_pct": 9.25,
-      "predecessor": "GPT-5 (high)"
+      "improvement_abs": 25.75,
+      "improvement_pct": 57.85,
+      "predecessor": "GPT-5.4 nano (medium)"
     }
   ],
   "Claude Sonnet": [
@@ -1531,7 +1471,7 @@
       "predecessor": "Claude 4 Sonnet (Non-reasoning)"
     },
     {
-      "name": "Claude 3.7 Sonnet (Non-reasoning)",
+      "name": "Claude 3.7 Sonnet (Reasoning)",
       "performance": 57.11,
       "rank": 59.0,
       "provider": "Anthropic",
@@ -1548,7 +1488,7 @@
       "family_order": null,
       "improvement_abs": 13.1,
       "improvement_pct": 22.94,
-      "predecessor": "Claude 3.7 Sonnet (Non-reasoning)"
+      "predecessor": "Claude 3.7 Sonnet (Reasoning)"
     }
   ],
   "OpenAI": [
@@ -1755,7 +1695,7 @@
       "predecessor": "Gemini 2.0 Flash Thinking Experimental (Jan '25)"
     },
     {
-      "name": "Gemini 2.0 Flash (Feb '25)",
+      "name": "Gemini 2.0 Flash (experimental)",
       "performance": 48.27,
       "rank": 71.0,
       "provider": "Google",
@@ -1772,7 +1712,7 @@
       "family_order": null,
       "improvement_abs": 10.01,
       "improvement_pct": 20.74,
-      "predecessor": "Gemini 2.0 Flash (Feb '25)"
+      "predecessor": "Gemini 2.0 Flash (experimental)"
     },
     {
       "name": "Gemini 2.5 Flash (Non-reasoning)",
@@ -2141,7 +2081,7 @@
       "predecessor": "DeepSeek V3 (Dec '24)"
     },
     {
-      "name": "DeepSeek V3.1 (Non-reasoning)",
+      "name": "DeepSeek V3.1 Terminus (Non-reasoning)",
       "performance": 63.2,
       "rank": 38.0,
       "provider": "DeepSeek",
@@ -2158,10 +2098,10 @@
       "family_order": null,
       "improvement_abs": 3.31,
       "improvement_pct": 5.24,
-      "predecessor": "DeepSeek V3.1 (Non-reasoning)"
+      "predecessor": "DeepSeek V3.1 Terminus (Non-reasoning)"
     },
     {
-      "name": "DeepSeek V3.2 Speciale",
+      "name": "DeepSeek V3.2 Exp (Non-reasoning)",
       "performance": 67.19,
       "rank": 26.0,
       "provider": "DeepSeek",
@@ -2243,6 +2183,88 @@
       "improvement_abs": 57.01,
       "improvement_pct": 657.55,
       "predecessor": "nvidia-nemotron-3-nano-30b-a3b-bf16"
+    }
+  ],
+  "GPT High": [
+    {
+      "name": "gpt-5.4-nano-high",
+      "performance": 10.44,
+      "rank": 329.0,
+      "provider": "OpenAI",
+      "family_order": null,
+      "improvement_abs": 0.0,
+      "improvement_pct": 0.0,
+      "predecessor": null
+    },
+    {
+      "name": "gpt-5.4-high",
+      "performance": 12.08,
+      "rank": 310.0,
+      "provider": "OpenAI",
+      "family_order": null,
+      "improvement_abs": 1.64,
+      "improvement_pct": 15.71,
+      "predecessor": "gpt-5.4-nano-high"
+    },
+    {
+      "name": "GPT-5 Codex (high)",
+      "performance": 56.55,
+      "rank": 116.0,
+      "provider": "OpenAI",
+      "family_order": null,
+      "improvement_abs": 44.47,
+      "improvement_pct": 368.13,
+      "predecessor": "gpt-5.4-high"
+    },
+    {
+      "name": "GPT-5.1 Codex (high)",
+      "performance": 58.76,
+      "rank": 107.0,
+      "provider": "OpenAI",
+      "family_order": null,
+      "improvement_abs": 2.21,
+      "improvement_pct": 3.91,
+      "predecessor": "GPT-5 Codex (high)"
+    },
+    {
+      "name": "GPT-5.2 Codex (xhigh)",
+      "performance": 62.52,
+      "rank": 105.0,
+      "provider": "OpenAI",
+      "family_order": null,
+      "improvement_abs": 3.76,
+      "improvement_pct": 6.4,
+      "predecessor": "GPT-5.1 Codex (high)"
+    },
+    {
+      "name": "GPT-5.1 (high)",
+      "performance": 63.17,
+      "rank": 39.0,
+      "provider": "OpenAI",
+      "family_order": null,
+      "improvement_abs": 0.65,
+      "improvement_pct": 1.04,
+      "predecessor": "GPT-5.2 Codex (xhigh)"
+    },
+    {
+      "name": "GPT-5.3 Codex (xhigh)",
+      "performance": 64.06,
+      "rank": 104.0,
+      "provider": "OpenAI",
+      "family_order": null,
+      "improvement_abs": 0.89,
+      "improvement_pct": 1.41,
+      "predecessor": "GPT-5.1 (high)"
+    },
+    {
+      "name": "GPT-5 (high)",
+      "performance": 64.31,
+      "rank": 33.0,
+      "provider": "OpenAI",
+      "family_order": null,
+      "improvement_abs": 0.25,
+      "improvement_pct": 0.39,
+      "predecessor": "GPT-5.3 Codex (xhigh)"
     }
   ],
   "GPT Mini": [
@@ -2403,9 +2425,9 @@
   ],
   "Meta Llama": [
     {
-      "name": "Llama 3.2 Instruct 11B (Vision)",
+      "name": "Llama 3.2 Instruct 1B",
       "performance": 0.0,
-      "rank": 304.0,
+      "rank": 305.0,
       "provider": "Meta",
       "family_order": null,
       "improvement_abs": 0.0,
@@ -2413,14 +2435,14 @@
       "predecessor": null
     },
     {
-      "name": "Llama 3.2 Instruct 1B",
+      "name": "Llama 3.2 Instruct 11B (Vision)",
       "performance": 0.0,
-      "rank": 305.0,
+      "rank": 304.0,
       "provider": "Meta",
       "family_order": null,
       "improvement_abs": 0.0,
       "improvement_pct": 0,
-      "predecessor": "Llama 3.2 Instruct 11B (Vision)"
+      "predecessor": "Llama 3.2 Instruct 1B"
     },
     {
       "name": "Llama 2 Chat 7B",
@@ -2430,7 +2452,7 @@
       "family_order": null,
       "improvement_abs": 0.0,
       "improvement_pct": 0,
-      "predecessor": "Llama 3.2 Instruct 1B"
+      "predecessor": "Llama 3.2 Instruct 11B (Vision)"
     },
     {
       "name": "Llama 3.2 Instruct 3B",
@@ -3251,28 +3273,6 @@
       "improvement_abs": 7.42,
       "improvement_pct": 20.26,
       "predecessor": "QwQ 32B-Preview"
-    }
-  ],
-  "GPT Medium": [
-    {
-      "name": "GPT-5 nano (medium)",
-      "performance": 43.88,
-      "rank": 78.0,
-      "provider": "OpenAI",
-      "family_order": null,
-      "improvement_abs": 0.0,
-      "improvement_pct": 0.0,
-      "predecessor": null
-    },
-    {
-      "name": "GPT-5.4 nano (medium)",
-      "performance": 44.51,
-      "rank": 157.0,
-      "provider": "OpenAI",
-      "family_order": null,
-      "improvement_abs": 0.63,
-      "improvement_pct": 1.44,
-      "predecessor": "GPT-5 nano (medium)"
     }
   ],
   "Microsoft": [
