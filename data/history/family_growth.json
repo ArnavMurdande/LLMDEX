@@ -1887,78 +1887,6 @@
       "predecessor": "claude-sonnet-4.5-20250929-thinking-32k"
     }
   ],
-  "OpenAI": [
-    {
-      "name": "o1-mini",
-      "performance": 9.07,
-      "rank": 265,
-      "provider": "OpenAI",
-      "family_order": null,
-      "improvement_abs": 0.0,
-      "improvement_pct": 0.0,
-      "predecessor": null
-    },
-    {
-      "name": "o3-mini",
-      "performance": 9.29,
-      "rank": 252,
-      "provider": "OpenAI",
-      "family_order": null,
-      "improvement_abs": 0.22,
-      "improvement_pct": 2.43,
-      "predecessor": "o1-mini"
-    },
-    {
-      "name": "o3-mini-high",
-      "performance": 9.62,
-      "rank": 240,
-      "provider": "OpenAI",
-      "family_order": null,
-      "improvement_abs": 0.33,
-      "improvement_pct": 3.55,
-      "predecessor": "o3-mini"
-    },
-    {
-      "name": "o1-preview",
-      "performance": 10.13,
-      "rank": 217,
-      "provider": "OpenAI",
-      "family_order": null,
-      "improvement_abs": 0.51,
-      "improvement_pct": 5.3,
-      "predecessor": "o3-mini-high"
-    },
-    {
-      "name": "o4-mini-2025-04-16",
-      "performance": 10.17,
-      "rank": 216,
-      "provider": "OpenAI",
-      "family_order": null,
-      "improvement_abs": 0.04,
-      "improvement_pct": 0.39,
-      "predecessor": "o1-preview"
-    },
-    {
-      "name": "o1-2024-12-17",
-      "performance": 10.42,
-      "rank": 202,
-      "provider": "OpenAI",
-      "family_order": null,
-      "improvement_abs": 0.25,
-      "improvement_pct": 2.46,
-      "predecessor": "o4-mini-2025-04-16"
-    },
-    {
-      "name": "o3",
-      "performance": 28.04,
-      "rank": 24,
-      "provider": "OpenAI",
-      "family_order": null,
-      "improvement_abs": 17.62,
-      "improvement_pct": 169.1,
-      "predecessor": "o1-2024-12-17"
-    }
-  ],
   "Meta Llama": [
     {
       "name": "Llama 3.3 70B",
@@ -2505,6 +2433,78 @@
       "predecessor": "DeepSeek R1 Distill Llama 70B"
     }
   ],
+  "OpenAI": [
+    {
+      "name": "o1-mini",
+      "performance": 9.07,
+      "rank": 265,
+      "provider": "OpenAI",
+      "family_order": null,
+      "improvement_abs": 0.0,
+      "improvement_pct": 0.0,
+      "predecessor": null
+    },
+    {
+      "name": "o3-mini",
+      "performance": 9.29,
+      "rank": 252,
+      "provider": "OpenAI",
+      "family_order": null,
+      "improvement_abs": 0.22,
+      "improvement_pct": 2.43,
+      "predecessor": "o1-mini"
+    },
+    {
+      "name": "o3-mini-high",
+      "performance": 9.62,
+      "rank": 240,
+      "provider": "OpenAI",
+      "family_order": null,
+      "improvement_abs": 0.33,
+      "improvement_pct": 3.55,
+      "predecessor": "o3-mini"
+    },
+    {
+      "name": "o1-preview",
+      "performance": 10.13,
+      "rank": 217,
+      "provider": "OpenAI",
+      "family_order": null,
+      "improvement_abs": 0.51,
+      "improvement_pct": 5.3,
+      "predecessor": "o3-mini-high"
+    },
+    {
+      "name": "o4-mini-2025-04-16",
+      "performance": 10.17,
+      "rank": 216,
+      "provider": "OpenAI",
+      "family_order": null,
+      "improvement_abs": 0.04,
+      "improvement_pct": 0.39,
+      "predecessor": "o1-preview"
+    },
+    {
+      "name": "o1-2024-12-17",
+      "performance": 10.42,
+      "rank": 202,
+      "provider": "OpenAI",
+      "family_order": null,
+      "improvement_abs": 0.25,
+      "improvement_pct": 2.46,
+      "predecessor": "o4-mini-2025-04-16"
+    },
+    {
+      "name": "o3",
+      "performance": 28.04,
+      "rank": 24,
+      "provider": "OpenAI",
+      "family_order": null,
+      "improvement_abs": 17.62,
+      "improvement_pct": 169.1,
+      "predecessor": "o1-2024-12-17"
+    }
+  ],
   "Claude Haiku": [
     {
       "name": "claude-3-haiku-20240307",
@@ -2735,24 +2735,14 @@
   ],
   "NVIDIA": [
     {
-      "name": "NVIDIA Nemotron Nano 9B V2",
-      "performance": 0.0,
-      "rank": 134,
-      "provider": null,
-      "family_order": null,
-      "improvement_abs": 0.0,
-      "improvement_pct": 0.0,
-      "predecessor": null
-    },
-    {
       "name": "NVIDIA Nemotron 3 Nano",
       "performance": 0.0,
       "rank": 131,
       "provider": null,
       "family_order": null,
       "improvement_abs": 0.0,
-      "improvement_pct": 0,
-      "predecessor": "NVIDIA Nemotron Nano 9B V2"
+      "improvement_pct": 0.0,
+      "predecessor": null
     },
     {
       "name": "NVIDIA Nemotron Nano 12B v2 VL",
@@ -2765,6 +2755,16 @@
       "predecessor": "NVIDIA Nemotron 3 Nano"
     },
     {
+      "name": "NVIDIA Nemotron Nano 9B V2",
+      "performance": 0.0,
+      "rank": 134,
+      "provider": null,
+      "family_order": null,
+      "improvement_abs": 0.0,
+      "improvement_pct": 0,
+      "predecessor": "NVIDIA Nemotron Nano 12B v2 VL"
+    },
+    {
       "name": "NVIDIA Nemotron 3 Nano 4B",
       "performance": 0.0,
       "rank": 132,
@@ -2772,7 +2772,7 @@
       "family_order": null,
       "improvement_abs": 0.0,
       "improvement_pct": 0,
-      "predecessor": "NVIDIA Nemotron Nano 12B v2 VL"
+      "predecessor": "NVIDIA Nemotron Nano 9B V2"
     },
     {
       "name": "NVIDIA Nemotron 3 Super",
@@ -2785,56 +2785,26 @@
       "predecessor": "NVIDIA Nemotron 3 Nano 4B"
     }
   ],
-  "GPT Mini": [
+  "Nemotron": [
     {
-      "name": "gpt-4o-mini-2024-07-18",
-      "performance": 8.67,
-      "rank": 289,
-      "provider": "OpenAI",
+      "name": "Nemotron 3 Nano Omni 30B A3B Reasoning",
+      "performance": 0.0,
+      "rank": 136,
+      "provider": null,
       "family_order": null,
       "improvement_abs": 0.0,
       "improvement_pct": 0.0,
       "predecessor": null
     },
     {
-      "name": "gpt-4.1-mini-2025-04-14",
-      "performance": 10.02,
-      "rank": 224,
-      "provider": "OpenAI",
+      "name": "Nemotron Cascade 2 30B A3B",
+      "performance": 3.29,
+      "rank": 72,
+      "provider": null,
       "family_order": null,
-      "improvement_abs": 1.35,
-      "improvement_pct": 15.57,
-      "predecessor": "gpt-4o-mini-2024-07-18"
-    },
-    {
-      "name": "gpt-5-mini-high",
-      "performance": 10.18,
-      "rank": 215,
-      "provider": "OpenAI",
-      "family_order": null,
-      "improvement_abs": 0.16,
-      "improvement_pct": 1.6,
-      "predecessor": "gpt-4.1-mini-2025-04-14"
-    },
-    {
-      "name": "gpt-5.4-mini-high",
-      "performance": 11.55,
-      "rank": 166,
-      "provider": "OpenAI",
-      "family_order": null,
-      "improvement_abs": 1.37,
-      "improvement_pct": 13.46,
-      "predecessor": "gpt-5-mini-high"
-    },
-    {
-      "name": "GPT-5.4 mini (xhigh)",
-      "performance": 13.46,
-      "rank": 59,
-      "provider": "OpenAI",
-      "family_order": null,
-      "improvement_abs": 1.91,
-      "improvement_pct": 16.54,
-      "predecessor": "gpt-5.4-mini-high"
+      "improvement_abs": 3.29,
+      "improvement_pct": 0,
+      "predecessor": "Nemotron 3 Nano Omni 30B A3B Reasoning"
     }
   ],
   "Ministral": [
@@ -2923,36 +2893,56 @@
       "predecessor": "Sarvam 30B (high)"
     }
   ],
-  "LFM2": [
+  "GPT Mini": [
     {
-      "name": "LFM2 24B A2B",
-      "performance": 0.0,
-      "rank": 108,
-      "provider": null,
+      "name": "gpt-4o-mini-2024-07-18",
+      "performance": 8.67,
+      "rank": 289,
+      "provider": "OpenAI",
       "family_order": null,
       "improvement_abs": 0.0,
       "improvement_pct": 0.0,
       "predecessor": null
     },
     {
-      "name": "LFM2 2.6B",
-      "performance": 0.0,
-      "rank": 107,
-      "provider": null,
+      "name": "gpt-4.1-mini-2025-04-14",
+      "performance": 10.02,
+      "rank": 224,
+      "provider": "OpenAI",
       "family_order": null,
-      "improvement_abs": 0.0,
-      "improvement_pct": 0,
-      "predecessor": "LFM2 24B A2B"
+      "improvement_abs": 1.35,
+      "improvement_pct": 15.57,
+      "predecessor": "gpt-4o-mini-2024-07-18"
     },
     {
-      "name": "LFM2 8B A1B",
-      "performance": 0.0,
-      "rank": 109,
-      "provider": null,
+      "name": "gpt-5-mini-high",
+      "performance": 10.18,
+      "rank": 215,
+      "provider": "OpenAI",
       "family_order": null,
-      "improvement_abs": 0.0,
-      "improvement_pct": 0,
-      "predecessor": "LFM2 2.6B"
+      "improvement_abs": 0.16,
+      "improvement_pct": 1.6,
+      "predecessor": "gpt-4.1-mini-2025-04-14"
+    },
+    {
+      "name": "gpt-5.4-mini-high",
+      "performance": 11.55,
+      "rank": 166,
+      "provider": "OpenAI",
+      "family_order": null,
+      "improvement_abs": 1.37,
+      "improvement_pct": 13.46,
+      "predecessor": "gpt-5-mini-high"
+    },
+    {
+      "name": "GPT-5.4 mini (xhigh)",
+      "performance": 13.46,
+      "rank": 59,
+      "provider": "OpenAI",
+      "family_order": null,
+      "improvement_abs": 1.91,
+      "improvement_pct": 16.54,
+      "predecessor": "gpt-5.4-mini-high"
     }
   ],
   "Magistral": [
@@ -3069,11 +3059,11 @@
       "predecessor": "Granite 4.0 350M"
     }
   ],
-  "Devstral": [
+  "LFM2": [
     {
-      "name": "Devstral 2",
+      "name": "LFM2 24B A2B",
       "performance": 0.0,
-      "rank": 83,
+      "rank": 108,
       "provider": null,
       "family_order": null,
       "improvement_abs": 0.0,
@@ -3081,14 +3071,46 @@
       "predecessor": null
     },
     {
+      "name": "LFM2 2.6B",
+      "performance": 0.0,
+      "rank": 107,
+      "provider": null,
+      "family_order": null,
+      "improvement_abs": 0.0,
+      "improvement_pct": 0,
+      "predecessor": "LFM2 24B A2B"
+    },
+    {
+      "name": "LFM2 8B A1B",
+      "performance": 0.0,
+      "rank": 109,
+      "provider": null,
+      "family_order": null,
+      "improvement_abs": 0.0,
+      "improvement_pct": 0,
+      "predecessor": "LFM2 2.6B"
+    }
+  ],
+  "Devstral": [
+    {
       "name": "Devstral Small 2",
       "performance": 0.0,
       "rank": 84,
       "provider": null,
       "family_order": null,
       "improvement_abs": 0.0,
+      "improvement_pct": 0.0,
+      "predecessor": null
+    },
+    {
+      "name": "Devstral 2",
+      "performance": 0.0,
+      "rank": 83,
+      "provider": null,
+      "family_order": null,
+      "improvement_abs": 0.0,
       "improvement_pct": 0,
-      "predecessor": "Devstral 2"
+      "predecessor": "Devstral Small 2"
     }
   ],
   "Jamba": [
@@ -3229,28 +3251,6 @@
       "improvement_abs": 5.46,
       "improvement_pct": 0,
       "predecessor": "EXAONE 4.0 32B"
-    }
-  ],
-  "Nemotron": [
-    {
-      "name": "Nemotron 3 Nano Omni 30B A3B Reasoning",
-      "performance": 0.0,
-      "rank": 136,
-      "provider": null,
-      "family_order": null,
-      "improvement_abs": 0.0,
-      "improvement_pct": 0.0,
-      "predecessor": null
-    },
-    {
-      "name": "Nemotron Cascade 2 30B A3B",
-      "performance": 3.29,
-      "rank": 72,
-      "provider": null,
-      "family_order": null,
-      "improvement_abs": 3.29,
-      "improvement_pct": 0,
-      "predecessor": "Nemotron 3 Nano Omni 30B A3B Reasoning"
     }
   ],
   "Solar": [
