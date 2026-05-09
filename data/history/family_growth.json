@@ -63,7 +63,7 @@
     {
       "name": "Gemini 2.5 Pro",
       "performance": 71.96,
-      "rank": 17.0,
+      "rank": 16.0,
       "provider": "Google",
       "family_order": null,
       "improvement_abs": 16.18,
@@ -125,7 +125,7 @@
     {
       "name": "Claude 4.1 Opus (Reasoning)",
       "performance": 68.39,
-      "rank": 34.0,
+      "rank": 33.0,
       "provider": "Anthropic",
       "family_order": null,
       "improvement_abs": 6.78,
@@ -135,7 +135,7 @@
     {
       "name": "Claude Opus 4.5 (Reasoning)",
       "performance": 71.82,
-      "rank": 19.0,
+      "rank": 18.0,
       "provider": "Anthropic",
       "family_order": null,
       "improvement_abs": 3.43,
@@ -145,7 +145,7 @@
     {
       "name": "Claude Opus 4.6 (Non-reasoning, High Effort)",
       "performance": 75.5,
-      "rank": 9.0,
+      "rank": 8.0,
       "provider": "Anthropic",
       "family_order": null,
       "improvement_abs": 3.68,
@@ -161,188 +161,6 @@
       "improvement_abs": 3.03,
       "improvement_pct": 4.01,
       "predecessor": "Claude Opus 4.6 (Non-reasoning, High Effort)"
-    }
-  ],
-  "xAI": [
-    {
-      "name": "grok-2-mini-2024-08-13",
-      "performance": 8.47,
-      "rank": 415.0,
-      "provider": "xAI",
-      "family_order": null,
-      "improvement_abs": 0.0,
-      "improvement_pct": 0.0,
-      "predecessor": null
-    },
-    {
-      "name": "grok-2-2024-08-13",
-      "performance": 9.04,
-      "rank": 391.0,
-      "provider": "xAI",
-      "family_order": null,
-      "improvement_abs": 0.57,
-      "improvement_pct": 6.73,
-      "predecessor": "grok-2-mini-2024-08-13"
-    },
-    {
-      "name": "grok-3-mini-beta",
-      "performance": 9.49,
-      "rank": 378.0,
-      "provider": "xAI",
-      "family_order": null,
-      "improvement_abs": 0.45,
-      "improvement_pct": 4.98,
-      "predecessor": "grok-2-2024-08-13"
-    },
-    {
-      "name": "grok-4.1-thinking",
-      "performance": 11.7,
-      "rank": 337.0,
-      "provider": "xAI",
-      "family_order": null,
-      "improvement_abs": 2.21,
-      "improvement_pct": 23.29,
-      "predecessor": "grok-3-mini-beta"
-    },
-    {
-      "name": "grok-4.20-multi-agent-beta-0309",
-      "performance": 11.93,
-      "rank": 333.0,
-      "provider": "xAI",
-      "family_order": null,
-      "improvement_abs": 0.23,
-      "improvement_pct": 1.97,
-      "predecessor": "grok-4.1-thinking"
-    },
-    {
-      "name": "grok-4.20-beta-0309-reasoning",
-      "performance": 11.98,
-      "rank": 331.0,
-      "provider": "xAI",
-      "family_order": null,
-      "improvement_abs": 0.05,
-      "improvement_pct": 0.42,
-      "predecessor": "grok-4.20-multi-agent-beta-0309"
-    },
-    {
-      "name": "grok-4.20-beta1",
-      "performance": 12.04,
-      "rank": 329.0,
-      "provider": "xAI",
-      "family_order": null,
-      "improvement_abs": 0.06,
-      "improvement_pct": 0.5,
-      "predecessor": "grok-4.20-beta-0309-reasoning"
-    },
-    {
-      "name": "Grok Beta",
-      "performance": 21.29,
-      "rank": 236.0,
-      "provider": "xAI",
-      "family_order": null,
-      "improvement_abs": 9.25,
-      "improvement_pct": 76.83,
-      "predecessor": "grok-4.20-beta1"
-    },
-    {
-      "name": "Grok 2 (Dec '24)",
-      "performance": 25.05,
-      "rank": 224.0,
-      "provider": "xAI",
-      "family_order": null,
-      "improvement_abs": 3.76,
-      "improvement_pct": 17.66,
-      "predecessor": "Grok Beta"
-    },
-    {
-      "name": "Grok Code Fast 1",
-      "performance": 45.95,
-      "rank": 160.0,
-      "provider": "xAI",
-      "family_order": null,
-      "improvement_abs": 20.9,
-      "improvement_pct": 83.43,
-      "predecessor": "Grok 2 (Dec '24)"
-    },
-    {
-      "name": "Grok 3",
-      "performance": 55.82,
-      "rank": 70.0,
-      "provider": "xAI",
-      "family_order": null,
-      "improvement_abs": 9.87,
-      "improvement_pct": 21.48,
-      "predecessor": "Grok Code Fast 1"
-    },
-    {
-      "name": "Grok 4.20 0309 (Reasoning)",
-      "performance": 56.35,
-      "rank": 126.0,
-      "provider": "xAI",
-      "family_order": null,
-      "improvement_abs": 0.53,
-      "improvement_pct": 0.95,
-      "predecessor": "Grok 3"
-    },
-    {
-      "name": "Grok 4.20 0309 v2 (Non-reasoning)",
-      "performance": 57.17,
-      "rank": 122.0,
-      "provider": "xAI",
-      "family_order": null,
-      "improvement_abs": 0.82,
-      "improvement_pct": 1.46,
-      "predecessor": "Grok 4.20 0309 (Reasoning)"
-    },
-    {
-      "name": "Grok 4 Fast (Non-reasoning)",
-      "performance": 59.25,
-      "rank": 62.0,
-      "provider": "xAI",
-      "family_order": null,
-      "improvement_abs": 2.08,
-      "improvement_pct": 3.64,
-      "predecessor": "Grok 4.20 0309 v2 (Non-reasoning)"
-    },
-    {
-      "name": "Grok 4.1 Fast (Reasoning)",
-      "performance": 61.53,
-      "rank": 56.0,
-      "provider": "xAI",
-      "family_order": null,
-      "improvement_abs": 2.28,
-      "improvement_pct": 3.85,
-      "predecessor": "Grok 4 Fast (Non-reasoning)"
-    },
-    {
-      "name": "Grok 3 mini Reasoning (high)",
-      "performance": 64.77,
-      "rank": 40.0,
-      "provider": "xAI",
-      "family_order": null,
-      "improvement_abs": 3.24,
-      "improvement_pct": 5.27,
-      "predecessor": "Grok 4.1 Fast (Reasoning)"
-    },
-    {
-      "name": "Grok 4",
-      "performance": 74.54,
-      "rank": 12.0,
-      "provider": "xAI",
-      "family_order": null,
-      "improvement_abs": 9.77,
-      "improvement_pct": 15.08,
-      "predecessor": "Grok 3 mini Reasoning (high)"
-    },
-    {
-      "name": "Grok 4.3",
-      "performance": 77.93,
-      "rank": 4.0,
-      "provider": "xAI",
-      "family_order": null,
-      "improvement_abs": 3.39,
-      "improvement_pct": 4.55,
-      "predecessor": "Grok 4"
     }
   ],
   "GPT High": [
@@ -439,7 +257,7 @@
     {
       "name": "GPT-5.2 (xhigh)",
       "performance": 70.24,
-      "rank": 26.0,
+      "rank": 25.0,
       "provider": "OpenAI",
       "family_order": null,
       "improvement_abs": 5.93,
@@ -449,7 +267,7 @@
     {
       "name": "GPT-5.5 (xhigh)",
       "performance": 77.65,
-      "rank": 5.0,
+      "rank": 4.0,
       "provider": "OpenAI",
       "family_order": null,
       "improvement_abs": 7.41,
@@ -491,7 +309,7 @@
     {
       "name": "Qwen3 Max (Preview)",
       "performance": 66.2,
-      "rank": 37.0,
+      "rank": 36.0,
       "provider": "Alibaba",
       "family_order": null,
       "improvement_abs": 21.98,
@@ -501,7 +319,7 @@
     {
       "name": "Qwen3.6 Max Preview",
       "performance": 76.65,
-      "rank": 7.0,
+      "rank": 6.0,
       "provider": "Alibaba",
       "family_order": null,
       "improvement_abs": 10.45,
@@ -543,7 +361,7 @@
     {
       "name": "Qwen3.6 Plus",
       "performance": 75.84,
-      "rank": 8.0,
+      "rank": 7.0,
       "provider": "Alibaba",
       "family_order": null,
       "improvement_abs": 20.35,
@@ -1085,7 +903,7 @@
     {
       "name": "Qwen3.5 35B A3B (Reasoning)",
       "performance": 69.69,
-      "rank": 29.0,
+      "rank": 28.0,
       "provider": "Alibaba",
       "family_order": null,
       "improvement_abs": 9.49,
@@ -1095,7 +913,7 @@
     {
       "name": "Qwen3.5 122B A10B (Non-reasoning)",
       "performance": 71.14,
-      "rank": 23.0,
+      "rank": 22.0,
       "provider": "Alibaba",
       "family_order": null,
       "improvement_abs": 1.45,
@@ -1105,7 +923,7 @@
     {
       "name": "Qwen3.5 27B (Reasoning)",
       "performance": 71.71,
-      "rank": 20.0,
+      "rank": 19.0,
       "provider": "Alibaba",
       "family_order": null,
       "improvement_abs": 0.57,
@@ -1115,7 +933,7 @@
     {
       "name": "Qwen3.5 397B A17B (Reasoning)",
       "performance": 75.29,
-      "rank": 10.0,
+      "rank": 9.0,
       "provider": "Alibaba",
       "family_order": null,
       "improvement_abs": 3.58,
@@ -1137,7 +955,7 @@
     {
       "name": "MiMo-V2.5-Pro",
       "performance": 69.25,
-      "rank": 32.0,
+      "rank": 31.0,
       "provider": "Xiaomi",
       "family_order": null,
       "improvement_abs": 5.12,
@@ -1147,7 +965,7 @@
     {
       "name": "MiMo-V2.5",
       "performance": 71.96,
-      "rank": 18.0,
+      "rank": 17.0,
       "provider": "Xiaomi",
       "family_order": null,
       "improvement_abs": 2.71,
@@ -1157,12 +975,194 @@
     {
       "name": "MiMo-V2-Pro",
       "performance": 74.59,
-      "rank": 11.0,
+      "rank": 10.0,
       "provider": "Xiaomi",
       "family_order": null,
       "improvement_abs": 2.63,
       "improvement_pct": 3.65,
       "predecessor": "MiMo-V2.5"
+    }
+  ],
+  "xAI": [
+    {
+      "name": "grok-2-mini-2024-08-13",
+      "performance": 8.47,
+      "rank": 415.0,
+      "provider": "xAI",
+      "family_order": null,
+      "improvement_abs": 0.0,
+      "improvement_pct": 0.0,
+      "predecessor": null
+    },
+    {
+      "name": "grok-2-2024-08-13",
+      "performance": 9.04,
+      "rank": 391.0,
+      "provider": "xAI",
+      "family_order": null,
+      "improvement_abs": 0.57,
+      "improvement_pct": 6.73,
+      "predecessor": "grok-2-mini-2024-08-13"
+    },
+    {
+      "name": "grok-3-mini-beta",
+      "performance": 9.49,
+      "rank": 378.0,
+      "provider": "xAI",
+      "family_order": null,
+      "improvement_abs": 0.45,
+      "improvement_pct": 4.98,
+      "predecessor": "grok-2-2024-08-13"
+    },
+    {
+      "name": "grok-4.1-thinking",
+      "performance": 11.7,
+      "rank": 337.0,
+      "provider": "xAI",
+      "family_order": null,
+      "improvement_abs": 2.21,
+      "improvement_pct": 23.29,
+      "predecessor": "grok-3-mini-beta"
+    },
+    {
+      "name": "grok-4.20-multi-agent-beta-0309",
+      "performance": 11.93,
+      "rank": 333.0,
+      "provider": "xAI",
+      "family_order": null,
+      "improvement_abs": 0.23,
+      "improvement_pct": 1.97,
+      "predecessor": "grok-4.1-thinking"
+    },
+    {
+      "name": "grok-4.20-beta-0309-reasoning",
+      "performance": 11.98,
+      "rank": 331.0,
+      "provider": "xAI",
+      "family_order": null,
+      "improvement_abs": 0.05,
+      "improvement_pct": 0.42,
+      "predecessor": "grok-4.20-multi-agent-beta-0309"
+    },
+    {
+      "name": "grok-4.20-beta1",
+      "performance": 12.04,
+      "rank": 329.0,
+      "provider": "xAI",
+      "family_order": null,
+      "improvement_abs": 0.06,
+      "improvement_pct": 0.5,
+      "predecessor": "grok-4.20-beta-0309-reasoning"
+    },
+    {
+      "name": "Grok Beta",
+      "performance": 21.29,
+      "rank": 236.0,
+      "provider": "xAI",
+      "family_order": null,
+      "improvement_abs": 9.25,
+      "improvement_pct": 76.83,
+      "predecessor": "grok-4.20-beta1"
+    },
+    {
+      "name": "Grok 2 (Dec '24)",
+      "performance": 25.05,
+      "rank": 224.0,
+      "provider": "xAI",
+      "family_order": null,
+      "improvement_abs": 3.76,
+      "improvement_pct": 17.66,
+      "predecessor": "Grok Beta"
+    },
+    {
+      "name": "Grok Code Fast 1",
+      "performance": 45.95,
+      "rank": 160.0,
+      "provider": "xAI",
+      "family_order": null,
+      "improvement_abs": 20.9,
+      "improvement_pct": 83.43,
+      "predecessor": "Grok 2 (Dec '24)"
+    },
+    {
+      "name": "Grok 3",
+      "performance": 55.82,
+      "rank": 70.0,
+      "provider": "xAI",
+      "family_order": null,
+      "improvement_abs": 9.87,
+      "improvement_pct": 21.48,
+      "predecessor": "Grok Code Fast 1"
+    },
+    {
+      "name": "Grok 4.20 0309 (Reasoning)",
+      "performance": 56.35,
+      "rank": 126.0,
+      "provider": "xAI",
+      "family_order": null,
+      "improvement_abs": 0.53,
+      "improvement_pct": 0.95,
+      "predecessor": "Grok 3"
+    },
+    {
+      "name": "Grok 4.20 0309 v2 (Non-reasoning)",
+      "performance": 57.17,
+      "rank": 122.0,
+      "provider": "xAI",
+      "family_order": null,
+      "improvement_abs": 0.82,
+      "improvement_pct": 1.46,
+      "predecessor": "Grok 4.20 0309 (Reasoning)"
+    },
+    {
+      "name": "Grok 4 Fast (Non-reasoning)",
+      "performance": 59.25,
+      "rank": 62.0,
+      "provider": "xAI",
+      "family_order": null,
+      "improvement_abs": 2.08,
+      "improvement_pct": 3.64,
+      "predecessor": "Grok 4.20 0309 v2 (Non-reasoning)"
+    },
+    {
+      "name": "Grok 4.1 Fast (Reasoning)",
+      "performance": 61.53,
+      "rank": 56.0,
+      "provider": "xAI",
+      "family_order": null,
+      "improvement_abs": 2.28,
+      "improvement_pct": 3.85,
+      "predecessor": "Grok 4 Fast (Non-reasoning)"
+    },
+    {
+      "name": "Grok 3 mini Reasoning (high)",
+      "performance": 64.77,
+      "rank": 40.0,
+      "provider": "xAI",
+      "family_order": null,
+      "improvement_abs": 3.24,
+      "improvement_pct": 5.27,
+      "predecessor": "Grok 4.1 Fast (Reasoning)"
+    },
+    {
+      "name": "Grok 4.3 (Non-reasoning)",
+      "performance": 65.54,
+      "rank": 38.0,
+      "provider": "xAI",
+      "family_order": null,
+      "improvement_abs": 0.77,
+      "improvement_pct": 1.19,
+      "predecessor": "Grok 3 mini Reasoning (high)"
+    },
+    {
+      "name": "Grok 4",
+      "performance": 74.54,
+      "rank": 11.0,
+      "provider": "xAI",
+      "family_order": null,
+      "improvement_abs": 9.0,
+      "improvement_pct": 13.73,
+      "predecessor": "Grok 4.3 (Non-reasoning)"
     }
   ],
   "MiniMax": [
@@ -1229,7 +1229,7 @@
     {
       "name": "MiniMax-M2.5",
       "performance": 71.26,
-      "rank": 22.0,
+      "rank": 21.0,
       "provider": "MiniMax",
       "family_order": null,
       "improvement_abs": 8.24,
@@ -1239,7 +1239,7 @@
     {
       "name": "MiniMax-M2.7",
       "performance": 74.18,
-      "rank": 13.0,
+      "rank": 12.0,
       "provider": "MiniMax",
       "family_order": null,
       "improvement_abs": 2.92,
@@ -1331,7 +1331,7 @@
     {
       "name": "GLM-5.1 (Reasoning)",
       "performance": 73.42,
-      "rank": 14.0,
+      "rank": 13.0,
       "provider": "Z.ai",
       "family_order": null,
       "improvement_abs": 8.54,
@@ -1403,7 +1403,7 @@
     {
       "name": "Kimi K2.5 (Reasoning)",
       "performance": 70.97,
-      "rank": 24.0,
+      "rank": 23.0,
       "provider": "Moonshot",
       "family_order": null,
       "improvement_abs": 7.59,
@@ -1413,7 +1413,7 @@
     {
       "name": "Kimi K2.6",
       "performance": 72.82,
-      "rank": 15.0,
+      "rank": 14.0,
       "provider": "Moonshot",
       "family_order": null,
       "improvement_abs": 1.85,
@@ -1605,7 +1605,7 @@
     {
       "name": "GPT-5.4 (Non-reasoning)",
       "performance": 72.61,
-      "rank": 16.0,
+      "rank": 15.0,
       "provider": "OpenAI",
       "family_order": null,
       "improvement_abs": 14.55,
@@ -1707,7 +1707,7 @@
     {
       "name": "DeepSeek V3.2 (Non-reasoning)",
       "performance": 66.5,
-      "rank": 36.0,
+      "rank": 35.0,
       "provider": "DeepSeek",
       "family_order": null,
       "improvement_abs": 3.31,
@@ -1717,7 +1717,7 @@
     {
       "name": "DeepSeek V3.2 Exp (Non-reasoning)",
       "performance": 67.19,
-      "rank": 35.0,
+      "rank": 34.0,
       "provider": "DeepSeek",
       "family_order": null,
       "improvement_abs": 0.69,
@@ -1727,7 +1727,7 @@
     {
       "name": "DeepSeek V4 Flash (Reasoning, High Effort)",
       "performance": 69.79,
-      "rank": 28.0,
+      "rank": 27.0,
       "provider": "DeepSeek",
       "family_order": null,
       "improvement_abs": 2.6,
@@ -1737,7 +1737,7 @@
     {
       "name": "DeepSeek V4 Pro (Reasoning, High Effort)",
       "performance": 71.53,
-      "rank": 21.0,
+      "rank": 20.0,
       "provider": "DeepSeek",
       "family_order": null,
       "improvement_abs": 1.74,
@@ -1849,7 +1849,7 @@
     {
       "name": "Claude Sonnet 4.6 (Non-reasoning, High Effort)",
       "performance": 70.27,
-      "rank": 25.0,
+      "rank": 24.0,
       "provider": "Anthropic",
       "family_order": null,
       "improvement_abs": 13.16,
@@ -1931,7 +1931,7 @@
     {
       "name": "o3",
       "performance": 69.89,
-      "rank": 27.0,
+      "rank": 26.0,
       "provider": "OpenAI",
       "family_order": null,
       "improvement_abs": 5.25,
@@ -2093,7 +2093,7 @@
     {
       "name": "Gemini 3.1 Flash-Lite Preview",
       "performance": 69.53,
-      "rank": 30.0,
+      "rank": 29.0,
       "provider": "Google",
       "family_order": null,
       "improvement_abs": 9.36,
@@ -2135,7 +2135,7 @@
     {
       "name": "Step 3.5 Flash",
       "performance": 69.51,
-      "rank": 31.0,
+      "rank": 30.0,
       "provider": "StepFun",
       "family_order": null,
       "improvement_abs": 60.2,
@@ -2377,7 +2377,7 @@
     {
       "name": "Gemma 4 31B (Reasoning)",
       "performance": 68.57,
-      "rank": 33.0,
+      "rank": 32.0,
       "provider": "Google",
       "family_order": null,
       "improvement_abs": 6.09,
@@ -2409,7 +2409,7 @@
     {
       "name": "NVIDIA Nemotron 3 Super 120B A12B (Reasoning)",
       "performance": 65.68,
-      "rank": 38.0,
+      "rank": 37.0,
       "provider": "Nvidia",
       "family_order": null,
       "improvement_abs": 57.02,
