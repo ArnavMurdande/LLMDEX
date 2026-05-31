@@ -287,48 +287,6 @@
       "predecessor": "minimax-m2.5"
     }
   ],
-  "Qwen Plus": [
-    {
-      "name": "qwen2.5-plus-1127",
-      "performance": 8.62,
-      "rank": 293,
-      "provider": "Alibaba",
-      "family_order": null,
-      "improvement_abs": 0.0,
-      "improvement_pct": 0.0,
-      "predecessor": null
-    },
-    {
-      "name": "qwen-plus-0125",
-      "performance": 9.27,
-      "rank": 257,
-      "provider": "Alibaba",
-      "family_order": null,
-      "improvement_abs": 0.65,
-      "improvement_pct": 7.54,
-      "predecessor": "qwen2.5-plus-1127"
-    },
-    {
-      "name": "Qwen3.5 Omni Plus",
-      "performance": 16.15,
-      "rank": 51,
-      "provider": "Alibaba",
-      "family_order": null,
-      "improvement_abs": 6.88,
-      "improvement_pct": 74.22,
-      "predecessor": "qwen-plus-0125"
-    },
-    {
-      "name": "Qwen3.6 Plus",
-      "performance": 42.91,
-      "rank": 9,
-      "provider": "Alibaba",
-      "family_order": null,
-      "improvement_abs": 26.76,
-      "improvement_pct": 165.7,
-      "predecessor": "Qwen3.5 Omni Plus"
-    }
-  ],
   "Claude Opus": [
     {
       "name": "claude-3-opus-20240229",
@@ -409,6 +367,48 @@
       "improvement_abs": 7.99,
       "improvement_pct": 19.24,
       "predecessor": "Claude Opus 4.8 (max)"
+    }
+  ],
+  "Qwen Plus": [
+    {
+      "name": "qwen2.5-plus-1127",
+      "performance": 8.62,
+      "rank": 293,
+      "provider": "Alibaba",
+      "family_order": null,
+      "improvement_abs": 0.0,
+      "improvement_pct": 0.0,
+      "predecessor": null
+    },
+    {
+      "name": "qwen-plus-0125",
+      "performance": 9.27,
+      "rank": 257,
+      "provider": "Alibaba",
+      "family_order": null,
+      "improvement_abs": 0.65,
+      "improvement_pct": 7.54,
+      "predecessor": "qwen2.5-plus-1127"
+    },
+    {
+      "name": "Qwen3.5 Omni Plus",
+      "performance": 16.15,
+      "rank": 51,
+      "provider": "Alibaba",
+      "family_order": null,
+      "improvement_abs": 6.88,
+      "improvement_pct": 74.22,
+      "predecessor": "qwen-plus-0125"
+    },
+    {
+      "name": "Qwen3.6 Plus",
+      "performance": 42.91,
+      "rank": 9,
+      "provider": "Alibaba",
+      "family_order": null,
+      "improvement_abs": 26.76,
+      "improvement_pct": 165.7,
+      "predecessor": "Qwen3.5 Omni Plus"
     }
   ],
   "DeepSeek V/Coder": [
@@ -1223,6 +1223,138 @@
       "predecessor": "gemini-3-flash (thinking-minimal)"
     }
   ],
+  "xAI": [
+    {
+      "name": "grok-2-mini-2024-08-13",
+      "performance": 8.48,
+      "rank": 299,
+      "provider": "xAI",
+      "family_order": null,
+      "improvement_abs": 0.0,
+      "improvement_pct": 0.0,
+      "predecessor": null
+    },
+    {
+      "name": "grok-2-2024-08-13",
+      "performance": 9.05,
+      "rank": 268,
+      "provider": "xAI",
+      "family_order": null,
+      "improvement_abs": 0.57,
+      "improvement_pct": 6.72,
+      "predecessor": "grok-2-mini-2024-08-13"
+    },
+    {
+      "name": "grok-3-mini-beta",
+      "performance": 9.5,
+      "rank": 245,
+      "provider": "xAI",
+      "family_order": null,
+      "improvement_abs": 0.45,
+      "improvement_pct": 4.97,
+      "predecessor": "grok-2-2024-08-13"
+    },
+    {
+      "name": "grok-3-mini-high",
+      "performance": 9.59,
+      "rank": 240,
+      "provider": "xAI",
+      "family_order": null,
+      "improvement_abs": 0.09,
+      "improvement_pct": 0.95,
+      "predecessor": "grok-3-mini-beta"
+    },
+    {
+      "name": "grok-4-0709",
+      "performance": 10.59,
+      "rank": 197,
+      "provider": "xAI",
+      "family_order": null,
+      "improvement_abs": 1.0,
+      "improvement_pct": 10.43,
+      "predecessor": "grok-3-mini-high"
+    },
+    {
+      "name": "grok-3-preview-02-24",
+      "performance": 10.63,
+      "rank": 194,
+      "provider": "xAI",
+      "family_order": null,
+      "improvement_abs": 0.04,
+      "improvement_pct": 0.38,
+      "predecessor": "grok-4-0709"
+    },
+    {
+      "name": "grok-4-fast-chat",
+      "performance": 10.65,
+      "rank": 193,
+      "provider": "xAI",
+      "family_order": null,
+      "improvement_abs": 0.02,
+      "improvement_pct": 0.19,
+      "predecessor": "grok-3-preview-02-24"
+    },
+    {
+      "name": "grok-4.1-fast-reasoning",
+      "performance": 11.03,
+      "rank": 178,
+      "provider": "xAI",
+      "family_order": null,
+      "improvement_abs": 0.38,
+      "improvement_pct": 3.57,
+      "predecessor": "grok-4-fast-chat"
+    },
+    {
+      "name": "grok-4.1-thinking",
+      "performance": 11.7,
+      "rank": 157,
+      "provider": "xAI",
+      "family_order": null,
+      "improvement_abs": 0.67,
+      "improvement_pct": 6.07,
+      "predecessor": "grok-4.1-fast-reasoning"
+    },
+    {
+      "name": "grok-4.20-multi-agent-beta-0309",
+      "performance": 11.89,
+      "rank": 151,
+      "provider": "xAI",
+      "family_order": null,
+      "improvement_abs": 0.19,
+      "improvement_pct": 1.62,
+      "predecessor": "grok-4.1-thinking"
+    },
+    {
+      "name": "grok-4.20-beta-0309-reasoning",
+      "performance": 11.94,
+      "rank": 149,
+      "provider": "xAI",
+      "family_order": null,
+      "improvement_abs": 0.05,
+      "improvement_pct": 0.42,
+      "predecessor": "grok-4.20-multi-agent-beta-0309"
+    },
+    {
+      "name": "grok-4.20-beta1",
+      "performance": 11.97,
+      "rank": 148,
+      "provider": "xAI",
+      "family_order": null,
+      "improvement_abs": 0.03,
+      "improvement_pct": 0.25,
+      "predecessor": "grok-4.20-beta-0309-reasoning"
+    },
+    {
+      "name": "Grok 4.3 (high)",
+      "performance": 35.99,
+      "rank": 15,
+      "provider": "xAI",
+      "family_order": null,
+      "improvement_abs": 24.02,
+      "improvement_pct": 200.67,
+      "predecessor": "grok-4.20-beta1"
+    }
+  ],
   "Google": [
     {
       "name": "Gemma 4 E4B",
@@ -1395,138 +1527,6 @@
       "predecessor": "Gemma 4 26B A4B"
     }
   ],
-  "xAI": [
-    {
-      "name": "grok-2-mini-2024-08-13",
-      "performance": 8.48,
-      "rank": 299,
-      "provider": "xAI",
-      "family_order": null,
-      "improvement_abs": 0.0,
-      "improvement_pct": 0.0,
-      "predecessor": null
-    },
-    {
-      "name": "grok-2-2024-08-13",
-      "performance": 9.05,
-      "rank": 268,
-      "provider": "xAI",
-      "family_order": null,
-      "improvement_abs": 0.57,
-      "improvement_pct": 6.72,
-      "predecessor": "grok-2-mini-2024-08-13"
-    },
-    {
-      "name": "grok-3-mini-beta",
-      "performance": 9.5,
-      "rank": 245,
-      "provider": "xAI",
-      "family_order": null,
-      "improvement_abs": 0.45,
-      "improvement_pct": 4.97,
-      "predecessor": "grok-2-2024-08-13"
-    },
-    {
-      "name": "grok-3-mini-high",
-      "performance": 9.59,
-      "rank": 240,
-      "provider": "xAI",
-      "family_order": null,
-      "improvement_abs": 0.09,
-      "improvement_pct": 0.95,
-      "predecessor": "grok-3-mini-beta"
-    },
-    {
-      "name": "grok-4-0709",
-      "performance": 10.59,
-      "rank": 197,
-      "provider": "xAI",
-      "family_order": null,
-      "improvement_abs": 1.0,
-      "improvement_pct": 10.43,
-      "predecessor": "grok-3-mini-high"
-    },
-    {
-      "name": "grok-3-preview-02-24",
-      "performance": 10.63,
-      "rank": 194,
-      "provider": "xAI",
-      "family_order": null,
-      "improvement_abs": 0.04,
-      "improvement_pct": 0.38,
-      "predecessor": "grok-4-0709"
-    },
-    {
-      "name": "grok-4-fast-chat",
-      "performance": 10.65,
-      "rank": 193,
-      "provider": "xAI",
-      "family_order": null,
-      "improvement_abs": 0.02,
-      "improvement_pct": 0.19,
-      "predecessor": "grok-3-preview-02-24"
-    },
-    {
-      "name": "grok-4.1-fast-reasoning",
-      "performance": 11.03,
-      "rank": 178,
-      "provider": "xAI",
-      "family_order": null,
-      "improvement_abs": 0.38,
-      "improvement_pct": 3.57,
-      "predecessor": "grok-4-fast-chat"
-    },
-    {
-      "name": "grok-4.1-thinking",
-      "performance": 11.7,
-      "rank": 157,
-      "provider": "xAI",
-      "family_order": null,
-      "improvement_abs": 0.67,
-      "improvement_pct": 6.07,
-      "predecessor": "grok-4.1-fast-reasoning"
-    },
-    {
-      "name": "grok-4.20-multi-agent-beta-0309",
-      "performance": 11.89,
-      "rank": 151,
-      "provider": "xAI",
-      "family_order": null,
-      "improvement_abs": 0.19,
-      "improvement_pct": 1.62,
-      "predecessor": "grok-4.1-thinking"
-    },
-    {
-      "name": "grok-4.20-beta-0309-reasoning",
-      "performance": 11.94,
-      "rank": 149,
-      "provider": "xAI",
-      "family_order": null,
-      "improvement_abs": 0.05,
-      "improvement_pct": 0.42,
-      "predecessor": "grok-4.20-multi-agent-beta-0309"
-    },
-    {
-      "name": "grok-4.20-beta1",
-      "performance": 11.97,
-      "rank": 148,
-      "provider": "xAI",
-      "family_order": null,
-      "improvement_abs": 0.03,
-      "improvement_pct": 0.25,
-      "predecessor": "grok-4.20-beta-0309-reasoning"
-    },
-    {
-      "name": "Grok 4.3 (high)",
-      "performance": 35.99,
-      "rank": 15,
-      "provider": "xAI",
-      "family_order": null,
-      "improvement_abs": 24.02,
-      "improvement_pct": 200.67,
-      "predecessor": "grok-4.20-beta1"
-    }
-  ],
   "GPT High": [
     {
       "name": "gpt-5-nano-high",
@@ -1661,6 +1661,78 @@
       "predecessor": "trinity-large-preview"
     }
   ],
+  "OpenAI": [
+    {
+      "name": "o1-mini",
+      "performance": 9.07,
+      "rank": 266,
+      "provider": "OpenAI",
+      "family_order": null,
+      "improvement_abs": 0.0,
+      "improvement_pct": 0.0,
+      "predecessor": null
+    },
+    {
+      "name": "o3-mini",
+      "performance": 9.3,
+      "rank": 252,
+      "provider": "OpenAI",
+      "family_order": null,
+      "improvement_abs": 0.23,
+      "improvement_pct": 2.54,
+      "predecessor": "o1-mini"
+    },
+    {
+      "name": "o3-mini-high",
+      "performance": 9.62,
+      "rank": 239,
+      "provider": "OpenAI",
+      "family_order": null,
+      "improvement_abs": 0.32,
+      "improvement_pct": 3.44,
+      "predecessor": "o3-mini"
+    },
+    {
+      "name": "o1-preview",
+      "performance": 10.13,
+      "rank": 216,
+      "provider": "OpenAI",
+      "family_order": null,
+      "improvement_abs": 0.51,
+      "improvement_pct": 5.3,
+      "predecessor": "o3-mini-high"
+    },
+    {
+      "name": "o4-mini-2025-04-16",
+      "performance": 10.18,
+      "rank": 215,
+      "provider": "OpenAI",
+      "family_order": null,
+      "improvement_abs": 0.05,
+      "improvement_pct": 0.49,
+      "predecessor": "o1-preview"
+    },
+    {
+      "name": "o1-2024-12-17",
+      "performance": 10.42,
+      "rank": 202,
+      "provider": "OpenAI",
+      "family_order": null,
+      "improvement_abs": 0.24,
+      "improvement_pct": 2.36,
+      "predecessor": "o4-mini-2025-04-16"
+    },
+    {
+      "name": "o3",
+      "performance": 28.04,
+      "rank": 21,
+      "provider": "OpenAI",
+      "family_order": null,
+      "improvement_abs": 17.62,
+      "improvement_pct": 169.1,
+      "predecessor": "o1-2024-12-17"
+    }
+  ],
   "Claude Sonnet": [
     {
       "name": "claude-3-sonnet-20240229",
@@ -1741,78 +1813,6 @@
       "improvement_abs": 27.52,
       "improvement_pct": 238.68,
       "predecessor": "claude-sonnet-4.5-20250929"
-    }
-  ],
-  "OpenAI": [
-    {
-      "name": "o1-mini",
-      "performance": 9.07,
-      "rank": 266,
-      "provider": "OpenAI",
-      "family_order": null,
-      "improvement_abs": 0.0,
-      "improvement_pct": 0.0,
-      "predecessor": null
-    },
-    {
-      "name": "o3-mini",
-      "performance": 9.3,
-      "rank": 252,
-      "provider": "OpenAI",
-      "family_order": null,
-      "improvement_abs": 0.23,
-      "improvement_pct": 2.54,
-      "predecessor": "o1-mini"
-    },
-    {
-      "name": "o3-mini-high",
-      "performance": 9.62,
-      "rank": 239,
-      "provider": "OpenAI",
-      "family_order": null,
-      "improvement_abs": 0.32,
-      "improvement_pct": 3.44,
-      "predecessor": "o3-mini"
-    },
-    {
-      "name": "o1-preview",
-      "performance": 10.13,
-      "rank": 216,
-      "provider": "OpenAI",
-      "family_order": null,
-      "improvement_abs": 0.51,
-      "improvement_pct": 5.3,
-      "predecessor": "o3-mini-high"
-    },
-    {
-      "name": "o4-mini-2025-04-16",
-      "performance": 10.18,
-      "rank": 215,
-      "provider": "OpenAI",
-      "family_order": null,
-      "improvement_abs": 0.05,
-      "improvement_pct": 0.49,
-      "predecessor": "o1-preview"
-    },
-    {
-      "name": "o1-2024-12-17",
-      "performance": 10.42,
-      "rank": 202,
-      "provider": "OpenAI",
-      "family_order": null,
-      "improvement_abs": 0.24,
-      "improvement_pct": 2.36,
-      "predecessor": "o4-mini-2025-04-16"
-    },
-    {
-      "name": "o3",
-      "performance": 28.04,
-      "rank": 21,
-      "provider": "OpenAI",
-      "family_order": null,
-      "improvement_abs": 17.62,
-      "improvement_pct": 169.1,
-      "predecessor": "o1-2024-12-17"
     }
   ],
   "Amazon": [
