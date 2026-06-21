@@ -659,7 +659,7 @@
     {
       "name": "Gemini 3.1 Pro Preview",
       "performance": 39.03,
-      "rank": 5,
+      "rank": 6,
       "provider": "Google",
       "family_order": null,
       "improvement_abs": 24.01,
@@ -770,12 +770,12 @@
     },
     {
       "name": "GPT-5.5 (xhigh)",
-      "performance": 38.77,
-      "rank": 6,
+      "performance": 40.22,
+      "rank": 5,
       "provider": "OpenAI",
       "family_order": null,
-      "improvement_abs": 16.85,
-      "improvement_pct": 76.87,
+      "improvement_abs": 18.3,
+      "improvement_pct": 83.49,
       "predecessor": "GPT-5.3 Codex (xhigh)"
     }
   ],
@@ -1385,158 +1385,6 @@
       "predecessor": "Qwen3.5 122B A10B"
     }
   ],
-  "Amazon": [
-    {
-      "name": "HyperNova 60B 2605",
-      "performance": 0.0,
-      "rank": 88,
-      "provider": "Amazon",
-      "family_order": null,
-      "improvement_abs": 0.0,
-      "improvement_pct": 0.0,
-      "predecessor": null
-    },
-    {
-      "name": "Nova 2.0 Omni (medium)",
-      "performance": 0.0,
-      "rank": 132,
-      "provider": "Amazon",
-      "family_order": null,
-      "improvement_abs": 0.0,
-      "improvement_pct": 0,
-      "predecessor": "HyperNova 60B 2605"
-    },
-    {
-      "name": "Nova Premier",
-      "performance": 0.0,
-      "rank": 134,
-      "provider": "Amazon",
-      "family_order": null,
-      "improvement_abs": 0.0,
-      "improvement_pct": 0,
-      "predecessor": "Nova 2.0 Omni (medium)"
-    },
-    {
-      "name": "Nova 2.0 Pro Preview (medium)",
-      "performance": 0.0,
-      "rank": 133,
-      "provider": "Amazon",
-      "family_order": null,
-      "improvement_abs": 0.0,
-      "improvement_pct": 0,
-      "predecessor": "Nova Premier"
-    },
-    {
-      "name": "Nova 2.0 Lite (high)",
-      "performance": 0.0,
-      "rank": 131,
-      "provider": "Amazon",
-      "family_order": null,
-      "improvement_abs": 0.0,
-      "improvement_pct": 0,
-      "predecessor": "Nova 2.0 Pro Preview (medium)"
-    },
-    {
-      "name": "amazon-nova-lite-v1.0",
-      "performance": 7.48,
-      "rank": 351,
-      "provider": "Amazon",
-      "family_order": null,
-      "improvement_abs": 7.48,
-      "improvement_pct": 0,
-      "predecessor": "Nova 2.0 Lite (high)"
-    },
-    {
-      "name": "Nova Micro",
-      "performance": 7.86,
-      "rank": 44,
-      "provider": "Amazon",
-      "family_order": null,
-      "improvement_abs": 0.38,
-      "improvement_pct": 5.08,
-      "predecessor": "amazon-nova-lite-v1.0"
-    },
-    {
-      "name": "amazon-nova-pro-v1.0",
-      "performance": 8.1,
-      "rank": 326,
-      "provider": "Amazon",
-      "family_order": null,
-      "improvement_abs": 0.24,
-      "improvement_pct": 3.05,
-      "predecessor": "Nova Micro"
-    },
-    {
-      "name": "nova-2-lite",
-      "performance": 9.08,
-      "rank": 278,
-      "provider": "Amazon",
-      "family_order": null,
-      "improvement_abs": 0.98,
-      "improvement_pct": 12.1,
-      "predecessor": "amazon-nova-pro-v1.0"
-    },
-    {
-      "name": "amazon-nova-experimental-chat-10-09",
-      "performance": 9.3,
-      "rank": 264,
-      "provider": "Amazon",
-      "family_order": null,
-      "improvement_abs": 0.22,
-      "improvement_pct": 2.42,
-      "predecessor": "nova-2-lite"
-    },
-    {
-      "name": "amazon-nova-experimental-chat-10-20",
-      "performance": 9.35,
-      "rank": 261,
-      "provider": "Amazon",
-      "family_order": null,
-      "improvement_abs": 0.05,
-      "improvement_pct": 0.54,
-      "predecessor": "amazon-nova-experimental-chat-10-09"
-    },
-    {
-      "name": "amazon-nova-experimental-chat-11-10",
-      "performance": 9.69,
-      "rank": 249,
-      "provider": "Amazon",
-      "family_order": null,
-      "improvement_abs": 0.34,
-      "improvement_pct": 3.64,
-      "predecessor": "amazon-nova-experimental-chat-10-20"
-    },
-    {
-      "name": "amazon-nova-experimental-chat-12-10",
-      "performance": 10.27,
-      "rank": 223,
-      "provider": "Amazon",
-      "family_order": null,
-      "improvement_abs": 0.58,
-      "improvement_pct": 5.99,
-      "predecessor": "amazon-nova-experimental-chat-11-10"
-    },
-    {
-      "name": "amazon-nova-experimental-chat-26-01-10",
-      "performance": 10.71,
-      "rank": 202,
-      "provider": "Amazon",
-      "family_order": null,
-      "improvement_abs": 0.44,
-      "improvement_pct": 4.28,
-      "predecessor": "amazon-nova-experimental-chat-12-10"
-    },
-    {
-      "name": "amazon-nova-experimental-chat-26-02-10",
-      "performance": 10.95,
-      "rank": 194,
-      "provider": "Amazon",
-      "family_order": null,
-      "improvement_abs": 0.24,
-      "improvement_pct": 2.24,
-      "predecessor": "amazon-nova-experimental-chat-26-01-10"
-    }
-  ],
   "Mistral AI": [
     {
       "name": "Mistral Small 4",
@@ -1717,6 +1565,180 @@
       "improvement_abs": 6.31,
       "improvement_pct": 53.03,
       "predecessor": "Mistral Large 3"
+    }
+  ],
+  "Amazon": [
+    {
+      "name": "HyperNova 60B 2605",
+      "performance": 0.0,
+      "rank": 88,
+      "provider": "Amazon",
+      "family_order": null,
+      "improvement_abs": 0.0,
+      "improvement_pct": 0.0,
+      "predecessor": null
+    },
+    {
+      "name": "Nova 2.0 Omni (medium)",
+      "performance": 0.0,
+      "rank": 132,
+      "provider": "Amazon",
+      "family_order": null,
+      "improvement_abs": 0.0,
+      "improvement_pct": 0,
+      "predecessor": "HyperNova 60B 2605"
+    },
+    {
+      "name": "Nova Premier",
+      "performance": 0.0,
+      "rank": 134,
+      "provider": "Amazon",
+      "family_order": null,
+      "improvement_abs": 0.0,
+      "improvement_pct": 0,
+      "predecessor": "Nova 2.0 Omni (medium)"
+    },
+    {
+      "name": "Nova 2.0 Pro Preview (medium)",
+      "performance": 0.0,
+      "rank": 133,
+      "provider": "Amazon",
+      "family_order": null,
+      "improvement_abs": 0.0,
+      "improvement_pct": 0,
+      "predecessor": "Nova Premier"
+    },
+    {
+      "name": "Nova 2.0 Lite (high)",
+      "performance": 0.0,
+      "rank": 131,
+      "provider": "Amazon",
+      "family_order": null,
+      "improvement_abs": 0.0,
+      "improvement_pct": 0,
+      "predecessor": "Nova 2.0 Pro Preview (medium)"
+    },
+    {
+      "name": "amazon-nova-lite-v1.0",
+      "performance": 7.48,
+      "rank": 351,
+      "provider": "Amazon",
+      "family_order": null,
+      "improvement_abs": 7.48,
+      "improvement_pct": 0,
+      "predecessor": "Nova 2.0 Lite (high)"
+    },
+    {
+      "name": "Nova Micro",
+      "performance": 7.86,
+      "rank": 44,
+      "provider": "Amazon",
+      "family_order": null,
+      "improvement_abs": 0.38,
+      "improvement_pct": 5.08,
+      "predecessor": "amazon-nova-lite-v1.0"
+    },
+    {
+      "name": "amazon-nova-pro-v1.0",
+      "performance": 8.1,
+      "rank": 326,
+      "provider": "Amazon",
+      "family_order": null,
+      "improvement_abs": 0.24,
+      "improvement_pct": 3.05,
+      "predecessor": "Nova Micro"
+    },
+    {
+      "name": "nova-2-lite",
+      "performance": 9.08,
+      "rank": 278,
+      "provider": "Amazon",
+      "family_order": null,
+      "improvement_abs": 0.98,
+      "improvement_pct": 12.1,
+      "predecessor": "amazon-nova-pro-v1.0"
+    },
+    {
+      "name": "amazon-nova-experimental-chat-10-09",
+      "performance": 9.3,
+      "rank": 264,
+      "provider": "Amazon",
+      "family_order": null,
+      "improvement_abs": 0.22,
+      "improvement_pct": 2.42,
+      "predecessor": "nova-2-lite"
+    },
+    {
+      "name": "amazon-nova-experimental-chat-10-20",
+      "performance": 9.35,
+      "rank": 261,
+      "provider": "Amazon",
+      "family_order": null,
+      "improvement_abs": 0.05,
+      "improvement_pct": 0.54,
+      "predecessor": "amazon-nova-experimental-chat-10-09"
+    },
+    {
+      "name": "amazon-nova-experimental-chat-11-10",
+      "performance": 9.69,
+      "rank": 249,
+      "provider": "Amazon",
+      "family_order": null,
+      "improvement_abs": 0.34,
+      "improvement_pct": 3.64,
+      "predecessor": "amazon-nova-experimental-chat-10-20"
+    },
+    {
+      "name": "amazon-nova-experimental-chat-12-10",
+      "performance": 10.27,
+      "rank": 223,
+      "provider": "Amazon",
+      "family_order": null,
+      "improvement_abs": 0.58,
+      "improvement_pct": 5.99,
+      "predecessor": "amazon-nova-experimental-chat-11-10"
+    },
+    {
+      "name": "amazon-nova-experimental-chat-26-01-10",
+      "performance": 10.71,
+      "rank": 202,
+      "provider": "Amazon",
+      "family_order": null,
+      "improvement_abs": 0.44,
+      "improvement_pct": 4.28,
+      "predecessor": "amazon-nova-experimental-chat-12-10"
+    },
+    {
+      "name": "amazon-nova-experimental-chat-26-02-10",
+      "performance": 10.95,
+      "rank": 194,
+      "provider": "Amazon",
+      "family_order": null,
+      "improvement_abs": 0.24,
+      "improvement_pct": 2.24,
+      "predecessor": "amazon-nova-experimental-chat-26-01-10"
+    }
+  ],
+  "Arcee AI": [
+    {
+      "name": "trinity-large-preview",
+      "performance": 9.94,
+      "rank": 239,
+      "provider": "Arcee AI",
+      "family_order": null,
+      "improvement_abs": 0.0,
+      "improvement_pct": 0.0,
+      "predecessor": null
+    },
+    {
+      "name": "Trinity Large Thinking",
+      "performance": 10.82,
+      "rank": 33,
+      "provider": "Arcee AI",
+      "family_order": null,
+      "improvement_abs": 0.88,
+      "improvement_pct": 8.85,
+      "predecessor": "trinity-large-preview"
     }
   ],
   "Google": [
@@ -2033,26 +2055,76 @@
       "predecessor": "grok-4.20-beta1"
     }
   ],
-  "Arcee AI": [
+  "OpenAI": [
     {
-      "name": "trinity-large-preview",
-      "performance": 9.94,
-      "rank": 239,
-      "provider": "Arcee AI",
+      "name": "o1-mini",
+      "performance": 9.08,
+      "rank": 279,
+      "provider": "OpenAI",
       "family_order": null,
       "improvement_abs": 0.0,
       "improvement_pct": 0.0,
       "predecessor": null
     },
     {
-      "name": "Trinity Large Thinking",
-      "performance": 10.82,
-      "rank": 33,
-      "provider": "Arcee AI",
+      "name": "o3-mini",
+      "performance": 9.3,
+      "rank": 266,
+      "provider": "OpenAI",
       "family_order": null,
-      "improvement_abs": 0.88,
-      "improvement_pct": 8.85,
-      "predecessor": "trinity-large-preview"
+      "improvement_abs": 0.22,
+      "improvement_pct": 2.42,
+      "predecessor": "o1-mini"
+    },
+    {
+      "name": "o3-mini-high",
+      "performance": 9.62,
+      "rank": 252,
+      "provider": "OpenAI",
+      "family_order": null,
+      "improvement_abs": 0.32,
+      "improvement_pct": 3.44,
+      "predecessor": "o3-mini"
+    },
+    {
+      "name": "o1-preview",
+      "performance": 10.14,
+      "rank": 229,
+      "provider": "OpenAI",
+      "family_order": null,
+      "improvement_abs": 0.52,
+      "improvement_pct": 5.41,
+      "predecessor": "o3-mini-high"
+    },
+    {
+      "name": "o4-mini-2025-04-16",
+      "performance": 10.17,
+      "rank": 228,
+      "provider": "OpenAI",
+      "family_order": null,
+      "improvement_abs": 0.03,
+      "improvement_pct": 0.3,
+      "predecessor": "o1-preview"
+    },
+    {
+      "name": "o1-2024-12-17",
+      "performance": 10.42,
+      "rank": 215,
+      "provider": "OpenAI",
+      "family_order": null,
+      "improvement_abs": 0.25,
+      "improvement_pct": 2.46,
+      "predecessor": "o4-mini-2025-04-16"
+    },
+    {
+      "name": "o3",
+      "performance": 18.32,
+      "rank": 24,
+      "provider": "OpenAI",
+      "family_order": null,
+      "improvement_abs": 7.9,
+      "improvement_pct": 75.82,
+      "predecessor": "o1-2024-12-17"
     }
   ],
   "Cohere": [
@@ -2593,78 +2665,6 @@
       "predecessor": "claude-sonnet-4.5-20250929-thinking-32k"
     }
   ],
-  "OpenAI": [
-    {
-      "name": "o1-mini",
-      "performance": 9.08,
-      "rank": 279,
-      "provider": "OpenAI",
-      "family_order": null,
-      "improvement_abs": 0.0,
-      "improvement_pct": 0.0,
-      "predecessor": null
-    },
-    {
-      "name": "o3-mini",
-      "performance": 9.3,
-      "rank": 266,
-      "provider": "OpenAI",
-      "family_order": null,
-      "improvement_abs": 0.22,
-      "improvement_pct": 2.42,
-      "predecessor": "o1-mini"
-    },
-    {
-      "name": "o3-mini-high",
-      "performance": 9.62,
-      "rank": 252,
-      "provider": "OpenAI",
-      "family_order": null,
-      "improvement_abs": 0.32,
-      "improvement_pct": 3.44,
-      "predecessor": "o3-mini"
-    },
-    {
-      "name": "o1-preview",
-      "performance": 10.14,
-      "rank": 229,
-      "provider": "OpenAI",
-      "family_order": null,
-      "improvement_abs": 0.52,
-      "improvement_pct": 5.41,
-      "predecessor": "o3-mini-high"
-    },
-    {
-      "name": "o4-mini-2025-04-16",
-      "performance": 10.17,
-      "rank": 228,
-      "provider": "OpenAI",
-      "family_order": null,
-      "improvement_abs": 0.03,
-      "improvement_pct": 0.3,
-      "predecessor": "o1-preview"
-    },
-    {
-      "name": "o1-2024-12-17",
-      "performance": 10.42,
-      "rank": 215,
-      "provider": "OpenAI",
-      "family_order": null,
-      "improvement_abs": 0.25,
-      "improvement_pct": 2.46,
-      "predecessor": "o4-mini-2025-04-16"
-    },
-    {
-      "name": "o3",
-      "performance": 18.32,
-      "rank": 24,
-      "provider": "OpenAI",
-      "family_order": null,
-      "improvement_abs": 7.9,
-      "improvement_pct": 75.82,
-      "predecessor": "o1-2024-12-17"
-    }
-  ],
   "Ant Group": [
     {
       "name": "ling-flash-2.0",
@@ -3063,50 +3063,6 @@
       "predecessor": "Ministral 3 8B"
     }
   ],
-  "Sarvam": [
-    {
-      "name": "Sarvam 30B (high)",
-      "performance": 0.0,
-      "rank": 148,
-      "provider": null,
-      "family_order": null,
-      "improvement_abs": 0.0,
-      "improvement_pct": 0.0,
-      "predecessor": null
-    },
-    {
-      "name": "Sarvam 105B (high)",
-      "performance": 0.0,
-      "rank": 147,
-      "provider": null,
-      "family_order": null,
-      "improvement_abs": 0.0,
-      "improvement_pct": 0,
-      "predecessor": "Sarvam 30B (high)"
-    }
-  ],
-  "Magistral": [
-    {
-      "name": "Magistral Small 1.2",
-      "performance": 0.0,
-      "rank": 113,
-      "provider": null,
-      "family_order": null,
-      "improvement_abs": 0.0,
-      "improvement_pct": 0.0,
-      "predecessor": null
-    },
-    {
-      "name": "Magistral Medium 1.2",
-      "performance": 0.0,
-      "rank": 112,
-      "provider": null,
-      "family_order": null,
-      "improvement_abs": 0.0,
-      "improvement_pct": 0,
-      "predecessor": "Magistral Small 1.2"
-    }
-  ],
   "GPT Mini": [
     {
       "name": "GPT-5.4 mini (xhigh)",
@@ -3157,6 +3113,50 @@
       "improvement_abs": 1.2,
       "improvement_pct": 11.79,
       "predecessor": "gpt-5-mini-high"
+    }
+  ],
+  "Sarvam": [
+    {
+      "name": "Sarvam 30B (high)",
+      "performance": 0.0,
+      "rank": 148,
+      "provider": null,
+      "family_order": null,
+      "improvement_abs": 0.0,
+      "improvement_pct": 0.0,
+      "predecessor": null
+    },
+    {
+      "name": "Sarvam 105B (high)",
+      "performance": 0.0,
+      "rank": 147,
+      "provider": null,
+      "family_order": null,
+      "improvement_abs": 0.0,
+      "improvement_pct": 0,
+      "predecessor": "Sarvam 30B (high)"
+    }
+  ],
+  "Magistral": [
+    {
+      "name": "Magistral Small 1.2",
+      "performance": 0.0,
+      "rank": 113,
+      "provider": null,
+      "family_order": null,
+      "improvement_abs": 0.0,
+      "improvement_pct": 0.0,
+      "predecessor": null
+    },
+    {
+      "name": "Magistral Medium 1.2",
+      "performance": 0.0,
+      "rank": 112,
+      "provider": null,
+      "family_order": null,
+      "improvement_abs": 0.0,
+      "improvement_pct": 0,
+      "predecessor": "Magistral Small 1.2"
     }
   ],
   "Devstral": [
