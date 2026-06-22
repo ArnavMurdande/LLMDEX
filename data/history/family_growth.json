@@ -131,68 +131,6 @@
       "predecessor": "GLM-5.1"
     }
   ],
-  "MiniMax": [
-    {
-      "name": "minimax-m2",
-      "performance": 9.26,
-      "rank": 270,
-      "provider": "MiniMax",
-      "family_order": null,
-      "improvement_abs": 0.0,
-      "improvement_pct": 0.0,
-      "predecessor": null
-    },
-    {
-      "name": "minimax-m1",
-      "performance": 9.63,
-      "rank": 251,
-      "provider": "MiniMax",
-      "family_order": null,
-      "improvement_abs": 0.37,
-      "improvement_pct": 4.0,
-      "predecessor": "minimax-m2"
-    },
-    {
-      "name": "minimax-m2.1-preview",
-      "performance": 10.06,
-      "rank": 234,
-      "provider": "MiniMax",
-      "family_order": null,
-      "improvement_abs": 0.43,
-      "improvement_pct": 4.47,
-      "predecessor": "minimax-m1"
-    },
-    {
-      "name": "minimax-m2.5",
-      "performance": 10.19,
-      "rank": 226,
-      "provider": "MiniMax",
-      "family_order": null,
-      "improvement_abs": 0.13,
-      "improvement_pct": 1.29,
-      "predecessor": "minimax-m2.1-preview"
-    },
-    {
-      "name": "MiniMax-M2.7",
-      "performance": 27.71,
-      "rank": 17,
-      "provider": "MiniMax",
-      "family_order": null,
-      "improvement_abs": 17.52,
-      "improvement_pct": 171.93,
-      "predecessor": "minimax-m2.5"
-    },
-    {
-      "name": "MiniMax-M3",
-      "performance": 35.72,
-      "rank": 7,
-      "provider": "MiniMax",
-      "family_order": null,
-      "improvement_abs": 8.01,
-      "improvement_pct": 28.91,
-      "predecessor": "MiniMax-M2.7"
-    }
-  ],
   "Moonshot": [
     {
       "name": "Kimi Linear 48B A3B Instruct",
@@ -407,6 +345,68 @@
       "improvement_abs": 3.19,
       "improvement_pct": 10.45,
       "predecessor": "MiMo-V2.5"
+    }
+  ],
+  "MiniMax": [
+    {
+      "name": "minimax-m2",
+      "performance": 9.26,
+      "rank": 270,
+      "provider": "MiniMax",
+      "family_order": null,
+      "improvement_abs": 0.0,
+      "improvement_pct": 0.0,
+      "predecessor": null
+    },
+    {
+      "name": "minimax-m1",
+      "performance": 9.63,
+      "rank": 251,
+      "provider": "MiniMax",
+      "family_order": null,
+      "improvement_abs": 0.37,
+      "improvement_pct": 4.0,
+      "predecessor": "minimax-m2"
+    },
+    {
+      "name": "minimax-m2.1-preview",
+      "performance": 10.06,
+      "rank": 234,
+      "provider": "MiniMax",
+      "family_order": null,
+      "improvement_abs": 0.43,
+      "improvement_pct": 4.47,
+      "predecessor": "minimax-m1"
+    },
+    {
+      "name": "minimax-m2.5",
+      "performance": 10.19,
+      "rank": 226,
+      "provider": "MiniMax",
+      "family_order": null,
+      "improvement_abs": 0.13,
+      "improvement_pct": 1.29,
+      "predecessor": "minimax-m2.1-preview"
+    },
+    {
+      "name": "MiniMax-M2.7",
+      "performance": 27.71,
+      "rank": 17,
+      "provider": "MiniMax",
+      "family_order": null,
+      "improvement_abs": 17.52,
+      "improvement_pct": 171.93,
+      "predecessor": "minimax-m2.5"
+    },
+    {
+      "name": "MiniMax-M3",
+      "performance": 35.72,
+      "rank": 7,
+      "provider": "MiniMax",
+      "family_order": null,
+      "improvement_abs": 8.01,
+      "improvement_pct": 28.91,
+      "predecessor": "MiniMax-M2.7"
     }
   ],
   "DeepSeek V/Coder": [
@@ -1085,16 +1085,6 @@
       "predecessor": "Qwen3.5 Omni Flash"
     },
     {
-      "name": "Qwen3.5 2B",
-      "performance": 0.0,
-      "rank": 141,
-      "provider": "Alibaba",
-      "family_order": null,
-      "improvement_abs": 0.0,
-      "improvement_pct": 0,
-      "predecessor": "Qwen3 Next 80B A3B"
-    },
-    {
       "name": "Qwen3.5 0.8B",
       "performance": 0.0,
       "rank": 140,
@@ -1102,7 +1092,17 @@
       "family_order": null,
       "improvement_abs": 0.0,
       "improvement_pct": 0,
-      "predecessor": "Qwen3.5 2B"
+      "predecessor": "Qwen3 Next 80B A3B"
+    },
+    {
+      "name": "Qwen3.5 2B",
+      "performance": 0.0,
+      "rank": 141,
+      "provider": "Alibaba",
+      "family_order": null,
+      "improvement_abs": 0.0,
+      "improvement_pct": 0,
+      "predecessor": "Qwen3.5 0.8B"
     },
     {
       "name": "Qwen3.5 4B",
@@ -1112,7 +1112,7 @@
       "family_order": null,
       "improvement_abs": 0.0,
       "improvement_pct": 0,
-      "predecessor": "Qwen3.5 0.8B"
+      "predecessor": "Qwen3.5 2B"
     },
     {
       "name": "Qwen3.5 9B",
@@ -2263,9 +2263,9 @@
   ],
   "Meta Llama": [
     {
-      "name": "Llama 3.1 Nemotron 70B",
+      "name": "Llama 3.2 11B (Vision)",
       "performance": 0.0,
-      "rank": 105,
+      "rank": 106,
       "provider": "Meta",
       "family_order": null,
       "improvement_abs": 0.0,
@@ -2273,14 +2273,14 @@
       "predecessor": null
     },
     {
-      "name": "Llama 3.2 11B (Vision)",
+      "name": "Llama 3.1 Nemotron 70B",
       "performance": 0.0,
-      "rank": 106,
+      "rank": 105,
       "provider": "Meta",
       "family_order": null,
       "improvement_abs": 0.0,
       "improvement_pct": 0,
-      "predecessor": "Llama 3.1 Nemotron 70B"
+      "predecessor": "Llama 3.2 11B (Vision)"
     },
     {
       "name": "Llama 3.3 70B",
@@ -2290,7 +2290,7 @@
       "family_order": null,
       "improvement_abs": 0.0,
       "improvement_pct": 0,
-      "predecessor": "Llama 3.2 11B (Vision)"
+      "predecessor": "Llama 3.1 Nemotron 70B"
     },
     {
       "name": "Llama Nemotron Super 49B v1.5",
@@ -2689,9 +2689,9 @@
   ],
   "Microsoft": [
     {
-      "name": "Phi-4 Multimodal",
+      "name": "Phi-4 Mini",
       "performance": 0.0,
-      "rank": 136,
+      "rank": 135,
       "provider": "Microsoft",
       "family_order": null,
       "improvement_abs": 0.0,
@@ -2699,14 +2699,14 @@
       "predecessor": null
     },
     {
-      "name": "Phi-4 Mini",
+      "name": "Phi-4 Multimodal",
       "performance": 0.0,
-      "rank": 135,
+      "rank": 136,
       "provider": "Microsoft",
       "family_order": null,
       "improvement_abs": 0.0,
       "improvement_pct": 0,
-      "predecessor": "Phi-4 Multimodal"
+      "predecessor": "Phi-4 Mini"
     },
     {
       "name": "phi-3-mini-4k-instruct",
@@ -2716,7 +2716,7 @@
       "family_order": null,
       "improvement_abs": 4.73,
       "improvement_pct": 0,
-      "predecessor": "Phi-4 Mini"
+      "predecessor": "Phi-4 Multimodal"
     },
     {
       "name": "phi-3-mini-128k-instruct",
@@ -2947,38 +2947,6 @@
       "predecessor": "Nemotron Cascade 2 30B A3B"
     }
   ],
-  "LFM2": [
-    {
-      "name": "LFM2 2.6B",
-      "performance": 0.0,
-      "rank": 95,
-      "provider": null,
-      "family_order": null,
-      "improvement_abs": 0.0,
-      "improvement_pct": 0.0,
-      "predecessor": null
-    },
-    {
-      "name": "LFM2 24B A2B",
-      "performance": 0.0,
-      "rank": 96,
-      "provider": null,
-      "family_order": null,
-      "improvement_abs": 0.0,
-      "improvement_pct": 0,
-      "predecessor": "LFM2 2.6B"
-    },
-    {
-      "name": "LFM2 8B A1B",
-      "performance": 0.0,
-      "rank": 97,
-      "provider": null,
-      "family_order": null,
-      "improvement_abs": 0.0,
-      "improvement_pct": 0,
-      "predecessor": "LFM2 24B A2B"
-    }
-  ],
   "NVIDIA": [
     {
       "name": "NVIDIA Nemotron Nano 12B v2 VL",
@@ -3031,6 +2999,38 @@
       "predecessor": "NVIDIA Nemotron Nano 9B V2"
     }
   ],
+  "LFM2": [
+    {
+      "name": "LFM2 2.6B",
+      "performance": 0.0,
+      "rank": 95,
+      "provider": null,
+      "family_order": null,
+      "improvement_abs": 0.0,
+      "improvement_pct": 0.0,
+      "predecessor": null
+    },
+    {
+      "name": "LFM2 24B A2B",
+      "performance": 0.0,
+      "rank": 96,
+      "provider": null,
+      "family_order": null,
+      "improvement_abs": 0.0,
+      "improvement_pct": 0,
+      "predecessor": "LFM2 2.6B"
+    },
+    {
+      "name": "LFM2 8B A1B",
+      "performance": 0.0,
+      "rank": 97,
+      "provider": null,
+      "family_order": null,
+      "improvement_abs": 0.0,
+      "improvement_pct": 0,
+      "predecessor": "LFM2 24B A2B"
+    }
+  ],
   "Ministral": [
     {
       "name": "Ministral 3 3B",
@@ -3061,6 +3061,104 @@
       "improvement_abs": 0.0,
       "improvement_pct": 0,
       "predecessor": "Ministral 3 8B"
+    }
+  ],
+  "Sarvam": [
+    {
+      "name": "Sarvam 30B (high)",
+      "performance": 0.0,
+      "rank": 148,
+      "provider": null,
+      "family_order": null,
+      "improvement_abs": 0.0,
+      "improvement_pct": 0.0,
+      "predecessor": null
+    },
+    {
+      "name": "Sarvam 105B (high)",
+      "performance": 0.0,
+      "rank": 147,
+      "provider": null,
+      "family_order": null,
+      "improvement_abs": 0.0,
+      "improvement_pct": 0,
+      "predecessor": "Sarvam 30B (high)"
+    }
+  ],
+  "Magistral": [
+    {
+      "name": "Magistral Small 1.2",
+      "performance": 0.0,
+      "rank": 113,
+      "provider": null,
+      "family_order": null,
+      "improvement_abs": 0.0,
+      "improvement_pct": 0.0,
+      "predecessor": null
+    },
+    {
+      "name": "Magistral Medium 1.2",
+      "performance": 0.0,
+      "rank": 112,
+      "provider": null,
+      "family_order": null,
+      "improvement_abs": 0.0,
+      "improvement_pct": 0,
+      "predecessor": "Magistral Small 1.2"
+    }
+  ],
+  "Qwen Specialty": [
+    {
+      "name": "Qwen3 Coder Next",
+      "performance": 0.0,
+      "rank": 137,
+      "provider": "Alibaba",
+      "family_order": null,
+      "improvement_abs": 0.0,
+      "improvement_pct": 0.0,
+      "predecessor": null
+    },
+    {
+      "name": "qwen2.5-coder-32b-instruct",
+      "performance": 7.7,
+      "rank": 344,
+      "provider": "Alibaba",
+      "family_order": null,
+      "improvement_abs": 7.7,
+      "improvement_pct": 0,
+      "predecessor": "Qwen3 Coder Next"
+    },
+    {
+      "name": "qwen3-coder-480b-a35b-instruct",
+      "performance": 10.12,
+      "rank": 230,
+      "provider": "Alibaba",
+      "family_order": null,
+      "improvement_abs": 2.42,
+      "improvement_pct": 31.43,
+      "predecessor": "qwen2.5-coder-32b-instruct"
+    }
+  ],
+  "Devstral": [
+    {
+      "name": "Devstral Small 2",
+      "performance": 0.0,
+      "rank": 68,
+      "provider": null,
+      "family_order": null,
+      "improvement_abs": 0.0,
+      "improvement_pct": 0.0,
+      "predecessor": null
+    },
+    {
+      "name": "Devstral 2",
+      "performance": 0.0,
+      "rank": 67,
+      "provider": null,
+      "family_order": null,
+      "improvement_abs": 0.0,
+      "improvement_pct": 0,
+      "predecessor": "Devstral Small 2"
     }
   ],
   "GPT Mini": [
@@ -3113,136 +3211,6 @@
       "improvement_abs": 1.2,
       "improvement_pct": 11.79,
       "predecessor": "gpt-5-mini-high"
-    }
-  ],
-  "Sarvam": [
-    {
-      "name": "Sarvam 30B (high)",
-      "performance": 0.0,
-      "rank": 148,
-      "provider": null,
-      "family_order": null,
-      "improvement_abs": 0.0,
-      "improvement_pct": 0.0,
-      "predecessor": null
-    },
-    {
-      "name": "Sarvam 105B (high)",
-      "performance": 0.0,
-      "rank": 147,
-      "provider": null,
-      "family_order": null,
-      "improvement_abs": 0.0,
-      "improvement_pct": 0,
-      "predecessor": "Sarvam 30B (high)"
-    }
-  ],
-  "Magistral": [
-    {
-      "name": "Magistral Small 1.2",
-      "performance": 0.0,
-      "rank": 113,
-      "provider": null,
-      "family_order": null,
-      "improvement_abs": 0.0,
-      "improvement_pct": 0.0,
-      "predecessor": null
-    },
-    {
-      "name": "Magistral Medium 1.2",
-      "performance": 0.0,
-      "rank": 112,
-      "provider": null,
-      "family_order": null,
-      "improvement_abs": 0.0,
-      "improvement_pct": 0,
-      "predecessor": "Magistral Small 1.2"
-    }
-  ],
-  "Devstral": [
-    {
-      "name": "Devstral Small 2",
-      "performance": 0.0,
-      "rank": 68,
-      "provider": null,
-      "family_order": null,
-      "improvement_abs": 0.0,
-      "improvement_pct": 0.0,
-      "predecessor": null
-    },
-    {
-      "name": "Devstral 2",
-      "performance": 0.0,
-      "rank": 67,
-      "provider": null,
-      "family_order": null,
-      "improvement_abs": 0.0,
-      "improvement_pct": 0,
-      "predecessor": "Devstral Small 2"
-    }
-  ],
-  "Qwen Specialty": [
-    {
-      "name": "Qwen3 Coder Next",
-      "performance": 0.0,
-      "rank": 137,
-      "provider": "Alibaba",
-      "family_order": null,
-      "improvement_abs": 0.0,
-      "improvement_pct": 0.0,
-      "predecessor": null
-    },
-    {
-      "name": "qwen2.5-coder-32b-instruct",
-      "performance": 7.7,
-      "rank": 344,
-      "provider": "Alibaba",
-      "family_order": null,
-      "improvement_abs": 7.7,
-      "improvement_pct": 0,
-      "predecessor": "Qwen3 Coder Next"
-    },
-    {
-      "name": "qwen3-coder-480b-a35b-instruct",
-      "performance": 10.12,
-      "rank": 230,
-      "provider": "Alibaba",
-      "family_order": null,
-      "improvement_abs": 2.42,
-      "improvement_pct": 31.43,
-      "predecessor": "qwen2.5-coder-32b-instruct"
-    }
-  ],
-  "Jamba": [
-    {
-      "name": "Jamba 1.7 Large",
-      "performance": 0.0,
-      "rank": 90,
-      "provider": null,
-      "family_order": null,
-      "improvement_abs": 0.0,
-      "improvement_pct": 0.0,
-      "predecessor": null
-    },
-    {
-      "name": "Jamba Reasoning 3B",
-      "performance": 0.0,
-      "rank": 92,
-      "provider": null,
-      "family_order": null,
-      "improvement_abs": 0.0,
-      "improvement_pct": 0,
-      "predecessor": "Jamba 1.7 Large"
-    },
-    {
-      "name": "Jamba 1.7 Mini",
-      "performance": 0.0,
-      "rank": 91,
-      "provider": null,
-      "family_order": null,
-      "improvement_abs": 0.0,
-      "improvement_pct": 0,
-      "predecessor": "Jamba Reasoning 3B"
     }
   ],
   "Granite": [
@@ -3325,6 +3293,38 @@
       "improvement_abs": 0.0,
       "improvement_pct": 0,
       "predecessor": "Granite 4.0 350M"
+    }
+  ],
+  "Jamba": [
+    {
+      "name": "Jamba 1.7 Large",
+      "performance": 0.0,
+      "rank": 90,
+      "provider": null,
+      "family_order": null,
+      "improvement_abs": 0.0,
+      "improvement_pct": 0.0,
+      "predecessor": null
+    },
+    {
+      "name": "Jamba Reasoning 3B",
+      "performance": 0.0,
+      "rank": 92,
+      "provider": null,
+      "family_order": null,
+      "improvement_abs": 0.0,
+      "improvement_pct": 0,
+      "predecessor": "Jamba 1.7 Large"
+    },
+    {
+      "name": "Jamba 1.7 Mini",
+      "performance": 0.0,
+      "rank": 91,
+      "provider": null,
+      "family_order": null,
+      "improvement_abs": 0.0,
+      "improvement_pct": 0,
+      "predecessor": "Jamba Reasoning 3B"
     }
   ],
   "Apertus": [
