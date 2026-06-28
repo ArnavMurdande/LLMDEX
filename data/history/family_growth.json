@@ -175,9 +175,9 @@
       "predecessor": "Qwen3.5 35B A3B"
     },
     {
-      "name": "Qwen3 Omni 30B A3B",
+      "name": "Qwen3.5 0.8B",
       "performance": 0.0,
-      "rank": 139,
+      "rank": 140,
       "provider": "Alibaba",
       "family_order": null,
       "improvement_abs": 0.0,
@@ -192,17 +192,7 @@
       "family_order": null,
       "improvement_abs": 0.0,
       "improvement_pct": 0,
-      "predecessor": "Qwen3 Omni 30B A3B"
-    },
-    {
-      "name": "Qwen3.5 0.8B",
-      "performance": 0.0,
-      "rank": 140,
-      "provider": "Alibaba",
-      "family_order": null,
-      "improvement_abs": 0.0,
-      "improvement_pct": 0,
-      "predecessor": "Qwen3.5 9B"
+      "predecessor": "Qwen3.5 0.8B"
     },
     {
       "name": "Qwen3.5 4B",
@@ -212,7 +202,7 @@
       "family_order": null,
       "improvement_abs": 0.0,
       "improvement_pct": 0,
-      "predecessor": "Qwen3.5 0.8B"
+      "predecessor": "Qwen3.5 9B"
     },
     {
       "name": "Qwen3.5 2B",
@@ -225,6 +215,16 @@
       "predecessor": "Qwen3.5 4B"
     },
     {
+      "name": "Qwen3 Omni 30B A3B",
+      "performance": 0.0,
+      "rank": 139,
+      "provider": "Alibaba",
+      "family_order": null,
+      "improvement_abs": 0.0,
+      "improvement_pct": 0,
+      "predecessor": "Qwen3.5 2B"
+    },
+    {
       "name": "qwen1.5-4b-chat",
       "performance": 3.95,
       "rank": 407,
@@ -232,7 +232,7 @@
       "family_order": null,
       "improvement_abs": 3.95,
       "improvement_pct": 0,
-      "predecessor": "Qwen3.5 2B"
+      "predecessor": "Qwen3 Omni 30B A3B"
     },
     {
       "name": "qwen-14b-chat",
@@ -577,76 +577,76 @@
       "predecessor": "amazon-nova-experimental-chat-11-10"
     }
   ],
-  "Cohere": [
+  "OpenAI": [
     {
-      "name": "c4ai-aya-expanse-8b",
-      "performance": 6.71,
-      "rank": 342,
-      "provider": "Cohere",
+      "name": "o1-mini",
+      "performance": 9.07,
+      "rank": 254,
+      "provider": "OpenAI",
       "family_order": null,
       "improvement_abs": 0.0,
       "improvement_pct": 0.0,
       "predecessor": null
     },
     {
-      "name": "command-r",
-      "performance": 6.79,
-      "rank": 339,
-      "provider": "Cohere",
+      "name": "o3-mini",
+      "performance": 9.31,
+      "rank": 238,
+      "provider": "OpenAI",
       "family_order": null,
-      "improvement_abs": 0.08,
-      "improvement_pct": 1.19,
-      "predecessor": "c4ai-aya-expanse-8b"
+      "improvement_abs": 0.24,
+      "improvement_pct": 2.65,
+      "predecessor": "o1-mini"
     },
     {
-      "name": "command-r-08-2024",
-      "performance": 7.27,
-      "rank": 329,
-      "provider": "Cohere",
+      "name": "o3-mini-high",
+      "performance": 9.64,
+      "rank": 228,
+      "provider": "OpenAI",
       "family_order": null,
-      "improvement_abs": 0.48,
-      "improvement_pct": 7.07,
-      "predecessor": "command-r"
+      "improvement_abs": 0.33,
+      "improvement_pct": 3.54,
+      "predecessor": "o3-mini"
     },
     {
-      "name": "command-r-plus",
-      "performance": 7.52,
-      "rank": 323,
-      "provider": "Cohere",
+      "name": "o1-preview",
+      "performance": 10.14,
+      "rank": 207,
+      "provider": "OpenAI",
       "family_order": null,
-      "improvement_abs": 0.25,
-      "improvement_pct": 3.44,
-      "predecessor": "command-r-08-2024"
+      "improvement_abs": 0.5,
+      "improvement_pct": 5.19,
+      "predecessor": "o3-mini-high"
     },
     {
-      "name": "c4ai-aya-expanse-32b",
-      "performance": 7.62,
-      "rank": 320,
-      "provider": "Cohere",
+      "name": "o4-mini-2025-04-16",
+      "performance": 10.2,
+      "rank": 203,
+      "provider": "OpenAI",
       "family_order": null,
-      "improvement_abs": 0.1,
-      "improvement_pct": 1.33,
-      "predecessor": "command-r-plus"
+      "improvement_abs": 0.06,
+      "improvement_pct": 0.59,
+      "predecessor": "o1-preview"
     },
     {
-      "name": "command-r-plus-08-2024",
-      "performance": 7.82,
-      "rank": 313,
-      "provider": "Cohere",
+      "name": "o1-2024-12-17",
+      "performance": 10.42,
+      "rank": 192,
+      "provider": "OpenAI",
       "family_order": null,
-      "improvement_abs": 0.2,
-      "improvement_pct": 2.62,
-      "predecessor": "c4ai-aya-expanse-32b"
+      "improvement_abs": 0.22,
+      "improvement_pct": 2.16,
+      "predecessor": "o4-mini-2025-04-16"
     },
     {
-      "name": "Command A+",
-      "performance": 10.45,
-      "rank": 10,
-      "provider": "Cohere",
+      "name": "o3",
+      "performance": 18.35,
+      "rank": 4,
+      "provider": "OpenAI",
       "family_order": null,
-      "improvement_abs": 2.63,
-      "improvement_pct": 33.63,
-      "predecessor": "command-r-plus-08-2024"
+      "improvement_abs": 7.93,
+      "improvement_pct": 76.1,
+      "predecessor": "o1-2024-12-17"
     }
   ],
   "Meta Llama": [
@@ -971,76 +971,76 @@
       "predecessor": "Llama 4 Scout"
     }
   ],
-  "OpenAI": [
+  "Cohere": [
     {
-      "name": "o1-mini",
-      "performance": 9.07,
-      "rank": 254,
-      "provider": "OpenAI",
+      "name": "c4ai-aya-expanse-8b",
+      "performance": 6.71,
+      "rank": 342,
+      "provider": "Cohere",
       "family_order": null,
       "improvement_abs": 0.0,
       "improvement_pct": 0.0,
       "predecessor": null
     },
     {
-      "name": "o3-mini",
-      "performance": 9.31,
-      "rank": 238,
-      "provider": "OpenAI",
+      "name": "command-r",
+      "performance": 6.79,
+      "rank": 339,
+      "provider": "Cohere",
       "family_order": null,
-      "improvement_abs": 0.24,
-      "improvement_pct": 2.65,
-      "predecessor": "o1-mini"
+      "improvement_abs": 0.08,
+      "improvement_pct": 1.19,
+      "predecessor": "c4ai-aya-expanse-8b"
     },
     {
-      "name": "o3-mini-high",
-      "performance": 9.64,
-      "rank": 228,
-      "provider": "OpenAI",
+      "name": "command-r-08-2024",
+      "performance": 7.27,
+      "rank": 329,
+      "provider": "Cohere",
       "family_order": null,
-      "improvement_abs": 0.33,
-      "improvement_pct": 3.54,
-      "predecessor": "o3-mini"
+      "improvement_abs": 0.48,
+      "improvement_pct": 7.07,
+      "predecessor": "command-r"
     },
     {
-      "name": "o1-preview",
-      "performance": 10.14,
-      "rank": 207,
-      "provider": "OpenAI",
+      "name": "command-r-plus",
+      "performance": 7.52,
+      "rank": 323,
+      "provider": "Cohere",
       "family_order": null,
-      "improvement_abs": 0.5,
-      "improvement_pct": 5.19,
-      "predecessor": "o3-mini-high"
+      "improvement_abs": 0.25,
+      "improvement_pct": 3.44,
+      "predecessor": "command-r-08-2024"
     },
     {
-      "name": "o4-mini-2025-04-16",
-      "performance": 10.2,
-      "rank": 203,
-      "provider": "OpenAI",
+      "name": "c4ai-aya-expanse-32b",
+      "performance": 7.62,
+      "rank": 320,
+      "provider": "Cohere",
       "family_order": null,
-      "improvement_abs": 0.06,
-      "improvement_pct": 0.59,
-      "predecessor": "o1-preview"
+      "improvement_abs": 0.1,
+      "improvement_pct": 1.33,
+      "predecessor": "command-r-plus"
     },
     {
-      "name": "o1-2024-12-17",
-      "performance": 10.42,
-      "rank": 192,
-      "provider": "OpenAI",
+      "name": "command-r-plus-08-2024",
+      "performance": 7.82,
+      "rank": 313,
+      "provider": "Cohere",
       "family_order": null,
-      "improvement_abs": 0.22,
-      "improvement_pct": 2.16,
-      "predecessor": "o4-mini-2025-04-16"
+      "improvement_abs": 0.2,
+      "improvement_pct": 2.62,
+      "predecessor": "c4ai-aya-expanse-32b"
     },
     {
-      "name": "o3",
-      "performance": 18.35,
-      "rank": 4,
-      "provider": "OpenAI",
+      "name": "Command A+",
+      "performance": 10.45,
+      "rank": 10,
+      "provider": "Cohere",
       "family_order": null,
-      "improvement_abs": 7.93,
-      "improvement_pct": 76.1,
-      "predecessor": "o1-2024-12-17"
+      "improvement_abs": 2.63,
+      "improvement_pct": 33.63,
+      "predecessor": "command-r-plus-08-2024"
     }
   ],
   "Mistral AI": [
@@ -1331,9 +1331,9 @@
   ],
   "Microsoft": [
     {
-      "name": "Phi-4 Multimodal",
+      "name": "Phi-4 Mini",
       "performance": 0.0,
-      "rank": 136,
+      "rank": 135,
       "provider": "Microsoft",
       "family_order": null,
       "improvement_abs": 0.0,
@@ -1341,14 +1341,14 @@
       "predecessor": null
     },
     {
-      "name": "Phi-4 Mini",
+      "name": "Phi-4 Multimodal",
       "performance": 0.0,
-      "rank": 135,
+      "rank": 136,
       "provider": "Microsoft",
       "family_order": null,
       "improvement_abs": 0.0,
       "improvement_pct": 0,
-      "predecessor": "Phi-4 Multimodal"
+      "predecessor": "Phi-4 Mini"
     },
     {
       "name": "phi-3-mini-4k-instruct",
@@ -1358,7 +1358,7 @@
       "family_order": null,
       "improvement_abs": 4.74,
       "improvement_pct": 0,
-      "predecessor": "Phi-4 Mini"
+      "predecessor": "Phi-4 Multimodal"
     },
     {
       "name": "phi-3-mini-128k-instruct",
@@ -2645,26 +2645,46 @@
       "predecessor": "gemma-3-12b-it"
     }
   ],
-  "Sarvam": [
+  "GPT Mini": [
     {
-      "name": "Sarvam 30B (high)",
-      "performance": 0.0,
-      "rank": 149,
-      "provider": null,
+      "name": "GPT-5.4 mini (xhigh)",
+      "performance": 4.61,
+      "rank": 56,
+      "provider": "OpenAI",
       "family_order": null,
       "improvement_abs": 0.0,
       "improvement_pct": 0.0,
       "predecessor": null
     },
     {
-      "name": "Sarvam 105B (high)",
-      "performance": 0.0,
-      "rank": 148,
-      "provider": null,
+      "name": "gpt-4o-mini-2024-07-18",
+      "performance": 8.68,
+      "rank": 278,
+      "provider": "OpenAI",
       "family_order": null,
-      "improvement_abs": 0.0,
-      "improvement_pct": 0,
-      "predecessor": "Sarvam 30B (high)"
+      "improvement_abs": 4.07,
+      "improvement_pct": 88.29,
+      "predecessor": "GPT-5.4 mini (xhigh)"
+    },
+    {
+      "name": "gpt-4.1-mini-2025-04-14",
+      "performance": 10.0,
+      "rank": 214,
+      "provider": "OpenAI",
+      "family_order": null,
+      "improvement_abs": 1.32,
+      "improvement_pct": 15.21,
+      "predecessor": "gpt-4o-mini-2024-07-18"
+    },
+    {
+      "name": "gpt-5-mini-high",
+      "performance": 10.19,
+      "rank": 204,
+      "provider": "OpenAI",
+      "family_order": null,
+      "improvement_abs": 0.19,
+      "improvement_pct": 1.9,
+      "predecessor": "gpt-4.1-mini-2025-04-14"
     }
   ],
   "Granite": [
@@ -2759,11 +2779,11 @@
       "predecessor": "Granite 4.0 350M"
     }
   ],
-  "Magistral": [
+  "Sarvam": [
     {
-      "name": "Magistral Small 1.2",
+      "name": "Sarvam 30B (high)",
       "performance": 0.0,
-      "rank": 112,
+      "rank": 149,
       "provider": null,
       "family_order": null,
       "improvement_abs": 0.0,
@@ -2771,56 +2791,14 @@
       "predecessor": null
     },
     {
-      "name": "Magistral Medium 1.2",
+      "name": "Sarvam 105B (high)",
       "performance": 0.0,
-      "rank": 111,
+      "rank": 148,
       "provider": null,
       "family_order": null,
       "improvement_abs": 0.0,
       "improvement_pct": 0,
-      "predecessor": "Magistral Small 1.2"
-    }
-  ],
-  "GPT Mini": [
-    {
-      "name": "GPT-5.4 mini (xhigh)",
-      "performance": 4.61,
-      "rank": 56,
-      "provider": "OpenAI",
-      "family_order": null,
-      "improvement_abs": 0.0,
-      "improvement_pct": 0.0,
-      "predecessor": null
-    },
-    {
-      "name": "gpt-4o-mini-2024-07-18",
-      "performance": 8.68,
-      "rank": 278,
-      "provider": "OpenAI",
-      "family_order": null,
-      "improvement_abs": 4.07,
-      "improvement_pct": 88.29,
-      "predecessor": "GPT-5.4 mini (xhigh)"
-    },
-    {
-      "name": "gpt-4.1-mini-2025-04-14",
-      "performance": 10.0,
-      "rank": 214,
-      "provider": "OpenAI",
-      "family_order": null,
-      "improvement_abs": 1.32,
-      "improvement_pct": 15.21,
-      "predecessor": "gpt-4o-mini-2024-07-18"
-    },
-    {
-      "name": "gpt-5-mini-high",
-      "performance": 10.19,
-      "rank": 204,
-      "provider": "OpenAI",
-      "family_order": null,
-      "improvement_abs": 0.19,
-      "improvement_pct": 1.9,
-      "predecessor": "gpt-4.1-mini-2025-04-14"
+      "predecessor": "Sarvam 30B (high)"
     }
   ],
   "Qwen Specialty": [
@@ -2853,6 +2831,28 @@
       "improvement_abs": 2.4,
       "improvement_pct": 31.17,
       "predecessor": "qwen2.5-coder-32b-instruct"
+    }
+  ],
+  "Magistral": [
+    {
+      "name": "Magistral Small 1.2",
+      "performance": 0.0,
+      "rank": 112,
+      "provider": null,
+      "family_order": null,
+      "improvement_abs": 0.0,
+      "improvement_pct": 0.0,
+      "predecessor": null
+    },
+    {
+      "name": "Magistral Medium 1.2",
+      "performance": 0.0,
+      "rank": 111,
+      "provider": null,
+      "family_order": null,
+      "improvement_abs": 0.0,
+      "improvement_pct": 0,
+      "predecessor": "Magistral Small 1.2"
     }
   ],
   "Devstral": [
