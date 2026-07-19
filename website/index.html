@@ -3,14 +3,29 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#07100f" />
+    <meta name="theme-color" content="#050505" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23000'/%3E%3Cpath d='M17 16h8v25h22v7H17z' fill='%23fff'/%3E%3C/svg%3E"
+    />
     <title>LLMDEX | LLM Benchmark Intelligence Index</title>
     <meta
       name="description"
       content="LLMDEX — Artificial Analysis model data transformed into auditable performance, value, coding, and efficiency leaderboards."
     />
-    <link rel="stylesheet" href="styles.css?v=3" />
-    <link rel="stylesheet" href="bento.css" />
+    <script>
+      (() => {
+        const saved = localStorage.getItem("llmdex-theme");
+        const preferred =
+          saved ||
+          (matchMedia("(prefers-color-scheme: light)").matches
+            ? "light"
+            : "dark");
+        document.documentElement.dataset.theme = preferred;
+      })();
+    </script>
+    <link rel="stylesheet" href="styles.css?v=4" />
+    <link rel="stylesheet" href="bento.css?v=2" />
     <link
       href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Space+Grotesk:wght@300;500;700&family=JetBrains+Mono:wght@400;500&display=swap"
       rel="stylesheet"
@@ -45,6 +60,15 @@
         <a href="#history-section">Trends</a>
         <a href="#advisor-section">Advisor</a>
         <a href="#methodology">Methodology</a>
+        <button
+          class="theme-toggle"
+          id="theme-toggle"
+          type="button"
+          aria-label="Switch color theme"
+          title="Switch color theme"
+        >
+          <i class="fas fa-sun"></i>
+        </button>
         <a href="https://github.com/ArnavMurdande/LLMDEX" target="_blank"
           ><i class="fab fa-github"></i
         ></a>
@@ -282,7 +306,14 @@
           </button>
         </div>
 
-        <div class="table-wrapper glass">
+        <div
+          class="table-scrollbar-top glass"
+          id="table-scrollbar-top"
+          aria-label="Scroll leaderboard columns"
+        >
+          <div id="table-scrollbar-spacer"></div>
+        </div>
+        <div class="table-wrapper glass" id="table-wrapper">
           <table id="models-table">
             <thead>
               <tr id="table-header-row">
@@ -293,6 +324,42 @@
               <!-- Populated by JS -->
             </tbody>
           </table>
+        </div>
+      </div>
+    </section>
+
+    <section id="sentiment-section" class="sentiment-section">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <span class="section-eyebrow">CURRENT TOP 10</span>
+            <h2><i class="fas fa-comments"></i> Model Reactions</h2>
+          </div>
+        </div>
+        <p class="section-desc">
+          Experimental model-specific public sentiment from recent Reddit,
+          Hacker News, GitHub, web coverage, and X when its API is configured.
+          Sentiment never changes leaderboard rankings.
+        </p>
+        <div class="sentiment-charts-row">
+          <div class="chart-card glass">
+            <h3>Public sentiment</h3>
+            <div id="sentiment-liked-chart" class="sentiment-chart-slot"></div>
+          </div>
+          <div class="chart-card glass">
+            <h3>Most discussed</h3>
+            <div id="sentiment-trending-chart" class="sentiment-chart-slot"></div>
+          </div>
+          <div class="chart-card glass">
+            <h3>Controversy</h3>
+            <div
+              id="sentiment-controversy-chart"
+              class="sentiment-chart-slot"
+            ></div>
+          </div>
+        </div>
+        <div id="sentiment-grid" class="sentiment-grid">
+          <div class="sentiment-empty glass">Loading current reactions...</div>
         </div>
       </div>
     </section>
@@ -444,7 +511,7 @@
               </div>
             </div>
           </div>
-          <div class="chatbot-input-area">
+          <form class="chatbot-input-area" id="chatbot-form">
             <div class="chatbot-input-wrapper">
               <textarea
                 id="chatbot-input"
@@ -453,10 +520,12 @@
                 maxlength="500"
                 autocomplete="off"
                 rows="1"
+                enterkeyhint="send"
               ></textarea>
               <button
                 class="chatbot-send-btn"
                 id="chatbot-send-btn"
+                type="submit"
                 aria-label="Send question to AI Advisor"
                 disabled
               >
@@ -467,7 +536,7 @@
               >Responses are based solely on LLMDEX benchmark data. AI-generated
               analysis — verify important decisions independently.</span
             >
-          </div>
+          </form>
         </div>
           <aside class="advisor-context-panel glass" aria-label="Advisor data context">
             <div class="context-panel-header">
@@ -650,6 +719,6 @@
     </footer>
 
     <script src="bento.js?v=1"></script>
-    <script src="app.js?v=15"></script>
+    <script src="app.js?v=16"></script>
   </body>
 </html>

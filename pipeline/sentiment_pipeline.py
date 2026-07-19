@@ -6,12 +6,14 @@ VADER as fallback. Scrapes community mentions from free public sources,
 performs sentiment scoring, and produces per-model sentiment metrics.
 
 SOURCES:
-    - Reddit (via old.reddit.com JSON API — no authentication)
-    - Hacker News (via Algolia public API — no authentication)
-    - GitHub Issues (via REST API — no authentication needed for public repos)
+    - Reddit public search RSS
+    - Hacker News via the Algolia public API
+    - GitHub Issues via the public REST API
+    - Web/news coverage via Google News RSS
+    - X recent search when X_BEARER_TOKEN is configured
 
 GEMINI INTEGRATION:
-    - Batch classification of posts per model (40 per batch)
+    - Batch classification of posts per model (12 per batch)
     - Validates relevance, scores sentiment, detects praise/criticism
     - Falls back to VADER on Gemini failure
     - Caches Gemini results for 24 hours
@@ -45,6 +47,7 @@ from __future__ import annotations
 
 import concurrent.futures
 import hashlib
+import html
 import json
 import logging
 import math
@@ -53,6 +56,7 @@ import random
 import re
 import threading
 import time
+import xml.etree.ElementTree as ET
 from datetime import datetime, timezone
 from typing import Any, Dict, List, Optional, Tuple
 
@@ -74,11 +78,15 @@ except ImportError:
     REQUESTS_AVAILABLE = False
 
 
+_reddit_request_lock = threading.Lock()
+_reddit_last_request_at = 0.0
+
+
 # ──────────────────────────────────────────────────────────────
 # Constants
 # ──────────────────────────────────────────────────────────────
 
-MAX_MENTIONS_PER_MODEL = 150   # Sample cap before Gemini classification
+MAX_MENTIONS_PER_MODEL = 80    # Balanced sample cap for the ten current leaders
 BATCH_SIZE = 12                # Mentions per Gemini call — safer for Gemini latency
 GEMINI_CALL_TIMEOUT = 90       # Seconds before a Gemini call is timed out
 MAX_SCRAPE_WORKERS = 4         # Parallel workers for Phase 1 (scraping only)
@@ -124,6 +132,17 @@ def _count_active_keys() -> Tuple[int, float]:
         # all-cooled-down state and sleep conservatively.
 
     return active, earliest_expiry
+
+
+def _sentiment_keys_configured() -> bool:
+    """Check key presence without exposing or logging any key value."""
+    return bool(
+        os.environ.get("GEMINI_API_KEY", "").strip()
+        or any(
+            os.environ.get(f"GEMINI_SENTIMENT_KEY_{index}", "").strip()
+            for index in range(1, 11)
+        )
+    )
 
 
 def _build_gemini_semaphore() -> threading.Semaphore:
@@ -186,8 +205,9 @@ _FAMILY_PREFIXES = [
 ]
 
 _FALLBACK_MODELS = [
-    "GPT-5", "Claude Opus", "Gemini 3", "DeepSeek V3",
-    "Llama 4", "Grok 4", "Qwen 3",
+    "Claude Fable 5", "GPT-5.6 Sol", "Kimi K3", "Claude Opus 4.8",
+    "Claude Sonnet 5", "Gemini 3.1 Pro", "DeepSeek V4", "Qwen 3.5",
+    "Grok 4", "Llama 4",
 ]
 
 
@@ -202,14 +222,15 @@ def _detect_family(name: str) -> Optional[str]:
     return None
 
 
-def get_models_for_sentiment(index_path: Optional[str] = None, max_per_family: int = 1) -> List[str]:
+def get_models_for_sentiment(
+    index_path: Optional[str] = None,
+    limit: int = 10,
+) -> List[str]:
     """
     Dynamically determine which models to scrape sentiment for.
 
-    Reads the index data, groups models by family, and picks the top
-    representative(s) from each family (by performance_rank).
-    This ensures the sentiment pipeline always covers models present
-    in the index, adapting automatically when models change.
+    Reads the ranked index and selects the top ten distinct public releases.
+    Effort variants such as ``(max)`` and ``(xhigh)`` count as one model.
 
     Falls back to _FALLBACK_MODELS if the index cannot be read.
     """
@@ -228,31 +249,30 @@ def get_models_for_sentiment(index_path: Optional[str] = None, max_per_family: i
     if not index_data:
         return _FALLBACK_MODELS
 
-    families: Dict[str, List[dict]] = {}
-    for m in index_data:
-        name = m.get("canonical_name") or m.get("model_name") or ""
-        fam = _detect_family(name)
-        if not fam:
-            continue
-        if fam not in families:
-            families[fam] = []
-        families[fam].append(m)
+    from utils.model_families import normalize_release_name
 
-    selected = []
-    for fam, members in sorted(families.items()):
-        members.sort(key=lambda x: x.get("performance_rank") or 9999)
-        for m in members[:max_per_family]:
-            selected.append(fam)
+    ranked = sorted(
+        (
+            item
+            for item in index_data
+            if isinstance(item.get("performance_rank"), (int, float))
+        ),
+        key=lambda item: item["performance_rank"],
+    )
+    selected: List[str] = []
+    seen: set[str] = set()
+    for item in ranked:
+        raw_name = item.get("canonical_name") or item.get("model_name") or ""
+        name = normalize_release_name(raw_name)
+        key = name.casefold()
+        if not name or key in seen:
+            continue
+        seen.add(key)
+        selected.append(name)
+        if len(selected) == limit:
             break
 
-    seen = set()
-    unique = []
-    for name in selected:
-        if name not in seen:
-            seen.add(name)
-            unique.append(name)
-
-    return unique if unique else _FALLBACK_MODELS
+    return selected if selected else _FALLBACK_MODELS[:limit]
 
 
 # ──────────────────────────────────────────────────────────────
@@ -279,7 +299,9 @@ def _load_mention_cache(model_name: str, base_dir: Optional[str] = None) -> Opti
             entry = json.load(f)
         if time.time() - entry.get("timestamp", 0) < SENTIMENT_CACHE_TTL:
             logger.info(f"[{model_name}] Loaded {len(entry['mentions'])} mentions from disk cache")
-            return entry["mentions"]
+            mentions = entry["mentions"]
+            # Do not cache a temporary all-sources network outage.
+            return mentions if mentions else None
     except (json.JSONDecodeError, IOError, KeyError):
         pass
     return None
@@ -318,37 +340,60 @@ def _build_search_query(model_name: str) -> str:
     return f'"{model_name}" AND (AI OR LLM OR model OR "language model")'
 
 
-def scrape_reddit_mentions(model_name: str, limit: int = 75) -> List[dict]:
-    """Scrape Reddit mentions using old.reddit.com JSON API. No authentication required."""
+def _xml_text(element: Optional[ET.Element]) -> str:
+    """Convert escaped syndication content to plain text."""
+    if element is None or not element.text:
+        return ""
+    value = html.unescape(element.text)
+    value = re.sub(r"<[^>]+>", " ", value)
+    return re.sub(r"\s+", " ", value).strip()
+
+
+def scrape_reddit_mentions(model_name: str, limit: int = 40) -> List[dict]:
+    """Read recent model-specific Reddit discussions from public search RSS."""
     if not REQUESTS_AVAILABLE:
         return []
     mentions = []
     try:
-        search_term = _build_search_query(model_name)
+        search_term = f'"{model_name}" AI model'
         query = requests.utils.quote(search_term)
-        url = f"https://old.reddit.com/search.json?q={query}&sort=new&limit={limit}&restrict_sr=&t=month"
-        headers = {"User-Agent": "LLMDEX-Sentiment/1.0 (research)"}
-        resp = requests.get(url, headers=headers, timeout=15)
+        url = f"https://www.reddit.com/search.rss?q={query}&sort=new&t=month"
+        headers = {
+            "User-Agent": (
+                "LLMDEX/2.0 public-model-sentiment "
+                "(+https://github.com/ArnavMurdande/LLMDEX)"
+            ),
+            "Accept": "application/atom+xml,application/rss+xml;q=0.9",
+        }
+        global _reddit_last_request_at
+        with _reddit_request_lock:
+            delay = max(0.0, 2.5 - (time.monotonic() - _reddit_last_request_at))
+            if delay:
+                time.sleep(delay)
+            resp = requests.get(url, headers=headers, timeout=15)
+            _reddit_last_request_at = time.monotonic()
+            if resp.status_code == 429:
+                time.sleep(5)
+                resp = requests.get(url, headers=headers, timeout=15)
+                _reddit_last_request_at = time.monotonic()
         if resp.status_code == 200:
-            data = resp.json()
-            posts = data.get("data", {}).get("children", [])
-            for post in posts:
-                d = post.get("data", {})
-                title = d.get('title', '')
-                selftext = d.get('selftext', '')
-                text = f"{title} {selftext}"
-                if "rodriguez" in text.lower() and "grok" in model_name.lower():
-                    continue
+            root = ET.fromstring(resp.content)
+            namespace = {"atom": "http://www.w3.org/2005/Atom"}
+            for entry in root.findall("atom:entry", namespace)[:limit]:
+                title = _xml_text(entry.find("atom:title", namespace))
+                content = _xml_text(entry.find("atom:content", namespace))
+                link_node = entry.find("atom:link", namespace)
+                text = f"{title} {content}".strip()
                 mentions.append({
                     "source": "Reddit",
                     "text": text[:500],
-                    "score": d.get("score", 0),
-                    "created": d.get("created_utc"),
-                    "url": f"https://reddit.com{d.get('permalink', '')}",
+                    "score": 1,
+                    "created": _xml_text(entry.find("atom:updated", namespace)),
+                    "url": link_node.get("href", "") if link_node is not None else "",
                 })
         else:
-            logger.warning(f"Reddit API returned {resp.status_code} for '{model_name}'")
-        time.sleep(1)
+            logger.warning(f"Reddit RSS returned {resp.status_code} for '{model_name}'")
+        time.sleep(0.75)
     except Exception as e:
         logger.warning(f"Reddit scrape failed for '{model_name}': {e}")
     return mentions
@@ -412,6 +457,93 @@ def scrape_github_mentions(model_name: str, limit: int = 40) -> List[dict]:
     return mentions
 
 
+def scrape_web_mentions(model_name: str, limit: int = 40) -> List[dict]:
+    """Collect recent web/news reactions from Google News RSS."""
+    if not REQUESTS_AVAILABLE:
+        return []
+    mentions: List[dict] = []
+    try:
+        query = requests.utils.quote(f'"{model_name}" AI model')
+        url = (
+            "https://news.google.com/rss/search"
+            f"?q={query}&hl=en-US&gl=US&ceid=US:en"
+        )
+        response = requests.get(
+            url,
+            headers={"User-Agent": "LLMDEX/2.0 model-sentiment research"},
+            timeout=15,
+        )
+        if response.status_code == 200:
+            root = ET.fromstring(response.content)
+            for item in root.findall("./channel/item")[:limit]:
+                title = _xml_text(item.find("title"))
+                description = _xml_text(item.find("description"))
+                mentions.append(
+                    {
+                        "source": "Web",
+                        "text": f"{title} {description}".strip()[:500],
+                        "score": 1,
+                        "created": _xml_text(item.find("pubDate")),
+                        "url": _xml_text(item.find("link")),
+                    }
+                )
+        else:
+            logger.warning(
+                f"Web RSS returned {response.status_code} for '{model_name}'"
+            )
+    except Exception as exc:
+        logger.warning(f"Web scrape failed for '{model_name}': {exc}")
+    return mentions
+
+
+def scrape_x_mentions(model_name: str, limit: int = 40) -> List[dict]:
+    """Use X's official recent-search API when a bearer token is configured."""
+    if not REQUESTS_AVAILABLE:
+        return []
+    bearer_token = os.environ.get("X_BEARER_TOKEN", "").strip()
+    if not bearer_token:
+        return []
+    try:
+        response = requests.get(
+            "https://api.x.com/2/tweets/search/recent",
+            headers={"Authorization": f"Bearer {bearer_token}"},
+            params={
+                "query": f'"{model_name}" (AI OR LLM) -is:retweet lang:en',
+                "max_results": max(10, min(limit, 100)),
+                "tweet.fields": "created_at,public_metrics",
+            },
+            timeout=20,
+        )
+        if response.status_code != 200:
+            logger.warning(f"X API returned {response.status_code} for '{model_name}'")
+            return []
+        mentions: List[dict] = []
+        for post in response.json().get("data", []):
+            metrics = post.get("public_metrics") or {}
+            engagement = sum(
+                int(metrics.get(field, 0) or 0)
+                for field in (
+                    "like_count",
+                    "reply_count",
+                    "retweet_count",
+                    "quote_count",
+                )
+            )
+            mentions.append(
+                {
+                    "source": "X",
+                    "text": (post.get("text") or "")[:500],
+                    "score": engagement,
+                    "created": post.get("created_at"),
+                    "url": f"https://x.com/i/web/status/{post.get('id', '')}",
+                }
+            )
+        return mentions
+    except Exception as exc:
+        logger.warning(f"X scrape failed for '{model_name}': {exc}")
+        return []
+
+
 # ──────────────────────────────────────────────────────────────
 # Deduplication & Spam Filtering
 # ──────────────────────────────────────────────────────────────
@@ -448,6 +580,31 @@ def _filter_spam(mentions: List[dict]) -> List[dict]:
     return filtered
 
 
+def _filter_model_relevance(model_name: str, mentions: List[dict]) -> List[dict]:
+    """Require the actual release name, not only its company or broad family."""
+    def normalize(value: str) -> str:
+        return re.sub(
+            r"\s+",
+            " ",
+            re.sub(r"[^a-z0-9]+", " ", html.unescape(value or "").lower()),
+        ).strip()
+
+    full_name = normalize(model_name)
+    parts = full_name.split()
+    aliases = {full_name}
+    if parts and parts[0] in {"claude", "gpt", "gemini"} and len(parts) > 2:
+        aliases.add(" ".join(parts[1:]))
+
+    return [
+        mention
+        for mention in mentions
+        if any(
+            alias and alias in normalize(mention.get("text", ""))
+            for alias in aliases
+        )
+    ]
+
+
 # ──────────────────────────────────────────────────────────────
 # Mention Sampling
 # ──────────────────────────────────────────────────────────────
@@ -459,7 +616,7 @@ def _sample_mentions(model_name: str, mentions: List[dict], max_count: int = MAX
     """
     if len(mentions) <= max_count:
         return mentions
-    sampled = random.sample(mentions, max_count)
+    sampled = random.Random(model_name).sample(mentions, max_count)
     logger.warning(
         f"[{model_name}] Sampled {max_count} mentions from {len(mentions)} total "
         f"(random sampling applied to stay within API budget)"
@@ -783,6 +940,11 @@ def analyze_sentiment_gemini(model_name: str, mentions: List[dict]) -> dict:
             "sentiment_method": "none",
         }
 
+    if not _sentiment_keys_configured():
+        result = _analyze_sentiment_vader(mentions)
+        result["sentiment_method"] = "vader_fallback"
+        return result
+
     classifications = _classify_with_gemini(model_name, mentions)
 
     if classifications and len(classifications) > 0:
@@ -996,6 +1158,7 @@ def _strip_emojis(text: str) -> str:
 
 def _clean_links(text: str) -> str:
     """Remove markdown links and bare URLs."""
+    text = html.unescape(text)
     text = re.sub(r'\[([^\]]+)\]\([^\)]+\)', r'\1', text)
     text = re.sub(r'https?://\S+', '', text)
     text = re.sub(r'<[^>]+>', '', text)
@@ -1149,15 +1312,22 @@ def _scrape_model_mentions(
     """
     cached = _load_mention_cache(model_name, mention_cache_dir)
     if cached is not None:
+        cached = _filter_model_relevance(model_name, cached)
         logger.info(f"[{model_name}] Using cached mentions — skipping scrape")
         return model_name, _sample_mentions(model_name, cached)
 
-    logger.info(f"[{model_name}] Scraping fresh mentions from Reddit / HN / GitHub...")
+    logger.info(
+        f"[{model_name}] Scraping Reddit / HN / GitHub / Web"
+        + (" / X..." if os.environ.get("X_BEARER_TOKEN", "").strip() else "...")
+    )
     raw: List[dict] = []
     raw.extend(scrape_reddit_mentions(model_name))
     raw.extend(scrape_hackernews_mentions(model_name))
     raw.extend(scrape_github_mentions(model_name))
+    raw.extend(scrape_web_mentions(model_name))
+    raw.extend(scrape_x_mentions(model_name))
 
+    raw = _filter_model_relevance(model_name, raw)
     raw = _deduplicate_mentions(raw)
     raw = _filter_spam(raw)
     _save_mention_cache(model_name, raw, mention_cache_dir)
@@ -1199,8 +1369,17 @@ def _prefilter_for_gemini(mentions: list) -> list:
         if m.get("score", 0) >= 8:
             filtered.append(m)
 
+    if len(filtered) < 12:
+        selected_ids = {id(item) for item in filtered}
+        remainder = sorted(
+            (item for item in mentions if id(item) not in selected_ids),
+            key=lambda item: item.get("score", 0),
+            reverse=True,
+        )
+        filtered.extend(remainder[: 12 - len(filtered)])
+
     # hard cap to protect quota
-    return filtered[:120]
+    return filtered[:36]
 
 
 # ──────────────────────────────────────────────────────────────
@@ -1231,6 +1410,11 @@ def process_model_sentiment(
     sentiment["model_name"] = model_name
     sentiment["scraped_at"] = datetime.now(timezone.utc).isoformat()
     sentiment["_experimental"] = True  # SAFETY: always labeled
+    source_counts: Dict[str, int] = {}
+    for mention in mentions:
+        source = mention.get("source", "Unknown")
+        source_counts[source] = source_counts.get(source, 0) + 1
+    sentiment["source_counts"] = source_counts
 
     # Retrieve Gemini classifications from cache for quote selection
     cache_key = _make_cache_key(model_name, mentions)
@@ -1266,11 +1450,11 @@ def run_sentiment_pipeline(
     Run the full sentiment pipeline in two phases:
 
     Phase 1 — Parallel scraping (up to MAX_SCRAPE_WORKERS threads):
-        For each model: load disk cache or scrape Reddit + HN + GitHub,
+        For each model: load disk cache or scrape Reddit + HN + GitHub + Web,
         deduplicate, filter spam, and sample to MAX_MENTIONS_PER_MODEL.
 
     Phase 2 — Controlled Gemini classification (sequential, semaphore-gated):
-        For each model: send batches of 40 mentions to Gemini via
+        For each model: send batches of 12 mentions to Gemini via
         GeminiSemaphore, with backpressure retry on quota errors, and
         VADER fallback if Gemini is fully unavailable.
 
@@ -1295,12 +1479,14 @@ def run_sentiment_pipeline(
     scrape_workers = min(MAX_SCRAPE_WORKERS, num_models)
 
     # ── Pre-initialize GeminiSemaphore based on live key state ──
-    _get_gemini_semaphore()
+    if _sentiment_keys_configured():
+        _get_gemini_semaphore()
 
     logger.info(
         f"Sentiment pipeline: {num_models} models | "
         f"Phase 1 scrape workers: {scrape_workers} | "
-        f"Phase 2 Gemini concurrency: {_gemini_concurrency_limit}"
+        f"Phase 2 method: "
+        f"{'Gemini + VADER fallback' if _sentiment_keys_configured() else 'VADER'}"
     )
 
     # ── Phase 1: Parallel scraping ────────────────────────────

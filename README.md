@@ -124,10 +124,20 @@ raw public field/value pairs.
 ## Automatic Updates
 
 - `.github/workflows/update.yml` refreshes Artificial Analysis data daily,
-  validates all rows, commits changed datasets to `main`, and redeploys Pages.
+  rebuilds family history and top-10 model sentiment, validates the publication
+  contract, commits changed datasets to `main`, and redeploys Pages.
 - Dependabot checks Python packages and GitHub Actions every Monday.
 - Patch and minor dependency updates are configured for safe auto-merge; pull
   request CI must pass before protected branches allow the merge.
+- Failed scheduled updates open or update one GitHub issue with a direct link
+  to the failed workflow, so a stale deployment cannot fail silently.
+
+Optional repository secrets:
+
+- `GEMINI_SENTIMENT_KEY_1` through `GEMINI_SENTIMENT_KEY_4` enable semantic
+  sentiment classification. Without them, the workflow uses VADER.
+- `X_BEARER_TOKEN` enables X recent-search data through X's official API.
+- Reddit, Hacker News, GitHub, and web/news collection need no project secret.
 
 ---
 
@@ -173,8 +183,8 @@ git clone https://github.com/ArnavMurdande/LLMDEX.git
 # Navigate into project directory
 cd LLMDEX
 
-# Run local development server
-python -m http.server 8080
+# Run the website and Advisor API
+python api_server.py
 ```
 
 Open in your browser:

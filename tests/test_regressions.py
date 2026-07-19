@@ -2,13 +2,19 @@ from __future__ import annotations
 
 import tempfile
 import unittest
+import json
 from pathlib import Path
 from unittest.mock import patch
 
 import pandas as pd
 
 from pipeline.scoring import score_dataset
-from pipeline.sentiment_pipeline import _scrape_model_mentions
+from pipeline.sentiment_pipeline import (
+    _filter_model_relevance,
+    _scrape_model_mentions,
+    get_models_for_sentiment,
+)
+from pipeline.build_family_history import build_family_history
 from pipeline.gemini_advisor import _extract_compact_snapshot
 from pipeline.merge_data import merge_rows_with_provenance
 from scraper.scrape_artificialanalysis import _model_to_scraped_row, _number
@@ -18,7 +24,7 @@ class SentimentPipelineRegressionTests(unittest.TestCase):
     def test_fresh_scrape_returns_same_list_contract_as_cache_hit(self):
         mention = {
             "source": "HackerNews",
-            "text": "This AI model has impressive benchmark performance",
+            "text": "Example Model has impressive benchmark performance",
             "score": 10,
             "url": "https://example.test/item",
         }
@@ -40,6 +46,14 @@ class SentimentPipelineRegressionTests(unittest.TestCase):
                     "pipeline.sentiment_pipeline.scrape_github_mentions",
                     return_value=[],
                 ),
+                patch(
+                    "pipeline.sentiment_pipeline.scrape_web_mentions",
+                    return_value=[],
+                ),
+                patch(
+                    "pipeline.sentiment_pipeline.scrape_x_mentions",
+                    return_value=[],
+                ),
                 patch("pipeline.sentiment_pipeline._save_mention_cache"),
             ):
                 model_name, mentions = _scrape_model_mentions(
@@ -50,6 +64,76 @@ class SentimentPipelineRegressionTests(unittest.TestCase):
         self.assertIsInstance(mentions, list)
         self.assertEqual(len(mentions), 1)
         self.assertEqual(mentions[0]["source"], "HackerNews")
+
+    def test_sentiment_tracks_top_ten_distinct_current_models(self):
+        rows = [
+            {
+                "canonical_name": "GPT-5.6 Sol (max)",
+                "performance_rank": 1,
+            },
+            {
+                "canonical_name": "GPT-5.6 Sol (xhigh)",
+                "performance_rank": 2,
+            },
+        ]
+        rows.extend(
+            {
+                "canonical_name": f"Current Model {rank}",
+                "performance_rank": rank,
+            }
+            for rank in range(3, 14)
+        )
+        with tempfile.TemporaryDirectory() as temp_dir:
+            index_path = Path(temp_dir) / "latest.json"
+            index_path.write_text(json.dumps(rows), encoding="utf-8")
+            selected = get_models_for_sentiment(str(index_path))
+
+        self.assertEqual(len(selected), 10)
+        self.assertEqual(selected[0], "GPT-5.6 Sol")
+        self.assertNotIn("GPT-5.6 Sol (xhigh)", selected)
+
+    def test_sentiment_rejects_broad_family_false_positives(self):
+        mentions = [
+            {"text": "Claude Sonnet 5 is much better for this workflow."},
+            {"text": "Claude usage limits made me switch to another model."},
+            {"text": "Sonnet 4.5 remains affordable."},
+        ]
+
+        relevant = _filter_model_relevance("Claude Sonnet 5", mentions)
+
+        self.assertEqual(len(relevant), 1)
+        self.assertIn("Sonnet 5", relevant[0]["text"])
+
+
+class FamilyGrowthRegressionTests(unittest.TestCase):
+    def test_fable_is_preserved_and_effort_variants_are_collapsed(self):
+        rows = [
+            {
+                "canonical_name": "Claude Fable 5 (with fallback)",
+                "provider": "Anthropic",
+                "adjusted_performance": 60,
+                "performance_rank": 1,
+            },
+            {
+                "canonical_name": "Claude Opus 4.8 (max)",
+                "provider": "Anthropic",
+                "adjusted_performance": 58,
+                "performance_rank": 2,
+            },
+            {
+                "canonical_name": "Claude Opus 4.8 (xhigh)",
+                "provider": "Anthropic",
+                "adjusted_performance": 57,
+                "performance_rank": 3,
+            },
+        ]
+
+        history = build_family_history(rows)
+
+        self.assertIn("Claude Fable", history)
+        self.assertEqual(history["Claude Fable"][0]["name"], "Claude Fable 5")
+        self.assertEqual(len(history["Claude Opus"]), 1)
+        self.assertEqual(history["Claude Opus"][0]["variant_count"], 2)
 
 
 class RankingRegressionTests(unittest.TestCase):

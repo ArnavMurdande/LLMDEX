@@ -16,7 +16,70 @@
 
 let currentTab = "performance-tab";
 let allDataRef = null;
+let sentimentDataRef = null;
+let familyRenderRef = null;
 let currentSort = { field: null, direction: null };
+const selectedModelIds = new Set();
+
+function chartTheme() {
+  const light = document.documentElement.dataset.theme === "light";
+  return {
+    text: light ? "#171717" : "#f5f5f5",
+    muted: light ? "#5f5f5f" : "#a3a3a3",
+    grid: light ? "rgba(0,0,0,0.10)" : "rgba(255,255,255,0.10)",
+    strong: light ? "#111111" : "#f5f5f5",
+    mid: light ? "#626262" : "#a3a3a3",
+    soft: light ? "#b8b8b8" : "#555555",
+    fill: light ? "rgba(17,17,17,0.10)" : "rgba(255,255,255,0.12)",
+  };
+}
+
+function setupTheme() {
+  const toggle = document.getElementById("theme-toggle");
+  if (!toggle) return;
+  const sync = () => {
+    const light = document.documentElement.dataset.theme === "light";
+    toggle.innerHTML = `<i class="fas fa-${light ? "moon" : "sun"}"></i>`;
+    toggle.setAttribute(
+      "aria-label",
+      light ? "Switch to dark mode" : "Switch to light mode",
+    );
+    document
+      .querySelector('meta[name="theme-color"]')
+      ?.setAttribute("content", light ? "#f5f5f5" : "#050505");
+  };
+  sync();
+  toggle.addEventListener("click", () => {
+    const next =
+      document.documentElement.dataset.theme === "light" ? "dark" : "light";
+    document.documentElement.dataset.theme = next;
+    localStorage.setItem("llmdex-theme", next);
+    sync();
+    if (allDataRef) {
+      renderScatterPlot(allDataRef);
+      renderEfficiencyChart(allDataRef);
+      const selector = document.getElementById("radar-model-selector");
+      const ranked = allDataRef
+        .filter((row) => row.performance_rank != null)
+        .sort((a, b) => a.performance_rank - b.performance_rank);
+      const selected = ranked[Number(selector?.value || 0)];
+      if (selected) renderRadarChart(selected);
+    }
+    if (sentimentDataRef) renderSentimentCharts(sentimentDataRef);
+    if (familyRenderRef) {
+      familyRenderRef(document.getElementById("family-selector")?.value || "");
+    }
+  });
+}
+
+async function safeInit(label, callback) {
+  try {
+    return await callback();
+  } catch (error) {
+    console.error(`${label} failed to initialize:`, error);
+    return null;
+  }
+}
 
 function closestElement(target, selector) {
   return target && typeof target.closest === "function"
@@ -31,6 +94,7 @@ function escapeDisplay(value) {
 }
 
 document.addEventListener("DOMContentLoaded", async () => {
+  setupTheme();
   const hamburgerBtn = document.getElementById("hamburger-btn");
   const navLinks = document.getElementById("nav-links");
   if (hamburgerBtn && navLinks) {
@@ -51,6 +115,14 @@ document.addEventListener("DOMContentLoaded", async () => {
     `../data/index/latest.json?v=${dataCacheVersion}`,
     `../data/models.json?v=${dataCacheVersion}`,
   ];
+  const sentimentPromise = fetch(
+    `../data/sentiment/latest.json?v=${dataCacheVersion}`,
+  )
+    .then((response) => (response.ok ? response.json() : []))
+    .catch((error) => {
+      console.warn("Sentiment data could not be loaded:", error);
+      return [];
+    });
 
   // Column descriptions are optional; the expanded Artificial Analysis values
   // are rendered directly from each model's source_details object.
@@ -115,14 +187,21 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 
   allDataRef = allData;
-  renderDashboard(allData);
-  setupLeaderboardTabs(allData);
-  setupSorting(allData);
-  setupComparison(allData);
-  setupBenchmarkModal(allData);
-  setupFamilyExplorer(allData);
-  setupAdvisor(allData);
-  setupChatbot(allData);
+  // Advisor setup is intentionally isolated and first: a chart failure must
+  // never leave its controls stuck in a loading state.
+  await safeInit("AI Advisor chat", () => setupChatbot(allData));
+  await safeInit("Dashboard", () => renderDashboard(allData));
+  await safeInit("Leaderboard tabs", () => setupLeaderboardTabs(allData));
+  await safeInit("Sorting", () => setupSorting(allData));
+  await safeInit("Comparison", () => setupComparison(allData));
+  await safeInit("Benchmark modal", () => setupBenchmarkModal(allData));
+  await safeInit("Priority advisor", () => setupAdvisor(allData));
+  safeInit("Family explorer", () => setupFamilyExplorerModern(allData));
+  safeInit("Leaderboard scrolling", () => setupTableScrollMirror());
+  sentimentPromise.then((sentimentData) => {
+    sentimentDataRef = sentimentData;
+    safeInit("Model sentiment", () => renderSentimentPanel(sentimentData));
+  });
 
   columnDefsPromise.then((columnDefs) => setupTooltips(columnDefs));
 
@@ -321,6 +400,7 @@ function setupLeaderboardTabs(data) {
 // ══════════════════════════════════════════════════════════════
 
 function renderScatterPlot(data) {
+  const theme = chartTheme();
   const plotData = data.filter(
     (d) => d.blended_cost_per_1m != null && d.performance_index != null,
   );
@@ -349,10 +429,14 @@ function renderScatterPlot(data) {
       color: plotData.map(
         (d) => d.adjusted_performance || d.performance_index || 0,
       ),
-      colorscale: "Viridis",
+      colorscale: [
+        [0, theme.soft],
+        [0.5, theme.mid],
+        [1, theme.strong],
+      ],
       showscale: window.innerWidth > 768,
       colorbar: { title: "AA Intelligence" },
-      line: { color: "white", width: 1 },
+      line: { color: theme.strong, width: 1 },
     },
   };
 
@@ -362,7 +446,7 @@ function renderScatterPlot(data) {
       text: isMobile
         ? "Perf. vs Cost Frontier"
         : "Artificial Analysis Intelligence vs Cost",
-      font: { color: "#f8fafc", size: isMobile ? 11 : undefined },
+      font: { color: theme.text, size: isMobile ? 11 : undefined },
     },
     paper_bgcolor: "rgba(0,0,0,0)",
     plot_bgcolor: "rgba(0,0,0,0)",
@@ -370,12 +454,14 @@ function renderScatterPlot(data) {
     xaxis: {
       title: isMobile ? "Cost ($)" : "Blended Cost per 1M Tokens ($)",
       type: "log",
-      color: "#94a3b8",
+      color: theme.muted,
+      gridcolor: theme.grid,
       tickfont: { size: isMobile ? 10 : 12 },
     },
     yaxis: {
       title: isMobile ? "Adj. Perf" : "Adjusted Performance (0-100)",
-      color: "#94a3b8",
+      color: theme.muted,
+      gridcolor: theme.grid,
       tickfont: { size: isMobile ? 10 : 12 },
     },
     hovermode: "closest",
@@ -392,6 +478,7 @@ function renderScatterPlot(data) {
 // ══════════════════════════════════════════════════════════════
 
 function renderEfficiencyChart(data) {
+  const theme = chartTheme();
   const validEfficiency = data.filter(
     (d) => d.efficiency_score != null && d.efficiency_rank != null,
   );
@@ -413,36 +500,43 @@ function renderEfficiencyChart(data) {
     marker: {
       color: top10.map((d) => d.efficiency_score),
       colorscale: [
-        [0, "#1e40af"],
-        [0.5, "#3b82f6"],
-        [1, "#10b981"],
+        [0, theme.soft],
+        [0.55, theme.mid],
+        [1, theme.strong],
       ],
     },
     text: top10.map((d) => `${d.efficiency_score.toFixed(1)} pctl`),
-    textposition: "outside",
-    textfont: { color: "#94a3b8", size: 11 },
+    textposition: "inside",
+    insidetextanchor: "end",
+    textfont: {
+      color: document.documentElement.dataset.theme === "light" ? "#fff" : "#000",
+      size: 11,
+    },
+    cliponaxis: false,
   };
 
   const isMobile = window.innerWidth <= 768;
   const layout = {
     title: {
       text: `Top ${top10.length} Most Efficient${isMobile ? "" : " (Percentile Rank)"}`,
-      font: { color: "#f8fafc", size: isMobile ? 13 : undefined },
+      font: { color: theme.text, size: isMobile ? 13 : undefined },
     },
     paper_bgcolor: "rgba(0,0,0,0)",
     plot_bgcolor: "rgba(0,0,0,0)",
     xaxis: {
       title: isMobile ? "Percentile" : "Efficiency Percentile (0-100)",
-      color: "#94a3b8",
-      range: [0, 110],
+      color: theme.muted,
+      gridcolor: theme.grid,
+      range: [0, 100],
       tickfont: { size: isMobile ? 10 : 12 },
     },
     yaxis: {
-      color: "#f8fafc",
+      color: theme.text,
       automargin: true,
       tickfont: { size: isMobile ? 8 : 12 },
     },
-    margin: isMobile ? { l: 110, r: 25, t: 30, b: 35 } : { l: 160, r: 60 },
+    margin: isMobile ? { l: 120, r: 12, t: 38, b: 40 } : { l: 230, r: 24, t: 54, b: 52 },
+    height: isMobile ? 430 : 490,
   };
 
   Plotly.newPlot("bar-chart", [trace], layout, {
@@ -484,6 +578,7 @@ function setupRadarChart(data, defaultModel) {
 
 function renderRadarChart(model) {
   if (!model) return;
+  const theme = chartTheme();
 
   const axes = [
     {
@@ -544,27 +639,29 @@ function renderRadarChart(model) {
     theta: thetaPlot,
     fill: "toself",
     name: model.canonical_name || model.model_name,
-    line: { color: "#3b82f6" },
-    fillcolor: "rgba(59, 130, 246, 0.15)",
+    line: { color: theme.strong, width: 2 },
+    fillcolor: theme.fill,
   };
 
   const isMobile = window.innerWidth <= 768;
   const layout = {
     title: {
       text: `${model.canonical_name || model.model_name}${cfLabel}${titleSuffix}`,
-      font: { color: "#f8fafc", size: isMobile ? 11 : 13 },
+      font: { color: theme.text, size: isMobile ? 11 : 13 },
     },
     paper_bgcolor: "rgba(0,0,0,0)",
     polar: {
       radialaxis: {
         visible: true,
         range: [0, 100],
-        color: "#94a3b8",
+        color: theme.muted,
+        gridcolor: theme.grid,
         tickfont: { size: isMobile ? 8 : 12 },
       },
       bgcolor: "rgba(0,0,0,0)",
       angularaxis: {
-        color: "#f8fafc",
+        color: theme.text,
+        gridcolor: theme.grid,
         tickfont: { size: isMobile ? 8 : 12 },
       },
     },
@@ -615,7 +712,6 @@ const TABLE_CONFIGS = {
     sortDefault: "adjusted_performance",
     columns: [
       { key: "rank", label: "Rank", sortable: false },
-      { key: "checkbox", label: "", sortable: false },
       { key: "model_name", label: "Model", sortable: false },
       { key: "provider", label: "Provider", sortable: false },
       {
@@ -680,7 +776,6 @@ const TABLE_CONFIGS = {
     sortDefault: "composite_index",
     columns: [
       { key: "rank", label: "Rank", sortable: false },
-      { key: "checkbox", label: "", sortable: false },
       { key: "model_name", label: "Model", sortable: false },
       { key: "provider", label: "Provider", sortable: false },
       {
@@ -741,7 +836,6 @@ const TABLE_CONFIGS = {
     sortDefault: "efficiency_score",
     columns: [
       { key: "rank", label: "Rank", sortable: false },
-      { key: "checkbox", label: "", sortable: false },
       { key: "model_name", label: "Model", sortable: false },
       { key: "provider", label: "Provider", sortable: false },
       {
@@ -812,17 +906,6 @@ function populateTable(data, fullData, tabId) {
     headerRow.appendChild(th);
   });
 
-  // Re-bind select-all
-  const selectAll = document.getElementById("select-all-models");
-  if (selectAll) {
-    selectAll.addEventListener("change", () => {
-      document.querySelectorAll(".model-checkbox").forEach((cb) => {
-        cb.checked = selectAll.checked;
-      });
-      updateCompareCount();
-    });
-  }
-
   // Sort and filter data for this tab
   let tableData = [...data];
   const rankField = config.rankField;
@@ -864,8 +947,6 @@ function populateTable(data, fullData, tabId) {
       if (col.key === "rank") {
         const rank = row[rankField];
         td.textContent = rank != null ? `#${Math.round(rank)}` : "—";
-      } else if (col.key === "checkbox") {
-        td.innerHTML = `<input type="checkbox" class="model-checkbox" data-slug="${modelId}" />`;
       } else if (col.key === "model_name") {
         const name = row.canonical_name || row.model_name || "Unknown";
         const hasBreakdown =
@@ -876,6 +957,15 @@ function populateTable(data, fullData, tabId) {
             ? JSON.parse(row.benchmark_breakdown)
             : row.benchmark_breakdown;
         const showExpand = breakdown && Object.keys(breakdown).length > 0;
+        const selected = selectedModelIds.has(modelId);
+        const safeModelId = escapeDisplay(modelId);
+        const compareControl = `
+          <button class="model-compare-toggle" data-slug="${safeModelId}"
+            aria-pressed="${selected}" title="${selected ? "Remove from" : "Add to"} comparison">
+            <i class="fas fa-${selected ? "minus" : "plus"}"></i>
+          </button>
+          <input type="checkbox" class="model-checkbox" data-slug="${safeModelId}"
+            ${selected ? "checked" : ""} hidden />`;
         // Data source indicator
         const tierBadge =
           row.sources && row.sources.includes("Artificial Analysis")
@@ -883,7 +973,7 @@ function populateTable(data, fullData, tabId) {
             : "";
         td.style.fontWeight = "600";
         td.style.color = "var(--text-primary)";
-        td.innerHTML = `${tierBadge}${name} ${showExpand ? `<button class="perf-detail-btn" data-slug="${row.model_slug || ""}" title="View benchmark breakdown"><i class="fas fa-chart-bar"></i></button>` : ""}`;
+        td.innerHTML = `${compareControl}<span class="model-name-text">${escapeDisplay(name)}</span> ${showExpand ? `<button class="perf-detail-btn" data-slug="${escapeDisplay(row.model_slug || "")}" title="View benchmark breakdown"><i class="fas fa-chart-bar"></i></button>` : ""}`;
       } else if (col.key === "provider") {
         td.innerHTML = row.provider || '<span class="na-badge">—</span>';
       } else {
@@ -940,6 +1030,36 @@ function populateTable(data, fullData, tabId) {
       );
     }
   }
+  window.requestAnimationFrame(syncTableScrollWidth);
+}
+
+function syncTableScrollWidth() {
+  const wrapper = document.getElementById("table-wrapper");
+  const table = document.getElementById("models-table");
+  const spacer = document.getElementById("table-scrollbar-spacer");
+  const top = document.getElementById("table-scrollbar-top");
+  if (!wrapper || !table || !spacer || !top) return;
+  spacer.style.width = `${table.scrollWidth}px`;
+  top.hidden = table.scrollWidth <= wrapper.clientWidth + 2;
+}
+
+function setupTableScrollMirror() {
+  const top = document.getElementById("table-scrollbar-top");
+  const wrapper = document.getElementById("table-wrapper");
+  if (!top || !wrapper) return;
+  let syncing = false;
+  const mirror = (source, target) => {
+    if (syncing) return;
+    syncing = true;
+    target.scrollLeft = source.scrollLeft;
+    window.requestAnimationFrame(() => {
+      syncing = false;
+    });
+  };
+  top.addEventListener("scroll", () => mirror(top, wrapper));
+  wrapper.addEventListener("scroll", () => mirror(wrapper, top));
+  window.addEventListener("resize", syncTableScrollWidth);
+  syncTableScrollWidth();
 }
 
 function computeBests(data, columns) {
@@ -1187,13 +1307,14 @@ function getSentimentLabel(score) {
  */
 function renderSentimentCharts(sentimentData) {
   if (!sentimentData || sentimentData.length === 0) return;
+  const theme = chartTheme();
 
   const isMobile = window.innerWidth <= 768;
   const CHART_HEIGHT = isMobile ? 300 : 450;
-  const LEFT_MARGIN = isMobile ? 80 : 260;
-  const RIGHT_MARGIN = isMobile ? 35 : 110;
+  const LEFT_MARGIN = isMobile ? 92 : 180;
+  const RIGHT_MARGIN = isMobile ? 24 : 48;
   const MAX_MODELS = 10;
-  const MAX_LABEL = isMobile ? 8 : 45;
+  const MAX_LABEL = isMobile ? 12 : 26;
 
   const clipName = (name) =>
     name.length > MAX_LABEL ? name.slice(0, MAX_LABEL - 3) + "..." : name;
@@ -1203,22 +1324,22 @@ function renderSentimentCharts(sentimentData) {
     plot_bgcolor: "rgba(0,0,0,0)",
     margin: { t: 8, b: isMobile ? 40 : 50, l: LEFT_MARGIN, r: RIGHT_MARGIN },
     font: {
-      color: "#e2e8f0",
+      color: theme.text,
       size: isMobile ? 11 : 13,
       family: "Inter, system-ui, sans-serif",
     },
     xaxis: {
-      color: "#94a3b8",
-      gridcolor: "rgba(255,255,255,0.06)",
+      color: theme.muted,
+      gridcolor: theme.grid,
       zeroline: false,
       tickfont: { size: isMobile ? 9 : 12 },
     },
     yaxis: {
-      color: "#e2e8f0",
-      gridcolor: "rgba(255,255,255,0.03)",
+      color: theme.text,
+      gridcolor: theme.grid,
       autorange: "reversed",
       type: "category",
-      tickfont: { size: isMobile ? 9 : 13, color: "#e2e8f0" },
+      tickfont: { size: isMobile ? 9 : 13, color: theme.text },
     },
     height: CHART_HEIGHT,
     bargap: 0.1,
@@ -1243,13 +1364,9 @@ function renderSentimentCharts(sentimentData) {
     .sort((a, b) => b.community_sentiment - a.community_sentiment)
     .slice(0, MAX_MODELS);
 
-  const likedColors = liked.map((s) => {
-    const v = s.community_sentiment;
-    if (v > 0.25) return "#10b981";
-    if (v > 0.1) return "#6ee7a0";
-    if (v > 0) return "#94a3b8";
-    return "#f59e0b";
-  });
+  const likedColors = liked.map((_, index) =>
+    index < 3 ? theme.strong : index < 7 ? theme.mid : theme.soft,
+  );
 
   Plotly.newPlot(
     "sentiment-liked-chart",
@@ -1262,8 +1379,19 @@ function renderSentimentCharts(sentimentData) {
         marker: { color: likedColors, line: { width: 0 }, cornerradius: 4 },
         width: 0.75, // Force bar thickness
         text: liked.map((s) => " " + s.community_sentiment.toFixed(3)),
-        textposition: "outside",
-        textfont: { color: "#e2e8f0", size: isMobile ? 9 : 12 },
+        textposition: liked.map((item) =>
+          item.community_sentiment < -0.15 ? "inside" : "outside",
+        ),
+        textfont: {
+          color: liked.map((item) =>
+            item.community_sentiment < -0.15
+              ? document.documentElement.dataset.theme === "light"
+                ? "#ffffff"
+                : "#000000"
+              : theme.text,
+          ),
+          size: isMobile ? 9 : 12,
+        },
         hovertext: liked.map(buildHoverText),
         hoverinfo: "text",
         cliponaxis: false,
@@ -1275,11 +1403,13 @@ function renderSentimentCharts(sentimentData) {
         ...baseLayout.xaxis,
         title: {
           text: "Sentiment Score",
-          font: { color: "#94a3b8", size: 11 },
+          font: { color: theme.muted, size: 11 },
         },
         range: [
           Math.min(0, ...liked.map((s) => s.community_sentiment)) - 0.05,
-          Math.max(...liked.map((s) => s.community_sentiment)) * 1.45,
+          (liked.length
+            ? Math.max(...liked.map((s) => s.community_sentiment))
+            : 0.5) * 1.45,
         ],
       },
     },
@@ -1302,10 +1432,9 @@ function renderSentimentCharts(sentimentData) {
           y: controversial.map((s) => clipName(s.model_name)),
           x: controversial.map((s) => s.controversy_index * 100),
           marker: {
-            color: controversial.map((_, i) => {
-              const ratio = 1 - i / Math.max(1, controversial.length - 1);
-              return `rgba(245, 158, 11, ${0.45 + ratio * 0.55})`;
-            }),
+            color: controversial.map((_, index) =>
+              index < 3 ? theme.strong : index < 7 ? theme.mid : theme.soft,
+            ),
             line: { width: 0 },
             cornerradius: 4,
           },
@@ -1314,7 +1443,7 @@ function renderSentimentCharts(sentimentData) {
             (s) => " " + (s.controversy_index * 100).toFixed(1) + "%",
           ),
           textposition: "outside",
-          textfont: { color: "#e2e8f0", size: isMobile ? 9 : 12 },
+          textfont: { color: theme.text, size: isMobile ? 9 : 12 },
           hovertext: controversial.map(buildHoverText),
           hoverinfo: "text",
           cliponaxis: false,
@@ -1326,7 +1455,7 @@ function renderSentimentCharts(sentimentData) {
           ...baseLayout.xaxis,
           title: {
             text: "Controversy Index %",
-            font: { color: "#94a3b8", size: 11 },
+            font: { color: theme.muted, size: 11 },
           },
           range: [
             0,
@@ -1349,16 +1478,7 @@ function renderSentimentCharts(sentimentData) {
     .slice(0, MAX_MODELS);
 
   // Use rank-based distinct colors so identical counts still look different
-  const discussedPalette = [
-    "#818cf8", // indigo
-    "#6366f1",
-    "#8b5cf6", // violet
-    "#a78bfa",
-    "#c084fc", // purple
-    "#7c3aed",
-    "#6d28d9",
-    "#5b21b6",
-  ];
+  const discussedPalette = [theme.strong, theme.mid, theme.soft];
 
   Plotly.newPlot(
     "sentiment-trending-chart",
@@ -1378,7 +1498,7 @@ function renderSentimentCharts(sentimentData) {
         width: 0.75,
         text: trending.map((s) => " " + String(s.mention_count) + " mentions"),
         textposition: "outside",
-        textfont: { color: "#e2e8f0", size: isMobile ? 9 : 12 },
+        textfont: { color: theme.text, size: isMobile ? 9 : 12 },
         hovertext: trending.map(buildHoverText),
         hoverinfo: "text",
         cliponaxis: false,
@@ -1388,8 +1508,13 @@ function renderSentimentCharts(sentimentData) {
       ...baseLayout,
       xaxis: {
         ...baseLayout.xaxis,
-        title: { text: "Total Mentions", font: { color: "#94a3b8", size: 11 } },
-        range: [0, Math.max(...trending.map((s) => s.mention_count)) * 1.5],
+        title: { text: "Total Mentions", font: { color: theme.muted, size: 11 } },
+        range: [
+          0,
+          (trending.length
+            ? Math.max(...trending.map((s) => s.mention_count))
+            : 10) * 1.5,
+        ],
       },
     },
     plotlyConfig,
@@ -1524,7 +1649,7 @@ function renderSentimentPanel(sentimentData) {
     const methodClass = method === "gemini" ? "method-gemini" : "method-vader";
 
     // Hover tooltip info
-    const sources = ["Reddit", "Hacker News", "GitHub"].join(", ");
+    const sources = Object.keys(s.source_counts || {}).join(", ") || "No source matches";
     const timeWindow = "30 days";
     const sampleSize = mentions;
 
@@ -1803,6 +1928,7 @@ function setupChatbot(data) {
   const messagesDiv = document.getElementById("chatbot-messages");
   const input = document.getElementById("chatbot-input");
   const sendBtn = document.getElementById("chatbot-send-btn");
+  const form = document.getElementById("chatbot-form");
   const clearBtn = document.getElementById("chatbot-clear-btn");
   const healthPill = document.getElementById("advisor-health-pill");
   const healthText = document.getElementById("advisor-health-text");
@@ -1906,6 +2032,7 @@ function setupChatbot(data) {
       window.clearTimeout(timeout);
     }
   }
+  updateAdvisorHealth("local", "Local analysis ready");
   checkAdvisorHealth();
 
   // Enable/disable send button based on input
@@ -1917,13 +2044,20 @@ function setupChatbot(data) {
 
   // Enter key to send
   input.addEventListener("keydown", (e) => {
-    if (e.key === "Enter" && !e.shiftKey && input.value.trim()) {
+    if (e.key === "Enter" && !e.shiftKey && !e.isComposing) {
       e.preventDefault();
-      handleSend();
+      if (input.value.trim()) handleSend();
     }
   });
 
-  sendBtn.addEventListener("click", handleSend);
+  if (form) {
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      handleSend();
+    });
+  } else {
+    sendBtn.addEventListener("click", handleSend);
+  }
 
   // Clear conversation
   clearBtn.addEventListener("click", () => {
@@ -2774,9 +2908,7 @@ function setupTooltips(columnDefs) {
 // ══════════════════════════════════════════════════════════════
 
 function getSelectedSlugs() {
-  return Array.from(document.querySelectorAll(".model-checkbox:checked"))
-    .map((cb) => cb.dataset.slug)
-    .filter((s) => s && s.length > 0);
+  return Array.from(selectedModelIds);
 }
 
 function getModelDisplayName(slug) {
@@ -2828,11 +2960,19 @@ function updateCompareBar() {
       btn.addEventListener("click", (e) => {
         e.stopPropagation();
         const slug = btn.dataset.slug;
+        selectedModelIds.delete(slug);
         const cb = document.querySelector(
           `.model-checkbox[data-slug="${slug}"]`,
         );
         if (cb) {
           cb.checked = false;
+        }
+        const toggle = document.querySelector(
+          `.model-compare-toggle[data-slug="${slug}"]`,
+        );
+        if (toggle) {
+          toggle.setAttribute("aria-pressed", "false");
+          toggle.innerHTML = '<i class="fas fa-plus"></i>';
         }
         updateCompareBar();
       });
@@ -2874,11 +3014,23 @@ function setupComparison(allData) {
   `;
   document.body.appendChild(bar);
 
-  // Delegation on tbody for checkbox changes
+  // Compact +/âˆ’ controls replace a column of visible checkboxes.
   document
     .querySelector("#models-table tbody")
-    .addEventListener("change", (e) => {
-      if (e.target.classList.contains("model-checkbox")) updateCompareBar();
+    .addEventListener("click", (event) => {
+      const toggle = closestElement(event.target, ".model-compare-toggle");
+      if (!toggle) return;
+      event.preventDefault();
+      const slug = toggle.dataset.slug;
+      if (!slug) return;
+      if (selectedModelIds.has(slug)) selectedModelIds.delete(slug);
+      else selectedModelIds.add(slug);
+      const selected = selectedModelIds.has(slug);
+      toggle.setAttribute("aria-pressed", selected ? "true" : "false");
+      toggle.innerHTML = `<i class="fas fa-${selected ? "minus" : "plus"}"></i>`;
+      const checkbox = toggle.parentElement.querySelector(".model-checkbox");
+      if (checkbox) checkbox.checked = selected;
+      updateCompareBar();
     });
 
   // Also handle the inline compare button
@@ -2896,11 +3048,14 @@ function setupComparison(allData) {
 
   // Clear button
   document.getElementById("compare-clear-btn").addEventListener("click", () => {
+    selectedModelIds.clear();
     document.querySelectorAll(".model-checkbox:checked").forEach((cb) => {
       cb.checked = false;
     });
-    const selectAll = document.getElementById("select-all-models");
-    if (selectAll) selectAll.checked = false;
+    document.querySelectorAll(".model-compare-toggle").forEach((toggle) => {
+      toggle.setAttribute("aria-pressed", "false");
+      toggle.innerHTML = '<i class="fas fa-plus"></i>';
+    });
     updateCompareBar();
   });
 
@@ -3015,6 +3170,7 @@ function renderComparisonRadar(models) {
 function detectSubFamily(name, provider) {
   const n = name.toLowerCase();
   if (n.includes("claude")) {
+    if (n.includes("fable")) return "Claude Fable";
     if (n.includes("opus")) return "Claude Opus";
     if (n.includes("sonnet")) return "Claude Sonnet";
     if (n.includes("haiku")) return "Claude Haiku";
@@ -3472,4 +3628,183 @@ async function setupFamilyExplorer(allData) {
 
   // Initial empty state
   renderChart("");
+}
+
+/**
+ * Readable release-level family explorer. The legacy renderer above is kept
+ * for backwards compatibility, while this version consumes the normalized
+ * family_growth contract produced by the current pipeline.
+ */
+async function setupFamilyExplorerModern(allData) {
+  const chartDiv = document.getElementById("family-chart");
+  const selector = document.getElementById("family-selector");
+  const explanation = document.querySelector(".family-explanation-text");
+  if (!chartDiv || !selector) return;
+
+  let familyData = {};
+  try {
+    const response = await fetch("../data/history/family_growth.json", {
+      cache: "no-store",
+    });
+    if (response.ok) familyData = await response.json();
+  } catch (error) {
+    console.warn("Family history could not be loaded:", error);
+  }
+  if (!Object.keys(familyData).length) {
+    familyData = buildFamiliesFromIndex(allData);
+  }
+
+  const brandForFamily = (family) => {
+    if (family.startsWith("OpenAI")) return "GPT";
+    if (family.startsWith("Meta ")) return "Llama";
+    return family.split(" ")[0] || "Other";
+  };
+  const brandGroups = {};
+  Object.entries(familyData).forEach(([family, members]) => {
+    const brand = brandForFamily(family);
+    if (!brandGroups[brand]) brandGroups[brand] = {};
+    brandGroups[brand][family] = members;
+  });
+
+  const brands = Object.keys(brandGroups).sort((a, b) => a.localeCompare(b));
+  selector.innerHTML = '<option value="">Choose a model brand...</option>';
+  brands.forEach((brand) => {
+    const families = Object.keys(brandGroups[brand]);
+    const releases = Object.values(brandGroups[brand]).reduce(
+      (total, members) => total + members.length,
+      0,
+    );
+    const option = document.createElement("option");
+    option.value = brand;
+    option.textContent = `${brand} (${families.length} ${families.length === 1 ? "family" : "families"}, ${releases} releases)`;
+    selector.appendChild(option);
+  });
+
+  const render = (brand) => {
+    if (!brand || !brandGroups[brand]) {
+      chartDiv.innerHTML = `
+        <div class="chart-empty-state">
+          <i class="fas fa-chart-bar"></i>
+          <h3>Choose a model brand</h3>
+          <p>Release variants are collapsed so the chart shows actual product generations, not repeated reasoning-effort settings.</p>
+        </div>`;
+      if (explanation) {
+        explanation.textContent =
+          "Choose a brand to inspect its release-level performance history.";
+      }
+      return;
+    }
+
+    const theme = chartTheme();
+    const families = Object.keys(brandGroups[brand]).sort();
+    const rows = [];
+    families.forEach((family, familyIndex) => {
+      brandGroups[brand][family].forEach((member) => {
+        rows.push({
+          ...member,
+          family,
+          familyIndex,
+        });
+      });
+    });
+    rows.sort((left, right) => {
+      if (left.familyIndex !== right.familyIndex) {
+        return right.familyIndex - left.familyIndex;
+      }
+      return left.performance - right.performance;
+    });
+
+    const palette = [theme.strong, theme.mid, theme.soft];
+    const labels = rows.map((row) => {
+      const suffix =
+        row.variant_count > 1 ? ` (${row.variant_count} variants)` : "";
+      return `${row.name}${suffix}`;
+    });
+    const hover = rows.map((row) => {
+      const rank = row.rank != null ? `#${Math.round(row.rank)}` : "N/A";
+      const change = row.predecessor
+        ? `<br>Change from ${row.predecessor}: ${row.improvement_abs >= 0 ? "+" : ""}${Number(row.improvement_abs).toFixed(1)}`
+        : "";
+      return `<b>${row.name}</b><br>Family: ${row.family}<br>AA Intelligence: ${Number(row.performance).toFixed(1)}<br>Global rank: ${rank}<br>Collapsed variants: ${row.variant_count || 1}${change}`;
+    });
+    const maximum = Math.max(...rows.map((row) => row.performance), 1);
+    const isMobile = window.innerWidth <= 768;
+
+    chartDiv.style.overflow = "visible";
+    Plotly.newPlot(
+      chartDiv,
+      [
+        {
+          type: "bar",
+          orientation: "h",
+          x: rows.map((row) => row.performance),
+          y: labels,
+          marker: {
+            color: rows.map(
+              (row) => palette[row.familyIndex % palette.length],
+            ),
+            line: { color: theme.grid, width: 1 },
+            cornerradius: 5,
+          },
+          text: rows.map((row) => Number(row.performance).toFixed(1)),
+          textposition: "inside",
+          insidetextanchor: "end",
+          textfont: {
+            color:
+              document.documentElement.dataset.theme === "light"
+                ? "#ffffff"
+                : "#000000",
+            size: 11,
+          },
+          hovertext: hover,
+          hoverinfo: "text",
+        },
+      ],
+      {
+        title: {
+          text: `${brand} release progression`,
+          font: { color: theme.text, size: isMobile ? 15 : 19 },
+          x: 0.02,
+          xanchor: "left",
+        },
+        paper_bgcolor: "rgba(0,0,0,0)",
+        plot_bgcolor: "rgba(0,0,0,0)",
+        font: { color: theme.muted },
+        xaxis: {
+          title: "Artificial Analysis Intelligence",
+          color: theme.muted,
+          gridcolor: theme.grid,
+          range: [0, Math.min(100, maximum + 5)],
+          fixedrange: true,
+        },
+        yaxis: {
+          color: theme.text,
+          automargin: true,
+          fixedrange: true,
+          tickfont: { size: isMobile ? 9 : 12 },
+        },
+        margin: isMobile
+          ? { t: 52, r: 12, b: 48, l: 130 }
+          : { t: 62, r: 24, b: 54, l: 260 },
+        height: Math.max(480, Math.min(900, rows.length * 38 + 130)),
+        bargap: 0.22,
+        showlegend: false,
+      },
+      {
+        responsive: true,
+        displayModeBar: false,
+        scrollZoom: false,
+      },
+    );
+
+    if (explanation) {
+      explanation.textContent = `${brand}: ${families.length} product ${families.length === 1 ? "family" : "families"} and ${rows.length} distinct releases. Reasoning-effort and fallback variants are collapsed to their best representative score.`;
+    }
+  };
+
+  familyRenderRef = render;
+  selector.addEventListener("change", (event) => render(event.target.value));
+  const initialBrand = brands.includes("Claude") ? "Claude" : brands[0] || "";
+  selector.value = initialBrand;
+  render(initialBrand);
 }

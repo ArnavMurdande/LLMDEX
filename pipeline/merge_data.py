@@ -37,6 +37,7 @@ from pipeline.scoring import (
     score_dataset,
     SOURCE_CONFIDENCE_WEIGHTS,
 )
+from utils.model_families import family_order_value, infer_model_family
 
 logger = logging.getLogger(__name__)
 
@@ -477,8 +478,9 @@ def _assign_model_families(df: pd.DataFrame) -> pd.DataFrame:
     """
     Assign model_family and family_order to each row using FAMILY_MAP.
 
-    Uses the model_id field (from registry resolution) to look up
-    the deterministic family mapping. Models not in the map get None.
+    Prefer the legacy registry map where it is current, then infer from the
+    Artificial Analysis display name so newly launched models appear without a
+    manual code update.
     """
     families = []
     orders = []
@@ -489,8 +491,9 @@ def _assign_model_families(df: pd.DataFrame) -> pd.DataFrame:
             families.append(fam)
             orders.append(order)
         else:
-            families.append(None)
-            orders.append(None)
+            name = row.get("canonical_name") or row.get("model_name") or ""
+            families.append(infer_model_family(name, row.get("provider")))
+            orders.append(family_order_value(name))
     df["model_family"] = families
     df["family_order"] = orders
     return df

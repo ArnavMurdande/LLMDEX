@@ -18,6 +18,7 @@ jobs:
       contents: write
       pages: write
       id-token: write
+      issues: write
 
     steps:
       - name: Checkout repository
@@ -45,16 +46,27 @@ jobs:
       # ──────────────────────────────────────────
       # Run the main scraper + merge pipeline
       # ──────────────────────────────────────────
-      - name: Run Scraper Pipeline
+      - name: Run Scraper and Top-10 Sentiment Pipeline
         id: pipeline
-        run: python pipeline/run_pipeline.py
+        run: python pipeline/run_pipeline.py --with-sentiment
         env:
           PYTHONPATH: .
+          GEMINI_SENTIMENT_KEY_1: ${{ secrets.GEMINI_SENTIMENT_KEY_1 }}
+          GEMINI_SENTIMENT_KEY_2: ${{ secrets.GEMINI_SENTIMENT_KEY_2 }}
+          GEMINI_SENTIMENT_KEY_3: ${{ secrets.GEMINI_SENTIMENT_KEY_3 }}
+          GEMINI_SENTIMENT_KEY_4: ${{ secrets.GEMINI_SENTIMENT_KEY_4 }}
+          X_BEARER_TOKEN: ${{ secrets.X_BEARER_TOKEN }}
 
       # ── Build family history data ──
       - name: Build Family History
         if: success()
         run: python pipeline/build_family_history.py
+        env:
+          PYTHONPATH: .
+
+      - name: Validate publication contract
+        if: success()
+        run: python pipeline/validate_publication.py
         env:
           PYTHONPATH: .
 
@@ -93,6 +105,7 @@ jobs:
           git add data/raw_snapshot/latest.json data/raw_snapshot/latest.csv || true
           git add data/history/family_growth.json || true
           git add data/history/*.json || true
+          git add data/sentiment/latest.json || true
           git add data/column_definitions.json || true
 
           git diff --cached --quiet || (
@@ -108,6 +121,20 @@ jobs:
           name: failure-report-${{ github.run_number }}
           path: data/pipeline_reports/
           retention-days: 30
+
+      - name: Report recurring update failure
+        if: failure()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          title="[Automation] Daily LLMDEX update failed"
+          run_url="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
+          issue_number="$(gh issue list --state open --search "$title in:title" --json number --jq '.[0].number // empty')"
+          if [ -n "$issue_number" ]; then
+            gh issue comment "$issue_number" --body "The scheduled update failed again: ${run_url}"
+          else
+            gh issue create --title "$title" --body "The scraper, sentiment, or publication contract failed. Inspect the workflow artifact and logs: ${run_url}"
+          fi
 
   # ──────────────────────────────────────────
   # Deploy website to GitHub Pages
@@ -147,6 +174,7 @@ jobs:
           # Copy only the data files the website needs
           cp -r data/index _site/data/index || true
           cp -r data/history _site/data/history || true
+          cp -r data/sentiment _site/data/sentiment || true
           cp data/models.json _site/data/models.json || true
           cp data/column_definitions.json _site/data/column_definitions.json || true
 
