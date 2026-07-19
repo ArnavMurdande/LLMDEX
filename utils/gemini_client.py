@@ -31,7 +31,9 @@ logger = logging.getLogger(__name__)
 # ──────────────────────────────────────────────────────────────
 
 COOLDOWN_SECONDS = 300  # 5 minutes
-MODEL_NAME = os.environ.get("GEMINI_MODEL", "gemini-3.5-flash")
+# Flash-Lite is a better fit for this short, structured recommendation task:
+# it preserves grounding while avoiding the long reasoning latency of 3.5 Flash.
+MODEL_NAME = os.environ.get("GEMINI_MODEL", "gemini-3.1-flash-lite")
 
 # Key pools — read from environment variables
 # Advisor keys:  GEMINI_ADVISOR_KEY_1 ... GEMINI_ADVISOR_KEY_5
