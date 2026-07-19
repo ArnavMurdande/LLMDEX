@@ -61,6 +61,88 @@
       "predecessor": "Gemini 2.5 Pro"
     }
   ],
+  "GPT High": [
+    {
+      "name": "gpt-5-nano-high",
+      "performance": 9.09,
+      "rank": 281.0,
+      "provider": "OpenAI",
+      "family_order": null,
+      "improvement_abs": 0.0,
+      "improvement_pct": 0.0,
+      "predecessor": null
+    },
+    {
+      "name": "gpt-oss-20b (high)",
+      "performance": 9.63,
+      "rank": 15.0,
+      "provider": "OpenAI",
+      "family_order": null,
+      "improvement_abs": 0.54,
+      "improvement_pct": 5.94,
+      "predecessor": "gpt-5-nano-high"
+    },
+    {
+      "name": "GPT-5.4 nano (xhigh)",
+      "performance": 10.38,
+      "rank": 57.0,
+      "provider": "OpenAI",
+      "family_order": null,
+      "improvement_abs": 0.75,
+      "improvement_pct": 7.79,
+      "predecessor": "gpt-oss-20b (high)"
+    },
+    {
+      "name": "gpt-oss-120b (high)",
+      "performance": 10.48,
+      "rank": 9.0,
+      "provider": "OpenAI",
+      "family_order": null,
+      "improvement_abs": 0.1,
+      "improvement_pct": 0.96,
+      "predecessor": "GPT-5.4 nano (xhigh)"
+    },
+    {
+      "name": "gpt-5-high",
+      "performance": 11.01,
+      "rank": 204.0,
+      "provider": "OpenAI",
+      "family_order": null,
+      "improvement_abs": 0.53,
+      "improvement_pct": 5.06,
+      "predecessor": "gpt-oss-120b (high)"
+    },
+    {
+      "name": "gpt-5.1-high",
+      "performance": 11.36,
+      "rank": 198.0,
+      "provider": "OpenAI",
+      "family_order": null,
+      "improvement_abs": 0.35,
+      "improvement_pct": 3.18,
+      "predecessor": "gpt-5-high"
+    },
+    {
+      "name": "GPT-5.3 Codex (xhigh)",
+      "performance": 21.92,
+      "rank": 31.0,
+      "provider": "OpenAI",
+      "family_order": null,
+      "improvement_abs": 10.56,
+      "improvement_pct": 92.96,
+      "predecessor": "gpt-5.1-high"
+    },
+    {
+      "name": "GPT-5.5 (xhigh)",
+      "performance": 25.6,
+      "rank": 28.0,
+      "provider": "OpenAI",
+      "family_order": null,
+      "improvement_abs": 3.68,
+      "improvement_pct": 16.79,
+      "predecessor": "GPT-5.3 Codex (xhigh)"
+    }
+  ],
   "Claude Sonnet": [
     {
       "name": "claude-3-sonnet-20240229",
@@ -165,16 +247,6 @@
       "predecessor": null
     },
     {
-      "name": "Qwen3.5 35B A3B",
-      "performance": 0.0,
-      "rank": 170.0,
-      "provider": "Alibaba",
-      "family_order": null,
-      "improvement_abs": 0.0,
-      "improvement_pct": 0,
-      "predecessor": "Qwen3.5 Omni Flash"
-    },
-    {
       "name": "Qwen3 Next 80B A3B",
       "performance": 0.0,
       "rank": 166.0,
@@ -182,7 +254,17 @@
       "family_order": null,
       "improvement_abs": 0.0,
       "improvement_pct": 0,
-      "predecessor": "Qwen3.5 35B A3B"
+      "predecessor": "Qwen3.5 Omni Flash"
+    },
+    {
+      "name": "Qwen3.5 35B A3B",
+      "performance": 0.0,
+      "rank": 170.0,
+      "provider": "Alibaba",
+      "family_order": null,
+      "improvement_abs": 0.0,
+      "improvement_pct": 0,
+      "predecessor": "Qwen3 Next 80B A3B"
     },
     {
       "name": "Qwen3 Omni 30B A3B",
@@ -192,7 +274,7 @@
       "family_order": null,
       "improvement_abs": 0.0,
       "improvement_pct": 0,
-      "predecessor": "Qwen3 Next 80B A3B"
+      "predecessor": "Qwen3.5 35B A3B"
     },
     {
       "name": "Qwen3.5 4B",
@@ -455,88 +537,6 @@
       "predecessor": "Qwen3.6 27B"
     }
   ],
-  "GPT High": [
-    {
-      "name": "gpt-5-nano-high",
-      "performance": 9.09,
-      "rank": 281.0,
-      "provider": "OpenAI",
-      "family_order": null,
-      "improvement_abs": 0.0,
-      "improvement_pct": 0.0,
-      "predecessor": null
-    },
-    {
-      "name": "gpt-oss-20b (high)",
-      "performance": 9.63,
-      "rank": 15.0,
-      "provider": "OpenAI",
-      "family_order": null,
-      "improvement_abs": 0.54,
-      "improvement_pct": 5.94,
-      "predecessor": "gpt-5-nano-high"
-    },
-    {
-      "name": "GPT-5.4 nano (xhigh)",
-      "performance": 10.38,
-      "rank": 57.0,
-      "provider": "OpenAI",
-      "family_order": null,
-      "improvement_abs": 0.75,
-      "improvement_pct": 7.79,
-      "predecessor": "gpt-oss-20b (high)"
-    },
-    {
-      "name": "gpt-oss-120b (high)",
-      "performance": 10.48,
-      "rank": 9.0,
-      "provider": "OpenAI",
-      "family_order": null,
-      "improvement_abs": 0.1,
-      "improvement_pct": 0.96,
-      "predecessor": "GPT-5.4 nano (xhigh)"
-    },
-    {
-      "name": "gpt-5-high",
-      "performance": 11.01,
-      "rank": 204.0,
-      "provider": "OpenAI",
-      "family_order": null,
-      "improvement_abs": 0.53,
-      "improvement_pct": 5.06,
-      "predecessor": "gpt-oss-120b (high)"
-    },
-    {
-      "name": "gpt-5.1-high",
-      "performance": 11.36,
-      "rank": 198.0,
-      "provider": "OpenAI",
-      "family_order": null,
-      "improvement_abs": 0.35,
-      "improvement_pct": 3.18,
-      "predecessor": "gpt-5-high"
-    },
-    {
-      "name": "GPT-5.3 Codex (xhigh)",
-      "performance": 21.92,
-      "rank": 31.0,
-      "provider": "OpenAI",
-      "family_order": null,
-      "improvement_abs": 10.56,
-      "improvement_pct": 92.96,
-      "predecessor": "gpt-5.1-high"
-    },
-    {
-      "name": "GPT-5.5 (xhigh)",
-      "performance": 25.6,
-      "rank": 28.0,
-      "provider": "OpenAI",
-      "family_order": null,
-      "improvement_abs": 3.68,
-      "improvement_pct": 16.79,
-      "predecessor": "GPT-5.3 Codex (xhigh)"
-    }
-  ],
   "Amazon": [
     {
       "name": "HyperNova 60B 2605",
@@ -783,16 +783,6 @@
       "predecessor": "Llama Nemotron Super 49B v1.5"
     },
     {
-      "name": "Llama 3.1 Nemotron 70B",
-      "performance": 0.0,
-      "rank": 128.0,
-      "provider": "Meta",
-      "family_order": null,
-      "improvement_abs": 0.0,
-      "improvement_pct": 0,
-      "predecessor": "Llama Nemotron Ultra"
-    },
-    {
       "name": "Llama 3.2 90B (Vision)",
       "performance": 0.0,
       "rank": 130.0,
@@ -800,7 +790,17 @@
       "family_order": null,
       "improvement_abs": 0.0,
       "improvement_pct": 0,
-      "predecessor": "Llama 3.1 Nemotron 70B"
+      "predecessor": "Llama Nemotron Ultra"
+    },
+    {
+      "name": "Llama 3.1 Nemotron 70B",
+      "performance": 0.0,
+      "rank": 128.0,
+      "provider": "Meta",
+      "family_order": null,
+      "improvement_abs": 0.0,
+      "improvement_pct": 0,
+      "predecessor": "Llama 3.2 90B (Vision)"
     },
     {
       "name": "Llama 3.1 405B",
@@ -810,7 +810,7 @@
       "family_order": null,
       "improvement_abs": 0.0,
       "improvement_pct": 0,
-      "predecessor": "Llama 3.2 90B (Vision)"
+      "predecessor": "Llama 3.1 Nemotron 70B"
     },
     {
       "name": "DeepHermes 3 - Llama-3.1 8B",
@@ -1073,6 +1073,78 @@
       "predecessor": "Llama 4 Scout"
     }
   ],
+  "OpenAI": [
+    {
+      "name": "o1-mini",
+      "performance": 9.07,
+      "rank": 284.0,
+      "provider": "OpenAI",
+      "family_order": null,
+      "improvement_abs": 0.0,
+      "improvement_pct": 0.0,
+      "predecessor": null
+    },
+    {
+      "name": "o3-mini",
+      "performance": 9.31,
+      "rank": 268.0,
+      "provider": "OpenAI",
+      "family_order": null,
+      "improvement_abs": 0.24,
+      "improvement_pct": 2.65,
+      "predecessor": "o1-mini"
+    },
+    {
+      "name": "o3-mini-high",
+      "performance": 9.64,
+      "rank": 258.0,
+      "provider": "OpenAI",
+      "family_order": null,
+      "improvement_abs": 0.33,
+      "improvement_pct": 3.54,
+      "predecessor": "o3-mini"
+    },
+    {
+      "name": "o1-preview",
+      "performance": 10.14,
+      "rank": 237.0,
+      "provider": "OpenAI",
+      "family_order": null,
+      "improvement_abs": 0.5,
+      "improvement_pct": 5.19,
+      "predecessor": "o3-mini-high"
+    },
+    {
+      "name": "o4-mini-2025-04-16",
+      "performance": 10.2,
+      "rank": 233.0,
+      "provider": "OpenAI",
+      "family_order": null,
+      "improvement_abs": 0.06,
+      "improvement_pct": 0.59,
+      "predecessor": "o1-preview"
+    },
+    {
+      "name": "o1-2024-12-17",
+      "performance": 10.42,
+      "rank": 222.0,
+      "provider": "OpenAI",
+      "family_order": null,
+      "improvement_abs": 0.22,
+      "improvement_pct": 2.16,
+      "predecessor": "o4-mini-2025-04-16"
+    },
+    {
+      "name": "o3",
+      "performance": 18.35,
+      "rank": 4.0,
+      "provider": "OpenAI",
+      "family_order": null,
+      "improvement_abs": 7.93,
+      "improvement_pct": 76.1,
+      "predecessor": "o1-2024-12-17"
+    }
+  ],
   "Mistral AI": [
     {
       "name": "Mistral Small 4",
@@ -1263,78 +1335,6 @@
       "improvement_abs": 1.8,
       "improvement_pct": 17.89,
       "predecessor": "mistral-medium-2505"
-    }
-  ],
-  "OpenAI": [
-    {
-      "name": "o1-mini",
-      "performance": 9.07,
-      "rank": 284.0,
-      "provider": "OpenAI",
-      "family_order": null,
-      "improvement_abs": 0.0,
-      "improvement_pct": 0.0,
-      "predecessor": null
-    },
-    {
-      "name": "o3-mini",
-      "performance": 9.31,
-      "rank": 268.0,
-      "provider": "OpenAI",
-      "family_order": null,
-      "improvement_abs": 0.24,
-      "improvement_pct": 2.65,
-      "predecessor": "o1-mini"
-    },
-    {
-      "name": "o3-mini-high",
-      "performance": 9.64,
-      "rank": 258.0,
-      "provider": "OpenAI",
-      "family_order": null,
-      "improvement_abs": 0.33,
-      "improvement_pct": 3.54,
-      "predecessor": "o3-mini"
-    },
-    {
-      "name": "o1-preview",
-      "performance": 10.14,
-      "rank": 237.0,
-      "provider": "OpenAI",
-      "family_order": null,
-      "improvement_abs": 0.5,
-      "improvement_pct": 5.19,
-      "predecessor": "o3-mini-high"
-    },
-    {
-      "name": "o4-mini-2025-04-16",
-      "performance": 10.2,
-      "rank": 233.0,
-      "provider": "OpenAI",
-      "family_order": null,
-      "improvement_abs": 0.06,
-      "improvement_pct": 0.59,
-      "predecessor": "o1-preview"
-    },
-    {
-      "name": "o1-2024-12-17",
-      "performance": 10.42,
-      "rank": 222.0,
-      "provider": "OpenAI",
-      "family_order": null,
-      "improvement_abs": 0.22,
-      "improvement_pct": 2.16,
-      "predecessor": "o4-mini-2025-04-16"
-    },
-    {
-      "name": "o3",
-      "performance": 18.35,
-      "rank": 4.0,
-      "provider": "OpenAI",
-      "family_order": null,
-      "improvement_abs": 7.93,
-      "improvement_pct": 76.1,
-      "predecessor": "o1-2024-12-17"
     }
   ],
   "Ant Group": [
@@ -2399,58 +2399,6 @@
       "predecessor": "GPT-5.6 Terra (max)"
     }
   ],
-  "NVIDIA": [
-    {
-      "name": "NVIDIA Nemotron Nano 12B v2 VL",
-      "performance": 0.0,
-      "rank": 151.0,
-      "provider": null,
-      "family_order": null,
-      "improvement_abs": 0.0,
-      "improvement_pct": 0.0,
-      "predecessor": null
-    },
-    {
-      "name": "NVIDIA Nemotron 3 Nano",
-      "performance": 0.0,
-      "rank": 148.0,
-      "provider": null,
-      "family_order": null,
-      "improvement_abs": 0.0,
-      "improvement_pct": 0,
-      "predecessor": "NVIDIA Nemotron Nano 12B v2 VL"
-    },
-    {
-      "name": "NVIDIA Nemotron 3 Super",
-      "performance": 0.0,
-      "rank": 150.0,
-      "provider": null,
-      "family_order": null,
-      "improvement_abs": 0.0,
-      "improvement_pct": 0,
-      "predecessor": "NVIDIA Nemotron 3 Nano"
-    },
-    {
-      "name": "NVIDIA Nemotron Nano 9B V2",
-      "performance": 0.0,
-      "rank": 152.0,
-      "provider": null,
-      "family_order": null,
-      "improvement_abs": 0.0,
-      "improvement_pct": 0,
-      "predecessor": "NVIDIA Nemotron 3 Super"
-    },
-    {
-      "name": "NVIDIA Nemotron 3 Nano 4B",
-      "performance": 0.0,
-      "rank": 149.0,
-      "provider": null,
-      "family_order": null,
-      "improvement_abs": 0.0,
-      "improvement_pct": 0,
-      "predecessor": "NVIDIA Nemotron Nano 9B V2"
-    }
-  ],
   "KAT-Coder-Pro": [
     {
       "name": "KAT-Coder-Pro V1",
@@ -2605,6 +2553,58 @@
       "improvement_abs": 0.0,
       "improvement_pct": 0,
       "predecessor": "Ministral 3 8B"
+    }
+  ],
+  "NVIDIA": [
+    {
+      "name": "NVIDIA Nemotron 3 Nano",
+      "performance": 0.0,
+      "rank": 148.0,
+      "provider": null,
+      "family_order": null,
+      "improvement_abs": 0.0,
+      "improvement_pct": 0.0,
+      "predecessor": null
+    },
+    {
+      "name": "NVIDIA Nemotron 3 Super",
+      "performance": 0.0,
+      "rank": 150.0,
+      "provider": null,
+      "family_order": null,
+      "improvement_abs": 0.0,
+      "improvement_pct": 0,
+      "predecessor": "NVIDIA Nemotron 3 Nano"
+    },
+    {
+      "name": "NVIDIA Nemotron Nano 9B V2",
+      "performance": 0.0,
+      "rank": 152.0,
+      "provider": null,
+      "family_order": null,
+      "improvement_abs": 0.0,
+      "improvement_pct": 0,
+      "predecessor": "NVIDIA Nemotron 3 Super"
+    },
+    {
+      "name": "NVIDIA Nemotron Nano 12B v2 VL",
+      "performance": 0.0,
+      "rank": 151.0,
+      "provider": null,
+      "family_order": null,
+      "improvement_abs": 0.0,
+      "improvement_pct": 0,
+      "predecessor": "NVIDIA Nemotron Nano 9B V2"
+    },
+    {
+      "name": "NVIDIA Nemotron 3 Nano 4B",
+      "performance": 0.0,
+      "rank": 149.0,
+      "provider": null,
+      "family_order": null,
+      "improvement_abs": 0.0,
+      "improvement_pct": 0,
+      "predecessor": "NVIDIA Nemotron Nano 12B v2 VL"
     }
   ],
   "Google": [
@@ -2913,6 +2913,28 @@
       "predecessor": "Sarvam 30B (high)"
     }
   ],
+  "Magistral": [
+    {
+      "name": "Magistral Small 1.2",
+      "performance": 0.0,
+      "rank": 136.0,
+      "provider": null,
+      "family_order": null,
+      "improvement_abs": 0.0,
+      "improvement_pct": 0.0,
+      "predecessor": null
+    },
+    {
+      "name": "Magistral Medium 1.2",
+      "performance": 0.0,
+      "rank": 135.0,
+      "provider": null,
+      "family_order": null,
+      "improvement_abs": 0.0,
+      "improvement_pct": 0,
+      "predecessor": "Magistral Small 1.2"
+    }
+  ],
   "GPT Mini": [
     {
       "name": "GPT-5.4 mini (xhigh)",
@@ -2955,28 +2977,6 @@
       "predecessor": "gpt-4.1-mini-2025-04-14"
     }
   ],
-  "Magistral": [
-    {
-      "name": "Magistral Small 1.2",
-      "performance": 0.0,
-      "rank": 136.0,
-      "provider": null,
-      "family_order": null,
-      "improvement_abs": 0.0,
-      "improvement_pct": 0.0,
-      "predecessor": null
-    },
-    {
-      "name": "Magistral Medium 1.2",
-      "performance": 0.0,
-      "rank": 135.0,
-      "provider": null,
-      "family_order": null,
-      "improvement_abs": 0.0,
-      "improvement_pct": 0,
-      "predecessor": "Magistral Small 1.2"
-    }
-  ],
   "Hermes": [
     {
       "name": "Hermes 4 70B",
@@ -2997,6 +2997,28 @@
       "improvement_abs": 0.0,
       "improvement_pct": 0,
       "predecessor": "Hermes 4 70B"
+    }
+  ],
+  "Devstral": [
+    {
+      "name": "Devstral Small 2",
+      "performance": 0.0,
+      "rank": 84.0,
+      "provider": null,
+      "family_order": null,
+      "improvement_abs": 0.0,
+      "improvement_pct": 0.0,
+      "predecessor": null
+    },
+    {
+      "name": "Devstral 2",
+      "performance": 0.0,
+      "rank": 83.0,
+      "provider": null,
+      "family_order": null,
+      "improvement_abs": 0.0,
+      "improvement_pct": 0,
+      "predecessor": "Devstral Small 2"
     }
   ],
   "Qwen Specialty": [
@@ -3029,28 +3051,6 @@
       "improvement_abs": 2.4,
       "improvement_pct": 31.17,
       "predecessor": "qwen2.5-coder-32b-instruct"
-    }
-  ],
-  "Devstral": [
-    {
-      "name": "Devstral 2",
-      "performance": 0.0,
-      "rank": 83.0,
-      "provider": null,
-      "family_order": null,
-      "improvement_abs": 0.0,
-      "improvement_pct": 0.0,
-      "predecessor": null
-    },
-    {
-      "name": "Devstral Small 2",
-      "performance": 0.0,
-      "rank": 84.0,
-      "provider": null,
-      "family_order": null,
-      "improvement_abs": 0.0,
-      "improvement_pct": 0,
-      "predecessor": "Devstral 2"
     }
   ],
   "Jamba": [
