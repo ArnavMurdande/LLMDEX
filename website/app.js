@@ -163,10 +163,14 @@ function enhanceCustomSelect(select, variant = "") {
   menu.setAttribute("role", "listbox");
   menu.hidden = true;
   shell.append(trigger, menu);
+  const selectContext = shell.closest(
+    ".table-controls, .chart-card, .history-controls",
+  );
 
   const close = () => {
     menu.hidden = true;
     shell.classList.remove("is-open");
+    selectContext?.classList.remove("custom-select-context-open");
     if (variant === "provider") {
       shell.closest(".table-controls")?.classList.remove("provider-menu-open");
     }
@@ -178,6 +182,9 @@ function enhanceCustomSelect(select, variant = "") {
       .forEach((other) => {
         if (other !== shell) {
           other.classList.remove("is-open");
+          other
+            .closest(".table-controls, .chart-card, .history-controls")
+            ?.classList.remove("custom-select-context-open");
           if (other.classList.contains("provider-select-shell")) {
             other
               .closest(".table-controls")
@@ -191,6 +198,7 @@ function enhanceCustomSelect(select, variant = "") {
       });
     menu.hidden = false;
     shell.classList.add("is-open");
+    selectContext?.classList.add("custom-select-context-open");
     if (variant === "provider") {
       shell.closest(".table-controls")?.classList.add("provider-menu-open");
     }

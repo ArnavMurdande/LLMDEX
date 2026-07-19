@@ -4282,3 +4282,87 @@ select option,
     top: 4.8rem;
   }
 }
+
+/* Stable overlay layers and quieter glass surfaces */
+:root {
+  --border-glass: rgba(255, 255, 255, 0.075);
+}
+
+:root[data-theme="light"] {
+  --border-glass: rgba(0, 0, 0, 0.09);
+}
+
+.navbar {
+  background: rgba(10, 10, 12, 0.68) !important;
+  border-color: rgba(255, 255, 255, 0.065) !important;
+  box-shadow: 0 12px 38px rgba(0, 0, 0, 0.18) !important;
+  backdrop-filter: blur(22px) saturate(140%);
+  -webkit-backdrop-filter: blur(22px) saturate(140%);
+}
+
+:root[data-theme="light"] .navbar {
+  background: rgba(255, 255, 255, 0.68) !important;
+  border-color: rgba(0, 0, 0, 0.075) !important;
+  box-shadow: 0 12px 38px rgba(0, 0, 0, 0.1) !important;
+}
+
+.nav-links .github-link i,
+.nav-links .github-link svg,
+.nav-links .github-link .fab::before {
+  width: 24px !important;
+  height: 24px !important;
+  font-size: 24px !important;
+  line-height: 24px !important;
+}
+
+.custom-select-context-open {
+  position: relative !important;
+  z-index: 6000 !important;
+  overflow: visible !important;
+  isolation: isolate;
+}
+
+.custom-select-context-open .custom-select-shell.is-open,
+.custom-select-context-open .custom-select-menu {
+  z-index: 6100 !important;
+}
+
+.chart-card.custom-select-context-open .js-plotly-plot,
+.chart-card.custom-select-context-open .plot-container,
+.chart-card.custom-select-context-open .svg-container {
+  position: relative !important;
+  z-index: 0 !important;
+}
+
+.history-controls.custom-select-context-open {
+  z-index: 6000 !important;
+}
+
+.bento-card::after,
+.global-spotlight {
+  display: none !important;
+}
+
+.bento-card:hover {
+  box-shadow: none !important;
+}
+
+:root:not([data-theme="light"]) .glass,
+:root:not([data-theme="light"]) .chart-card,
+:root:not([data-theme="light"]) .metric-card,
+:root:not([data-theme="light"]) .sentiment-card,
+:root:not([data-theme="light"]) .family-explorer-card,
+:root:not([data-theme="light"]) .family-chart-panel,
+:root:not([data-theme="light"]) .family-release-card,
+:root:not([data-theme="light"]) .family-summary-grid > div,
+:root:not([data-theme="light"]) .advisor-chatbot,
+:root:not([data-theme="light"]) .advisor-context-panel,
+:root:not([data-theme="light"]) .method-card,
+:root:not([data-theme="light"]) .index-terminal {
+  border-color: rgba(255, 255, 255, 0.07) !important;
+  box-shadow: none !important;
+}
+
+:root:not([data-theme="light"]) .sentiment-card {
+  border-left-color: var(--sentiment-card-accent) !important;
+}
