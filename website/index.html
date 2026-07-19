@@ -11,7 +11,7 @@
     <title>LLMDEX | LLM Benchmark Intelligence Index</title>
     <meta
       name="description"
-      content="LLMDEX — Artificial Analysis model data transformed into auditable performance, value, coding, and efficiency leaderboards."
+      content="LLMDEX is an auditable decision layer for comparing model performance, coding ability, value, speed, and efficiency."
     />
     <script>
       (() => {
@@ -24,8 +24,8 @@
         document.documentElement.dataset.theme = preferred;
       })();
     </script>
-    <link rel="stylesheet" href="styles.css?v=4" />
-    <link rel="stylesheet" href="bento.css?v=2" />
+    <link rel="stylesheet" href="styles.css?v=5" />
+    <link rel="stylesheet" href="bento.css?v=3" />
     <link
       href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Space+Grotesk:wght@300;500;700&family=JetBrains+Mono:wght@400;500&display=swap"
       rel="stylesheet"
@@ -67,7 +67,8 @@
           aria-label="Switch color theme"
           title="Switch color theme"
         >
-          <i class="fas fa-sun"></i>
+          <span class="theme-toggle-icon" aria-hidden="true"></span>
+          <span class="theme-toggle-label">Light mode</span>
         </button>
         <a href="https://github.com/ArnavMurdande/LLMDEX" target="_blank"
           ><i class="fab fa-github"></i
@@ -90,8 +91,7 @@
           >
         </h1>
         <p class="hero-desc">
-          LLMDEX turns the complete expanded Artificial Analysis model
-          leaderboard into an auditable decision layer for comparing
+          Compare leading AI models through one auditable decision layer for
           performance, coding, value, speed, and efficiency.
         </p>
         <p class="hero-sub">
@@ -337,8 +337,9 @@
           </div>
         </div>
         <p class="section-desc">
-          Experimental model-specific public sentiment from recent Reddit,
-          Hacker News, GitHub, web coverage, and X when its API is configured.
+          Experimental model-specific reactions from recent Reddit, Hacker
+          News, and X when its official API is configured. Developer issue
+          templates and news headlines are excluded from community quotes.
           Sentiment never changes leaderboard rankings.
         </p>
         <div class="sentiment-charts-row">
@@ -392,8 +393,8 @@
           </h2>
         </div>
         <p class="section-desc">
-          Track how model families improve over generations. This chart shows
-          major releases, not daily updates.
+          Follow each company’s model releases chronologically and see how
+          intelligence scores changed from one generation to the next.
         </p>
         <div class="history-controls">
           <div class="family-selector-wrapper">
@@ -404,7 +405,7 @@
             <i class="fas fa-chevron-down family-selector-arrow"></i>
           </div>
         </div>
-        <div class="chart-card glass" style="min-height: 520px">
+        <div class="chart-card glass family-explorer-card">
           <div id="family-chart" class="skeleton-chart">
             <p
               style="
@@ -413,14 +414,13 @@
                 padding: 2rem;
               "
             >
-              Select a model family to view performance evolution across
-              generations.
+              Select a model company to view its release timeline.
             </p>
           </div>
         </div>
         <p class="family-explanation-text">
-          This chart shows how model families improve over generations. It
-          tracks major releases, not daily updates.
+          Releases are placed by their published date and grouped by product
+          family. Reasoning-effort variants are collapsed into one generation.
         </p>
       </div>
     </section>
@@ -530,6 +530,7 @@
                 disabled
               >
                 <i class="fas fa-paper-plane"></i>
+                <span>Send</span>
               </button>
             </div>
             <span class="chatbot-disclaimer"

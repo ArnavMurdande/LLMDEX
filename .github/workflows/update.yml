@@ -110,6 +110,7 @@ jobs:
           git add data/cleaned/latest.json data/cleaned/latest.csv || true
           git add data/raw_snapshot/latest.json data/raw_snapshot/latest.csv || true
           git add data/history/family_growth.json || true
+          git add data/history/release_dates.json || true
           git add data/history/*.json || true
           git add data/sentiment/latest.json || true
           git add data/column_definitions.json || true

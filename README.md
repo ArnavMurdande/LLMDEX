@@ -119,7 +119,8 @@ Artificial Analysis is the only benchmark source:
 
 The automated scraper expands the live table, captures every current row and
 visible column, validates the snapshot, and stores both typed metrics and the
-raw public field/value pairs.
+raw public field/value pairs. The family-history step also caches the release
+date published on each model record so progressions remain chronological.
 
 ## Automatic Updates
 
@@ -137,7 +138,8 @@ Optional repository secrets:
 - `GEMINI_SENTIMENT_KEY_1` through `GEMINI_SENTIMENT_KEY_4` enable semantic
   sentiment classification. Without them, the workflow uses VADER.
 - `X_BEARER_TOKEN` enables X recent-search data through X's official API.
-- Reddit, Hacker News, GitHub, and web/news collection need no project secret.
+- Reddit and Hacker News collection need no project secret. Repository issues
+  and news headlines are excluded from community sentiment and public quotes.
 
 ---
 

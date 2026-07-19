@@ -10,11 +10,18 @@ import pandas as pd
 
 from pipeline.scoring import score_dataset
 from pipeline.sentiment_pipeline import (
+    _extract_community_examples,
     _filter_model_relevance,
+    _sample_mentions,
     _scrape_model_mentions,
     get_models_for_sentiment,
 )
-from pipeline.build_family_history import build_family_history
+from pipeline.build_family_history import (
+    build_family_history,
+    extract_embedded_model_catalog,
+    extract_release_date,
+    infer_release_date,
+)
 from pipeline.gemini_advisor import _extract_compact_snapshot
 from pipeline.merge_data import merge_rows_with_provenance
 from scraper.scrape_artificialanalysis import _model_to_scraped_row, _number
@@ -104,6 +111,49 @@ class SentimentPipelineRegressionTests(unittest.TestCase):
         self.assertEqual(len(relevant), 1)
         self.assertIn("Sonnet 5", relevant[0]["text"])
 
+    def test_sentiment_samples_only_balanced_community_sources(self):
+        mentions = [
+            {
+                "source": "GitHub",
+                "text": "Files changed by Claude Sonnet 5",
+                "score": 99,
+            },
+            {
+                "source": "HackerNews",
+                "text": "Claude Sonnet 5 feels slow for coding",
+                "score": 2,
+            },
+            {
+                "source": "Reddit",
+                "text": "I switched to Claude Sonnet 5 because it is more reliable",
+                "score": 1,
+            },
+        ]
+
+        sampled = _sample_mentions("Claude Sonnet 5", mentions)
+
+        self.assertEqual({item["source"] for item in sampled}, {"HackerNews", "Reddit"})
+        self.assertEqual(sampled[0]["source"], "Reddit")
+
+    def test_community_examples_reject_developer_artifacts(self):
+        mentions = [
+            {
+                "source": "GitHub",
+                "text": "Updated to Claude Sonnet 5. Files changed: src/agent/prompt.rs",
+                "score": 100,
+            },
+            {
+                "source": "Reddit",
+                "text": "I tried Claude Sonnet 5 for coding and it is much more reliable.",
+                "score": 4,
+            },
+        ]
+
+        examples = _extract_community_examples(mentions, max_quotes=3)
+
+        self.assertEqual(len(examples), 1)
+        self.assertEqual(examples[0]["source"], "Reddit")
+
 
 class FamilyGrowthRegressionTests(unittest.TestCase):
     def test_fable_is_preserved_and_effort_variants_are_collapsed(self):
@@ -134,6 +184,27 @@ class FamilyGrowthRegressionTests(unittest.TestCase):
         self.assertEqual(history["Claude Fable"][0]["name"], "Claude Fable 5")
         self.assertEqual(len(history["Claude Opus"]), 1)
         self.assertEqual(history["Claude Opus"][0]["variant_count"], 2)
+
+    def test_release_dates_are_extracted_from_model_records_and_names(self):
+        page = "When was Example released? It was released on July 9, 2026."
+
+        self.assertEqual(extract_release_date(page), "2026-07-09")
+        self.assertEqual(infer_release_date("Model Preview 20250805"), "2025-08-05")
+
+    def test_embedded_historical_catalog_is_parsed(self):
+        page = (
+            r'prefix {\"id\":\"1\",\"slug\":\"claude-3-opus\",'
+            r'\"name\":\"Claude 3 Opus\",\"shortName\":\"Opus\",'
+            r'\"releaseDate\":\"2024-03-04\",\"intelligenceIndex\":11.8,'
+            r'\"deprecated\":true,\"creator\":{\"name\":\"Anthropic\"},'
+            r'\"outputModalityVideo\":false} suffix'
+        )
+
+        rows = extract_embedded_model_catalog(page)
+
+        self.assertEqual(len(rows), 1)
+        self.assertEqual(rows[0]["canonical_name"], "Claude 3 Opus")
+        self.assertEqual(rows[0]["release_date"], "2024-03-04")
 
 
 class RankingRegressionTests(unittest.TestCase):

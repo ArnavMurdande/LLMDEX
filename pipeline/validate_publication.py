@@ -42,6 +42,19 @@ def validate_publication() -> None:
         "fable" in (row.get("canonical_name") or "").lower() for row in index
     ) and "Claude Fable" not in history:
         raise ValueError("Claude Fable exists in the index but not family history")
+    historical_releases = [
+        member
+        for members in history.values()
+        for member in members
+    ]
+    dated_releases = [
+        member for member in historical_releases if member.get("release_date")
+    ]
+    if len(dated_releases) < max(10, int(len(historical_releases) * 0.9)):
+        raise ValueError(
+            "Family history is missing too many release dates: "
+            f"{len(dated_releases)}/{len(historical_releases)}"
+        )
 
     expected_models = get_models_for_sentiment(limit=10)
     actual_models = [row.get("model_name") for row in sentiment]
@@ -57,6 +70,16 @@ def validate_publication() -> None:
             raise ValueError(f"Sentiment row is not labeled experimental: {row}")
         if not isinstance(row.get("source_counts"), dict):
             raise ValueError(f"Sentiment source breakdown missing: {row.get('model_name')}")
+        unexpected_sources = set(row["source_counts"]) - {
+            "Reddit",
+            "HackerNews",
+            "X",
+        }
+        if unexpected_sources:
+            raise ValueError(
+                f"Non-community sentiment sources found for {row.get('model_name')}: "
+                f"{sorted(unexpected_sources)}"
+            )
 
     print(
         f"Publication contract passed: {len(index)} models, "

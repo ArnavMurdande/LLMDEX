@@ -8,8 +8,6 @@ performs sentiment scoring, and produces per-model sentiment metrics.
 SOURCES:
     - Reddit public search RSS
     - Hacker News via the Algolia public API
-    - GitHub Issues via the public REST API
-    - Web/news coverage via Google News RSS
     - X recent search when X_BEARER_TOKEN is configured
 
 GEMINI INTEGRATION:
@@ -52,7 +50,6 @@ import json
 import logging
 import math
 import os
-import random
 import re
 import threading
 import time
@@ -93,6 +90,8 @@ MAX_SCRAPE_WORKERS = 4         # Parallel workers for Phase 1 (scraping only)
 SENTIMENT_CACHE_TTL = 86400    # 24 hours (in-memory + disk cache TTL)
 QUOTA_RETRY_DELAY = 5          # Seconds to wait before retrying a quota-failed call
 COOLDOWN_SECONDS = 300         # Must match utils.gemini_client.COOLDOWN_SECONDS
+COMMUNITY_SOURCES = {"Reddit", "HackerNews", "X"}
+SOURCE_PRIORITY = {"Reddit": 0, "X": 1, "HackerNews": 2}
 
 
 # ──────────────────────────────────────────────────────────────
@@ -611,16 +610,49 @@ def _filter_model_relevance(model_name: str, mentions: List[dict]) -> List[dict]
 
 def _sample_mentions(model_name: str, mentions: List[dict], max_count: int = MAX_MENTIONS_PER_MODEL) -> List[dict]:
     """
-    If mentions exceed max_count, randomly sample down to max_count.
-    Logs a warning when sampling occurs.
+    Build a deterministic, source-balanced community sample.
+
+    Round-robin selection prevents one large Hacker News result set from
+    drowning out first-person Reddit or X reactions.
     """
-    if len(mentions) <= max_count:
-        return mentions
-    sampled = random.Random(model_name).sample(mentions, max_count)
-    logger.warning(
-        f"[{model_name}] Sampled {max_count} mentions from {len(mentions)} total "
-        f"(random sampling applied to stay within API budget)"
+    buckets: Dict[str, List[dict]] = {}
+    for mention in mentions:
+        source = mention.get("source", "")
+        if source not in COMMUNITY_SOURCES:
+            continue
+        buckets.setdefault(source, []).append(mention)
+
+    for source, items in buckets.items():
+        buckets[source] = sorted(
+            items,
+            key=lambda item: (
+                -(int(item.get("score", 0) or 0)),
+                str(item.get("created", "")),
+                str(item.get("text", "")),
+            ),
+        )
+
+    ordered_sources = sorted(
+        buckets,
+        key=lambda source: SOURCE_PRIORITY.get(source, 99),
     )
+    sampled: List[dict] = []
+    cursor = 0
+    while ordered_sources and len(sampled) < max_count:
+        source = ordered_sources[cursor % len(ordered_sources)]
+        if buckets[source]:
+            sampled.append(buckets[source].pop(0))
+        if not buckets[source]:
+            ordered_sources.remove(source)
+            cursor = 0
+        elif ordered_sources:
+            cursor += 1
+
+    if len(mentions) > len(sampled):
+        logger.info(
+            f"[{model_name}] Kept {len(sampled)} community reactions from "
+            f"{len(mentions)} collected items"
+        )
     return sampled
 
 
@@ -658,8 +690,12 @@ Mark is_relevant = false if the post merely:
 - discusses prompt usage without evaluation
 - is meta chatter
 - is only a bug report without sentiment
+- is a repository issue, changelog, patch summary, or code-generation artifact
+- is a news headline, launch announcement, or benchmark link without a user opinion
 
-We only want posts that help assess model quality.
+Prefer first-person usage reports and direct comparisons that explain what was
+good, bad, faster, slower, more accurate, or less reliable. We only want posts
+that help a person assess model quality.
 
 For each item determine:
 
@@ -1162,6 +1198,7 @@ def _clean_links(text: str) -> str:
     text = re.sub(r'\[([^\]]+)\]\([^\)]+\)', r'\1', text)
     text = re.sub(r'https?://\S+', '', text)
     text = re.sub(r'<[^>]+>', '', text)
+    text = re.sub(r'<(?:a|img)\b.*$', '', text, flags=re.IGNORECASE)
     text = re.sub(r'\s+', ' ', text).strip()
     return text
 
@@ -1170,6 +1207,7 @@ def _extract_community_examples(
     mentions: List[dict],
     gemini_classifications: Optional[List[dict]] = None,
     max_quotes: int = 3,
+    model_name: Optional[str] = None,
 ) -> List[dict]:
     """
     Extract the best community quotes for UI display.
@@ -1187,14 +1225,27 @@ def _extract_community_examples(
         "fast", "slow", "hallucinate", "hallucinates",
         "quality", "benchmark", "impressive", "bad",
         "good", "excellent", "weak", "strong",
-        "latency", "speed", "coding", "reasoning"
+        "latency", "speed", "coding", "reasoning",
+        "use", "used", "using", "tried", "experience",
+        "reliable", "unreliable", "prefer", "switched"
     ]
+    LOW_SIGNAL_PATTERNS = re.compile(
+        r"(?:files changed|src/|pull request|issue template|"
+        r"implemented and verified|provenance|tracking:|"
+        r"pre-submission backlog|release notes|##\s|```)",
+        re.IGNORECASE,
+    )
 
     candidates = []
     vader = SentimentIntensityAnalyzer() if VADER_AVAILABLE else None
 
     for i, m in enumerate(mentions):
         text = (m.get("text") or "").strip()
+        source = m.get("source", "")
+        if source not in COMMUNITY_SOURCES:
+            continue
+        if LOW_SIGNAL_PATTERNS.search(text):
+            continue
 
         # Prefer posts that evaluate the model
         text_lower = text.lower()
@@ -1221,10 +1272,11 @@ def _extract_community_examples(
 
         candidates.append({
             "text": text.replace("\n", " ").strip(),
-            "source": m.get("source", "Community"),
+            "source": source,
             "url": m.get("url", ""),
             "engagement": max(1, m.get("score", 1)),
             "sentiment": score,
+            "source_priority": SOURCE_PRIORITY.get(source, 99),
         })
 
     if not candidates:
@@ -1234,14 +1286,20 @@ def _extract_community_examples(
     seen_texts: set = set()
 
     # 1) Highest positive
-    for c in sorted(candidates, key=lambda c: c["sentiment"], reverse=True):
+    for c in sorted(
+        candidates,
+        key=lambda c: (-c["sentiment"], c["source_priority"], -c["engagement"]),
+    ):
         if c["sentiment"] > 0:
             selected.append(c)
             seen_texts.add(c["text"][:50].lower())
             break
 
     # 2) Highest negative
-    for c in sorted(candidates, key=lambda c: c["sentiment"]):
+    for c in sorted(
+        candidates,
+        key=lambda c: (c["sentiment"], c["source_priority"], -c["engagement"]),
+    ):
         if c["sentiment"] < 0 and c["text"][:50].lower() not in seen_texts:
             selected.append(c)
             seen_texts.add(c["text"][:50].lower())
@@ -1250,18 +1308,17 @@ def _extract_community_examples(
     # 3) Most engaged neutral
     neutral = sorted(
         [c for c in candidates if -0.15 < c["sentiment"] < 0.15 and c["text"][:50].lower() not in seen_texts],
-        key=lambda c: c["engagement"],
-        reverse=True,
+        key=lambda c: (c["source_priority"], -c["engagement"]),
     )
     if neutral:
         selected.append(neutral[0])
+        seen_texts.add(neutral[0]["text"][:50].lower())
 
     # Fill remaining slots by engagement
     if len(selected) < max_quotes:
         for c in sorted(
             [c for c in candidates if c["text"][:50].lower() not in seen_texts],
-            key=lambda c: c["engagement"],
-            reverse=True,
+            key=lambda c: (c["source_priority"], -c["engagement"]),
         ):
             if len(selected) >= max_quotes:
                 break
@@ -1273,6 +1330,22 @@ def _extract_community_examples(
         text = c["text"]
         text = _clean_links(text)
         text = _strip_emojis(text)
+        if model_name:
+            normalized_model = re.sub(r"[^a-z0-9]+", " ", model_name.lower()).strip()
+            aliases = [normalized_model]
+            parts = normalized_model.split()
+            if parts and parts[0] in {"claude", "gpt", "gemini"}:
+                aliases.append(" ".join(parts[1:]))
+            normalized_text = re.sub(r"[^a-z0-9]+", " ", text.lower()).strip()
+            matching_alias = next(
+                (alias for alias in aliases if alias and alias in normalized_text),
+                None,
+            )
+            if not matching_alias:
+                continue
+            raw_index = text.lower().find(matching_alias)
+            if raw_index > 90:
+                text = "…" + text[max(0, raw_index - 55):].lstrip()
         if len(text) > 220:
             text = text[:217].rsplit(" ", 1)[0] + "..."
         text = _basic_profanity_filter(text)
@@ -1312,19 +1385,21 @@ def _scrape_model_mentions(
     """
     cached = _load_mention_cache(model_name, mention_cache_dir)
     if cached is not None:
-        cached = _filter_model_relevance(model_name, cached)
+        cached = [
+            mention
+            for mention in _filter_model_relevance(model_name, cached)
+            if mention.get("source") in COMMUNITY_SOURCES
+        ]
         logger.info(f"[{model_name}] Using cached mentions — skipping scrape")
         return model_name, _sample_mentions(model_name, cached)
 
     logger.info(
-        f"[{model_name}] Scraping Reddit / HN / GitHub / Web"
+        f"[{model_name}] Scraping Reddit / HN"
         + (" / X..." if os.environ.get("X_BEARER_TOKEN", "").strip() else "...")
     )
     raw: List[dict] = []
     raw.extend(scrape_reddit_mentions(model_name))
     raw.extend(scrape_hackernews_mentions(model_name))
-    raw.extend(scrape_github_mentions(model_name))
-    raw.extend(scrape_web_mentions(model_name))
     raw.extend(scrape_x_mentions(model_name))
 
     raw = _filter_model_relevance(model_name, raw)
@@ -1423,7 +1498,10 @@ def process_model_sentiment(
     gemini_cls = cached_entry.get("results") if cached_entry else None
 
     sentiment["community_examples"] = _extract_community_examples(
-        mentions, gemini_classifications=gemini_cls, max_quotes=3
+        mentions,
+        gemini_classifications=gemini_cls,
+        max_quotes=3,
+        model_name=model_name,
     )
     sentiment["top_quotes"] = sentiment["community_examples"]  # backward compat
 
@@ -1450,7 +1528,7 @@ def run_sentiment_pipeline(
     Run the full sentiment pipeline in two phases:
 
     Phase 1 — Parallel scraping (up to MAX_SCRAPE_WORKERS threads):
-        For each model: load disk cache or scrape Reddit + HN + GitHub + Web,
+        For each model: load disk cache or scrape Reddit + HN + optional X,
         deduplicate, filter spam, and sample to MAX_MENTIONS_PER_MODEL.
 
     Phase 2 — Controlled Gemini classification (sequential, semaphore-gated):

@@ -27,10 +27,16 @@ function chartTheme() {
     text: light ? "#171717" : "#f5f5f5",
     muted: light ? "#5f5f5f" : "#a3a3a3",
     grid: light ? "rgba(0,0,0,0.10)" : "rgba(255,255,255,0.10)",
-    strong: light ? "#111111" : "#f5f5f5",
-    mid: light ? "#626262" : "#a3a3a3",
-    soft: light ? "#b8b8b8" : "#555555",
-    fill: light ? "rgba(17,17,17,0.10)" : "rgba(255,255,255,0.12)",
+    strong: light ? "#2563eb" : "#60a5fa",
+    mid: light ? "#7c3aed" : "#a78bfa",
+    soft: light ? "#0891b2" : "#22d3ee",
+    positive: light ? "#059669" : "#34d399",
+    negative: light ? "#e11d48" : "#fb7185",
+    warning: light ? "#d97706" : "#fbbf24",
+    fill: light ? "rgba(37,99,235,0.12)" : "rgba(96,165,250,0.15)",
+    categorical: light
+      ? ["#2563eb", "#7c3aed", "#0891b2", "#059669", "#d97706", "#e11d48"]
+      : ["#60a5fa", "#a78bfa", "#22d3ee", "#34d399", "#fbbf24", "#fb7185"],
   };
 }
 
@@ -39,7 +45,10 @@ function setupTheme() {
   if (!toggle) return;
   const sync = () => {
     const light = document.documentElement.dataset.theme === "light";
-    toggle.innerHTML = `<i class="fas fa-${light ? "moon" : "sun"}"></i>`;
+    const icon = light
+      ? `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.4 15.2A8 8 0 0 1 8.8 3.6 8.5 8.5 0 1 0 20.4 15.2Z"></path></svg>`
+      : `<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3.5"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg>`;
+    toggle.innerHTML = `<span class="theme-toggle-icon">${icon}</span><span class="theme-toggle-label">${light ? "Dark mode" : "Light mode"}</span>`;
     toggle.setAttribute(
       "aria-label",
       light ? "Switch to dark mode" : "Switch to light mode",
@@ -91,6 +100,144 @@ function escapeDisplay(value) {
   const element = document.createElement("span");
   element.textContent = String(value ?? "");
   return element.innerHTML;
+}
+
+const customSelectStates = new WeakMap();
+
+function enhanceCustomSelect(select, variant = "") {
+  if (!select) return null;
+  const existing = customSelectStates.get(select);
+  if (existing) {
+    existing.refresh();
+    return existing;
+  }
+
+  let shell = select.parentElement;
+  if (!shell?.classList.contains("family-selector-wrapper")) {
+    shell = document.createElement("div");
+    shell.className = "custom-select-shell";
+    select.parentNode.insertBefore(shell, select);
+    shell.appendChild(select);
+  } else {
+    shell.classList.add("custom-select-shell");
+  }
+  if (variant) shell.classList.add(`${variant}-select-shell`);
+
+  select.classList.add("native-select-proxy");
+  const trigger = document.createElement("button");
+  trigger.type = "button";
+  trigger.className = "custom-select-trigger";
+  trigger.setAttribute("aria-haspopup", "listbox");
+  trigger.setAttribute("aria-expanded", "false");
+  trigger.innerHTML = `
+    <span class="custom-select-value"></span>
+    <svg class="custom-select-chevron" viewBox="0 0 20 20" aria-hidden="true">
+      <path d="m5 7.5 5 5 5-5"></path>
+    </svg>`;
+
+  const menu = document.createElement("div");
+  menu.className = "custom-select-menu";
+  menu.setAttribute("role", "listbox");
+  menu.hidden = true;
+  shell.append(trigger, menu);
+
+  const close = () => {
+    menu.hidden = true;
+    shell.classList.remove("is-open");
+    trigger.setAttribute("aria-expanded", "false");
+  };
+  const open = () => {
+    document
+      .querySelectorAll(".custom-select-shell.is-open")
+      .forEach((other) => {
+        if (other !== shell) {
+          other.classList.remove("is-open");
+          const otherMenu = other.querySelector(".custom-select-menu");
+          const otherTrigger = other.querySelector(".custom-select-trigger");
+          if (otherMenu) otherMenu.hidden = true;
+          otherTrigger?.setAttribute("aria-expanded", "false");
+        }
+      });
+    menu.hidden = false;
+    shell.classList.add("is-open");
+    trigger.setAttribute("aria-expanded", "true");
+  };
+  const sync = () => {
+    const selected =
+      Array.from(select.options).find((option) => option.value === select.value) ||
+      select.options[0];
+    trigger.querySelector(".custom-select-value").textContent =
+      selected?.textContent || "Choose an option";
+    menu.querySelectorAll(".custom-select-option").forEach((optionButton) => {
+      optionButton.setAttribute(
+        "aria-selected",
+        optionButton.dataset.value === select.value ? "true" : "false",
+      );
+    });
+  };
+  const refresh = () => {
+    menu.innerHTML = "";
+    Array.from(select.options).forEach((option) => {
+      const optionButton = document.createElement("button");
+      optionButton.type = "button";
+      optionButton.className = "custom-select-option";
+      optionButton.dataset.value = option.value;
+      optionButton.setAttribute("role", "option");
+      optionButton.disabled = option.disabled;
+      optionButton.textContent = option.textContent;
+      optionButton.addEventListener("click", () => {
+        select.value = option.value;
+        select.dispatchEvent(new Event("change", { bubbles: true }));
+        sync();
+        close();
+        trigger.focus();
+      });
+      menu.appendChild(optionButton);
+    });
+    sync();
+  };
+
+  trigger.addEventListener("click", () => {
+    if (menu.hidden) open();
+    else close();
+  });
+  trigger.addEventListener("keydown", (event) => {
+    if (["ArrowDown", "ArrowUp", "Enter", " "].includes(event.key)) {
+      event.preventDefault();
+      open();
+      const options = Array.from(
+        menu.querySelectorAll(".custom-select-option:not(:disabled)"),
+      );
+      const selectedIndex = Math.max(
+        0,
+        options.findIndex((option) => option.dataset.value === select.value),
+      );
+      options[selectedIndex]?.focus();
+    }
+  });
+  menu.addEventListener("keydown", (event) => {
+    const options = Array.from(
+      menu.querySelectorAll(".custom-select-option:not(:disabled)"),
+    );
+    const current = options.indexOf(document.activeElement);
+    if (event.key === "Escape") {
+      close();
+      trigger.focus();
+    } else if (event.key === "ArrowDown" || event.key === "ArrowUp") {
+      event.preventDefault();
+      const direction = event.key === "ArrowDown" ? 1 : -1;
+      options[(current + direction + options.length) % options.length]?.focus();
+    }
+  });
+  select.addEventListener("change", sync);
+  document.addEventListener("pointerdown", (event) => {
+    if (!shell.contains(event.target)) close();
+  });
+
+  const state = { shell, trigger, menu, refresh, sync, close };
+  customSelectStates.set(select, state);
+  refresh();
+  return state;
 }
 
 document.addEventListener("DOMContentLoaded", async () => {
@@ -208,6 +355,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   // ── Filters ──
   const searchInput = document.getElementById("search-input");
   const providerFilter = document.getElementById("provider-filter");
+  enhanceCustomSelect(providerFilter, "provider");
 
   const filterData = () => {
     const query = searchInput.value.toLowerCase();
@@ -263,7 +411,7 @@ function renderDashboard(data) {
     document.getElementById("top-model").textContent = displayName(topPerf);
     document.getElementById("top-score").textContent =
       topPerf.adjusted_performance != null
-        ? `AA Intelligence: ${topPerf.adjusted_performance.toFixed(1)}`
+        ? `Intelligence: ${topPerf.adjusted_performance.toFixed(1)}`
         : topPerf.performance_index != null
           ? `Performance: ${topPerf.performance_index.toFixed(1)}`
           : "Performance: N/A";
@@ -565,6 +713,7 @@ function setupRadarChart(data, defaultModel) {
     opt.textContent = `#${m.performance_rank || "?"} ${name}`;
     selector.appendChild(opt);
   });
+  enhanceCustomSelect(selector, "radar");
 
   const findModel = (val) => ranked[parseInt(val)];
 
@@ -1364,8 +1513,12 @@ function renderSentimentCharts(sentimentData) {
     .sort((a, b) => b.community_sentiment - a.community_sentiment)
     .slice(0, MAX_MODELS);
 
-  const likedColors = liked.map((_, index) =>
-    index < 3 ? theme.strong : index < 7 ? theme.mid : theme.soft,
+  const likedColors = liked.map((item) =>
+    item.community_sentiment >= 0.1
+      ? theme.positive
+      : item.community_sentiment <= -0.1
+        ? theme.negative
+        : theme.soft,
   );
 
   Plotly.newPlot(
@@ -1433,7 +1586,7 @@ function renderSentimentCharts(sentimentData) {
           x: controversial.map((s) => s.controversy_index * 100),
           marker: {
             color: controversial.map((_, index) =>
-              index < 3 ? theme.strong : index < 7 ? theme.mid : theme.soft,
+              index < 3 ? theme.negative : theme.warning,
             ),
             line: { width: 0 },
             cornerradius: 4,
@@ -1478,7 +1631,7 @@ function renderSentimentCharts(sentimentData) {
     .slice(0, MAX_MODELS);
 
   // Use rank-based distinct colors so identical counts still look different
-  const discussedPalette = [theme.strong, theme.mid, theme.soft];
+  const discussedPalette = theme.categorical;
 
   Plotly.newPlot(
     "sentiment-trending-chart",
@@ -1596,8 +1749,43 @@ function renderSentimentPanel(sentimentData) {
     if (trend === "positive") trendIcon = "fa-arrow-up";
     else if (trend === "negative") trendIcon = "fa-arrow-down";
 
-    // Build quote HTML from real scraped data — supports both new and legacy keys
-    const quotes = (s.community_examples || s.top_quotes || []).slice(0, 3);
+    // Show only readable first-person community reactions. Repository issue
+    // templates and news summaries can inform collection diagnostics, but they
+    // are not presented as user reviews.
+    const communitySources = new Set([
+      "Reddit",
+      "X",
+      "Hacker News",
+      "HackerNews",
+    ]);
+    const lowSignalExcerpt =
+      /(?:files changed|src\/|pull request|issue template|implemented and verified|provenance|tracking:|pre-submission backlog|##\s|```)/i;
+    const normalizeQuoteText = (value) =>
+      String(value || "")
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, " ")
+        .replace(/\s+/g, " ")
+        .trim();
+    const normalizedModel = normalizeQuoteText(s.model_name);
+    const modelParts = normalizedModel.split(" ");
+    const modelAliases = new Set([normalizedModel]);
+    if (["claude", "gpt", "gemini"].includes(modelParts[0])) {
+      modelAliases.add(modelParts.slice(1).join(" "));
+    }
+    const quoteNamesModel = (quote) => {
+      const normalizedQuote = normalizeQuoteText(quote.text);
+      return Array.from(modelAliases).some(
+        (alias) => alias && normalizedQuote.includes(alias),
+      );
+    };
+    const quotes = (s.community_examples || s.top_quotes || [])
+      .filter(
+        (quote) =>
+          communitySources.has(quote.source) &&
+          !lowSignalExcerpt.test(quote.text || "") &&
+          quoteNamesModel(quote),
+      )
+      .slice(0, 3);
     let quotesHtml = "";
     if (quotes.length > 0) {
       quotesHtml = `<div class="sentiment-quotes">
@@ -1606,13 +1794,23 @@ function renderSentimentPanel(sentimentData) {
         // Only render link if URL exists AND is a real link (not a placeholder/example)
         const isRealUrl =
           q.url && q.url.startsWith("http") && !/example/i.test(q.url);
+        const safeUrl = isRealUrl ? escapeDisplay(q.url) : "";
+        const readableText = String(q.text || "")
+          .replace(/<[^>]+>/g, "")
+          .replace(/<(?:a|img)\b.*$/i, "")
+          .replace(/\s+/g, " ")
+          .trim();
+        const safeText = escapeDisplay(readableText);
+        const safeSource = escapeDisplay(
+          q.source === "HackerNews" ? "Hacker News" : q.source,
+        );
         const linkIcon = isRealUrl
-          ? `<a href="${q.url}" target="_blank" rel="noopener noreferrer" class="quote-link" title="View source"><i class="fas fa-external-link-alt"></i></a>`
+          ? `<a href="${safeUrl}" target="_blank" rel="noopener noreferrer" class="quote-link" title="View source"><i class="fas fa-external-link-alt"></i></a>`
           : "";
         quotesHtml += `<blockquote class="sentiment-quote">
-          <span class="quote-text">"${q.text}"</span>
+          <span class="quote-text">“${safeText}”</span>
           <div class="quote-attribution">
-            <cite>— ${q.source}</cite>
+            <cite>— ${safeSource}</cite>
             ${linkIcon}
           </div>
         </blockquote>`;
@@ -1649,13 +1847,19 @@ function renderSentimentPanel(sentimentData) {
     const methodClass = method === "gemini" ? "method-gemini" : "method-vader";
 
     // Hover tooltip info
-    const sources = Object.keys(s.source_counts || {}).join(", ") || "No source matches";
+    const sources =
+      Object.keys(s.source_counts || {})
+        .filter((source) =>
+          ["Reddit", "X", "HackerNews", "Hacker News"].includes(source),
+        )
+        .map((source) => (source === "HackerNews" ? "Hacker News" : source))
+        .join(", ") || "No community source matches";
     const timeWindow = "30 days";
     const sampleSize = mentions;
 
     html += `<div class="sentiment-card glass" style="position:relative;">
       <div class="sentiment-header">
-        <h4>${s.model_name || "Unknown"}</h4>
+        <h4>${escapeDisplay(s.model_name || "Unknown")}</h4>
         <div style="display:flex;gap:0.4rem;align-items:center;flex-wrap:wrap;">
           <span class="confidence-badge ${confClass}" title="Confidence: ${confLabel}">
             <i class="fas fa-shield-alt" style="font-size:0.6rem;"></i> ${confLabel}
@@ -3631,9 +3835,9 @@ async function setupFamilyExplorer(allData) {
 }
 
 /**
- * Readable release-level family explorer. The legacy renderer above is kept
- * for backwards compatibility, while this version consumes the normalized
- * family_growth contract produced by the current pipeline.
+ * Chronological company explorer. Release dates are cached from each model's
+ * benchmark record by the publication pipeline, so score order is never
+ * misrepresented as time.
  */
 async function setupFamilyExplorerModern(allData) {
   const chartDiv = document.getElementById("family-chart");
@@ -3667,7 +3871,7 @@ async function setupFamilyExplorerModern(allData) {
   });
 
   const brands = Object.keys(brandGroups).sort((a, b) => a.localeCompare(b));
-  selector.innerHTML = '<option value="">Choose a model brand...</option>';
+  selector.innerHTML = '<option value="">Choose a model company...</option>';
   brands.forEach((brand) => {
     const families = Object.keys(brandGroups[brand]);
     const releases = Object.values(brandGroups[brand]).reduce(
@@ -3676,21 +3880,135 @@ async function setupFamilyExplorerModern(allData) {
     );
     const option = document.createElement("option");
     option.value = brand;
-    option.textContent = `${brand} (${families.length} ${families.length === 1 ? "family" : "families"}, ${releases} releases)`;
+    option.textContent = `${brand} · ${families.length} product ${families.length === 1 ? "line" : "lines"} · ${releases} releases`;
     selector.appendChild(option);
   });
+  const customSelector = enhanceCustomSelect(selector, "family");
+
+  const validDate = (value) => {
+    if (!value) return null;
+    const parsed = new Date(`${value}T00:00:00Z`);
+    return Number.isNaN(parsed.getTime()) ? null : parsed;
+  };
+  const formatDate = (value, includeDay = true) => {
+    const parsed = validDate(value);
+    if (!parsed) return "Release date pending";
+    return new Intl.DateTimeFormat("en", {
+      month: "short",
+      day: includeDay ? "numeric" : undefined,
+      year: "numeric",
+      timeZone: "UTC",
+    }).format(parsed);
+  };
+  const cleanFamilyLabel = (family, brand) =>
+    family.replace(new RegExp(`^${brand}\\s*`, "i"), "").trim() || brand;
+
+  const makeTimelineSvg = (rows, families, colors, theme) => {
+    const dated = rows.filter((row) => validDate(row.release_date));
+    if (!dated.length) {
+      return `<div class="family-date-empty">
+        Release dates are still being collected for this company. The release
+        cards below remain ordered by model generation.
+      </div>`;
+    }
+
+    const width = 1120;
+    const height = 430;
+    const margin = { top: 36, right: 34, bottom: 58, left: 66 };
+    const plotWidth = width - margin.left - margin.right;
+    const plotHeight = height - margin.top - margin.bottom;
+    let minTime = Math.min(...dated.map((row) => validDate(row.release_date).getTime()));
+    let maxTime = Math.max(...dated.map((row) => validDate(row.release_date).getTime()));
+    if (minTime === maxTime) {
+      minTime -= 1000 * 60 * 60 * 24 * 180;
+      maxTime += 1000 * 60 * 60 * 24 * 180;
+    }
+    const scores = dated.map((row) => Number(row.performance));
+    const minimumScore = Math.max(0, Math.floor((Math.min(...scores) - 5) / 10) * 10);
+    const maximumScore = Math.min(
+      100,
+      Math.max(minimumScore + 10, Math.ceil((Math.max(...scores) + 5) / 10) * 10),
+    );
+    const x = (date) =>
+      margin.left +
+      ((validDate(date).getTime() - minTime) / (maxTime - minTime)) * plotWidth;
+    const y = (score) =>
+      margin.top +
+      (1 - (Number(score) - minimumScore) / (maximumScore - minimumScore)) *
+        plotHeight;
+
+    const scoreTicks = [];
+    for (let score = minimumScore; score <= maximumScore; score += 10) {
+      scoreTicks.push(`
+        <line class="family-grid-line" x1="${margin.left}" x2="${width - margin.right}" y1="${y(score)}" y2="${y(score)}"></line>
+        <text class="family-axis-label" x="${margin.left - 12}" y="${y(score) + 4}" text-anchor="end">${score}</text>`);
+    }
+
+    const startYear = new Date(minTime).getUTCFullYear();
+    const endYear = new Date(maxTime).getUTCFullYear();
+    const yearTicks = [];
+    for (let year = startYear; year <= endYear; year += 1) {
+      const date = `${year}-01-01`;
+      const dateMs = validDate(date).getTime();
+      if (dateMs < minTime || dateMs > maxTime) continue;
+      yearTicks.push(`
+        <line class="family-year-line" x1="${x(date)}" x2="${x(date)}" y1="${margin.top}" y2="${height - margin.bottom}"></line>
+        <text class="family-axis-label family-year-label" x="${x(date)}" y="${height - 22}" text-anchor="middle">${year}</text>`);
+    }
+
+    const series = families
+      .map((family, familyIndex) => {
+        const points = dated
+          .filter((row) => row.family === family)
+          .sort(
+            (left, right) =>
+              validDate(left.release_date) - validDate(right.release_date),
+          );
+        if (!points.length) return "";
+        const color = colors[familyIndex % colors.length];
+        const path = points
+          .map(
+            (row, index) =>
+              `${index ? "L" : "M"} ${x(row.release_date).toFixed(1)} ${y(row.performance).toFixed(1)}`,
+          )
+          .join(" ");
+        const markers = points
+          .map((row) => {
+            const change = row.predecessor
+              ? `; ${Number(row.improvement_abs) >= 0 ? "+" : ""}${Number(row.improvement_abs).toFixed(1)} vs ${row.predecessor}`
+              : "";
+            return `<g class="family-point">
+              <circle cx="${x(row.release_date)}" cy="${y(row.performance)}" r="7" fill="${color}" stroke="${theme.text}" stroke-width="2">
+                <title>${escapeDisplay(row.name)} · ${formatDate(row.release_date)} · Intelligence ${Number(row.performance).toFixed(1)}${escapeDisplay(change)}</title>
+              </circle>
+            </g>`;
+          })
+          .join("");
+        return `<path class="family-series-line" d="${path}" stroke="${color}"></path>${markers}`;
+      })
+      .join("");
+
+    return `<div class="family-svg-wrap">
+      <svg class="family-timeline-svg" viewBox="0 0 ${width} ${height}" role="img" aria-label="Intelligence scores by model release date">
+        <text class="family-axis-title" transform="translate(18 ${height / 2}) rotate(-90)" text-anchor="middle">Intelligence score</text>
+        ${scoreTicks.join("")}
+        ${yearTicks.join("")}
+        ${series}
+      </svg>
+    </div>`;
+  };
 
   const render = (brand) => {
     if (!brand || !brandGroups[brand]) {
       chartDiv.innerHTML = `
         <div class="chart-empty-state">
-          <i class="fas fa-chart-bar"></i>
-          <h3>Choose a model brand</h3>
-          <p>Release variants are collapsed so the chart shows actual product generations, not repeated reasoning-effort settings.</p>
+          <i class="fas fa-timeline"></i>
+          <h3>Choose a model company</h3>
+          <p>See releases in chronological order, grouped into recognizable product lines.</p>
         </div>`;
       if (explanation) {
         explanation.textContent =
-          "Choose a brand to inspect its release-level performance history.";
+          "Choose a company to inspect its release-level history.";
       }
       return;
     }
@@ -3700,105 +4018,104 @@ async function setupFamilyExplorerModern(allData) {
     const rows = [];
     families.forEach((family, familyIndex) => {
       brandGroups[brand][family].forEach((member) => {
-        rows.push({
-          ...member,
-          family,
-          familyIndex,
-        });
+        rows.push({ ...member, family, familyIndex });
       });
     });
     rows.sort((left, right) => {
-      if (left.familyIndex !== right.familyIndex) {
-        return right.familyIndex - left.familyIndex;
-      }
-      return left.performance - right.performance;
+      const leftDate = validDate(left.release_date);
+      const rightDate = validDate(right.release_date);
+      if (leftDate && rightDate) return leftDate - rightDate;
+      if (leftDate) return -1;
+      if (rightDate) return 1;
+      return left.name.localeCompare(right.name, undefined, { numeric: true });
     });
 
-    const palette = [theme.strong, theme.mid, theme.soft];
-    const labels = rows.map((row) => {
-      const suffix =
-        row.variant_count > 1 ? ` (${row.variant_count} variants)` : "";
-      return `${row.name}${suffix}`;
-    });
-    const hover = rows.map((row) => {
-      const rank = row.rank != null ? `#${Math.round(row.rank)}` : "N/A";
-      const change = row.predecessor
-        ? `<br>Change from ${row.predecessor}: ${row.improvement_abs >= 0 ? "+" : ""}${Number(row.improvement_abs).toFixed(1)}`
-        : "";
-      return `<b>${row.name}</b><br>Family: ${row.family}<br>AA Intelligence: ${Number(row.performance).toFixed(1)}<br>Global rank: ${rank}<br>Collapsed variants: ${row.variant_count || 1}${change}`;
-    });
-    const maximum = Math.max(...rows.map((row) => row.performance), 1);
-    const isMobile = window.innerWidth <= 768;
+    const datedRows = rows.filter((row) => validDate(row.release_date));
+    const firstDate = datedRows[0]?.release_date;
+    const lastDate = datedRows[datedRows.length - 1]?.release_date;
+    const best = [...rows].sort(
+      (left, right) => Number(right.performance) - Number(left.performance),
+    )[0];
+    const colors = theme.categorical;
+    const legend = families
+      .map(
+        (family, index) => `<span class="family-legend-item">
+          <span class="family-legend-dot" style="--family-color:${colors[index % colors.length]}"></span>
+          ${escapeDisplay(cleanFamilyLabel(family, brand))}
+        </span>`,
+      )
+      .join("");
 
-    chartDiv.style.overflow = "visible";
-    Plotly.newPlot(
-      chartDiv,
-      [
-        {
-          type: "bar",
-          orientation: "h",
-          x: rows.map((row) => row.performance),
-          y: labels,
-          marker: {
-            color: rows.map(
-              (row) => palette[row.familyIndex % palette.length],
-            ),
-            line: { color: theme.grid, width: 1 },
-            cornerradius: 5,
-          },
-          text: rows.map((row) => Number(row.performance).toFixed(1)),
-          textposition: "inside",
-          insidetextanchor: "end",
-          textfont: {
-            color:
-              document.documentElement.dataset.theme === "light"
-                ? "#ffffff"
-                : "#000000",
-            size: 11,
-          },
-          hovertext: hover,
-          hoverinfo: "text",
-        },
-      ],
-      {
-        title: {
-          text: `${brand} release progression`,
-          font: { color: theme.text, size: isMobile ? 15 : 19 },
-          x: 0.02,
-          xanchor: "left",
-        },
-        paper_bgcolor: "rgba(0,0,0,0)",
-        plot_bgcolor: "rgba(0,0,0,0)",
-        font: { color: theme.muted },
-        xaxis: {
-          title: "Artificial Analysis Intelligence",
-          color: theme.muted,
-          gridcolor: theme.grid,
-          range: [0, Math.min(100, maximum + 5)],
-          fixedrange: true,
-        },
-        yaxis: {
-          color: theme.text,
-          automargin: true,
-          fixedrange: true,
-          tickfont: { size: isMobile ? 9 : 12 },
-        },
-        margin: isMobile
-          ? { t: 52, r: 12, b: 48, l: 130 }
-          : { t: 62, r: 24, b: 54, l: 260 },
-        height: Math.max(480, Math.min(900, rows.length * 38 + 130)),
-        bargap: 0.22,
-        showlegend: false,
-      },
-      {
-        responsive: true,
-        displayModeBar: false,
-        scrollZoom: false,
-      },
-    );
+    const grouped = new Map();
+    rows.forEach((row) => {
+      const date = validDate(row.release_date);
+      const year = date ? String(date.getUTCFullYear()) : "Date pending";
+      if (!grouped.has(year)) grouped.set(year, []);
+      grouped.get(year).push(row);
+    });
+    const yearGroups = Array.from(grouped.entries())
+      .map(([year, members]) => {
+        const cards = members
+          .map((row) => {
+            const color = colors[row.familyIndex % colors.length];
+            const change = row.predecessor
+              ? `${Number(row.improvement_abs) >= 0 ? "+" : ""}${Number(row.improvement_abs).toFixed(1)} vs previous ${escapeDisplay(cleanFamilyLabel(row.family, brand))}`
+              : `First tracked ${escapeDisplay(cleanFamilyLabel(row.family, brand))} release`;
+            const variants =
+              row.variant_count > 1
+                ? `${row.variant_count} settings collapsed`
+                : "Single release";
+            const sourceLink =
+              row.model_url && /^https?:\/\//.test(row.model_url)
+                ? `<a class="family-release-link" href="${escapeDisplay(row.model_url)}" target="_blank" rel="noopener" aria-label="Open model record"><i class="fas fa-arrow-up-right-from-square"></i></a>`
+                : "";
+            return `<article class="family-release-card" style="--family-color:${color}">
+              <div class="family-release-topline">
+                <span class="family-release-date">${formatDate(row.release_date)}</span>
+                ${sourceLink}
+              </div>
+              <span class="family-release-family">${escapeDisplay(cleanFamilyLabel(row.family, brand))}</span>
+              <h4>${escapeDisplay(row.name)}</h4>
+              <div class="family-release-score">
+                <strong>${Number(row.performance).toFixed(1)}</strong>
+                <span>Intelligence</span>
+              </div>
+              <p>${change}</p>
+              <small>${variants}${row.rank != null ? ` · Global rank #${Math.round(row.rank)}` : ""}</small>
+            </article>`;
+          })
+          .join("");
+        return `<section class="family-year-group">
+          <div class="family-year-heading"><span>${escapeDisplay(year)}</span></div>
+          <div class="family-release-grid">${cards}</div>
+        </section>`;
+      })
+      .join("");
+
+    chartDiv.innerHTML = `
+      <div class="family-progress-header">
+        <div>
+          <span class="family-kicker">COMPANY RELEASE HISTORY</span>
+          <h3>${escapeDisplay(brand)} model progression</h3>
+          <p>Each point is a distinct release; effort and fallback settings are collapsed.</p>
+        </div>
+        <div class="family-summary-grid">
+          <div><span>Release span</span><strong>${firstDate && lastDate ? `${formatDate(firstDate, false)} → ${formatDate(lastDate, false)}` : "Collecting dates"}</strong></div>
+          <div><span>Best score</span><strong>${best ? Number(best.performance).toFixed(1) : "N/A"}</strong></div>
+          <div><span>Product lines</span><strong>${families.length}</strong></div>
+        </div>
+      </div>
+      <div class="family-chart-panel">
+        <div class="family-chart-title-row">
+          <div><h4>Intelligence growth by release date</h4><p>Move over a point for the full release details.</p></div>
+          <div class="family-legend">${legend}</div>
+        </div>
+        ${makeTimelineSvg(rows, families, colors, theme)}
+      </div>
+      <div class="family-year-timeline">${yearGroups}</div>`;
 
     if (explanation) {
-      explanation.textContent = `${brand}: ${families.length} product ${families.length === 1 ? "family" : "families"} and ${rows.length} distinct releases. Reasoning-effort and fallback variants are collapsed to their best representative score.`;
+      explanation.textContent = `${brand} currently has ${families.length} tracked product ${families.length === 1 ? "line" : "lines"} and ${rows.length} distinct releases. Dates come from the model records; settings of the same release are collapsed.`;
     }
   };
 
@@ -3806,5 +4123,6 @@ async function setupFamilyExplorerModern(allData) {
   selector.addEventListener("change", (event) => render(event.target.value));
   const initialBrand = brands.includes("Claude") ? "Claude" : brands[0] || "";
   selector.value = initialBrand;
+  customSelector?.refresh();
   render(initialBrand);
 }
