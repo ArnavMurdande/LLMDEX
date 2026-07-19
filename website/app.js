@@ -52,13 +52,9 @@ document.addEventListener("DOMContentLoaded", async () => {
     `../data/models.json?v=${dataCacheVersion}`,
   ];
 
-  // Optional resources load in parallel and never block the leaderboard.
-  const columnDefsPromise = fetch("../data/column_definitions.json")
-    .then((response) => (response.ok ? response.json() : {}))
-    .catch((error) => {
-      console.warn("Column definitions not loaded:", error);
-      return {};
-    });
+  // Column descriptions are optional; the expanded Artificial Analysis values
+  // are rendered directly from each model's source_details object.
+  const columnDefsPromise = Promise.resolve({});
   let allData = [];
 
   // ── Load column definitions ──
@@ -1857,38 +1853,6 @@ function setupChatbot(data) {
     }));
   }
 
-  const sourceDetails =
-    typeof model.source_details === "string"
-      ? (() => {
-          try {
-            return JSON.parse(model.source_details);
-          } catch {
-            return {};
-          }
-        })()
-      : model.source_details || {};
-  if (Object.keys(sourceDetails).length > 0) {
-    html += `<h4 class="modal-sub-header">All Expanded Artificial Analysis Fields</h4>`;
-    html += '<div class="breakdown-grid"><div class="breakdown-source">';
-    for (const [label, value] of Object.entries(sourceDetails)) {
-      if (label === "Further Analysis") continue;
-      html += `<div class="breakdown-metric">
-        <span>${escapeDisplay(label)}</span>
-        <span class="bm-val">${escapeDisplay(value || "N/A")}</span>
-      </div>`;
-    }
-    html += "</div></div>";
-  }
-
-  if (model.model_url) {
-    html += `<div class="modal-source-link">
-      <a href="${escapeDisplay(model.model_url)}" target="_blank" rel="noopener">
-        View this model on Artificial Analysis
-        <i class="fas fa-arrow-up-right-from-square"></i>
-      </a>
-    </div>`;
-  }
-
   const advisorSources = new Set();
   data.forEach((row) => {
     const sources = row.sources || [];
@@ -2041,10 +2005,13 @@ function setupChatbot(data) {
     scrollToBottom();
   }
 
-  function addBotMessage(answer, referencedModels, dataPointsUsed, source) {
-    const msgEl = document.createElement("div");
-    msgEl.className = "chat-message bot-message";
-
+  function updateBotMessage(
+    msgEl,
+    answer,
+    referencedModels,
+    dataPointsUsed,
+    source,
+  ) {
     let refsHtml = "";
     if (referencedModels && referencedModels.length > 0) {
       refsHtml = `<div class="chat-refs">${referencedModels.map((m) => `<span class="chat-ref-tag">${escapeHtml(m)}</span>`).join("")}</div>`;
@@ -2057,6 +2024,9 @@ function setupChatbot(data) {
     else if (source === "client")
       sourceHtml =
         '<div class="chat-source"><i class="fas fa-database"></i> Analyzed from local data</div>';
+    else if (source === "client_pending")
+      sourceHtml =
+        '<div class="chat-source"><i class="fas fa-bolt"></i> Instant data analysis &middot; Gemini is refining</div>';
     else if (source === "gemini")
       sourceHtml =
         '<div class="chat-source"><i class="fas fa-sparkles"></i> Powered by Gemini</div>';
@@ -2081,8 +2051,21 @@ function setupChatbot(data) {
         ${sourceHtml}
       </div>
     `;
-    messagesDiv.appendChild(msgEl);
     scrollToBottom();
+  }
+
+  function addBotMessage(answer, referencedModels, dataPointsUsed, source) {
+    const msgEl = document.createElement("div");
+    msgEl.className = "chat-message bot-message";
+    messagesDiv.appendChild(msgEl);
+    updateBotMessage(
+      msgEl,
+      answer,
+      referencedModels,
+      dataPointsUsed,
+      source,
+    );
+    return msgEl;
   }
 
   function addTypingIndicator() {
@@ -2163,11 +2146,18 @@ function setupChatbot(data) {
       return;
     }
 
-    // Show typing indicator
+    // Give the user a useful answer immediately, then replace it with the
+    // Gemini refinement when the server responds.
+    const instant = generateClientSideResponse(query, snapshot);
+    const responseMessage = addBotMessage(
+      instant.answer,
+      instant.referenced_models,
+      instant.data_points_used,
+      "client_pending",
+    );
     addTypingIndicator();
 
     try {
-      // Try server-side API first, fall back to client-side analysis
       const response = await getAdvisorResponse(query);
       removeTypingIndicator();
 
@@ -2176,7 +2166,8 @@ function setupChatbot(data) {
         ["gemini", "cache"].includes(response.source) &&
         response.answer
       ) {
-        addBotMessage(
+        updateBotMessage(
+          responseMessage,
           response.answer,
           response.referenced_models || [],
           response.data_points_used || [],
@@ -2185,26 +2176,26 @@ function setupChatbot(data) {
         storeCache(query, response);
         updateAdvisorHealth("online", "Gemini Advisor online");
       } else {
-        // Always return a useful deterministic answer if the AI service is down.
-        const fallback = generateClientSideResponse(query, snapshot);
-        addBotMessage(
-          fallback.answer,
-          fallback.referenced_models,
-          fallback.data_points_used,
+        updateBotMessage(
+          responseMessage,
+          instant.answer,
+          instant.referenced_models,
+          instant.data_points_used,
           "client",
         );
-        storeCache(query, fallback);
+        storeCache(query, instant);
         updateAdvisorHealth("local", "Local analysis mode");
       }
     } catch (error) {
       removeTypingIndicator();
-      const fallback = generateClientSideResponse(query, snapshot);
-      addBotMessage(
-        fallback.answer,
-        fallback.referenced_models,
-        fallback.data_points_used,
+      updateBotMessage(
+        responseMessage,
+        instant.answer,
+        instant.referenced_models,
+        instant.data_points_used,
         "client",
       );
+      storeCache(query, instant);
       updateAdvisorHealth("local", "Local analysis mode");
     } finally {
       isSending = false;
@@ -2240,6 +2231,64 @@ function setupChatbot(data) {
   function generateClientSideResponse(query, snap) {
     const q = query.toLowerCase();
     const models = snap.filter((m) => m.adjusted_performance != null);
+
+    // Compare explicitly named model variants before applying broad intent
+    // rules such as "cost" or "coding".
+    if (
+      q.includes("compare") ||
+      q.includes("vs") ||
+      q.includes("versus") ||
+      q.includes("difference")
+    ) {
+      const queryTokens = new Set(
+        q
+          .replace(/[^a-z0-9]+/g, " ")
+          .trim()
+          .split(/\s+/)
+          .filter(Boolean),
+      );
+      const mentionedModels = models.filter((m) => {
+        const normalizedName = m.model_name.toLowerCase();
+        const version = normalizedName.match(/\d+(?:\.\d+)+/)?.[0];
+        if (version && !q.includes(version)) return false;
+        const nameTokens = normalizedName
+          .replace(/[^a-z0-9]+/g, " ")
+          .trim()
+          .split(/\s+/)
+          .filter((token) => token.length >= 3 || /^\d+$/.test(token));
+        return (
+          nameTokens.length > 0 &&
+          nameTokens.every((token) => queryTokens.has(token))
+        );
+      });
+
+      if (mentionedModels.length >= 2 && mentionedModels.length <= 8) {
+        const answer =
+          `Comparison of the named models:\n\n` +
+          mentionedModels
+            .map(
+              (m) =>
+                `**${m.model_name}** (${m.provider}):\n` +
+                `  â€¢ AA Intelligence: ${m.adjusted_performance} (Rank #${m.performance_rank})\n` +
+                `  â€¢ Blended cost: $${m.blended_cost_per_1m || "N/A"}/1M tokens\n` +
+                `  â€¢ Coding: ${m.coding_score || "N/A"} | Reasoning: ${m.reasoning_score || "N/A"}\n` +
+                `  â€¢ Context: ${m.context_window ? (m.context_window / 1000).toFixed(0) + "K" : "N/A"}`,
+            )
+            .join("\n\n");
+        return {
+          answer,
+          referenced_models: mentionedModels.map((m) => m.model_name),
+          data_points_used: [
+            "adjusted_performance",
+            "performance_rank",
+            "blended_cost_per_1m",
+            "coding_score",
+            "reasoning_score",
+            "context_window",
+          ],
+        };
+      }
+    }
 
     // Best performance
     if (
