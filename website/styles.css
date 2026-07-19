@@ -3366,6 +3366,30 @@ select option,
   isolation: isolate;
 }
 
+.custom-select-shell.is-open {
+  z-index: 4000;
+}
+
+.table-controls {
+  position: relative;
+  z-index: 100;
+  overflow: visible;
+}
+
+.filter-bar {
+  position: relative;
+  z-index: 2;
+  overflow: visible;
+}
+
+.filter-bar:has(.custom-select-shell.is-open) {
+  z-index: 4000;
+}
+
+.table-controls:has(.provider-select-shell.is-open) .compare-btn {
+  visibility: hidden;
+}
+
 .native-select-proxy {
   position: absolute !important;
   width: 1px !important;
@@ -3968,5 +3992,224 @@ select option,
 
   .family-release-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+/* Final interaction and visual QA refinements */
+.nav-links .github-link {
+  width: 2.45rem;
+  height: 2.45rem;
+  flex: 0 0 2.45rem;
+  display: inline-grid;
+  place-items: center;
+  padding: 0;
+  border: 1px solid var(--border-glass);
+  border-radius: 999px;
+  color: var(--text-primary);
+  background: var(--surface-raised);
+}
+
+.nav-links .github-link i,
+.nav-links .github-link svg,
+.theme-toggle-icon,
+.theme-toggle-icon svg {
+  width: 20px;
+  height: 20px;
+  font-size: 20px;
+  line-height: 20px;
+}
+
+.nav-links .github-link svg {
+  width: 20px !important;
+  height: 20px !important;
+}
+
+.theme-sun-icon {
+  color: var(--accent-amber);
+  stroke-width: 2;
+}
+
+.theme-sun-icon .theme-sun-core {
+  fill: currentColor;
+  stroke: none;
+}
+
+.theme-moon-icon {
+  color: var(--accent-violet);
+  fill: currentColor !important;
+  stroke: none !important;
+}
+
+.btn.compare-btn {
+  min-width: 170px;
+  min-height: 54px;
+  justify-content: center;
+  overflow: visible;
+  border: 1px solid var(--border-glass) !important;
+  border-radius: 999px;
+  color: #fff !important;
+  background: linear-gradient(
+    115deg,
+    var(--accent-blue),
+    var(--accent-violet)
+  ) !important;
+}
+
+.btn.compare-btn::before {
+  display: none !important;
+}
+
+.compare-btn-label,
+.compare-btn-count,
+.compare-btn > i {
+  position: relative;
+  z-index: 1;
+}
+
+.compare-btn-count {
+  min-width: 1.55rem;
+  height: 1.55rem;
+  display: inline-grid;
+  place-items: center;
+  border-radius: 999px;
+  color: var(--text-primary);
+  background: color-mix(in srgb, var(--surface-solid) 84%, transparent);
+  font: 700 0.74rem/1 var(--font-mono);
+}
+
+.btn.compare-btn:disabled {
+  color: var(--text-secondary) !important;
+  background: var(--surface-raised) !important;
+  border-color: var(--border-glass) !important;
+}
+
+.table-scrollbar-top {
+  height: 10px;
+  top: 5.4rem;
+  margin: 0.2rem 0 0.55rem;
+  border: 0 !important;
+  border-radius: 999px;
+  background: transparent !important;
+  box-shadow: none !important;
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent-blue) var(--surface-raised);
+}
+
+.table-scrollbar-top > div {
+  height: 1px;
+}
+
+.table-scrollbar-top::-webkit-scrollbar,
+.table-wrapper::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.table-scrollbar-top::-webkit-scrollbar-track,
+.table-wrapper::-webkit-scrollbar-track {
+  border-radius: 999px;
+  background: var(--surface-raised);
+}
+
+.table-scrollbar-top::-webkit-scrollbar-button,
+.table-wrapper::-webkit-scrollbar-button {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+.table-scrollbar-top::-webkit-scrollbar-thumb,
+.table-wrapper::-webkit-scrollbar-thumb {
+  min-width: 64px;
+  border: 2px solid var(--surface-raised);
+  border-radius: 999px;
+  background: linear-gradient(
+    90deg,
+    var(--accent-blue),
+    var(--accent-violet)
+  );
+  background-clip: padding-box;
+}
+
+.history-controls {
+  display: flex;
+  align-items: flex-end;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.family-year-control {
+  min-width: 230px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.family-year-control-label {
+  padding-left: 0.8rem;
+  color: var(--text-secondary);
+  font: 700 0.67rem/1.2 var(--font-mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.year-select-shell {
+  width: 100%;
+  min-width: 230px;
+}
+
+.year-select-shell .custom-select-trigger {
+  min-height: 58px;
+}
+
+.glass,
+.chart-card,
+.metric-card,
+.sentiment-card,
+.family-release-card,
+.family-explorer-card,
+.advisor-chatbot,
+.advisor-context-panel,
+.index-terminal {
+  box-shadow: none !important;
+}
+
+.metric-card:hover {
+  border-color: var(--border-glass);
+}
+
+.sentiment-card {
+  --sentiment-card-accent: var(--accent-blue);
+  border-color: var(--border-glass);
+  border-left-color: var(--sentiment-card-accent);
+}
+
+.sentiment-card:nth-child(3n + 2) {
+  --sentiment-card-accent: var(--accent-violet);
+}
+
+.sentiment-card:nth-child(3n) {
+  --sentiment-card-accent: var(--accent-cyan);
+}
+
+.sentiment-card:hover {
+  border-color: var(--border-glass);
+  border-left-color: var(--sentiment-card-accent);
+}
+
+@media (max-width: 768px) {
+  .family-year-control,
+  .year-select-shell {
+    width: 100%;
+    min-width: 100%;
+  }
+
+  .btn.compare-btn {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .table-scrollbar-top {
+    top: 4.8rem;
   }
 }

@@ -24,7 +24,7 @@
         document.documentElement.dataset.theme = preferred;
       })();
     </script>
-    <link rel="stylesheet" href="styles.css?v=5" />
+    <link rel="stylesheet" href="styles.css?v=6" />
     <link rel="stylesheet" href="bento.css?v=3" />
     <link
       href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Space+Grotesk:wght@300;500;700&family=JetBrains+Mono:wght@400;500&display=swap"
@@ -70,8 +70,14 @@
           <span class="theme-toggle-icon" aria-hidden="true"></span>
           <span class="theme-toggle-label">Light mode</span>
         </button>
-        <a href="https://github.com/ArnavMurdande/LLMDEX" target="_blank"
-          ><i class="fab fa-github"></i
+        <a
+          class="github-link"
+          href="https://github.com/ArnavMurdande/LLMDEX"
+          target="_blank"
+          rel="noopener"
+          aria-label="Open LLMDEX on GitHub"
+          title="Open LLMDEX on GitHub"
+          ><i class="fab fa-github" aria-hidden="true"></i
         ></a>
       </div>
     </nav>
@@ -266,9 +272,9 @@
         <!-- Tab descriptions -->
         <div class="tab-description glass" id="tab-desc-area">
           <p id="tab-description-text">
-            <strong>Performance Leaderboard:</strong> Artificial Analysis
-            Intelligence Index used unchanged. No cost, speed, or completeness
-            penalty influences this ranking.
+            <strong>Performance Leaderboard:</strong> Published intelligence
+            scores are used unchanged. No cost, speed, or completeness penalty
+            influences this ranking.
           </p>
         </div>
 
@@ -300,14 +306,14 @@
             </select>
           </div>
           <button class="btn compare-btn" id="compare-btn" disabled>
-            <i class="fas fa-columns"></i> Compare (<span id="compare-count"
-              >0</span
-            >)
+            <i class="fas fa-columns" aria-hidden="true"></i>
+            <span class="compare-btn-label">Compare</span>
+            <span class="compare-btn-count" id="compare-count">0</span>
           </button>
         </div>
 
         <div
-          class="table-scrollbar-top glass"
+          class="table-scrollbar-top"
           id="table-scrollbar-top"
           aria-label="Scroll leaderboard columns"
         >
@@ -403,6 +409,12 @@
               <option value="">Select a model family...</option>
             </select>
             <i class="fas fa-chevron-down family-selector-arrow"></i>
+          </div>
+          <div class="family-year-control">
+            <span class="family-year-control-label">Filter by year</span>
+            <select id="family-year-filter" aria-label="Filter releases by year">
+              <option value="all">All years</option>
+            </select>
           </div>
         </div>
         <div class="chart-card glass family-explorer-card">
@@ -720,6 +732,6 @@
     </footer>
 
     <script src="bento.js?v=1"></script>
-    <script src="app.js?v=16"></script>
+    <script src="app.js?v=17"></script>
   </body>
 </html>

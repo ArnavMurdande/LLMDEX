@@ -35,8 +35,30 @@ function chartTheme() {
     warning: light ? "#d97706" : "#fbbf24",
     fill: light ? "rgba(37,99,235,0.12)" : "rgba(96,165,250,0.15)",
     categorical: light
-      ? ["#2563eb", "#7c3aed", "#0891b2", "#059669", "#d97706", "#e11d48"]
-      : ["#60a5fa", "#a78bfa", "#22d3ee", "#34d399", "#fbbf24", "#fb7185"],
+      ? [
+          "#2563eb",
+          "#7c3aed",
+          "#0891b2",
+          "#059669",
+          "#d97706",
+          "#e11d48",
+          "#4f46e5",
+          "#0f766e",
+          "#c2410c",
+          "#be185d",
+        ]
+      : [
+          "#60a5fa",
+          "#a78bfa",
+          "#22d3ee",
+          "#34d399",
+          "#fbbf24",
+          "#fb7185",
+          "#818cf8",
+          "#2dd4bf",
+          "#fb923c",
+          "#f472b6",
+        ],
   };
 }
 
@@ -46,13 +68,14 @@ function setupTheme() {
   const sync = () => {
     const light = document.documentElement.dataset.theme === "light";
     const icon = light
-      ? `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.4 15.2A8 8 0 0 1 8.8 3.6 8.5 8.5 0 1 0 20.4 15.2Z"></path></svg>`
-      : `<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3.5"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg>`;
+      ? `<svg class="theme-moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.2 15.4A8.7 8.7 0 0 1 8.6 3.8a8.8 8.8 0 1 0 11.6 11.6Z"></path></svg>`
+      : `<svg class="theme-sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle class="theme-sun-core" cx="12" cy="12" r="4.6"></circle><path d="M12 1.8v3M12 19.2v3M1.8 12h3M19.2 12h3M4.8 4.8l2.1 2.1M17.1 17.1l2.1 2.1M4.8 19.2l2.1-2.1M17.1 6.9l2.1-2.1"></path></svg>`;
     toggle.innerHTML = `<span class="theme-toggle-icon">${icon}</span><span class="theme-toggle-label">${light ? "Dark mode" : "Light mode"}</span>`;
     toggle.setAttribute(
       "aria-label",
       light ? "Switch to dark mode" : "Switch to light mode",
     );
+    toggle.title = light ? "Switch to dark mode" : "Switch to light mode";
     document
       .querySelector('meta[name="theme-color"]')
       ?.setAttribute("content", light ? "#f5f5f5" : "#050505");
@@ -506,9 +529,9 @@ function renderDashboard(data) {
 // ══════════════════════════════════════════════════════════════
 
 const TAB_DESCRIPTIONS = {
-  "performance-tab": `<strong>Performance Leaderboard:</strong> Artificial Analysis
-    Intelligence Index used unchanged. No cost, speed, or completeness penalty
-    influences Performance rank.`,
+  "performance-tab": `<strong>Performance Leaderboard:</strong> Published
+    intelligence scores are used unchanged. No cost, speed, or completeness
+    penalty influences Performance rank.`,
   "value-tab": `<strong>Value Leaderboard:</strong> Composite ranking blending 50% Performance + 
     30% Cost Efficiency + 20% Speed. Best for choosing a well-rounded model. 
     Uses adjusted performance for fairness.`,
@@ -559,6 +582,15 @@ function renderScatterPlot(data) {
     return;
   }
 
+  const providers = Array.from(
+    new Set(plotData.map((row) => row.provider || "Other")),
+  ).sort((left, right) => left.localeCompare(right));
+  const providerColors = new Map(
+    providers.map((provider, index) => [
+      provider,
+      theme.categorical[index % theme.categorical.length],
+    ]),
+  );
   const trace = {
     x: plotData.map((d) => d.blended_cost_per_1m),
     y: plotData.map((d) => d.adjusted_performance || d.performance_index),
@@ -570,21 +602,18 @@ function renderScatterPlot(data) {
           : "";
       return `${name}${cf}`;
     }),
+    customdata: plotData.map((d) => d.provider || "Other"),
     mode: "markers",
     type: "scatter",
+    hovertemplate:
+      "<b>%{text}</b><br>Provider: %{customdata}<br>Cost: $%{x:.2f}/1M<br>Intelligence: %{y:.1f}<extra></extra>",
     marker: {
       size: plotData.map((d) => 8 + (d.confidence_factor || 0.5) * 10),
       color: plotData.map(
-        (d) => d.adjusted_performance || d.performance_index || 0,
+        (d) => providerColors.get(d.provider || "Other") || theme.strong,
       ),
-      colorscale: [
-        [0, theme.soft],
-        [0.5, theme.mid],
-        [1, theme.strong],
-      ],
-      showscale: window.innerWidth > 768,
-      colorbar: { title: "AA Intelligence" },
-      line: { color: theme.strong, width: 1 },
+      opacity: 0.82,
+      line: { color: theme.text, width: 0.8 },
     },
   };
 
@@ -593,7 +622,7 @@ function renderScatterPlot(data) {
     title: {
       text: isMobile
         ? "Perf. vs Cost Frontier"
-        : "Artificial Analysis Intelligence vs Cost",
+        : "Model Intelligence vs Cost",
       font: { color: theme.text, size: isMobile ? 11 : undefined },
     },
     paper_bgcolor: "rgba(0,0,0,0)",
@@ -646,18 +675,15 @@ function renderEfficiencyChart(data) {
     type: "bar",
     orientation: "h",
     marker: {
-      color: top10.map((d) => d.efficiency_score),
-      colorscale: [
-        [0, theme.soft],
-        [0.55, theme.mid],
-        [1, theme.strong],
-      ],
+      color: top10.map(
+        (_, index) => theme.categorical[index % theme.categorical.length],
+      ),
+      line: { color: theme.text, width: 0.7 },
     },
     text: top10.map((d) => `${d.efficiency_score.toFixed(1)} pctl`),
-    textposition: "inside",
-    insidetextanchor: "end",
+    textposition: "outside",
     textfont: {
-      color: document.documentElement.dataset.theme === "light" ? "#fff" : "#000",
+      color: theme.text,
       size: 11,
     },
     cliponaxis: false,
@@ -675,7 +701,7 @@ function renderEfficiencyChart(data) {
       title: isMobile ? "Percentile" : "Efficiency Percentile (0-100)",
       color: theme.muted,
       gridcolor: theme.grid,
-      range: [0, 100],
+      range: [0, 108],
       tickfont: { size: isMobile ? 10 : 12 },
     },
     yaxis: {
@@ -865,7 +891,7 @@ const TABLE_CONFIGS = {
       { key: "provider", label: "Provider", sortable: false },
       {
         key: "intelligence_score",
-        label: "AA Intelligence",
+        label: "Intelligence",
         sortable: true,
         info: "performance",
         format: "raw_score",
@@ -3842,6 +3868,7 @@ async function setupFamilyExplorer(allData) {
 async function setupFamilyExplorerModern(allData) {
   const chartDiv = document.getElementById("family-chart");
   const selector = document.getElementById("family-selector");
+  const yearSelector = document.getElementById("family-year-filter");
   const explanation = document.querySelector(".family-explanation-text");
   if (!chartDiv || !selector) return;
 
@@ -3884,6 +3911,8 @@ async function setupFamilyExplorerModern(allData) {
     selector.appendChild(option);
   });
   const customSelector = enhanceCustomSelect(selector, "family");
+  const customYearSelector = enhanceCustomSelect(yearSelector, "year");
+  let activeBrand = "";
 
   const validDate = (value) => {
     if (!value) return null;
@@ -3902,6 +3931,32 @@ async function setupFamilyExplorerModern(allData) {
   };
   const cleanFamilyLabel = (family, brand) =>
     family.replace(new RegExp(`^${brand}\\s*`, "i"), "").trim() || brand;
+
+  const syncYearOptions = (rows) => {
+    if (!yearSelector) return;
+    const counts = new Map();
+    rows.forEach((row) => {
+      const date = validDate(row.release_date);
+      if (!date) return;
+      const year = String(date.getUTCFullYear());
+      counts.set(year, (counts.get(year) || 0) + 1);
+    });
+    yearSelector.innerHTML = "";
+    const allOption = document.createElement("option");
+    allOption.value = "all";
+    allOption.textContent = `All years · ${rows.length} releases`;
+    yearSelector.appendChild(allOption);
+    Array.from(counts.keys())
+      .sort((left, right) => Number(right) - Number(left))
+      .forEach((year) => {
+        const option = document.createElement("option");
+        option.value = year;
+        option.textContent = `${year} · ${counts.get(year)} releases`;
+        yearSelector.appendChild(option);
+      });
+    yearSelector.value = "all";
+    customYearSelector?.refresh();
+  };
 
   const makeTimelineSvg = (rows, families, colors, theme) => {
     const dated = rows.filter((row) => validDate(row.release_date));
@@ -4000,6 +4055,8 @@ async function setupFamilyExplorerModern(allData) {
 
   const render = (brand) => {
     if (!brand || !brandGroups[brand]) {
+      activeBrand = "";
+      syncYearOptions([]);
       chartDiv.innerHTML = `
         <div class="chart-empty-state">
           <i class="fas fa-timeline"></i>
@@ -4015,13 +4072,13 @@ async function setupFamilyExplorerModern(allData) {
 
     const theme = chartTheme();
     const families = Object.keys(brandGroups[brand]).sort();
-    const rows = [];
+    const allRows = [];
     families.forEach((family, familyIndex) => {
       brandGroups[brand][family].forEach((member) => {
-        rows.push({ ...member, family, familyIndex });
+        allRows.push({ ...member, family, familyIndex });
       });
     });
-    rows.sort((left, right) => {
+    allRows.sort((left, right) => {
       const leftDate = validDate(left.release_date);
       const rightDate = validDate(right.release_date);
       if (leftDate && rightDate) return leftDate - rightDate;
@@ -4029,6 +4086,21 @@ async function setupFamilyExplorerModern(allData) {
       if (rightDate) return 1;
       return left.name.localeCompare(right.name, undefined, { numeric: true });
     });
+    if (brand !== activeBrand) {
+      activeBrand = brand;
+      syncYearOptions(allRows);
+    }
+    const selectedYear = yearSelector?.value || "all";
+    const rows =
+      selectedYear === "all"
+        ? allRows
+        : allRows.filter((row) => {
+            const date = validDate(row.release_date);
+            return date && String(date.getUTCFullYear()) === selectedYear;
+          });
+    const visibleFamilies = families.filter((family) =>
+      rows.some((row) => row.family === family),
+    );
 
     const datedRows = rows.filter((row) => validDate(row.release_date));
     const firstDate = datedRows[0]?.release_date;
@@ -4037,10 +4109,10 @@ async function setupFamilyExplorerModern(allData) {
       (left, right) => Number(right.performance) - Number(left.performance),
     )[0];
     const colors = theme.categorical;
-    const legend = families
+    const legend = visibleFamilies
       .map(
-        (family, index) => `<span class="family-legend-item">
-          <span class="family-legend-dot" style="--family-color:${colors[index % colors.length]}"></span>
+        (family) => `<span class="family-legend-item">
+          <span class="family-legend-dot" style="--family-color:${colors[families.indexOf(family) % colors.length]}"></span>
           ${escapeDisplay(cleanFamilyLabel(family, brand))}
         </span>`,
       )
@@ -4102,12 +4174,12 @@ async function setupFamilyExplorerModern(allData) {
         <div class="family-summary-grid">
           <div><span>Release span</span><strong>${firstDate && lastDate ? `${formatDate(firstDate, false)} → ${formatDate(lastDate, false)}` : "Collecting dates"}</strong></div>
           <div><span>Best score</span><strong>${best ? Number(best.performance).toFixed(1) : "N/A"}</strong></div>
-          <div><span>Product lines</span><strong>${families.length}</strong></div>
+          <div><span>Product lines</span><strong>${visibleFamilies.length}</strong></div>
         </div>
       </div>
       <div class="family-chart-panel">
         <div class="family-chart-title-row">
-          <div><h4>Intelligence growth by release date</h4><p>Move over a point for the full release details.</p></div>
+          <div><h4>${selectedYear === "all" ? "Intelligence growth by release date" : `Intelligence growth in ${escapeDisplay(selectedYear)}`}</h4><p>Move over a point for the full release details.</p></div>
           <div class="family-legend">${legend}</div>
         </div>
         ${makeTimelineSvg(rows, families, colors, theme)}
@@ -4115,12 +4187,18 @@ async function setupFamilyExplorerModern(allData) {
       <div class="family-year-timeline">${yearGroups}</div>`;
 
     if (explanation) {
-      explanation.textContent = `${brand} currently has ${families.length} tracked product ${families.length === 1 ? "line" : "lines"} and ${rows.length} distinct releases. Dates come from the model records; settings of the same release are collapsed.`;
+      const scope =
+        selectedYear === "all" ? "across all tracked years" : `during ${selectedYear}`;
+      explanation.textContent = `${brand} has ${rows.length} distinct ${rows.length === 1 ? "release" : "releases"} across ${visibleFamilies.length} product ${visibleFamilies.length === 1 ? "line" : "lines"} ${scope}. Dates come from the model records; settings of the same release are collapsed.`;
     }
   };
 
   familyRenderRef = render;
-  selector.addEventListener("change", (event) => render(event.target.value));
+  selector.addEventListener("change", (event) => {
+    activeBrand = "";
+    render(event.target.value);
+  });
+  yearSelector?.addEventListener("change", () => render(selector.value));
   const initialBrand = brands.includes("Claude") ? "Claude" : brands[0] || "";
   selector.value = initialBrand;
   customSelector?.refresh();
