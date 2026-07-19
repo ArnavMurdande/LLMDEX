@@ -7,12 +7,17 @@ on:
       - reopened
       - synchronize
 
+concurrency:
+  group: llmdex-dependabot-safe-automerge
+  cancel-in-progress: false
+
 permissions:
   contents: write
   pull-requests: write
+  checks: read
 
 jobs:
-  enable-auto-merge:
+  test-and-merge:
     if: github.actor == 'dependabot[bot]'
     runs-on: ubuntu-latest
     steps:
@@ -22,11 +27,55 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Enable auto-merge for patch and minor updates
+      - name: Wait for LLMDEX CI
+        if: >-
+          steps.metadata.outputs.update-type == 'version-update:semver-patch' ||
+          steps.metadata.outputs.update-type == 'version-update:semver-minor'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          REPOSITORY: ${{ github.repository }}
+        run: |
+          for attempt in $(seq 1 90); do
+            result="$(
+              gh api \
+                -H "Accept: application/vnd.github+json" \
+                "/repos/${REPOSITORY}/commits/${HEAD_SHA}/check-runs" \
+                --jq '
+                  [.check_runs[]
+                    | select(.name == "test")
+                    | select(.app.slug == "github-actions")]
+                  | sort_by(.started_at)
+                  | last
+                  | if . == null then "pending "
+                    else "\(.status) \(.conclusion // "")"
+                    end
+                '
+            )"
+
+            if [ "$result" = "completed success" ]; then
+              exit 0
+            fi
+
+            case "$result" in
+              "completed failure"|"completed cancelled"|"completed timed_out"|"completed action_required")
+                echo "LLMDEX CI did not pass: $result"
+                exit 1
+                ;;
+            esac
+
+            echo "Waiting for LLMDEX CI ($result, attempt ${attempt}/90)"
+            sleep 10
+          done
+
+          echo "Timed out waiting for LLMDEX CI."
+          exit 1
+
+      - name: Squash-merge tested patch and minor updates
         if: >-
           steps.metadata.outputs.update-type == 'version-update:semver-patch' ||
           steps.metadata.outputs.update-type == 'version-update:semver-minor'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR_URL: ${{ github.event.pull_request.html_url }}
-        run: gh pr merge --auto --squash "$PR_URL"
+        run: gh pr merge --squash "$PR_URL"
