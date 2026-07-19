@@ -153,7 +153,7 @@ def _load_dataset(index_path: Optional[str] = None) -> List[dict]:
 def _extract_compact_snapshot(
     dataset: List[dict],
     user_query: str = "",
-    max_models: int = 50,
+    max_models: int = 30,
 ) -> List[dict]:
     """
     Extract a compact top-N dataset snapshot for Gemini context.
@@ -307,12 +307,12 @@ def generate_advisor_response(
     snapshot = _extract_compact_snapshot(dataset, user_query=user_query)
 
     # Build prompt with embedded data
-    prompt = f"""USER QUESTION: {user_query}
+    prompt = f"""DATASET SNAPSHOT ({len(snapshot)} query-relevant and leaderboard-leading models from LLMDEX):
+{json.dumps(snapshot, separators=(",", ":"), ensure_ascii=False)}
 
-DATASET SNAPSHOT ({len(snapshot)} query-relevant and leaderboard-leading models from LLMDEX):
-{json.dumps(snapshot, indent=2)}
+USER QUESTION: {user_query}
 
-Answer the user's question using ONLY the data above. Follow all system rules."""
+Based on the preceding dataset, answer the user's question using ONLY those values. Follow all system rules."""
 
     # Call Gemini
     try:
@@ -325,7 +325,9 @@ Answer the user's question using ONLY the data above. Follow all system rules.""
         prompt=prompt,
         system_instruction=SYSTEM_PROMPT,
         pool_type="advisor",
-        temperature=0.2,
+        temperature=1.0,
+        max_output_tokens=900,
+        thinking_level="minimal",
     )
 
     if result is None:

@@ -210,6 +210,8 @@ def call_gemini(
     pool_type: str = "advisor",
     temperature: float = 0.2,
     max_retries: int = 3,
+    max_output_tokens: Optional[int] = None,
+    thinking_level: Optional[str] = None,
 ) -> Optional[Dict[str, Any]]:
     """
     Call Gemini API with automatic key rotation using google-genai SDK.
@@ -220,6 +222,8 @@ def call_gemini(
         pool_type: "advisor" or "sentiment"
         temperature: Generation temperature
         max_retries: Maximum number of retries across different keys
+        max_output_tokens: Optional cap for concise latency-sensitive responses
+        thinking_level: Optional Gemini thinking level (for example, "minimal")
 
     Returns:
         Parsed JSON response dict, or None on failure
@@ -257,20 +261,29 @@ def call_gemini(
         try:
             client = genai.Client(api_key=key)
 
+            config_kwargs: Dict[str, Any] = {
+                "system_instruction": system_instruction,
+                "temperature": temperature,
+                "response_mime_type": "application/json",
+            }
+            if max_output_tokens is not None:
+                config_kwargs["max_output_tokens"] = max_output_tokens
+            if thinking_level:
+                config_kwargs["thinking_config"] = types.ThinkingConfig(
+                    thinking_level=thinking_level.upper(),
+                )
+
             response = client.models.generate_content(
                 model=MODEL_NAME,
                 contents=prompt,
-                config=types.GenerateContentConfig(
-                    system_instruction=system_instruction,
-                    temperature=temperature,
-                    response_mime_type="application/json",
-                )
+                config=types.GenerateContentConfig(**config_kwargs),
             )
 
             # Parse JSON response
             if response and response.text:
+                text = response.text.strip()
                 try:
-                    result = json.loads(response.text)
+                    result = json.loads(text)
                     logger.debug(
                         f"Gemini '{pool_type}' call succeeded on attempt {attempt + 1}"
                     )
@@ -281,13 +294,25 @@ def call_gemini(
                         f"Raw text length: {len(response.text)}"
                     )
                     # Try to extract JSON from markdown code blocks
-                    text = response.text.strip()
                     if text.startswith("```"):
                         text = text.split("\n", 1)[-1].rsplit("```", 1)[0].strip()
                         try:
                             return json.loads(text)
                         except json.JSONDecodeError:
                             pass
+                    # Structured-output models occasionally append a harmless
+                    # trailing character after a complete JSON object. Decode
+                    # the first complete value instead of paying for a retry.
+                    try:
+                        result, end = json.JSONDecoder().raw_decode(text)
+                        if isinstance(result, dict) and text[end:].strip():
+                            logger.warning(
+                                "Gemini returned valid JSON with trailing content; "
+                                "using the complete first object"
+                            )
+                            return result
+                    except json.JSONDecodeError:
+                        pass
                     last_error = je
             else:
                 logger.warning(f"Gemini returned empty response on attempt {attempt + 1}")
