@@ -15,7 +15,7 @@ from __future__ import annotations
 import json
 from dataclasses import dataclass, field, asdict
 from datetime import datetime, timezone
-from typing import List, Optional
+from typing import Any, Dict, List, Optional
 
 
 @dataclass(frozen=True)
@@ -62,11 +62,18 @@ class ScrapedRow:
     critpt: Optional[float] = None
     mmmu_pro: Optional[float] = None
     livecodebench: Optional[float] = None  # LiveCodeBench coding score
+    omniscience_index: Optional[float] = None
+    terminalbench_v21: Optional[float] = None
+    tau3_banking: Optional[float] = None
+    apex_agents: Optional[float] = None
+    itbench: Optional[float] = None
 
     # --- Economics (all optional) ---
     input_cost_per_1m: Optional[float] = None
     output_cost_per_1m: Optional[float] = None
     blended_cost_per_1m: Optional[float] = None  # Blended USD/1M tokens
+    cache_read_cost_per_1m: Optional[float] = None
+    cache_write_cost_per_1m: Optional[float] = None
 
     # --- Speed metrics (all optional) ---
     tokens_per_second: Optional[float] = None      # Median tokens/s
@@ -96,6 +103,12 @@ class ScrapedRow:
 
     # --- Arena-specific ---
     arena_votes: Optional[int] = None
+
+    # --- Artificial Analysis provenance ---
+    source_rank: Optional[int] = None
+    model_url: Optional[str] = None
+    providers_url: Optional[str] = None
+    source_details: Dict[str, Any] = field(default_factory=dict)
 
     # --- Quality tracking ---
     confidence: float = 1.0

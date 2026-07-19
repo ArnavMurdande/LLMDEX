@@ -6,9 +6,14 @@ on:
     - cron: "30 10 * * *"
   workflow_dispatch: # Manual trigger
 
+concurrency:
+  group: llmdex-artificial-analysis-update
+  cancel-in-progress: false
+
 jobs:
   update-data:
     runs-on: ubuntu-latest
+    timeout-minutes: 45
     permissions:
       contents: write
       pages: write
@@ -16,21 +21,26 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Set up Python 3.11
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: "3.11"
           cache: pip
 
       - name: Install Chrome
-        uses: browser-actions/setup-chrome@v1
+        uses: browser-actions/setup-chrome@v2
 
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
+
+      - name: Run regression tests
+        run: python -m unittest discover -s tests -v
+        env:
+          PYTHONPATH: .
 
       # ──────────────────────────────────────────
       # Run the main scraper + merge pipeline
@@ -51,7 +61,7 @@ jobs:
       # ── Upload pipeline report as CI artifact ──
       - name: Upload Pipeline Report
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: pipeline-report-${{ github.run_number }}
           path: data/pipeline_reports/
@@ -60,7 +70,7 @@ jobs:
       # ── Upload archived datasets as CI artifact ──
       - name: Upload Dataset Archives
         if: success()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: dataset-archive-${{ github.run_number }}
           path: |
@@ -82,17 +92,18 @@ jobs:
           git add data/cleaned/latest.json data/cleaned/latest.csv || true
           git add data/raw_snapshot/latest.json data/raw_snapshot/latest.csv || true
           git add data/history/family_growth.json || true
+          git add data/history/*.json || true
           git add data/column_definitions.json || true
 
-          git diff --quiet && git diff --staged --quiet || (
+          git diff --cached --quiet || (
             git commit -m "Update benchmark data $(date -u +%Y-%m-%d) [skip ci]" &&
-            git push
+            git push origin HEAD:main
           )
 
       # ── On failure: upload report for debugging ──
       - name: Upload Failure Report
         if: failure()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: failure-report-${{ github.run_number }}
           path: data/pipeline_reports/
@@ -114,7 +125,7 @@ jobs:
 
     steps:
       - name: Checkout repository (with latest data)
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           ref: main # Get the latest commit (including data updates)
 
@@ -135,7 +146,6 @@ jobs:
           sed -i 's|\.\./data/|./data/|g' _site/index.html
           # Copy only the data files the website needs
           cp -r data/index _site/data/index || true
-          cp -r data/sentiment _site/data/sentiment || true
           cp -r data/history _site/data/history || true
           cp data/models.json _site/data/models.json || true
           cp data/column_definitions.json _site/data/column_definitions.json || true

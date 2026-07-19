@@ -14,7 +14,7 @@ SAFETY:
   - Rankings are NEVER altered by the advisor
 
 ANTI-HALLUCINATION:
-  - Only top-15 models are sent as context (compact snapshot)
+  - A compact query-aware model set is sent as context
   - System prompt explicitly forbids inventing data
   - Only fields present in the dataset are referenced
 """
@@ -150,18 +150,79 @@ def _load_dataset(index_path: Optional[str] = None) -> List[dict]:
         return []
 
 
-def _extract_compact_snapshot(dataset: List[dict], top_n: int = 15) -> List[dict]:
+def _extract_compact_snapshot(
+    dataset: List[dict],
+    user_query: str = "",
+    max_models: int = 50,
+) -> List[dict]:
     """
     Extract a compact top-N dataset snapshot for Gemini context.
     
-    Only includes fields that Gemini needs — no raw benchmark breakdowns,
-    no internal IDs, no data that could confuse the model.
+    Includes query matches plus performance, value, and efficiency leaders.
+    Raw benchmark breakdowns and internal IDs are intentionally excluded.
     """
-    # Sort by performance rank (best first)
-    ranked = sorted(
-        [d for d in dataset if d.get("performance_rank") is not None],
-        key=lambda d: d.get("performance_rank", 9999),
-    )[:top_n]
+    ranked = [d for d in dataset if d.get("performance_rank") is not None]
+    query_tokens = {
+        token
+        for token in "".join(
+            char.lower() if char.isalnum() else " " for char in user_query
+        ).split()
+        if len(token) >= 3
+    }
+
+    candidates: Dict[str, dict] = {}
+
+    def add_models(rows: List[dict], limit: int) -> None:
+        for row in rows[:limit]:
+            name = row.get("canonical_name") or row.get("model_name") or "Unknown"
+            candidates.setdefault(name.lower(), row)
+
+    if query_tokens:
+        matches = []
+        for row in ranked:
+            aliases = row.get("aliases") or []
+            if isinstance(aliases, str):
+                aliases = [aliases]
+            searchable = " ".join(
+                str(value or "")
+                for value in (
+                    row.get("canonical_name"),
+                    row.get("model_name"),
+                    row.get("provider"),
+                    " ".join(aliases),
+                )
+            ).lower()
+            overlap = sum(token in searchable for token in query_tokens)
+            if overlap:
+                matches.append((overlap, row))
+        matches.sort(
+            key=lambda item: (
+                -item[0],
+                item[1].get("performance_rank", 9999),
+            )
+        )
+        add_models([row for _, row in matches], 15)
+
+    add_models(
+        sorted(ranked, key=lambda d: d.get("performance_rank", 9999)),
+        20,
+    )
+    add_models(
+        sorted(
+            [d for d in ranked if d.get("value_rank") is not None],
+            key=lambda d: d.get("value_rank", 9999),
+        ),
+        15,
+    )
+    add_models(
+        sorted(
+            [d for d in ranked if d.get("efficiency_rank") is not None],
+            key=lambda d: d.get("efficiency_rank", 9999),
+        ),
+        15,
+    )
+
+    ranked = list(candidates.values())[:max_models]
 
     snapshot = []
     for m in ranked:
@@ -172,12 +233,15 @@ def _extract_compact_snapshot(dataset: List[dict], top_n: int = 15) -> List[dict
             "value_rank": m.get("value_rank"),
             "efficiency_rank": m.get("efficiency_rank"),
             "adjusted_performance": _round_safe(m.get("adjusted_performance")),
+            "intelligence_score": _round_safe(m.get("intelligence_score")),
+            "blended_cost_per_1m": _round_safe(m.get("blended_cost_per_1m")),
             "input_cost_per_1m": _round_safe(m.get("input_cost_per_1m")),
             "output_cost_per_1m": _round_safe(m.get("output_cost_per_1m")),
             "context_window": m.get("context_window"),
             "coding_score": _round_safe(m.get("coding_score")),
             "reasoning_score": _round_safe(m.get("reasoning_score")),
             "confidence_factor": _round_safe(m.get("confidence_factor")),
+            "snapshot_date": m.get("snapshot_date") or m.get("last_updated"),
         }
         snapshot.append(entry)
 
@@ -240,12 +304,12 @@ def generate_advisor_response(
             "source": "error",
         }
 
-    snapshot = _extract_compact_snapshot(dataset, top_n=15)
+    snapshot = _extract_compact_snapshot(dataset, user_query=user_query)
 
     # Build prompt with embedded data
     prompt = f"""USER QUESTION: {user_query}
 
-DATASET SNAPSHOT (Top {len(snapshot)} models from LLMDEX):
+DATASET SNAPSHOT ({len(snapshot)} query-relevant and leaderboard-leading models from LLMDEX):
 {json.dumps(snapshot, indent=2)}
 
 Answer the user's question using ONLY the data above. Follow all system rules."""
@@ -268,10 +332,21 @@ Answer the user's question using ONLY the data above. Follow all system rules.""
         return _fallback_response()
 
     # Validate response structure
+    answer = result.get("answer")
+    if not isinstance(answer, str) or not answer.strip():
+        logger.warning("Gemini advisor response did not contain a valid answer")
+        return _fallback_response()
+    referenced_models = result.get("referenced_models", [])
+    if not isinstance(referenced_models, list):
+        referenced_models = []
+    data_points_used = result.get("data_points_used", [])
+    if not isinstance(data_points_used, list):
+        data_points_used = []
+
     response = {
-        "answer": result.get("answer", "Unable to generate a response."),
-        "referenced_models": result.get("referenced_models", []),
-        "data_points_used": result.get("data_points_used", []),
+        "answer": answer.strip(),
+        "referenced_models": referenced_models[:10],
+        "data_points_used": data_points_used[:12],
         "source": "gemini",
     }
 
@@ -288,4 +363,5 @@ def _fallback_response() -> Dict[str, Any]:
         "referenced_models": [],
         "data_points_used": [],
         "source": "fallback",
+        "diagnostic_code": "gemini_unavailable",
     }

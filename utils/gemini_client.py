@@ -18,6 +18,7 @@ SAFETY:
 from __future__ import annotations
 
 import json
+import importlib.util
 import logging
 import os
 import time
@@ -30,11 +31,11 @@ logger = logging.getLogger(__name__)
 # ──────────────────────────────────────────────────────────────
 
 COOLDOWN_SECONDS = 300  # 5 minutes
-MODEL_NAME = "gemini-3-flash-preview"  # High-speed model with better free tier quotas
+MODEL_NAME = os.environ.get("GEMINI_MODEL", "gemini-3.5-flash")
 
 # Key pools — read from environment variables
-# Advisor keys:  GEMINI_ADVISOR_KEY_1, GEMINI_ADVISOR_KEY_2, GEMINI_ADVISOR_KEY_3
-# Sentiment keys: GEMINI_SENTIMENT_KEY_1, GEMINI_SENTIMENT_KEY_2
+# Advisor keys:  GEMINI_ADVISOR_KEY_1 ... GEMINI_ADVISOR_KEY_5
+# Sentiment keys: GEMINI_SENTIMENT_KEY_1 ... GEMINI_SENTIMENT_KEY_5
 
 
 def _load_keys(prefix: str, max_keys: int = 5) -> List[str]:
@@ -185,6 +186,23 @@ def _is_quota_error(error: Exception) -> bool:
     ])
 
 
+def _is_key_specific_error(error: Exception) -> bool:
+    """Return True only when rotating/cooling the current key can help."""
+    error_str = str(error).lower()
+    return _is_quota_error(error) or any(
+        keyword in error_str
+        for keyword in (
+            "400 api key",
+            "401",
+            "403",
+            "api_key_invalid",
+            "invalid api key",
+            "permission_denied",
+            "unauthenticated",
+        )
+    )
+
+
 
 def call_gemini(
     prompt: str,
@@ -277,9 +295,9 @@ def call_gemini(
 
         except Exception as e:
             last_error = e
-            if _is_quota_error(e):
+            if _is_key_specific_error(e):
                 logger.warning(
-                    f"Gemini quota error on attempt {attempt + 1}: "
+                    f"Gemini key/quota error on attempt {attempt + 1}: "
                     f"rotating key for '{pool_type}'"
                 )
                 pool.mark_failed(key)
@@ -287,8 +305,7 @@ def call_gemini(
                 logger.error(
                     f"Gemini API error on attempt {attempt + 1}: {type(e).__name__}: {e}"
                 )
-                # For non-quota errors, still try next key
-                pool.mark_failed(key)
+                # Model/network outages are transient and must not poison valid keys.
 
     logger.error(
         f"Gemini call failed after {max_retries} attempts for '{pool_type}': "
@@ -339,4 +356,20 @@ def get_pool_stats() -> Dict[str, Any]:
     return {
         "advisor": _get_advisor_pool().get_stats(),
         "sentiment": _get_sentiment_pool().get_stats(),
+    }
+
+
+def get_client_health() -> Dict[str, Any]:
+    """Return safe readiness information without exposing API keys."""
+    try:
+        sdk_available = importlib.util.find_spec("google.genai") is not None
+    except (ImportError, ModuleNotFoundError):
+        sdk_available = False
+
+    advisor_pool = _get_advisor_pool()
+    return {
+        "ready": sdk_available and advisor_pool.size > 0,
+        "sdk_available": sdk_available,
+        "advisor_key_count": advisor_pool.size,
+        "model": MODEL_NAME,
     }

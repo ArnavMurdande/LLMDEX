@@ -27,6 +27,15 @@ def setup_logging(level: int = logging.INFO) -> None:
 
     Instead, CI captures stdout/stderr via GitHub Actions artifacts.
     """
+    # Windows PowerShell may expose a legacy cp1252 stdout stream. The pipeline
+    # intentionally uses Unicode status/metric names, so make console output
+    # UTF-8-safe before attaching the handler.
+    if hasattr(sys.stdout, "reconfigure"):
+        try:
+            sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+        except (AttributeError, OSError):
+            pass
+
     root = logging.getLogger()
 
     # Prevent duplicate handlers on re-init

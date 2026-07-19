@@ -143,7 +143,12 @@ def validate_row(row: dict) -> ValidationResult:
     ]
     has_cost = any(row.get(f) is not None for f in cost_fields)
 
-    if not has_score and not has_cost:
+    has_aa_metadata = (
+        row.get("source") == "Artificial Analysis"
+        and bool(row.get("source_details"))
+        and bool(row.get("model_url"))
+    )
+    if not has_score and not has_cost and not has_aa_metadata:
         reasons.append("No benchmark scores or cost data")
         return ValidationResult(valid=False, reasons=reasons)
 

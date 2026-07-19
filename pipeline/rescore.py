@@ -1,84 +1,89 @@
-"""
-rescore.py — Re-process existing cleaned data through the updated merge + scoring pipeline.
+"""Recompute rankings from the latest published index without scraping.
 
-This script reads the existing raw_snapshot/latest.json,
-runs it through the updated merge_data.py and scoring.py,
-and writes the new index/latest.json.
-
-Usage:
-    python rescore.py
+This is useful after changing scoring logic: it preserves the current model
+set, source data, snapshot date, and row order while refreshing all derived
+scores and ranks.
 """
+
+from __future__ import annotations
 
 import json
 import os
 import sys
+from datetime import datetime, timezone
+from pathlib import Path
 
-# Ensure project root on path
+import pandas as pd
+
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
-from pipeline.merge_data import process_and_save
+from pipeline.merge_data import save_dataset_layer
+from pipeline.scoring import score_dataset
 
-def main():
-    # Read existing raw snapshot (pre-merge data)
-    raw_path = os.path.join(os.path.dirname(__file__), "..", "data", "raw_snapshot", "latest.json")
-    raw_path = os.path.abspath(raw_path)
 
-    if not os.path.exists(raw_path):
-        # Fallback: read the cleaned data and treat each row as a raw row
-        cleaned_path = os.path.join(os.path.dirname(__file__), "..", "data", "cleaned", "latest.json")
-        cleaned_path = os.path.abspath(cleaned_path)
-        
-        if not os.path.exists(cleaned_path):
-            print("ERROR: No raw or cleaned data found. Run the pipeline first.")
-            sys.exit(1)
-        
-        with open(cleaned_path, "r", encoding="utf-8") as f:
-            data = json.load(f)
-        print(f"Loaded {len(data)} rows from cleaned/latest.json")
-        
-        # Flatten provenance back to raw rows for re-processing
-        raw_rows = []
-        for row in data:
-            provenance = row.get("provenance", [])
-            if provenance:
-                for prov in provenance:
-                    raw_row = {
-                        "model_name": prov.get("raw_name", row.get("model_name", "")),
-                        "source": prov.get("source", "unknown"),
-                        "scraped_at": prov.get("scraped_at"),
-                        "confidence": prov.get("confidence", 1.0),
-                    }
-                    # Add raw scores
-                    for k, v in prov.get("raw_scores", {}).items():
-                        raw_row[k] = v
-                    
-                    # Add provider if available
-                    if row.get("provider"):
-                        raw_row["provider"] = row["provider"]
-                    
-                    raw_rows.append(raw_row)
-            else:
-                # No provenance, use the row directly
-                raw_rows.append(row)
-        
-        data = raw_rows
-        print(f"Expanded to {len(data)} raw rows from provenance")
-    else:
-        with open(raw_path, "r", encoding="utf-8") as f:
-            data = json.load(f)
-        print(f"Loaded {len(data)} rows from raw_snapshot/latest.json")
+ROOT = Path(__file__).resolve().parents[1]
+DATA_DIR = ROOT / "data"
+INDEX_PATH = DATA_DIR / "index" / "latest.json"
 
-    # Re-process through updated pipeline
-    result = process_and_save(data, snapshot_date="2026-02-18")
-    
-    if result is not None:
-        print(f"\n✓ Re-scoring complete. {len(result)} models in index.")
-        print(f"  Ranked: {int(result['composite_index'].notna().sum())}")
-        print(f"  Unranked: {int(result['composite_index'].isna().sum())}")
-    else:
-        print("✗ Re-scoring FAILED.")
-        sys.exit(1)
+RANK_FIELDS = (
+    "performance_rank",
+    "value_rank",
+    "efficiency_rank",
+    "global_rank",
+)
+
+
+def _snapshot_date(rows: list[dict]) -> str:
+    for row in rows:
+        value = row.get("last_updated") or row.get("snapshot_date")
+        if value:
+            return str(value)[:10]
+    return datetime.now(timezone.utc).strftime("%Y-%m-%d")
+
+
+def _write_legacy_outputs(index_df: pd.DataFrame) -> None:
+    flat = index_df.copy()
+    for column in flat.columns:
+        if flat[column].apply(lambda value: isinstance(value, (list, dict))).any():
+            flat[column] = flat[column].apply(
+                lambda value: json.dumps(value, default=str)
+                if isinstance(value, (list, dict))
+                else value
+            )
+    flat.to_csv(DATA_DIR / "models.csv", index=False, lineterminator="\n")
+    index_df.to_json(
+        DATA_DIR / "models.json",
+        orient="records",
+        indent=2,
+        default_handler=str,
+    )
+
+
+def main() -> int:
+    if not INDEX_PATH.exists():
+        print("ERROR: data/index/latest.json does not exist. Run the pipeline first.")
+        return 1
+
+    rows = json.loads(INDEX_PATH.read_text(encoding="utf-8"))
+    if not isinstance(rows, list) or not rows:
+        print("ERROR: the latest index is empty or invalid.")
+        return 1
+
+    snapshot_date = _snapshot_date(rows)
+    frame = pd.DataFrame(rows).drop(columns=list(RANK_FIELDS), errors="ignore")
+    scored = score_dataset(frame)
+    scored["last_updated"] = snapshot_date
+
+    save_dataset_layer(scored, "index", str(DATA_DIR), snapshot_date)
+    _write_legacy_outputs(scored)
+
+    ranked = int(scored["performance_rank"].notna().sum())
+    print(
+        f"Re-scoring complete: {len(scored)} models, {ranked} performance-ranked, "
+        f"snapshot {snapshot_date}."
+    )
+    return 0
 
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())

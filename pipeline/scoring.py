@@ -54,11 +54,7 @@ logger = logging.getLogger(__name__)
 # Source confidence weights for multi-source aggregation.
 # ──────────────────────────────────────────────────────────────
 SOURCE_CONFIDENCE_WEIGHTS: Dict[str, float] = {
-    "LiveBench": 0.9,
-    "LMSYS Chatbot Arena": 0.95,
-    "Artificial Analysis": 0.8,
-    "LLM-Stats": 0.7,
-    "Vellum": 0.75,
+    "Artificial Analysis": 1.0,
 }
 
 DEFAULT_SOURCE_WEIGHT = 0.5
@@ -76,10 +72,7 @@ COMPOSITE_WEIGHTS = {
 # Benchmark weights for performance index.
 # ──────────────────────────────────────────────────────────────
 BENCHMARK_WEIGHTS = {
-    "intelligence_score": 0.45,   # AA Intelligence Index (primary)
-    "coding_score": 0.25,         # AA Coding Index
-    "arena_elo": 0.15,            # LMSYS Arena ELO (supplementary, fixed)
-    "gpqa": 0.15,                 # GPQA Diamond (granular benchmark)
+    "intelligence_score": 1.0,
 }
 
 # ──────────────────────────────────────────────────────────────
@@ -88,9 +81,8 @@ BENCHMARK_WEIGHTS = {
 # ──────────────────────────────────────────────────────────────
 EFFICIENCY_PERF_THRESHOLD = 25
 
-# Max possible performance source count (for confidence factor)
-# 3 dimensions: AA benchmarks, LMSYS arena, cost data
-MAX_POSSIBLE_PERF_SOURCES = 3
+# Artificial Analysis coverage groups: index, benchmarks, price, runtime.
+MAX_POSSIBLE_PERF_SOURCES = 4
 
 
 def _is_valid(value) -> bool:
@@ -132,73 +124,13 @@ def weighted_mean(values: List[float], weights: List[float]) -> Optional[float]:
 
 def compute_performance_index(row: dict) -> Optional[float]:
     """
-    Compute the performance index from available benchmark scores.
+    Use the Artificial Analysis Intelligence Index as the authoritative score.
 
-    CRITICAL DESIGN: AA-first scoring.
-    
-    AA benchmark fields (intelligence_score, coding_score, gpqa) are the
-    PRIMARY performance drivers. arena_elo is a SUPPLEMENTARY signal at
-    a fixed 15% weight — it NEVER inflates to fill missing benchmarks.
-    
-    This means:
-    - AA model with intelligence=57 + coding=46 + gpqa=94: perf ≈ 56
-    - AA+LMSYS model with same + elo=1500: perf ≈ 70  
-    - LMSYS-only model with just elo=1500: perf ≈ 13 (not 85!)
-    
-    Weight redistribution only happens among AA benchmark fields.
+    Secondary benchmarks remain visible for comparison, but must not reorder
+    the source leaderboard or demote a newly released model with sparse fields.
     """
-    # AA benchmark fields (these redistribute among themselves)
-    aa_fields = {
-        "intelligence_score": ("intelligence_score", False),
-        "coding_score": ("coding_score", False),
-        "gpqa": ("gpqa", False),
-    }
-    
-    # Compute AA benchmark scores
-    aa_scores: List[float] = []
-    aa_weights: List[float] = []
-    
-    for field, (metric, invert) in aa_fields.items():
-        val = row.get(field)
-        if _is_valid(val):
-            norm = normalize_anchored(float(val), metric, invert)
-            if norm is not None:
-                aa_scores.append(norm)
-                aa_weights.append(BENCHMARK_WEIGHTS.get(field, 0.1))
-
-    # Compute arena_elo contribution (FIXED weight, never redistributed)
-    arena_elo_contribution = 0.0
-    arena_elo_weight = BENCHMARK_WEIGHTS.get("arena_elo", 0.15)
-    has_arena = False
-    
-    elo_val = row.get("arena_elo")
-    if _is_valid(elo_val):
-        elo_norm = normalize_anchored(float(elo_val), "arena_elo", False)
-        if elo_norm is not None:
-            arena_elo_contribution = elo_norm * arena_elo_weight
-            has_arena = True
-
-    if not aa_scores and not has_arena:
-        return None
-
-    if aa_scores:
-        # Redistribute weights among available AA benchmarks
-        # They share the non-arena portion (85%) of the total
-        aa_total_weight = sum(aa_weights)
-        aa_target_weight = 1.0 - arena_elo_weight  # 0.85
-        
-        aa_contribution = sum(
-            s * (w / aa_total_weight) * aa_target_weight
-            for s, w in zip(aa_scores, aa_weights)
-        )
-        
-        result = aa_contribution + arena_elo_contribution
-    else:
-        # LMSYS-only: arena_elo is the ONLY source
-        # Cap at its natural fixed weight — don't inflate
-        result = arena_elo_contribution
-
-    return round(result, 2)
+    value = row.get("intelligence_score")
+    return round(float(value), 2) if _is_valid(value) else None
 
 
 def compute_cost_index(row: dict) -> Optional[float]:
@@ -365,34 +297,52 @@ def compute_coverage_score(row: dict) -> float:
     Returns a value 0–100.
     """
     fields = [
-        "intelligence_score", "coding_score", "reasoning_score",
-        "multimodal_score", "arena_elo",
+        "intelligence_score", "omniscience_index", "coding_score",
+        "gdpval", "terminalbench_hard", "terminalbench_v21", "tau2",
+        "tau3_banking", "lcr", "omniscience", "omniscience_hallucination",
+        "hle", "gpqa", "scicode", "ifbench", "critpt", "apex_agents",
+        "itbench", "mmmu_pro",
         "input_cost_per_1m", "output_cost_per_1m",
-        "context_window", "latency_seconds", "tokens_per_second",
+        "cache_read_cost_per_1m", "cache_write_cost_per_1m",
+        "context_window", "latency_seconds", "latency_first_token",
+        "tokens_per_second", "speed_p5", "speed_p25", "speed_p75",
+        "speed_p95", "total_response_time",
     ]
     present = sum(1 for f in fields if _is_valid(row.get(f)))
     return round(100 * present / len(fields), 1)
 
 
 def count_perf_sources(row: dict) -> int:
-    """Count how many key data dimensions this model has.
-    
-    Uses 3 realistic dimensions that our scrapers actually provide:
-    1. intelligence_score (from AA) or coding_score
-    2. arena_elo (from LMSYS)
-    3. cost data (blended_cost or input/output cost from AA)
-    """
+    """Count complete Artificial Analysis data groups for transparency."""
     count = 0
-    # Dimension 1: AA benchmark data
-    if _is_valid(row.get("intelligence_score")) or _is_valid(row.get("coding_score")):
+    if _is_valid(row.get("intelligence_score")):
         count += 1
-    # Dimension 2: LMSYS arena data
-    if _is_valid(row.get("arena_elo")):
+    if any(
+        _is_valid(row.get(field))
+        for field in (
+            "gdpval", "terminalbench_hard", "terminalbench_v21", "tau2",
+            "tau3_banking", "lcr", "omniscience", "hle", "gpqa",
+            "scicode", "ifbench", "critpt", "apex_agents", "itbench",
+            "mmmu_pro",
+        )
+    ):
         count += 1
-    # Dimension 3: Cost/economics data
-    if (_is_valid(row.get("blended_cost_per_1m")) or 
-        _is_valid(row.get("input_cost_per_1m")) or 
-        _is_valid(row.get("output_cost_per_1m"))):
+    if any(
+        _is_valid(row.get(field))
+        for field in (
+            "blended_cost_per_1m", "input_cost_per_1m",
+            "output_cost_per_1m", "cache_read_cost_per_1m",
+            "cache_write_cost_per_1m",
+        )
+    ):
+        count += 1
+    if any(
+        _is_valid(row.get(field))
+        for field in (
+            "tokens_per_second", "latency_seconds", "latency_first_token",
+            "total_response_time",
+        )
+    ):
         count += 1
     return count
 
@@ -403,10 +353,7 @@ def compute_confidence_factor(perf_source_count: int) -> float:
 
     confidence_factor = perf_source_count / max_possible_sources
 
-    Based on 3 data dimensions (AA benchmarks, LMSYS arena, cost data):
-    - 3/3 = 1.0  → Cross-referenced model with full data
-    - 2/3 = 0.67 → Model with two data dimensions
-    - 1/3 = 0.33 → Single-source model
+    Completeness is display metadata only and never changes performance rank.
     """
     return perf_source_count / MAX_POSSIBLE_PERF_SOURCES
 
@@ -416,24 +363,12 @@ def compute_adjusted_performance(
     perf_source_count: int,
 ) -> Optional[float]:
     """
-    PART 2: Apply bias correction to performance index.
-
-    adjusted_performance = performance_index * (0.85 + 0.15 * confidence_factor)
-
-    This means:
-    - Full coverage (5/5): multiplier = 0.85 + 0.15*1.0 = 1.00 (no penalty)
-    - 3/5 coverage: multiplier = 0.85 + 0.15*0.6 = 0.94
-    - 1/5 coverage: multiplier = 0.85 + 0.15*0.2 = 0.88
-
-    This prevents sparse data from dominating while not breaking
-    elite models that genuinely have all benchmarks.
+    Preserve Artificial Analysis' authoritative Intelligence Index unchanged.
     """
     if not _is_valid(performance_index):
         return None
 
-    cf = compute_confidence_factor(perf_source_count)
-    multiplier = 0.85 + 0.15 * cf
-    return round(float(performance_index) * multiplier, 2)
+    return round(float(performance_index), 2)
 
 
 def score_dataset(df: pd.DataFrame) -> pd.DataFrame:
@@ -498,11 +433,19 @@ def score_dataset(df: pd.DataFrame) -> pd.DataFrame:
     # PART 1: THREE INDEPENDENT LEADERBOARDS
     # ══════════════════════════════════════════════════════════
 
-    # ── 1. performance_rank: AA-first, then by adjusted performance ──
+    # ── 1. performance_rank: adjusted performance, highest first ──
+    # Ties follow Artificial Analysis' source table order.
     perf_eligible = df[df["adjusted_performance"].notna()].copy()
+    perf_sort_fields = ["adjusted_performance", "performance_index"]
+    perf_sort_ascending = [False, False]
+    if "source_rank" in perf_eligible.columns:
+        perf_sort_fields.append("source_rank")
+        perf_sort_ascending.append(True)
+    perf_sort_fields.append("model_name")
+    perf_sort_ascending.append(True)
     perf_eligible = perf_eligible.sort_values(
-        by=["data_tier", "adjusted_performance", "performance_index", "model_name"],
-        ascending=[True, False, False, True],
+        by=perf_sort_fields,
+        ascending=perf_sort_ascending,
         na_position="last",
     )
     perf_eligible["performance_rank"] = range(1, len(perf_eligible) + 1)
@@ -511,11 +454,11 @@ def score_dataset(df: pd.DataFrame) -> pd.DataFrame:
         left_index=True, right_index=True, how="left",
     )
 
-    # ── 2. value_rank: AA-first, then composite_index ──
+    # ── 2. value_rank: composite value score, highest first ──
     value_eligible = df[df["composite_index"].notna()].copy()
     value_eligible = value_eligible.sort_values(
-        by=["data_tier", "composite_index", "adjusted_performance", "model_name"],
-        ascending=[True, False, False, True],
+        by=["composite_index", "adjusted_performance", "confidence_factor", "model_name"],
+        ascending=[False, False, False, True],
         na_position="last",
     )
     value_eligible["value_rank"] = range(1, len(value_eligible) + 1)

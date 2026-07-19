@@ -267,7 +267,7 @@ def slugify_model_name(name: str) -> str:
     """Create a stable, lowercase slug for model deduplication.
     
     Checks cross-source alias table for both space-separated (AA),
-    hyphen-separated (LMSYS), and dot-stripped variants.
+    hyphen-separated legacy slugs, and dot-stripped variants.
     """
     slug = name.lower().strip()
     slug = slug.replace("\n", " ").replace("\r", "")
@@ -279,12 +279,12 @@ def slugify_model_name(name: str) -> str:
     if slug_cleaned in _CROSS_SOURCE_ALIASES:
         return _CROSS_SOURCE_ALIASES[slug_cleaned]
     
-    # Check alias: hyphen-separated (LMSYS: "gemini-2.5-pro")
+    # Check alias: hyphen-separated legacy slug ("gemini-2.5-pro")
     slug_h = slug_cleaned.replace(" ", "-")
     if slug_h in _CROSS_SOURCE_ALIASES:
         return _CROSS_SOURCE_ALIASES[slug_h]
     
-    # Check alias: dots stripped + hyphens (LMSYS after dot-removal: "gemini-25-pro")
+    # Check alias: dots stripped + hyphens ("gemini-25-pro")
     slug_nd = re.sub(r"[^\w\s-]", "", slug_cleaned)
     slug_nd_h = re.sub(r"\s+", "-", slug_nd).strip("-")
     if slug_nd_h in _CROSS_SOURCE_ALIASES:
@@ -295,7 +295,7 @@ def slugify_model_name(name: str) -> str:
 
 
 # ──────────────────────────────────────────────────────────────
-# Cross-source aliases: both AA and LMSYS names → shared slug
+# Legacy aliases retained for compatibility with older saved snapshots.
 # ──────────────────────────────────────────────────────────────
 _CROSS_SOURCE_ALIASES: Dict[str, str] = {
     # Claude Opus
@@ -522,12 +522,19 @@ def merge_rows_with_provenance(
         if not raw_name or not raw_name.strip():
             continue
 
-        model_id, canonical, reg_provider, aliases = resolve_model_identity(raw_name)
-
-        if model_id:
-            group_key = model_id
+        clean_name = raw_name.replace("\n", " ").strip()
+        if row.get("source") == "Artificial Analysis":
+            # Preserve every AA effort/mode variant as a distinct leaderboard
+            # row. Registry/fuzzy aliases intentionally collapse parenthetical
+            # suffixes and previously merged (max), (xhigh), and (high).
+            model_id = None
+            canonical = clean_name
+            reg_provider = row.get("provider") or row.get("creator")
+            aliases = [clean_name]
+            group_key = f"aa::{clean_name.casefold()}"
         else:
-            group_key = slugify_model_name(raw_name)
+            model_id, canonical, reg_provider, aliases = resolve_model_identity(raw_name)
+            group_key = model_id or slugify_model_name(raw_name)
 
         groups.setdefault(group_key, []).append(row)
 
@@ -548,7 +555,7 @@ def merge_rows_with_provenance(
 
         # ── Name priority: AA names > registry > longest name ──
         # AA names are human-readable (e.g., "Claude Opus 4.6 (max)")
-        # LMSYS names are slugs (e.g., "claude-opus-4-6-thinking")
+        # Legacy names may be machine-readable slugs.
         if not canonical_name or canonical_name == group_key:
             # Prefer AA source name first
             aa_names = [
@@ -592,7 +599,9 @@ def merge_rows_with_provenance(
                         "context_window", "gdpval", "terminalbench_hard", "tau2", "lcr", 
                         "omniscience", "omniscience_hallucination",
                         "hle", "gpqa", "scicode", "ifbench", "aime25", "critpt", "mmmu_pro",
-                        "livecodebench"
+                        "livecodebench", "omniscience_index", "terminalbench_v21",
+                        "tau3_banking", "apex_agents", "itbench",
+                        "cache_read_cost_per_1m", "cache_write_cost_per_1m",
                     ]
                     if r.get(k) is not None
                 },
@@ -609,7 +618,8 @@ def merge_rows_with_provenance(
                 "gdpval", "terminalbench_hard", "tau2", "lcr", "omniscience", 
                 "omniscience_hallucination",
                 "hle", "gpqa", "scicode", "ifbench", "aime25", "critpt", "mmmu_pro",
-                "livecodebench"
+                "livecodebench", "omniscience_index", "terminalbench_v21",
+                "tau3_banking", "apex_agents", "itbench",
             ]:
                 val = r.get(k)
                 if val is not None:
@@ -635,7 +645,9 @@ def merge_rows_with_provenance(
             "gdpval", "terminalbench_hard", "tau2", "lcr", "omniscience", 
             "omniscience_hallucination",
             "hle", "gpqa", "scicode", "ifbench", "aime25", "critpt", "mmmu_pro",
-            "livecodebench"
+            "livecodebench", "omniscience_index", "terminalbench_v21",
+            "tau3_banking", "apex_agents", "itbench",
+            "cache_read_cost_per_1m", "cache_write_cost_per_1m",
         ]
 
         aggregated = {}
@@ -660,7 +672,7 @@ def merge_rows_with_provenance(
         open_source_flags = [r.get("open_source") for r in group if r.get("open_source") is not None]
         open_source = open_source_flags[0] if open_source_flags else None
 
-        # Arena votes: take the max
+        # Arena votes: retained for backward compatibility with old snapshots.
         arena_votes_list = [r.get("arena_votes") for r in group if r.get("arena_votes") is not None]
         arena_votes = max(arena_votes_list) if arena_votes_list else None
 
@@ -674,15 +686,21 @@ def merge_rows_with_provenance(
 
         sources = sorted(set(r.get("source", "unknown") for r in group))
 
-        # ── Data tier: determines ranking priority ──
-        has_aa = "Artificial Analysis" in sources
-        has_lmsys = "LMSYS Chatbot Arena" in sources
-        if has_aa and has_lmsys:
-            data_tier = 1   # Best: cross-referenced
-        elif has_aa:
-            data_tier = 2   # Good: AA benchmarks + cost
-        else:
-            data_tier = 3   # Limited: LMSYS ELO only
+        # Single authoritative source; completeness is scored separately.
+        data_tier = 1 if "Artificial Analysis" in sources else 3
+
+        source_rank_values = [
+            r.get("source_rank") for r in group if r.get("source_rank") is not None
+        ]
+        source_rank = min(source_rank_values) if source_rank_values else None
+        model_urls = [r.get("model_url") for r in group if r.get("model_url")]
+        providers_urls = [
+            r.get("providers_url") for r in group if r.get("providers_url")
+        ]
+        source_details = next(
+            (r.get("source_details") for r in group if r.get("source_details")),
+            {},
+        )
 
         # ── Confidence score: mean of per-row confidence weighted by source ──
         conf_values = [r.get("confidence", 1.0) for r in group]
@@ -690,7 +708,9 @@ def merge_rows_with_provenance(
 
         merged.append({
             "model_id": model_id,
-            "model_slug": slugify_model_name(canonical_name),
+            "model_slug": re.sub(
+                r"[^a-z0-9]+", "-", canonical_name.casefold()
+            ).strip("-"),
             "canonical_name": canonical_name,
             "model_name": canonical_name,  # backward compat
             "aliases": aliases or raw_names,
@@ -700,11 +720,15 @@ def merge_rows_with_provenance(
             "arena_votes": arena_votes,
             "license_type": license_type,
             "creator": creator,
+            "source_rank": source_rank,
+            "model_url": model_urls[0] if model_urls else None,
+            "providers_url": providers_urls[0] if providers_urls else None,
+            "source_details": source_details,
             **aggregated,
             "sources": sources,
             "source_count": len(sources),
             "data_tier": data_tier,
-            "aggregation_method": "weighted_mean",
+            "aggregation_method": "single_source",
             "provenance": provenance,
             "benchmark_breakdown": benchmark_breakdown,
             "confidence_score": confidence_score,
@@ -772,7 +796,7 @@ def save_dataset_layer(
     for col in df_flat.columns:
         if df_flat[col].apply(lambda x: isinstance(x, (list, dict))).any():
             df_flat[col] = df_flat[col].apply(lambda x: json.dumps(x, default=str) if isinstance(x, (list, dict)) else x)
-    df_flat.to_csv(csv_path, index=False)
+    df_flat.to_csv(csv_path, index=False, lineterminator="\n")
 
     # ── Archive ──
     archive_path = os.path.join(archive_dir, f"{snapshot_date}.json")
@@ -823,11 +847,11 @@ def process_and_save(
     df = pd.DataFrame(merged)
     df = score_dataset(df)
 
-    # Sort by data_tier first (1=best → 3=limited), then by composite_index
-    # This ensures AA models (tier 1-2) always rank above LMSYS-only (tier 3)
+    # Store in the same score-first order used by the performance leaderboard.
+    # data_tier remains available as transparency metadata, not a rank bucket.
     df = df.sort_values(
-        by=["data_tier", "composite_index", "performance_index"],
-        ascending=[True, False, False],
+        by=["performance_rank", "value_rank", "model_name"],
+        ascending=[True, True, True],
         na_position="last",
     )
 
@@ -854,7 +878,7 @@ def process_and_save(
             index_flat[col] = index_flat[col].apply(
                 lambda x: json.dumps(x, default=str) if isinstance(x, (list, dict)) else x
             )
-    index_flat.to_csv(legacy_csv, index=False)
+    index_flat.to_csv(legacy_csv, index=False, lineterminator="\n")
     index_df.to_json(legacy_json, orient="records", indent=2, default_handler=str)
 
     # ── Log unmatched aliases ──

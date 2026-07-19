@@ -1,16 +1,14 @@
 /**
- * app.js — Frontend for LLMDEX v3: Multi-leaderboard Benchmark Intelligence.
+ * app.js — Frontend for LLMDEX: Artificial Analysis intelligence dashboard.
  *
  * SAFETY DESIGN:
  *   - NEVER invents missing values. All null/undefined fields display as "N/A".
- *   - Sentiment data is always labeled EXPERIMENTAL.
  *   - Three leaderboards are clearly separated.
  *   - Rankings are explainable — users understand why a model ranks where it does.
  *
  * FEATURES:
  *   - Three independent leaderboards: Performance, Value, Efficiency
  *   - Performance breakdown modal (Part 5)
- *   - Community sentiment panel (Part 6)
  *   - AI advisor engine (Part 7)
  *   - Historical trend explorer (Part 8)
  *   - Sortable columns, comparison mode, tooltips
@@ -19,6 +17,18 @@
 let currentTab = "performance-tab";
 let allDataRef = null;
 let currentSort = { field: null, direction: null };
+
+function closestElement(target, selector) {
+  return target && typeof target.closest === "function"
+    ? target.closest(selector)
+    : null;
+}
+
+function escapeDisplay(value) {
+  const element = document.createElement("span");
+  element.textContent = String(value ?? "");
+  return element.innerHTML;
+}
 
 document.addEventListener("DOMContentLoaded", async () => {
   const hamburgerBtn = document.getElementById("hamburger-btn");
@@ -34,36 +44,38 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
   }
 
-  const DATA_URLS = ["../data/index/latest.json", "../data/models.json"];
+  // Rotate the data URL every five minutes so a newly published snapshot is
+  // not hidden behind a browser/CDN cache while still allowing fast reloads.
+  const dataCacheVersion = Math.floor(Date.now() / 300000);
+  const DATA_URLS = [
+    `../data/index/latest.json?v=${dataCacheVersion}`,
+    `../data/models.json?v=${dataCacheVersion}`,
+  ];
 
+  // Optional resources load in parallel and never block the leaderboard.
+  const columnDefsPromise = fetch("../data/column_definitions.json")
+    .then((response) => (response.ok ? response.json() : {}))
+    .catch((error) => {
+      console.warn("Column definitions not loaded:", error);
+      return {};
+    });
   let allData = [];
-  let dataLoaded = false;
-  let columnDefs = {};
-  let sentimentData = [];
 
   // ── Load column definitions ──
-  try {
-    const defRes = await fetch("../data/column_definitions.json");
-    if (defRes.ok) columnDefs = await defRes.json();
-  } catch (e) {
-    console.warn("Column definitions not loaded:", e);
-  }
-
   // ── Load main data ──
   for (const url of DATA_URLS) {
     try {
       const response = await fetch(url);
       if (response.ok) {
         allData = await response.json();
-        dataLoaded = true;
         break;
       }
-    } catch (e) {
-      console.warn(`Failed to load ${url}:`, e);
+    } catch (error) {
+      console.warn(`Failed to load ${url}:`, error);
     }
   }
 
-  if (!dataLoaded || allData.length === 0) {
+  if (allData.length === 0) {
     const banner = document.getElementById("banner-area");
     if (banner) {
       banner.innerHTML = `<div class="error-msg">
@@ -72,14 +84,6 @@ document.addEventListener("DOMContentLoaded", async () => {
       </div>`;
     }
     return;
-  }
-
-  // ── Load sentiment data ──
-  try {
-    const sentRes = await fetch("../data/sentiment/latest.json");
-    if (sentRes.ok) sentimentData = await sentRes.json();
-  } catch (e) {
-    console.warn("Sentiment data not loaded:", e);
   }
 
   // Family Growth Explorer reads from allData directly (no separate history fetch needed)
@@ -103,13 +107,13 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
   });
 
-  if (sources.size < 2) {
+  if (!sources.has("Artificial Analysis")) {
     const banner = document.getElementById("banner-area");
     if (banner) {
       banner.innerHTML = `<div class="dataset-warning glass">
         <i class="fas fa-exclamation-circle"></i>
-        <strong>Incomplete Dataset:</strong> Only ${sources.size} source(s) contributed data.
-        Rankings may be less reliable than usual.
+        <strong>Dataset unavailable:</strong> Artificial Analysis did not contribute
+        to this snapshot. Performance rankings are intentionally withheld.
       </div>`;
     }
   }
@@ -117,14 +121,14 @@ document.addEventListener("DOMContentLoaded", async () => {
   allDataRef = allData;
   renderDashboard(allData);
   setupLeaderboardTabs(allData);
-  setupTooltips(columnDefs);
   setupSorting(allData);
   setupComparison(allData);
   setupBenchmarkModal(allData);
-  renderSentimentPanel(sentimentData);
   setupFamilyExplorer(allData);
   setupAdvisor(allData);
   setupChatbot(allData);
+
+  columnDefsPromise.then((columnDefs) => setupTooltips(columnDefs));
 
   // ── Filters ──
   const searchInput = document.getElementById("search-input");
@@ -184,10 +188,20 @@ function renderDashboard(data) {
     document.getElementById("top-model").textContent = displayName(topPerf);
     document.getElementById("top-score").textContent =
       topPerf.adjusted_performance != null
-        ? `Adj. Performance: ${topPerf.adjusted_performance.toFixed(1)}`
+        ? `AA Intelligence: ${topPerf.adjusted_performance.toFixed(1)}`
         : topPerf.performance_index != null
           ? `Performance: ${topPerf.performance_index.toFixed(1)}`
           : "Performance: N/A";
+
+    const heroTopModel = document.getElementById("hero-top-model");
+    const heroTopScore = document.getElementById("hero-top-score");
+    if (heroTopModel) heroTopModel.textContent = displayName(topPerf);
+    if (heroTopScore) {
+      const score =
+        topPerf.adjusted_performance ?? topPerf.performance_index ?? null;
+      heroTopScore.textContent =
+        score != null ? score.toFixed(1) : "N/A";
+    }
   }
 
   // ── Best Value (by value_rank) ──
@@ -201,6 +215,8 @@ function renderDashboard(data) {
       topVal.composite_index != null
         ? `Composite: ${topVal.composite_index.toFixed(1)}`
         : "N/A";
+    const heroValueModel = document.getElementById("hero-value-model");
+    if (heroValueModel) heroValueModel.textContent = displayName(topVal);
   }
 
   // ── Most Efficient ──
@@ -220,6 +236,8 @@ function renderDashboard(data) {
   }
 
   document.getElementById("total-models").textContent = data.length;
+  const heroModelCount = document.getElementById("hero-model-count");
+  if (heroModelCount) heroModelCount.textContent = data.length.toLocaleString();
 
   const sourceCountEl = document.getElementById("source-count");
   if (sourceCountEl) {
@@ -232,13 +250,32 @@ function renderDashboard(data) {
         ).forEach((s) => allSources.add(s));
       }
     });
-    sourceCountEl.textContent = `Across ${allSources.size} sources`;
+    sourceCountEl.textContent = `${allSources.size} validated source`;
+    const heroSourceCount = document.getElementById("hero-source-count");
+    if (heroSourceCount) {
+      heroSourceCount.textContent = `${allSources.size} validated`;
+    }
   }
 
-  renderScatterPlot(data);
-  renderEfficiencyChart(data);
-  setupRadarChart(data, topPerf || valueRanked[0]);
+  const snapshotDate =
+    data.find((row) => row.snapshot_date || row.last_updated)?.snapshot_date ||
+    data.find((row) => row.last_updated)?.last_updated;
+  const heroSnapshotDate = document.getElementById("hero-snapshot-date");
+  if (heroSnapshotDate) heroSnapshotDate.textContent = snapshotDate || "N/A";
+
   populateTable(data, data, "performance-tab");
+
+  // Let the key metrics and leaderboard paint before Plotly builds charts.
+  const renderCharts = () => {
+    renderScatterPlot(data);
+    renderEfficiencyChart(data);
+    setupRadarChart(data, topPerf || valueRanked[0]);
+  };
+  if ("requestIdleCallback" in window) {
+    window.requestIdleCallback(renderCharts, { timeout: 1500 });
+  } else {
+    window.setTimeout(renderCharts, 0);
+  }
 }
 
 // ══════════════════════════════════════════════════════════════
@@ -246,14 +283,14 @@ function renderDashboard(data) {
 // ══════════════════════════════════════════════════════════════
 
 const TAB_DESCRIPTIONS = {
-  "performance-tab": `<strong>Performance Leaderboard:</strong> Pure intelligence ranking based on 
-    bias-corrected benchmark scores. No cost or speed influence. Models are ranked 
-    by adjusted_performance which accounts for data completeness (confidence factor).`,
+  "performance-tab": `<strong>Performance Leaderboard:</strong> Artificial Analysis
+    Intelligence Index used unchanged. No cost, speed, or completeness penalty
+    influences Performance rank.`,
   "value-tab": `<strong>Value Leaderboard:</strong> Composite ranking blending 50% Performance + 
     30% Cost Efficiency + 20% Speed. Best for choosing a well-rounded model. 
     Uses adjusted performance for fairness.`,
   "efficiency-tab": `<strong>Efficiency Leaderboard:</strong> Performance per dollar, using percentile 
-    normalization. Only models with adjusted performance ≥ 60 are included. 
+    normalization. Only models with adjusted performance ≥ 25 are included.
     Best for cost-sensitive deployments.`,
 };
 
@@ -318,7 +355,7 @@ function renderScatterPlot(data) {
       ),
       colorscale: "Viridis",
       showscale: window.innerWidth > 768,
-      colorbar: { title: "Adj. Perf" },
+      colorbar: { title: "AA Intelligence" },
       line: { color: "white", width: 1 },
     },
   };
@@ -328,7 +365,7 @@ function renderScatterPlot(data) {
     title: {
       text: isMobile
         ? "Perf. vs Cost Frontier"
-        : "Performance vs Cost Frontier (bias-corrected)",
+        : "Artificial Analysis Intelligence vs Cost",
       font: { color: "#f8fafc", size: isMobile ? 11 : undefined },
     },
     paper_bgcolor: "rgba(0,0,0,0)",
@@ -586,33 +623,33 @@ const TABLE_CONFIGS = {
       { key: "model_name", label: "Model", sortable: false },
       { key: "provider", label: "Provider", sortable: false },
       {
-        key: "adjusted_performance",
-        label: "Adj. Performance",
+        key: "intelligence_score",
+        label: "AA Intelligence",
         sortable: true,
         info: "performance",
-        format: "score",
-      },
-      {
-        key: "performance_index",
-        label: "Raw Performance",
-        sortable: true,
-        format: "score",
-      },
-      {
-        key: "confidence_factor",
-        label: "Confidence",
-        sortable: true,
-        format: "confidence",
-      },
-      {
-        key: "intelligence_score",
-        label: "Intelligence",
-        sortable: true,
         format: "raw_score",
       },
       {
         key: "coding_score",
-        label: "Coding",
+        label: "Coding Avg.",
+        sortable: true,
+        format: "raw_score",
+      },
+      {
+        key: "terminalbench_hard",
+        label: "Terminal Hard",
+        sortable: true,
+        format: "raw_score",
+      },
+      {
+        key: "terminalbench_v21",
+        label: "Terminal v2.1",
+        sortable: true,
+        format: "raw_score",
+      },
+      {
+        key: "scicode",
+        label: "SciCode",
         sortable: true,
         format: "raw_score",
       },
@@ -623,16 +660,22 @@ const TABLE_CONFIGS = {
         format: "raw_score",
       },
       {
-        key: "arena_elo",
-        label: "Arena ELO",
+        key: "hle",
+        label: "HLE",
         sortable: true,
-        format: "elo",
+        format: "raw_score",
       },
       {
-        key: "arena_votes",
-        label: "Votes",
+        key: "mmmu_pro",
+        label: "MMMU Pro",
         sortable: true,
-        format: "integer",
+        format: "raw_score",
+      },
+      {
+        key: "context_window",
+        label: "Context",
+        sortable: true,
+        format: "context",
       },
     ],
   },
@@ -838,10 +881,10 @@ function populateTable(data, fullData, tabId) {
             : row.benchmark_breakdown;
         const showExpand = breakdown && Object.keys(breakdown).length > 0;
         // Data source indicator
-        const tier = row.data_tier || 3;
-        const tierBadge = tier === 1 ? '<span class="tier-badge tier-1" title="Cross-referenced (AA + LMSYS)">★</span>' 
-                        : tier === 3 ? '<span class="tier-badge tier-3" title="LMSYS Arena only">○</span>' 
-                        : '';
+        const tierBadge =
+          row.sources && row.sources.includes("Artificial Analysis")
+            ? '<span class="tier-badge tier-1" title="Artificial Analysis verified">✓</span>'
+            : "";
         td.style.fontWeight = "600";
         td.style.color = "var(--text-primary)";
         td.innerHTML = `${tierBadge}${name} ${showExpand ? `<button class="perf-detail-btn" data-slug="${row.model_slug || ""}" title="View benchmark breakdown"><i class="fas fa-chart-bar"></i></button>` : ""}`;
@@ -941,7 +984,7 @@ function setupBenchmarkModal(data) {
 
   // Delegate clicks on perf-detail-btn
   document.addEventListener("click", (e) => {
-    const btn = e.target.closest(".perf-detail-btn");
+    const btn = closestElement(e.target, ".perf-detail-btn");
     if (!btn) return;
 
     const slug = btn.dataset.slug;
@@ -970,14 +1013,25 @@ function showBenchmarkModal(model) {
       label: "Intelligence Index (AA)",
       icon: "fa-brain",
     },
-    { key: "coding_score", label: "Coding Index (AA)", icon: "fa-code" },
-    { key: "arena_elo", label: "Arena Elo", icon: "fa-trophy" },
-    { key: "arena_votes", label: "Arena Votes", icon: "fa-users" },
+    {
+      key: "coding_score",
+      label: "Coding Average (AA benchmarks)",
+      icon: "fa-code",
+    },
+    { key: "omniscience_index", label: "Omniscience Index", icon: "fa-eye" },
     { key: "gpqa", label: "GPQA Diamond", icon: "fa-flask" },
-    { key: "aime25", label: "AIME 2025", icon: "fa-calculator" },
     { key: "hle", label: "Humanity's Last Exam", icon: "fa-graduation-cap" },
-    { key: "livecodebench", label: "LiveCodeBench", icon: "fa-laptop-code" },
     { key: "gdpval", label: "GDPval-AA (Agentic)", icon: "fa-robot" },
+    {
+      key: "terminalbench_hard",
+      label: "Terminal-Bench Hard",
+      icon: "fa-terminal",
+    },
+    {
+      key: "terminalbench_v21",
+      label: "Terminal-Bench v2.1",
+      icon: "fa-terminal",
+    },
     {
       key: "blended_cost_per_1m",
       label: "Blended Cost ($/1M)",
@@ -1012,18 +1066,16 @@ function showBenchmarkModal(model) {
       <div class="confidence-bar-container">
         <div class="confidence-bar" style="width:${pct}%"></div>
       </div>
-      <span>Data Confidence: ${pct}% (${(model.sources || []).length}/2 sources)</span>
+      <span>Expanded field completeness: ${pct}% (${model.perf_source_count || 0}/4 groups)</span>
     </div>`;
   }
 
-  // Adjusted vs raw performance
+  // Authoritative performance source
   if (model.adjusted_performance != null && model.performance_index != null) {
-    const diff = model.adjusted_performance - model.performance_index;
-    const sign = diff >= 0 ? "+" : "";
     html += `<div class="modal-adjustment">
-      Raw Performance: <strong>${model.performance_index.toFixed(1)}</strong> → 
-      Adjusted: <strong>${model.adjusted_performance.toFixed(1)}</strong>
-      <span class="adj-diff">(${sign}${diff.toFixed(1)} bias correction)</span>
+      Artificial Analysis Intelligence Index:
+      <strong>${model.performance_index.toFixed(1)}</strong>
+      <span class="adj-diff">(used unchanged for Performance rank)</span>
     </div>`;
   }
 
@@ -1034,7 +1086,7 @@ function showBenchmarkModal(model) {
       : model.benchmark_breakdown;
 
   if (breakdown && Object.keys(breakdown).length > 0) {
-    html += `<h4 class="modal-sub-header">Per-Source Breakdown</h4>`;
+    html += `<h4 class="modal-sub-header">Normalized Artificial Analysis Metrics</h4>`;
     html += '<div class="breakdown-grid">';
     const labelMap = {
       intelligence_score: "Intelligence",
@@ -1056,6 +1108,39 @@ function showBenchmarkModal(model) {
       html += "</div>";
     }
     html += "</div>";
+  }
+
+  const sourceDetails =
+    typeof model.source_details === "string"
+      ? (() => {
+          try {
+            return JSON.parse(model.source_details);
+          } catch {
+            return {};
+          }
+        })()
+      : model.source_details || {};
+
+  if (Object.keys(sourceDetails).length > 0) {
+    html += `<h4 class="modal-sub-header">All Expanded Artificial Analysis Fields</h4>`;
+    html += '<div class="breakdown-grid"><div class="breakdown-source">';
+    for (const [label, value] of Object.entries(sourceDetails)) {
+      if (label === "Further Analysis") continue;
+      html += `<div class="breakdown-metric">
+        <span>${escapeDisplay(label)}</span>
+        <span class="bm-val">${escapeDisplay(value || "N/A")}</span>
+      </div>`;
+    }
+    html += "</div></div>";
+  }
+
+  if (model.model_url) {
+    html += `<div class="modal-source-link">
+      <a href="${escapeDisplay(model.model_url)}" target="_blank" rel="noopener">
+        View this model on Artificial Analysis
+        <i class="fas fa-arrow-up-right-from-square"></i>
+      </a>
+    </div>`;
   }
 
   // Rankings summary
@@ -1723,8 +1808,14 @@ function setupChatbot(data) {
   const input = document.getElementById("chatbot-input");
   const sendBtn = document.getElementById("chatbot-send-btn");
   const clearBtn = document.getElementById("chatbot-clear-btn");
+  const healthPill = document.getElementById("advisor-health-pill");
+  const healthText = document.getElementById("advisor-health-text");
+  const connectionLabel = document.getElementById(
+    "advisor-connection-label",
+  );
 
   if (!messagesDiv || !input || !sendBtn) return;
+  let isSending = false;
 
   // Rate limiting: max 5 per minute
   const requestTimestamps = [];
@@ -1735,14 +1826,13 @@ function setupChatbot(data) {
   const responseCache = new Map();
   const CACHE_TTL = 600000; // 10 minutes
 
-  // Build compact dataset snapshot for client-side use
+  // Build the full ranked snapshot for deterministic local analysis.
   const snapshot = buildDataSnapshot(data);
 
   function buildDataSnapshot(dataset) {
     const ranked = [...dataset]
       .filter((d) => d.performance_rank != null)
-      .sort((a, b) => a.performance_rank - b.performance_rank)
-      .slice(0, 15);
+      .sort((a, b) => a.performance_rank - b.performance_rank);
 
     return ranked.map((m) => ({
       model_name: m.canonical_name || m.model_name || "Unknown",
@@ -1767,9 +1857,98 @@ function setupChatbot(data) {
     }));
   }
 
+  const sourceDetails =
+    typeof model.source_details === "string"
+      ? (() => {
+          try {
+            return JSON.parse(model.source_details);
+          } catch {
+            return {};
+          }
+        })()
+      : model.source_details || {};
+  if (Object.keys(sourceDetails).length > 0) {
+    html += `<h4 class="modal-sub-header">All Expanded Artificial Analysis Fields</h4>`;
+    html += '<div class="breakdown-grid"><div class="breakdown-source">';
+    for (const [label, value] of Object.entries(sourceDetails)) {
+      if (label === "Further Analysis") continue;
+      html += `<div class="breakdown-metric">
+        <span>${escapeDisplay(label)}</span>
+        <span class="bm-val">${escapeDisplay(value || "N/A")}</span>
+      </div>`;
+    }
+    html += "</div></div>";
+  }
+
+  if (model.model_url) {
+    html += `<div class="modal-source-link">
+      <a href="${escapeDisplay(model.model_url)}" target="_blank" rel="noopener">
+        View this model on Artificial Analysis
+        <i class="fas fa-arrow-up-right-from-square"></i>
+      </a>
+    </div>`;
+  }
+
+  const advisorSources = new Set();
+  data.forEach((row) => {
+    const sources = row.sources || [];
+    (typeof sources === "string" ? JSON.parse(sources) : sources).forEach(
+      (source) => advisorSources.add(source),
+    );
+  });
+  const advisorDate =
+    data.find((row) => row.snapshot_date || row.last_updated)?.snapshot_date ||
+    data.find((row) => row.last_updated)?.last_updated ||
+    "N/A";
+  const advisorModelCount = document.getElementById("advisor-model-count");
+  const advisorSourceCount = document.getElementById("advisor-source-count");
+  const advisorDataDate = document.getElementById("advisor-data-date");
+  if (advisorModelCount)
+    advisorModelCount.textContent = data.length.toLocaleString();
+  if (advisorSourceCount)
+    advisorSourceCount.textContent = advisorSources.size.toString();
+  if (advisorDataDate) advisorDataDate.textContent = advisorDate;
+
+  function updateAdvisorHealth(mode, label) {
+    if (healthPill) {
+      healthPill.classList.remove("is-online", "is-local");
+      healthPill.classList.add(mode === "online" ? "is-online" : "is-local");
+    }
+    if (healthText) healthText.textContent = label;
+    if (connectionLabel) {
+      connectionLabel.textContent =
+        mode === "online" ? "Gemini online" : "Local analysis ready";
+    }
+  }
+
+  async function checkAdvisorHealth() {
+    const controller = new AbortController();
+    const timeout = window.setTimeout(() => controller.abort(), 12000);
+    try {
+      const response = await fetch("/api/health", {
+        signal: controller.signal,
+        cache: "no-store",
+      });
+      if (!response.ok) throw new Error(`Health check failed: ${response.status}`);
+      const health = await response.json();
+      if (health?.advisor?.ready) {
+        updateAdvisorHealth("online", "Gemini Advisor online");
+      } else {
+        updateAdvisorHealth("local", "Local analysis mode");
+      }
+    } catch {
+      updateAdvisorHealth("local", "Local analysis mode");
+    } finally {
+      window.clearTimeout(timeout);
+    }
+  }
+  checkAdvisorHealth();
+
   // Enable/disable send button based on input
   input.addEventListener("input", () => {
-    sendBtn.disabled = input.value.trim().length === 0;
+    input.style.height = "auto";
+    input.style.height = `${Math.min(input.scrollHeight, 120)}px`;
+    sendBtn.disabled = isSending || input.value.trim().length === 0;
   });
 
   // Enter key to send
@@ -1885,11 +2064,20 @@ function setupChatbot(data) {
       sourceHtml =
         '<div class="chat-source"><i class="fas fa-exclamation-triangle"></i> Fallback mode</div>';
 
+    const dataPointsHtml =
+      dataPointsUsed && dataPointsUsed.length > 0
+        ? `<div class="chat-data-points">Evidence: ${dataPointsUsed
+            .slice(0, 6)
+            .map((point) => escapeHtml(String(point).replaceAll("_", " ")))
+            .join(" · ")}</div>`
+        : "";
+
     msgEl.innerHTML = `
       <div class="chat-avatar"><i class="fas fa-robot"></i></div>
       <div class="chat-bubble">
         <p>${formatAnswer(answer)}</p>
         ${refsHtml}
+        ${dataPointsHtml}
         ${sourceHtml}
       </div>
     `;
@@ -1927,8 +2115,12 @@ function setupChatbot(data) {
   }
 
   function formatAnswer(text) {
+    if (typeof text !== "string") return "Unable to format this response.";
     // Convert **bold** to <strong>
-    let formatted = text.replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
+    let formatted = escapeHtml(text).replace(
+      /\*\*([^*]+)\*\*/g,
+      "<strong>$1</strong>",
+    );
     // Convert line breaks
     formatted = formatted.replace(/\n/g, "<br>");
     return formatted;
@@ -1936,9 +2128,11 @@ function setupChatbot(data) {
 
   async function handleSend() {
     const query = input.value.trim();
-    if (!query) return;
+    if (!query || isSending) return;
 
+    isSending = true;
     input.value = "";
+    input.style.height = "auto";
     sendBtn.disabled = true;
 
     // Add user message
@@ -1952,6 +2146,7 @@ function setupChatbot(data) {
         [],
         "rate_limit",
       );
+      isSending = false;
       return;
     }
 
@@ -1964,6 +2159,7 @@ function setupChatbot(data) {
         cached.data_points_used,
         "cache",
       );
+      isSending = false;
       return;
     }
 
@@ -1975,7 +2171,11 @@ function setupChatbot(data) {
       const response = await getAdvisorResponse(query);
       removeTypingIndicator();
 
-      if (response) {
+      if (
+        response &&
+        ["gemini", "cache"].includes(response.source) &&
+        response.answer
+      ) {
         addBotMessage(
           response.answer,
           response.referenced_models || [],
@@ -1983,8 +2183,9 @@ function setupChatbot(data) {
           response.source || "gemini",
         );
         storeCache(query, response);
+        updateAdvisorHealth("online", "Gemini Advisor online");
       } else {
-        // Client-side fallback
+        // Always return a useful deterministic answer if the AI service is down.
         const fallback = generateClientSideResponse(query, snapshot);
         addBotMessage(
           fallback.answer,
@@ -1993,31 +2194,41 @@ function setupChatbot(data) {
           "client",
         );
         storeCache(query, fallback);
+        updateAdvisorHealth("local", "Local analysis mode");
       }
     } catch (error) {
       removeTypingIndicator();
+      const fallback = generateClientSideResponse(query, snapshot);
       addBotMessage(
-        "AI advisor temporarily unavailable. Please use the ranking filters and priority selector below to find the best models for your needs.",
-        [],
-        [],
-        "fallback",
+        fallback.answer,
+        fallback.referenced_models,
+        fallback.data_points_used,
+        "client",
       );
+      updateAdvisorHealth("local", "Local analysis mode");
+    } finally {
+      isSending = false;
+      sendBtn.disabled = input.value.trim().length === 0;
     }
   }
 
   async function getAdvisorResponse(query) {
-    // Try the local API endpoint
+    const controller = new AbortController();
+    const timeout = window.setTimeout(() => controller.abort(), 45000);
     try {
       const resp = await fetch("/api/advisor", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ query: query }),
+        signal: controller.signal,
       });
       if (resp.ok) {
         return await resp.json();
       }
-    } catch (e) {
-      // Server not available, use client-side fallback
+    } catch {
+      // Server not available; the caller uses deterministic local analysis.
+    } finally {
+      window.clearTimeout(timeout);
     }
     return null;
   }
@@ -2031,7 +2242,13 @@ function setupChatbot(data) {
     const models = snap.filter((m) => m.adjusted_performance != null);
 
     // Best performance
-    if (q.includes("best") && (q.includes("perform") || q.includes("top"))) {
+    if (
+      q.includes("best") &&
+      (q.includes("perform") || q.includes("top")) &&
+      !q.includes("ratio") &&
+      !q.includes("value") &&
+      !q.includes("cost")
+    ) {
       const sorted = [...models]
         .sort((a, b) => a.performance_rank - b.performance_rank)
         .slice(0, 5);
@@ -2054,7 +2271,9 @@ function setupChatbot(data) {
     // Cheapest / cost
     if (
       q.includes("cheap") ||
-      q.includes("cost") ||
+      (q.includes("cost") &&
+        !q.includes("ratio") &&
+        !q.includes("value")) ||
       q.includes("budget") ||
       q.includes("price")
     ) {
@@ -2069,7 +2288,7 @@ function setupChatbot(data) {
         sorted
           .map(
             (m, i) =>
-              `**${i + 1}. ${m.model_name}** (${m.provider}) — $${m.blended_cost_per_1m}/1M input tokens, Performance: ${m.adjusted_performance}`,
+              `**${i + 1}. ${m.model_name}** (${m.provider}) — $${m.blended_cost_per_1m}/1M blended tokens, Performance: ${m.adjusted_performance}`,
           )
           .join("\n") +
         `\n\nNote: Lower cost doesn't always mean lower quality. Check the value leaderboard for the best cost-to-performance ratio.`;
@@ -2124,7 +2343,7 @@ function setupChatbot(data) {
               `**${i + 1}. ${m.model_name}** (${m.provider}) — Coding Score: ${m.coding_score}, Performance: ${m.adjusted_performance}`,
           )
           .join("\n") +
-        `\n\nCoding scores are derived from benchmarks like LiveBench coding tasks and specialized programming assessments.`;
+        `\n\nCoding scores come from the Artificial Analysis coding index and its underlying programming assessments.`;
       return {
         answer,
         referenced_models: sorted.map((m) => m.model_name),
@@ -2283,9 +2502,9 @@ function setupSorting(allData) {
 
   thead.addEventListener("click", (e) => {
     // Ignore clicks on info icons
-    if (e.target.closest(".info-icon")) return;
+    if (closestElement(e.target, ".info-icon")) return;
 
-    const th = e.target.closest("th.sortable");
+    const th = closestElement(e.target, "th.sortable");
     if (!th) return;
 
     const field = th.dataset.sort;
@@ -2366,7 +2585,7 @@ function setupTooltips(columnDefs) {
     if (
       tooltip.style.display === "block" &&
       !tooltip.contains(e.target) &&
-      !e.target.closest(".info-icon")
+      !closestElement(e.target, ".info-icon")
     ) {
       hide();
     }
@@ -2379,11 +2598,11 @@ function setupTooltips(columnDefs) {
     const def = columnDefs[col] ||
       {
         performance: {
-          label: "Adjusted Performance",
+          label: "AA Intelligence",
           definition:
-            "Bias-corrected benchmark score based on intelligence, coding, and reasoning capability datasets.",
-          formula: "performance × (0.85 + 0.15 × coverage)",
-          data_sources: "LiveBench, LMSYS, Artificial Analysis",
+            "Artificial Analysis Intelligence Index, preserved unchanged for the Performance ranking.",
+          formula: "Performance score = AA Intelligence Index",
+          data_sources: "Artificial Analysis",
           limitations: "Benchmarks test narrow capabilities.",
         },
         composite: {
@@ -2473,7 +2692,7 @@ function setupTooltips(columnDefs) {
   document.addEventListener(
     "mouseenter",
     (e) => {
-      const icon = e.target.closest(".info-icon");
+      const icon = closestElement(e.target, ".info-icon");
       if (icon) showTooltip(icon);
     },
     true,
@@ -2482,14 +2701,14 @@ function setupTooltips(columnDefs) {
   document.addEventListener(
     "mouseleave",
     (e) => {
-      const icon = e.target.closest(".info-icon");
+      const icon = closestElement(e.target, ".info-icon");
       if (icon) scheduleHide();
     },
     true,
   );
 
   document.addEventListener("click", (e) => {
-    const icon = e.target.closest(".info-icon");
+    const icon = closestElement(e.target, ".info-icon");
     if (icon) {
       e.stopPropagation();
       if (activeIcon === icon && tooltip.style.display === "block") {

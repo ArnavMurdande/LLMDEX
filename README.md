@@ -11,7 +11,7 @@
 
 > Think **Bloomberg Terminal, but for AI Models.**
 
-LLMDEX is a public analytics and benchmarking platform that aggregates, normalizes, and visualizes performance data of Large Language Models (LLMs).  
+LLMDEX is a public analytics and benchmarking platform that transforms the complete expanded Artificial Analysis model leaderboard into clear performance, coding, value, and efficiency views.
 It is **not** an AI model hosting or inference platform — it is a **data intelligence and benchmarking hub**.
 
 The goal is simple:  
@@ -25,11 +25,10 @@ The LLM ecosystem evolves rapidly. New models launch frequently, benchmarks vary
 
 LLMDEX solves this fragmentation by:
 
-- Aggregating public benchmark scores  
-- Normalizing performance metrics  
+- Capturing every expanded Artificial Analysis leaderboard field
+- Preserving the authoritative Artificial Analysis performance order
 - Calculating a proprietary **Efficiency Score**  
 - Tracking model evolution across generations  
-- Surfacing community sentiment insights  
 - Providing AI-assisted model recommendations  
 
 It acts as a **central intelligence layer** for AI model decision-making.
@@ -44,7 +43,6 @@ LLMDEX enables users to:
 - 🧠 Compare intelligence, reasoning, coding, and multimodal capabilities  
 - 💰 Evaluate pricing vs performance using efficiency metrics  
 - 🧬 Track model family evolution and historical growth  
-- 💬 Analyze community sentiment & feedback  
 - 🤖 Use an AI advisor bot to select the best model for their use case  
 
 ---
@@ -53,7 +51,7 @@ LLMDEX enables users to:
 
 ### 1️⃣ Live Benchmark Aggregation
 
-- Scrapes and normalizes scores from multiple public sources  
+- Scrapes all current models and expanded columns from Artificial Analysis
 - Standardized dataset format for fair comparisons  
 - Downloadable datasets for research and BI tools  
 
@@ -91,16 +89,7 @@ Each tracked model includes:
 
 ---
 
-### 4️⃣ Community Sentiment Intelligence
-
-- Aggregated public feedback  
-- Model-specific commentary cards  
-- Comparative visual insights  
-- Sentiment distribution analysis  
-
----
-
-### 5️⃣ Model Family Evolution Tracking
+### 4️⃣ Model Family Evolution Tracking
 
 LLMDEX visualizes:
 
@@ -113,7 +102,7 @@ This allows users to understand **trajectory**, not just static scores.
 
 ---
 
-### 6️⃣ Business Intelligence Dashboards
+### 5️⃣ Business Intelligence Dashboards
 
 - Power BI integration  
 - Tableau compatibility  
@@ -124,20 +113,28 @@ This allows users to understand **trajectory**, not just static scores.
 
 ## 🌐 Data Sources
 
-LLMDEX aggregates reliable benchmark data from:
+Artificial Analysis is the only benchmark source:
 
-- https://artificialanalysis.ai  
-- https://arena.ai  
+- https://artificialanalysis.ai/leaderboards/models
 
+The automated scraper expands the live table, captures every current row and
+visible column, validates the snapshot, and stores both typed metrics and the
+raw public field/value pairs.
 
-All data is scraped, normalized, structured, and stored in a unified dataset format.
+## Automatic Updates
+
+- `.github/workflows/update.yml` refreshes Artificial Analysis data daily,
+  validates all rows, commits changed datasets to `main`, and redeploys Pages.
+- Dependabot checks Python packages and GitHub Actions every Monday.
+- Patch and minor dependency updates are configured for safe auto-merge; pull
+  request CI must pass before protected branches allow the merge.
 
 ---
 
 ## 🏗 Architecture
 
 ```
-Public Benchmark Sites
+Artificial Analysis expanded leaderboard
         ↓
 Python Scraping Pipeline
         ↓

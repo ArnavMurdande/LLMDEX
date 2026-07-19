@@ -1162,13 +1162,12 @@ def _scrape_model_mentions(
     raw = _filter_spam(raw)
     _save_mention_cache(model_name, raw, mention_cache_dir)
 
-    raw_count = len(raw)
     sampled = _sample_mentions(model_name, raw)
 
-    return model_name, {
-        "mentions": sampled,
-        "raw_count": raw_count
-    }
+    # Keep the worker contract identical for cache hits and fresh scrapes.
+    # Returning a metadata dict here used to make _prefilter_for_gemini iterate
+    # the strings "mentions" and "raw_count", crashing the weekly workflow.
+    return model_name, sampled
 
 
 
@@ -1336,8 +1335,12 @@ def run_sentiment_pipeline(
 
     for model_name in model_names:
         mentions = mentions_by_model.get(model_name, [])
-        mentions = _prefilter_for_gemini(mentions)
         try:
+            if not isinstance(mentions, list):
+                raise TypeError(
+                    f"Expected a list of mentions, got {type(mentions).__name__}"
+                )
+            mentions = _prefilter_for_gemini(mentions)
             sentiment = process_model_sentiment(model_name, mentions)
             results[model_name] = sentiment
         except Exception as exc:

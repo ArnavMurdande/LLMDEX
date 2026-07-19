@@ -35,13 +35,13 @@ sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")
 from utils.logger import setup_logging, Logger
 from scraper.contracts import ScrapeResult
 from scraper import scrape_artificialanalysis
-from scraper import scrape_lmsys
 from pipeline.validator import validate_dataset
 from pipeline.merge_data import process_and_save
 
 
 # Minimum number of healthy scrapers required to proceed
 MIN_HEALTHY_SOURCES = 1
+REQUIRED_SOURCES = {"Artificial Analysis"}
 
 
 def run_pipeline() -> bool:
@@ -61,12 +61,12 @@ def run_pipeline() -> bool:
     log.info("Stage 1: SCRAPE — collecting data from sources")
     scrape_tasks = [
         ("Artificial Analysis", scrape_artificialanalysis.scrape_artificialanalysis),
-        ("LMSYS", scrape_lmsys.scrape_lmsys),
     ]
 
     all_rows: List[dict] = []
     health_reports: List[dict] = []
     healthy_sources = 0
+    healthy_source_names = set()
     failed_sources = 0
 
     for name, scrape_fn in scrape_tasks:
@@ -79,6 +79,7 @@ def run_pipeline() -> bool:
                 rows_dicts = [r.to_dict() for r in result.rows]
                 all_rows.extend(rows_dicts)
                 healthy_sources += 1
+                healthy_source_names.add(name)
                 log.info(
                     f"  ✓ {name}: {result.health.rows_scraped} rows "
                     f"(status={result.health.status})"
@@ -110,6 +111,21 @@ def run_pipeline() -> bool:
             f"(minimum: {MIN_HEALTHY_SOURCES})"
         )
         _write_summary(health_reports, [], False, "Insufficient healthy sources", snapshot_date)
+        return False
+
+    missing_required = REQUIRED_SOURCES - healthy_source_names
+    if missing_required:
+        missing = ", ".join(sorted(missing_required))
+        log.error(
+            f"PIPELINE ABORT: Required benchmark source unavailable: {missing}"
+        )
+        _write_summary(
+            health_reports,
+            [],
+            False,
+            f"Required benchmark source unavailable: {missing}",
+            snapshot_date,
+        )
         return False
 
     if not all_rows:
