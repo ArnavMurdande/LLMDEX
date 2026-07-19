@@ -167,6 +167,9 @@ function enhanceCustomSelect(select, variant = "") {
   const close = () => {
     menu.hidden = true;
     shell.classList.remove("is-open");
+    if (variant === "provider") {
+      shell.closest(".table-controls")?.classList.remove("provider-menu-open");
+    }
     trigger.setAttribute("aria-expanded", "false");
   };
   const open = () => {
@@ -175,6 +178,11 @@ function enhanceCustomSelect(select, variant = "") {
       .forEach((other) => {
         if (other !== shell) {
           other.classList.remove("is-open");
+          if (other.classList.contains("provider-select-shell")) {
+            other
+              .closest(".table-controls")
+              ?.classList.remove("provider-menu-open");
+          }
           const otherMenu = other.querySelector(".custom-select-menu");
           const otherTrigger = other.querySelector(".custom-select-trigger");
           if (otherMenu) otherMenu.hidden = true;
@@ -183,6 +191,9 @@ function enhanceCustomSelect(select, variant = "") {
       });
     menu.hidden = false;
     shell.classList.add("is-open");
+    if (variant === "provider") {
+      shell.closest(".table-controls")?.classList.add("provider-menu-open");
+    }
     trigger.setAttribute("aria-expanded", "true");
   };
   const sync = () => {
@@ -1211,28 +1222,51 @@ function populateTable(data, fullData, tabId) {
 function syncTableScrollWidth() {
   const wrapper = document.getElementById("table-wrapper");
   const table = document.getElementById("models-table");
-  const spacer = document.getElementById("table-scrollbar-spacer");
   const top = document.getElementById("table-scrollbar-top");
-  if (!wrapper || !table || !spacer || !top) return;
-  spacer.style.width = `${table.scrollWidth}px`;
-  top.hidden = table.scrollWidth <= wrapper.clientWidth + 2;
+  const range = document.getElementById("table-scrollbar-range");
+  if (!wrapper || !table || !top || !range) return;
+  const maximum = Math.max(0, table.scrollWidth - wrapper.clientWidth);
+  range.max = String(maximum);
+  range.value = String(Math.min(maximum, wrapper.scrollLeft));
+  range.style.setProperty(
+    "--scroll-progress",
+    maximum ? `${(Number(range.value) / maximum) * 100}%` : "0%",
+  );
+  top.hidden = maximum <= 2;
 }
 
 function setupTableScrollMirror() {
   const top = document.getElementById("table-scrollbar-top");
+  const range = document.getElementById("table-scrollbar-range");
   const wrapper = document.getElementById("table-wrapper");
-  if (!top || !wrapper) return;
+  if (!top || !range || !wrapper) return;
   let syncing = false;
-  const mirror = (source, target) => {
+  range.addEventListener("input", () => {
     if (syncing) return;
     syncing = true;
-    target.scrollLeft = source.scrollLeft;
+    wrapper.scrollLeft = Number(range.value);
+    const maximum = Number(range.max) || 0;
+    range.style.setProperty(
+      "--scroll-progress",
+      maximum ? `${(Number(range.value) / maximum) * 100}%` : "0%",
+    );
     window.requestAnimationFrame(() => {
       syncing = false;
     });
-  };
-  top.addEventListener("scroll", () => mirror(top, wrapper));
-  wrapper.addEventListener("scroll", () => mirror(wrapper, top));
+  });
+  wrapper.addEventListener("scroll", () => {
+    if (syncing) return;
+    syncing = true;
+    range.value = String(wrapper.scrollLeft);
+    const maximum = Number(range.max) || 0;
+    range.style.setProperty(
+      "--scroll-progress",
+      maximum ? `${(wrapper.scrollLeft / maximum) * 100}%` : "0%",
+    );
+    window.requestAnimationFrame(() => {
+      syncing = false;
+    });
+  });
   window.addEventListener("resize", syncTableScrollWidth);
   syncTableScrollWidth();
 }

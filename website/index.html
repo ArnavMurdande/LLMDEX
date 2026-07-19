@@ -24,7 +24,7 @@
         document.documentElement.dataset.theme = preferred;
       })();
     </script>
-    <link rel="stylesheet" href="styles.css?v=6" />
+    <link rel="stylesheet" href="styles.css?v=7" />
     <link rel="stylesheet" href="bento.css?v=3" />
     <link
       href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Space+Grotesk:wght@300;500;700&family=JetBrains+Mono:wght@400;500&display=swap"
@@ -317,7 +317,15 @@
           id="table-scrollbar-top"
           aria-label="Scroll leaderboard columns"
         >
-          <div id="table-scrollbar-spacer"></div>
+          <input
+            id="table-scrollbar-range"
+            type="range"
+            min="0"
+            max="0"
+            value="0"
+            step="1"
+            aria-label="Scroll leaderboard columns horizontally"
+          />
         </div>
         <div class="table-wrapper glass" id="table-wrapper">
           <table id="models-table">
@@ -732,6 +740,6 @@
     </footer>
 
     <script src="bento.js?v=1"></script>
-    <script src="app.js?v=17"></script>
+    <script src="app.js?v=18"></script>
   </body>
 </html>
