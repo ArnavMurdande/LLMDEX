@@ -6060,3 +6060,26 @@ body::before,
     width: min(320px, calc(100% - 1rem));
   }
 }
+
+/* The actual React Bits PixelBlast renderer is isolated behind page content. */
+#pixel-blast-root {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  pointer-events: none;
+  opacity: 0.88;
+  mix-blend-mode: screen;
+  contain: strict;
+}
+
+:root[data-theme="light"] #pixel-blast-root {
+  opacity: 0.72;
+  mix-blend-mode: multiply;
+}
+
+.pixel-blast-background {
+  display: none !important;
+}

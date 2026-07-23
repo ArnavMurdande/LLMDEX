@@ -3063,6 +3063,7 @@ function setupChatbot(data) {
   const advisorHealthUrl = advisorApiUrl("/api/health");
   const advisorResponseUrl = advisorApiUrl("/api/advisor");
   let remoteAdvisorReady = false;
+  let advisorHealthPromise = null;
   if (advisorModelCount)
     advisorModelCount.textContent = data.length.toLocaleString();
   if (advisorSourceCount)
@@ -3076,8 +3077,11 @@ function setupChatbot(data) {
     }
     if (healthText) healthText.textContent = label;
     if (connectionLabel) {
-      connectionLabel.textContent =
-        mode === "online" ? "Gemini online" : "Gemini not connected";
+      connectionLabel.textContent = mode === "online"
+        ? "Gemini online"
+        : /checking|waking|connecting/i.test(label)
+          ? "Connecting to Gemini"
+          : "Gemini not connected";
     }
   }
 
@@ -3085,10 +3089,12 @@ function setupChatbot(data) {
     if (!advisorHealthUrl || !advisorResponseUrl) {
       remoteAdvisorReady = false;
       updateAdvisorHealth("local", "Dataset analysis · Gemini not connected");
-      return;
+      return false;
     }
     const controller = new AbortController();
-    const timeout = window.setTimeout(() => controller.abort(), 12000);
+    // Render free services may need tens of seconds to wake after inactivity.
+    // Keep the health request alive long enough to avoid a false offline state.
+    const timeout = window.setTimeout(() => controller.abort(), 60000);
     try {
       const response = await fetch(advisorHealthUrl, {
         signal: controller.signal,
@@ -3099,19 +3105,32 @@ function setupChatbot(data) {
       if (health?.advisor?.ready) {
         remoteAdvisorReady = true;
         updateAdvisorHealth("online", "Gemini Advisor online");
+        return true;
       } else {
         remoteAdvisorReady = false;
         updateAdvisorHealth("local", "Dataset analysis · Gemini unavailable");
+        return false;
       }
     } catch {
       remoteAdvisorReady = false;
       updateAdvisorHealth("local", "Dataset analysis · Gemini unavailable");
+      return false;
     } finally {
       window.clearTimeout(timeout);
     }
   }
+
+  function ensureAdvisorHealth() {
+    if (!advisorHealthPromise) {
+      advisorHealthPromise = checkAdvisorHealth().finally(() => {
+        advisorHealthPromise = null;
+      });
+    }
+    return advisorHealthPromise;
+  }
+
   updateAdvisorHealth("local", "Checking Gemini connection");
-  checkAdvisorHealth();
+  ensureAdvisorHealth();
 
   // Enable/disable send button based on input
   input.addEventListener("input", () => {
@@ -3367,6 +3386,10 @@ function setupChatbot(data) {
       instant.data_points_used,
       remoteAdvisorReady ? "client_pending" : "client",
     );
+    if (!remoteAdvisorReady && advisorResponseUrl) {
+      updateAdvisorHealth("local", "Waking Gemini Advisor");
+      await ensureAdvisorHealth();
+    }
     if (!remoteAdvisorReady || !advisorResponseUrl) {
       storeCache(query, instant);
       updateAdvisorHealth("local", "Dataset analysis · Gemini not connected");

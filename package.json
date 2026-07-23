@@ -1,0 +1,16 @@
+{
+  "name": "llmdex-visual-effects",
+  "private": true,
+  "scripts": {
+    "build:effects": "esbuild ./frontend-effects/index.jsx --bundle --minify --outdir=./website --entry-names=pixelblast.bundle --target=es2020 --loader:.jsx=jsx"
+  },
+  "dependencies": {
+    "postprocessing": "6.39.3",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "three": "0.185.1"
+  },
+  "devDependencies": {
+    "esbuild": "0.28.1"
+  }
+}
