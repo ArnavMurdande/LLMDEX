@@ -24,15 +24,15 @@ function PixelBlastBackground() {
       variant="square"
       pixelSize={4}
       color={light ? "#64748b" : "#52667a"}
-      patternScale={3}
-      patternDensity={1.2}
+      patternScale={2}
+      patternDensity={2.0}
       pixelSizeJitter={0.5}
       enableRipples
       rippleSpeed={0.4}
       rippleThickness={0.12}
       rippleIntensityScale={1.5}
       liquid={false}
-      speed={0.6}
+      speed={0}
       edgeFade={0}
       transparent
     />

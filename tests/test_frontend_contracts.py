@@ -101,7 +101,7 @@ class FrontendContractTests(unittest.TestCase):
         self.assertIn("#define FBM_OCTAVES 5", pixelblast)
         self.assertIn('variant="square"', pixelblast_entry)
         self.assertIn('color={light ? "#64748b" : "#52667a"}', pixelblast_entry)
-        self.assertIn("patternDensity={1.2}", pixelblast_entry)
+        self.assertIn("patternDensity={2.0}", pixelblast_entry)
         self.assertTrue((ROOT / "website" / "pixelblast.bundle.js").is_file())
         self.assertTrue((ROOT / "website" / "pixelblast.bundle.css").is_file())
         for dependency in ("react", "react-dom", "three", "postprocessing"):
