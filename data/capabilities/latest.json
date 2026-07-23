@@ -1,0 +1,111 @@
+{
+  "generated_at": "2026-07-23T12:54:40.905141+00:00",
+  "methodology_version": "LLMStats source-native current",
+  "source_updated_at": "2026-07-23T12:54:58.395534+00:00",
+  "source_health": {
+    "source": "LLMStats",
+    "rows_scraped": 31,
+    "expected_range": [
+      20,
+      80
+    ],
+    "status": "healthy",
+    "error_message": null,
+    "duration_seconds": 17.483,
+    "timestamp": "2026-07-23T12:54:58.395534+00:00",
+    "parse_warning_count": 0,
+    "warnings": [
+      "Supplemental published top-model payload was unavailable for: long_context, reasoning, tool_calling. Visible-table category scores remain available."
+    ],
+    "last_successful_update": "2026-07-23T12:54:58.395534+00:00",
+    "schema_changes": []
+  },
+  "categories": {
+    "coding": {
+      "row_count": 30,
+      "url": "data/capabilities/coding.json",
+      "benchmark_columns": [
+        {
+          "benchmark_id": "swe_bench_verified",
+          "canonical_name": "SWE-bench Verified",
+          "version": "Verified"
+        },
+        {
+          "benchmark_id": "scicode",
+          "canonical_name": "SciCode",
+          "version": "source-reported"
+        }
+      ]
+    },
+    "math": {
+      "row_count": 29,
+      "url": "data/capabilities/math.json",
+      "benchmark_columns": [
+        {
+          "benchmark_id": "aime_2025",
+          "canonical_name": "AIME 2025",
+          "version": "2025"
+        },
+        {
+          "benchmark_id": "llmstats__frontiermath",
+          "canonical_name": "llmstats__frontiermath",
+          "version": null
+        }
+      ]
+    },
+    "reasoning": {
+      "row_count": 30,
+      "url": "data/capabilities/reasoning.json",
+      "benchmark_columns": [
+        {
+          "benchmark_id": "arc_agi_v2",
+          "canonical_name": "ARC-AGI v2",
+          "version": "2"
+        },
+        {
+          "benchmark_id": "gpqa",
+          "canonical_name": "GPQA",
+          "version": "source-reported"
+        }
+      ]
+    },
+    "writing": {
+      "row_count": 8,
+      "url": "data/capabilities/writing.json",
+      "benchmark_columns": []
+    },
+    "research": {
+      "row_count": 23,
+      "url": "data/capabilities/research.json",
+      "benchmark_columns": [
+        {
+          "benchmark_id": "browsecomp",
+          "canonical_name": "BrowseComp",
+          "version": "source-reported"
+        }
+      ]
+    },
+    "long_context": {
+      "row_count": 19,
+      "url": "data/capabilities/long_context.json",
+      "benchmark_columns": [
+        {
+          "benchmark_id": "mrcr_v2",
+          "canonical_name": "MRCR v2",
+          "version": "2"
+        }
+      ]
+    },
+    "tool_calling": {
+      "row_count": 27,
+      "url": "data/capabilities/tool_calling.json",
+      "benchmark_columns": [
+        {
+          "benchmark_id": "mcp_atlas",
+          "canonical_name": "MCP Atlas",
+          "version": "source-reported"
+        }
+      ]
+    }
+  }
+}

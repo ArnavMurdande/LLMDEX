@@ -1,0 +1,71 @@
+{
+  "config_version": "2026-07-23",
+  "reviewed_at": "2026-07-23T00:00:00Z",
+  "sources": {
+    "artificial_analysis": {
+      "display_name": "Artificial Analysis",
+      "role": "Primary source for General, price and API-performance views",
+      "leaderboard_url": "https://artificialanalysis.ai/leaderboards/models",
+      "robots_url": "https://artificialanalysis.ai/robots.txt",
+      "methodology_urls": {
+        "overview": "https://artificialanalysis.ai/methodology",
+        "intelligence": "https://artificialanalysis.ai/methodology/intelligence-benchmarking",
+        "api_performance": "https://artificialanalysis.ai/methodology/performance-benchmarking",
+        "capability_indices": "https://artificialanalysis.ai/methodology/capability-indices",
+        "system_load": "https://artificialanalysis.ai/methodology/system-load-test",
+        "coding_agents": "https://artificialanalysis.ai/methodology/coding-agents-benchmarking",
+        "agentperf": "https://artificialanalysis.ai/methodology/agentperf",
+        "image": "https://artificialanalysis.ai/image/methodology",
+        "video": "https://artificialanalysis.ai/video/methodology",
+        "music": "https://artificialanalysis.ai/music/methodology",
+        "speech_to_text": "https://artificialanalysis.ai/speech-to-text/methodology",
+        "text_to_speech": "https://artificialanalysis.ai/text-to-speech/methodology",
+        "speech_to_speech": "https://artificialanalysis.ai/methodology/speech-to-speech-benchmarking",
+        "openness": "https://artificialanalysis.ai/methodology/openness-index"
+      },
+      "extraction": {
+        "strategy": "browser_expanded_table",
+        "reason": "The complete model table requires the public Expand columns interaction.",
+        "rate_limit_seconds": 2,
+        "expected_rows": [150, 500]
+      },
+      "attribution": "General intelligence, pricing and API performance data from Artificial Analysis."
+    },
+    "llmstats": {
+      "display_name": "LLMStats",
+      "role": "Source-native capability leaderboards and second General consensus signal",
+      "research_url": "https://llm-stats.com/research",
+      "score_methodology_url": "https://llm-stats.com/methodology/llm-stats-score",
+      "terms_url": "https://llm-stats.com/legal/terms-of-service",
+      "robots_url": "https://llm-stats.com/robots.txt",
+      "leaderboard_urls": {
+        "general": "https://llm-stats.com/leaderboards/llm-leaderboard",
+        "coding": "https://llm-stats.com/leaderboards/best-ai-for-coding",
+        "math": "https://llm-stats.com/leaderboards/best-ai-for-math",
+        "reasoning": "https://llm-stats.com/leaderboards/best-ai-for-reasoning",
+        "writing": "https://llm-stats.com/leaderboards/best-ai-for-writing",
+        "research": "https://llm-stats.com/leaderboards/best-ai-for-research",
+        "long_context": "https://llm-stats.com/leaderboards/best-ai-for-long-context",
+        "tool_calling": "https://llm-stats.com/leaderboards/best-ai-for-tool-calling"
+      },
+      "category_columns": {
+        "general": "LLM Stats",
+        "coding": "Coding",
+        "math": "Math",
+        "reasoning": "Reasoning",
+        "writing": "Writing",
+        "research": "Search",
+        "long_context": "Long Ctx",
+        "tool_calling": "Tools"
+      },
+      "extraction": {
+        "strategy": "server_rendered_html",
+        "forbidden_paths": ["/api/"],
+        "rate_limit_seconds": 2,
+        "expected_rows": [20, 80],
+        "published_population_note": "The public server-rendered General table is the automatable population. Client-only expansion is not bypassed."
+      },
+      "attribution": "Capability rankings and benchmark data from LLMStats."
+    }
+  }
+}

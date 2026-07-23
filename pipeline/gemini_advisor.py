@@ -112,22 +112,28 @@ STRICT RULES:
 7. If a user asks about models not in the dataset, say so clearly.
 8. Keep responses focused and practical — help users make informed decisions.
 
-You will receive a JSON snapshot of the top models in the LLMDEX index. Each model has:
-- model_name: canonical name
+You will receive a JSON snapshot of source-linked model families from the current
+LLMDEX publication. Prefer LLMDEX consensus fields when the user asks for an
+LLMDEX ranking. Do not treat an AA-only or LLMStats-only row as a consensus row.
+Each model may have:
+- model_name: canonical family name
 - provider: company/org
-- performance_rank, value_rank, efficiency_rank: positions in three leaderboards
-- adjusted_performance: bias-corrected performance score (0-100)
+- llmdex_score and llmdex_rank: the cross-source General consensus result
+- llmdex_coding_score and llmdex_coding_rank: the cross-source Coding result
+- score_status: consensus, aa_only, llmstats_only, or identity_review
+- agreement_label: cross-source rank agreement diagnostic
+- aa_intelligence and llmstats_general_score: source-native General scores
+- aa_official_coding_index and llmstats_coding_score: source-native Coding scores
+- aa_rank, value_rank, efficiency_rank: source-native ranking positions
 - input_cost_per_1m, output_cost_per_1m: cost in USD per 1M tokens
 - context_window: maximum context length in tokens
-- coding_score: software engineering benchmark score
-- reasoning_score: mathematical/logical reasoning score
-- confidence_factor: data completeness (0-1, higher = more benchmark sources)
+- availability_class: proprietary, open_weights, or unknown
 
 Return your response as JSON with this exact structure:
 {
   "answer": "Your analytical response as a string",
   "referenced_models": ["model1", "model2"],
-  "data_points_used": ["adjusted_performance", "input_cost_per_1m"]
+  "data_points_used": ["llmdex_score", "input_cost_per_1m"]
 }"""
 
 
@@ -136,15 +142,18 @@ Return your response as JSON with this exact structure:
 # ──────────────────────────────────────────────────────────────
 
 def _load_dataset(index_path: Optional[str] = None) -> List[dict]:
-    """Load the latest index data."""
+    """Load the family-level publication used by the Advisor."""
     if index_path is None:
         index_path = os.path.join(
-            os.path.dirname(__file__), "..", "data", "index", "latest.json"
+            os.path.dirname(__file__), "..", "data", "families", "latest.json"
         )
 
     try:
         with open(index_path, "r", encoding="utf-8") as f:
-            return json.load(f)
+            payload = json.load(f)
+            if isinstance(payload, dict):
+                payload = payload.get("rows", [])
+            return payload if isinstance(payload, list) else []
     except (FileNotFoundError, json.JSONDecodeError, IOError) as e:
         logger.error(f"Failed to load index data: {e}")
         return []
@@ -161,7 +170,14 @@ def _extract_compact_snapshot(
     Includes query matches plus performance, value, and efficiency leaders.
     Raw benchmark breakdowns and internal IDs are intentionally excluded.
     """
-    ranked = [d for d in dataset if d.get("performance_rank") is not None]
+    def primary_rank(row: dict) -> float:
+        for field in ("llmdex_rank", "aa_rank", "performance_rank"):
+            value = row.get(field)
+            if value is not None:
+                return float(value)
+        return 9999.0
+
+    ranked = [d for d in dataset if primary_rank(d) < 9999]
     query_tokens = {
         token
         for token in "".join(
@@ -174,7 +190,12 @@ def _extract_compact_snapshot(
 
     def add_models(rows: List[dict], limit: int) -> None:
         for row in rows[:limit]:
-            name = row.get("canonical_name") or row.get("model_name") or "Unknown"
+            name = (
+                row.get("canonical_family_name")
+                or row.get("canonical_name")
+                or row.get("model_name")
+                or "Unknown"
+            )
             candidates.setdefault(name.lower(), row)
 
     if query_tokens:
@@ -187,6 +208,7 @@ def _extract_compact_snapshot(
                 str(value or "")
                 for value in (
                     row.get("canonical_name"),
+                    row.get("canonical_family_name"),
                     row.get("model_name"),
                     row.get("provider"),
                     " ".join(aliases),
@@ -198,13 +220,13 @@ def _extract_compact_snapshot(
         matches.sort(
             key=lambda item: (
                 -item[0],
-                item[1].get("performance_rank", 9999),
+                primary_rank(item[1]),
             )
         )
         add_models([row for _, row in matches], 15)
 
     add_models(
-        sorted(ranked, key=lambda d: d.get("performance_rank", 9999)),
+        sorted(ranked, key=primary_rank),
         20,
     )
     add_models(
@@ -227,8 +249,32 @@ def _extract_compact_snapshot(
     snapshot = []
     for m in ranked:
         entry = {
-            "model_name": m.get("canonical_name") or m.get("model_name") or "Unknown",
+            "model_name": (
+                m.get("canonical_family_name")
+                or m.get("canonical_name")
+                or m.get("model_name")
+                or "Unknown"
+            ),
             "provider": m.get("provider") or "Unknown",
+            "llmdex_rank": m.get("llmdex_rank"),
+            "llmdex_score": _round_safe(m.get("llmdex_score")),
+            "llmdex_coding_rank": m.get("llmdex_coding_rank"),
+            "llmdex_coding_score": _round_safe(m.get("llmdex_coding_score")),
+            "score_status": m.get("score_status"),
+            "agreement_label": m.get("agreement_label"),
+            "aa_rank": m.get("aa_rank"),
+            "aa_intelligence": _round_safe(
+                m.get("aa_intelligence", m.get("intelligence_score"))
+            ),
+            "llmstats_general_score": _round_safe(
+                m.get("llmstats_general_score")
+            ),
+            "aa_official_coding_index": _round_safe(
+                m.get("aa_official_coding_index")
+            ),
+            "llmstats_coding_score": _round_safe(
+                m.get("llmstats_coding_score")
+            ),
             "performance_rank": m.get("performance_rank"),
             "value_rank": m.get("value_rank"),
             "efficiency_rank": m.get("efficiency_rank"),
@@ -238,6 +284,7 @@ def _extract_compact_snapshot(
             "input_cost_per_1m": _round_safe(m.get("input_cost_per_1m")),
             "output_cost_per_1m": _round_safe(m.get("output_cost_per_1m")),
             "context_window": m.get("context_window"),
+            "availability_class": m.get("availability_class"),
             "coding_score": _round_safe(m.get("coding_score")),
             "reasoning_score": _round_safe(m.get("reasoning_score")),
             "confidence_factor": _round_safe(m.get("confidence_factor")),

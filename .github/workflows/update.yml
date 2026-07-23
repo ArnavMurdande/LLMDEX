@@ -13,7 +13,7 @@ on:
   workflow_dispatch: # Manual trigger
 
 concurrency:
-  group: llmdex-artificial-analysis-update
+  group: llmdex-multisource-update
   cancel-in-progress: false
 
 jobs:
@@ -28,10 +28,10 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
 
       - name: Set up Python 3.11
-        uses: actions/setup-python@v6
+        uses: actions/setup-python@v7
         with:
           python-version: "3.11"
           cache: pip
@@ -48,6 +48,9 @@ jobs:
         run: python -m unittest discover -s tests -v
         env:
           PYTHONPATH: .
+
+      - name: Lint Python for runtime errors
+        run: ruff check --select E9,F63,F7,F82 api_server.py pipeline scraper scripts utils tests
 
       # ──────────────────────────────────────────
       # Run the main scraper + merge pipeline
@@ -95,6 +98,8 @@ jobs:
             data/raw_snapshot/archive/
             data/cleaned/archive/
             data/index/archive/
+            data/raw/artificial_analysis/
+            data/raw/llmstats/
           retention-days: 365
 
       # ── Commit data files back to main branch ──
@@ -107,11 +112,17 @@ jobs:
           # Add all latest data files (these power the website)
           git add data/models.json data/models.csv || true
           git add data/index/latest.json data/index/latest.csv || true
+          git add data/families/latest.json || true
+          git add data/capabilities/ || true
+          git add data/identity/ || true
+          git add data/quality/ || true
+          git add data/methodology/ || true
           git add data/cleaned/latest.json data/cleaned/latest.csv || true
+          git add data/cleaned/artificial_analysis/ data/cleaned/llmstats/ || true
           git add data/raw_snapshot/latest.json data/raw_snapshot/latest.csv || true
           git add data/history/family_growth.json || true
           git add data/history/release_dates.json || true
-          git add data/history/*.json || true
+          git add data/history/*.json data/history/*.csv || true
           git add data/sentiment/latest.json || true
           git add data/column_definitions.json || true
 
@@ -159,7 +170,7 @@ jobs:
 
     steps:
       - name: Checkout repository (with latest data)
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           ref: main # Get the latest commit (including data updates)
 
@@ -180,19 +191,27 @@ jobs:
           sed -i 's|\.\./data/|./data/|g' _site/index.html
           # Copy only the data files the website needs
           cp -r data/index _site/data/index || true
+          cp -r data/families _site/data/families || true
+          cp -r data/capabilities _site/data/capabilities || true
+          cp -r data/quality _site/data/quality || true
+          cp -r data/identity _site/data/identity || true
+          cp -r data/methodology _site/data/methodology || true
+          mkdir -p _site/data/cleaned
+          cp -r data/cleaned/llmstats _site/data/cleaned/llmstats || true
           cp -r data/history _site/data/history || true
           cp -r data/sentiment _site/data/sentiment || true
           cp data/models.json _site/data/models.json || true
           cp data/column_definitions.json _site/data/column_definitions.json || true
+          cp -r docs _site/docs || true
 
       - name: Setup Pages
-        uses: actions/configure-pages@v4
+        uses: actions/configure-pages@v6
 
       - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v5
         with:
           path: _site
 
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5

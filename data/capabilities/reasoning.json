@@ -1,0 +1,980 @@
+{
+  "generated_at": "2026-07-23T12:54:40.905141+00:00",
+  "methodology_version": "LLMStats source-native current",
+  "source": "LLMStats",
+  "source_updated_at": "2026-07-23T12:54:58.395534+00:00",
+  "source_health": {
+    "source": "LLMStats",
+    "rows_scraped": 31,
+    "expected_range": [
+      20,
+      80
+    ],
+    "status": "healthy",
+    "error_message": null,
+    "duration_seconds": 17.483,
+    "timestamp": "2026-07-23T12:54:58.395534+00:00",
+    "parse_warning_count": 0,
+    "warnings": [
+      "Supplemental published top-model payload was unavailable for: long_context, reasoning, tool_calling. Visible-table category scores remain available."
+    ],
+    "last_successful_update": "2026-07-23T12:54:58.395534+00:00",
+    "schema_changes": []
+  },
+  "capability": "reasoning",
+  "benchmark_columns": [
+    {
+      "benchmark_id": "arc_agi_v2",
+      "canonical_name": "ARC-AGI v2",
+      "version": "2"
+    },
+    {
+      "benchmark_id": "gpqa",
+      "canonical_name": "GPQA",
+      "version": "source-reported"
+    }
+  ],
+  "rows": [
+    {
+      "category_rank": 1.0,
+      "category_score": 58.6,
+      "source_name": "GPT-5.6 Sol",
+      "provider": "OpenAI",
+      "source_model_id": "gpt-5.6-sol",
+      "source_model_url": "https://llm-stats.com/models/gpt-5.6-sol",
+      "family_id": "openai/gpt-5-6-sol",
+      "matched_aa_family_id": "openai/gpt-5-6-sol",
+      "match_status": "matched_manual",
+      "match_confidence": 1.0,
+      "score_status": "consensus",
+      "score_status_label": "Consensus",
+      "rank_evidence": "derived_score_order_visible_server_population",
+      "benchmark_observations": {
+        "gpqa": {
+          "benchmark_id": "gpqa",
+          "canonical_name": "GPQA",
+          "source_name": "GPQA",
+          "value": 94.6,
+          "raw_value": "94.6%",
+          "version": "source-reported",
+          "provenance": "Separate source observations; never averaged",
+          "source_url": "https://llm-stats.com/models/gpt-5.6-sol"
+        }
+      },
+      "source_updated_at": null
+    },
+    {
+      "category_rank": 2.0,
+      "category_score": 56.9,
+      "source_name": "Claude Mythos Preview",
+      "provider": "Anthropic",
+      "source_model_id": "claude-mythos-preview",
+      "source_model_url": "https://llm-stats.com/models/claude-mythos-preview",
+      "family_id": "anthropic/claude-mythos-preview",
+      "matched_aa_family_id": null,
+      "match_status": "source_missing",
+      "match_confidence": 0.0,
+      "score_status": "llmstats_only",
+      "score_status_label": "LLMStats only",
+      "rank_evidence": "derived_score_order_visible_server_population",
+      "benchmark_observations": {
+        "gpqa": {
+          "benchmark_id": "gpqa",
+          "canonical_name": "GPQA",
+          "source_name": "GPQA",
+          "value": 94.6,
+          "raw_value": "94.6%",
+          "version": "source-reported",
+          "provenance": "Separate source observations; never averaged",
+          "source_url": "https://llm-stats.com/models/claude-mythos-preview"
+        }
+      },
+      "source_updated_at": null
+    },
+    {
+      "category_rank": 3.0,
+      "category_score": 55.0,
+      "source_name": "Kimi K3",
+      "provider": "MoonshotAI",
+      "source_model_id": "kimi-k3",
+      "source_model_url": "https://llm-stats.com/models/kimi-k3",
+      "family_id": "kimi/kimi-k3",
+      "matched_aa_family_id": "kimi/kimi-k3",
+      "match_status": "matched_manual",
+      "match_confidence": 1.0,
+      "score_status": "consensus",
+      "score_status_label": "Consensus",
+      "rank_evidence": "derived_score_order_visible_server_population",
+      "benchmark_observations": {
+        "gpqa": {
+          "benchmark_id": "gpqa",
+          "canonical_name": "GPQA",
+          "source_name": "GPQA",
+          "value": 93.5,
+          "raw_value": "93.5%",
+          "version": "source-reported",
+          "provenance": "Separate source observations; never averaged",
+          "source_url": "https://llm-stats.com/models/kimi-k3"
+        }
+      },
+      "source_updated_at": null
+    },
+    {
+      "category_rank": 4.0,
+      "category_score": 52.4,
+      "source_name": "GPT-5.6 Terra",
+      "provider": "OpenAI",
+      "source_model_id": "gpt-5.6-terra",
+      "source_model_url": "https://llm-stats.com/models/gpt-5.6-terra",
+      "family_id": "openai/gpt-5-6-terra",
+      "matched_aa_family_id": "openai/gpt-5-6-terra",
+      "match_status": "matched_manual",
+      "match_confidence": 1.0,
+      "score_status": "consensus",
+      "score_status_label": "Consensus",
+      "rank_evidence": "derived_score_order_visible_server_population",
+      "benchmark_observations": {
+        "gpqa": {
+          "benchmark_id": "gpqa",
+          "canonical_name": "GPQA",
+          "source_name": "GPQA",
+          "value": 92.9,
+          "raw_value": "92.9%",
+          "version": "source-reported",
+          "provenance": "Separate source observations; never averaged",
+          "source_url": "https://llm-stats.com/models/gpt-5.6-terra"
+        }
+      },
+      "source_updated_at": null
+    },
+    {
+      "category_rank": 5.0,
+      "category_score": 52.0,
+      "source_name": "Claude Opus 4.8",
+      "provider": "Anthropic",
+      "source_model_id": "claude-opus-4-8",
+      "source_model_url": "https://llm-stats.com/models/claude-opus-4-8",
+      "family_id": "anthropic/claude-opus-4-8",
+      "matched_aa_family_id": "anthropic/claude-opus-4-8",
+      "match_status": "matched_family",
+      "match_confidence": 0.95,
+      "score_status": "consensus",
+      "score_status_label": "Consensus",
+      "rank_evidence": "derived_score_order_visible_server_population",
+      "benchmark_observations": {
+        "gpqa": {
+          "benchmark_id": "gpqa",
+          "canonical_name": "GPQA",
+          "source_name": "GPQA",
+          "value": 93.6,
+          "raw_value": "93.6%",
+          "version": "source-reported",
+          "provenance": "Separate source observations; never averaged",
+          "source_url": "https://llm-stats.com/models/claude-opus-4-8"
+        }
+      },
+      "source_updated_at": null
+    },
+    {
+      "category_rank": 6.0,
+      "category_score": 48.1,
+      "source_name": "GPT-5.5",
+      "provider": "OpenAI",
+      "source_model_id": "gpt-5.5",
+      "source_model_url": "https://llm-stats.com/models/gpt-5.5",
+      "family_id": "openai/gpt-5-5",
+      "matched_aa_family_id": null,
+      "match_status": "identity_unresolved",
+      "match_confidence": 0.7778,
+      "score_status": "identity_review",
+      "score_status_label": "Identity review",
+      "rank_evidence": "derived_score_order_visible_server_population",
+      "benchmark_observations": {
+        "gpqa": {
+          "benchmark_id": "gpqa",
+          "canonical_name": "GPQA",
+          "source_name": "GPQA",
+          "value": 93.6,
+          "raw_value": "93.6%",
+          "version": "source-reported",
+          "provenance": "Separate source observations; never averaged",
+          "source_url": "https://llm-stats.com/models/gpt-5.5"
+        },
+        "arc_agi_v2": {
+          "benchmark_id": "arc_agi_v2",
+          "canonical_name": "ARC-AGI v2",
+          "source_name": "ARC-AGI v2",
+          "value": 85.0,
+          "raw_value": "85.0%",
+          "version": "2",
+          "provenance": "Source observation",
+          "source_url": "https://llm-stats.com/models/gpt-5.5"
+        }
+      },
+      "source_updated_at": null
+    },
+    {
+      "category_rank": 7.0,
+      "category_score": 47.9,
+      "source_name": "Grok 4.5",
+      "provider": "xAI",
+      "source_model_id": "grok-4.5",
+      "source_model_url": "https://llm-stats.com/models/grok-4.5",
+      "family_id": "xai/grok-4-5",
+      "matched_aa_family_id": null,
+      "match_status": "source_missing",
+      "match_confidence": 0.0,
+      "score_status": "llmstats_only",
+      "score_status_label": "LLMStats only",
+      "rank_evidence": "derived_score_order_visible_server_population",
+      "benchmark_observations": {
+        "gpqa": {
+          "benchmark_id": "gpqa",
+          "canonical_name": "GPQA",
+          "source_name": "GPQA",
+          "value": 93.0,
+          "raw_value": "93.0%",
+          "version": "source-reported",
+          "provenance": "Separate source observations; never averaged",
+          "source_url": "https://llm-stats.com/models/grok-4.5"
+        }
+      },
+      "source_updated_at": null
+    },
+    {
+      "category_rank": 8.0,
+      "category_score": 47.4,
+      "source_name": "Qwen3.7 Max",
+      "provider": "Qwen",
+      "source_model_id": "qwen3.7-max",
+      "source_model_url": "https://llm-stats.com/models/qwen3.7-max",
+      "family_id": "alibaba/qwen3-7",
+      "matched_aa_family_id": "alibaba/qwen3-7",
+      "match_status": "matched_family",
+      "match_confidence": 0.95,
+      "score_status": "consensus",
+      "score_status_label": "Consensus",
+      "rank_evidence": "derived_score_order_visible_server_population",
+      "benchmark_observations": {
+        "gpqa": {
+          "benchmark_id": "gpqa",
+          "canonical_name": "GPQA",
+          "source_name": "GPQA",
+          "value": 92.4,
+          "raw_value": "92.4%",
+          "version": "source-reported",
+          "provenance": "Separate source observations; never averaged",
+          "source_url": "https://llm-stats.com/models/qwen3.7-max"
+        }
+      },
+      "source_updated_at": null
+    },
+    {
+      "category_rank": 9.0,
+      "category_score": 47.2,
+      "source_name": "Claude Opus 4.7",
+      "provider": "Anthropic",
+      "source_model_id": "claude-opus-4-7",
+      "source_model_url": "https://llm-stats.com/models/claude-opus-4-7",
+      "family_id": "anthropic/claude-opus-4-7",
+      "matched_aa_family_id": "anthropic/claude-opus-4-7",
+      "match_status": "matched_family",
+      "match_confidence": 0.95,
+      "score_status": "consensus",
+      "score_status_label": "Consensus",
+      "rank_evidence": "derived_score_order_visible_server_population",
+      "benchmark_observations": {
+        "gpqa": {
+          "benchmark_id": "gpqa",
+          "canonical_name": "GPQA",
+          "source_name": "GPQA",
+          "value": 94.2,
+          "raw_value": "94.2%",
+          "version": "source-reported",
+          "provenance": "Separate source observations; never averaged",
+          "source_url": "https://llm-stats.com/models/claude-opus-4-7"
+        }
+      },
+      "source_updated_at": null
+    },
+    {
+      "category_rank": 10.5,
+      "category_score": 46.8,
+      "source_name": "Claude Opus 4.6",
+      "provider": "Anthropic",
+      "source_model_id": "claude-opus-4-6",
+      "source_model_url": "https://llm-stats.com/models/claude-opus-4-6",
+      "family_id": "anthropic/claude-opus-4-6",
+      "matched_aa_family_id": null,
+      "match_status": "ambiguous",
+      "match_confidence": 0.8,
+      "score_status": "identity_review",
+      "score_status_label": "Identity review",
+      "rank_evidence": "derived_score_order_visible_server_population",
+      "benchmark_observations": {
+        "gpqa": {
+          "benchmark_id": "gpqa",
+          "canonical_name": "GPQA",
+          "source_name": "GPQA",
+          "value": 91.3,
+          "raw_value": "91.3%",
+          "version": "source-reported",
+          "provenance": "Separate source observations; never averaged",
+          "source_url": "https://llm-stats.com/models/claude-opus-4-6"
+        },
+        "arc_agi_v2": {
+          "benchmark_id": "arc_agi_v2",
+          "canonical_name": "ARC-AGI v2",
+          "source_name": "ARC-AGI v2",
+          "value": 68.8,
+          "raw_value": "68.8%",
+          "version": "2",
+          "provenance": "Source observation",
+          "source_url": "https://llm-stats.com/models/claude-opus-4-6"
+        }
+      },
+      "source_updated_at": null
+    },
+    {
+      "category_rank": 10.5,
+      "category_score": 46.8,
+      "source_name": "GLM-5.2",
+      "provider": "ZAI",
+      "source_model_id": "glm-5.2",
+      "source_model_url": "https://llm-stats.com/models/glm-5.2",
+      "family_id": "zai/glm-5-2",
+      "matched_aa_family_id": null,
+      "match_status": "source_missing",
+      "match_confidence": 0.0,
+      "score_status": "llmstats_only",
+      "score_status_label": "LLMStats only",
+      "rank_evidence": "derived_score_order_visible_server_population",
+      "benchmark_observations": {
+        "gpqa": {
+          "benchmark_id": "gpqa",
+          "canonical_name": "GPQA",
+          "source_name": "GPQA",
+          "value": 91.2,
+          "raw_value": "91.2%",
+          "version": "source-reported",
+          "provenance": "Separate source observations; never averaged",
+          "source_url": "https://llm-stats.com/models/glm-5.2"
+        }
+      },
+      "source_updated_at": null
+    },
+    {
+      "category_rank": 12.0,
+      "category_score": 46.7,
+      "source_name": "GPT-5.6 Luna",
+      "provider": "OpenAI",
+      "source_model_id": "gpt-5.6-luna",
+      "source_model_url": "https://llm-stats.com/models/gpt-5.6-luna",
+      "family_id": "openai/gpt-5-6-luna",
+      "matched_aa_family_id": "openai/gpt-5-6-luna",
+      "match_status": "matched_family",
+      "match_confidence": 0.95,
+      "score_status": "consensus",
+      "score_status_label": "Consensus",
+      "rank_evidence": "derived_score_order_visible_server_population",
+      "benchmark_observations": {
+        "gpqa": {
+          "benchmark_id": "gpqa",
+          "canonical_name": "GPQA",
+          "source_name": "GPQA",
+          "value": 92.3,
+          "raw_value": "92.3%",
+          "version": "source-reported",
+          "provenance": "Separate source observations; never averaged",
+          "source_url": "https://llm-stats.com/models/gpt-5.6-luna"
+        }
+      },
+      "source_updated_at": null
+    },
+    {
+      "category_rank": 13.0,
+      "category_score": 45.2,
+      "source_name": "Gemini 3.1 Pro",
+      "provider": "Google",
+      "source_model_id": "gemini-3.1-pro-preview",
+      "source_model_url": "https://llm-stats.com/models/gemini-3.1-pro-preview",
+      "family_id": "google/gemini-3-1-pro-preview",
+      "matched_aa_family_id": "google/gemini-3-1-pro-preview",
+      "match_status": "matched_manual",
+      "match_confidence": 1.0,
+      "score_status": "consensus",
+      "score_status_label": "Consensus",
+      "rank_evidence": "derived_score_order_visible_server_population",
+      "benchmark_observations": {
+        "gpqa": {
+          "benchmark_id": "gpqa",
+          "canonical_name": "GPQA",
+          "source_name": "GPQA",
+          "value": 94.3,
+          "raw_value": "94.3%",
+          "version": "source-reported",
+          "provenance": "Separate source observations; never averaged",
+          "source_url": "https://llm-stats.com/models/gemini-3.1-pro-preview"
+        },
+        "arc_agi_v2": {
+          "benchmark_id": "arc_agi_v2",
+          "canonical_name": "ARC-AGI v2",
+          "source_name": "ARC-AGI v2",
+          "value": 77.1,
+          "raw_value": "77.1%",
+          "version": "2",
+          "provenance": "Source observation",
+          "source_url": "https://llm-stats.com/models/gemini-3.1-pro-preview"
+        }
+      },
+      "source_updated_at": null
+    },
+    {
+      "category_rank": 14.0,
+      "category_score": 45.0,
+      "source_name": "Kimi K2.6",
+      "provider": "MoonshotAI",
+      "source_model_id": "kimi-k2.6",
+      "source_model_url": "https://llm-stats.com/models/kimi-k2.6",
+      "family_id": "moonshot-ai/kimi-k2-6",
+      "matched_aa_family_id": null,
+      "match_status": "source_missing",
+      "match_confidence": 0.0,
+      "score_status": "llmstats_only",
+      "score_status_label": "LLMStats only",
+      "rank_evidence": "derived_score_order_visible_server_population",
+      "benchmark_observations": {
+        "gpqa": {
+          "benchmark_id": "gpqa",
+          "canonical_name": "GPQA",
+          "source_name": "GPQA",
+          "value": 90.5,
+          "raw_value": "90.5%",
+          "version": "source-reported",
+          "provenance": "Separate source observations; never averaged",
+          "source_url": "https://llm-stats.com/models/kimi-k2.6"
+        }
+      },
+      "source_updated_at": null
+    },
+    {
+      "category_rank": 15.0,
+      "category_score": 44.4,
+      "source_name": "DeepSeek-V4-Pro-Max",
+      "provider": "DeepSeek",
+      "source_model_id": "deepseek-v4-pro-max",
+      "source_model_url": "https://llm-stats.com/models/deepseek-v4-pro-max",
+      "family_id": "deepseek/deepseek-v4-pro",
+      "matched_aa_family_id": "deepseek/deepseek-v4-pro",
+      "match_status": "matched_family",
+      "match_confidence": 0.95,
+      "score_status": "consensus",
+      "score_status_label": "Consensus",
+      "rank_evidence": "derived_score_order_visible_server_population",
+      "benchmark_observations": {
+        "gpqa": {
+          "benchmark_id": "gpqa",
+          "canonical_name": "GPQA",
+          "source_name": "GPQA",
+          "value": 90.1,
+          "raw_value": "90.1%",
+          "version": "source-reported",
+          "provenance": "Separate source observations; never averaged",
+          "source_url": "https://llm-stats.com/models/deepseek-v4-pro-max"
+        }
+      },
+      "source_updated_at": null
+    },
+    {
+      "category_rank": 16.5,
+      "category_score": 44.0,
+      "source_name": "GPT-5.4",
+      "provider": "OpenAI",
+      "source_model_id": "gpt-5.4",
+      "source_model_url": "https://llm-stats.com/models/gpt-5.4",
+      "family_id": "openai/gpt-5-4",
+      "matched_aa_family_id": null,
+      "match_status": "source_missing",
+      "match_confidence": 0.0,
+      "score_status": "llmstats_only",
+      "score_status_label": "LLMStats only",
+      "rank_evidence": "derived_score_order_visible_server_population",
+      "benchmark_observations": {
+        "gpqa": {
+          "benchmark_id": "gpqa",
+          "canonical_name": "GPQA",
+          "source_name": "GPQA",
+          "value": 92.8,
+          "raw_value": "92.8%",
+          "version": "source-reported",
+          "provenance": "Separate source observations; never averaged",
+          "source_url": "https://llm-stats.com/models/gpt-5.4"
+        },
+        "arc_agi_v2": {
+          "benchmark_id": "arc_agi_v2",
+          "canonical_name": "ARC-AGI v2",
+          "source_name": "ARC-AGI v2",
+          "value": 73.3,
+          "raw_value": "73.3%",
+          "version": "2",
+          "provenance": "Source observation",
+          "source_url": "https://llm-stats.com/models/gpt-5.4"
+        }
+      },
+      "source_updated_at": null
+    },
+    {
+      "category_rank": 16.5,
+      "category_score": 44.0,
+      "source_name": "Qwen3.7-Plus",
+      "provider": "Qwen",
+      "source_model_id": "qwen3.7-plus",
+      "source_model_url": "https://llm-stats.com/models/qwen3.7-plus",
+      "family_id": "alibaba/qwen3-7-plus",
+      "matched_aa_family_id": "alibaba/qwen3-7-plus",
+      "match_status": "matched_family",
+      "match_confidence": 0.95,
+      "score_status": "consensus",
+      "score_status_label": "Consensus",
+      "rank_evidence": "derived_score_order_visible_server_population",
+      "benchmark_observations": {
+        "gpqa": {
+          "benchmark_id": "gpqa",
+          "canonical_name": "GPQA",
+          "source_name": "GPQA",
+          "value": 90.3,
+          "raw_value": "90.3%",
+          "version": "source-reported",
+          "provenance": "Separate source observations; never averaged",
+          "source_url": "https://llm-stats.com/models/qwen3.7-plus"
+        }
+      },
+      "source_updated_at": null
+    },
+    {
+      "category_rank": 18.0,
+      "category_score": 43.9,
+      "source_name": "Hy3",
+      "provider": "Tencent",
+      "source_model_id": "hy3",
+      "source_model_url": "https://llm-stats.com/models/hy3",
+      "family_id": "tencent/hy3",
+      "matched_aa_family_id": "tencent/hy3",
+      "match_status": "matched_family",
+      "match_confidence": 0.95,
+      "score_status": "consensus",
+      "score_status_label": "Consensus",
+      "rank_evidence": "derived_score_order_visible_server_population",
+      "benchmark_observations": {
+        "gpqa": {
+          "benchmark_id": "gpqa",
+          "canonical_name": "GPQA",
+          "source_name": "GPQA",
+          "value": 90.4,
+          "raw_value": "90.4%",
+          "version": "source-reported",
+          "provenance": "Separate source observations; never averaged",
+          "source_url": "https://llm-stats.com/models/hy3"
+        }
+      },
+      "source_updated_at": null
+    },
+    {
+      "category_rank": 19.5,
+      "category_score": 41.6,
+      "source_name": "GPT-5.2",
+      "provider": "OpenAI",
+      "source_model_id": "gpt-5.2-2025-12-11",
+      "source_model_url": "https://llm-stats.com/models/gpt-5.2-2025-12-11",
+      "family_id": "openai/gpt-5-2",
+      "matched_aa_family_id": null,
+      "match_status": "source_missing",
+      "match_confidence": 0.0,
+      "score_status": "llmstats_only",
+      "score_status_label": "LLMStats only",
+      "rank_evidence": "derived_score_order_visible_server_population",
+      "benchmark_observations": {
+        "gpqa": {
+          "benchmark_id": "gpqa",
+          "canonical_name": "GPQA",
+          "source_name": "GPQA",
+          "value": 92.4,
+          "raw_value": "92.4%",
+          "version": "source-reported",
+          "provenance": "Separate source observations; never averaged",
+          "source_url": "https://llm-stats.com/models/gpt-5.2-2025-12-11"
+        },
+        "arc_agi_v2": {
+          "benchmark_id": "arc_agi_v2",
+          "canonical_name": "ARC-AGI v2",
+          "source_name": "ARC-AGI v2",
+          "value": 52.9,
+          "raw_value": "52.9%",
+          "version": "2",
+          "provenance": "Source observation",
+          "source_url": "https://llm-stats.com/models/gpt-5.2-2025-12-11"
+        }
+      },
+      "source_updated_at": null
+    },
+    {
+      "category_rank": 19.5,
+      "category_score": 41.6,
+      "source_name": "GPT-5.2 Pro",
+      "provider": "OpenAI",
+      "source_model_id": "gpt-5.2-pro-2025-12-11",
+      "source_model_url": "https://llm-stats.com/models/gpt-5.2-pro-2025-12-11",
+      "family_id": "openai/gpt-5-2-pro",
+      "matched_aa_family_id": null,
+      "match_status": "identity_unresolved",
+      "match_confidence": 0.8,
+      "score_status": "identity_review",
+      "score_status_label": "Identity review",
+      "rank_evidence": "derived_score_order_visible_server_population",
+      "benchmark_observations": {
+        "gpqa": {
+          "benchmark_id": "gpqa",
+          "canonical_name": "GPQA",
+          "source_name": "GPQA",
+          "value": 93.2,
+          "raw_value": "93.2%",
+          "version": "source-reported",
+          "provenance": "Separate source observations; never averaged",
+          "source_url": "https://llm-stats.com/models/gpt-5.2-pro-2025-12-11"
+        },
+        "arc_agi_v2": {
+          "benchmark_id": "arc_agi_v2",
+          "canonical_name": "ARC-AGI v2",
+          "source_name": "ARC-AGI v2",
+          "value": 54.2,
+          "raw_value": "54.2%",
+          "version": "2",
+          "provenance": "Source observation",
+          "source_url": "https://llm-stats.com/models/gpt-5.2-pro-2025-12-11"
+        }
+      },
+      "source_updated_at": null
+    },
+    {
+      "category_rank": 21.0,
+      "category_score": 41.5,
+      "source_name": "Muse Spark",
+      "provider": "Meta",
+      "source_model_id": "muse-spark",
+      "source_model_url": "https://llm-stats.com/models/muse-spark",
+      "family_id": "meta/muse-spark",
+      "matched_aa_family_id": "meta/muse-spark",
+      "match_status": "matched_family",
+      "match_confidence": 0.95,
+      "score_status": "consensus",
+      "score_status_label": "Consensus",
+      "rank_evidence": "derived_score_order_visible_server_population",
+      "benchmark_observations": {
+        "gpqa": {
+          "benchmark_id": "gpqa",
+          "canonical_name": "GPQA",
+          "source_name": "GPQA",
+          "value": 89.5,
+          "raw_value": "89.5%",
+          "version": "source-reported",
+          "provenance": "Separate source observations; never averaged",
+          "source_url": "https://llm-stats.com/models/muse-spark"
+        },
+        "arc_agi_v2": {
+          "benchmark_id": "arc_agi_v2",
+          "canonical_name": "ARC-AGI v2",
+          "source_name": "ARC-AGI v2",
+          "value": 42.5,
+          "raw_value": "42.5%",
+          "version": "2",
+          "provenance": "Source observation",
+          "source_url": "https://llm-stats.com/models/muse-spark"
+        }
+      },
+      "source_updated_at": null
+    },
+    {
+      "category_rank": 22.0,
+      "category_score": 41.4,
+      "source_name": "Qwen3.6 Plus",
+      "provider": "Qwen",
+      "source_model_id": "qwen3.6-plus",
+      "source_model_url": "https://llm-stats.com/models/qwen3.6-plus",
+      "family_id": "alibaba/qwen3-6-plus",
+      "matched_aa_family_id": "alibaba/qwen3-6-plus",
+      "match_status": "matched_family",
+      "match_confidence": 0.95,
+      "score_status": "consensus",
+      "score_status_label": "Consensus",
+      "rank_evidence": "derived_score_order_visible_server_population",
+      "benchmark_observations": {
+        "gpqa": {
+          "benchmark_id": "gpqa",
+          "canonical_name": "GPQA",
+          "source_name": "GPQA",
+          "value": 90.4,
+          "raw_value": "90.4%",
+          "version": "source-reported",
+          "provenance": "Separate source observations; never averaged",
+          "source_url": "https://llm-stats.com/models/qwen3.6-plus"
+        }
+      },
+      "source_updated_at": null
+    },
+    {
+      "category_rank": 23.0,
+      "category_score": 40.6,
+      "source_name": "DeepSeek-V4-Flash-Max",
+      "provider": "DeepSeek",
+      "source_model_id": "deepseek-v4-flash-max",
+      "source_model_url": "https://llm-stats.com/models/deepseek-v4-flash-max",
+      "family_id": "deepseek/deepseek-v4-flash",
+      "matched_aa_family_id": "deepseek/deepseek-v4-flash",
+      "match_status": "matched_family",
+      "match_confidence": 0.95,
+      "score_status": "consensus",
+      "score_status_label": "Consensus",
+      "rank_evidence": "derived_score_order_visible_server_population",
+      "benchmark_observations": {
+        "gpqa": {
+          "benchmark_id": "gpqa",
+          "canonical_name": "GPQA",
+          "source_name": "GPQA",
+          "value": 88.1,
+          "raw_value": "88.1%",
+          "version": "source-reported",
+          "provenance": "Separate source observations; never averaged",
+          "source_url": "https://llm-stats.com/models/deepseek-v4-flash-max"
+        }
+      },
+      "source_updated_at": null
+    },
+    {
+      "category_rank": 24.0,
+      "category_score": 39.8,
+      "source_name": "Seed 2.0 Pro",
+      "provider": "Bytedance",
+      "source_model_id": "seed-2.0-pro",
+      "source_model_url": "https://llm-stats.com/models/seed-2.0-pro",
+      "family_id": "bytedance/seed-2-0-pro",
+      "matched_aa_family_id": null,
+      "match_status": "source_missing",
+      "match_confidence": 0.0,
+      "score_status": "llmstats_only",
+      "score_status_label": "LLMStats only",
+      "rank_evidence": "derived_score_order_visible_server_population",
+      "benchmark_observations": {
+        "gpqa": {
+          "benchmark_id": "gpqa",
+          "canonical_name": "GPQA",
+          "source_name": "GPQA",
+          "value": 88.9,
+          "raw_value": "88.9%",
+          "version": "source-reported",
+          "provenance": "Separate source observations; never averaged",
+          "source_url": "https://llm-stats.com/models/seed-2.0-pro"
+        }
+      },
+      "source_updated_at": null
+    },
+    {
+      "category_rank": 25.0,
+      "category_score": 39.7,
+      "source_name": "Grok-4 Heavy",
+      "provider": "xAI",
+      "source_model_id": "grok-4-heavy",
+      "source_model_url": "https://llm-stats.com/models/grok-4-heavy",
+      "family_id": "xai/grok-4-heavy",
+      "matched_aa_family_id": null,
+      "match_status": "source_missing",
+      "match_confidence": 0.0,
+      "score_status": "llmstats_only",
+      "score_status_label": "LLMStats only",
+      "rank_evidence": "derived_score_order_visible_server_population",
+      "benchmark_observations": {
+        "gpqa": {
+          "benchmark_id": "gpqa",
+          "canonical_name": "GPQA",
+          "source_name": "GPQA",
+          "value": 88.4,
+          "raw_value": "88.4%",
+          "version": "source-reported",
+          "provenance": "Separate source observations; never averaged",
+          "source_url": "https://llm-stats.com/models/grok-4-heavy"
+        }
+      },
+      "source_updated_at": null
+    },
+    {
+      "category_rank": 26.0,
+      "category_score": 39.4,
+      "source_name": "Claude Sonnet 4.6",
+      "provider": "Anthropic",
+      "source_model_id": "claude-sonnet-4-6",
+      "source_model_url": "https://llm-stats.com/models/claude-sonnet-4-6",
+      "family_id": "anthropic/claude-sonnet-4-6",
+      "matched_aa_family_id": "anthropic/claude-sonnet-4-6",
+      "match_status": "matched_family",
+      "match_confidence": 0.95,
+      "score_status": "consensus",
+      "score_status_label": "Consensus",
+      "rank_evidence": "derived_score_order_visible_server_population",
+      "benchmark_observations": {
+        "gpqa": {
+          "benchmark_id": "gpqa",
+          "canonical_name": "GPQA",
+          "source_name": "GPQA",
+          "value": 89.9,
+          "raw_value": "89.9%",
+          "version": "source-reported",
+          "provenance": "Separate source observations; never averaged",
+          "source_url": "https://llm-stats.com/models/claude-sonnet-4-6"
+        },
+        "arc_agi_v2": {
+          "benchmark_id": "arc_agi_v2",
+          "canonical_name": "ARC-AGI v2",
+          "source_name": "ARC-AGI v2",
+          "value": 58.3,
+          "raw_value": "58.3%",
+          "version": "2",
+          "provenance": "Source observation",
+          "source_url": "https://llm-stats.com/models/claude-sonnet-4-6"
+        }
+      },
+      "source_updated_at": null
+    },
+    {
+      "category_rank": 27.0,
+      "category_score": 39.3,
+      "source_name": "Qwen3.5-397B-A17B",
+      "provider": "Qwen",
+      "source_model_id": "qwen3.5-397b-a17b",
+      "source_model_url": "https://llm-stats.com/models/qwen3.5-397b-a17b",
+      "family_id": "alibaba/qwen3-5-397b-a17b",
+      "matched_aa_family_id": "alibaba/qwen3-5-397b-a17b",
+      "match_status": "matched_family",
+      "match_confidence": 0.95,
+      "score_status": "consensus",
+      "score_status_label": "Consensus",
+      "rank_evidence": "derived_score_order_visible_server_population",
+      "benchmark_observations": {
+        "gpqa": {
+          "benchmark_id": "gpqa",
+          "canonical_name": "GPQA",
+          "source_name": "GPQA",
+          "value": 88.4,
+          "raw_value": "88.4%",
+          "version": "source-reported",
+          "provenance": "Separate source observations; never averaged",
+          "source_url": "https://llm-stats.com/models/qwen3.5-397b-a17b"
+        }
+      },
+      "source_updated_at": null
+    },
+    {
+      "category_rank": 28.0,
+      "category_score": 39.1,
+      "source_name": "Gemini 3 Pro",
+      "provider": "Google",
+      "source_model_id": "gemini-3-pro-preview",
+      "source_model_url": "https://llm-stats.com/models/gemini-3-pro-preview",
+      "family_id": "google/gemini-3-pro",
+      "matched_aa_family_id": null,
+      "match_status": "identity_unresolved",
+      "match_confidence": 0.8,
+      "score_status": "identity_review",
+      "score_status_label": "Identity review",
+      "rank_evidence": "derived_score_order_visible_server_population",
+      "benchmark_observations": {
+        "gpqa": {
+          "benchmark_id": "gpqa",
+          "canonical_name": "GPQA",
+          "source_name": "GPQA",
+          "value": 91.9,
+          "raw_value": "91.9%",
+          "version": "source-reported",
+          "provenance": "Separate source observations; never averaged",
+          "source_url": "https://llm-stats.com/models/gemini-3-pro-preview"
+        },
+        "arc_agi_v2": {
+          "benchmark_id": "arc_agi_v2",
+          "canonical_name": "ARC-AGI v2",
+          "source_name": "ARC-AGI v2",
+          "value": 31.1,
+          "raw_value": "31.1%",
+          "version": "2",
+          "provenance": "Source observation",
+          "source_url": "https://llm-stats.com/models/gemini-3-pro-preview"
+        }
+      },
+      "source_updated_at": null
+    },
+    {
+      "category_rank": 29.0,
+      "category_score": 38.5,
+      "source_name": "Gemini 3 Flash",
+      "provider": "Google",
+      "source_model_id": "gemini-3-flash-preview",
+      "source_model_url": "https://llm-stats.com/models/gemini-3-flash-preview",
+      "family_id": "google/gemini-3-flash",
+      "matched_aa_family_id": null,
+      "match_status": "ambiguous",
+      "match_confidence": 0.8,
+      "score_status": "identity_review",
+      "score_status_label": "Identity review",
+      "rank_evidence": "derived_score_order_visible_server_population",
+      "benchmark_observations": {
+        "gpqa": {
+          "benchmark_id": "gpqa",
+          "canonical_name": "GPQA",
+          "source_name": "GPQA",
+          "value": 90.4,
+          "raw_value": "90.4%",
+          "version": "source-reported",
+          "provenance": "Separate source observations; never averaged",
+          "source_url": "https://llm-stats.com/models/gemini-3-flash-preview"
+        },
+        "arc_agi_v2": {
+          "benchmark_id": "arc_agi_v2",
+          "canonical_name": "ARC-AGI v2",
+          "source_name": "ARC-AGI v2",
+          "value": 33.6,
+          "raw_value": "33.6%",
+          "version": "2",
+          "provenance": "Source observation",
+          "source_url": "https://llm-stats.com/models/gemini-3-flash-preview"
+        }
+      },
+      "source_updated_at": null
+    },
+    {
+      "category_rank": 30.0,
+      "category_score": 36.8,
+      "source_name": "GPT-5.1",
+      "provider": "OpenAI",
+      "source_model_id": "gpt-5.1-2025-11-13",
+      "source_model_url": "https://llm-stats.com/models/gpt-5.1-2025-11-13",
+      "family_id": "openai/gpt-5-1",
+      "matched_aa_family_id": null,
+      "match_status": "source_missing",
+      "match_confidence": 0.0,
+      "score_status": "llmstats_only",
+      "score_status_label": "LLMStats only",
+      "rank_evidence": "derived_score_order_visible_server_population",
+      "benchmark_observations": {
+        "gpqa": {
+          "benchmark_id": "gpqa",
+          "canonical_name": "GPQA",
+          "source_name": "GPQA",
+          "value": 88.1,
+          "raw_value": "88.1%",
+          "version": "source-reported",
+          "provenance": "Separate source observations; never averaged",
+          "source_url": "https://llm-stats.com/models/gpt-5.1-2025-11-13"
+        }
+      },
+      "source_updated_at": null
+    }
+  ],
+  "attribution": "Capability rankings and benchmark data from LLMStats."
+}

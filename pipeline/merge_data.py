@@ -134,16 +134,15 @@ def resolve_model_identity(
     """
     Resolve a scraped model name to its canonical identity.
 
-    PART 4 UPGRADE: Multi-stage fuzzy matching:
+    Conservative legacy registry matching:
     1. Exact normalized match
     2. Parenthetical removal
     3. Suffix stripping (preview, thinking, etc.)
-    4. Substring containment check
-    5. Fallback with logging
+    4. Fallback with logging
 
     Returns: (model_id, canonical_name, provider, aliases)
     If not found in registry, logs the unmatched name.
-    Never silently drops rows.
+    Never silently drops rows and never auto-publishes a fuzzy candidate.
     """
     registry, alias_map = _load_registry()
 
@@ -185,44 +184,8 @@ def resolve_model_identity(
             entry.get("aliases", []),
         )
 
-    # Stage 4: Fuzzy substring containment (longest match wins)
-    best_match = None
-    best_len = 0
-    for alias_norm, mid in alias_map.items():
-        # Check if the normalized name contains a known alias (or vice versa)
-        if len(alias_norm) >= 4:  # Avoid matching very short aliases
-            if alias_norm in normalized or normalized in alias_norm:
-                if len(alias_norm) > best_len:
-                    best_len = len(alias_norm)
-                    best_match = mid
-
-    if best_match:
-        entry = registry[best_match]
-        logger.debug(f"Fuzzy substring matched '{model_name}' → '{entry['canonical_name']}'")
-        return (
-            best_match,
-            entry["canonical_name"],
-            entry.get("provider"),
-            entry.get("aliases", []),
-        )
-
-    # Stage 5: Advanced string similarity (difflib)
-    import difflib
-    # Look for close matches against known normalized aliases
-    possible_matches = difflib.get_close_matches(normalized, alias_map.keys(), n=1, cutoff=0.85)
-    if possible_matches:
-        best_alias = possible_matches[0]
-        model_id = alias_map[best_alias]
-        entry = registry[model_id]
-        logger.debug(f"Difflib fuzzy matched '{model_name}' → '{entry['canonical_name']}'")
-        return (
-            model_id,
-            entry["canonical_name"],
-            entry.get("provider"),
-            entry.get("aliases", []),
-        )
-
-    # Stage 5: Fallback — log unmatched alias, never drop the row
+    # Stage 4: Fallback - log unmatched alias, never drop the row.
+    # Candidate generation for human review lives in pipeline.identity.
     _UNMATCHED_LOG.append(model_name.replace("\n", " ").strip())
     logger.info(f"Unmatched model alias: '{model_name.replace(chr(10), ' ').strip()}'")
     return None, model_name.replace("\n", " ").strip(), None, []
@@ -637,24 +600,26 @@ def merge_rows_with_provenance(
                             benchmark_breakdown[source][k] = v
 
         # ── Weighted mean aggregation for each numeric field ──
-        numeric_fields = [
-            "intelligence_score", "coding_score", "reasoning_score",
-            "multimodal_score", "arena_elo",
+        aggregatable_numeric_fields = [
             "input_cost_per_1m", "output_cost_per_1m", "blended_cost_per_1m",
             "latency_seconds", "latency_first_token",
             "latency_p5", "latency_p25", "latency_p75", "latency_p95",
             "total_response_time", "reasoning_time",
             "tokens_per_second", "speed_p5", "speed_p25", "speed_p75", "speed_p95",
+            "cache_read_cost_per_1m", "cache_write_cost_per_1m",
+        ]
+        source_native_numeric_fields = [
+            "intelligence_score", "coding_score", "aa_official_coding_index",
+            "reasoning_score", "multimodal_score", "arena_elo",
             "gdpval", "terminalbench_hard", "tau2", "lcr", "omniscience", 
             "omniscience_hallucination",
             "hle", "gpqa", "scicode", "ifbench", "aime25", "critpt", "mmmu_pro",
             "livecodebench", "omniscience_index", "terminalbench_v21",
             "tau3_banking", "apex_agents", "itbench",
-            "cache_read_cost_per_1m", "cache_write_cost_per_1m",
         ]
 
         aggregated = {}
-        for field in numeric_fields:
+        for field in aggregatable_numeric_fields:
             values = []
             weights = []
             for r in group:
@@ -667,6 +632,9 @@ def merge_rows_with_provenance(
 
             result = weighted_mean(values, weights)
             aggregated[field] = round(result, 4) if result is not None else None
+        for field in source_native_numeric_fields:
+            values = [r.get(field) for r in group if r.get(field) is not None]
+            aggregated[field] = values[0] if values else None
 
         # ── Non-numeric fields: take first non-None ──
         context_windows = [r.get("context_window") for r in group if r.get("context_window") is not None]

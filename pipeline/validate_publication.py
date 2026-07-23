@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import csv
 import sys
 from pathlib import Path
 
@@ -19,10 +20,21 @@ def _read(relative_path: str):
         return json.load(file)
 
 
+def _read_csv(relative_path: str):
+    with (ROOT / relative_path).open("r", encoding="utf-8", newline="") as file:
+        return list(csv.DictReader(file))
+
+
 def validate_publication() -> None:
     index = _read("data/index/latest.json")
     history = _read("data/history/family_growth.json")
     sentiment = _read("data/sentiment/latest.json")
+    families_contract = _read("data/families/latest.json")
+    quality = _read("data/quality/latest.json")
+    manifest = _read("data/methodology/publication_manifest.json")
+    match_audit = _read("data/identity/match_audit.json")
+    registry = _read("data/identity/model_registry.json")
+    families = families_contract.get("rows", [])
 
     if len(index) < 100:
         raise ValueError(f"Index unexpectedly small: {len(index)} rows")
@@ -37,6 +49,92 @@ def validate_publication() -> None:
     }
     if sources != {"Artificial Analysis"}:
         raise ValueError(f"Unexpected benchmark sources: {sorted(sources)}")
+
+    required_statuses = {
+        "consensus",
+        "aa_only",
+        "llmstats_only",
+        "identity_review",
+        "family_score_available",
+    }
+    invalid_statuses = {
+        row.get("score_status")
+        for row in index
+        if row.get("score_status") not in required_statuses
+    }
+    if invalid_statuses:
+        raise ValueError(f"Invalid score statuses: {sorted(invalid_statuses)}")
+    duplicate_family_ids = len({row.get("family_id") for row in families}) != len(
+        families
+    )
+    if duplicate_family_ids:
+        raise ValueError("Duplicate family IDs in family publication")
+    if set(registry) != {
+        row.get("family_id")
+        for row in families
+        if row.get("aa_representative_variant_id")
+    }:
+        raise ValueError("Identity registry does not match published AA families")
+    for row in index:
+        if row.get("llmdex_score") is not None and not row.get(
+            "is_family_representative"
+        ):
+            raise ValueError(
+                "A non-representative AA variant received a numeric family score: "
+                f"{row.get('canonical_name')}"
+            )
+        if row.get("score_status") in {"aa_only", "identity_review"} and row.get(
+            "llmdex_score"
+        ) is not None:
+            raise ValueError(
+                f"Single-source/review model has a fabricated score: {row.get('canonical_name')}"
+            )
+    duplicate_source_ids = [
+        source_id
+        for source_id in {
+            row.get("source_model_id") for row in match_audit if row.get("source_model_id")
+        }
+        if sum(row.get("source_model_id") == source_id for row in match_audit) > 1
+    ]
+    if duplicate_source_ids:
+        raise ValueError(f"Duplicate LLMStats source IDs: {duplicate_source_ids}")
+    for capability in (
+        "coding",
+        "math",
+        "reasoning",
+        "writing",
+        "research",
+        "long_context",
+        "tool_calling",
+    ):
+        contract = _read(f"data/capabilities/{capability}.json")
+        if contract.get("source") != "LLMStats":
+            raise ValueError(f"{capability} is not source-native LLMStats data")
+        capability_rows = contract.get("rows", [])
+        if not capability_rows:
+            raise ValueError(f"{capability} publication is empty")
+        for row in capability_rows:
+            if not row.get("source_name") or not row.get("source_model_url"):
+                raise ValueError(f"{capability} row lacks source identity")
+            if row.get("category_score") is None and row.get("category_rank") is None:
+                raise ValueError(f"{capability} contains an empty source row")
+    if not manifest.get("attribution", {}).get("general") or not manifest.get(
+        "attribution", {}
+    ).get("capabilities"):
+        raise ValueError("Publication attribution metadata is missing")
+    if quality.get("status") not in {"healthy", "degraded"}:
+        raise ValueError(f"Invalid quality status: {quality.get('status')}")
+    history_rows = _read_csv("data/history/family_snapshots.csv")
+    history_keys = [
+        (
+            row.get("snapshot_date"),
+            row.get("family_id"),
+            row.get("score_version"),
+        )
+        for row in history_rows
+    ]
+    if len(history_keys) != len(set(history_keys)):
+        raise ValueError("Historical family append is not idempotent")
 
     if any(
         "fable" in (row.get("canonical_name") or "").lower() for row in index
@@ -83,7 +181,8 @@ def validate_publication() -> None:
 
     print(
         f"Publication contract passed: {len(index)} models, "
-        f"{len(history)} families, {len(sentiment)} sentiment rows"
+        f"{len(families)} scored/source families, {len(history)} growth families, "
+        f"{len(sentiment)} sentiment rows"
     )
 
 

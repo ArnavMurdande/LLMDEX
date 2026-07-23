@@ -385,6 +385,13 @@ def score_dataset(df: pd.DataFrame) -> pd.DataFrame:
     logger.info(f"Scoring {len(df)} models...")
 
     # ── Sub-indices ──
+    # Publish the same transparent 60% input / 40% output blend used by the
+    # value and efficiency calculations. Keeping it as an explicit column
+    # prevents charts and exports from depending on a source-specific
+    # precomputed blend that may not exist.
+    df["blended_cost_per_1m"] = df.apply(
+        lambda row: compute_blended_cost(row.to_dict()), axis=1
+    )
     df["performance_index"] = df.apply(
         lambda row: compute_performance_index(row.to_dict()), axis=1
     )

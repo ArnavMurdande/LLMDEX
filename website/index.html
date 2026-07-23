@@ -24,7 +24,7 @@
         document.documentElement.dataset.theme = preferred;
       })();
     </script>
-    <link rel="stylesheet" href="styles.css?v=8" />
+    <link rel="stylesheet" href="styles.css?v=10" />
     <link rel="stylesheet" href="bento.css?v=3" />
     <link
       href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Space+Grotesk:wght@300;500;700&family=JetBrains+Mono:wght@400;500&display=swap"
@@ -58,7 +58,9 @@
         <a href="#dashboard" class="active">Dashboard</a>
         <a href="#leaderboards">Leaderboards</a>
         <a href="#history-section">Trends</a>
+        <a href="#comparison-section">Compare</a>
         <a href="#advisor-section">Advisor</a>
+        <a href="#data-section">Data</a>
         <a href="#methodology">Methodology</a>
         <button
           class="theme-toggle"
@@ -199,6 +201,26 @@
           <div class="value skeleton" id="total-models">—</div>
           <div class="sub" id="source-count">— validated source</div>
         </div>
+        <div class="metric-card glass" id="card-top-llmdex">
+          <h3><i class="fas fa-balance-scale"></i> Top LLMDEX Model</h3>
+          <div class="value skeleton" id="top-llmdex-model">—</div>
+          <div class="sub" id="top-llmdex-score">Consensus pending</div>
+        </div>
+        <div class="metric-card glass" id="card-open-sota">
+          <h3><i class="fas fa-lock-open"></i> Open SOTA</h3>
+          <div class="value skeleton" id="open-sota-model">—</div>
+          <div class="sub" id="open-sota-score">Consensus pending</div>
+        </div>
+        <div class="metric-card glass" id="card-matched-families">
+          <h3><i class="fas fa-link"></i> Matched Families</h3>
+          <div class="value skeleton" id="matched-families">—</div>
+          <div class="sub">Approved family matches</div>
+        </div>
+        <div class="metric-card glass" id="card-last-updated">
+          <h3><i class="fas fa-clock"></i> Last Updated</h3>
+          <div class="value skeleton" id="last-updated">—</div>
+          <div class="sub" id="last-updated-status">Source health loading</div>
+        </div>
       </div>
 
       <!-- Charts Area -->
@@ -251,7 +273,37 @@
     <section id="leaderboards" class="data-table-section">
       <div class="container">
         <div class="section-header">
-          <h2>Leaderboards</h2>
+          <div>
+            <span class="section-eyebrow">SOURCE-NATIVE + CONSENSUS</span>
+            <h2>Leaderboards</h2>
+            <p class="section-desc leaderboard-intro">
+              General keeps the Artificial Analysis order. Capability views use
+              LLMStats names, scores, and ranks as published.
+            </p>
+          </div>
+          <div class="leaderboard-health" id="leaderboard-health" role="status">
+            <span class="health-dot"></span>
+            <span>Loading source health</span>
+          </div>
+        </div>
+
+        <div
+          class="capability-pills"
+          id="capability-pills"
+          role="tablist"
+          aria-label="Leaderboard capability"
+        >
+          <button class="capability-pill active" role="tab" aria-selected="true" data-capability="general">General</button>
+          <button class="capability-pill" role="tab" aria-selected="false" data-capability="coding">Coding</button>
+          <button class="capability-pill" role="tab" aria-selected="false" data-capability="math">Math</button>
+          <button class="capability-pill" role="tab" aria-selected="false" data-capability="reasoning">Reasoning</button>
+          <button class="capability-pill" role="tab" aria-selected="false" data-capability="writing">Writing</button>
+          <button class="capability-pill" role="tab" aria-selected="false" data-capability="research">Research</button>
+          <button class="capability-pill" role="tab" aria-selected="false" data-capability="long_context">Long Context</button>
+          <button class="capability-pill" role="tab" aria-selected="false" data-capability="tool_calling">Tool Calling</button>
+        </div>
+
+        <div class="general-leaderboard-tabs" id="general-leaderboard-tabs">
           <div class="leaderboard-tabs">
             <button
               class="tab-btn active"
@@ -300,11 +352,30 @@
               <option value="Alibaba">Alibaba</option>
               <option value="Zhipu AI">Zhipu AI</option>
               <option value="xAI">xAI</option>
-              <option value="Moonshot">Moonshot</option>
+              <option value="Moonshot AI">Moonshot AI</option>
               <option value="MiniMax">MiniMax</option>
               <option value="Other">Other</option>
             </select>
+            <select id="availability-filter" aria-label="Filter by availability">
+              <option value="All">All Availability</option>
+              <option value="open_source">Open Source</option>
+              <option value="open_weights">Open Weights</option>
+              <option value="research_license">Research License</option>
+              <option value="proprietary">Proprietary</option>
+              <option value="unknown">Unknown</option>
+            </select>
+            <select id="status-filter" aria-label="Filter by score status">
+              <option value="All">All Statuses</option>
+              <option value="consensus">Consensus</option>
+              <option value="aa_only">AA only</option>
+              <option value="llmstats_only">LLMStats only</option>
+              <option value="identity_review">Identity review</option>
+              <option value="family_score_available">Family score available</option>
+            </select>
           </div>
+          <button class="btn secondary reset-filters-btn" id="reset-filters-btn" type="button">
+            <i class="fas fa-undo" aria-hidden="true"></i> Reset
+          </button>
           <button class="btn compare-btn" id="compare-btn" disabled>
             <i class="fas fa-columns" aria-hidden="true"></i>
             <span class="compare-btn-label">Compare</span>
@@ -328,7 +399,7 @@
           />
         </div>
         <div class="table-wrapper glass" id="table-wrapper">
-          <table id="models-table">
+          <table id="models-table" aria-label="LLMDEX model leaderboard">
             <thead>
               <tr id="table-header-row">
                 <!-- Populated dynamically per tab -->
@@ -339,6 +410,10 @@
             </tbody>
           </table>
         </div>
+        <p class="leaderboard-attribution" id="leaderboard-attribution">
+          General intelligence, pricing and API performance data from
+          <a href="https://artificialanalysis.ai/leaderboards/models" target="_blank" rel="noopener">Artificial Analysis</a>.
+        </p>
       </div>
     </section>
 
@@ -396,6 +471,27 @@
       </div>
     </div>
 
+    <aside
+      id="model-drawer"
+      class="model-drawer"
+      aria-hidden="true"
+      aria-labelledby="model-drawer-title"
+    >
+      <div class="model-drawer-backdrop" data-close-drawer></div>
+      <div class="model-drawer-panel" role="dialog" aria-modal="true">
+        <div class="model-drawer-header">
+          <div>
+            <span class="section-eyebrow">MODEL EVIDENCE</span>
+            <h2 id="model-drawer-title">Model details</h2>
+          </div>
+          <button class="drawer-close" type="button" data-close-drawer aria-label="Close model details">
+            <i class="fas fa-times" aria-hidden="true"></i>
+          </button>
+        </div>
+        <div class="model-drawer-body" id="model-drawer-body"></div>
+      </div>
+    </aside>
+
     <!-- ═══════════════════════════════════════════ -->
     <!-- MODEL FAMILY GROWTH EXPLORER (Part 8)      -->
     <!-- ═══════════════════════════════════════════ -->
@@ -410,6 +506,20 @@
           Follow each company’s model releases chronologically and see how
           intelligence scores changed from one generation to the next.
         </p>
+        <div class="consensus-trend-card glass">
+          <div class="consensus-trend-header">
+            <div>
+              <span class="section-eyebrow">APPEND-ONLY HISTORY</span>
+              <h3>Family score and source agreement</h3>
+            </div>
+            <select id="consensus-family-selector" aria-label="Choose a family for consensus history">
+              <option value="">Select a scored family...</option>
+            </select>
+          </div>
+          <div id="consensus-trend-chart" class="consensus-trend-chart">
+            <p class="chart-empty-state">Choose a family to inspect its LLMDEX score, source ranks, price, speed, and agreement over time.</p>
+          </div>
+        </div>
         <div class="history-controls">
           <div class="family-selector-wrapper">
             <i class="fas fa-sitemap family-selector-icon"></i>
@@ -669,6 +779,49 @@
     <!-- ═══════════════════════════════════════════ -->
     <!-- METHODOLOGY SECTION                        -->
     <!-- ═══════════════════════════════════════════ -->
+    <section id="data-section" class="data-section">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <span class="section-eyebrow">PUBLIC CONTRACTS</span>
+            <h2>Data &amp; Quality</h2>
+          </div>
+          <span class="quality-status-pill" id="quality-status-pill">Loading</span>
+        </div>
+        <p class="section-desc">
+          Download the same processed datasets used by this dashboard and Power
+          BI. Source failures are visible and never replaced with fabricated rows.
+        </p>
+        <div id="stale-data-banner" class="stale-data-banner" hidden></div>
+        <div class="quality-grid" id="quality-grid">
+          <div class="quality-card glass"><span>Artificial Analysis</span><strong>Loading</strong></div>
+          <div class="quality-card glass"><span>LLMStats</span><strong>Loading</strong></div>
+          <div class="quality-card glass"><span>Matched families</span><strong>—</strong></div>
+          <div class="quality-card glass"><span>Identity review</span><strong>—</strong></div>
+        </div>
+        <div class="data-download-grid">
+          <a class="data-download-card glass" href="../data/index/latest.csv" download>
+            <i class="fas fa-table"></i><div><strong>Latest models CSV</strong><span>Power BI-ready General index</span></div>
+          </a>
+          <a class="data-download-card glass" href="../data/index/latest.json" download>
+            <i class="fas fa-code"></i><div><strong>Latest models JSON</strong><span>Full source and score contract</span></div>
+          </a>
+          <a class="data-download-card glass" href="../data/history/score_history.csv" download>
+            <i class="fas fa-chart-line"></i><div><strong>Historical scores</strong><span>Append-only family snapshots</span></div>
+          </a>
+          <a class="data-download-card glass" href="../data/identity/match_audit.csv" download>
+            <i class="fas fa-link"></i><div><strong>Identity mapping</strong><span>Auditable match decisions</span></div>
+          </a>
+          <a class="data-download-card glass" href="./docs/DATA_DICTIONARY.md">
+            <i class="fas fa-book"></i><div><strong>Data dictionary</strong><span>Fields, nulls, and provenance</span></div>
+          </a>
+          <a class="data-download-card glass" href="#methodology">
+            <i class="fas fa-flask"></i><div><strong>Methodology</strong><span>Scoring and source ownership</span></div>
+          </a>
+        </div>
+      </div>
+    </section>
+
     <section id="methodology" class="methodology-section">
       <div class="container">
         <h2>Methodology</h2>
@@ -682,9 +835,9 @@
           <div class="method-card glass">
             <h3><i class="fas fa-database"></i> Data Sources</h3>
             <p>
-              Artificial Analysis is the single source of truth. The scraper
-              activates its expanded table, captures every current model and
-              visible field, and health-checks every snapshot before publication.
+              Artificial Analysis powers General, price, and API performance.
+              LLMStats powers source-native capability views. LLMDEX preserves
+              both observations separately and links them only at family level.
             </p>
           </div>
           <div class="method-card glass">
@@ -693,6 +846,22 @@
               The Artificial Analysis Intelligence Index is used unchanged.
               Expanded-field completeness is displayed separately and never
               demotes a new model. Cost and speed do not affect this ranking.
+            </p>
+          </div>
+          <div class="method-card glass">
+            <h3><i class="fas fa-balance-scale"></i> LLMDEX Consensus</h3>
+            <p>
+              The family score is 50% AA matched-universe percentile and 50%
+              LLMStats General percentile. Raw source scores are never averaged;
+              missing or unresolved families remain unscored.
+            </p>
+          </div>
+          <div class="method-card glass">
+            <h3><i class="fas fa-link"></i> Identity Matching</h3>
+            <p>
+              Exact IDs, URLs, approved aliases, then provider + family + version
+              are eligible. Fuzzy matches are review candidates only and cannot
+              receive a consensus score.
             </p>
           </div>
           <div class="method-card glass">
@@ -740,6 +909,6 @@
     </footer>
 
     <script src="bento.js?v=1"></script>
-    <script src="app.js?v=19"></script>
+    <script src="app.js?v=20"></script>
   </body>
 </html>

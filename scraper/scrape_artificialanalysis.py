@@ -80,6 +80,66 @@ def _mean_available(*values: Optional[float]) -> Optional[float]:
     return round(sum(available) / len(available), 2) if available else None
 
 
+def _classify_availability(license_type: Optional[str]) -> Dict[str, Any]:
+    """Conservatively classify availability from the published license."""
+    text = (license_type or "").strip().casefold()
+    if not text or text in {"--", "n/a", "unknown"}:
+        return {
+            "availability_class": "unknown",
+            "weights_available": None,
+            "source_code_available": None,
+            "training_data_disclosed": None,
+            "commercial_use_allowed": None,
+            "open_source": None,
+        }
+    if "proprietary" in text or "closed" in text:
+        return {
+            "availability_class": "proprietary",
+            "weights_available": False,
+            "source_code_available": False,
+            "training_data_disclosed": None,
+            "commercial_use_allowed": None,
+            "open_source": False,
+        }
+    if "research" in text or "non-commercial" in text or "noncommercial" in text:
+        return {
+            "availability_class": "research_license",
+            "weights_available": True,
+            "source_code_available": None,
+            "training_data_disclosed": None,
+            "commercial_use_allowed": False,
+            "open_source": False,
+        }
+    if "open source" in text:
+        return {
+            "availability_class": "open_source",
+            "weights_available": True,
+            "source_code_available": True,
+            "training_data_disclosed": None,
+            "commercial_use_allowed": None,
+            "open_source": True,
+        }
+    if any(token in text for token in ("apache", "mit", "open weight", "community")):
+        return {
+            "availability_class": "open_weights",
+            "weights_available": True,
+            "source_code_available": None,
+            "training_data_disclosed": None,
+            "commercial_use_allowed": (
+                True if "apache" in text or "mit" in text else None
+            ),
+            "open_source": False,
+        }
+    return {
+        "availability_class": "unknown",
+        "weights_available": None,
+        "source_code_available": None,
+        "training_data_disclosed": None,
+        "commercial_use_allowed": None,
+        "open_source": None,
+    }
+
+
 def _expand_columns(driver) -> None:
     from selenium.common.exceptions import TimeoutException
     from selenium.webdriver.common.by import By
@@ -277,19 +337,13 @@ def _model_to_scraped_row(model: Dict[str, Any]) -> Optional[ScrapedRow]:
     coding_score = _mean_available(
         terminal_hard, terminal_v21, scicode, itbench
     )
+    official_coding_index = _mean_available(terminal_v21, scicode)
     filled = sum(value is not None for value in typed_values.values())
     confidence = round(min(1.0, 0.65 + filled * 0.0125), 3)
 
     license_type = _field(details, "License")
     creator = _field(details, "Creator")
-    license_lower = (license_type or "").casefold()
-    open_source = (
-        False
-        if "proprietary" in license_lower
-        else True
-        if license_type and license_type != "--"
-        else None
-    )
+    availability = _classify_availability(license_type)
 
     return ScrapedRow(
         model_name=name,
@@ -300,13 +354,14 @@ def _model_to_scraped_row(model: Dict[str, Any]) -> Optional[ScrapedRow]:
         providers_url=model.get("providers_url"),
         source_details=details,
         coding_score=coding_score,
+        aa_official_coding_index=official_coding_index,
         context_window=_parse_context_window(
             _field(details, "Context Window") or ""
         ),
         creator=creator,
         provider=creator,
         license_type=license_type,
-        open_source=open_source,
+        **availability,
         confidence=confidence,
         **typed_values,
     )

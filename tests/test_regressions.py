@@ -22,7 +22,7 @@ from pipeline.build_family_history import (
     extract_release_date,
     infer_release_date,
 )
-from pipeline.gemini_advisor import _extract_compact_snapshot
+from pipeline.gemini_advisor import _extract_compact_snapshot, _load_dataset
 from pipeline.merge_data import merge_rows_with_provenance
 from scraper.scrape_artificialanalysis import _model_to_scraped_row, _number
 
@@ -208,6 +208,21 @@ class FamilyGrowthRegressionTests(unittest.TestCase):
 
 
 class RankingRegressionTests(unittest.TestCase):
+    def test_blended_cost_is_published_from_input_and_output_prices(self):
+        scored = score_dataset(
+            pd.DataFrame(
+                [
+                    {
+                        "model_name": "Priced Model",
+                        "intelligence_score": 50,
+                        "input_cost_per_1m": 2,
+                        "output_cost_per_1m": 8,
+                    }
+                ]
+            )
+        )
+        self.assertAlmostEqual(scored.iloc[0]["blended_cost_per_1m"], 4.4)
+
     def test_stronger_tier_two_model_can_outrank_weaker_tier_one_model(self):
         rows = pd.DataFrame(
             [
@@ -335,6 +350,32 @@ class ArtificialAnalysisScraperRegressionTests(unittest.TestCase):
 
 
 class AdvisorRegressionTests(unittest.TestCase):
+    def test_family_contract_is_loaded_and_consensus_fields_reach_context(self):
+        with tempfile.TemporaryDirectory() as temp_dir:
+            path = Path(temp_dir) / "families.json"
+            path.write_text(
+                json.dumps(
+                    {
+                        "rows": [
+                            {
+                                "canonical_family_name": "Consensus Leader",
+                                "provider": "Example",
+                                "llmdex_rank": 1,
+                                "llmdex_score": 100,
+                                "score_status": "consensus",
+                            }
+                        ]
+                    }
+                ),
+                encoding="utf-8",
+            )
+            rows = _load_dataset(str(path))
+
+        snapshot = _extract_compact_snapshot(rows)
+        self.assertEqual(snapshot[0]["model_name"], "Consensus Leader")
+        self.assertEqual(snapshot[0]["llmdex_score"], 100.0)
+        self.assertEqual(snapshot[0]["score_status"], "consensus")
+
     def test_query_match_outside_top_models_is_included_in_context(self):
         rows = [
             {

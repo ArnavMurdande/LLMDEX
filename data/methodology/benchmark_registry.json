@@ -1,0 +1,236 @@
+{
+  "registry_version": "2026-07-23",
+  "benchmarks": {
+    "aa_intelligence_index_v4_1": {
+      "canonical_name": "Artificial Analysis Intelligence Index v4.1",
+      "source_names": {"artificial_analysis": ["Artificial Analysis Intelligence Index"]},
+      "version": "4.1",
+      "capability_family": "general",
+      "higher_is_better": true,
+      "unit": "index points",
+      "scale": null,
+      "provenance": "Official benchmark index",
+      "source_url": "https://artificialanalysis.ai/methodology/intelligence-benchmarking"
+    },
+    "aa_coding_index": {
+      "canonical_name": "Artificial Analysis Coding Index",
+      "source_names": {"artificial_analysis": ["Artificial Analysis Coding Index"]},
+      "version": "current",
+      "capability_family": "coding",
+      "higher_is_better": true,
+      "unit": "index points",
+      "scale": [0, 100],
+      "provenance": "Official benchmark index",
+      "source_url": "https://artificialanalysis.ai/methodology/capability-indices"
+    },
+    "terminal_bench_hard": {
+      "canonical_name": "Terminal-Bench Hard",
+      "source_names": {"artificial_analysis": ["Terminal-Bench Hard Agentic Coding & Terminal Use"]},
+      "version": "Hard",
+      "capability_family": "terminal_agentic_coding",
+      "higher_is_better": true,
+      "unit": "percent",
+      "scale": [0, 100],
+      "provenance": "Official benchmark leaderboard",
+      "source_url": "https://artificialanalysis.ai/leaderboards/models"
+    },
+    "terminal_bench_2_1": {
+      "canonical_name": "Terminal-Bench 2.1",
+      "source_names": {"artificial_analysis": ["Terminal-Bench v2.1 Agentic Coding & Terminal Use"]},
+      "version": "2.1",
+      "capability_family": "terminal_agentic_coding",
+      "higher_is_better": true,
+      "unit": "percent",
+      "scale": [0, 100],
+      "provenance": "Official benchmark leaderboard",
+      "source_url": "https://artificialanalysis.ai/leaderboards/models"
+    },
+    "llmstats_score_v3": {
+      "canonical_name": "LLM Stats Score v3",
+      "source_names": {"llmstats": ["LLM Stats"]},
+      "version": "3.0",
+      "capability_family": "general",
+      "higher_is_better": true,
+      "unit": "TrueSkill conservative rating",
+      "scale": null,
+      "provenance": "Source-native composite",
+      "source_url": "https://llm-stats.com/methodology/llm-stats-score"
+    },
+    "llmstats_coding": {
+      "canonical_name": "LLMStats Coding Index",
+      "source_names": {"llmstats": ["Coding"]},
+      "version": "current",
+      "capability_family": "coding",
+      "higher_is_better": true,
+      "unit": "index points",
+      "scale": null,
+      "provenance": "Source-native category index",
+      "source_url": "https://llm-stats.com/leaderboards/best-ai-for-coding"
+    },
+    "llmstats_math": {
+      "canonical_name": "LLMStats Math Index",
+      "source_names": {"llmstats": ["Math"]},
+      "version": "current",
+      "capability_family": "math",
+      "higher_is_better": true,
+      "unit": "index points",
+      "scale": null,
+      "provenance": "Source-native category index",
+      "source_url": "https://llm-stats.com/leaderboards/best-ai-for-math"
+    },
+    "llmstats_reasoning": {
+      "canonical_name": "LLMStats Reasoning Index",
+      "source_names": {"llmstats": ["Reasoning"]},
+      "version": "current",
+      "capability_family": "reasoning",
+      "higher_is_better": true,
+      "unit": "index points",
+      "scale": null,
+      "provenance": "Source-native category index",
+      "source_url": "https://llm-stats.com/leaderboards/best-ai-for-reasoning"
+    },
+    "llmstats_writing": {
+      "canonical_name": "LLMStats Writing Index",
+      "source_names": {"llmstats": ["Writing"]},
+      "version": "current",
+      "capability_family": "writing",
+      "higher_is_better": true,
+      "unit": "index points",
+      "scale": null,
+      "provenance": "Source-native category index",
+      "source_url": "https://llm-stats.com/leaderboards/best-ai-for-writing"
+    },
+    "llmstats_research": {
+      "canonical_name": "LLMStats Research Index",
+      "source_names": {"llmstats": ["Search"]},
+      "version": "current",
+      "capability_family": "research",
+      "higher_is_better": true,
+      "unit": "index points",
+      "scale": null,
+      "provenance": "Source-native category index",
+      "source_url": "https://llm-stats.com/leaderboards/best-ai-for-research"
+    },
+    "llmstats_long_context": {
+      "canonical_name": "LLMStats Long Context Index",
+      "source_names": {"llmstats": ["Long Ctx"]},
+      "version": "current",
+      "capability_family": "long_context",
+      "higher_is_better": true,
+      "unit": "index points",
+      "scale": null,
+      "provenance": "Source-native category index",
+      "source_url": "https://llm-stats.com/leaderboards/best-ai-for-long-context"
+    },
+    "llmstats_tool_calling": {
+      "canonical_name": "LLMStats Tool Calling Index",
+      "source_names": {"llmstats": ["Tools"]},
+      "version": "current",
+      "capability_family": "tool_calling",
+      "higher_is_better": true,
+      "unit": "index points",
+      "scale": null,
+      "provenance": "Source-native category index",
+      "source_url": "https://llm-stats.com/leaderboards/best-ai-for-tool-calling"
+    },
+    "gpqa": {
+      "canonical_name": "GPQA",
+      "source_names": {"artificial_analysis": ["GPQA Diamond"], "llmstats": ["GPQA"]},
+      "version": "source-reported",
+      "capability_family": "scientific_reasoning",
+      "higher_is_better": true,
+      "unit": "score",
+      "scale": null,
+      "provenance": "Separate source observations; never averaged",
+      "source_url": "https://llm-stats.com/leaderboards/llm-leaderboard"
+    },
+    "aime_2025": {
+      "canonical_name": "AIME 2025",
+      "source_names": {"artificial_analysis": ["AIME 2025"], "llmstats": ["AIME 2025"]},
+      "version": "2025",
+      "capability_family": "math",
+      "higher_is_better": true,
+      "unit": "score",
+      "scale": null,
+      "provenance": "Separate source observations; never averaged",
+      "source_url": "https://llm-stats.com/leaderboards/llm-leaderboard"
+    },
+    "scicode": {
+      "canonical_name": "SciCode",
+      "source_names": {"artificial_analysis": ["SciCode Coding"], "llmstats": ["SciCode"]},
+      "version": "source-reported",
+      "capability_family": "coding",
+      "higher_is_better": true,
+      "unit": "score",
+      "scale": null,
+      "provenance": "Separate source observations; never averaged",
+      "source_url": "https://llm-stats.com/leaderboards/best-ai-for-coding"
+    },
+    "swe_bench_verified": {
+      "canonical_name": "SWE-bench Verified",
+      "source_names": {"llmstats": ["SWE-bench Verified"]},
+      "version": "Verified",
+      "capability_family": "software_engineering",
+      "higher_is_better": true,
+      "unit": "score",
+      "scale": null,
+      "provenance": "Source observation",
+      "source_url": "https://llm-stats.com/leaderboards/best-ai-for-coding"
+    },
+    "terminal_bench_llmstats": {
+      "canonical_name": "Terminal Bench (LLMStats label)",
+      "source_names": {"llmstats": ["Terminal Bench"]},
+      "version": "unspecified",
+      "capability_family": "terminal_agentic_coding",
+      "higher_is_better": true,
+      "unit": "score",
+      "scale": null,
+      "provenance": "Source observation; not deduplicated with AA versions",
+      "source_url": "https://llm-stats.com/leaderboards/best-ai-for-coding"
+    },
+    "arc_agi_v2": {
+      "canonical_name": "ARC-AGI v2",
+      "source_names": {"llmstats": ["ARC-AGI v2"]},
+      "version": "2",
+      "capability_family": "reasoning",
+      "higher_is_better": true,
+      "unit": "score",
+      "scale": null,
+      "provenance": "Source observation",
+      "source_url": "https://llm-stats.com/leaderboards/best-ai-for-reasoning"
+    },
+    "browsecomp": {
+      "canonical_name": "BrowseComp",
+      "source_names": {"llmstats": ["BrowseComp"]},
+      "version": "source-reported",
+      "capability_family": "research",
+      "higher_is_better": true,
+      "unit": "score",
+      "scale": null,
+      "provenance": "Source observation",
+      "source_url": "https://llm-stats.com/leaderboards/best-ai-for-research"
+    },
+    "mrcr_v2": {
+      "canonical_name": "MRCR v2",
+      "source_names": {"llmstats": ["MRCR v2"]},
+      "version": "2",
+      "capability_family": "long_context",
+      "higher_is_better": true,
+      "unit": "score",
+      "scale": null,
+      "provenance": "Source observation",
+      "source_url": "https://llm-stats.com/leaderboards/best-ai-for-long-context"
+    },
+    "mcp_atlas": {
+      "canonical_name": "MCP Atlas",
+      "source_names": {"llmstats": ["MCP Atlas"]},
+      "version": "source-reported",
+      "capability_family": "tool_calling",
+      "higher_is_better": true,
+      "unit": "score",
+      "scale": null,
+      "provenance": "Source observation",
+      "source_url": "https://llm-stats.com/leaderboards/best-ai-for-tool-calling"
+    }
+  }
+}

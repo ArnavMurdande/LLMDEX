@@ -28,6 +28,7 @@ except ImportError:
     pass
 
 import gzip
+import csv
 import json
 import logging
 import mimetypes
@@ -36,7 +37,7 @@ import sys
 import threading
 from http.server import ThreadingHTTPServer, SimpleHTTPRequestHandler
 from pathlib import Path
-from urllib.parse import urlparse, parse_qs
+from urllib.parse import urlparse, parse_qs, unquote
 
 # Add project root to path
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -86,12 +87,198 @@ class LLMDEXHandler(SimpleHTTPRequestHandler):
 
         if parsed.path == "/api/health":
             self._handle_health()
+        elif parsed.path == "/api/leaderboards/general":
+            self._handle_general_leaderboard(parse_qs(parsed.query))
+        elif parsed.path.startswith("/api/leaderboards/capabilities/"):
+            capability = parsed.path.rsplit("/", 1)[-1]
+            self._handle_capability_leaderboard(capability)
+        elif parsed.path == "/api/data-quality":
+            self._serve_json_contract(DATA_DIR / "quality" / "latest.json")
+        elif parsed.path == "/api/methodology":
+            self._handle_methodology()
+        elif parsed.path.startswith("/api/models/"):
+            self._handle_model_route(parsed.path)
         elif parsed.path.startswith("/data/"):
             # Serve data files from the project root
             self._serve_data_file(parsed.path)
         else:
             # Serve static files from website/
             super().do_GET()
+
+    @staticmethod
+    def _read_json(path: Path, default=None):
+        try:
+            return json.loads(path.read_text(encoding="utf-8"))
+        except (FileNotFoundError, json.JSONDecodeError, OSError):
+            return default
+
+    def _publication_metadata(self):
+        manifest = self._read_json(
+            DATA_DIR / "methodology" / "publication_manifest.json", {}
+        )
+        return {
+            "generated_at": manifest.get("generated_at"),
+            "methodology_version": manifest.get("methodology_version"),
+            "source_updated_at": manifest.get("source_updated_at", {}),
+            "source_health": manifest.get("source_health", {}),
+        }
+
+    def _serve_json_contract(self, path: Path):
+        payload = self._read_json(path)
+        if payload is None:
+            self._json_response({"error": "Contract unavailable"}, 404)
+            return
+        if isinstance(payload, dict):
+            payload = {**self._publication_metadata(), **payload}
+        self._json_response(payload)
+
+    def _handle_general_leaderboard(self, query):
+        rows = self._read_json(DATA_DIR / "index" / "latest.json", [])
+        if not isinstance(rows, list):
+            self._json_response({"error": "General leaderboard unavailable"}, 503)
+            return
+        sort_mode = (query.get("sort") or ["aa"])[0].casefold()
+        if sort_mode == "llmdex":
+            rows = sorted(
+                rows,
+                key=lambda row: (
+                    row.get("llmdex_score") is None,
+                    -(row.get("llmdex_score") or 0),
+                    row.get("performance_rank") or 10**9,
+                    str(row.get("canonical_name") or "").casefold(),
+                ),
+            )
+        else:
+            rows = sorted(
+                rows,
+                key=lambda row: (
+                    row.get("performance_rank") or 10**9,
+                    str(row.get("canonical_name") or "").casefold(),
+                ),
+            )
+        self._json_response(
+            {
+                **self._publication_metadata(),
+                "source": "Artificial Analysis",
+                "sort": sort_mode,
+                "unranked_consensus_count": sum(
+                    row.get("llmdex_score") is None for row in rows
+                ),
+                "rows": rows,
+                "attribution": (
+                    "General intelligence, pricing and API performance data "
+                    "from Artificial Analysis."
+                ),
+            }
+        )
+
+    def _handle_capability_leaderboard(self, capability):
+        allowed = {
+            "coding",
+            "math",
+            "reasoning",
+            "writing",
+            "research",
+            "long_context",
+            "tool_calling",
+        }
+        if capability not in allowed:
+            self._json_response({"error": "Unknown capability"}, 404)
+            return
+        self._serve_json_contract(
+            DATA_DIR / "capabilities" / f"{capability}.json"
+        )
+
+    def _handle_model_route(self, path):
+        suffix = unquote(path.removeprefix("/api/models/")).strip("/")
+        wants_history = suffix.endswith("/history")
+        family_id = (
+            suffix[: -len("/history")].strip("/") if wants_history else suffix
+        )
+        if not family_id:
+            self._json_response({"error": "Family ID required"}, 400)
+            return
+        if wants_history:
+            history_path = DATA_DIR / "history" / "family_snapshots.csv"
+            rows = []
+            if history_path.exists():
+                with history_path.open(
+                    "r", encoding="utf-8", newline=""
+                ) as handle:
+                    rows = [
+                        row
+                        for row in csv.DictReader(handle)
+                        if row.get("family_id") == family_id
+                    ]
+            self._json_response(
+                {
+                    **self._publication_metadata(),
+                    "family_id": family_id,
+                    "rows": rows,
+                }
+            )
+            return
+
+        families_contract = self._read_json(
+            DATA_DIR / "families" / "latest.json", {}
+        )
+        family = next(
+            (
+                row
+                for row in families_contract.get("rows", [])
+                if row.get("family_id") == family_id
+            ),
+            None,
+        )
+        if not family:
+            self._json_response({"error": "Model family not found"}, 404)
+            return
+        aa_rows = self._read_json(DATA_DIR / "index" / "latest.json", [])
+        llmstats_contract = self._read_json(
+            DATA_DIR / "cleaned" / "llmstats" / "latest.json", {}
+        )
+        llmstats_rows = (
+            llmstats_contract.get("rows", [])
+            if isinstance(llmstats_contract, dict)
+            else llmstats_contract
+        )
+        self._json_response(
+            {
+                **self._publication_metadata(),
+                "family": family,
+                "artificial_analysis_variants": [
+                    row for row in aa_rows if row.get("family_id") == family_id
+                ],
+                "llmstats_observations": [
+                    row
+                    for row in llmstats_rows
+                    if row.get("family_id") == family_id
+                    or row.get("matched_aa_family_id") == family_id
+                ],
+                "match_explanation": (
+                    "LLMStats publishes a family-level result using its own "
+                    "naming. LLMDEX links it to the corresponding Artificial "
+                    "Analysis family; this does not prove LLMStats tested the "
+                    "highlighted AA reasoning or deployment profile."
+                ),
+            }
+        )
+
+    def _handle_methodology(self):
+        self._json_response(
+            {
+                **self._publication_metadata(),
+                "sources": self._read_json(
+                    DATA_DIR / "methodology" / "source_config.json", {}
+                ),
+                "scores": self._read_json(
+                    DATA_DIR / "methodology" / "score_versions.json", {}
+                ),
+                "benchmarks": self._read_json(
+                    DATA_DIR / "methodology" / "benchmark_registry.json", {}
+                ),
+            }
+        )
 
     def _handle_advisor(self):
         """Handle POST /api/advisor — Gemini-powered advisor."""

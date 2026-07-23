@@ -37,6 +37,7 @@ from scraper.contracts import ScrapeResult
 from scraper import scrape_artificialanalysis
 from pipeline.validator import validate_dataset
 from pipeline.merge_data import process_and_save
+from pipeline.multisource import publish_multisource
 
 
 # Minimum number of healthy scrapers required to proceed
@@ -171,6 +172,33 @@ def run_pipeline() -> bool:
             [validation_report.to_dict()],
             False,
             "Processing failed",
+            snapshot_date,
+        )
+        return False
+
+    # Stage 6: keep source-native observations separate, resolve family
+    # identities, publish capability views, and calculate the family consensus.
+    log.info("Stage 6: MULTI-SOURCE IDENTITY → CONSENSUS → PUBLICATION")
+    try:
+        multisource_result = publish_multisource()
+        llmstats_health = multisource_result["source_health"]["llmstats"]
+        health_reports.append(llmstats_health)
+        log.info(
+            "  ✓ LLMStats: "
+            f"{multisource_result['llmstats_rows']} rows "
+            f"(status={llmstats_health.get('status')})"
+        )
+        log.info(
+            "  ✓ Consensus publication: "
+            f"{multisource_result['families']} families"
+        )
+    except Exception as error:
+        log.exception("PIPELINE ABORT: Multi-source publication failed")
+        _write_summary(
+            health_reports,
+            [validation_report.to_dict()],
+            False,
+            f"Multi-source publication failed: {error}",
             snapshot_date,
         )
         return False

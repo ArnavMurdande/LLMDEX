@@ -43,6 +43,10 @@ class ScrapedRow:
     # --- Benchmark scores (all optional) ---
     intelligence_score: Optional[float] = None
     coding_score: Optional[float] = None
+    # The legacy field above is retained for migration compatibility. New
+    # publications expose it as aa_coding_proxy_legacy and never treat it as
+    # the official AA Coding Index.
+    aa_official_coding_index: Optional[float] = None
     reasoning_score: Optional[float] = None
     multimodal_score: Optional[float] = None
     arena_elo: Optional[float] = None
@@ -100,12 +104,19 @@ class ScrapedRow:
     creator: Optional[str] = None
     open_source: Optional[bool] = None
     license_type: Optional[str] = None
+    license_url: Optional[str] = None
+    availability_class: Optional[str] = None
+    weights_available: Optional[bool] = None
+    source_code_available: Optional[bool] = None
+    training_data_disclosed: Optional[bool] = None
+    commercial_use_allowed: Optional[bool] = None
 
     # --- Arena-specific ---
     arena_votes: Optional[int] = None
 
     # --- Artificial Analysis provenance ---
     source_rank: Optional[int] = None
+    source_model_id: Optional[str] = None
     model_url: Optional[str] = None
     providers_url: Optional[str] = None
     source_details: Dict[str, Any] = field(default_factory=dict)
@@ -127,7 +138,8 @@ class ScraperHealthReport:
     Every scraper run MUST produce one of these.
 
     The pipeline uses it to decide whether to trust the output.
-    If status != "healthy" the pipeline MUST NOT use the rows.
+    Degraded sources may use an explicitly identified last-known-good
+    snapshot. A failed or empty live result must never replace healthy data.
     """
 
     source: str
@@ -140,6 +152,9 @@ class ScraperHealthReport:
         default_factory=lambda: datetime.now(timezone.utc).isoformat()
     )
     parse_warning_count: int = 0
+    warnings: List[str] = field(default_factory=list)
+    last_successful_update: Optional[str] = None
+    schema_changes: List[str] = field(default_factory=list)
 
     def is_healthy(self) -> bool:
         return self.status == "healthy"
@@ -173,3 +188,33 @@ class ScrapeResult:
 
     def to_json(self, indent: int = 2) -> str:
         return json.dumps(self.to_dict(), indent=indent, default=str)
+
+
+@dataclass(frozen=True)
+class LLMStatsObservation:
+    """One source-native row from the public LLMStats leaderboard.
+
+    Composite/category scores remain separate from benchmark observations.
+    Missing values are None. ``category_ranks`` records source order where it
+    is published and deterministic score order for the remaining visible
+    server-rendered population, with ``rank_evidence`` documenting which.
+    """
+
+    source_name: str
+    source_model_url: str
+    scraped_at: str
+    provider: Optional[str] = None
+    source_model_id: Optional[str] = None
+    general_score: Optional[float] = None
+    general_rank: Optional[float] = None
+    category_scores: Dict[str, Optional[float]] = field(default_factory=dict)
+    category_ranks: Dict[str, Optional[float]] = field(default_factory=dict)
+    rank_evidence: Dict[str, str] = field(default_factory=dict)
+    benchmark_observations: Dict[str, Dict[str, Any]] = field(default_factory=dict)
+    source_details: Dict[str, Any] = field(default_factory=dict)
+    source_updated_at: Optional[str] = None
+    confidence: float = 1.0
+    parse_warnings: List[str] = field(default_factory=list)
+
+    def to_dict(self) -> dict:
+        return asdict(self)

@@ -1,0 +1,22 @@
+{
+  "current": {
+    "general": "LLMDEX General Consensus v1",
+    "coding": "LLMDEX Coding Consensus v1"
+  },
+  "versions": {
+    "LLMDEX General Consensus v1": {
+      "entity": "model_family",
+      "formula": "0.5 * AA matched-universe percentile + 0.5 * LLMStats General matched-universe percentile",
+      "tie_method": "descending average rank",
+      "missing_data": "No score is assigned unless both source observations and an approved family match exist.",
+      "introduced": "2026-07-23"
+    },
+    "LLMDEX Coding Consensus v1": {
+      "entity": "model_family",
+      "formula": "0.5 * AA official Coding Index matched-universe percentile + 0.5 * LLMStats Coding matched-universe percentile",
+      "tie_method": "descending average rank",
+      "missing_data": "Unavailable unless both directly comparable source indices exist.",
+      "introduced": "2026-07-23"
+    }
+  }
+}

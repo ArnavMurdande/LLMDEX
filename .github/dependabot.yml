@@ -4,22 +4,15 @@ updates:
     directory: /
     schedule:
       interval: weekly
-      day: monday
-      time: "06:00"
-      timezone: Asia/Kolkata
     open-pull-requests-limit: 5
-    labels:
-      - dependencies
-      - python
-
+    groups:
+      safe-minor-and-patch:
+        update-types: [minor, patch]
   - package-ecosystem: github-actions
     directory: /
     schedule:
       interval: weekly
-      day: monday
-      time: "06:15"
-      timezone: Asia/Kolkata
     open-pull-requests-limit: 5
-    labels:
-      - dependencies
-      - github-actions
+    groups:
+      safe-minor-and-patch:
+        update-types: [minor, patch]

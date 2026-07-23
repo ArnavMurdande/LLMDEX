@@ -18,10 +18,10 @@ jobs:
     timeout-minutes: 15
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
 
       - name: Set up Python 3.11
-        uses: actions/setup-python@v6
+        uses: actions/setup-python@v7
         with:
           python-version: "3.11"
           cache: pip
@@ -36,8 +36,17 @@ jobs:
         env:
           PYTHONPATH: .
 
+      - name: Lint Python for runtime errors
+        run: ruff check --select E9,F63,F7,F82 api_server.py pipeline scraper scripts utils tests
+
       - name: Compile Python sources
         run: python -m compileall -q api_server.py pipeline scraper scripts utils
 
       - name: Check frontend JavaScript
         run: node --check website/app.js
+
+      - name: Validate versioned methodology contracts
+        run: |
+          python -m json.tool data/methodology/source_config.json >/dev/null
+          python -m json.tool data/methodology/benchmark_registry.json >/dev/null
+          python -m json.tool data/methodology/score_versions.json >/dev/null

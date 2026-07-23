@@ -18,6 +18,12 @@ let currentTab = "performance-tab";
 let allDataRef = null;
 let sentimentDataRef = null;
 let familyRenderRef = null;
+let currentCapability = "general";
+let capabilityContracts = {};
+let familiesContractRef = { rows: [] };
+let llmstatsRowsRef = [];
+let qualityContractRef = null;
+let familyHistoryRef = [];
 let currentSort = { field: null, direction: null };
 const selectedModelIds = new Set();
 
@@ -101,6 +107,9 @@ function setupTheme() {
     if (familyRenderRef) {
       familyRenderRef(document.getElementById("family-selector")?.value || "");
     }
+    document
+      .getElementById("consensus-family-selector")
+      ?.dispatchEvent(new Event("change"));
   });
 }
 
@@ -312,6 +321,25 @@ document.addEventListener("DOMContentLoaded", async () => {
       console.warn("Sentiment data could not be loaded:", error);
       return [];
     });
+  const optionalJSON = (path, fallback) =>
+    fetch(`${path}?v=${dataCacheVersion}`)
+      .then((response) => (response.ok ? response.json() : fallback))
+      .catch((error) => {
+        console.warn(`Optional dataset ${path} could not be loaded:`, error);
+        return fallback;
+      });
+  const qualityPromise = optionalJSON("../data/quality/latest.json", null);
+  const familiesPromise = optionalJSON("../data/families/latest.json", {
+    rows: [],
+  });
+  const llmstatsPromise = optionalJSON(
+    "../data/cleaned/llmstats/latest.json",
+    { rows: [] },
+  );
+  const familyHistoryPromise = optionalJSON(
+    "../data/history/family_snapshots.json",
+    [],
+  );
 
   // Column descriptions are optional; the expanded Artificial Analysis values
   // are rendered directly from each model's source_details object.
@@ -376,6 +404,15 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 
   allDataRef = allData;
+  [qualityContractRef, familiesContractRef, llmstatsRowsRef, familyHistoryRef] =
+    await Promise.all([
+      qualityPromise,
+      familiesPromise,
+      llmstatsPromise.then((contract) =>
+        Array.isArray(contract) ? contract : contract.rows || [],
+      ),
+      familyHistoryPromise,
+    ]);
   // Advisor setup is intentionally isolated and first: a chart failure must
   // never leave its controls stuck in a loading state.
   await safeInit("AI Advisor chat", () => setupChatbot(allData));
@@ -384,6 +421,12 @@ document.addEventListener("DOMContentLoaded", async () => {
   await safeInit("Sorting", () => setupSorting(allData));
   await safeInit("Comparison", () => setupComparison(allData));
   await safeInit("Benchmark modal", () => setupBenchmarkModal(allData));
+  await safeInit("Model details drawer", () => setupModelDetailsDrawer());
+  await safeInit("Capability leaderboards", () => setupCapabilityLeaderboards());
+  await safeInit("Data quality", () => renderDataQuality(qualityContractRef));
+  await safeInit("Consensus trends", () =>
+    setupConsensusTrends(familyHistoryRef),
+  );
   await safeInit("Priority advisor", () => setupAdvisor(allData));
   safeInit("Family explorer", () => setupFamilyExplorerModern(allData));
   safeInit("Leaderboard scrolling", () => setupTableScrollMirror());
@@ -397,26 +440,57 @@ document.addEventListener("DOMContentLoaded", async () => {
   // ── Filters ──
   const searchInput = document.getElementById("search-input");
   const providerFilter = document.getElementById("provider-filter");
+  const availabilityFilter = document.getElementById("availability-filter");
+  const statusFilter = document.getElementById("status-filter");
+  const resetFilters = document.getElementById("reset-filters-btn");
   enhanceCustomSelect(providerFilter, "provider");
+  enhanceCustomSelect(availabilityFilter, "availability");
+  enhanceCustomSelect(statusFilter, "status");
 
   const filterData = () => {
-    const query = searchInput.value.toLowerCase();
-    const provider = providerFilter.value;
-    const filtered = filterModels(allData, query, provider);
-    populateTable(filtered, allData, currentTab);
+    renderCurrentLeaderboard();
   };
 
   searchInput.addEventListener("input", filterData);
   providerFilter.addEventListener("change", filterData);
+  availabilityFilter.addEventListener("change", filterData);
+  statusFilter.addEventListener("change", filterData);
+  resetFilters?.addEventListener("click", () => {
+    searchInput.value = "";
+    providerFilter.value = "All";
+    availabilityFilter.value = "All";
+    statusFilter.value = "All";
+    [providerFilter, availabilityFilter, statusFilter].forEach((select) => {
+      select.dispatchEvent(new Event("change", { bubbles: true }));
+      customSelectStates.get(select)?.sync();
+    });
+    currentSort = { field: null, direction: null };
+    renderCurrentLeaderboard();
+  });
 });
 
-function filterModels(data, query, provider) {
+function filterModels(
+  data,
+  query,
+  provider,
+  availability = "All",
+  status = "All",
+) {
   return data.filter((d) => {
-    const name = (d.canonical_name || d.model_name || "").toLowerCase();
+    const name = (
+      d.source_name ||
+      d.canonical_name ||
+      d.model_name ||
+      ""
+    ).toLowerCase();
     const matchesSearch = name.includes(query);
+    const normalizedProvider =
+      d.provider === "Moonshot" || d.provider === "MoonshotAI"
+        ? "Moonshot AI"
+        : d.provider;
     const matchesProvider =
       provider === "All" ||
-      d.provider === provider ||
+      normalizedProvider === provider ||
       (provider === "Other" &&
         ![
           "OpenAI",
@@ -428,10 +502,21 @@ function filterModels(data, query, provider) {
           "Alibaba",
           "Zhipu AI",
           "xAI",
-          "Moonshot",
+          "Moonshot AI",
           "MiniMax",
-        ].includes(d.provider));
-    return matchesSearch && matchesProvider;
+        ].includes(normalizedProvider));
+    const matchesAvailability =
+      availability === "All" ||
+      d.availability_class === availability ||
+      (currentCapability !== "general" && availability === "unknown");
+    const matchesStatus =
+      status === "All" || d.score_status === status;
+    return (
+      matchesSearch &&
+      matchesProvider &&
+      matchesAvailability &&
+      matchesStatus
+    );
   });
 }
 
@@ -515,6 +600,7 @@ function renderDashboard(data) {
         ).forEach((s) => allSources.add(s));
       }
     });
+    if (qualityContractRef?.sources?.llmstats) allSources.add("LLMStats");
     sourceCountEl.textContent = `${allSources.size} validated source`;
     const heroSourceCount = document.getElementById("hero-source-count");
     if (heroSourceCount) {
@@ -527,6 +613,48 @@ function renderDashboard(data) {
     data.find((row) => row.last_updated)?.last_updated;
   const heroSnapshotDate = document.getElementById("hero-snapshot-date");
   if (heroSnapshotDate) heroSnapshotDate.textContent = snapshotDate || "N/A";
+
+  const familyRows = familiesContractRef?.rows || [];
+  const consensusRanked = familyRows
+    .filter((row) => row.llmdex_score != null)
+    .sort((a, b) => a.llmdex_rank - b.llmdex_rank);
+  const topLLMDEX = consensusRanked[0];
+  const openSota = familyRows.find((row) => row.is_open_sota);
+  const setText = (id, value) => {
+    const element = document.getElementById(id);
+    if (element) element.textContent = value;
+  };
+  setText(
+    "top-llmdex-model",
+    topLLMDEX?.canonical_family_name || "Pending",
+  );
+  setText(
+    "top-llmdex-score",
+    topLLMDEX?.llmdex_score == null
+      ? "Consensus unavailable"
+      : `LLMDEX: ${Number(topLLMDEX.llmdex_score).toFixed(1)}`,
+  );
+  setText("open-sota-model", openSota?.canonical_family_name || "Pending");
+  setText(
+    "open-sota-score",
+    openSota?.llmdex_score == null
+      ? "No eligible open family"
+      : `LLMDEX: ${Number(openSota.llmdex_score).toFixed(1)}`,
+  );
+  setText(
+    "matched-families",
+    String(
+      qualityContractRef?.counts?.matched_families ??
+        consensusRanked.length,
+    ),
+  );
+  setText("last-updated", snapshotDate || "N/A");
+  setText(
+    "last-updated-status",
+    qualityContractRef?.status === "healthy"
+      ? "All source checks passed"
+      : "Review source health",
+  );
 
   populateTable(data, data, "performance-tab");
 
@@ -568,6 +696,7 @@ function setupLeaderboardTabs(data) {
 
       const tabId = tab.dataset.tab;
       currentTab = tabId;
+      currentCapability = "general";
 
       // Reset column sort when switching tabs
       currentSort = { field: null, direction: null };
@@ -577,12 +706,231 @@ function setupLeaderboardTabs(data) {
         TAB_DESCRIPTIONS[tabId];
 
       // Re-populate table
-      const query = document.getElementById("search-input").value.toLowerCase();
-      const provider = document.getElementById("provider-filter").value;
-      const filtered = filterModels(data, query, provider);
-      populateTable(filtered, data, tabId);
+      renderCurrentLeaderboard();
     });
   });
+}
+
+const CAPABILITY_CONFIGS = {
+  coding: { title: "Coding", source: "LLMStats" },
+  math: { title: "Math", source: "LLMStats" },
+  reasoning: { title: "Reasoning", source: "LLMStats" },
+  writing: { title: "Writing", source: "LLMStats" },
+  research: { title: "Research", source: "LLMStats" },
+  long_context: { title: "Long Context", source: "LLMStats" },
+  tool_calling: { title: "Tool Calling", source: "LLMStats" },
+};
+
+async function loadCapabilityContract(capability) {
+  if (capabilityContracts[capability]) {
+    return capabilityContracts[capability];
+  }
+  const version = Math.floor(Date.now() / 300000);
+  const response = await fetch(
+    `../data/capabilities/${capability}.json?v=${version}`,
+  );
+  if (!response.ok) {
+    throw new Error(`${capability} leaderboard returned ${response.status}`);
+  }
+  capabilityContracts[capability] = await response.json();
+  return capabilityContracts[capability];
+}
+
+function setupCapabilityLeaderboards() {
+  const pills = Array.from(document.querySelectorAll(".capability-pill"));
+  pills.forEach((pill, index) => {
+    pill.addEventListener("click", () =>
+      switchCapability(pill.dataset.capability),
+    );
+    pill.addEventListener("keydown", (event) => {
+      if (!["ArrowLeft", "ArrowRight", "Home", "End"].includes(event.key)) {
+        return;
+      }
+      event.preventDefault();
+      let next = index;
+      if (event.key === "ArrowLeft") next = (index - 1 + pills.length) % pills.length;
+      if (event.key === "ArrowRight") next = (index + 1) % pills.length;
+      if (event.key === "Home") next = 0;
+      if (event.key === "End") next = pills.length - 1;
+      pills[next].focus();
+      pills[next].click();
+    });
+  });
+}
+
+async function switchCapability(capability) {
+  currentCapability = capability || "general";
+  currentSort = { field: null, direction: null };
+  document.querySelectorAll(".capability-pill").forEach((pill) => {
+    const active = pill.dataset.capability === currentCapability;
+    pill.classList.toggle("active", active);
+    pill.setAttribute("aria-selected", String(active));
+    pill.tabIndex = active ? 0 : -1;
+  });
+  const general = currentCapability === "general";
+  document.getElementById("general-leaderboard-tabs").hidden = !general;
+  document.getElementById("compare-btn").hidden = !general;
+  document.getElementById("availability-filter").disabled = !general;
+  const tabDescription = document.getElementById("tab-description-text");
+  const attribution = document.getElementById("leaderboard-attribution");
+  if (general) {
+    tabDescription.innerHTML = TAB_DESCRIPTIONS[currentTab];
+    attribution.innerHTML =
+      'General intelligence, pricing and API performance data from <a href="https://artificialanalysis.ai/leaderboards/models" target="_blank" rel="noopener">Artificial Analysis</a>.';
+    renderCurrentLeaderboard();
+    return;
+  }
+
+  const config = CAPABILITY_CONFIGS[currentCapability];
+  tabDescription.innerHTML = `<strong>${escapeDisplay(config.title)} Leaderboard:</strong> Source-native LLMStats names, category scores, and ranks. Missing benchmark values remain unavailable and never become zero.`;
+  attribution.innerHTML = `Capability rankings and benchmark data from <a href="https://llm-stats.com/leaderboards/llm-leaderboard" target="_blank" rel="noopener">LLMStats</a>.`;
+  const tbody = document.querySelector("#models-table tbody");
+  tbody.innerHTML =
+    '<tr><td class="table-loading-state">Loading source-native capability data…</td></tr>';
+  try {
+    await loadCapabilityContract(currentCapability);
+    renderCurrentLeaderboard();
+  } catch (error) {
+    console.error(error);
+    tbody.innerHTML =
+      '<tr><td class="table-error-state">This capability snapshot is unavailable. The last healthy General view remains unchanged.</td></tr>';
+  }
+}
+
+function renderCurrentLeaderboard() {
+  const query = (document.getElementById("search-input")?.value || "")
+    .trim()
+    .toLowerCase();
+  const provider = document.getElementById("provider-filter")?.value || "All";
+  const availability =
+    document.getElementById("availability-filter")?.value || "All";
+  const status = document.getElementById("status-filter")?.value || "All";
+  if (currentCapability === "general") {
+    const filtered = filterModels(
+      allDataRef || [],
+      query,
+      provider,
+      availability,
+      status,
+    );
+    populateTable(filtered, allDataRef || [], currentTab);
+    return;
+  }
+  const contract = capabilityContracts[currentCapability];
+  if (!contract) return;
+  const filtered = filterModels(
+    contract.rows || [],
+    query,
+    provider,
+    "All",
+    status,
+  );
+  populateCapabilityTable(filtered, contract);
+}
+
+function capabilityObservationValue(row, benchmarkId) {
+  return row.benchmark_observations?.[benchmarkId]?.value ?? null;
+}
+
+function populateCapabilityTable(rows, contract) {
+  const headerRow = document.getElementById("table-header-row");
+  const tbody = document.querySelector("#models-table tbody");
+  const benchmarkColumns = (contract.benchmark_columns || []).slice(0, 4);
+  const columns = [
+    { key: "category_rank", label: "Rank", sortable: true },
+    { key: "source_name", label: "Model", sortable: true },
+    { key: "provider", label: "Creator", sortable: true },
+    { key: "category_score", label: `${CAPABILITY_CONFIGS[currentCapability].title} Score`, sortable: true },
+    ...benchmarkColumns.map((benchmark) => ({
+      key: benchmark.benchmark_id,
+      label: benchmark.canonical_name,
+      sortable: true,
+      benchmark: true,
+    })),
+    { key: "score_status", label: "Status", sortable: false },
+    { key: "details", label: "Details", sortable: false },
+  ];
+  headerRow.innerHTML = "";
+  columns.forEach((column) => {
+    const th = document.createElement("th");
+    th.textContent = column.label;
+    if (column.sortable) {
+      th.classList.add("sortable");
+      th.dataset.sort = column.key;
+      th.insertAdjacentHTML(
+        "beforeend",
+        ' <span class="sort-indicator"></span>',
+      );
+    }
+    headerRow.appendChild(th);
+  });
+  const tableRows = [...rows];
+  if (currentSort.field) {
+    tableRows.sort((a, b) => {
+      const getValue = (row) =>
+        currentSort.field in row
+          ? row[currentSort.field]
+          : capabilityObservationValue(row, currentSort.field);
+      const va = getValue(a);
+      const vb = getValue(b);
+      if (va == null && vb == null) return 0;
+      if (va == null) return 1;
+      if (vb == null) return -1;
+      const result =
+        typeof va === "number" && typeof vb === "number"
+          ? va - vb
+          : String(va).localeCompare(String(vb));
+      return currentSort.direction === "asc" ? result : -result;
+    });
+  } else {
+    tableRows.sort((a, b) => {
+      if (a.category_rank == null && b.category_rank == null) return 0;
+      if (a.category_rank == null) return 1;
+      if (b.category_rank == null) return -1;
+      return a.category_rank - b.category_rank;
+    });
+  }
+  tbody.innerHTML = "";
+  if (!tableRows.length) {
+    tbody.innerHTML = `<tr><td colspan="${columns.length}" class="table-empty-state">No source rows match the current filters.</td></tr>`;
+    return;
+  }
+  tableRows.forEach((row) => {
+    const tr = document.createElement("tr");
+    tr.dataset.sourceModelId = row.source_model_id || "";
+    columns.forEach((column) => {
+      const td = document.createElement("td");
+      if (column.key === "category_rank") {
+        td.textContent =
+          row.category_rank == null ? "—" : `#${Number(row.category_rank).toFixed(Number(row.category_rank) % 1 ? 1 : 0)}`;
+      } else if (column.key === "source_name") {
+        td.innerHTML = `<div class="source-model-cell"><strong title="${escapeDisplay(row.source_name)}">${escapeDisplay(row.source_name)}</strong><span>LLMStats</span></div>`;
+      } else if (column.key === "provider") {
+        td.textContent = row.provider || "—";
+      } else if (column.key === "category_score") {
+        td.innerHTML =
+          row.category_score == null
+            ? '<span class="na-badge">—</span>'
+            : `<strong class="capability-score">${Number(row.category_score).toFixed(1)}</strong>`;
+      } else if (column.benchmark) {
+        const value = capabilityObservationValue(row, column.key);
+        td.innerHTML =
+          value == null
+            ? '<span class="na-badge">—</span>'
+            : Number(value).toFixed(1);
+      } else if (column.key === "score_status") {
+        td.innerHTML = renderScoreStatus(
+          row.score_status,
+          row.score_status_label,
+        );
+      } else if (column.key === "details") {
+        td.innerHTML = `<button class="model-details-btn" type="button" data-family-id="${escapeDisplay(row.matched_aa_family_id || row.family_id || "")}" data-source-model-id="${escapeDisplay(row.source_model_id || "")}" aria-label="More details for ${escapeDisplay(row.source_name)}"><i class="fas fa-info-circle" aria-hidden="true"></i><span>More</span></button>`;
+      }
+      tr.appendChild(td);
+    });
+    tbody.appendChild(tr);
+  });
+  window.requestAnimationFrame(syncTableScrollWidth);
 }
 
 // ══════════════════════════════════════════════════════════════
@@ -907,53 +1255,42 @@ const TABLE_CONFIGS = {
     columns: [
       { key: "rank", label: "Rank", sortable: false },
       { key: "model_name", label: "Model", sortable: false },
-      { key: "provider", label: "Provider", sortable: false },
+      { key: "badges", label: "Tags", sortable: false, format: "badges" },
+      { key: "provider", label: "Creator", sortable: false },
       {
         key: "intelligence_score",
-        label: "Intelligence",
+        label: "AA Intelligence",
         sortable: true,
         info: "performance",
         format: "raw_score",
       },
       {
-        key: "coding_score",
-        label: "Coding Avg.",
+        key: "llmdex_score",
+        label: "LLMDEX Score",
         sortable: true,
-        format: "raw_score",
+        format: "consensus_score",
       },
       {
-        key: "terminalbench_hard",
-        label: "Terminal Hard",
+        key: "agreement",
+        label: "Agreement",
         sortable: true,
-        format: "raw_score",
+        format: "agreement",
       },
       {
-        key: "terminalbench_v21",
-        label: "Terminal v2.1",
-        sortable: true,
-        format: "raw_score",
+        key: "score_status",
+        label: "Status",
+        sortable: false,
+        format: "status",
       },
       {
-        key: "scicode",
-        label: "SciCode",
+        key: "blended_cost_per_1m",
+        label: "Price ($/1M)",
         sortable: true,
-        format: "raw_score",
+        format: "cost",
       },
       {
-        key: "gpqa",
-        label: "GPQA",
-        sortable: true,
-        format: "raw_score",
-      },
-      {
-        key: "hle",
-        label: "HLE",
-        sortable: true,
-        format: "raw_score",
-      },
-      {
-        key: "mmmu_pro",
-        label: "MMMU Pro",
+        key: "tokens_per_second",
+        label: "Speed (t/s)",
         sortable: true,
         format: "raw_score",
       },
@@ -963,6 +1300,7 @@ const TABLE_CONFIGS = {
         sortable: true,
         format: "context",
       },
+      { key: "details", label: "Details", sortable: false, format: "details" },
     ],
   },
   "value-tab": {
@@ -1023,6 +1361,7 @@ const TABLE_CONFIGS = {
         info: "context",
         format: "context",
       },
+      { key: "details", label: "Details", sortable: false, format: "details" },
     ],
   },
   "efficiency-tab": {
@@ -1074,9 +1413,48 @@ const TABLE_CONFIGS = {
         sortable: true,
         format: "count",
       },
+      { key: "details", label: "Details", sortable: false, format: "details" },
     ],
   },
 };
+
+function renderScoreStatus(status, label) {
+  const code = status || "unknown";
+  const text =
+    label ||
+    {
+      consensus: "Consensus",
+      aa_only: "AA only",
+      llmstats_only: "LLMStats only",
+      identity_review: "Identity review",
+      family_score_available: "Family score available",
+    }[code] ||
+    "Pending";
+  return `<span class="score-status status-${escapeDisplay(code)}">${escapeDisplay(text)}</span>`;
+}
+
+function renderModelBadges(row) {
+  const priority = [
+    "SOTA",
+    "OPEN SOTA",
+    "AA LEADER",
+    "OPEN SOURCE",
+    "OPEN WEIGHTS",
+    "RESEARCH LICENSE",
+    "CONSENSUS",
+    "LOW AGREEMENT",
+  ];
+  const available = new Set(Array.isArray(row.badges) ? row.badges : []);
+  const badges = priority.filter((badge) => available.has(badge)).slice(0, 3);
+  return badges.length
+    ? badges
+        .map(
+          (badge) =>
+            `<span class="model-badge badge-${badge.toLowerCase().replace(/\s+/g, "-")}">${escapeDisplay(badge)}</span>`,
+        )
+        .join("")
+    : '<span class="na-badge">—</span>';
+}
 
 function populateTable(data, fullData, tabId) {
   const config = TABLE_CONFIGS[tabId || "performance-tab"];
@@ -1109,8 +1487,20 @@ function populateTable(data, fullData, tabId) {
     tableData = tableData.filter((d) => d.efficiency_rank != null);
   }
 
-  // Only apply default rank sort if user hasn't clicked a column sort
-  if (!currentSort.field) {
+  if (currentSort.field) {
+    tableData.sort((a, b) => {
+      const va = a[currentSort.field];
+      const vb = b[currentSort.field];
+      if (va == null && vb == null) return 0;
+      if (va == null) return 1;
+      if (vb == null) return -1;
+      if (typeof va === "string" || typeof vb === "string") {
+        const result = String(va).localeCompare(String(vb));
+        return currentSort.direction === "asc" ? result : -result;
+      }
+      return currentSort.direction === "asc" ? va - vb : vb - va;
+    });
+  } else {
     tableData.sort((a, b) => {
       const ra = a[rankField],
         rb = b[rankField];
@@ -1168,6 +1558,33 @@ function populateTable(data, fullData, tabId) {
         td.style.fontWeight = "600";
         td.style.color = "var(--text-primary)";
         td.innerHTML = `${compareControl}<span class="model-name-text">${escapeDisplay(name)}</span> ${showExpand ? `<button class="perf-detail-btn" data-slug="${escapeDisplay(row.model_slug || "")}" title="View benchmark breakdown"><i class="fas fa-chart-bar"></i></button>` : ""}`;
+      } else if (col.format === "badges") {
+        td.innerHTML = `<div class="model-badges">${renderModelBadges(row)}</div>`;
+      } else if (col.format === "status") {
+        td.innerHTML = renderScoreStatus(
+          row.score_status,
+          row.score_status_label,
+        );
+      } else if (col.format === "details") {
+        td.innerHTML = `<button class="model-details-btn" type="button" data-family-id="${escapeDisplay(row.family_id || "")}" data-model-slug="${escapeDisplay(modelId)}" aria-label="More details for ${escapeDisplay(row.canonical_name || row.model_name || "model")}"><i class="fas fa-info-circle" aria-hidden="true"></i><span>More</span></button>`;
+      } else if (col.format === "consensus_score") {
+        const score = row[col.key];
+        if (score != null) {
+          td.innerHTML = `<strong class="consensus-value">${Number(score).toFixed(1)}</strong>`;
+        } else if (row.score_status === "family_score_available") {
+          td.innerHTML =
+            '<span class="family-score-link">Family score available</span>';
+        } else if (row.score_status === "identity_review") {
+          td.innerHTML = '<span class="na-badge">Pending match</span>';
+        } else {
+          td.innerHTML = '<span class="na-badge">—</span>';
+        }
+      } else if (col.format === "agreement") {
+        const agreement = row[col.key];
+        td.innerHTML =
+          agreement == null
+            ? '<span class="na-badge">—</span>'
+            : `<span class="agreement-value ${Number(agreement) < 75 ? "low" : ""}">${Number(agreement).toFixed(0)}%</span>`;
       } else if (col.key === "provider") {
         td.innerHTML = row.provider || '<span class="na-badge">—</span>';
       } else {
@@ -1494,6 +1911,178 @@ function showBenchmarkModal(model) {
 /**
  * Map numeric sentiment to human-readable label + CSS class.
  */
+function displayMetric(value, digits = 1, suffix = "") {
+  return value == null || value === ""
+    ? '<span class="na-badge">—</span>'
+    : `${Number(value).toFixed(digits)}${suffix}`;
+}
+
+function detailMetric(label, value, options = {}) {
+  const rendered =
+    options.html === true
+      ? value
+      : displayMetric(value, options.digits ?? 1, options.suffix || "");
+  return `<div class="detail-metric"><span>${escapeDisplay(label)}</span><strong>${rendered}</strong></div>`;
+}
+
+function setupModelDetailsDrawer() {
+  const drawer = document.getElementById("model-drawer");
+  if (!drawer) return;
+  let lastFocus = null;
+  const close = () => {
+    drawer.classList.remove("open");
+    drawer.setAttribute("aria-hidden", "true");
+    document.body.classList.remove("drawer-open");
+    lastFocus?.focus();
+  };
+  document.querySelectorAll("[data-close-drawer]").forEach((element) => {
+    element.addEventListener("click", close);
+  });
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && drawer.classList.contains("open")) close();
+  });
+  document.addEventListener("click", (event) => {
+    const button = closestElement(event.target, ".model-details-btn");
+    if (!button) return;
+    lastFocus = button;
+    showModelDetailsDrawer(
+      button.dataset.familyId || "",
+      button.dataset.sourceModelId || "",
+      button.dataset.modelSlug || "",
+    );
+  });
+}
+
+function findFamilyRecord(familyId) {
+  return (familiesContractRef?.rows || []).find(
+    (row) => row.family_id === familyId,
+  );
+}
+
+function showModelDetailsDrawer(familyId, sourceModelId, modelSlug) {
+  const drawer = document.getElementById("model-drawer");
+  const body = document.getElementById("model-drawer-body");
+  const title = document.getElementById("model-drawer-title");
+  const family = findFamilyRecord(familyId);
+  const llmstats = llmstatsRowsRef.find(
+    (row) =>
+      (sourceModelId && row.source_model_id === sourceModelId) ||
+      row.family_id === familyId ||
+      row.matched_aa_family_id === familyId,
+  );
+  const aaVariants = (allDataRef || []).filter(
+    (row) =>
+      row.family_id === familyId ||
+      (modelSlug && (row.model_slug || "") === modelSlug),
+  );
+  const representative =
+    aaVariants.find((row) => row.is_family_representative) || aaVariants[0];
+  const displayName =
+    llmstats?.source_name ||
+    family?.canonical_family_name ||
+    representative?.canonical_name ||
+    "Model details";
+  title.textContent = displayName;
+
+  const llmstatsCategories = llmstats?.category_scores || {};
+  const llmstatsRanks = llmstats?.category_ranks || {};
+  const categoryLabels = {
+    general: "General",
+    coding: "Coding",
+    math: "Math",
+    reasoning: "Reasoning",
+    writing: "Writing",
+    research: "Research",
+    long_context: "Long Context",
+    tool_calling: "Tool Calling",
+  };
+  const categoryCards = Object.entries(categoryLabels)
+    .map(([key, label]) => {
+      const score =
+        key === "general" ? llmstats?.general_score : llmstatsCategories[key];
+      const rank =
+        key === "general" ? llmstats?.general_rank : llmstatsRanks[key];
+      return `<div class="source-score-card"><span>${label}</span><strong>${score == null ? "—" : Number(score).toFixed(1)}</strong><small>${rank == null ? "Rank unavailable" : `Rank #${Number(rank).toFixed(Number(rank) % 1 ? 1 : 0)}`}</small></div>`;
+    })
+    .join("");
+  const benchmarkRows = Object.values(
+    llmstats?.benchmark_observations || {},
+  )
+    .map(
+      (observation) => `<tr>
+        <td>${escapeDisplay(observation.canonical_name || observation.source_name)}</td>
+        <td>${displayMetric(observation.value)}</td>
+        <td>${escapeDisplay(observation.version || "Unknown")}</td>
+        <td><span class="provenance-label">${escapeDisplay(observation.provenance || "Unknown provenance")}</span></td>
+      </tr>`,
+    )
+    .join("");
+  const variantRows = aaVariants
+    .sort(
+      (a, b) =>
+        (a.performance_rank || Number.MAX_SAFE_INTEGER) -
+        (b.performance_rank || Number.MAX_SAFE_INTEGER),
+    )
+    .map(
+      (row) => `<li class="${row.is_family_representative ? "representative" : ""}">
+        <div><strong>${escapeDisplay(row.canonical_name || row.model_name)}</strong>
+        <span>${escapeDisplay((row.deployment_profile || []).join(" · ") || "Standard deployment")}</span></div>
+        <span>${row.intelligence_score == null ? "AA —" : `AA ${Number(row.intelligence_score).toFixed(1)}`}</span>
+      </li>`,
+    )
+    .join("");
+  const scoreStatus = family?.score_status || representative?.score_status;
+  const llmdexSection = `<section class="drawer-source-section llmdex-source-card">
+    <div class="drawer-section-heading"><div><span>LLMDEX</span><h3>Family consensus</h3></div>${renderScoreStatus(scoreStatus, family?.score_status_label)}</div>
+    <div class="detail-metric-grid">
+      ${detailMetric("LLMDEX Score", family?.llmdex_score)}
+      ${detailMetric("Consensus Rank", family?.llmdex_rank, { digits: 0 })}
+      ${detailMetric("AA Percentile", family?.aa_percentile, { suffix: "%" })}
+      ${detailMetric("LLMStats Percentile", family?.llmstats_percentile, { suffix: "%" })}
+      ${detailMetric("Agreement", family?.agreement, { suffix: "%" })}
+      ${detailMetric("Matched Population", family?.matched_population_size, { digits: 0 })}
+    </div>
+    <p class="drawer-method-note">${escapeDisplay(family?.score_version || "LLMDEX General Consensus v1")} · agreement is informational and never changes the score or rank.</p>
+  </section>`;
+  const llmstatsLink = llmstats?.source_model_url;
+  const llmstatsSection = `<section class="drawer-source-section">
+    <div class="drawer-section-heading"><div><span>LLMSTATS</span><h3>Source-native capability evidence</h3></div>${llmstatsLink ? `<a href="${escapeDisplay(llmstatsLink)}" target="_blank" rel="noopener">Open source <i class="fas fa-external-link-alt"></i></a>` : ""}</div>
+    ${
+      llmstats
+        ? `<dl class="source-identity"><div><dt>Published name</dt><dd>${escapeDisplay(llmstats.source_name)}</dd></div><div><dt>Source model ID</dt><dd>${escapeDisplay(llmstats.source_model_id || "Not published")}</dd></div><div><dt>Updated</dt><dd>${escapeDisplay(llmstats.source_updated_at || "Source date unavailable")}</dd></div></dl>
+           <div class="source-score-grid">${categoryCards}</div>
+           ${benchmarkRows ? `<div class="drawer-table-wrap"><table class="drawer-benchmark-table"><thead><tr><th>Benchmark</th><th>Value</th><th>Version</th><th>Evidence</th></tr></thead><tbody>${benchmarkRows}</tbody></table></div>` : '<p class="drawer-empty-note">No additional benchmark observations are published for this visible source row.</p>'}`
+        : '<p class="drawer-empty-note">This AA family does not have an approved LLMStats observation in the current snapshot.</p>'
+    }
+  </section>`;
+  const aaLink = representative?.model_url;
+  const aaSection = `<section class="drawer-source-section">
+    <div class="drawer-section-heading"><div><span>ARTIFICIAL ANALYSIS</span><h3>Family configuration comparison</h3></div>${aaLink ? `<a href="${escapeDisplay(aaLink)}" target="_blank" rel="noopener">Open source <i class="fas fa-external-link-alt"></i></a>` : ""}</div>
+    ${
+      representative
+        ? `<div class="detail-metric-grid">
+          ${detailMetric("AA Intelligence", representative.intelligence_score)}
+          ${detailMetric("Official Coding Index", representative.aa_official_coding_index)}
+          ${detailMetric("Input $/1M", representative.input_cost_per_1m, { digits: 2 })}
+          ${detailMetric("Output $/1M", representative.output_cost_per_1m, { digits: 2 })}
+          ${detailMetric("Speed", representative.tokens_per_second, { suffix: " t/s" })}
+          ${detailMetric("First answer", representative.latency_first_token, { suffix: "s" })}
+          ${detailMetric("First chunk", representative.latency_seconds, { suffix: "s" })}
+          ${detailMetric("Total response", representative.total_response_time, { suffix: "s" })}
+          ${detailMetric("Context", representative.context_window, { digits: 0 })}
+          ${detailMetric("Availability", escapeDisplay(representative.availability_class || "unknown"), { html: true })}
+        </div><h4 class="drawer-list-heading">AA configurations in this family</h4><ul class="variant-list">${variantRows}</ul>`
+        : '<p class="drawer-empty-note">No Artificial Analysis family match is approved for this LLMStats model.</p>'
+    }
+  </section>`;
+  const explanation = `<section class="drawer-match-explanation"><h3>What this match means</h3><p>LLMStats publishes this result for the model family using its own naming scheme. LLMDEX matched it to the corresponding Artificial Analysis family. The highlighted AA configuration is the family’s current highest-performing AA configuration and may be similar to the configuration evaluated by LLMStats, but this does not prove that LLMStats tested that exact reasoning or deployment profile.</p></section>`;
+  body.innerHTML = `${llmdexSection}${llmstatsSection}${aaSection}${explanation}`;
+  drawer.classList.add("open");
+  drawer.setAttribute("aria-hidden", "false");
+  document.body.classList.add("drawer-open");
+  drawer.querySelector(".drawer-close")?.focus();
+}
+
 function getSentimentLabel(score) {
   if (score == null) return { label: "N/A", cls: "neutral", color: "#94a3b8" };
   if (score >= 0.25)
@@ -2981,6 +3570,11 @@ function setupSorting(allData) {
       currentSort.direction === "asc" ? "sort-asc" : "sort-desc",
     );
 
+    if (currentCapability !== "general") {
+      renderCurrentLeaderboard();
+      return;
+    }
+
     // Sort data
     const data = allDataRef || allData;
     const sorted = [...data].sort((a, b) => {
@@ -3907,6 +4501,148 @@ async function setupFamilyExplorer(allData) {
  * benchmark record by the publication pipeline, so score order is never
  * misrepresented as time.
  */
+function renderDataQuality(contract) {
+  const pill = document.getElementById("quality-status-pill");
+  const health = document.getElementById("leaderboard-health");
+  const grid = document.getElementById("quality-grid");
+  const staleBanner = document.getElementById("stale-data-banner");
+  if (!contract || !grid) {
+    if (pill) pill.textContent = "Unavailable";
+    if (health) health.innerHTML = '<span class="health-dot"></span><span>Quality contract unavailable</span>';
+    return;
+  }
+  const status = contract.status || "unknown";
+  if (pill) {
+    pill.textContent = status === "healthy" ? "All sources healthy" : "Degraded";
+    pill.className = `quality-status-pill quality-${status}`;
+  }
+  if (health) {
+    health.className = `leaderboard-health quality-${status}`;
+    health.innerHTML = `<span class="health-dot"></span><span>${status === "healthy" ? "Sources healthy" : "Source warning"} · ${escapeDisplay(contract.generated_at?.slice(0, 10) || "date unavailable")}</span>`;
+  }
+  const aa = contract.sources?.artificial_analysis || {};
+  const llmstats = contract.sources?.llmstats || {};
+  const counts = contract.counts || {};
+  const qualityCard = (label, value, meta, sourceStatus = "") => `
+    <div class="quality-card glass ${sourceStatus ? `source-${sourceStatus}` : ""}">
+      <span>${escapeDisplay(label)}</span>
+      <strong>${escapeDisplay(value ?? "—")}</strong>
+      <small>${escapeDisplay(meta || "")}</small>
+    </div>`;
+  grid.innerHTML = [
+    qualityCard(
+      "Artificial Analysis",
+      aa.status || "unknown",
+      `${aa.rows_scraped ?? 0} rows · ${Number(aa.snapshot_age_hours ?? 0).toFixed(1)}h old`,
+      aa.status,
+    ),
+    qualityCard(
+      "LLMStats",
+      llmstats.status || "unknown",
+      `${llmstats.rows_scraped ?? 0} rows · ${Number(llmstats.snapshot_age_hours ?? 0).toFixed(1)}h old`,
+      llmstats.status,
+    ),
+    qualityCard(
+      "Consensus families",
+      counts.consensus_scored_families ?? 0,
+      `${counts.matched_families ?? 0} approved matches`,
+    ),
+    qualityCard(
+      "Identity review",
+      counts.identity_review_count ?? 0,
+      `${counts.ambiguous_match_count ?? 0} ambiguous`,
+    ),
+    qualityCard(
+      "AA only",
+      counts.aa_only_families ?? 0,
+      "Never penalized for missing LLMStats",
+    ),
+    qualityCard(
+      "LLMStats only",
+      counts.llmstats_only_families ?? 0,
+      "Retained in capability views",
+    ),
+  ].join("");
+  const warnings = contract.warnings || [];
+  if (staleBanner) {
+    staleBanner.hidden = warnings.length === 0;
+    staleBanner.innerHTML = warnings.length
+      ? `<i class="fas fa-exclamation-triangle"></i><div><strong>Data quality notice</strong><ul>${warnings.map((warning) => `<li>${escapeDisplay(warning)}</li>`).join("")}</ul></div>`
+      : "";
+  }
+}
+
+function setupConsensusTrends(historyRows) {
+  const selector = document.getElementById("consensus-family-selector");
+  const chart = document.getElementById("consensus-trend-chart");
+  if (!selector || !chart || !Array.isArray(historyRows)) return;
+  const families = Array.from(
+    new Map(
+      historyRows.map((row) => [
+        row.family_id,
+        row.canonical_family_name || row.family_id,
+      ]),
+    ),
+  ).sort((a, b) => a[1].localeCompare(b[1]));
+  families.forEach(([familyId, name]) => {
+    const option = document.createElement("option");
+    option.value = familyId;
+    option.textContent = name;
+    selector.appendChild(option);
+  });
+  enhanceCustomSelect(selector, "history");
+  const render = () => {
+    const rows = historyRows
+      .filter((row) => row.family_id === selector.value)
+      .sort((a, b) =>
+        String(a.snapshot_date).localeCompare(String(b.snapshot_date)),
+      );
+    if (!rows.length) {
+      chart.innerHTML =
+        '<p class="chart-empty-state">Choose a family to inspect its history.</p>';
+      return;
+    }
+    const theme = chartTheme();
+    const numberOrNull = (value) =>
+      value === "" || value == null || Number.isNaN(Number(value))
+        ? null
+        : Number(value);
+    const traces = [
+      {
+        x: rows.map((row) => row.snapshot_date),
+        y: rows.map((row) => numberOrNull(row.llmdex_score)),
+        name: "LLMDEX Score",
+        mode: "lines+markers",
+        line: { color: theme.strong, width: 3 },
+      },
+      {
+        x: rows.map((row) => row.snapshot_date),
+        y: rows.map((row) => numberOrNull(row.agreement)),
+        name: "Agreement",
+        mode: "lines+markers",
+        line: { color: theme.mid, width: 2 },
+      },
+    ];
+    Plotly.react(
+      chart,
+      traces,
+      {
+        height: 330,
+        margin: { l: 48, r: 24, t: 24, b: 48 },
+        paper_bgcolor: "transparent",
+        plot_bgcolor: "transparent",
+        font: { color: theme.text, family: "Space Grotesk" },
+        xaxis: { gridcolor: theme.grid, title: "Snapshot date" },
+        yaxis: { gridcolor: theme.grid, range: [0, 100], title: "Score / agreement" },
+        legend: { orientation: "h", y: 1.14 },
+        hovermode: "x unified",
+      },
+      { responsive: true, displayModeBar: false },
+    );
+  };
+  selector.addEventListener("change", render);
+}
+
 async function setupFamilyExplorerModern(allData) {
   const chartDiv = document.getElementById("family-chart");
   const selector = document.getElementById("family-selector");
