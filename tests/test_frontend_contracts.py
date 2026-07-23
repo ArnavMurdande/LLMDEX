@@ -93,6 +93,14 @@ class FrontendContractTests(unittest.TestCase):
         self.assertIn("identity_review", self.js)
         self.assertIn("Data quality notice", self.js)
 
+    def test_static_advisor_uses_configured_api_or_local_mode(self):
+        self.assertIn("resolveAdvisorApiBase", self.js)
+        self.assertIn("window.LLMDEX_API_BASE", self.js)
+        self.assertIn('meta[name="llmdex-api-base"]', self.js)
+        self.assertIn("if (!advisorHealthUrl || !advisorResponseUrl)", self.js)
+        self.assertNotIn('fetch("/api/health"', self.js)
+        self.assertNotIn('fetch("/api/advisor"', self.js)
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -27,6 +27,41 @@ let familyHistoryRef = [];
 let currentSort = { field: null, direction: null };
 const selectedModelIds = new Set();
 
+function resolveAdvisorApiBase() {
+  const runtimeBase =
+    typeof window.LLMDEX_API_BASE === "string"
+      ? window.LLMDEX_API_BASE.trim()
+      : "";
+  const metaBase =
+    document
+      .querySelector('meta[name="llmdex-api-base"]')
+      ?.getAttribute("content")
+      ?.trim() || "";
+  const configuredBase = runtimeBase || metaBase;
+
+  if (configuredBase) {
+    try {
+      const url = new URL(configuredBase, window.location.href);
+      if (url.protocol === "http:" || url.protocol === "https:") {
+        return url.href.replace(/\/+$/, "");
+      }
+    } catch {
+      // Invalid optional configuration falls back to deterministic local mode.
+    }
+  }
+
+  const hostname = window.location.hostname;
+  if (["localhost", "127.0.0.1", "::1"].includes(hostname)) {
+    return window.location.origin;
+  }
+  return null;
+}
+
+function advisorApiUrl(path) {
+  const base = resolveAdvisorApiBase();
+  return base ? `${base}/${String(path).replace(/^\/+/, "")}` : null;
+}
+
 function chartTheme() {
   const light = document.documentElement.dataset.theme === "light";
   return {
@@ -2854,6 +2889,9 @@ function setupChatbot(data) {
   const advisorModelCount = document.getElementById("advisor-model-count");
   const advisorSourceCount = document.getElementById("advisor-source-count");
   const advisorDataDate = document.getElementById("advisor-data-date");
+  const advisorHealthUrl = advisorApiUrl("/api/health");
+  const advisorResponseUrl = advisorApiUrl("/api/advisor");
+  let remoteAdvisorReady = false;
   if (advisorModelCount)
     advisorModelCount.textContent = data.length.toLocaleString();
   if (advisorSourceCount)
@@ -2873,21 +2911,29 @@ function setupChatbot(data) {
   }
 
   async function checkAdvisorHealth() {
+    if (!advisorHealthUrl || !advisorResponseUrl) {
+      remoteAdvisorReady = false;
+      updateAdvisorHealth("local", "Local analysis mode");
+      return;
+    }
     const controller = new AbortController();
     const timeout = window.setTimeout(() => controller.abort(), 12000);
     try {
-      const response = await fetch("/api/health", {
+      const response = await fetch(advisorHealthUrl, {
         signal: controller.signal,
         cache: "no-store",
       });
       if (!response.ok) throw new Error(`Health check failed: ${response.status}`);
       const health = await response.json();
       if (health?.advisor?.ready) {
+        remoteAdvisorReady = true;
         updateAdvisorHealth("online", "Gemini Advisor online");
       } else {
+        remoteAdvisorReady = false;
         updateAdvisorHealth("local", "Local analysis mode");
       }
     } catch {
+      remoteAdvisorReady = false;
       updateAdvisorHealth("local", "Local analysis mode");
     } finally {
       window.clearTimeout(timeout);
@@ -3148,8 +3194,15 @@ function setupChatbot(data) {
       instant.answer,
       instant.referenced_models,
       instant.data_points_used,
-      "client_pending",
+      remoteAdvisorReady ? "client_pending" : "client",
     );
+    if (!remoteAdvisorReady || !advisorResponseUrl) {
+      storeCache(query, instant);
+      updateAdvisorHealth("local", "Local analysis mode");
+      isSending = false;
+      sendBtn.disabled = input.value.trim().length === 0;
+      return;
+    }
     addTypingIndicator();
 
     try {
@@ -3199,10 +3252,11 @@ function setupChatbot(data) {
   }
 
   async function getAdvisorResponse(query) {
+    if (!remoteAdvisorReady || !advisorResponseUrl) return null;
     const controller = new AbortController();
     const timeout = window.setTimeout(() => controller.abort(), 45000);
     try {
-      const resp = await fetch("/api/advisor", {
+      const resp = await fetch(advisorResponseUrl, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ query: query }),

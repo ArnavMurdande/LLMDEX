@@ -37,3 +37,19 @@ from Git history and retained in the workflow's dataset archive artifact.
 `api_server.py` can run on Render for the server-side Advisor and API. Static
 GitHub Pages remains sufficient for leaderboards. Render cold starts can delay
 the Advisor/API but do not delay static datasets.
+
+The static GitHub Pages deployment intentionally uses the deterministic,
+dataset-grounded local Advisor and does not probe a nonexistent same-origin API.
+To connect a separately hosted, CORS-enabled backend, define the API origin
+before `app.js` loads:
+
+```html
+<script>
+  window.LLMDEX_API_BASE = "https://your-llmdex-api.example.com";
+</script>
+```
+
+Alternatively, add a `llmdex-api-base` meta tag with the same origin. The
+browser never receives Gemini keys; `api_server.py` reads them server-side.
+When the website is served from `localhost`, the frontend automatically uses
+the same origin.
