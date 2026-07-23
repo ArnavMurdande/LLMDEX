@@ -126,10 +126,27 @@ jobs:
           git add data/sentiment/latest.json || true
           git add data/column_definitions.json || true
 
-          git diff --cached --quiet || (
-            git commit -m "Update benchmark data $(date -u +%Y-%m-%d) [skip ci]" &&
-            git push origin HEAD:main
-          )
+          if git diff --cached --quiet; then
+            echo "No publication changes to commit."
+            exit 0
+          fi
+
+          git commit -m "Update benchmark data $(date -u +%Y-%m-%d) [skip ci]"
+
+          # Dependabot or another safe automation can advance main while this
+          # long-running scrape is active. Rebase the generated data commit and
+          # retry instead of failing with a non-fast-forward push.
+          for attempt in 1 2 3; do
+            git fetch origin main
+            git rebase -X theirs origin/main
+            if git push origin HEAD:main; then
+              exit 0
+            fi
+            echo "Push race detected; retrying (${attempt}/3)."
+          done
+
+          echo "Unable to publish generated data after three attempts."
+          exit 1
 
       # ── On failure: upload report for debugging ──
       - name: Upload Failure Report
