@@ -24,7 +24,7 @@
         document.documentElement.dataset.theme = preferred;
       })();
     </script>
-    <link rel="stylesheet" href="styles.css?v=12" />
+    <link rel="stylesheet" href="styles.css?v=13" />
     <link rel="stylesheet" href="bento.css?v=3" />
     <link
       href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Space+Grotesk:wght@300;500;700&family=JetBrains+Mono:wght@400;500&display=swap"
@@ -287,37 +287,34 @@
           </div>
         </div>
 
-        <div
-          class="capability-pills"
-          id="capability-pills"
-          role="tablist"
-          aria-label="Leaderboard capability"
-        >
-          <button class="capability-pill active" role="tab" aria-selected="true" data-capability="general">General</button>
-          <button class="capability-pill" role="tab" aria-selected="false" data-capability="coding">Coding</button>
-          <button class="capability-pill" role="tab" aria-selected="false" data-capability="math">Math</button>
-          <button class="capability-pill" role="tab" aria-selected="false" data-capability="reasoning">Reasoning</button>
-          <button class="capability-pill" role="tab" aria-selected="false" data-capability="writing">Writing</button>
-          <button class="capability-pill" role="tab" aria-selected="false" data-capability="research">Research</button>
-          <button class="capability-pill" role="tab" aria-selected="false" data-capability="long_context">Long Context</button>
-          <button class="capability-pill" role="tab" aria-selected="false" data-capability="tool_calling">Tool Calling</button>
-        </div>
+        <div class="leaderboard-view-controls">
+          <select id="capability-selector" aria-label="Choose leaderboard category">
+            <option value="general">General</option>
+            <option value="coding">Coding</option>
+            <option value="math">Math</option>
+            <option value="reasoning">Reasoning</option>
+            <option value="writing">Writing</option>
+            <option value="research">Research</option>
+            <option value="long_context">Long Context</option>
+            <option value="tool_calling">Tool Calling</option>
+          </select>
 
-        <div class="general-leaderboard-tabs" id="general-leaderboard-tabs">
-          <div class="leaderboard-tabs">
-            <button
-              class="tab-btn active"
-              data-tab="performance-tab"
-              id="btn-perf-tab"
-            >
-              <i class="fas fa-brain"></i> Performance
-            </button>
-            <button class="tab-btn" data-tab="value-tab" id="btn-value-tab">
-              <i class="fas fa-star"></i> Value
-            </button>
-            <button class="tab-btn" data-tab="efficiency-tab" id="btn-eff-tab">
-              <i class="fas fa-bolt"></i> Efficiency
-            </button>
+          <div class="general-leaderboard-tabs" id="general-leaderboard-tabs">
+            <div class="leaderboard-tabs">
+              <button
+                class="tab-btn active"
+                data-tab="performance-tab"
+                id="btn-perf-tab"
+              >
+                <i class="fas fa-brain"></i> Performance
+              </button>
+              <button class="tab-btn" data-tab="value-tab" id="btn-value-tab">
+                <i class="fas fa-star"></i> Value
+              </button>
+              <button class="tab-btn" data-tab="efficiency-tab" id="btn-eff-tab">
+                <i class="fas fa-bolt"></i> Efficiency
+              </button>
+            </div>
           </div>
         </div>
 
@@ -392,6 +389,13 @@
               <!-- Populated by JS -->
             </tbody>
           </table>
+        </div>
+        <div
+          class="table-scrollbar-bottom"
+          id="table-scrollbar-bottom"
+          aria-label="Scroll leaderboard columns"
+        >
+          <div id="table-scrollbar-bottom-spacer" aria-hidden="true"></div>
         </div>
         <p class="leaderboard-attribution" id="leaderboard-attribution">
           General intelligence, pricing and API performance data from
@@ -841,6 +845,7 @@
     </footer>
 
     <script src="bento.js?v=1"></script>
-    <script src="app.js?v=23"></script>
+    <script src="effects.js?v=1"></script>
+    <script src="app.js?v=24"></script>
   </body>
 </html>

@@ -14,13 +14,20 @@ class _IdCollector(HTMLParser):
         super().__init__()
         self.ids = set()
         self.capabilities = []
+        self._in_capability_selector = False
 
     def handle_starttag(self, tag, attrs):
         values = dict(attrs)
         if values.get("id"):
             self.ids.add(values["id"])
-        if "capability-pill" in values.get("class", "").split():
-            self.capabilities.append(values.get("data-capability"))
+        if tag == "select" and values.get("id") == "capability-selector":
+            self._in_capability_selector = True
+        elif tag == "option" and self._in_capability_selector:
+            self.capabilities.append(values.get("value"))
+
+    def handle_endtag(self, tag):
+        if tag == "select" and self._in_capability_selector:
+            self._in_capability_selector = False
 
 
 class FrontendContractTests(unittest.TestCase):
@@ -32,11 +39,9 @@ class FrontendContractTests(unittest.TestCase):
         cls.parser = _IdCollector()
         cls.parser.feed(cls.html)
 
-    def test_general_is_default_and_all_capability_pills_exist(self):
-        self.assertIn(
-            '<button class="capability-pill active"',
-            self.html,
-        )
+    def test_general_is_default_and_all_capability_options_exist(self):
+        self.assertIn('id="capability-selector"', self.html)
+        self.assertIn('<option value="general">General</option>', self.html)
         self.assertEqual(
             self.parser.capabilities,
             [
@@ -64,11 +69,23 @@ class FrontendContractTests(unittest.TestCase):
         self.assertNotIn('id="benchmark-modal"', self.html)
         self.assertNotIn('id="status-filter"', self.html)
         self.assertIn('id="table-scrollbar-spacer"', self.html)
+        self.assertIn('id="table-scrollbar-bottom-spacer"', self.html)
 
-    def test_mobile_pills_scroll_and_keyboard_navigation_is_bound(self):
-        self.assertIn("overflow-x: auto", self.css)
-        self.assertIn('event.key === "ArrowLeft"', self.js)
-        self.assertIn('event.key === "ArrowRight"', self.js)
+    def test_capability_dropdown_and_mirrored_scrollbars_are_bound(self):
+        self.assertIn('enhanceCustomSelect(selector, "capability")', self.js)
+        self.assertIn('selector.addEventListener("change"', self.js)
+        self.assertIn("table-scrollbar-bottom", self.js)
+
+    def test_shared_visual_effect_layer_is_loaded(self):
+        effects = (ROOT / "website" / "effects.js").read_text(encoding="utf-8")
+        self.assertIn('src="effects.js?v=1"', self.html)
+        self.assertIn("installSpecularButtons", effects)
+        self.assertIn("installPixelBlast", effects)
+
+    def test_fable_identity_and_pending_score_copy_are_normalized(self):
+        self.assertIn("normalizePublishedModels", self.js)
+        self.assertIn('canonical_name: "Claude Fable 5"', self.js)
+        self.assertNotIn(">Pending match<", self.js)
 
     def test_capability_publications_use_llmstats_names(self):
         for capability in (

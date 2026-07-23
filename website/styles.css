@@ -3291,6 +3291,172 @@ body::before {
   }
 }
 
+/* ==========================================================================
+   Unified leaderboard controls and interaction effects
+   ========================================================================== */
+.leaderboard-view-controls {
+  position: relative;
+  z-index: 120;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.25rem;
+  margin: 0.2rem 0 1rem;
+  overflow: visible;
+}
+
+.capability-select-shell {
+  width: min(100%, 260px);
+  min-width: min(100%, 260px);
+  flex: 0 0 260px;
+}
+
+.capability-select-shell .custom-select-trigger {
+  min-height: 50px;
+  padding-inline: 1.25rem;
+  font-weight: 700;
+}
+
+.capability-select-shell .custom-select-menu {
+  width: 100%;
+}
+
+.btn.secondary.reset-filters-btn {
+  opacity: 1 !important;
+  color: var(--text-secondary) !important;
+  border: 1px solid var(--border-glass) !important;
+  background: var(--surface-raised) !important;
+  box-shadow: none !important;
+}
+
+.btn.secondary.reset-filters-btn:hover,
+.btn.secondary.reset-filters-btn:focus-visible {
+  color: var(--text-primary) !important;
+  border-color: color-mix(
+    in srgb,
+    var(--accent-blue) 42%,
+    var(--border-glass)
+  ) !important;
+  background: var(--surface-raised) !important;
+}
+
+.model-badge.badge-sota,
+:root[data-theme="light"] .model-badge.badge-sota {
+  min-height: 26px;
+  padding: 0.34rem 0.58rem;
+  color: #ffffff !important;
+  border: 1px solid #4f46e5 !important;
+  background: linear-gradient(135deg, #2563eb, #7c3aed) !important;
+  box-shadow: none !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+  font-size: 0.61rem;
+  line-height: 1;
+}
+
+/* One shared specular layer avoids a WebGL context for every button. */
+.specular-button {
+  --specular-angle: 145deg;
+  --specular-opacity: 0;
+  position: relative;
+  isolation: isolate;
+}
+
+.specular-button::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 6;
+  padding: 1px;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: var(--specular-opacity);
+  background: conic-gradient(
+    from var(--specular-angle),
+    transparent 0deg,
+    transparent 138deg,
+    rgba(96, 165, 250, 0.18) 154deg,
+    rgba(255, 255, 255, 0.96) 174deg,
+    rgba(167, 139, 250, 0.5) 190deg,
+    transparent 212deg,
+    transparent 318deg,
+    rgba(255, 255, 255, 0.72) 342deg,
+    transparent 360deg
+  );
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  filter: drop-shadow(0 0 7px rgba(96, 165, 250, 0.32));
+  transition: opacity 120ms ease;
+}
+
+.specular-button:focus-visible::after {
+  opacity: 1;
+}
+
+.specular-button:disabled::after {
+  opacity: calc(var(--specular-opacity) * 0.36);
+}
+
+.pixel-blast-background {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: 0.72;
+}
+
+:root[data-theme="light"] .pixel-blast-background {
+  opacity: 0.62;
+}
+
+.pixel-blast-ready body::before {
+  display: none;
+}
+
+@media (max-width: 780px) {
+  .leaderboard-view-controls {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .capability-select-shell {
+    width: 100%;
+    min-width: 100%;
+    flex-basis: auto;
+  }
+
+  .general-leaderboard-tabs,
+  .general-leaderboard-tabs .leaderboard-tabs {
+    width: 100%;
+    justify-content: stretch;
+  }
+
+  .general-leaderboard-tabs .tab-btn {
+    flex: 1 1 0;
+  }
+}
+
+@media (max-width: 520px) {
+  .general-leaderboard-tabs .leaderboard-tabs {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .specular-button::after {
+    transition: none;
+  }
+
+  .pixel-blast-background {
+    opacity: 0.32;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   body::before {
     animation: none;
@@ -5605,5 +5771,101 @@ body {
   #models-table th:nth-child(2),
   #models-table td:nth-child(2) {
     min-width: 280px;
+  }
+}
+
+/* Keep these leaderboard refinements last so the legacy theme layers cannot
+   reintroduce the old pill layout or native table scrollbar. */
+.general-leaderboard-tabs {
+  justify-content: flex-end;
+  margin: 0;
+}
+
+.general-leaderboard-tabs .leaderboard-tabs {
+  justify-content: flex-end;
+}
+
+.custom-select-menu {
+  padding: 0.6rem;
+}
+
+.custom-select-option {
+  min-height: 48px;
+  margin: 0.16rem 0;
+  padding: 0.78rem 1rem;
+  border-radius: 14px;
+}
+
+.table-scrollbar-top,
+.table-scrollbar-bottom {
+  display: block;
+  width: 100%;
+  height: 15px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  border: 0 !important;
+  border-radius: 999px;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.table-scrollbar-top {
+  position: sticky;
+  top: 5.4rem;
+  z-index: 30;
+  margin: 0.2rem 0 0.45rem;
+}
+
+.table-scrollbar-bottom {
+  margin: 0.45rem 0 0.2rem;
+}
+
+.table-scrollbar-top[hidden],
+.table-scrollbar-bottom[hidden] {
+  display: none !important;
+}
+
+.table-scrollbar-top > div,
+.table-scrollbar-bottom > div {
+  height: 1px;
+}
+
+.table-scrollbar-top::-webkit-scrollbar,
+.table-scrollbar-bottom::-webkit-scrollbar {
+  height: 12px;
+}
+
+.table-scrollbar-top::-webkit-scrollbar-track,
+.table-scrollbar-bottom::-webkit-scrollbar-track {
+  border-radius: 999px;
+  background: var(--surface-raised);
+}
+
+.table-scrollbar-top::-webkit-scrollbar-thumb,
+.table-scrollbar-bottom::-webkit-scrollbar-thumb {
+  min-width: 68px;
+  border: 3px solid var(--surface-solid);
+  border-radius: 999px;
+  background: linear-gradient(
+    90deg,
+    var(--accent-blue),
+    var(--accent-violet)
+  );
+}
+
+.table-wrapper {
+  scrollbar-width: none;
+}
+
+.table-wrapper::-webkit-scrollbar {
+  width: 0 !important;
+  height: 0 !important;
+}
+
+@media (max-width: 780px) {
+  .general-leaderboard-tabs,
+  .general-leaderboard-tabs .leaderboard-tabs {
+    width: 100%;
+    justify-content: stretch;
   }
 }

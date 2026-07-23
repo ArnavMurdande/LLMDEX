@@ -127,6 +127,66 @@ function categoricalColorMap(labels, palette) {
   );
 }
 
+function normalizePublishedModels(rows) {
+  const output = [];
+  let fableIndex = -1;
+
+  (Array.isArray(rows) ? rows : []).forEach((sourceRow) => {
+    const isClaudeFable5 =
+      sourceRow.family_id === "anthropic/claude-fable-5" ||
+      sourceRow.matched_aa_family_id === "anthropic/claude-fable-5" ||
+      /^claude fable 5(?:\s*\(with fallback\))?$/i.test(
+        sourceRow.canonical_name ||
+          sourceRow.model_name ||
+          sourceRow.source_name ||
+          "",
+      );
+    if (!isClaudeFable5) {
+      output.push(sourceRow);
+      return;
+    }
+
+    const normalized = {
+      ...sourceRow,
+      canonical_name: "Claude Fable 5",
+      model_name: "Claude Fable 5",
+      source_name: "Claude Fable 5",
+      model_slug: "claude-fable-5",
+      aliases: Array.from(
+        new Set([
+          ...(Array.isArray(sourceRow.aliases) ? sourceRow.aliases : []),
+          "Claude Fable 5",
+          "Claude Fable 5 (with fallback)",
+        ]),
+      ),
+    };
+
+    if (fableIndex < 0) {
+      fableIndex = output.length;
+      output.push(normalized);
+      return;
+    }
+
+    const current = output[fableIndex];
+    const currentRank = Number(current.performance_rank ?? Number.MAX_VALUE);
+    const candidateRank = Number(
+      normalized.performance_rank ?? Number.MAX_VALUE,
+    );
+    if (candidateRank < currentRank) {
+      normalized.aliases = Array.from(
+        new Set([...(current.aliases || []), ...(normalized.aliases || [])]),
+      );
+      output[fableIndex] = normalized;
+    } else {
+      current.aliases = Array.from(
+        new Set([...(current.aliases || []), ...(normalized.aliases || [])]),
+      );
+    }
+  });
+
+  return output;
+}
+
 function setupTheme() {
   const toggle = document.getElementById("theme-toggle");
   if (!toggle) return;
@@ -433,6 +493,11 @@ async function initializeApp() {
     }
     return;
   }
+
+  // Artificial Analysis publishes the fallback deployment while LLMStats uses
+  // the base family label. They are one approved identity in LLMDEX, so keep a
+  // single representative row and one visible name across every dashboard.
+  allData = normalizePublishedModels(allData);
 
   // Family Growth Explorer reads from allData directly (no separate history fetch needed)
 
@@ -813,36 +878,20 @@ async function loadCapabilityContract(capability) {
 }
 
 function setupCapabilityLeaderboards() {
-  const pills = Array.from(document.querySelectorAll(".capability-pill"));
-  pills.forEach((pill, index) => {
-    pill.addEventListener("click", () =>
-      switchCapability(pill.dataset.capability),
-    );
-    pill.addEventListener("keydown", (event) => {
-      if (!["ArrowLeft", "ArrowRight", "Home", "End"].includes(event.key)) {
-        return;
-      }
-      event.preventDefault();
-      let next = index;
-      if (event.key === "ArrowLeft") next = (index - 1 + pills.length) % pills.length;
-      if (event.key === "ArrowRight") next = (index + 1) % pills.length;
-      if (event.key === "Home") next = 0;
-      if (event.key === "End") next = pills.length - 1;
-      pills[next].focus();
-      pills[next].click();
-    });
-  });
+  const selector = document.getElementById("capability-selector");
+  if (!selector) return;
+  enhanceCustomSelect(selector, "capability");
+  selector.addEventListener("change", () => switchCapability(selector.value));
 }
 
 async function switchCapability(capability) {
   currentCapability = capability || "general";
   currentSort = { field: null, direction: null };
-  document.querySelectorAll(".capability-pill").forEach((pill) => {
-    const active = pill.dataset.capability === currentCapability;
-    pill.classList.toggle("active", active);
-    pill.setAttribute("aria-selected", String(active));
-    pill.tabIndex = active ? 0 : -1;
-  });
+  const selector = document.getElementById("capability-selector");
+  if (selector && selector.value !== currentCapability) {
+    selector.value = currentCapability;
+  }
+  customSelectStates.get(selector)?.sync();
   const general = currentCapability === "general";
   document.getElementById("general-leaderboard-tabs").hidden = !general;
   document.getElementById("compare-btn").hidden = !general;
@@ -1668,7 +1717,7 @@ function populateTable(data, fullData, tabId) {
             </span>
           </span>`;
         } else if (row.score_status === "identity_review") {
-          td.innerHTML = '<span class="na-badge">Pending match</span>';
+          td.innerHTML = '<span class="na-badge">—</span>';
         } else {
           td.innerHTML = '<span class="na-badge">—</span>';
         }
@@ -1742,37 +1791,54 @@ function syncTableScrollWidth() {
   const wrapper = document.getElementById("table-wrapper");
   const table = document.getElementById("models-table");
   const top = document.getElementById("table-scrollbar-top");
-  const spacer = document.getElementById("table-scrollbar-spacer");
-  if (!wrapper || !table || !top || !spacer) return;
+  const bottom = document.getElementById("table-scrollbar-bottom");
+  const topSpacer = document.getElementById("table-scrollbar-spacer");
+  const bottomSpacer = document.getElementById(
+    "table-scrollbar-bottom-spacer",
+  );
+  if (
+    !wrapper ||
+    !table ||
+    !top ||
+    !bottom ||
+    !topSpacer ||
+    !bottomSpacer
+  ) {
+    return;
+  }
   const maximum = Math.max(0, table.scrollWidth - wrapper.clientWidth);
-  spacer.style.width = `${table.scrollWidth}px`;
-  top.hidden = maximum <= 2;
-  if (!top.hidden) {
-    top.scrollLeft = Math.min(maximum, wrapper.scrollLeft);
+  topSpacer.style.width = `${table.scrollWidth}px`;
+  bottomSpacer.style.width = `${table.scrollWidth}px`;
+  const hidden = maximum <= 2;
+  top.hidden = hidden;
+  bottom.hidden = hidden;
+  if (!hidden) {
+    const nextScroll = Math.min(maximum, wrapper.scrollLeft);
+    top.scrollLeft = nextScroll;
+    bottom.scrollLeft = nextScroll;
   }
 }
 
 function setupTableScrollMirror() {
   const top = document.getElementById("table-scrollbar-top");
+  const bottom = document.getElementById("table-scrollbar-bottom");
   const wrapper = document.getElementById("table-wrapper");
-  if (!top || !wrapper) return;
+  if (!top || !bottom || !wrapper) return;
   let syncing = false;
-  top.addEventListener("scroll", () => {
+  const mirrorFrom = (source) => {
     if (syncing) return;
     syncing = true;
-    wrapper.scrollLeft = top.scrollLeft;
+    const next = source.scrollLeft;
+    if (source !== wrapper) wrapper.scrollLeft = next;
+    if (source !== top) top.scrollLeft = next;
+    if (source !== bottom) bottom.scrollLeft = next;
     window.requestAnimationFrame(() => {
       syncing = false;
     });
-  });
-  wrapper.addEventListener("scroll", () => {
-    if (syncing) return;
-    syncing = true;
-    top.scrollLeft = wrapper.scrollLeft;
-    window.requestAnimationFrame(() => {
-      syncing = false;
-    });
-  });
+  };
+  top.addEventListener("scroll", () => mirrorFrom(top));
+  bottom.addEventListener("scroll", () => mirrorFrom(bottom));
+  wrapper.addEventListener("scroll", () => mirrorFrom(wrapper));
   window.addEventListener("resize", syncTableScrollWidth);
   if ("ResizeObserver" in window) {
     new ResizeObserver(syncTableScrollWidth).observe(wrapper);
