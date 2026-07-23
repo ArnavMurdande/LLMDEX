@@ -3077,14 +3077,14 @@ function setupChatbot(data) {
     if (healthText) healthText.textContent = label;
     if (connectionLabel) {
       connectionLabel.textContent =
-        mode === "online" ? "Gemini online" : "Local analysis ready";
+        mode === "online" ? "Gemini online" : "Gemini not connected";
     }
   }
 
   async function checkAdvisorHealth() {
     if (!advisorHealthUrl || !advisorResponseUrl) {
       remoteAdvisorReady = false;
-      updateAdvisorHealth("local", "Local analysis mode");
+      updateAdvisorHealth("local", "Dataset analysis · Gemini not connected");
       return;
     }
     const controller = new AbortController();
@@ -3101,16 +3101,16 @@ function setupChatbot(data) {
         updateAdvisorHealth("online", "Gemini Advisor online");
       } else {
         remoteAdvisorReady = false;
-        updateAdvisorHealth("local", "Local analysis mode");
+        updateAdvisorHealth("local", "Dataset analysis · Gemini unavailable");
       }
     } catch {
       remoteAdvisorReady = false;
-      updateAdvisorHealth("local", "Local analysis mode");
+      updateAdvisorHealth("local", "Dataset analysis · Gemini unavailable");
     } finally {
       window.clearTimeout(timeout);
     }
   }
-  updateAdvisorHealth("local", "Local analysis ready");
+  updateAdvisorHealth("local", "Checking Gemini connection");
   checkAdvisorHealth();
 
   // Enable/disable send button based on input
@@ -3235,7 +3235,7 @@ function setupChatbot(data) {
         '<div class="chat-source"><i class="fas fa-bolt"></i> Cached response</div>';
     else if (source === "client")
       sourceHtml =
-        '<div class="chat-source"><i class="fas fa-database"></i> Analyzed from local data</div>';
+        '<div class="chat-source"><i class="fas fa-database"></i> Deterministic dataset analysis &middot; Gemini not connected</div>';
     else if (source === "client_pending")
       sourceHtml =
         '<div class="chat-source"><i class="fas fa-bolt"></i> Instant data analysis &middot; Gemini is refining</div>';
@@ -3369,7 +3369,7 @@ function setupChatbot(data) {
     );
     if (!remoteAdvisorReady || !advisorResponseUrl) {
       storeCache(query, instant);
-      updateAdvisorHealth("local", "Local analysis mode");
+      updateAdvisorHealth("local", "Dataset analysis · Gemini not connected");
       isSending = false;
       sendBtn.disabled = input.value.trim().length === 0;
       return;
@@ -3403,7 +3403,7 @@ function setupChatbot(data) {
           "client",
         );
         storeCache(query, instant);
-        updateAdvisorHealth("local", "Local analysis mode");
+        updateAdvisorHealth("local", "Dataset analysis · Gemini unavailable");
       }
     } catch (error) {
       removeTypingIndicator();
@@ -3415,7 +3415,7 @@ function setupChatbot(data) {
         "client",
       );
       storeCache(query, instant);
-      updateAdvisorHealth("local", "Local analysis mode");
+      updateAdvisorHealth("local", "Dataset analysis · Gemini unavailable");
     } finally {
       isSending = false;
       sendBtn.disabled = input.value.trim().length === 0;

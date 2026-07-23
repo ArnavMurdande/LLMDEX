@@ -5878,6 +5878,7 @@ body,
   background: var(--bg-dark) !important;
   background-image: none !important;
   background-size: auto !important;
+  isolation: isolate;
 }
 
 body::before,
@@ -5889,12 +5890,16 @@ body::before,
 }
 
 .pixel-blast-background {
-  opacity: 0.82;
+  z-index: 0 !important;
+  opacity: 0.96;
+  mix-blend-mode: screen;
+  transform: translateZ(0);
 }
 
 :root[data-theme="light"] .pixel-blast-background {
-  opacity: 0.74;
-  filter: contrast(1.08);
+  opacity: 0.82;
+  filter: saturate(1.12) contrast(1.05);
+  mix-blend-mode: multiply;
 }
 
 .leaderboard-source-controls {

@@ -101,10 +101,10 @@
 
     const config = Object.freeze({
       variant: "square",
-      pixelSize: 2,
-      color: [148, 163, 184],
+      pixelSize: 3,
+      color: [56, 189, 248],
       patternScale: 4,
-      patternDensity: 0.65,
+      patternDensity: 0.8,
       pixelSizeJitter: 0.8,
       enableRipples: true,
       rippleSpeed: 0.4,
@@ -124,7 +124,7 @@
 
     const makeParticle = () => {
       const angle = Math.random() * Math.PI * 2;
-      const velocity = 5 + Math.random() * 9;
+      const velocity = 12 + Math.random() * 16;
       return {
         x: Math.random() * width,
         y: Math.random() * height,
@@ -132,7 +132,7 @@
         vy: Math.sin(angle) * velocity,
         phase: Math.random() * Math.PI * 2,
         jitter: Math.random() * 2 - 1,
-        alpha: 0.12 + Math.random() * 0.22,
+        alpha: 0.3 + Math.random() * 0.34,
       };
     };
 
@@ -201,26 +201,26 @@
         let drawX = particle.x;
         let drawY = particle.y;
         let intensity = particle.alpha;
-        if (config.enableRipples) ripples.forEach((ripple) => {
-          const dx = particle.x - ripple.x;
-          const dy = particle.y - ripple.y;
-          const distance = Math.hypot(dx, dy);
-          const radius =
-            ripple.age * config.rippleSpeed * 260;
-          const thickness =
-            config.rippleThickness * 240;
-          const distanceFromRing = Math.abs(distance - radius);
-          if (distanceFromRing >= thickness) return;
-          const strength =
-            (1 - distanceFromRing / thickness) *
-            Math.max(0, 1 - ripple.age / 2.4) *
-            config.rippleIntensityScale;
-          const normalX = distance ? dx / distance : 0;
-          const normalY = distance ? dy / distance : 0;
-          drawX += normalX * strength * 7;
-          drawY += normalY * strength * 7;
-          intensity += strength * 0.2;
-        });
+        if (config.enableRipples) {
+          ripples.forEach((ripple) => {
+            const dx = particle.x - ripple.x;
+            const dy = particle.y - ripple.y;
+            const distance = Math.hypot(dx, dy);
+            const radius = ripple.age * config.rippleSpeed * 260;
+            const thickness = config.rippleThickness * 240;
+            const distanceFromRing = Math.abs(distance - radius);
+            if (distanceFromRing >= thickness) return;
+            const strength =
+              (1 - distanceFromRing / thickness) *
+              Math.max(0, 1 - ripple.age / 2.4) *
+              config.rippleIntensityScale;
+            const normalX = distance ? dx / distance : 0;
+            const normalY = distance ? dy / distance : 0;
+            drawX += normalX * strength * 7;
+            drawY += normalY * strength * 7;
+            intensity += strength * 0.2;
+          });
+        }
 
         const edgeFade = Math.max(
           0,
@@ -241,7 +241,7 @@
             (1 + particle.jitter * config.pixelSizeJitter * 0.5),
         );
         context.fillStyle = `rgba(${red}, ${green}, ${blue}, ${Math.min(
-          0.56,
+          0.78,
           intensity,
         ).toFixed(3)})`;
         context.fillRect(
