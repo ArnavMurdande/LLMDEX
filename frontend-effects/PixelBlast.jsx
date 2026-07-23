@@ -1,5 +1,5 @@
 import { Effect, EffectComposer, EffectPass, RenderPass } from "postprocessing";
-import { useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import * as THREE from "three";
 
 const createTouchTexture = () => {

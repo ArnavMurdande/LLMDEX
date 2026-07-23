@@ -2,7 +2,7 @@
   "name": "llmdex-visual-effects",
   "private": true,
   "scripts": {
-    "build:effects": "esbuild ./frontend-effects/index.jsx --bundle --minify --outdir=./website --entry-names=pixelblast.bundle --target=es2020 --loader:.jsx=jsx"
+    "build:effects": "esbuild ./frontend-effects/index.jsx --bundle --minify --outdir=./website --entry-names=pixelblast.bundle --target=es2020 --jsx=automatic"
   },
   "dependencies": {
     "postprocessing": "6.39.3",
