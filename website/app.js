@@ -3077,16 +3077,11 @@ function setupChatbot(data) {
     }
     if (healthText) healthText.textContent = label;
     if (connectionLabel) {
-<<<<<<< HEAD
-      connectionLabel.textContent =
-        mode === "online" ? "Gemini online" : "Gemini not connected";
-=======
       connectionLabel.textContent = mode === "online"
         ? "Gemini online"
         : /checking|waking|connecting/i.test(label)
           ? "Connecting to Gemini"
           : "Gemini not connected";
->>>>>>> codex/llmstats-consensus
     }
   }
 
@@ -3094,11 +3089,7 @@ function setupChatbot(data) {
     if (!advisorHealthUrl || !advisorResponseUrl) {
       remoteAdvisorReady = false;
       updateAdvisorHealth("local", "Dataset analysis · Gemini not connected");
-<<<<<<< HEAD
-      return;
-=======
       return false;
->>>>>>> codex/llmstats-consensus
     }
     const controller = new AbortController();
     // Render free services may need tens of seconds to wake after inactivity.
@@ -3118,27 +3109,16 @@ function setupChatbot(data) {
       } else {
         remoteAdvisorReady = false;
         updateAdvisorHealth("local", "Dataset analysis · Gemini unavailable");
-<<<<<<< HEAD
-=======
         return false;
->>>>>>> codex/llmstats-consensus
       }
     } catch {
       remoteAdvisorReady = false;
       updateAdvisorHealth("local", "Dataset analysis · Gemini unavailable");
-<<<<<<< HEAD
-=======
       return false;
->>>>>>> codex/llmstats-consensus
     } finally {
       window.clearTimeout(timeout);
     }
   }
-<<<<<<< HEAD
-  updateAdvisorHealth("local", "Checking Gemini connection");
-  checkAdvisorHealth();
-=======
-
   function ensureAdvisorHealth() {
     if (!advisorHealthPromise) {
       advisorHealthPromise = checkAdvisorHealth().finally(() => {
@@ -3150,7 +3130,6 @@ function setupChatbot(data) {
 
   updateAdvisorHealth("local", "Checking Gemini connection");
   ensureAdvisorHealth();
->>>>>>> codex/llmstats-consensus
 
   // Enable/disable send button based on input
   input.addEventListener("input", () => {

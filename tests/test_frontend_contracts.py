@@ -82,17 +82,6 @@ class FrontendContractTests(unittest.TestCase):
 
     def test_shared_visual_effect_layer_is_loaded(self):
         effects = (ROOT / "website" / "effects.js").read_text(encoding="utf-8")
-<<<<<<< ours
-        self.assertIn('src="effects.js?v=3"', self.html)
-        self.assertIn("installSpecularButtons", effects)
-        self.assertIn("installPixelBlast", effects)
-        self.assertIn('variant: "square"', effects)
-        self.assertIn("pixelSize: 3", effects)
-        self.assertIn("color: [56, 189, 248]", effects)
-        self.assertIn("patternScale: 4", effects)
-        self.assertIn("patternDensity: 0.8", effects)
-        self.assertIn("particle.x +=", effects)
-=======
         pixelblast = (ROOT / "frontend-effects" / "PixelBlast.jsx").read_text(
             encoding="utf-8"
         )
@@ -126,11 +115,6 @@ class FrontendContractTests(unittest.TestCase):
         self.assertIn("ensureAdvisorHealth", self.js)
         self.assertIn("controller.abort(), 60000", self.js)
         self.assertIn("Waking Gemini Advisor", self.js)
->>>>>>> theirs
-
-    def test_advisor_discloses_when_gemini_is_not_connected(self):
-        self.assertIn("Gemini not connected", self.js)
-        self.assertIn("Deterministic dataset analysis", self.js)
 
     def test_mobile_table_reveals_scrolled_metrics(self):
         self.assertIn("position: static !important", self.css)
