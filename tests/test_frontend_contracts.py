@@ -82,19 +82,39 @@ class FrontendContractTests(unittest.TestCase):
 
     def test_shared_visual_effect_layer_is_loaded(self):
         effects = (ROOT / "website" / "effects.js").read_text(encoding="utf-8")
-        self.assertIn('src="effects.js?v=3"', self.html)
+        pixelblast = (ROOT / "frontend-effects" / "PixelBlast.jsx").read_text(
+            encoding="utf-8"
+        )
+        pixelblast_entry = (
+            ROOT / "frontend-effects" / "index.jsx"
+        ).read_text(encoding="utf-8")
+        package = json.loads((ROOT / "package.json").read_text(encoding="utf-8"))
+        self.assertIn('id="pixel-blast-root"', self.html)
+        self.assertIn('src="pixelblast.bundle.js?v=1"', self.html)
+        self.assertIn('href="pixelblast.bundle.css?v=1"', self.html)
+        self.assertIn('src="effects.js?v=4"', self.html)
         self.assertIn("installSpecularButtons", effects)
-        self.assertIn("installPixelBlast", effects)
-        self.assertIn('variant: "square"', effects)
-        self.assertIn("pixelSize: 3", effects)
-        self.assertIn("color: [56, 189, 248]", effects)
-        self.assertIn("patternScale: 4", effects)
-        self.assertIn("patternDensity: 0.8", effects)
-        self.assertIn("particle.x +=", effects)
+        self.assertNotIn("installPixelBlast", effects)
+        self.assertIn("THREE.WebGLRenderer", pixelblast)
+        self.assertIn("THREE.ShaderMaterial", pixelblast)
+        self.assertIn("EffectComposer", pixelblast)
+        self.assertIn("#define FBM_OCTAVES 5", pixelblast)
+        self.assertIn('variant="square"', pixelblast_entry)
+        self.assertIn('color={light ? "#0284c7" : "#38bdf8"}', pixelblast_entry)
+        self.assertIn("patternDensity={1.2}", pixelblast_entry)
+        self.assertTrue((ROOT / "website" / "pixelblast.bundle.js").is_file())
+        self.assertTrue((ROOT / "website" / "pixelblast.bundle.css").is_file())
+        for dependency in ("react", "react-dom", "three", "postprocessing"):
+            self.assertIn(dependency, package["dependencies"])
 
     def test_advisor_discloses_when_gemini_is_not_connected(self):
         self.assertIn("Gemini not connected", self.js)
         self.assertIn("Deterministic dataset analysis", self.js)
+        self.assertIn('name="llmdex-api-base"', self.html)
+        self.assertIn('content="https://llmdex.onrender.com"', self.html)
+        self.assertIn("ensureAdvisorHealth", self.js)
+        self.assertIn("controller.abort(), 60000", self.js)
+        self.assertIn("Waking Gemini Advisor", self.js)
 
     def test_mobile_table_reveals_scrolled_metrics(self):
         self.assertIn("position: static !important", self.css)

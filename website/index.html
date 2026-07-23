@@ -13,6 +13,10 @@
       name="description"
       content="LLMDEX is an auditable decision layer for comparing model performance, coding ability, value, speed, and efficiency."
     />
+    <meta
+      name="llmdex-api-base"
+      content="https://llmdex.onrender.com"
+    />
     <script>
       (() => {
         const saved = localStorage.getItem("llmdex-theme");
@@ -24,8 +28,9 @@
         document.documentElement.dataset.theme = preferred;
       })();
     </script>
-    <link rel="stylesheet" href="styles.css?v=15" />
+    <link rel="stylesheet" href="styles.css?v=16" />
     <link rel="stylesheet" href="bento.css?v=3" />
+    <link rel="stylesheet" href="pixelblast.bundle.css?v=1" />
     <link
       href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Space+Grotesk:wght@300;500;700&family=JetBrains+Mono:wght@400;500&display=swap"
       rel="stylesheet"
@@ -35,6 +40,7 @@
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
   </head>
   <body>
+    <div id="pixel-blast-root" aria-hidden="true"></div>
     <div class="overlay"></div>
 
     <nav class="navbar glass" id="main-nav">
@@ -856,7 +862,8 @@
     </footer>
 
     <script src="bento.js?v=1"></script>
-    <script src="effects.js?v=3"></script>
-    <script src="app.js?v=26"></script>
+    <script src="pixelblast.bundle.js?v=1"></script>
+    <script src="effects.js?v=4"></script>
+    <script src="app.js?v=27"></script>
   </body>
 </html>
