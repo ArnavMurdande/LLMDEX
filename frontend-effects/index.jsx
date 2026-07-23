@@ -23,7 +23,7 @@ function PixelBlastBackground() {
     <PixelBlast
       variant="square"
       pixelSize={4}
-      color={light ? "#0284c7" : "#38bdf8"}
+      color={light ? "#64748b" : "#52667a"}
       patternScale={3}
       patternDensity={1.2}
       pixelSizeJitter={0.5}
@@ -31,12 +31,9 @@ function PixelBlastBackground() {
       rippleSpeed={0.4}
       rippleThickness={0.12}
       rippleIntensityScale={1.5}
-      liquid
-      liquidStrength={0.12}
-      liquidRadius={1.2}
-      liquidWobbleSpeed={5}
+      liquid={false}
       speed={0.6}
-      edgeFade={0.25}
+      edgeFade={0}
       transparent
     />
   );
