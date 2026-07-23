@@ -2905,29 +2905,44 @@ body::before {
   inset: 0;
   z-index: 0;
   pointer-events: none;
-  opacity: 0.62;
+  opacity: 0.68;
   background:
-    radial-gradient(circle at 2px 2px, rgba(59, 130, 246, 0.9) 0 2px, transparent 3px),
-    radial-gradient(circle at 2px 2px, rgba(96, 165, 250, 0.72) 0 1.5px, transparent 2.5px);
-  background-position: 0 0, 192px 96px;
-  background-size: 384px 384px, 480px 480px;
-  animation: grid-signal-travel 16s linear infinite;
+    radial-gradient(
+        circle at 3px 1px,
+        rgba(59, 130, 246, 0.95) 0 2px,
+        transparent 3px
+      )
+      0 0 / 384px 96px repeat,
+    radial-gradient(
+        circle at 1px 3px,
+        rgba(96, 165, 250, 0.82) 0 1.75px,
+        transparent 2.75px
+      )
+      0 0 / 96px 384px repeat;
+  animation: grid-signal-travel 14s linear infinite;
 }
 
 :root[data-theme="light"] body {
   background:
-    linear-gradient(rgba(37, 99, 235, 0.09) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(37, 99, 235, 0.09) 1px, transparent 1px),
+    linear-gradient(rgba(15, 23, 42, 0.2) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(15, 23, 42, 0.2) 1px, transparent 1px),
     var(--bg-dark);
 }
 
 :root[data-theme="light"] body::before {
-  opacity: 0.42;
+  opacity: 0.58;
 }
 
 @keyframes grid-signal-travel {
+  from {
+    background-position:
+      -384px 0,
+      0 -384px;
+  }
   to {
-    background-position: 384px 384px, -288px 480px;
+    background-position:
+      0 0,
+      0 0;
   }
 }
 
@@ -3171,16 +3186,25 @@ body::before {
 
 .family-point-details {
   position: absolute;
-  top: 4.7rem;
-  right: 1.25rem;
-  z-index: 12;
+  top: 0;
+  right: auto;
+  left: 0;
+  z-index: 40;
   width: min(320px, calc(100% - 2.5rem));
   padding: 1rem;
   border: 1px solid color-mix(in srgb, var(--accent-blue) 48%, var(--border-glass));
   border-radius: 16px;
-  background: color-mix(in srgb, var(--surface-solid) 94%, transparent);
-  box-shadow: 0 20px 55px rgba(0, 0, 0, 0.34);
-  backdrop-filter: blur(18px);
+  background: color-mix(in srgb, var(--surface-solid) 99%, var(--accent-blue) 1%);
+  box-shadow: 0 22px 58px rgba(0, 0, 0, 0.46);
+  backdrop-filter: blur(22px) saturate(120%);
+  -webkit-backdrop-filter: blur(22px) saturate(120%);
+}
+
+.family-point-details.is-pinned {
+  border-color: color-mix(in srgb, var(--accent-blue) 72%, var(--border-glass));
+  box-shadow:
+    0 24px 62px rgba(0, 0, 0, 0.5),
+    0 0 0 1px color-mix(in srgb, var(--accent-blue) 22%, transparent);
 }
 
 .family-point-details[hidden] {
@@ -5490,8 +5514,8 @@ body {
 
 :root[data-theme="light"] body {
   background:
-    linear-gradient(rgba(37, 99, 235, 0.09) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(37, 99, 235, 0.09) 1px, transparent 1px),
+    linear-gradient(rgba(15, 23, 42, 0.2) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(15, 23, 42, 0.2) 1px, transparent 1px),
     var(--bg-dark) !important;
 }
 
@@ -5534,6 +5558,36 @@ body {
   align-self: stretch;
   justify-content: center;
   border-radius: 999px;
+}
+
+.model-details-btn.model-info-btn,
+.score-info-btn {
+  display: inline-grid;
+  width: 28px;
+  min-width: 28px;
+  height: 28px;
+  min-height: 28px;
+  padding: 0;
+  place-items: center;
+  border-radius: 50% !important;
+}
+
+:root[data-theme="light"] .model-badge.badge-sota {
+  color: #ffffff !important;
+  border-color: #4338ca !important;
+  background: linear-gradient(135deg, #2563eb, #7c3aed) !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+}
+
+.reset-filters-btn {
+  opacity: 1;
+  background: var(--surface-raised) !important;
+  color: var(--text-secondary) !important;
+}
+
+.reset-filters-btn:hover,
+.reset-filters-btn:focus-visible {
+  color: var(--text-primary) !important;
 }
 
 @media (max-width: 900px) {

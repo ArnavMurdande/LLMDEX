@@ -74,6 +74,7 @@ function chartTheme() {
     negative: light ? "#e11d48" : "#fb7185",
     warning: light ? "#d97706" : "#fbbf24",
     fill: light ? "rgba(37,99,235,0.12)" : "rgba(96,165,250,0.15)",
+    panel: light ? "#ffffff" : "#111113",
     categorical: light
       ? [
           "#2563eb",
@@ -86,10 +87,16 @@ function chartTheme() {
           "#0f766e",
           "#c2410c",
           "#be185d",
+          "#65a30d",
+          "#9333ea",
+          "#0284c7",
+          "#dc2626",
+          "#ca8a04",
+          "#16a34a",
         ]
       : [
           "#60a5fa",
-          "#a78bfa",
+          "#c084fc",
           "#22d3ee",
           "#34d399",
           "#fbbf24",
@@ -98,8 +105,26 @@ function chartTheme() {
           "#2dd4bf",
           "#fb923c",
           "#f472b6",
+          "#a3e635",
+          "#e879f9",
+          "#38bdf8",
+          "#f87171",
+          "#facc15",
+          "#4ade80",
         ],
   };
+}
+
+function categoricalColorMap(labels, palette) {
+  const uniqueLabels = Array.from(
+    new Set(labels.map((label) => String(label || "Unknown"))),
+  ).sort((left, right) => left.localeCompare(right));
+  return new Map(
+    uniqueLabels.map((label, index) => [
+      label,
+      palette[index % palette.length],
+    ]),
+  );
 }
 
 function setupTheme() {
@@ -1007,14 +1032,9 @@ function renderScatterPlot(data) {
     return;
   }
 
-  const providers = Array.from(
-    new Set(plotData.map((row) => row.provider || "Other")),
-  ).sort((left, right) => left.localeCompare(right));
-  const providerColors = new Map(
-    providers.map((provider, index) => [
-      provider,
-      theme.categorical[index % theme.categorical.length],
-    ]),
+  const modelColors = categoricalColorMap(
+    plotData.map((row) => row.canonical_name || row.model_name),
+    theme.categorical,
   );
   const trace = {
     x: plotData.map((d) => d.blended_cost_per_1m),
@@ -1035,10 +1055,11 @@ function renderScatterPlot(data) {
     marker: {
       size: plotData.map((d) => 8 + (d.confidence_factor || 0.5) * 10),
       color: plotData.map(
-        (d) => providerColors.get(d.provider || "Other") || theme.strong,
+        (d) =>
+          modelColors.get(d.canonical_name || d.model_name) || theme.strong,
       ),
-      opacity: 0.82,
-      line: { color: theme.text, width: 0.8 },
+      opacity: 0.9,
+      line: { color: theme.text, width: 1 },
     },
   };
 
@@ -1067,6 +1088,12 @@ function renderScatterPlot(data) {
       tickfont: { size: isMobile ? 10 : 12 },
     },
     hovermode: "closest",
+    hoverlabel: {
+      bgcolor: theme.panel,
+      bordercolor: theme.strong,
+      font: { color: theme.text },
+      align: "left",
+    },
   };
 
   Plotly.newPlot("scatter-chart", [trace], layout, {
@@ -1087,6 +1114,10 @@ function renderEfficiencyChart(data) {
 
   validEfficiency.sort((a, b) => a.efficiency_rank - b.efficiency_rank);
   const top10 = validEfficiency.slice(0, 10).reverse();
+  const modelColors = categoricalColorMap(
+    validEfficiency.map((row) => row.canonical_name || row.model_name),
+    theme.categorical,
+  );
 
   if (top10.length === 0) {
     document.getElementById("bar-chart").innerHTML =
@@ -1101,7 +1132,8 @@ function renderEfficiencyChart(data) {
     orientation: "h",
     marker: {
       color: top10.map(
-        (_, index) => theme.categorical[index % theme.categorical.length],
+        (row) =>
+          modelColors.get(row.canonical_name || row.model_name) || theme.strong,
       ),
       line: { color: theme.text, width: 0.7 },
     },
@@ -2208,6 +2240,12 @@ function renderSentimentCharts(sentimentData) {
       size: isMobile ? 11 : 13,
       family: "Inter, system-ui, sans-serif",
     },
+    hoverlabel: {
+      bgcolor: theme.panel,
+      bordercolor: theme.strong,
+      font: { color: theme.text },
+      align: "left",
+    },
     xaxis: {
       color: theme.muted,
       gridcolor: theme.grid,
@@ -2223,8 +2261,12 @@ function renderSentimentCharts(sentimentData) {
     },
     height: CHART_HEIGHT,
     bargap: 0.1,
-  };
-  const plotlyConfig = { responsive: true, displayModeBar: false };
+    };
+    const plotlyConfig = { responsive: true, displayModeBar: false };
+  const modelColors = categoricalColorMap(
+    sentimentData.map((item) => item.model_name),
+    theme.categorical,
+  );
 
   // Rich tooltip builder
   const buildHoverText = (s) => {
@@ -2244,12 +2286,8 @@ function renderSentimentCharts(sentimentData) {
     .sort((a, b) => b.community_sentiment - a.community_sentiment)
     .slice(0, MAX_MODELS);
 
-  const likedColors = liked.map((item) =>
-    item.community_sentiment >= 0.1
-      ? theme.positive
-      : item.community_sentiment <= -0.1
-        ? theme.negative
-        : theme.soft,
+  const likedColors = liked.map(
+    (item) => modelColors.get(item.model_name) || theme.soft,
   );
 
   Plotly.newPlot(
@@ -2260,7 +2298,20 @@ function renderSentimentCharts(sentimentData) {
         orientation: "h",
         y: liked.map((s) => clipName(s.model_name)),
         x: liked.map((s) => s.community_sentiment),
-        marker: { color: likedColors, line: { width: 0 }, cornerradius: 4 },
+        marker: {
+          color: likedColors,
+          line: {
+            color: liked.map((item) =>
+              item.community_sentiment <= -0.1
+                ? theme.negative
+                : item.community_sentiment >= 0.1
+                  ? theme.positive
+                  : theme.soft,
+            ),
+            width: 1.2,
+          },
+          cornerradius: 4,
+        },
         width: 0.75, // Force bar thickness
         text: liked.map((s) => " " + s.community_sentiment.toFixed(3)),
         textposition: liked.map((item) =>
@@ -2316,10 +2367,15 @@ function renderSentimentCharts(sentimentData) {
           y: controversial.map((s) => clipName(s.model_name)),
           x: controversial.map((s) => s.controversy_index * 100),
           marker: {
-            color: controversial.map((_, index) =>
-              index < 3 ? theme.negative : theme.warning,
+            color: controversial.map(
+              (item) => modelColors.get(item.model_name) || theme.warning,
             ),
-            line: { width: 0 },
+            line: {
+              color: controversial.map((_, index) =>
+                index < 3 ? theme.negative : theme.warning,
+              ),
+              width: 1.2,
+            },
             cornerradius: 4,
           },
           width: 0.75,
@@ -2361,9 +2417,6 @@ function renderSentimentCharts(sentimentData) {
     .sort((a, b) => b.mention_count - a.mention_count)
     .slice(0, MAX_MODELS);
 
-  // Use rank-based distinct colors so identical counts still look different
-  const discussedPalette = theme.categorical;
-
   Plotly.newPlot(
     "sentiment-trending-chart",
     [
@@ -2374,9 +2427,9 @@ function renderSentimentCharts(sentimentData) {
         x: trending.map((s) => s.mention_count),
         marker: {
           color: trending.map(
-            (_, i) => discussedPalette[i % discussedPalette.length],
+            (item) => modelColors.get(item.model_name) || theme.strong,
           ),
-          line: { width: 0 },
+          line: { color: theme.text, width: 0.7 },
           cornerradius: 4,
         },
         width: 0.75,
@@ -5055,7 +5108,45 @@ async function setupFamilyExplorerModern(allData) {
       if (!pointDetails || pinnedPoint) return;
       pointDetails.hidden = true;
     };
-    const showPointDetails = (marker, pin = false) => {
+    const positionPointDetails = (marker, pointerEvent = null) => {
+      if (!pointDetails || !marker) return;
+      const panel = pointDetails.offsetParent;
+      if (!panel) return;
+      const panelRect = panel.getBoundingClientRect();
+      const markerRect = marker.getBoundingClientRect();
+      const hasPointer =
+        pointerEvent &&
+        Number.isFinite(pointerEvent.clientX) &&
+        Number.isFinite(pointerEvent.clientY);
+      const anchorX = hasPointer
+        ? pointerEvent.clientX
+        : markerRect.left + markerRect.width / 2;
+      const anchorY = hasPointer
+        ? pointerEvent.clientY
+        : markerRect.top + markerRect.height / 2;
+      const gap = 18;
+      const edge = 12;
+
+      pointDetails.style.right = "auto";
+      pointDetails.style.left = "0px";
+      pointDetails.style.top = "0px";
+
+      const cardWidth = pointDetails.offsetWidth;
+      const cardHeight = pointDetails.offsetHeight;
+      const localX = anchorX - panelRect.left;
+      const localY = anchorY - panelRect.top;
+      let left = localX + gap;
+      if (left + cardWidth > panelRect.width - edge) {
+        left = localX - cardWidth - gap;
+      }
+      let top = localY - Math.min(42, cardHeight * 0.22);
+      left = Math.max(edge, Math.min(left, panelRect.width - cardWidth - edge));
+      top = Math.max(edge, Math.min(top, panelRect.height - cardHeight - edge));
+
+      pointDetails.style.left = `${Math.round(left)}px`;
+      pointDetails.style.top = `${Math.round(top)}px`;
+    };
+    const showPointDetails = (marker, pin = false, pointerEvent = null) => {
       if (!pointDetails || !marker) return;
       if (pin) pinnedPoint = marker;
       const sourceLink =
@@ -5075,22 +5166,28 @@ async function setupFamilyExplorerModern(allData) {
         </dl>
         ${sourceLink}`;
       pointDetails.hidden = false;
+      pointDetails.classList.toggle("is-pinned", Boolean(pinnedPoint));
+      positionPointDetails(marker, pointerEvent);
       pointDetails.querySelector(".family-point-close")?.addEventListener(
         "click",
         () => {
           pinnedPoint = null;
+          pointDetails.classList.remove("is-pinned");
           pointDetails.hidden = true;
         },
       );
     };
     chartDiv.querySelectorAll(".family-point-marker").forEach((marker) => {
-      marker.addEventListener("pointerenter", () => {
-        if (!pinnedPoint) showPointDetails(marker);
+      marker.addEventListener("pointerenter", (event) => {
+        if (!pinnedPoint) showPointDetails(marker, false, event);
       });
       marker.addEventListener("pointerleave", hidePointDetails);
       marker.addEventListener("focus", () => showPointDetails(marker));
       marker.addEventListener("blur", hidePointDetails);
-      marker.addEventListener("click", () => showPointDetails(marker, true));
+      marker.addEventListener("click", (event) => {
+        event.stopPropagation();
+        showPointDetails(marker, true, event);
+      });
       marker.addEventListener("keydown", (event) => {
         if (event.key === "Enter" || event.key === " ") {
           event.preventDefault();
