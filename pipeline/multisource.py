@@ -180,6 +180,14 @@ def _capability_contract(
             "scientific_reasoning" if capability == "reasoning" else capability,
         }
     }
+    schema_key = f"LLMDEX benchmark columns::{capability}"
+    published_columns: Dict[str, dict] = {}
+    for source in llmstats_rows:
+        for column in (source.get("source_details") or {}).get(schema_key, []):
+            benchmark_id = column.get("benchmark_id")
+            if benchmark_id:
+                published_columns.setdefault(benchmark_id, column)
+    published_ids = set(published_columns)
     rows = []
     for source in llmstats_rows:
         score = (source.get("category_scores") or {}).get(capability)
@@ -191,11 +199,16 @@ def _capability_contract(
             for benchmark_id, observation in (
                 source.get("benchmark_observations") or {}
             ).items()
-            if benchmark_id in relevant_ids
-            or (
-                benchmark_id.startswith("llmstats__")
-                and capability
-                in str(observation.get("canonical_name") or "").casefold()
+            if (
+                benchmark_id in published_ids
+                if published_ids
+                else benchmark_id in relevant_ids
+                or capability in (observation.get("capabilities") or [])
+                or (
+                    benchmark_id.startswith("llmstats__")
+                    and capability
+                    in str(observation.get("canonical_name") or "").casefold()
+                )
             )
         }
         rows.append(
@@ -212,6 +225,9 @@ def _capability_contract(
                 "match_confidence": source.get("match_confidence"),
                 "score_status": source.get("score_status"),
                 "score_status_label": source.get("score_status_label"),
+                "availability_class": source.get("availability_class"),
+                "is_sota": source.get("is_sota"),
+                "is_open_sota": source.get("is_open_sota"),
                 "rank_evidence": (source.get("rank_evidence") or {}).get(capability),
                 "benchmark_observations": observations,
                 "source_updated_at": source.get("source_updated_at"),
@@ -224,14 +240,30 @@ def _capability_contract(
             (row["source_name"] or "").casefold(),
         )
     )
+    column_observations: Dict[str, dict] = {}
+    for benchmark_id, column in published_columns.items():
+        column_observations.setdefault(benchmark_id, column)
+    for row in rows:
+        for benchmark_id, observation in row["benchmark_observations"].items():
+            column_observations.setdefault(benchmark_id, observation)
     benchmark_columns = sorted(
-        {
-            benchmark_id
-            for row in rows
-            for benchmark_id in row["benchmark_observations"]
-        },
-        key=lambda benchmark_id: benchmarks.get(benchmark_id, {}).get(
-            "canonical_name", benchmark_id
+        column_observations,
+        key=lambda benchmark_id: (
+            (
+                column_observations[benchmark_id]
+                .get("source_column_indices", {})
+                .get(
+                    capability,
+                    column_observations[benchmark_id].get(
+                        "source_column_index",
+                        float("inf"),
+                    ),
+                )
+            ),
+            str(
+                column_observations[benchmark_id].get("canonical_name")
+                or benchmark_id
+            ).casefold(),
         ),
     )
     return {
@@ -244,10 +276,23 @@ def _capability_contract(
         "benchmark_columns": [
             {
                 "benchmark_id": benchmark_id,
-                "canonical_name": benchmarks.get(benchmark_id, {}).get(
+                "canonical_name": column_observations[benchmark_id].get(
+                    "canonical_name"
+                )
+                or benchmarks.get(benchmark_id, {}).get(
                     "canonical_name", benchmark_id
                 ),
-                "version": benchmarks.get(benchmark_id, {}).get("version"),
+                "version": column_observations[benchmark_id].get("version")
+                or benchmarks.get(benchmark_id, {}).get("version"),
+                "source_name": column_observations[benchmark_id].get(
+                    "source_name"
+                ),
+                "source_url": column_observations[benchmark_id].get(
+                    "source_url"
+                ),
+                "source_population": column_observations[benchmark_id].get(
+                    "source_population"
+                ),
             }
             for benchmark_id in benchmark_columns
         ],

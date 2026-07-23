@@ -24,7 +24,7 @@
         document.documentElement.dataset.theme = preferred;
       })();
     </script>
-    <link rel="stylesheet" href="styles.css?v=10" />
+    <link rel="stylesheet" href="styles.css?v=11" />
     <link rel="stylesheet" href="bento.css?v=3" />
     <link
       href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Space+Grotesk:wght@300;500;700&family=JetBrains+Mono:wght@400;500&display=swap"
@@ -360,17 +360,8 @@
               <option value="All">All Availability</option>
               <option value="open_source">Open Source</option>
               <option value="open_weights">Open Weights</option>
-              <option value="research_license">Research License</option>
               <option value="proprietary">Proprietary</option>
-              <option value="unknown">Unknown</option>
-            </select>
-            <select id="status-filter" aria-label="Filter by score status">
-              <option value="All">All Statuses</option>
-              <option value="consensus">Consensus</option>
-              <option value="aa_only">AA only</option>
-              <option value="llmstats_only">LLMStats only</option>
-              <option value="identity_review">Identity review</option>
-              <option value="family_score_available">Family score available</option>
+              <option value="sota">SOTA</option>
             </select>
           </div>
           <button class="btn secondary reset-filters-btn" id="reset-filters-btn" type="button">
@@ -388,15 +379,7 @@
           id="table-scrollbar-top"
           aria-label="Scroll leaderboard columns"
         >
-          <input
-            id="table-scrollbar-range"
-            type="range"
-            min="0"
-            max="0"
-            value="0"
-            step="1"
-            aria-label="Scroll leaderboard columns horizontally"
-          />
+          <div id="table-scrollbar-spacer" aria-hidden="true"></div>
         </div>
         <div class="table-wrapper glass" id="table-wrapper">
           <table id="models-table" aria-label="LLMDEX model leaderboard">
@@ -457,20 +440,6 @@
     <!-- ═══════════════════════════════════════════ -->
     <!-- BENCHMARK BREAKDOWN MODAL (Part 5)         -->
     <!-- ═══════════════════════════════════════════ -->
-    <div id="benchmark-modal" class="modal-overlay" style="display: none">
-      <div class="modal-content glass">
-        <div class="modal-header">
-          <h3 id="modal-model-name">Model Breakdown</h3>
-          <button class="btn-close" id="modal-close">
-            <i class="fas fa-times"></i>
-          </button>
-        </div>
-        <div class="modal-body" id="modal-body">
-          <!-- Filled dynamically -->
-        </div>
-      </div>
-    </div>
-
     <aside
       id="model-drawer"
       class="model-drawer"
@@ -506,20 +475,6 @@
           Follow each company’s model releases chronologically and see how
           intelligence scores changed from one generation to the next.
         </p>
-        <div class="consensus-trend-card glass">
-          <div class="consensus-trend-header">
-            <div>
-              <span class="section-eyebrow">APPEND-ONLY HISTORY</span>
-              <h3>Family score and source agreement</h3>
-            </div>
-            <select id="consensus-family-selector" aria-label="Choose a family for consensus history">
-              <option value="">Select a scored family...</option>
-            </select>
-          </div>
-          <div id="consensus-trend-chart" class="consensus-trend-chart">
-            <p class="chart-empty-state">Choose a family to inspect its LLMDEX score, source ranks, price, speed, and agreement over time.</p>
-          </div>
-        </div>
         <div class="history-controls">
           <div class="family-selector-wrapper">
             <i class="fas fa-sitemap family-selector-icon"></i>
@@ -801,22 +756,16 @@
         </div>
         <div class="data-download-grid">
           <a class="data-download-card glass" href="../data/index/latest.csv" download>
-            <i class="fas fa-table"></i><div><strong>Latest models CSV</strong><span>Power BI-ready General index</span></div>
+            <i class="fas fa-table"></i><div><strong>Latest models CSV</strong><span>Power BI-ready General index</span><small><i class="fas fa-download"></i> Download CSV</small></div>
           </a>
           <a class="data-download-card glass" href="../data/index/latest.json" download>
-            <i class="fas fa-code"></i><div><strong>Latest models JSON</strong><span>Full source and score contract</span></div>
+            <i class="fas fa-code"></i><div><strong>Latest models JSON</strong><span>Full source and score contract</span><small><i class="fas fa-download"></i> Download JSON</small></div>
           </a>
           <a class="data-download-card glass" href="../data/history/score_history.csv" download>
-            <i class="fas fa-chart-line"></i><div><strong>Historical scores</strong><span>Append-only family snapshots</span></div>
+            <i class="fas fa-chart-line"></i><div><strong>Historical scores</strong><span>Append-only family snapshots</span><small><i class="fas fa-download"></i> Download CSV</small></div>
           </a>
           <a class="data-download-card glass" href="../data/identity/match_audit.csv" download>
-            <i class="fas fa-link"></i><div><strong>Identity mapping</strong><span>Auditable match decisions</span></div>
-          </a>
-          <a class="data-download-card glass" href="./docs/DATA_DICTIONARY.md">
-            <i class="fas fa-book"></i><div><strong>Data dictionary</strong><span>Fields, nulls, and provenance</span></div>
-          </a>
-          <a class="data-download-card glass" href="#methodology">
-            <i class="fas fa-flask"></i><div><strong>Methodology</strong><span>Scoring and source ownership</span></div>
+            <i class="fas fa-link"></i><div><strong>Identity mapping</strong><span>Auditable match decisions</span><small><i class="fas fa-download"></i> Download CSV</small></div>
           </a>
         </div>
       </div>
@@ -841,11 +790,11 @@
             </p>
           </div>
           <div class="method-card glass">
-            <h3><i class="fas fa-brain"></i> Performance Leaderboard</h3>
+            <h3><i class="fas fa-brain"></i> Rankings &amp; Coverage</h3>
             <p>
               The Artificial Analysis Intelligence Index is used unchanged.
-              Expanded-field completeness is displayed separately and never
-              demotes a new model. Cost and speed do not affect this ranking.
+              LLMStats capability views preserve every benchmark column shown
+              by the source. Missing values stay unavailable and never become zero.
             </p>
           </div>
           <div class="method-card glass">
@@ -860,8 +809,8 @@
             <h3><i class="fas fa-link"></i> Identity Matching</h3>
             <p>
               Exact IDs, URLs, approved aliases, then provider + family + version
-              are eligible. Fuzzy matches are review candidates only and cannot
-              receive a consensus score.
+              are eligible. Approved variants share the same family LLMDEX score;
+              source-native scores and model configurations remain separate.
             </p>
           </div>
           <div class="method-card glass">
@@ -880,23 +829,6 @@
               performance ≥ 25 qualify. Free models receive maximum efficiency.
             </p>
           </div>
-          <div class="method-card glass">
-            <h3><i class="fas fa-shield-alt"></i> Coverage Transparency</h3>
-            <p>
-              Completeness covers four groups: headline index, detailed
-              benchmarks, pricing, and runtime. It is transparent metadata only;
-              it does not override the Artificial Analysis performance order.
-            </p>
-          </div>
-          <div class="method-card glass">
-            <h3><i class="fas fa-exclamation-triangle"></i> Limitations</h3>
-            <p>
-              No single metric captures "intelligence." Benchmarks test narrow
-              capabilities and Artificial Analysis can revise its methodology or
-              data. Costs change frequently. Use LLMDEX as one input to your
-              evaluation, not the only one.
-            </p>
-          </div>
         </div>
       </div>
     </section>
@@ -909,6 +841,6 @@
     </footer>
 
     <script src="bento.js?v=1"></script>
-    <script src="app.js?v=21"></script>
+    <script src="app.js?v=22"></script>
   </body>
 </html>

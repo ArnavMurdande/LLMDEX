@@ -23,7 +23,6 @@ let capabilityContracts = {};
 let familiesContractRef = { rows: [] };
 let llmstatsRowsRef = [];
 let qualityContractRef = null;
-let familyHistoryRef = [];
 let currentSort = { field: null, direction: null };
 const selectedModelIds = new Set();
 
@@ -142,9 +141,6 @@ function setupTheme() {
     if (familyRenderRef) {
       familyRenderRef(document.getElementById("family-selector")?.value || "");
     }
-    document
-      .getElementById("consensus-family-selector")
-      ?.dispatchEvent(new Event("change"));
   });
 }
 
@@ -155,6 +151,18 @@ async function safeInit(label, callback) {
     console.error(`${label} failed to initialize:`, error);
     return null;
   }
+}
+
+function whenPlotlyReady(callback, attempts = 0) {
+  if (window.Plotly) {
+    callback();
+    return;
+  }
+  if (attempts >= 120) {
+    console.warn("Chart library did not become available.");
+    return;
+  }
+  window.setTimeout(() => whenPlotlyReady(callback, attempts + 1), 100);
 }
 
 function closestElement(target, selector) {
@@ -326,7 +334,7 @@ function enhanceCustomSelect(select, variant = "") {
   return state;
 }
 
-document.addEventListener("DOMContentLoaded", async () => {
+async function initializeApp() {
   setupTheme();
   const hamburgerBtn = document.getElementById("hamburger-btn");
   const navLinks = document.getElementById("nav-links");
@@ -371,11 +379,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     "../data/cleaned/llmstats/latest.json",
     { rows: [] },
   );
-  const familyHistoryPromise = optionalJSON(
-    "../data/history/family_snapshots.json",
-    [],
-  );
-
   // Column descriptions are optional; the expanded Artificial Analysis values
   // are rendered directly from each model's source_details object.
   const columnDefsPromise = Promise.resolve({});
@@ -439,35 +442,23 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 
   allDataRef = allData;
-  [qualityContractRef, familiesContractRef, llmstatsRowsRef, familyHistoryRef] =
-    await Promise.all([
-      qualityPromise,
-      familiesPromise,
-      llmstatsPromise.then((contract) =>
-        Array.isArray(contract) ? contract : contract.rows || [],
-      ),
-      familyHistoryPromise,
-    ]);
-  // Advisor setup is intentionally isolated and first: a chart failure must
-  // never leave its controls stuck in a loading state.
-  await safeInit("AI Advisor chat", () => setupChatbot(allData));
-  await safeInit("Dashboard", () => renderDashboard(allData));
-  await safeInit("Leaderboard tabs", () => setupLeaderboardTabs(allData));
-  await safeInit("Sorting", () => setupSorting(allData));
-  await safeInit("Comparison", () => setupComparison(allData));
-  await safeInit("Benchmark modal", () => setupBenchmarkModal(allData));
-  await safeInit("Model details drawer", () => setupModelDetailsDrawer());
-  await safeInit("Capability leaderboards", () => setupCapabilityLeaderboards());
-  await safeInit("Data quality", () => renderDataQuality(qualityContractRef));
-  await safeInit("Consensus trends", () =>
-    setupConsensusTrends(familyHistoryRef),
-  );
-  await safeInit("Priority advisor", () => setupAdvisor(allData));
+  // Render the General leaderboard immediately. Optional source contracts load
+  // in parallel below and must never hold the primary table behind the network.
+  safeInit("AI Advisor chat", () => setupChatbot(allData));
+  safeInit("Dashboard", () => renderDashboard(allData));
+  safeInit("Leaderboard tabs", () => setupLeaderboardTabs(allData));
+  safeInit("Sorting", () => setupSorting(allData));
+  safeInit("Comparison", () => setupComparison(allData));
+  safeInit("Model details drawer", () => setupModelDetailsDrawer());
+  safeInit("Capability leaderboards", () => setupCapabilityLeaderboards());
+  safeInit("Priority advisor", () => setupAdvisor(allData));
   safeInit("Family explorer", () => setupFamilyExplorerModern(allData));
   safeInit("Leaderboard scrolling", () => setupTableScrollMirror());
   sentimentPromise.then((sentimentData) => {
     sentimentDataRef = sentimentData;
-    safeInit("Model sentiment", () => renderSentimentPanel(sentimentData));
+    whenPlotlyReady(() =>
+      safeInit("Model sentiment", () => renderSentimentPanel(sentimentData)),
+    );
   });
 
   columnDefsPromise.then((columnDefs) => setupTooltips(columnDefs));
@@ -476,40 +467,49 @@ document.addEventListener("DOMContentLoaded", async () => {
   const searchInput = document.getElementById("search-input");
   const providerFilter = document.getElementById("provider-filter");
   const availabilityFilter = document.getElementById("availability-filter");
-  const statusFilter = document.getElementById("status-filter");
   const resetFilters = document.getElementById("reset-filters-btn");
   enhanceCustomSelect(providerFilter, "provider");
   enhanceCustomSelect(availabilityFilter, "availability");
-  enhanceCustomSelect(statusFilter, "status");
 
+  let pendingFilterFrame = 0;
   const filterData = () => {
-    renderCurrentLeaderboard();
+    window.cancelAnimationFrame(pendingFilterFrame);
+    pendingFilterFrame = window.requestAnimationFrame(renderCurrentLeaderboard);
   };
 
   searchInput.addEventListener("input", filterData);
   providerFilter.addEventListener("change", filterData);
   availabilityFilter.addEventListener("change", filterData);
-  statusFilter.addEventListener("change", filterData);
   resetFilters?.addEventListener("click", () => {
     searchInput.value = "";
     providerFilter.value = "All";
     availabilityFilter.value = "All";
-    statusFilter.value = "All";
-    [providerFilter, availabilityFilter, statusFilter].forEach((select) => {
-      select.dispatchEvent(new Event("change", { bubbles: true }));
+    [providerFilter, availabilityFilter].forEach((select) => {
       customSelectStates.get(select)?.sync();
     });
     currentSort = { field: null, direction: null };
     renderCurrentLeaderboard();
   });
-});
+
+  [qualityContractRef, familiesContractRef, llmstatsRowsRef] =
+    await Promise.all([
+      qualityPromise,
+      familiesPromise,
+      llmstatsPromise.then((contract) =>
+        Array.isArray(contract) ? contract : contract.rows || [],
+      ),
+    ]);
+  safeInit("Data quality", () => renderDataQuality(qualityContractRef));
+  renderConsensusDashboardMetrics();
+}
+
+initializeApp();
 
 function filterModels(
   data,
   query,
   provider,
   availability = "All",
-  status = "All",
 ) {
   return data.filter((d) => {
     const name = (
@@ -543,14 +543,11 @@ function filterModels(
     const matchesAvailability =
       availability === "All" ||
       d.availability_class === availability ||
-      (currentCapability !== "general" && availability === "unknown");
-    const matchesStatus =
-      status === "All" || d.score_status === status;
+      (availability === "sota" && (d.is_sota || d.is_open_sota));
     return (
       matchesSearch &&
       matchesProvider &&
-      matchesAvailability &&
-      matchesStatus
+      matchesAvailability
     );
   });
 }
@@ -649,6 +646,36 @@ function renderDashboard(data) {
   const heroSnapshotDate = document.getElementById("hero-snapshot-date");
   if (heroSnapshotDate) heroSnapshotDate.textContent = snapshotDate || "N/A";
 
+  renderConsensusDashboardMetrics(data);
+
+  populateTable(data, data, "performance-tab");
+
+  // Let the key metrics and leaderboard paint before Plotly builds charts.
+  const renderCharts = () => {
+    whenPlotlyReady(() => {
+      renderScatterPlot(data);
+      renderEfficiencyChart(data);
+      setupRadarChart(data, topPerf || valueRanked[0]);
+    });
+  };
+  if ("requestIdleCallback" in window) {
+    window.requestIdleCallback(renderCharts, { timeout: 1500 });
+  } else {
+    window.setTimeout(renderCharts, 0);
+  }
+}
+
+function colorForModel(value) {
+  const colors = chartTheme().categorical;
+  const text = String(value || "model");
+  let hash = 0;
+  for (let index = 0; index < text.length; index += 1) {
+    hash = (hash * 31 + text.charCodeAt(index)) >>> 0;
+  }
+  return colors[hash % colors.length];
+}
+
+function renderConsensusDashboardMetrics(data = allDataRef || []) {
   const familyRows = familiesContractRef?.rows || [];
   const consensusRanked = familyRows
     .filter((row) => row.llmdex_score != null)
@@ -683,6 +710,9 @@ function renderDashboard(data) {
         consensusRanked.length,
     ),
   );
+  const snapshotDate =
+    data.find((row) => row.snapshot_date || row.last_updated)?.snapshot_date ||
+    data.find((row) => row.last_updated)?.last_updated;
   setText("last-updated", snapshotDate || "N/A");
   setText(
     "last-updated-status",
@@ -690,20 +720,6 @@ function renderDashboard(data) {
       ? "All source checks passed"
       : "Review source health",
   );
-
-  populateTable(data, data, "performance-tab");
-
-  // Let the key metrics and leaderboard paint before Plotly builds charts.
-  const renderCharts = () => {
-    renderScatterPlot(data);
-    renderEfficiencyChart(data);
-    setupRadarChart(data, topPerf || valueRanked[0]);
-  };
-  if ("requestIdleCallback" in window) {
-    window.requestIdleCallback(renderCharts, { timeout: 1500 });
-  } else {
-    window.setTimeout(renderCharts, 0);
-  }
 }
 
 // ══════════════════════════════════════════════════════════════
@@ -805,7 +821,6 @@ async function switchCapability(capability) {
   const general = currentCapability === "general";
   document.getElementById("general-leaderboard-tabs").hidden = !general;
   document.getElementById("compare-btn").hidden = !general;
-  document.getElementById("availability-filter").disabled = !general;
   const tabDescription = document.getElementById("tab-description-text");
   const attribution = document.getElementById("leaderboard-attribution");
   if (general) {
@@ -839,14 +854,12 @@ function renderCurrentLeaderboard() {
   const provider = document.getElementById("provider-filter")?.value || "All";
   const availability =
     document.getElementById("availability-filter")?.value || "All";
-  const status = document.getElementById("status-filter")?.value || "All";
   if (currentCapability === "general") {
     const filtered = filterModels(
       allDataRef || [],
       query,
       provider,
       availability,
-      status,
     );
     populateTable(filtered, allDataRef || [], currentTab);
     return;
@@ -857,8 +870,7 @@ function renderCurrentLeaderboard() {
     contract.rows || [],
     query,
     provider,
-    "All",
-    status,
+    availability,
   );
   populateCapabilityTable(filtered, contract);
 }
@@ -870,25 +882,28 @@ function capabilityObservationValue(row, benchmarkId) {
 function populateCapabilityTable(rows, contract) {
   const headerRow = document.getElementById("table-header-row");
   const tbody = document.querySelector("#models-table tbody");
-  const benchmarkColumns = (contract.benchmark_columns || []).slice(0, 4);
+  const benchmarkColumns = contract.benchmark_columns || [];
   const columns = [
     { key: "category_rank", label: "Rank", sortable: true },
     { key: "source_name", label: "Model", sortable: true },
-    { key: "provider", label: "Creator", sortable: true },
+    { key: "provider", label: "Provider", sortable: true },
     { key: "category_score", label: `${CAPABILITY_CONFIGS[currentCapability].title} Score`, sortable: true },
     ...benchmarkColumns.map((benchmark) => ({
       key: benchmark.benchmark_id,
       label: benchmark.canonical_name,
       sortable: true,
       benchmark: true,
+      sourcePopulation: benchmark.source_population,
     })),
-    { key: "score_status", label: "Status", sortable: false },
-    { key: "details", label: "Details", sortable: false },
   ];
   headerRow.innerHTML = "";
   columns.forEach((column) => {
     const th = document.createElement("th");
-    th.textContent = column.label;
+    th.innerHTML = `${escapeDisplay(column.label)}${
+      column.sourcePopulation
+        ? `<small class="benchmark-coverage">${Number(column.sourcePopulation).toLocaleString()} models</small>`
+        : ""
+    }`;
     if (column.sortable) {
       th.classList.add("sortable");
       th.dataset.sort = column.key;
@@ -930,16 +945,29 @@ function populateCapabilityTable(rows, contract) {
     tbody.innerHTML = `<tr><td colspan="${columns.length}" class="table-empty-state">No source rows match the current filters.</td></tr>`;
     return;
   }
+  const capabilityFragment = document.createDocumentFragment();
   tableRows.forEach((row) => {
     const tr = document.createElement("tr");
     tr.dataset.sourceModelId = row.source_model_id || "";
+    tr.style.setProperty("--row-color", colorForModel(row.source_name));
     columns.forEach((column) => {
       const td = document.createElement("td");
       if (column.key === "category_rank") {
         td.textContent =
           row.category_rank == null ? "—" : `#${Number(row.category_rank).toFixed(Number(row.category_rank) % 1 ? 1 : 0)}`;
       } else if (column.key === "source_name") {
-        td.innerHTML = `<div class="source-model-cell"><strong title="${escapeDisplay(row.source_name)}">${escapeDisplay(row.source_name)}</strong><span>LLMStats</span></div>`;
+        td.innerHTML = `<div class="source-model-cell">
+          <div class="model-title-line">
+            <strong title="${escapeDisplay(row.source_name)}">${escapeDisplay(row.source_name)}</strong>
+            <button class="model-details-btn model-info-btn" type="button"
+              data-family-id="${escapeDisplay(row.matched_aa_family_id || row.family_id || "")}"
+              data-source-model-id="${escapeDisplay(row.source_model_id || "")}"
+              aria-label="Open details and benchmarks for ${escapeDisplay(row.source_name)}">
+              <i class="fas fa-info" aria-hidden="true"></i>
+            </button>
+          </div>
+          <div class="model-badges">${renderModelBadges(row)}</div>
+        </div>`;
       } else if (column.key === "provider") {
         td.textContent = row.provider || "—";
       } else if (column.key === "category_score") {
@@ -949,22 +977,17 @@ function populateCapabilityTable(rows, contract) {
             : `<strong class="capability-score">${Number(row.category_score).toFixed(1)}</strong>`;
       } else if (column.benchmark) {
         const value = capabilityObservationValue(row, column.key);
+        td.classList.add("benchmark-value-cell");
         td.innerHTML =
           value == null
             ? '<span class="na-badge">—</span>'
             : Number(value).toFixed(1);
-      } else if (column.key === "score_status") {
-        td.innerHTML = renderScoreStatus(
-          row.score_status,
-          row.score_status_label,
-        );
-      } else if (column.key === "details") {
-        td.innerHTML = `<button class="model-details-btn" type="button" data-family-id="${escapeDisplay(row.matched_aa_family_id || row.family_id || "")}" data-source-model-id="${escapeDisplay(row.source_model_id || "")}" aria-label="More details for ${escapeDisplay(row.source_name)}"><i class="fas fa-info-circle" aria-hidden="true"></i><span>More</span></button>`;
       }
       tr.appendChild(td);
     });
-    tbody.appendChild(tr);
+    capabilityFragment.appendChild(tr);
   });
+  tbody.appendChild(capabilityFragment);
   window.requestAnimationFrame(syncTableScrollWidth);
 }
 
@@ -1290,8 +1313,7 @@ const TABLE_CONFIGS = {
     columns: [
       { key: "rank", label: "Rank", sortable: false },
       { key: "model_name", label: "Model", sortable: false },
-      { key: "badges", label: "Tags", sortable: false, format: "badges" },
-      { key: "provider", label: "Creator", sortable: false },
+      { key: "provider", label: "Provider", sortable: false },
       {
         key: "intelligence_score",
         label: "AA Intelligence",
@@ -1304,18 +1326,6 @@ const TABLE_CONFIGS = {
         label: "LLMDEX Score",
         sortable: true,
         format: "consensus_score",
-      },
-      {
-        key: "agreement",
-        label: "Agreement",
-        sortable: true,
-        format: "agreement",
-      },
-      {
-        key: "score_status",
-        label: "Status",
-        sortable: false,
-        format: "status",
       },
       {
         key: "blended_cost_per_1m",
@@ -1335,7 +1345,6 @@ const TABLE_CONFIGS = {
         sortable: true,
         format: "context",
       },
-      { key: "details", label: "Details", sortable: false, format: "details" },
     ],
   },
   "value-tab": {
@@ -1396,7 +1405,6 @@ const TABLE_CONFIGS = {
         info: "context",
         format: "context",
       },
-      { key: "details", label: "Details", sortable: false, format: "details" },
     ],
   },
   "efficiency-tab": {
@@ -1448,7 +1456,6 @@ const TABLE_CONFIGS = {
         sortable: true,
         format: "count",
       },
-      { key: "details", label: "Details", sortable: false, format: "details" },
     ],
   },
 };
@@ -1462,24 +1469,21 @@ function renderScoreStatus(status, label) {
       aa_only: "AA only",
       llmstats_only: "LLMStats only",
       identity_review: "Identity review",
-      family_score_available: "Family score available",
     }[code] ||
     "Pending";
   return `<span class="score-status status-${escapeDisplay(code)}">${escapeDisplay(text)}</span>`;
 }
 
 function renderModelBadges(row) {
-  const priority = [
-    "SOTA",
-    "OPEN SOTA",
-    "AA LEADER",
-    "OPEN SOURCE",
-    "OPEN WEIGHTS",
-    "RESEARCH LICENSE",
-    "CONSENSUS",
-    "LOW AGREEMENT",
-  ];
+  const priority = ["SOTA", "OPEN SOURCE", "OPEN WEIGHTS", "PROPRIETARY"];
   const available = new Set(Array.isArray(row.badges) ? row.badges : []);
+  if (row.is_sota || row.is_open_sota) available.add("SOTA");
+  const availabilityBadge = {
+    open_source: "OPEN SOURCE",
+    open_weights: "OPEN WEIGHTS",
+    proprietary: "PROPRIETARY",
+  }[row.availability_class];
+  if (availabilityBadge) available.add(availabilityBadge);
   const badges = priority.filter((badge) => available.has(badge)).slice(0, 3);
   return badges.length
     ? badges
@@ -1488,7 +1492,7 @@ function renderModelBadges(row) {
             `<span class="model-badge badge-${badge.toLowerCase().replace(/\s+/g, "-")}">${escapeDisplay(badge)}</span>`,
         )
         .join("")
-    : '<span class="na-badge">—</span>';
+    : "";
 }
 
 function populateTable(data, fullData, tabId) {
@@ -1554,11 +1558,13 @@ function populateTable(data, fullData, tabId) {
 
   const bests = computeBests(fullData, config.columns);
 
+  const tableFragment = document.createDocumentFragment();
   tableData.forEach((row) => {
     const tr = document.createElement("tr");
     const modelId =
       row.model_slug || row.canonical_name || row.model_name || "";
     tr.dataset.modelSlug = modelId;
+    tr.style.setProperty("--row-color", colorForModel(modelId));
 
     config.columns.forEach((col) => {
       const td = document.createElement("td");
@@ -1568,14 +1574,6 @@ function populateTable(data, fullData, tabId) {
         td.textContent = rank != null ? `#${Math.round(rank)}` : "—";
       } else if (col.key === "model_name") {
         const name = row.canonical_name || row.model_name || "Unknown";
-        const hasBreakdown =
-          row.benchmark_breakdown &&
-          typeof row.benchmark_breakdown === "object";
-        const breakdown =
-          typeof row.benchmark_breakdown === "string"
-            ? JSON.parse(row.benchmark_breakdown)
-            : row.benchmark_breakdown;
-        const showExpand = breakdown && Object.keys(breakdown).length > 0;
         const selected = selectedModelIds.has(modelId);
         const safeModelId = escapeDisplay(modelId);
         const compareControl = `
@@ -1585,14 +1583,23 @@ function populateTable(data, fullData, tabId) {
           </button>
           <input type="checkbox" class="model-checkbox" data-slug="${safeModelId}"
             ${selected ? "checked" : ""} hidden />`;
-        // Data source indicator
-        const tierBadge =
-          row.sources && row.sources.includes("Artificial Analysis")
-            ? '<span class="tier-badge tier-1" title="Artificial Analysis verified">✓</span>'
-            : "";
         td.style.fontWeight = "600";
         td.style.color = "var(--text-primary)";
-        td.innerHTML = `${compareControl}<span class="model-name-text">${escapeDisplay(name)}</span> ${showExpand ? `<button class="perf-detail-btn" data-slug="${escapeDisplay(row.model_slug || "")}" title="View benchmark breakdown"><i class="fas fa-chart-bar"></i></button>` : ""}`;
+        td.innerHTML = `<div class="model-cell-layout">
+          ${compareControl}
+          <div class="model-cell-copy">
+            <div class="model-title-line">
+              <span class="model-name-text">${escapeDisplay(name)}</span>
+              <button class="model-details-btn model-info-btn" type="button"
+                data-family-id="${escapeDisplay(row.family_id || "")}"
+                data-model-slug="${escapeDisplay(modelId)}"
+                aria-label="Open details and benchmarks for ${escapeDisplay(name)}">
+                <i class="fas fa-info" aria-hidden="true"></i>
+              </button>
+            </div>
+            <div class="model-badges">${renderModelBadges(row)}</div>
+          </div>
+        </div>`;
       } else if (col.format === "badges") {
         td.innerHTML = `<div class="model-badges">${renderModelBadges(row)}</div>`;
       } else if (col.format === "status") {
@@ -1605,10 +1612,29 @@ function populateTable(data, fullData, tabId) {
       } else if (col.format === "consensus_score") {
         const score = row[col.key];
         if (score != null) {
-          td.innerHTML = `<strong class="consensus-value">${Number(score).toFixed(1)}</strong>`;
-        } else if (row.score_status === "family_score_available") {
-          td.innerHTML =
-            '<span class="family-score-link">Family score available</span>';
+          const agreement =
+            row.agreement == null
+              ? "Unavailable"
+              : `${Number(row.agreement).toFixed(0)}%`;
+          const status =
+            row.score_status_label ||
+            {
+              consensus: "Consensus",
+              aa_only: "AA only",
+              llmstats_only: "LLMStats only",
+              identity_review: "Identity review",
+            }[row.score_status] ||
+            "Unavailable";
+          td.innerHTML = `<span class="score-context">
+            <strong class="consensus-value">${Number(score).toFixed(1)}</strong>
+            <button class="score-info-btn" type="button" aria-label="Show score agreement and status">
+              <i class="fas fa-info" aria-hidden="true"></i>
+            </button>
+            <span class="score-context-popover" role="tooltip">
+              <span>Agreement <strong>${escapeDisplay(agreement)}</strong></span>
+              <span>Status <strong>${escapeDisplay(status)}</strong></span>
+            </span>
+          </span>`;
         } else if (row.score_status === "identity_review") {
           td.innerHTML = '<span class="na-badge">Pending match</span>';
         } else {
@@ -1662,8 +1688,9 @@ function populateTable(data, fullData, tabId) {
       tr.appendChild(td);
     });
 
-    tbody.appendChild(tr);
+    tableFragment.appendChild(tr);
   });
+  tbody.appendChild(tableFragment);
 
   // Restore sort indicator if active sort matches a column in this tab
   if (currentSort.field) {
@@ -1683,33 +1710,25 @@ function syncTableScrollWidth() {
   const wrapper = document.getElementById("table-wrapper");
   const table = document.getElementById("models-table");
   const top = document.getElementById("table-scrollbar-top");
-  const range = document.getElementById("table-scrollbar-range");
-  if (!wrapper || !table || !top || !range) return;
+  const spacer = document.getElementById("table-scrollbar-spacer");
+  if (!wrapper || !table || !top || !spacer) return;
   const maximum = Math.max(0, table.scrollWidth - wrapper.clientWidth);
-  range.max = String(maximum);
-  range.value = String(Math.min(maximum, wrapper.scrollLeft));
-  range.style.setProperty(
-    "--scroll-progress",
-    maximum ? `${(Number(range.value) / maximum) * 100}%` : "0%",
-  );
+  spacer.style.width = `${table.scrollWidth}px`;
   top.hidden = maximum <= 2;
+  if (!top.hidden) {
+    top.scrollLeft = Math.min(maximum, wrapper.scrollLeft);
+  }
 }
 
 function setupTableScrollMirror() {
   const top = document.getElementById("table-scrollbar-top");
-  const range = document.getElementById("table-scrollbar-range");
   const wrapper = document.getElementById("table-wrapper");
-  if (!top || !range || !wrapper) return;
+  if (!top || !wrapper) return;
   let syncing = false;
-  range.addEventListener("input", () => {
+  top.addEventListener("scroll", () => {
     if (syncing) return;
     syncing = true;
-    wrapper.scrollLeft = Number(range.value);
-    const maximum = Number(range.max) || 0;
-    range.style.setProperty(
-      "--scroll-progress",
-      maximum ? `${(Number(range.value) / maximum) * 100}%` : "0%",
-    );
+    wrapper.scrollLeft = top.scrollLeft;
     window.requestAnimationFrame(() => {
       syncing = false;
     });
@@ -1717,17 +1736,15 @@ function setupTableScrollMirror() {
   wrapper.addEventListener("scroll", () => {
     if (syncing) return;
     syncing = true;
-    range.value = String(wrapper.scrollLeft);
-    const maximum = Number(range.max) || 0;
-    range.style.setProperty(
-      "--scroll-progress",
-      maximum ? `${(wrapper.scrollLeft / maximum) * 100}%` : "0%",
-    );
+    top.scrollLeft = wrapper.scrollLeft;
     window.requestAnimationFrame(() => {
       syncing = false;
     });
   });
   window.addEventListener("resize", syncTableScrollWidth);
+  if ("ResizeObserver" in window) {
+    new ResizeObserver(syncTableScrollWidth).observe(wrapper);
+  }
   syncTableScrollWidth();
 }
 
@@ -2047,8 +2064,28 @@ function showModelDetailsDrawer(familyId, sourceModelId, modelSlug) {
       (observation) => `<tr>
         <td>${escapeDisplay(observation.canonical_name || observation.source_name)}</td>
         <td>${displayMetric(observation.value)}</td>
-        <td>${escapeDisplay(observation.version || "Unknown")}</td>
-        <td><span class="provenance-label">${escapeDisplay(observation.provenance || "Unknown provenance")}</span></td>
+      </tr>`,
+    )
+    .join("");
+  const sourceDetails =
+    typeof representative?.source_details === "string"
+      ? (() => {
+          try {
+            return JSON.parse(representative.source_details);
+          } catch {
+            return {};
+          }
+        })()
+      : representative?.source_details || {};
+  const aaBenchmarkRows = Object.entries(sourceDetails)
+    .filter(
+      ([label, value]) =>
+        label !== "Further Analysis" && value != null && String(value).trim(),
+    )
+    .map(
+      ([label, value]) => `<tr>
+        <td>${escapeDisplay(label)}</td>
+        <td>${escapeDisplay(value)}</td>
       </tr>`,
     )
     .join("");
@@ -2070,29 +2107,29 @@ function showModelDetailsDrawer(familyId, sourceModelId, modelSlug) {
   const llmdexSection = `<section class="drawer-source-section llmdex-source-card">
     <div class="drawer-section-heading"><div><span>LLMDEX</span><h3>Family consensus</h3></div>${renderScoreStatus(scoreStatus, family?.score_status_label)}</div>
     <div class="detail-metric-grid">
-      ${detailMetric("LLMDEX Score", family?.llmdex_score)}
-      ${detailMetric("Consensus Rank", family?.llmdex_rank, { digits: 0 })}
-      ${detailMetric("AA Percentile", family?.aa_percentile, { suffix: "%" })}
-      ${detailMetric("LLMStats Percentile", family?.llmstats_percentile, { suffix: "%" })}
-      ${detailMetric("Agreement", family?.agreement, { suffix: "%" })}
-      ${detailMetric("Matched Population", family?.matched_population_size, { digits: 0 })}
+      ${detailMetric("LLMDEX Score", family?.llmdex_score ?? representative?.llmdex_score)}
+      ${detailMetric("Consensus Rank", family?.llmdex_rank ?? representative?.llmdex_rank, { digits: 0 })}
+      ${detailMetric("AA Percentile", family?.aa_percentile ?? representative?.aa_percentile, { suffix: "%" })}
+      ${detailMetric("LLMStats Percentile", family?.llmstats_percentile ?? representative?.llmstats_percentile, { suffix: "%" })}
+      ${detailMetric("Agreement", family?.agreement ?? representative?.agreement, { suffix: "%" })}
+      ${detailMetric("Matched Population", family?.matched_population_size ?? representative?.matched_population_size, { digits: 0 })}
     </div>
     <p class="drawer-method-note">${escapeDisplay(family?.score_version || "LLMDEX General Consensus v1")} · agreement is informational and never changes the score or rank.</p>
   </section>`;
   const llmstatsLink = llmstats?.source_model_url;
   const llmstatsSection = `<section class="drawer-source-section">
-    <div class="drawer-section-heading"><div><span>LLMSTATS</span><h3>Source-native capability evidence</h3></div>${llmstatsLink ? `<a href="${escapeDisplay(llmstatsLink)}" target="_blank" rel="noopener">Open source <i class="fas fa-external-link-alt"></i></a>` : ""}</div>
+    <div class="drawer-section-heading"><div><span>LLMSTATS</span><h3>Source-native capability benchmarks</h3></div>${llmstatsLink ? `<a href="${escapeDisplay(llmstatsLink)}" target="_blank" rel="noopener">View on LLMStats <i class="fas fa-external-link-alt"></i></a>` : ""}</div>
     ${
       llmstats
         ? `<dl class="source-identity"><div><dt>Published name</dt><dd>${escapeDisplay(llmstats.source_name)}</dd></div><div><dt>Source model ID</dt><dd>${escapeDisplay(llmstats.source_model_id || "Not published")}</dd></div><div><dt>Updated</dt><dd>${escapeDisplay(llmstats.source_updated_at || "Source date unavailable")}</dd></div></dl>
            <div class="source-score-grid">${categoryCards}</div>
-           ${benchmarkRows ? `<div class="drawer-table-wrap"><table class="drawer-benchmark-table"><thead><tr><th>Benchmark</th><th>Value</th><th>Version</th><th>Evidence</th></tr></thead><tbody>${benchmarkRows}</tbody></table></div>` : '<p class="drawer-empty-note">No additional benchmark observations are published for this visible source row.</p>'}`
+           ${benchmarkRows ? `<div class="drawer-table-wrap"><table class="drawer-benchmark-table"><thead><tr><th>Benchmark</th><th>Value</th></tr></thead><tbody>${benchmarkRows}</tbody></table></div>` : '<p class="drawer-empty-note">No additional benchmark observations are published for this visible source row.</p>'}`
         : '<p class="drawer-empty-note">This AA family does not have an approved LLMStats observation in the current snapshot.</p>'
     }
   </section>`;
   const aaLink = representative?.model_url;
   const aaSection = `<section class="drawer-source-section">
-    <div class="drawer-section-heading"><div><span>ARTIFICIAL ANALYSIS</span><h3>Family configuration comparison</h3></div>${aaLink ? `<a href="${escapeDisplay(aaLink)}" target="_blank" rel="noopener">Open source <i class="fas fa-external-link-alt"></i></a>` : ""}</div>
+    <div class="drawer-section-heading"><div><span>ARTIFICIAL ANALYSIS</span><h3>Model details &amp; benchmark breakdown</h3></div>${aaLink ? `<a href="${escapeDisplay(aaLink)}" target="_blank" rel="noopener">View on Artificial Analysis <i class="fas fa-external-link-alt"></i></a>` : ""}</div>
     ${
       representative
         ? `<div class="detail-metric-grid">
@@ -2106,7 +2143,9 @@ function showModelDetailsDrawer(familyId, sourceModelId, modelSlug) {
           ${detailMetric("Total response", representative.total_response_time, { suffix: "s" })}
           ${detailMetric("Context", representative.context_window, { digits: 0 })}
           ${detailMetric("Availability", escapeDisplay(representative.availability_class || "unknown"), { html: true })}
-        </div><h4 class="drawer-list-heading">AA configurations in this family</h4><ul class="variant-list">${variantRows}</ul>`
+        </div>
+        ${aaBenchmarkRows ? `<h4 class="drawer-list-heading">Expanded benchmark breakdown</h4><div class="drawer-table-wrap"><table class="drawer-benchmark-table"><thead><tr><th>Metric</th><th>Published value</th></tr></thead><tbody>${aaBenchmarkRows}</tbody></table></div>` : ""}
+        <h4 class="drawer-list-heading">AA configurations in this family</h4><ul class="variant-list">${variantRows}</ul>`
         : '<p class="drawer-empty-note">No Artificial Analysis family match is approved for this LLMStats model.</p>'
     }
   </section>`;
@@ -3624,26 +3663,7 @@ function setupSorting(allData) {
       currentSort.direction === "asc" ? "sort-asc" : "sort-desc",
     );
 
-    if (currentCapability !== "general") {
-      renderCurrentLeaderboard();
-      return;
-    }
-
-    // Sort data
-    const data = allDataRef || allData;
-    const sorted = [...data].sort((a, b) => {
-      const va = a[field],
-        vb = b[field];
-      if (va == null && vb == null) return 0;
-      if (va == null) return 1;
-      if (vb == null) return -1;
-      return currentSort.direction === "asc" ? va - vb : vb - va;
-    });
-
-    const query = document.getElementById("search-input").value.toLowerCase();
-    const provider = document.getElementById("provider-filter").value;
-    const filtered = filterModels(sorted, query, provider);
-    populateTable(filtered, data, currentTab);
+    renderCurrentLeaderboard();
   });
 }
 
@@ -4865,8 +4885,18 @@ async function setupFamilyExplorerModern(allData) {
               ? `; ${Number(row.improvement_abs) >= 0 ? "+" : ""}${Number(row.improvement_abs).toFixed(1)} vs ${row.predecessor}`
               : "";
             return `<g class="family-point">
-              <circle cx="${x(row.release_date)}" cy="${y(row.performance)}" r="7" fill="${color}" stroke="${theme.text}" stroke-width="2">
-                <title>${escapeDisplay(row.name)} · ${formatDate(row.release_date)} · Intelligence ${Number(row.performance).toFixed(1)}${escapeDisplay(change)}</title>
+              <circle class="family-point-marker" tabindex="0" role="button"
+                aria-label="Show ${escapeDisplay(row.name)} release details"
+                data-name="${escapeDisplay(row.name)}"
+                data-family="${escapeDisplay(cleanFamilyLabel(row.family, activeBrand))}"
+                data-date="${escapeDisplay(formatDate(row.release_date))}"
+                data-score="${Number(row.performance).toFixed(1)}"
+                data-rank="${row.rank == null ? "" : Math.round(row.rank)}"
+                data-change="${escapeDisplay(change.replace(/^;\s*/, "") || "First tracked release")}"
+                data-variants="${Number(row.variant_count || 1)}"
+                data-url="${escapeDisplay(row.model_url || "")}"
+                cx="${x(row.release_date)}" cy="${y(row.performance)}" r="7"
+                fill="${color}" stroke="${theme.text}" stroke-width="2">
               </circle>
             </g>`;
           })
@@ -5015,8 +5045,59 @@ async function setupFamilyExplorerModern(allData) {
           <div class="family-legend">${legend}</div>
         </div>
         ${makeTimelineSvg(rows, families, colors, theme)}
+        <aside class="family-point-details" id="family-point-details" hidden aria-live="polite"></aside>
       </div>
       <div class="family-year-timeline">${yearGroups}</div>`;
+
+    const pointDetails = chartDiv.querySelector("#family-point-details");
+    let pinnedPoint = null;
+    const hidePointDetails = () => {
+      if (!pointDetails || pinnedPoint) return;
+      pointDetails.hidden = true;
+    };
+    const showPointDetails = (marker, pin = false) => {
+      if (!pointDetails || !marker) return;
+      if (pin) pinnedPoint = marker;
+      const sourceLink =
+        marker.dataset.url && /^https?:\/\//.test(marker.dataset.url)
+          ? `<a href="${escapeDisplay(marker.dataset.url)}" target="_blank" rel="noopener">Open model record <i class="fas fa-arrow-up-right-from-square"></i></a>`
+          : "";
+      pointDetails.innerHTML = `
+        <button class="family-point-close" type="button" aria-label="Close release details"><i class="fas fa-times"></i></button>
+        <span>${escapeDisplay(marker.dataset.family)}</span>
+        <h4>${escapeDisplay(marker.dataset.name)}</h4>
+        <dl>
+          <div><dt>Release</dt><dd>${escapeDisplay(marker.dataset.date)}</dd></div>
+          <div><dt>Intelligence</dt><dd>${escapeDisplay(marker.dataset.score)}</dd></div>
+          <div><dt>Global rank</dt><dd>${marker.dataset.rank ? `#${escapeDisplay(marker.dataset.rank)}` : "Unavailable"}</dd></div>
+          <div><dt>Change</dt><dd>${escapeDisplay(marker.dataset.change)}</dd></div>
+          <div><dt>Configurations</dt><dd>${escapeDisplay(marker.dataset.variants)}</dd></div>
+        </dl>
+        ${sourceLink}`;
+      pointDetails.hidden = false;
+      pointDetails.querySelector(".family-point-close")?.addEventListener(
+        "click",
+        () => {
+          pinnedPoint = null;
+          pointDetails.hidden = true;
+        },
+      );
+    };
+    chartDiv.querySelectorAll(".family-point-marker").forEach((marker) => {
+      marker.addEventListener("pointerenter", () => {
+        if (!pinnedPoint) showPointDetails(marker);
+      });
+      marker.addEventListener("pointerleave", hidePointDetails);
+      marker.addEventListener("focus", () => showPointDetails(marker));
+      marker.addEventListener("blur", hidePointDetails);
+      marker.addEventListener("click", () => showPointDetails(marker, true));
+      marker.addEventListener("keydown", (event) => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          showPointDetails(marker, true);
+        }
+      });
+    });
 
     if (explanation) {
       const scope =

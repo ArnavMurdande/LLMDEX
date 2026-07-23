@@ -124,7 +124,6 @@ def _availability(row: Mapping[str, Any]) -> str:
         "open_weights",
         "research_license",
         "proprietary",
-        "unknown",
     }:
         return str(current)
     license_text = str(row.get("license_type") or "").casefold()
@@ -134,8 +133,9 @@ def _availability(row: Mapping[str, Any]) -> str:
         return "research_license"
     if "open source" in license_text:
         return "open_source"
-    if row.get("open_source") is True or any(
-        token in license_text for token in ("apache", "mit", "community")
+    if row.get("open_source") is True or license_text.strip() == "open" or any(
+        token in license_text
+        for token in ("apache", "mit", "community", "open weight")
     ):
         return "open_weights"
     return "unknown"
@@ -147,7 +147,6 @@ def _source_status_label(code: str) -> str:
         "aa_only": "AA only",
         "llmstats_only": "LLMStats only",
         "identity_review": "Identity review",
-        "family_score_available": "Family score available",
     }.get(code, code.replace("_", " ").title())
 
 
@@ -498,13 +497,11 @@ def build_consensus(
                 "llmstats_general_rank": family.get("llmstats_general_rank"),
                 "llmstats_source_name": family.get("llmstats_source_name"),
                 "family_score_reference": family.get("family_id"),
-                "is_sota": family.get("is_sota") if is_representative else False,
-                "is_open_sota": (
-                    family.get("is_open_sota") if is_representative else False
-                ),
+                "is_sota": family.get("is_sota"),
+                "is_open_sota": family.get("is_open_sota"),
             }
         )
-        if is_representative:
+        if family.get("llmdex_score") is not None:
             for field in (
                 "llmdex_score",
                 "llmdex_rank",
@@ -520,11 +517,6 @@ def build_consensus(
             ):
                 row[field] = family.get(field)
             row["score_status"] = family["score_status"]
-        elif family.get("llmdex_score") is not None:
-            row["llmdex_score"] = None
-            row["llmdex_rank"] = None
-            row["agreement"] = None
-            row["score_status"] = "family_score_available"
         else:
             row["llmdex_score"] = None
             row["llmdex_rank"] = None
@@ -532,23 +524,15 @@ def build_consensus(
             row["score_status"] = family["score_status"]
         row["score_status_label"] = _source_status_label(row["score_status"])
         badges = []
-        if row.get("is_sota"):
+        if row.get("is_sota") or row.get("is_open_sota"):
             badges.append("SOTA")
-        if row.get("is_open_sota"):
-            badges.append("OPEN SOTA")
         availability_badge = {
             "open_source": "OPEN SOURCE",
             "open_weights": "OPEN WEIGHTS",
-            "research_license": "RESEARCH LICENSE",
             "proprietary": "PROPRIETARY",
-            "unknown": "UNKNOWN",
         }.get(row.get("availability_class"))
         if availability_badge:
             badges.append(availability_badge)
-        if row["score_status"] == "consensus":
-            badges.append("CONSENSUS")
-        if row.get("agreement") is not None and row["agreement"] < 75:
-            badges.append("LOW AGREEMENT")
         row["badges"] = badges
         enriched_aa.append(row)
 
@@ -567,7 +551,14 @@ def build_consensus(
         )
         if aa_leader.get("score_status") != "consensus":
             aa_leader["is_aa_leader"] = True
-            aa_leader["badges"] = ["AA LEADER", *aa_leader.get("badges", [])]
+
+    for row in llmstats_enriched:
+        family = family_by_id.get(row.get("family_id"))
+        if not family:
+            continue
+        row["availability_class"] = family.get("availability_class")
+        row["is_sota"] = family.get("is_sota")
+        row["is_open_sota"] = family.get("is_open_sota")
 
     return {
         "aa_rows": enriched_aa,

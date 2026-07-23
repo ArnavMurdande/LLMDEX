@@ -55,7 +55,6 @@ def validate_publication() -> None:
         "aa_only",
         "llmstats_only",
         "identity_review",
-        "family_score_available",
     }
     invalid_statuses = {
         row.get("score_status")
@@ -75,13 +74,21 @@ def validate_publication() -> None:
         if row.get("aa_representative_variant_id")
     }:
         raise ValueError("Identity registry does not match published AA families")
+    families_by_id = {row.get("family_id"): row for row in families}
+    allowed_badges = {"SOTA", "OPEN SOURCE", "OPEN WEIGHTS", "PROPRIETARY"}
     for row in index:
-        if row.get("llmdex_score") is not None and not row.get(
-            "is_family_representative"
-        ):
+        family = families_by_id.get(row.get("family_id"), {})
+        if row.get("llmdex_score") is not None and row.get(
+            "llmdex_score"
+        ) != family.get("llmdex_score"):
             raise ValueError(
-                "A non-representative AA variant received a numeric family score: "
+                "An AA variant does not share its published family score: "
                 f"{row.get('canonical_name')}"
+            )
+        unexpected_badges = set(row.get("badges") or []) - allowed_badges
+        if unexpected_badges:
+            raise ValueError(
+                f"Unsupported model tags: {sorted(unexpected_badges)}"
             )
         if row.get("score_status") in {"aa_only", "identity_review"} and row.get(
             "llmdex_score"
@@ -113,6 +120,10 @@ def validate_publication() -> None:
         capability_rows = contract.get("rows", [])
         if not capability_rows:
             raise ValueError(f"{capability} publication is empty")
+        if len(contract.get("benchmark_columns") or []) < 10:
+            raise ValueError(
+                f"{capability} publication lost source benchmark columns"
+            )
         for row in capability_rows:
             if not row.get("source_name") or not row.get("source_model_url"):
                 raise ValueError(f"{capability} row lacks source identity")

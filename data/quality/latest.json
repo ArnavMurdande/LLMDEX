@@ -1,59 +1,56 @@
 {
-  "generated_at": "2026-07-23T13:24:36.497073+00:00",
+  "generated_at": "2026-07-23T15:47:18.338710+00:00",
   "methodology_version": "LLMDEX General Consensus v1",
   "status": "healthy",
   "sources": {
     "artificial_analysis": {
       "source": "Artificial Analysis",
-      "status": "healthy",
       "rows_scraped": 258,
       "expected_range": [
-        150,
+        100,
         500
       ],
-      "duration_seconds": 0,
-      "warnings": [
-        "Health synthesized from the current validated publication."
-      ],
-      "last_successful_update": "2026-07-23T13:24:36.497073+00:00",
-      "schema_changes": [],
+      "status": "healthy",
       "error_message": null,
-      "timestamp": "2026-07-23T13:24:36.497073+00:00",
-      "snapshot_age_hours": 0.0
+      "duration_seconds": 89.44,
+      "timestamp": "2026-07-23T12:54:40.191517+00:00",
+      "parse_warning_count": 0,
+      "warnings": [],
+      "last_successful_update": "2026-07-23T00:00:00+00:00",
+      "schema_changes": [],
+      "snapshot_age_hours": 15.788427419444446
     },
     "llmstats": {
       "source": "LLMStats",
-      "rows_scraped": 31,
+      "rows_scraped": 84,
       "expected_range": [
         20,
-        80
+        250
       ],
       "status": "healthy",
       "error_message": null,
-      "duration_seconds": 16.175,
-      "timestamp": "2026-07-23T13:24:52.679128+00:00",
+      "duration_seconds": 28.746,
+      "timestamp": "2026-07-23T15:45:52.547087+00:00",
       "parse_warning_count": 0,
-      "warnings": [
-        "Supplemental published top-model payload was unavailable for: long_context, reasoning, tool_calling. Visible-table category scores remain available."
-      ],
-      "last_successful_update": "2026-07-23T13:24:52.679128+00:00",
+      "warnings": [],
+      "last_successful_update": "2026-07-23T15:45:52.547087+00:00",
       "schema_changes": [],
-      "snapshot_age_hours": 0.0
+      "snapshot_age_hours": 0.023831006388888888
     }
   },
   "counts": {
     "matched_families": 16,
-    "aa_only_families": 167,
-    "llmstats_only_families": 9,
-    "identity_review_count": 8,
-    "ambiguous_match_count": 2,
+    "aa_only_families": 144,
+    "llmstats_only_families": 26,
+    "identity_review_count": 67,
+    "ambiguous_match_count": 9,
     "consensus_scored_families": 16
   },
   "missing_benchmark_counts": {
-    "aa_intelligence": 18,
-    "llmstats_general": 170,
-    "aa_official_coding_index": 17,
-    "llmstats_coding": 170
+    "aa_intelligence": 71,
+    "llmstats_general": 223,
+    "aa_official_coding_index": 70,
+    "llmstats_coding": 212
   },
   "warnings": []
 }

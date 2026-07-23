@@ -119,7 +119,9 @@ def _classify_availability(license_type: Optional[str]) -> Dict[str, Any]:
             "commercial_use_allowed": None,
             "open_source": True,
         }
-    if any(token in text for token in ("apache", "mit", "open weight", "community")):
+    if text == "open" or any(
+        token in text for token in ("apache", "mit", "open weight", "community")
+    ):
         return {
             "availability_class": "open_weights",
             "weights_available": True,

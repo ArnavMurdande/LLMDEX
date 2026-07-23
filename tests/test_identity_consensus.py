@@ -295,10 +295,10 @@ class ConsensusScoreTests(unittest.TestCase):
             row["canonical_name"]: row for row in output["aa_rows"]
         }
         self.assertEqual(variants["Model A (max)"]["llmdex_score"], 100.0)
-        self.assertIsNone(variants["Model A (high)"]["llmdex_score"])
+        self.assertEqual(variants["Model A (high)"]["llmdex_score"], 100.0)
         self.assertEqual(
             variants["Model A (high)"]["score_status"],
-            "family_score_available",
+            "consensus",
         )
         self.assertIsNone(variants["Model B"]["llmdex_score"])
         self.assertEqual(variants["Model B"]["performance_rank"], 3)

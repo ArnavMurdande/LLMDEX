@@ -59,11 +59,11 @@
         "tool_calling": "Tools"
       },
       "extraction": {
-        "strategy": "server_rendered_html",
+        "strategy": "public_browser_rendered_tables",
         "forbidden_paths": ["/api/"],
         "rate_limit_seconds": 2,
-        "expected_rows": [20, 80],
-        "published_population_note": "The public server-rendered General table is the automatable population. Client-only expansion is not bypassed."
+        "expected_rows": [20, 250],
+        "published_population_note": "General comes from the public server-rendered table. Capability pages are read from their public browser-rendered tables, without private APIs or verification bypasses."
       },
       "attribution": "Capability rankings and benchmark data from LLMStats."
     }

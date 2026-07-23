@@ -6,6 +6,7 @@ from pathlib import Path
 from scraper.scrape_llmstats import (
     _extract_top_models,
     parse_llmstats_table,
+    parse_rendered_capability_table,
 )
 
 
@@ -61,6 +62,60 @@ class LLMStatsFixtureTests(unittest.TestCase):
         )
         self.assertEqual(len(rows), 2)
         self.assertEqual(diagnostics["duplicate_source_ids"], ["same"])
+
+    def test_rendered_capability_table_preserves_all_benchmark_columns(self):
+        table = {
+            "headers": [
+                {"text": "MODEL"},
+                {"text": "Rating\nconservative"},
+                {"text": "Price\n$/M"},
+                {"text": "Context window"},
+                {"text": "Speed\nchars/s"},
+                {"text": "TTFT\nlatency"},
+                {
+                    "text": "SWE-Bench Verified\n104 models",
+                    "source_url": "https://llm-stats.com/benchmarks/swe-bench",
+                },
+                {
+                    "text": "LiveCodeBench\n73 models",
+                    "source_url": "https://llm-stats.com/benchmarks/livecodebench",
+                },
+            ],
+            "rows": [
+                {
+                    "model_name": "GPT-5.6 Sol",
+                    "model_url": "https://llm-stats.com/models/gpt-5.6-sol",
+                    "cells": [
+                        {"text": "#1\nGPT-5.6 Sol"},
+                        {"text": "49.5"},
+                        {"text": "$2.00"},
+                        {"text": "1M"},
+                        {"text": "120"},
+                        {"text": "0.2"},
+                        {"text": "76.5"},
+                        {"text": "81.2"},
+                    ],
+                }
+            ],
+        }
+        rows, diagnostics = parse_rendered_capability_table(
+            table,
+            "coding",
+            "https://llm-stats.com/leaderboards/best-ai-for-coding",
+        )
+        self.assertEqual(diagnostics["schema_changes"], [])
+        self.assertEqual(len(diagnostics["benchmark_columns"]), 2)
+        self.assertEqual(rows[0]["category_rank"], 1.0)
+        self.assertEqual(
+            rows[0]["benchmark_observations"]["swe_bench_verified"][
+                "capabilities"
+            ],
+            ["coding"],
+        )
+        self.assertEqual(
+            rows[0]["benchmark_observations"]["llmstats__livecodebench"]["value"],
+            81.2,
+        )
 
 
 if __name__ == "__main__":

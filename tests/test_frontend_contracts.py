@@ -57,11 +57,13 @@ class FrontendContractTests(unittest.TestCase):
             "quality-grid",
             "stale-data-banner",
             "data-section",
-            "consensus-trend-chart",
         ):
             self.assertIn(element_id, self.parser.ids)
         self.assertIn("showModelDetailsDrawer", self.js)
         self.assertIn("renderDataQuality", self.js)
+        self.assertNotIn('id="benchmark-modal"', self.html)
+        self.assertNotIn('id="status-filter"', self.html)
+        self.assertIn('id="table-scrollbar-spacer"', self.html)
 
     def test_mobile_pills_scroll_and_keyboard_navigation_is_bound(self):
         self.assertIn("overflow-x: auto", self.css)
@@ -86,6 +88,11 @@ class FrontendContractTests(unittest.TestCase):
                 self.assertTrue(row["source_name"])
                 self.assertNotIn("(max)", row["source_name"].casefold())
                 self.assertNotIn("(xhigh)", row["source_name"].casefold())
+
+    def test_capability_ui_keeps_every_published_benchmark_column(self):
+        self.assertNotIn(".slice(0, 4)", self.js)
+        self.assertIn("sourcePopulation", self.js)
+        self.assertIn("benchmark-coverage", self.js)
 
     def test_single_source_status_and_stale_state_are_rendered(self):
         self.assertIn("llmstats_only", self.js)

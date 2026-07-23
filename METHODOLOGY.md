@@ -111,7 +111,9 @@ comparable second source is available.
 - AA only: AA values and rank remain unchanged; LLMDEX Score is null.
 - LLMStats only: retained in capability datasets; AA match is null.
 - Identity review: both may have a candidate, but no score is published.
-- Family score available: a non-representative AA variant links to the family.
+- Every AA configuration in an approved family displays the same family-level
+  LLMDEX score, agreement, and consensus status. Source-native configuration
+  metrics remain distinct.
 
 Null is never converted to zero.
 
