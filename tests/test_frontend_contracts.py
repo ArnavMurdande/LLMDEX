@@ -75,12 +75,25 @@ class FrontendContractTests(unittest.TestCase):
         self.assertIn('enhanceCustomSelect(selector, "capability")', self.js)
         self.assertIn('selector.addEventListener("change"', self.js)
         self.assertIn("table-scrollbar-bottom", self.js)
+        self.assertIn('id="leaderboard-source-viewer"', self.html)
+        self.assertIn("syncLeaderboardSourceViewer", self.js)
+        self.assertIn("Artificial Analysis based", self.js)
+        self.assertIn("LLMStats based", self.js)
 
     def test_shared_visual_effect_layer_is_loaded(self):
         effects = (ROOT / "website" / "effects.js").read_text(encoding="utf-8")
-        self.assertIn('src="effects.js?v=1"', self.html)
+        self.assertIn('src="effects.js?v=2"', self.html)
         self.assertIn("installSpecularButtons", effects)
         self.assertIn("installPixelBlast", effects)
+        self.assertIn('variant: "square"', effects)
+        self.assertIn("pixelSize: 2", effects)
+        self.assertIn("patternScale: 4", effects)
+        self.assertIn("patternDensity: 0.65", effects)
+        self.assertIn("particle.x +=", effects)
+
+    def test_mobile_table_reveals_scrolled_metrics(self):
+        self.assertIn("position: static !important", self.css)
+        self.assertIn("touch-action: pan-x pan-y", self.css)
 
     def test_fable_identity_and_pending_score_copy_are_normalized(self):
         self.assertIn("normalizePublishedModels", self.js)

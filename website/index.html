@@ -24,7 +24,7 @@
         document.documentElement.dataset.theme = preferred;
       })();
     </script>
-    <link rel="stylesheet" href="styles.css?v=13" />
+    <link rel="stylesheet" href="styles.css?v=14" />
     <link rel="stylesheet" href="bento.css?v=3" />
     <link
       href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Space+Grotesk:wght@300;500;700&family=JetBrains+Mono:wght@400;500&display=swap"
@@ -288,16 +288,27 @@
         </div>
 
         <div class="leaderboard-view-controls">
-          <select id="capability-selector" aria-label="Choose leaderboard category">
-            <option value="general">General</option>
-            <option value="coding">Coding</option>
-            <option value="math">Math</option>
-            <option value="reasoning">Reasoning</option>
-            <option value="writing">Writing</option>
-            <option value="research">Research</option>
-            <option value="long_context">Long Context</option>
-            <option value="tool_calling">Tool Calling</option>
-          </select>
+          <div class="leaderboard-source-controls">
+            <select id="capability-selector" aria-label="Choose leaderboard category">
+              <option value="general">General</option>
+              <option value="coding">Coding</option>
+              <option value="math">Math</option>
+              <option value="reasoning">Reasoning</option>
+              <option value="writing">Writing</option>
+              <option value="research">Research</option>
+              <option value="long_context">Long Context</option>
+              <option value="tool_calling">Tool Calling</option>
+            </select>
+            <div
+              class="leaderboard-source-viewer"
+              id="leaderboard-source-viewer"
+              role="status"
+              aria-live="polite"
+            >
+              <span class="source-viewer-dot" aria-hidden="true"></span>
+              <span><strong>Artificial Analysis based</strong> · Latest validated snapshot</span>
+            </div>
+          </div>
 
           <div class="general-leaderboard-tabs" id="general-leaderboard-tabs">
             <div class="leaderboard-tabs">
@@ -845,7 +856,7 @@
     </footer>
 
     <script src="bento.js?v=1"></script>
-    <script src="effects.js?v=1"></script>
-    <script src="app.js?v=24"></script>
+    <script src="effects.js?v=2"></script>
+    <script src="app.js?v=25"></script>
   </body>
 </html>

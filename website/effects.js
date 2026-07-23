@@ -99,13 +99,58 @@
     const context = canvas.getContext("2d", { alpha: true });
     if (!context) return;
 
+    const config = Object.freeze({
+      variant: "square",
+      pixelSize: 2,
+      color: [148, 163, 184],
+      patternScale: 4,
+      patternDensity: 0.65,
+      pixelSizeJitter: 0.8,
+      enableRipples: true,
+      rippleSpeed: 0.4,
+      rippleThickness: 0.12,
+      rippleIntensityScale: 1.5,
+      liquid: false,
+      speed: 0.6,
+      edgeFade: 0.12,
+    });
+    const particles = [];
     const ripples = [];
     let width = 1;
     let height = 1;
     let dpr = 1;
-    let pointer = { x: -1000, y: -1000, active: false };
     let animationFrame = 0;
     let lastFrame = 0;
+
+    const makeParticle = () => {
+      const angle = Math.random() * Math.PI * 2;
+      const velocity = 5 + Math.random() * 9;
+      return {
+        x: Math.random() * width,
+        y: Math.random() * height,
+        vx: Math.cos(angle) * velocity,
+        vy: Math.sin(angle) * velocity,
+        phase: Math.random() * Math.PI * 2,
+        jitter: Math.random() * 2 - 1,
+        alpha: 0.12 + Math.random() * 0.22,
+      };
+    };
+
+    const seedParticles = () => {
+      particles.length = 0;
+      const cellSize =
+        config.pixelSize * config.patternScale * 4;
+      const count = Math.max(
+        44,
+        Math.round(
+          (width * height * config.patternDensity) /
+            (cellSize * cellSize),
+        ),
+      );
+      for (let index = 0; index < count; index += 1) {
+        particles.push(makeParticle());
+      }
+    };
 
     const resize = () => {
       dpr = Math.min(window.devicePixelRatio || 1, 1.5);
@@ -116,98 +161,99 @@
       canvas.style.width = `${width}px`;
       canvas.style.height = `${height}px`;
       context.setTransform(dpr, 0, 0, dpr, 0, 0);
-    };
-
-    const color = () =>
-      document.documentElement.dataset.theme === "light"
-        ? [37, 99, 235]
-        : [96, 165, 250];
-
-    const noise = (x, y, time) => {
-      const value =
-        Math.sin(x * 0.071 + time * 0.18) +
-        Math.sin(y * 0.083 - time * 0.14) +
-        Math.sin((x + y) * 0.037 + time * 0.11);
-      return value / 3;
+      seedParticles();
     };
 
     const draw = (timeMs = 0) => {
       animationFrame = window.requestAnimationFrame(draw);
       if (document.hidden) return;
-      if (timeMs - lastFrame < 32 && !REDUCED_MOTION.matches) return;
+      if (timeMs - lastFrame < 24 && !REDUCED_MOTION.matches) return;
+      const deltaSeconds = lastFrame
+        ? Math.min(0.05, (timeMs - lastFrame) / 1000)
+        : 0;
       lastFrame = timeMs;
       const time = REDUCED_MOTION.matches ? 0 : timeMs / 1000;
       context.clearRect(0, 0, width, height);
-      const [red, green, blue] = color();
-      const spacing = 22;
-      const edge = Math.max(120, Math.min(width, height) * 0.16);
+      const [red, green, blue] = config.color;
+      const fadeDistance =
+        Math.max(36, Math.min(width, height) * config.edgeFade);
 
       ripples.forEach((ripple) => {
         ripple.age = (timeMs - ripple.startedAt) / 1000;
       });
-      while (ripples.length && ripples[0].age > 2.8) ripples.shift();
+      while (ripples.length && ripples[0].age > 2.4) ripples.shift();
 
-      for (let y = spacing / 2; y < height; y += spacing) {
-        for (let x = spacing / 2; x < width; x += spacing) {
-          const field = noise(x, y, time * 0.75);
-          let intensity = Math.max(0, (field - 0.05) * 0.34);
-          const edgeFade = Math.min(
-            1,
-            x / edge,
-            y / edge,
-            (width - x) / edge,
-            (height - y) / edge,
-          );
-          intensity *= Math.max(0, edgeFade);
-
-          if (pointer.active && !REDUCED_MOTION.matches) {
-            const distance = Math.hypot(x - pointer.x, y - pointer.y);
-            if (distance < 180) {
-              const liquid = 1 - distance / 180;
-              intensity +=
-                liquid *
-                (0.08 + 0.06 * Math.sin(time * 5 + distance * 0.07));
-            }
-          }
-
-          ripples.forEach((ripple) => {
-            const distance = Math.hypot(x - ripple.x, y - ripple.y);
-            const ring = ripple.age * 220;
-            const delta = Math.abs(distance - ring);
-            if (delta < 30) {
-              intensity +=
-                (1 - delta / 30) *
-                Math.max(0, 1 - ripple.age / 2.8) *
-                0.34;
-            }
-          });
-
-          if (intensity < 0.035) continue;
-          const jitter =
-            1 + 0.22 * Math.sin(x * 12.9898 + y * 78.233 + time);
-          const radius = Math.max(0.65, 1.7 * jitter);
-          context.beginPath();
-          context.arc(x, y, radius, 0, Math.PI * 2);
-          context.fillStyle = `rgba(${red}, ${green}, ${blue}, ${Math.min(
-            0.42,
-            intensity,
-          ).toFixed(3)})`;
-          context.fill();
+      particles.forEach((particle) => {
+        if (!REDUCED_MOTION.matches) {
+          const flowX = Math.sin(time * 0.75 + particle.phase) * 3.4;
+          const flowY = Math.cos(time * 0.62 + particle.phase) * 3.4;
+          particle.x +=
+            (particle.vx + flowX) * config.speed * deltaSeconds;
+          particle.y +=
+            (particle.vy + flowY) * config.speed * deltaSeconds;
         }
-      }
+
+        if (particle.x < -6) particle.x = width + 6;
+        if (particle.x > width + 6) particle.x = -6;
+        if (particle.y < -6) particle.y = height + 6;
+        if (particle.y > height + 6) particle.y = -6;
+
+        let drawX = particle.x;
+        let drawY = particle.y;
+        let intensity = particle.alpha;
+        if (config.enableRipples) ripples.forEach((ripple) => {
+          const dx = particle.x - ripple.x;
+          const dy = particle.y - ripple.y;
+          const distance = Math.hypot(dx, dy);
+          const radius =
+            ripple.age * config.rippleSpeed * 260;
+          const thickness =
+            config.rippleThickness * 240;
+          const distanceFromRing = Math.abs(distance - radius);
+          if (distanceFromRing >= thickness) return;
+          const strength =
+            (1 - distanceFromRing / thickness) *
+            Math.max(0, 1 - ripple.age / 2.4) *
+            config.rippleIntensityScale;
+          const normalX = distance ? dx / distance : 0;
+          const normalY = distance ? dy / distance : 0;
+          drawX += normalX * strength * 7;
+          drawY += normalY * strength * 7;
+          intensity += strength * 0.2;
+        });
+
+        const edgeFade = Math.max(
+          0,
+          Math.min(
+            1,
+            drawX / fadeDistance,
+            drawY / fadeDistance,
+            (width - drawX) / fadeDistance,
+            (height - drawY) / fadeDistance,
+          ),
+        );
+        intensity *= edgeFade;
+        if (intensity <= 0.015) return;
+
+        const size = Math.max(
+          1,
+          config.pixelSize *
+            (1 + particle.jitter * config.pixelSizeJitter * 0.5),
+        );
+        context.fillStyle = `rgba(${red}, ${green}, ${blue}, ${Math.min(
+          0.56,
+          intensity,
+        ).toFixed(3)})`;
+        context.fillRect(
+          Math.round(drawX - size / 2),
+          Math.round(drawY - size / 2),
+          size,
+          size,
+        );
+      });
     };
 
     window.addEventListener("resize", resize, { passive: true });
-    window.addEventListener(
-      "pointermove",
-      (event) => {
-        pointer = { x: event.clientX, y: event.clientY, active: true };
-      },
-      { passive: true },
-    );
-    window.addEventListener("pointerleave", () => {
-      pointer.active = false;
-    });
     window.addEventListener(
       "pointerdown",
       (event) => {

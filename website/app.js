@@ -882,11 +882,24 @@ function setupCapabilityLeaderboards() {
   if (!selector) return;
   enhanceCustomSelect(selector, "capability");
   selector.addEventListener("change", () => switchCapability(selector.value));
+  syncLeaderboardSourceViewer("general");
+}
+
+function syncLeaderboardSourceViewer(capability = currentCapability) {
+  const viewer = document.getElementById("leaderboard-source-viewer");
+  if (!viewer) return;
+  const source =
+    capability === "general" ? "Artificial Analysis based" : "LLMStats based";
+  viewer.innerHTML = `
+    <span class="source-viewer-dot" aria-hidden="true"></span>
+    <span><strong>${source}</strong> · Latest validated snapshot</span>
+  `;
 }
 
 async function switchCapability(capability) {
   currentCapability = capability || "general";
   currentSort = { field: null, direction: null };
+  syncLeaderboardSourceViewer(currentCapability);
   const selector = document.getElementById("capability-selector");
   if (selector && selector.value !== currentCapability) {
     selector.value = currentCapability;
