@@ -4665,25 +4665,73 @@
       "predecessor": "Devstral Small (Jul '25)"
     },
     {
+      "name": "Mistral Large 3",
+      "performance": 16.0,
+      "rank": 136.0,
+      "provider": "Mistral AI",
+      "model_url": "https://artificialanalysis.ai/models/mistral-large-3",
+      "release_date": "2025-12-02",
+      "variants": [
+        "Mistral Large 3"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 1.32,
+      "improvement_pct": 9.0,
+      "predecessor": "Mistral Medium 3.1"
+    },
+    {
+      "name": "Mistral Small 4",
+      "performance": 20.0,
+      "rank": 115.0,
+      "provider": "Mistral AI",
+      "model_url": "https://artificialanalysis.ai/models/mistral-small-4",
+      "release_date": "2026-03-16",
+      "variants": [
+        "Mistral Small 4 (non-reasoning)",
+        "Mistral Small 4"
+      ],
+      "variant_count": 2,
+      "improvement_abs": 4.0,
+      "improvement_pct": 25.0,
+      "predecessor": "Mistral Large 3"
+    },
+    {
+      "name": "Mistral Medium 3.5",
+      "performance": 30.0,
+      "rank": 74.0,
+      "provider": "Mistral AI",
+      "model_url": "https://artificialanalysis.ai/models/mistral-medium-3-5",
+      "release_date": "2026-04-29",
+      "variants": [
+        "Mistral Medium 3.5"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 10.0,
+      "improvement_pct": 50.0,
+      "predecessor": "Mistral Small 4"
+    }
+  ],
+  "Mistral AI": [
+    {
       "name": "Magistral Small 1.2",
       "performance": 11.0,
       "rank": 164.0,
-      "provider": "Mistral",
+      "provider": "Mistral AI",
       "model_url": "https://artificialanalysis.ai/models/magistral-small-2509",
       "release_date": "2025-09-17",
       "variants": [
         "Magistral Small 1.2"
       ],
       "variant_count": 1,
-      "improvement_abs": -3.68,
-      "improvement_pct": -25.06,
-      "predecessor": "Mistral Medium 3.1"
+      "improvement_abs": 0.0,
+      "improvement_pct": 0.0,
+      "predecessor": null
     },
     {
       "name": "Magistral Medium 1.2",
       "performance": 18.0,
       "rank": 122.0,
-      "provider": "Mistral",
+      "provider": "Mistral AI",
       "model_url": "https://artificialanalysis.ai/models/magistral-medium-2509",
       "release_date": "2025-09-18",
       "variants": [
@@ -4695,40 +4743,25 @@
       "predecessor": "Magistral Small 1.2"
     },
     {
-      "name": "Mistral Large 3",
-      "performance": 16.0,
-      "rank": 136.0,
-      "provider": "Mistral",
-      "model_url": "https://artificialanalysis.ai/models/mistral-large-3",
-      "release_date": "2025-12-02",
-      "variants": [
-        "Mistral Large 3"
-      ],
-      "variant_count": 1,
-      "improvement_abs": -2.0,
-      "improvement_pct": -11.11,
-      "predecessor": "Magistral Medium 1.2"
-    },
-    {
       "name": "Ministral 3 3B",
       "performance": 7.0,
       "rank": 201.0,
-      "provider": "Mistral",
+      "provider": "Mistral AI",
       "model_url": "https://artificialanalysis.ai/models/ministral-3-3b",
       "release_date": "2025-12-02",
       "variants": [
         "Ministral 3 3B"
       ],
       "variant_count": 1,
-      "improvement_abs": -9.0,
-      "improvement_pct": -56.25,
-      "predecessor": "Mistral Large 3"
+      "improvement_abs": -11.0,
+      "improvement_pct": -61.11,
+      "predecessor": "Magistral Medium 1.2"
     },
     {
       "name": "Ministral 3 8B",
       "performance": 9.0,
       "rank": 181.0,
-      "provider": "Mistral",
+      "provider": "Mistral AI",
       "model_url": "https://artificialanalysis.ai/models/ministral-3-8b",
       "release_date": "2025-12-02",
       "variants": [
@@ -4743,7 +4776,7 @@
       "name": "Ministral 3 14B",
       "performance": 11.0,
       "rank": 166.0,
-      "provider": "Mistral",
+      "provider": "Mistral AI",
       "model_url": "https://artificialanalysis.ai/models/ministral-3-14b",
       "release_date": "2025-12-02",
       "variants": [
@@ -4758,7 +4791,7 @@
       "name": "Devstral 2",
       "performance": 19.0,
       "rank": 116.0,
-      "provider": "Mistral",
+      "provider": "Mistral AI",
       "model_url": "https://artificialanalysis.ai/models/devstral-2",
       "release_date": "2025-12-09",
       "variants": [
@@ -4773,7 +4806,7 @@
       "name": "Devstral Small 2",
       "performance": 17.0,
       "rank": 126.0,
-      "provider": "Mistral",
+      "provider": "Mistral AI",
       "model_url": "https://artificialanalysis.ai/models/devstral-small-2",
       "release_date": "2025-12-09",
       "variants": [
@@ -4783,37 +4816,6 @@
       "improvement_abs": -2.0,
       "improvement_pct": -10.53,
       "predecessor": "Devstral 2"
-    },
-    {
-      "name": "Mistral Small 4",
-      "performance": 20.0,
-      "rank": 115.0,
-      "provider": "Mistral",
-      "model_url": "https://artificialanalysis.ai/models/mistral-small-4",
-      "release_date": "2026-03-16",
-      "variants": [
-        "Mistral Small 4 (non-reasoning)",
-        "Mistral Small 4"
-      ],
-      "variant_count": 2,
-      "improvement_abs": 3.0,
-      "improvement_pct": 17.65,
-      "predecessor": "Devstral Small 2"
-    },
-    {
-      "name": "Mistral Medium 3.5",
-      "performance": 30.0,
-      "rank": 74.0,
-      "provider": "Mistral",
-      "model_url": "https://artificialanalysis.ai/models/mistral-medium-3-5",
-      "release_date": "2026-04-29",
-      "variants": [
-        "Mistral Medium 3.5"
-      ],
-      "variant_count": 1,
-      "improvement_abs": 10.0,
-      "improvement_pct": 50.0,
-      "predecessor": "Mistral Small 4"
     }
   ],
   "Motif Technologies": [
