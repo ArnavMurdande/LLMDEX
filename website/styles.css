@@ -77,18 +77,31 @@ a:hover {
   position: fixed;
   inset: 0;
   background:
+    linear-gradient(rgba(5, 10, 15, 0.68), rgba(5, 10, 15, 0.68)),
     radial-gradient(
       ellipse at 30% 20%,
-      rgba(59, 130, 246, 0.06) 0%,
+      rgba(59, 130, 246, 0.10) 0%,
       transparent 60%
     ),
     radial-gradient(
       ellipse at 70% 80%,
-      rgba(139, 92, 246, 0.04) 0%,
+      rgba(139, 92, 246, 0.06) 0%,
       transparent 60%
     );
+  backdrop-filter: blur(1px);
+  -webkit-backdrop-filter: blur(1px);
   pointer-events: none;
   z-index: 0;
+}
+
+:root[data-theme="light"] .overlay {
+  background:
+    linear-gradient(rgba(248, 250, 252, 0.72), rgba(248, 250, 252, 0.72)),
+    radial-gradient(
+      ellipse at 30% 20%,
+      rgba(59, 130, 246, 0.08) 0%,
+      transparent 60%
+    );
 }
 
 /* ═══════════ Navbar ═══════════ */
@@ -205,13 +218,16 @@ a:hover {
   transform: translateY(-1px);
 }
 .btn.secondary {
-  background: transparent;
-  border: 1px solid var(--border-glass);
-  color: var(--text-primary);
+  background-color: #18222d !important;
+  background-image: none !important;
+  border: 1px solid rgba(255, 255, 255, 0.28) !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5) !important;
 }
 .btn.secondary:hover {
-  border-color: var(--accent-glow);
-  color: var(--accent-glow);
+  background-color: #223040 !important;
+  border-color: var(--accent-glow) !important;
+  color: #ffffff !important;
 }
 .btn:disabled {
   opacity: 0.4;
@@ -434,9 +450,10 @@ a:hover {
 .tab-btn {
   padding: 0.6rem 1.25rem;
   border-radius: 8px;
-  border: 1px solid var(--border-glass);
-  background: transparent;
-  color: var(--text-secondary);
+  border: 1px solid rgba(255, 255, 255, 0.28) !important;
+  background-color: #18222d !important;
+  background-image: none !important;
+  color: #ffffff !important;
   font-size: 0.9rem;
   font-weight: 500;
   cursor: pointer;
@@ -444,19 +461,20 @@ a:hover {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5) !important;
 }
-.tab-btn:hover {
-  border-color: var(--accent-glow);
-  color: var(--text-primary);
+.tab-btn:hover:not(.active) {
+  background-color: #223040 !important;
+  border-color: var(--accent-glow) !important;
+  color: #ffffff !important;
 }
 .tab-btn.active {
-  background: linear-gradient(
-    135deg,
-    var(--accent-glow),
-    var(--accent-secondary)
-  );
-  color: white;
-  border-color: transparent;
+  background-color: #ffffff !important;
+  background-image: none !important;
+  color: #030712 !important;
+  border-color: transparent !important;
+  font-weight: 700;
+  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.3) !important;
 }
 .tab-description {
   padding: 1rem 1.25rem;
@@ -516,42 +534,93 @@ a:hover {
   color: var(--text-primary);
 }
 
-/* Inline compare button — vivid gradient */
-.compare-btn {
+/* Inline compare button & reset filters button harmonization */
+.compare-btn,
+.reset-filters-btn {
   white-space: nowrap;
-  background: linear-gradient(135deg, #3b82f6, #8b5cf6) !important;
-  color: white !important;
-  border: none !important;
-  box-shadow: 0 0 16px rgba(59, 130, 246, 0.35);
-  font-weight: 600;
-  letter-spacing: 0.3px;
-  position: relative;
-  overflow: hidden;
-  align-self: stretch; /* match filter-bar height */
-  padding: 0 1.75rem; /* wider, no vertical padding needed */
-  font-size: 0.95rem;
-  border-radius: 12px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: normal;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.25rem;
+  border-radius: 999px;
+  min-height: 42px;
+  transition: all 0.3s ease;
 }
-.compare-btn::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, #60a5fa, #a78bfa);
-  opacity: 0;
-  transition: opacity 0.25s;
-}
-.compare-btn:hover:not(:disabled)::before {
-  opacity: 1;
-}
-.compare-btn:hover:not(:disabled) {
-  transform: translateY(-2px);
-  box-shadow: 0 0 28px rgba(59, 130, 246, 0.55);
-}
-.compare-btn:disabled {
-  background: rgba(255, 255, 255, 0.06) !important;
-  color: rgba(255, 255, 255, 0.3) !important;
-  box-shadow: none;
+
+.compare-btn:disabled,
+.btn.compare-btn:disabled,
+.reset-filters-btn,
+.btn.secondary.reset-filters-btn {
+  background: var(--surface-solid) !important;
+  background-image: none !important;
+  border: 1px solid var(--border-glass) !important;
+  color: var(--text-primary) !important;
+  box-shadow: none !important;
   opacity: 1 !important;
+}
+
+.compare-btn:disabled .compare-btn-label,
+.compare-btn:disabled > i,
+.reset-filters-btn,
+.reset-filters-btn > i {
+  color: var(--text-primary) !important;
+  font-weight: 500 !important;
+  font-size: 0.9rem !important;
+}
+
+.compare-btn:disabled .compare-btn-count {
+  color: var(--text-primary) !important;
+  background: color-mix(in srgb, var(--text-primary) 12%, transparent) !important;
+  border: none !important;
+  font-size: 0.8rem !important;
+  font-weight: 600 !important;
+  min-width: 1.35rem;
+  height: 1.35rem;
+  display: inline-grid;
+  place-items: center;
+  border-radius: 999px;
+}
+
+.reset-filters-btn:hover {
+  background: var(--surface-raised) !important;
+  border-color: var(--accent-glow) !important;
+}
+
+/* Active compare button — vivid gradient ONLY when models are selected */
+.compare-btn:not(:disabled),
+.btn.compare-btn:not(:disabled) {
+  background: linear-gradient(135deg, #3b82f6, #8b5cf6) !important;
+  color: #ffffff !important;
+  border: none !important;
+  font-weight: 600 !important;
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.45) !important;
+  cursor: pointer;
+}
+
+.compare-btn:not(:disabled) .compare-btn-label,
+.compare-btn:not(:disabled) > i,
+.compare-btn:not(:disabled) .compare-btn-count {
+  color: #ffffff !important;
+}
+
+.compare-btn:not(:disabled) .compare-btn-count {
+  background: rgba(255, 255, 255, 0.25) !important;
+  border: none !important;
+  font-size: 0.8rem !important;
+  font-weight: 600 !important;
+  min-width: 1.35rem;
+  height: 1.35rem;
+  display: inline-grid;
+  place-items: center;
+  border-radius: 999px;
+}
+
+.compare-btn:not(:disabled):hover {
+  transform: translateY(-1px);
+  box-shadow: 0 0 28px rgba(59, 130, 246, 0.65) !important;
 }
 
 /* ═══════════ Floating Compare Bar ═══════════ */
@@ -3157,16 +3226,7 @@ body::before {
   gap: 0.35rem;
 }
 
-.reset-filters-btn,
-.btn.compare-btn {
-  min-height: 58px;
-  align-self: stretch;
-  justify-content: center;
-  border: 1px solid var(--border-glass);
-  border-radius: 999px;
-  background: var(--surface-raised);
-  box-shadow: none;
-}
+/* reset & compare button base */
 
 .family-chart-panel {
   position: relative;
@@ -3321,23 +3381,24 @@ body::before {
   width: 100%;
 }
 
-.btn.secondary.reset-filters-btn {
+.btn.secondary.reset-filters-btn,
+.reset-filters-btn {
   opacity: 1 !important;
-  color: var(--text-secondary) !important;
+  color: var(--text-primary) !important;
   border: 1px solid var(--border-glass) !important;
-  background: var(--surface-raised) !important;
+  background-color: var(--surface-solid) !important;
+  background-image: none !important;
+  font-size: 0.9rem !important;
+  font-weight: 500 !important;
   box-shadow: none !important;
 }
 
 .btn.secondary.reset-filters-btn:hover,
-.btn.secondary.reset-filters-btn:focus-visible {
+.btn.secondary.reset-filters-btn:focus-visible,
+.reset-filters-btn:hover {
   color: var(--text-primary) !important;
-  border-color: color-mix(
-    in srgb,
-    var(--accent-blue) 42%,
-    var(--border-glass)
-  ) !important;
-  background: var(--surface-raised) !important;
+  border-color: var(--accent-glow) !important;
+  background-color: var(--surface-raised) !important;
 }
 
 .model-badge.badge-sota,
@@ -3366,20 +3427,20 @@ body::before {
   position: absolute;
   inset: 0;
   z-index: 6;
-  padding: 1px;
+  padding: 1.5px;
   border-radius: inherit;
   pointer-events: none;
   opacity: var(--specular-opacity);
   background: conic-gradient(
     from var(--specular-angle),
     transparent 0deg,
-    transparent 138deg,
-    rgba(96, 165, 250, 0.18) 154deg,
-    rgba(255, 255, 255, 0.96) 174deg,
-    rgba(167, 139, 250, 0.5) 190deg,
-    transparent 212deg,
-    transparent 318deg,
-    rgba(255, 255, 255, 0.72) 342deg,
+    transparent 130deg,
+    rgba(71, 230, 177, 0.8) 150deg,
+    rgba(52, 211, 153, 1.0) 174deg,
+    rgba(16, 185, 129, 0.95) 195deg,
+    transparent 215deg,
+    transparent 320deg,
+    rgba(71, 230, 177, 0.85) 345deg,
     transparent 360deg
   );
   -webkit-mask:
@@ -3387,7 +3448,7 @@ body::before {
     linear-gradient(#000 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
-  filter: drop-shadow(0 0 7px rgba(96, 165, 250, 0.32));
+  filter: drop-shadow(0 0 10px rgba(71, 230, 177, 0.75));
   transition: opacity 120ms ease;
 }
 
@@ -3553,21 +3614,61 @@ body {
 }
 
 .btn.secondary,
-.btn.compare-btn,
-.tab-btn,
+.tab-btn:not(.active),
 .priority-chip,
 .suggestion-chip {
-  background: transparent !important;
-  border-color: var(--border-glass) !important;
-  color: var(--text-primary) !important;
-  box-shadow: none !important;
+  background-color: #18222d !important;
+  background-image: none !important;
+  border: 1px solid rgba(255, 255, 255, 0.28) !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5) !important;
+}
+
+.btn.secondary:hover,
+.tab-btn:hover:not(.active),
+.priority-chip:hover,
+.suggestion-chip:hover {
+  background-color: #223040 !important;
+  border-color: var(--accent-glow) !important;
+  color: #ffffff !important;
 }
 
 .tab-btn.active,
-.priority-chip.active,
-.suggestion-chip:hover {
-  background: var(--text-primary) !important;
-  color: var(--bg-dark) !important;
+.priority-chip.active {
+  background-color: #ffffff !important;
+  background-image: none !important;
+  color: #030712 !important;
+  border-color: transparent !important;
+  font-weight: 700 !important;
+  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.3) !important;
+}
+
+:root[data-theme="light"] .btn.secondary,
+:root[data-theme="light"] .tab-btn:not(.active),
+:root[data-theme="light"] .priority-chip,
+:root[data-theme="light"] .suggestion-chip {
+  background-color: #ffffff !important;
+  background-image: none !important;
+  border: 1px solid rgba(0, 0, 0, 0.18) !important;
+  color: #0f172a !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08) !important;
+}
+
+:root[data-theme="light"] .btn.secondary:hover,
+:root[data-theme="light"] .tab-btn:hover:not(.active),
+:root[data-theme="light"] .priority-chip:hover,
+:root[data-theme="light"] .suggestion-chip:hover {
+  background-color: #f1f5f9 !important;
+  border-color: rgba(0, 0, 0, 0.3) !important;
+  color: #000000 !important;
+}
+
+:root[data-theme="light"] .tab-btn.active,
+:root[data-theme="light"] .priority-chip.active {
+  background-color: #0f172a !important;
+  background-image: none !important;
+  color: #ffffff !important;
+  border-color: transparent !important;
 }
 
 .theme-toggle {
@@ -4620,48 +4721,7 @@ select option,
   stroke: none !important;
 }
 
-.btn.compare-btn {
-  min-width: 170px;
-  min-height: 54px;
-  justify-content: center;
-  overflow: visible;
-  border: 1px solid var(--border-glass) !important;
-  border-radius: 999px;
-  color: #fff !important;
-  background: linear-gradient(
-    115deg,
-    var(--accent-blue),
-    var(--accent-violet)
-  ) !important;
-}
-
-.btn.compare-btn::before {
-  display: none !important;
-}
-
-.compare-btn-label,
-.compare-btn-count,
-.compare-btn > i {
-  position: relative;
-  z-index: 1;
-}
-
-.compare-btn-count {
-  min-width: 1.55rem;
-  height: 1.55rem;
-  display: inline-grid;
-  place-items: center;
-  border-radius: 999px;
-  color: var(--text-primary);
-  background: color-mix(in srgb, var(--surface-solid) 84%, transparent);
-  font: 700 0.74rem/1 var(--font-mono);
-}
-
-.btn.compare-btn:disabled {
-  color: var(--text-secondary) !important;
-  background: var(--surface-raised) !important;
-  border-color: var(--border-glass) !important;
-}
+/* compare button overrides removed for theme consistency */
 
 .table-scrollbar-top {
   height: 18px;
@@ -4865,6 +4925,30 @@ select option,
 
 :root[data-theme="light"] {
   --border-glass: rgba(0, 0, 0, 0.09);
+}
+
+:root[data-theme="light"] .btn.secondary,
+:root[data-theme="light"] .tab-btn:not(.active),
+:root[data-theme="light"] .compare-clear-btn,
+:root[data-theme="light"] .compare-chip {
+  background-color: #ffffff !important;
+  background-image: none !important;
+  border: 1px solid rgba(0, 0, 0, 0.18) !important;
+  color: #0f172a !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08) !important;
+}
+:root[data-theme="light"] .btn.secondary:hover,
+:root[data-theme="light"] .tab-btn:hover:not(.active),
+:root[data-theme="light"] .compare-clear-btn:hover {
+  background-color: #f1f5f9 !important;
+  border-color: rgba(0, 0, 0, 0.3) !important;
+  color: #000000 !important;
+}
+:root[data-theme="light"] .tab-btn.active {
+  background-color: #0f172a !important;
+  background-image: none !important;
+  color: #ffffff !important;
+  border-color: transparent !important;
 }
 
 .navbar {
@@ -5745,16 +5829,7 @@ body {
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
 }
 
-.reset-filters-btn {
-  opacity: 1;
-  background: var(--surface-raised) !important;
-  color: var(--text-secondary) !important;
-}
-
-.reset-filters-btn:hover,
-.reset-filters-btn:focus-visible {
-  color: var(--text-primary) !important;
-}
+/* reset filters button hover */
 
 @media (max-width: 900px) {
   .methodology-grid {
@@ -6070,13 +6145,13 @@ body::before,
   height: 100vh;
   overflow: hidden;
   pointer-events: none;
-  opacity: 0.88;
+  opacity: 0.1;
   mix-blend-mode: screen;
   contain: strict;
 }
 
 :root[data-theme="light"] #pixel-blast-root {
-  opacity: 0.72;
+  opacity: 0.1;
   mix-blend-mode: multiply;
 }
 
