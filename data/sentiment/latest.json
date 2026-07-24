@@ -1,35 +1,19 @@
 [
   {
-    "community_sentiment": 0.8,
-    "mention_count": 12,
-    "controversy_index": 0.0,
-    "sentiment_trend": "positive",
-    "confidence_score": 0.03,
+    "community_sentiment": null,
+    "mention_count": 3,
+    "controversy_index": null,
+    "sentiment_trend": null,
+    "confidence_score": 0,
     "sentiment_method": "gemini",
-    "valid_posts": 1,
-    "strong_praise_count": 0,
-    "strong_criticism_count": 0,
     "model_name": "Claude Opus 5",
-    "scraped_at": "2026-07-24T19:17:36.794836+00:00",
+    "scraped_at": "2026-07-24T20:02:52.039349+00:00",
     "_experimental": true,
     "source_counts": {
-      "HackerNews": 3,
-      "Reddit": 9
+      "HackerNews": 3
     },
-    "community_examples": [
-      {
-        "source": "Reddit",
-        "text": "Opus 5 nearly matches Fable 5 on senior engineering tasks using ~32% of the output tokens on average Claude Opus 4.5 excels on senior-level bug investigations, taking the top spot for that across all models and the...",
-        "url": "https://www.reddit.com/r/Anthropic/comments/1v5jo21/opus_5_nearly_matches_fable_5_on_senior/"
-      }
-    ],
-    "top_quotes": [
-      {
-        "source": "Reddit",
-        "text": "Opus 5 nearly matches Fable 5 on senior engineering tasks using ~32% of the output tokens on average Claude Opus 4.5 excels on senior-level bug investigations, taking the top spot for that across all models and the...",
-        "url": "https://www.reddit.com/r/Anthropic/comments/1v5jo21/opus_5_nearly_matches_fable_5_on_senior/"
-      }
-    ]
+    "community_examples": [],
+    "top_quotes": []
   },
   {
     "community_sentiment": -0.1074,
@@ -42,7 +26,7 @@
     "strong_praise_count": 1,
     "strong_criticism_count": 1,
     "model_name": "Claude Fable 5",
-    "scraped_at": "2026-07-24T19:17:40.951110+00:00",
+    "scraped_at": "2026-07-24T20:02:59.065102+00:00",
     "_experimental": true,
     "source_counts": {
       "HackerNews": 22
@@ -93,7 +77,7 @@
     "strong_praise_count": 3,
     "strong_criticism_count": 0,
     "model_name": "GPT-5.6 Sol",
-    "scraped_at": "2026-07-24T19:17:44.582378+00:00",
+    "scraped_at": "2026-07-24T20:03:02.758822+00:00",
     "_experimental": true,
     "source_counts": {
       "HackerNews": 18
@@ -134,20 +118,21 @@
     ]
   },
   {
-    "community_sentiment": 0.6958,
-    "mention_count": 28,
-    "controversy_index": 0.4,
+    "community_sentiment": 0.7103,
+    "mention_count": 31,
+    "controversy_index": 0.4444,
     "sentiment_trend": "positive",
-    "confidence_score": 0.33,
+    "confidence_score": 0.25,
     "sentiment_method": "gemini",
-    "valid_posts": 10,
+    "valid_posts": 9,
     "strong_praise_count": 4,
     "strong_criticism_count": 0,
     "model_name": "Kimi K3",
-    "scraped_at": "2026-07-24T19:17:50.649232+00:00",
+    "scraped_at": "2026-07-24T20:03:09.559039+00:00",
     "_experimental": true,
     "source_counts": {
-      "HackerNews": 28
+      "HackerNews": 28,
+      "Reddit": 3
     },
     "community_examples": [
       {
@@ -185,26 +170,26 @@
     ]
   },
   {
-    "community_sentiment": -0.6455,
-    "mention_count": 15,
-    "controversy_index": 0.5,
+    "community_sentiment": -0.5067,
+    "mention_count": 16,
+    "controversy_index": 1.0,
     "sentiment_trend": "negative",
     "confidence_score": 0.07,
     "sentiment_method": "gemini",
     "valid_posts": 2,
-    "strong_praise_count": 0,
+    "strong_praise_count": 1,
     "strong_criticism_count": 1,
     "model_name": "Claude Opus 4.8",
-    "scraped_at": "2026-07-24T19:17:54.018118+00:00",
+    "scraped_at": "2026-07-24T20:03:13.301921+00:00",
     "_experimental": true,
     "source_counts": {
-      "HackerNews": 15
+      "HackerNews": 16
     },
     "community_examples": [
       {
         "source": "Hacker News",
-        "text": "Claude Sonnet 5 Could Be Released Later Today, May Not Be Better Than Opus 4.8",
-        "url": "https://news.ycombinator.com/item?id=48736097"
+        "text": "Claude Opus 4.8 can be 10x faster than OpenAI GPT-5",
+        "url": "https://news.ycombinator.com/item?id=49040691"
       },
       {
         "source": "Hacker News",
@@ -215,8 +200,8 @@
     "top_quotes": [
       {
         "source": "Hacker News",
-        "text": "Claude Sonnet 5 Could Be Released Later Today, May Not Be Better Than Opus 4.8",
-        "url": "https://news.ycombinator.com/item?id=48736097"
+        "text": "Claude Opus 4.8 can be 10x faster than OpenAI GPT-5",
+        "url": "https://news.ycombinator.com/item?id=49040691"
       },
       {
         "source": "Hacker News",
@@ -227,17 +212,16 @@
   },
   {
     "community_sentiment": null,
-    "mention_count": 3,
+    "mention_count": 2,
     "controversy_index": null,
     "sentiment_trend": null,
     "confidence_score": 0,
     "sentiment_method": "gemini",
     "model_name": "GPT-5.6 Terra",
-    "scraped_at": "2026-07-24T19:17:54.920684+00:00",
+    "scraped_at": "2026-07-24T20:03:14.121489+00:00",
     "_experimental": true,
     "source_counts": {
-      "HackerNews": 2,
-      "Reddit": 1
+      "HackerNews": 2
     },
     "community_examples": [],
     "top_quotes": []
@@ -253,7 +237,7 @@
     "strong_praise_count": 1,
     "strong_criticism_count": 0,
     "model_name": "Grok 4.5",
-    "scraped_at": "2026-07-24T19:17:56.944815+00:00",
+    "scraped_at": "2026-07-24T20:03:16.200308+00:00",
     "_experimental": true,
     "source_counts": {
       "HackerNews": 12
@@ -294,7 +278,7 @@
     "strong_praise_count": 0,
     "strong_criticism_count": 0,
     "model_name": "Claude Sonnet 5",
-    "scraped_at": "2026-07-24T19:17:58.943440+00:00",
+    "scraped_at": "2026-07-24T20:03:18.146345+00:00",
     "_experimental": true,
     "source_counts": {
       "HackerNews": 12
@@ -345,7 +329,7 @@
     "strong_praise_count": 0,
     "strong_criticism_count": 0,
     "model_name": "GPT-5.6 Luna",
-    "scraped_at": "2026-07-24T19:17:59.746760+00:00",
+    "scraped_at": "2026-07-24T20:03:19.000784+00:00",
     "_experimental": true,
     "source_counts": {
       "HackerNews": 2
@@ -376,7 +360,7 @@
     "strong_praise_count": 2,
     "strong_criticism_count": 0,
     "model_name": "GLM-5.2",
-    "scraped_at": "2026-07-24T19:18:04.129289+00:00",
+    "scraped_at": "2026-07-24T20:03:23.541578+00:00",
     "_experimental": true,
     "source_counts": {
       "HackerNews": 23
