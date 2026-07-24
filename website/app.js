@@ -26,6 +26,119 @@ let qualityContractRef = null;
 let currentSort = { field: null, direction: null };
 const selectedModelIds = new Set();
 
+const METRIC_HELP = {
+  performance: {
+    title: "Performance Leader",
+    definition:
+      "The model with the highest source-native Artificial Analysis intelligence result in the current successfully processed snapshot.",
+    formula:
+      "Artificial Analysis Intelligence score, used unchanged.",
+    sources: "Artificial Analysis",
+    limitations:
+      "LLMDEX does not independently rerun this benchmark. Results reflect the upstream source methodology and model coverage.",
+  },
+
+  value: {
+    title: "Best Value",
+    definition:
+      "An LLMDEX-derived ranking balancing model performance, listed API cost, and measured generation speed.",
+    formula:
+      "50% performance + 30% cost efficiency + 20% generation speed. Missing components are reweighted proportionally.",
+    sources:
+      "Artificial Analysis observations processed by LLMDEX.",
+    limitations:
+      "The weights are a product choice and may not match every workload or organization.",
+  },
+
+  efficiency: {
+    title: "Most Efficient",
+    definition:
+      "Performance relative to the model's listed blended API price, normalized across eligible models.",
+    formula:
+      "Performance divided by blended listed API cost, converted to a percentile.",
+    sources:
+      "Artificial Analysis performance and pricing observations; LLMDEX-derived ranking.",
+    limitations:
+      "Self-hosting, hardware, electricity, engineering, support, and operational costs are excluded.",
+  },
+
+  model_variants: {
+    title: "Model Variants Tracked",
+    definition:
+      "The number of published model configurations in the current LLMDEX general dataset.",
+    formula: "Count of published model-variant rows.",
+    sources: "LLMDEX processed publication.",
+    limitations:
+      "Multiple reasoning levels or deployments of one model family may appear as separate variants.",
+  },
+
+  llmdex_consensus: {
+    title: "LLMDEX Consensus",
+    definition:
+      "A family-level cross-source score available only for confidently matched model families.",
+    formula:
+      "50% Artificial Analysis matched-universe percentile + 50% LLMStats General percentile.",
+    sources:
+      "Artificial Analysis, LLMStats, and LLMDEX identity matching.",
+    limitations:
+      "Families missing from either source or awaiting identity review do not receive a consensus score.",
+  },
+
+  open_weights_sota: {
+    title: "Open-Weights SOTA",
+    definition:
+      "The highest-ranked eligible open-weights family in the LLMDEX consensus population.",
+    formula: "Lowest eligible LLMDEX consensus rank.",
+    sources:
+      "LLMDEX consensus and availability metadata.",
+    limitations:
+      "Open weights does not necessarily mean the model or its training data meets every definition of open-source software.",
+  },
+
+  matched_families: {
+    title: "Matched Families",
+    definition:
+      "Model families confidently linked across Artificial Analysis and LLMStats.",
+    formula: "Count of approved cross-source family matches.",
+    sources: "LLMDEX identity and matching pipeline.",
+    limitations:
+      "Possible fuzzy matches remain under review and are not automatically counted.",
+  },
+
+  processing_date: {
+    title: "Last Updated",
+    definition:
+      "The date of the latest successfully processed LLMDEX publication.",
+    formula: "Latest published snapshot date.",
+    sources: "LLMDEX publication metadata.",
+    limitations:
+      "The two upstream sources may have been collected at different times.",
+  },
+
+  throughput: {
+    title: "Output Throughput",
+    definition:
+      "The measured number of generated output tokens per second. Higher is better.",
+    formula:
+      "Generated output tokens divided by generation time.",
+    sources:
+      "The source identified beside the displayed metric.",
+    limitations:
+      "This is different from time to first token and total response latency. It may vary across providers and measurement periods.",
+  },
+
+  context_window: {
+    title: "Context Window",
+    definition:
+      "The maximum listed number of tokens accepted by the model or deployment.",
+    formula: "Published maximum token capacity.",
+    sources:
+      "The source identified beside the displayed metric.",
+    limitations:
+      "Maximum capacity does not prove equivalent accuracy or retrieval quality across the entire window.",
+  },
+};
+
 function resolveAdvisorApiBase() {
   const runtimeBase =
     typeof window.LLMDEX_API_BASE === "string"
@@ -536,6 +649,7 @@ async function initializeApp() {
   // in parallel below and must never hold the primary table behind the network.
   safeInit("AI Advisor chat", () => setupChatbot(allData));
   safeInit("Dashboard", () => renderDashboard(allData));
+  safeInit("Metric explanations", setupMetricHelp);
   safeInit("Leaderboard tabs", () => setupLeaderboardTabs(allData));
   safeInit("Sorting", () => setupSorting(allData));
   safeInit("Comparison", () => setupComparison(allData));
@@ -723,10 +837,10 @@ function renderDashboard(data) {
       }
     });
     if (qualityContractRef?.sources?.llmstats) allSources.add("LLMStats");
-    sourceCountEl.textContent = `${allSources.size} validated source`;
+    sourceCountEl.textContent = `${allSources.size} active source${allSources.size === 1 ? "" : "s"}`;
     const heroSourceCount = document.getElementById("hero-source-count");
     if (heroSourceCount) {
-      heroSourceCount.textContent = `${allSources.size} validated`;
+      heroSourceCount.textContent = `${allSources.size} active source${allSources.size === 1 ? "" : "s"}`;
     }
   }
 
@@ -889,10 +1003,12 @@ function syncLeaderboardSourceViewer(capability = currentCapability) {
   const viewer = document.getElementById("leaderboard-source-viewer");
   if (!viewer) return;
   const source =
-    capability === "general" ? "Artificial Analysis based" : "LLMStats based";
+    capability === "general"
+      ? "Source: Artificial Analysis"
+      : "Source: LLMStats";
   viewer.innerHTML = `
     <span class="source-viewer-dot" aria-hidden="true"></span>
-    <span><strong>${source}</strong> · Latest validated snapshot</span>
+    <span><strong>${source}</strong> · Latest successfully processed snapshot</span>
   `;
 }
 
@@ -4162,7 +4278,8 @@ function setupTooltips(columnDefs) {
     if (
       tooltip.style.display === "block" &&
       !tooltip.contains(e.target) &&
-      !closestElement(e.target, ".info-icon")
+      !closestElement(e.target, ".info-icon") &&
+      !closestElement(e.target, ".metric-info-btn")
     ) {
       hide();
     }
@@ -4295,6 +4412,126 @@ function setupTooltips(columnDefs) {
       }
     }
   });
+}
+
+let activeMetricHelpBtn = null;
+
+function setupMetricHelp() {
+  if (window.__metricHelpInitialized) return;
+  window.__metricHelpInitialized = true;
+
+  const tooltip = document.getElementById("column-tooltip");
+  const closeBtn = document.getElementById("tooltip-close");
+
+  const closeMetricTooltip = (restoreFocus = false) => {
+    if (!activeMetricHelpBtn) return;
+    const btnToFocus = activeMetricHelpBtn;
+    activeMetricHelpBtn.setAttribute("aria-expanded", "false");
+    activeMetricHelpBtn = null;
+    if (tooltip) {
+      tooltip.style.display = "none";
+    }
+    if (restoreFocus && btnToFocus && typeof btnToFocus.focus === "function") {
+      btnToFocus.focus();
+    }
+  };
+
+  const showMetricTooltip = (btn) => {
+    if (!tooltip) return;
+
+    if (activeMetricHelpBtn && activeMetricHelpBtn !== btn) {
+      closeMetricTooltip(false);
+    }
+
+    const key = btn.dataset.metricHelp;
+    const help = METRIC_HELP[key];
+    if (!help) return;
+
+    const titleEl = document.getElementById("tooltip-title");
+    const defEl = document.getElementById("tooltip-definition");
+    const formulaEl = document.getElementById("tooltip-formula");
+    const sourcesEl = document.getElementById("tooltip-sources");
+    const limEl = document.getElementById("tooltip-limitations");
+
+    if (titleEl) titleEl.textContent = help.title;
+    if (defEl) defEl.textContent = help.definition;
+    if (formulaEl) formulaEl.textContent = help.formula;
+    if (sourcesEl) sourcesEl.textContent = help.sources;
+    if (limEl) limEl.textContent = help.limitations;
+
+    btn.setAttribute("aria-expanded", "true");
+    activeMetricHelpBtn = btn;
+
+    tooltip.style.display = "block";
+    tooltip.classList.remove("tooltip-above");
+
+    const btnRect = btn.getBoundingClientRect();
+    const tooltipW = tooltip.offsetWidth;
+    const tooltipH = tooltip.offsetHeight;
+    const gap = 10;
+    const vpW = window.innerWidth;
+    const vpH = window.innerHeight;
+
+    const btnCenterX = btnRect.left + btnRect.width / 2;
+    let left = btnCenterX - tooltipW / 2;
+    left = Math.max(12, Math.min(left, vpW - tooltipW - 12));
+
+    const arrowLeft = Math.max(20, Math.min(btnCenterX - left, tooltipW - 20));
+    tooltip.style.setProperty("--arrow-left", `${arrowLeft}px`);
+
+    const spaceBelow = vpH - btnRect.bottom - gap;
+    const spaceAbove = btnRect.top - gap;
+    let top;
+    if (spaceBelow >= tooltipH || spaceBelow >= spaceAbove) {
+      top = btnRect.bottom + gap;
+      tooltip.classList.remove("tooltip-above");
+    } else {
+      top = btnRect.top - tooltipH - gap;
+      tooltip.classList.add("tooltip-above");
+    }
+    top = Math.max(8, Math.min(top, vpH - tooltipH - 8));
+
+    tooltip.style.top = `${top}px`;
+    tooltip.style.left = `${left}px`;
+  };
+
+  document.addEventListener("click", (e) => {
+    const btn = closestElement(e.target, ".metric-info-btn");
+    if (btn) {
+      e.preventDefault();
+      e.stopPropagation();
+      if (activeMetricHelpBtn === btn) {
+        closeMetricTooltip(true);
+      } else {
+        showMetricTooltip(btn);
+      }
+      return;
+    }
+
+    if (
+      activeMetricHelpBtn &&
+      tooltip &&
+      tooltip.style.display === "block" &&
+      !tooltip.contains(e.target)
+    ) {
+      closeMetricTooltip(false);
+    }
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if ((e.key === "Escape" || e.key === "Esc") && activeMetricHelpBtn) {
+      closeMetricTooltip(true);
+    }
+  });
+
+  if (closeBtn) {
+    closeBtn.addEventListener("click", (e) => {
+      if (activeMetricHelpBtn) {
+        e.stopPropagation();
+        closeMetricTooltip(true);
+      }
+    });
+  }
 }
 
 // ══════════════════════════════════════════════════════════════
