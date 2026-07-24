@@ -77,8 +77,50 @@ class FrontendContractTests(unittest.TestCase):
         self.assertIn("table-scrollbar-bottom", self.js)
         self.assertIn('id="leaderboard-source-viewer"', self.html)
         self.assertIn("syncLeaderboardSourceViewer", self.js)
-        self.assertIn("Artificial Analysis based", self.js)
-        self.assertIn("LLMStats based", self.js)
+        self.assertIn("Source: Artificial Analysis", self.js)
+        self.assertIn("Source: LLMStats", self.js)
+
+    def test_transparency_terminology_and_attribution(self):
+        # A. Attribution exists
+        self.assertIn("https://artificialanalysis.ai/", self.html)
+        self.assertIn("https://llm-stats.com/", self.html)
+        self.assertIn("not affiliated", self.html.casefold())
+        self.assertIn("endorsed", self.html.casefold())
+
+        # B. New frontend elements exist
+        self.assertIn("metric-info-btn", self.html)
+        self.assertIn("data-metric-help", self.html)
+        self.assertIn("METRIC_HELP", self.js)
+        self.assertIn("setupMetricHelp", self.js)
+        self.assertIn("source-credits-section", self.html)
+        self.assertIn("metric-source", self.html)
+
+        # C. Misleading terminology removed from website/index.html
+        self.assertNotIn("financial-grade analytics index", self.html)
+        self.assertNotIn("only verified benchmark data", self.html)
+        self.assertNotIn("Free models receive maximum efficiency", self.html)
+        self.assertNotIn("Models Tracked</h3>", self.html)
+        self.assertNotIn("Open SOTA</h3>", self.html)
+
+        # D. New terminology exists
+        self.assertIn("Source-transparent model comparison", self.html)
+        self.assertIn("Latest successfully processed snapshot", self.html)
+        self.assertIn("Model Variants Tracked", self.html)
+        self.assertIn("Open-Weights SOTA", self.html)
+        self.assertIn("published, source-linked benchmark observations", self.html)
+
+        # E. Existing IDs preserved
+        for required_id in [
+            "top-model",
+            "val-model",
+            "eff-model",
+            "total-models",
+            "top-llmdex-model",
+            "open-sota-model",
+            "matched-families",
+            "last-updated",
+        ]:
+            self.assertIn(required_id, self.parser.ids)
 
     def test_shared_visual_effect_layer_is_loaded(self):
         effects = (ROOT / "website" / "effects.js").read_text(encoding="utf-8")
