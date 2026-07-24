@@ -234,7 +234,7 @@ LLMDEX follows strict publication rules:
 - Only the selected Artificial Analysis family representative displays the numeric family score.
 - Other configurations remain available as family variants.
 - Failed live scrapes preserve the last-known-good source snapshot.
-- SOTA and OPEN SOTA badges require valid identity and consensus data.
+- SOTA and Open-Weights SOTA badges require valid identity and consensus data.
 - Source Alignment never affects ranking.
 - Experimental sentiment never affects ranking.
 - Every published observation retains provenance and source metadata.

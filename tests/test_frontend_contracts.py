@@ -205,6 +205,60 @@ class FrontendContractTests(unittest.TestCase):
         self.assertNotIn('fetch("/api/health"', self.js)
         self.assertNotIn('fetch("/api/advisor"', self.js)
 
+    def test_active_source_update_lifecycle(self):
+        self.assertIn("updateActiveSourceCount", self.js)
+        self.assertIn("updateActiveSourceCount(allDataRef || [])", self.js)
+        self.assertIn("active source", self.js)
+
+    def test_shared_tooltip_manager(self):
+        self.assertIn("explanationTooltipState", self.js)
+        self.assertIn("showExplanationTooltip", self.js)
+        self.assertIn("hideExplanationTooltip", self.js)
+        self.assertIn("activeTrigger:", self.js)
+        self.assertIn("activeMode:", self.js)
+        self.assertNotIn("activeMetricHelpBtn", self.js)
+        self.assertNotIn("let activeIcon = null;", self.js)
+
+    def test_tooltip_accessibility_attributes(self):
+        self.assertIn('role="dialog"', self.html)
+        self.assertIn('aria-labelledby="tooltip-title"', self.html)
+        self.assertIn('aria-modal="false"', self.html)
+        self.assertIn('type="button"', self.html)
+        self.assertIn('aria-label="Close explanation"', self.html)
+
+    def test_power_bi_wording_consistency(self):
+        self.assertIn("Power BI-compatible General index", self.html)
+        self.assertIn("Download processed datasets for the dashboard, Power BI, and external analysis.", self.html)
+        self.assertNotIn("Power BI-ready General index", self.html)
+        self.assertNotIn("Download the same processed datasets used by this dashboard and Power BI", self.html)
+
+    def test_documentation_wording_consistency(self):
+        readme = (ROOT / "README.md").read_text(encoding="utf-8")
+        methodology = (ROOT / "METHODOLOGY.md").read_text(encoding="utf-8")
+        data_sources = (ROOT / "docs" / "DATA_SOURCES.md").read_text(encoding="utf-8")
+
+        self.assertIn("Open-Weights SOTA", readme)
+        self.assertIn("Open-Weights SOTA", methodology)
+        self.assertNotIn("OPEN SOTA", readme)
+        self.assertNotIn("OPEN SOTA", methodology)
+
+        self.assertIn("publicly rendered server-side pages", data_sources)
+        self.assertNotIn("adheres to public server contracts", data_sources)
+
+    def test_general_header_information_buttons(self):
+        self.assertIn("column-info-btn", self.js)
+        self.assertIn('type="button"', self.js)
+        self.assertIn('aria-expanded="false"', self.js)
+        self.assertIn('aria-label="Explain', self.js)
+        self.assertIn('closestElement(e.target, ".info-icon")', self.js)
+
+    def test_capability_header_information_buttons(self):
+        self.assertIn("data-capability-help", self.js)
+        self.assertIn("__capabilityHelpMap", self.js)
+        self.assertIn("cap_cat_", self.js)
+        self.assertIn("cap_bm_", self.js)
+
 
 if __name__ == "__main__":
     unittest.main()
+

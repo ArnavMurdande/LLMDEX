@@ -1726,10 +1726,43 @@ th.sort-desc .sort-indicator::after {
   border-bottom: 1px solid var(--border-glass);
 }
 .tooltip-close {
-  background: none;
-  border: none;
+  appearance: none;
+  -webkit-appearance: none;
+  background: transparent !important;
+  border: none !important;
+  outline: none;
+  box-shadow: none !important;
   color: var(--text-secondary);
   cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  margin: 0;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  line-height: 1;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+.tooltip-close:hover {
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.1) !important;
+}
+:root[data-theme="light"] .tooltip-close:hover {
+  background: rgba(0, 0, 0, 0.08) !important;
+}
+.tooltip-close:focus-visible {
+  outline: 2px solid var(--accent-glow);
+  outline-offset: 1px;
+}
+.tooltip-close i {
+  display: inline-block;
+  line-height: 1;
+  pointer-events: none;
+  color: inherit;
+  font-size: 0.95rem;
 }
 .tooltip-row {
   margin-bottom: 0.85rem;
@@ -6249,3 +6282,35 @@ body::before,
     padding: 1.25rem;
   }
 }
+
+/* Table Header Info Buttons */
+.column-info-btn {
+  appearance: none;
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+  min-width: 24px;
+  min-height: 24px;
+  width: 24px;
+  height: 24px;
+  vertical-align: middle;
+  border-radius: 4px;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+.column-info-btn:hover {
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.08);
+}
+:root[data-theme="light"] .column-info-btn:hover {
+  background: rgba(0, 0, 0, 0.06);
+}
+.column-info-btn:focus-visible {
+  outline: 2px solid var(--accent-glow);
+  outline-offset: 1px;
+}
+

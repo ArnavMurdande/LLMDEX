@@ -115,7 +115,7 @@ Null is never converted to zero.
 
 Availability is conservative: `open_source`, `open_weights`, `research_license`, `proprietary`, or `unknown`. A visible non-proprietary license is not automatically labeled open source.
 
-`SOTA` is the highest valid proprietary consensus family. `OPEN SOTA` is the highest valid open-weight/open-source consensus family. A single-source AA leader can receive `AA LEADER`, never LLMDEX SOTA.
+`SOTA` is the highest valid proprietary consensus family. `Open-Weights SOTA` is the highest valid eligible open-weights consensus family. A single-source AA leader can receive `AA LEADER`, never LLMDEX SOTA.
 
 ## History
 

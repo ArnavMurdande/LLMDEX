@@ -703,8 +703,49 @@ async function initializeApp() {
         Array.isArray(contract) ? contract : contract.rows || [],
       ),
     ]);
+  updateActiveSourceCount(allDataRef || []);
   safeInit("Data quality", () => renderDataQuality(qualityContractRef));
   renderConsensusDashboardMetrics();
+}
+
+function updateActiveSourceCount(data = allDataRef || []) {
+  const allSources = new Set();
+  (Array.isArray(data) ? data : []).forEach((d) => {
+    if (d && d.sources) {
+      const sourcesList =
+        typeof d.sources === "string" ? JSON.parse(d.sources) : d.sources;
+      if (Array.isArray(sourcesList)) {
+        sourcesList.forEach((s) => allSources.add(s));
+      }
+    }
+  });
+
+  const hasLLMStatsInQuality = Boolean(qualityContractRef?.sources?.llmstats);
+  const hasLLMStatsInRows =
+    Array.isArray(llmstatsRowsRef) && llmstatsRowsRef.length > 0;
+  const hasLLMStatsInCapabilities = Object.values(
+    capabilityContracts || {},
+  ).some((contract) => contract && contract.source === "LLMStats");
+
+  if (
+    hasLLMStatsInQuality ||
+    hasLLMStatsInRows ||
+    hasLLMStatsInCapabilities
+  ) {
+    allSources.add("LLMStats");
+  }
+
+  const count = allSources.size;
+  const labelText = `${count} active source${count === 1 ? "" : "s"}`;
+
+  const sourceCountEl = document.getElementById("source-count");
+  if (sourceCountEl) {
+    sourceCountEl.textContent = labelText;
+  }
+  const heroSourceCount = document.getElementById("hero-source-count");
+  if (heroSourceCount) {
+    heroSourceCount.textContent = labelText;
+  }
 }
 
 initializeApp();
@@ -825,24 +866,7 @@ function renderDashboard(data) {
   const heroModelCount = document.getElementById("hero-model-count");
   if (heroModelCount) heroModelCount.textContent = data.length.toLocaleString();
 
-  const sourceCountEl = document.getElementById("source-count");
-  if (sourceCountEl) {
-    const allSources = new Set();
-    data.forEach((d) => {
-      if (d.sources) {
-        (typeof d.sources === "string"
-          ? JSON.parse(d.sources)
-          : d.sources
-        ).forEach((s) => allSources.add(s));
-      }
-    });
-    if (qualityContractRef?.sources?.llmstats) allSources.add("LLMStats");
-    sourceCountEl.textContent = `${allSources.size} active source${allSources.size === 1 ? "" : "s"}`;
-    const heroSourceCount = document.getElementById("hero-source-count");
-    if (heroSourceCount) {
-      heroSourceCount.textContent = `${allSources.size} active source${allSources.size === 1 ? "" : "s"}`;
-    }
-  }
+  updateActiveSourceCount(data);
 
   const snapshotDate =
     data.find((row) => row.snapshot_date || row.last_updated)?.snapshot_date ||
@@ -988,6 +1012,7 @@ async function loadCapabilityContract(capability) {
     throw new Error(`${capability} leaderboard returned ${response.status}`);
   }
   capabilityContracts[capability] = await response.json();
+  updateActiveSourceCount(allDataRef || []);
   return capabilityContracts[capability];
 }
 
@@ -1090,22 +1115,60 @@ function populateCapabilityTable(rows, contract) {
     { key: "category_rank", label: "Rank", sortable: true },
     { key: "source_name", label: "Model", sortable: true },
     { key: "provider", label: "Provider", sortable: true },
-    { key: "category_score", label: `${CAPABILITY_CONFIGS[currentCapability].title} Score`, sortable: true },
+    { key: "category_score", label: `${CAPABILITY_CONFIGS[currentCapability]?.title || "Capability"} Score`, sortable: true },
     ...benchmarkColumns.map((benchmark) => ({
       key: benchmark.benchmark_id,
       label: benchmark.canonical_name,
       sortable: true,
       benchmark: true,
       sourcePopulation: benchmark.source_population,
+      benchmarkMeta: benchmark,
     })),
   ];
+
+  const capabilityHelpMap = window.__capabilityHelpMap || new Map();
+  window.__capabilityHelpMap = capabilityHelpMap;
+
   headerRow.innerHTML = "";
   columns.forEach((column) => {
     const th = document.createElement("th");
-    th.innerHTML = `${escapeDisplay(column.label)}${
-      column.sourcePopulation
-        ? `<small class="benchmark-coverage">${Number(column.sourcePopulation).toLocaleString()} models</small>`
-        : ""
+    let infoBtnHtml = "";
+    if (column.key === "category_score") {
+      const capTitle = CAPABILITY_CONFIGS[currentCapability]?.title || "Capability";
+      const key = `cap_cat_${currentCapability}`;
+      capabilityHelpMap.set(key, {
+        title: `${capTitle} Score`,
+        definition: "The source-native LLMStats category score used for this capability leaderboard.",
+        formula: "Published by LLMStats; LLMDEX preserves the source-native score and order.",
+        sources: "LLMStats",
+        limitations: "Benchmark coverage and source population vary by capability. Missing values remain unavailable and are not treated as zero.",
+      });
+      infoBtnHtml = ` <button class="info-icon column-info-btn" type="button" data-capability-help="${key}" aria-label="Explain ${escapeDisplay(capTitle)} Score" aria-expanded="false"><i class="fas fa-info-circle" aria-hidden="true"></i></button>`;
+    } else if (column.benchmark && column.benchmarkMeta) {
+      const b = column.benchmarkMeta;
+      const key = `cap_bm_${currentCapability}_${b.benchmark_id || column.key}`;
+      const desc = b.definition || b.description || "A source-native benchmark observation published in the current LLMStats capability contract.";
+      const unitText = b.unit ? `Unit: ${b.unit}. ` : "";
+      const dirText = b.higher_is_better !== undefined ? (b.higher_is_better ? "Higher is better. " : "Lower is better. ") : "";
+      const popText = b.source_population ? `Published population: ${b.source_population} models.` : "";
+      const formulaStr = [unitText, dirText, popText].filter(Boolean).join("") || "Published score";
+
+      capabilityHelpMap.set(key, {
+        title: b.canonical_name || column.label,
+        definition: desc,
+        formula: formulaStr,
+        sources: "LLMStats",
+        limitations: "Coverage, model versions, and evaluation methodology follow the upstream source. Missing benchmark values remain unavailable.",
+      });
+      infoBtnHtml = ` <button class="info-icon column-info-btn" type="button" data-capability-help="${key}" aria-label="Explain ${escapeDisplay(column.label)}" aria-expanded="false"><i class="fas fa-info-circle" aria-hidden="true"></i></button>`;
+    }
+
+    const popHtml = column.sourcePopulation
+      ? `<small class="benchmark-coverage">${Number(column.sourcePopulation).toLocaleString()} models</small>`
+      : "";
+
+    th.innerHTML = `${escapeDisplay(column.label)}${infoBtnHtml}${
+      popHtml ? `<br>${popHtml}` : ""
     }`;
     if (column.sortable) {
       th.classList.add("sortable");
@@ -1535,24 +1598,28 @@ const TABLE_CONFIGS = {
         key: "llmdex_score",
         label: "LLMDEX Score",
         sortable: true,
+        info: "llmdex_score",
         format: "consensus_score",
       },
       {
         key: "blended_cost_per_1m",
         label: "Price ($/1M)",
         sortable: true,
+        info: "price",
         format: "cost",
       },
       {
         key: "tokens_per_second",
         label: "Speed (t/s)",
         sortable: true,
+        info: "speed",
         format: "raw_score",
       },
       {
         key: "context_window",
         label: "Context",
         sortable: true,
+        info: "context",
         format: "context",
       },
     ],
@@ -1575,37 +1642,42 @@ const TABLE_CONFIGS = {
         key: "adjusted_performance",
         label: "Adj. Perf",
         sortable: true,
+        info: "performance",
         format: "score",
       },
       {
         key: "cost_index",
         label: "Cost Score",
         sortable: true,
+        info: "cost_index",
         format: "score",
       },
       {
         key: "speed_index",
         label: "Speed Score",
         sortable: true,
+        info: "speed_index",
         format: "score",
       },
       {
         key: "blended_cost_per_1m",
         label: "Cost ($/1M)",
         sortable: true,
-        info: "cost_input",
+        info: "price",
         format: "cost",
       },
       {
         key: "tokens_per_second",
         label: "Speed (t/s)",
         sortable: true,
+        info: "speed",
         format: "raw_score",
       },
       {
         key: "latency_seconds",
         label: "Latency (s)",
         sortable: true,
+        info: "latency",
         format: "latency",
       },
       {
@@ -1628,42 +1700,49 @@ const TABLE_CONFIGS = {
         key: "efficiency_score",
         label: "Efficiency (Pctl)",
         sortable: true,
+        info: "efficiency",
         format: "score",
       },
       {
         key: "adjusted_performance",
         label: "Adj. Perf",
         sortable: true,
+        info: "performance",
         format: "score",
       },
       {
         key: "blended_cost_per_1m",
         label: "Cost ($/1M)",
         sortable: true,
+        info: "price",
         format: "cost",
       },
       {
         key: "tokens_per_second",
         label: "Speed (t/s)",
         sortable: true,
+        info: "speed",
         format: "raw_score",
       },
       {
         key: "latency_seconds",
         label: "Latency (s)",
         sortable: true,
+        info: "latency",
         format: "latency",
       },
       {
         key: "confidence_factor",
         label: "Confidence",
         sortable: true,
+        info: "confidence",
         format: "confidence",
       },
       {
         key: "source_count",
         label: "Sources",
         sortable: true,
+        info: "source_count",
         format: "count",
       },
     ],
@@ -1720,7 +1799,7 @@ function populateTable(data, fullData, tabId) {
     } else if (col.sortable) {
       th.dataset.sort = col.key;
       th.classList.add("sortable");
-      th.innerHTML = `${col.label} ${col.info ? `<span class="info-icon" data-col="${col.info}"><i class="fas fa-info-circle"></i></span>` : ""} <span class="sort-indicator"></span>`;
+      th.innerHTML = `${col.label} ${col.info ? `<button class="info-icon column-info-btn" type="button" data-col="${col.info}" aria-label="Explain ${escapeDisplay(col.label)}" aria-expanded="false"><i class="fas fa-info-circle" aria-hidden="true"></i></button>` : ""} <span class="sort-indicator"></span>`;
     } else {
       th.textContent = col.label;
     }
@@ -4241,153 +4320,389 @@ function setupSorting(allData) {
 // COLUMN TOOLTIPS
 // ══════════════════════════════════════════════════════════════
 
-function setupTooltips(columnDefs) {
-  const tooltip = document.getElementById("column-tooltip");
+// ══════════════════════════════════════════════════════════════
+// EXPLANATION TOOLTIP STATE MANAGER
+// ══════════════════════════════════════════════════════════════
+
+const explanationTooltipState = {
+  activeTrigger: null,
+  activeMode: null, // "column", "metric", or null
+  hideTimeout: null,
+};
+
+function getExplanationTooltipElements() {
+  return {
+    tooltip: document.getElementById("column-tooltip"),
+    titleEl: document.getElementById("tooltip-title"),
+    defEl: document.getElementById("tooltip-definition"),
+    formulaEl: document.getElementById("tooltip-formula"),
+    sourcesEl: document.getElementById("tooltip-sources"),
+    limEl: document.getElementById("tooltip-limitations"),
+    closeBtn: document.getElementById("tooltip-close"),
+  };
+}
+
+function positionExplanationTooltip(trigger) {
+  const { tooltip } = getExplanationTooltipElements();
+  if (!tooltip || !trigger) return;
+
+  tooltip.classList.remove("tooltip-above");
+  const rect = trigger.getBoundingClientRect();
+  const tooltipW = tooltip.offsetWidth;
+  const tooltipH = tooltip.offsetHeight;
+  const gap = 10;
+  const vpW = window.innerWidth;
+  const vpH = window.innerHeight;
+
+  const centerX = rect.left + rect.width / 2;
+  let left = centerX - tooltipW / 2;
+  left = Math.max(12, Math.min(left, vpW - tooltipW - 12));
+
+  const arrowLeft = Math.max(20, Math.min(centerX - left, tooltipW - 20));
+  tooltip.style.setProperty("--arrow-left", `${arrowLeft}px`);
+
+  const spaceBelow = vpH - rect.bottom - gap;
+  const spaceAbove = rect.top - gap;
+  let top;
+  if (spaceBelow >= tooltipH || spaceBelow >= spaceAbove) {
+    top = rect.bottom + gap;
+    tooltip.classList.remove("tooltip-above");
+  } else {
+    top = rect.top - tooltipH - gap;
+    tooltip.classList.add("tooltip-above");
+  }
+  top = Math.max(8, Math.min(top, vpH - tooltipH - 8));
+
+  tooltip.style.top = `${top}px`;
+  tooltip.style.left = `${left}px`;
+}
+
+function cancelExplanationTooltipHide() {
+  if (explanationTooltipState.hideTimeout) {
+    clearTimeout(explanationTooltipState.hideTimeout);
+    explanationTooltipState.hideTimeout = null;
+  }
+}
+
+function hideExplanationTooltip({ restoreFocus = false } = {}) {
+  cancelExplanationTooltipHide();
+  const triggerToReset = explanationTooltipState.activeTrigger;
+  explanationTooltipState.activeTrigger = null;
+  explanationTooltipState.activeMode = null;
+
+  if (triggerToReset && typeof triggerToReset.setAttribute === "function") {
+    triggerToReset.setAttribute("aria-expanded", "false");
+  }
+
+  const { tooltip } = getExplanationTooltipElements();
+  if (tooltip) {
+    tooltip.style.display = "none";
+  }
+
+  if (restoreFocus && triggerToReset && typeof triggerToReset.focus === "function") {
+    triggerToReset.focus();
+  }
+}
+
+function scheduleExplanationTooltipHide() {
+  if (explanationTooltipState.activeMode === "column") {
+    cancelExplanationTooltipHide();
+    explanationTooltipState.hideTimeout = setTimeout(() => {
+      hideExplanationTooltip({ restoreFocus: false });
+    }, 300);
+  }
+}
+
+function showExplanationTooltip({
+  trigger,
+  mode,
+  title,
+  definition,
+  formula,
+  sources,
+  limitations,
+}) {
+  if (!trigger) return;
+  cancelExplanationTooltipHide();
+
+  if (explanationTooltipState.activeTrigger && explanationTooltipState.activeTrigger !== trigger) {
+    hideExplanationTooltip({ restoreFocus: false });
+  }
+
+  const { tooltip, titleEl, defEl, formulaEl, sourcesEl, limEl } = getExplanationTooltipElements();
   if (!tooltip) return;
 
-  const closeBtn = document.getElementById("tooltip-close");
-  let hideTimeout;
-  let activeIcon = null;
+  if (titleEl) titleEl.textContent = title || "";
+  if (defEl) defEl.textContent = definition || "—";
+  if (formulaEl) formulaEl.textContent = formula || "—";
+  if (sourcesEl) sourcesEl.textContent = sources || "—";
+  if (limEl) limEl.textContent = limitations || "—";
 
-  const hide = () => {
-    tooltip.style.display = "none";
-    activeIcon = null;
-  };
-  const scheduleHide = () => {
-    hideTimeout = setTimeout(hide, 300);
-  };
-  const cancelHide = () => {
-    if (hideTimeout) clearTimeout(hideTimeout);
-  };
+  trigger.setAttribute("aria-expanded", "true");
+  explanationTooltipState.activeTrigger = trigger;
+  explanationTooltipState.activeMode = mode;
 
-  closeBtn.addEventListener("click", (e) => {
-    e.stopPropagation();
-    hide();
-  });
+  tooltip.style.display = "block";
+  positionExplanationTooltip(trigger);
+}
+
+function resolveColumnExplanation(btn, columnDefs = window.__columnDefs || {}) {
+  if (btn.dataset.capabilityHelp) {
+    const key = btn.dataset.capabilityHelp;
+    const helpMap = window.__capabilityHelpMap;
+    if (helpMap && helpMap.has(key)) {
+      return helpMap.get(key);
+    }
+  }
+
+  const col = btn.dataset.col;
+  if (!col) return null;
+
+  const def = columnDefs[col] ||
+    {
+      performance: {
+        label: "AA Intelligence",
+        definition:
+          "Artificial Analysis Intelligence Index, preserved unchanged for the Performance ranking.",
+        formula: "Performance score = AA Intelligence Index",
+        sources: "Artificial Analysis",
+        limitations: "LLMDEX does not independently rerun this benchmark. Benchmarks test narrow capabilities.",
+      },
+      llmdex_score: {
+        label: "LLMDEX Score",
+        definition:
+          "Family-level cross-source consensus score combining Artificial Analysis and LLMStats percentile ranks.",
+        formula: "50% AA matched-universe percentile + 50% LLMStats General percentile",
+        sources: "Artificial Analysis, LLMStats, and LLMDEX identity matching",
+        limitations: "Available only for confidently matched model families. Raw source scores are not averaged.",
+      },
+      price: {
+        label: "Price ($/1M)",
+        definition:
+          "Blended API price per 1,000,000 tokens based on 60% prompt input and 40% completion output pricing.",
+        formula: "60% input cost + 40% output cost per 1M tokens",
+        sources: "Artificial Analysis pricing observations",
+        limitations: "Excludes self-hosting, hardware, electricity, engineering, and operational costs. Missing price components are not fabricated.",
+      },
+      cost_input: {
+        label: "Price ($/1M)",
+        definition:
+          "Blended API price per 1,000,000 tokens based on 60% prompt input and 40% completion output pricing.",
+        formula: "60% input cost + 40% output cost per 1M tokens",
+        sources: "Artificial Analysis pricing observations",
+        limitations: "Excludes self-hosting, hardware, electricity, engineering, and operational costs. Missing price components are not fabricated.",
+      },
+      speed: {
+        label: "Speed (t/s)",
+        definition:
+          "The measured number of generated output tokens per second.",
+        formula: "Generated output tokens divided by generation time",
+        sources: "Artificial Analysis throughput observations",
+        limitations: "Higher is better. Output throughput is distinct from time to first token (TTFT) and total response latency. May vary across providers and measurement periods.",
+      },
+      context: {
+        label: "Context Window",
+        definition:
+          "Maximum listed input token capacity supported by the model or deployment.",
+        formula: "Published maximum input token capacity",
+        sources: "Artificial Analysis / Provider documentation",
+        limitations: "Maximum listed token capacity does not guarantee equivalent retrieval accuracy or reasoning quality across the entire window.",
+      },
+      composite: {
+        label: "Composite Score",
+        definition:
+          "An LLMDEX-derived ranking balancing model performance, listed API cost, and measured generation speed.",
+        formula: "50% performance + 30% cost efficiency + 20% speed. Missing components are reweighted proportionally.",
+        sources: "Artificial Analysis observations processed by LLMDEX",
+        limitations: "The weights are a product choice and may not fit every workload or organization.",
+      },
+      efficiency: {
+        label: "Efficiency Rank",
+        definition:
+          "Performance relative to the model's listed blended API price, normalized across eligible models.",
+        formula: "Performance divided by blended listed API cost, converted to a percentile rank.",
+        sources: "Artificial Analysis performance and pricing observations; LLMDEX-derived ranking",
+        limitations: "Self-hosting, hardware, electricity, and operational costs are excluded. Models with zero listed API price receive top efficiency rank.",
+      },
+      confidence: {
+        label: "Confidence Factor",
+        definition:
+          "An identity and data completeness indicator reflecting cross-source match strength and metric availability.",
+        formula: "Weighted index of identity verification and source coverage",
+        sources: "LLMDEX identity layer and quality pipeline",
+        limitations: "Reflects structural metadata match confidence, not model response accuracy.",
+      },
+      latency: {
+        label: "Total Response Latency",
+        definition:
+          "Measured duration in seconds for a complete API response payload.",
+        formula: "End-to-end response time in seconds",
+        sources: "Artificial Analysis latency observations",
+        limitations: "Includes network transit, queue time, and processing delay. Distinct from output throughput (t/s).",
+      },
+      cost_index: {
+        label: "Cost Efficiency Score",
+        definition:
+          "Percentile rank of cost efficiency based on blended API pricing.",
+        formula: "Percentile rank of performance relative to cost",
+        sources: "Artificial Analysis pricing observations",
+        limitations: "Excludes hosting and operational infrastructure costs.",
+      },
+      speed_index: {
+        label: "Speed Score",
+        definition:
+          "Percentile rank of generation speed measured in output tokens per second.",
+        formula: "Percentile rank of output throughput",
+        sources: "Artificial Analysis throughput observations",
+        limitations: "Does not reflect time to first token or network latency.",
+      },
+      source_count: {
+        label: "Source Coverage",
+        definition:
+          "Number of validated benchmark data sources contributing observations for this model.",
+        formula: "Count of active sources",
+        sources: "LLMDEX quality pipeline",
+        limitations: "Fewer sources reduce cross-validation depth.",
+      },
+    }[col] || {
+      title: col.charAt(0).toUpperCase() + col.slice(1).replace(/_/g, " "),
+      definition: "Information unavailable",
+      formula: "N/A",
+      sources: "N/A",
+      limitations: "N/A",
+    };
+
+  return {
+    title: def.label || def.title || col,
+    definition: def.definition || "—",
+    formula: def.formula || "—",
+    sources: def.data_sources || def.sources || "—",
+    limitations: def.limitations || "—",
+  };
+}
+
+function setupTooltips(columnDefs) {
+  window.__columnDefs = columnDefs || window.__columnDefs || {};
+  bindSharedExplanationEvents();
+}
+
+function setupMetricHelp() {
+  bindSharedExplanationEvents();
+}
+
+function bindSharedExplanationEvents() {
+  if (window.__explanationEventsBound) return;
+  window.__explanationEventsBound = true;
+
+  const { tooltip, closeBtn } = getExplanationTooltipElements();
+
+  if (closeBtn) {
+    closeBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      if (explanationTooltipState.activeTrigger) {
+        hideExplanationTooltip({ restoreFocus: true });
+      }
+    });
+  }
+
   window.addEventListener(
     "scroll",
     () => {
-      if (tooltip.style.display === "block") hide();
+      if (explanationTooltipState.activeTrigger) {
+        hideExplanationTooltip({ restoreFocus: false });
+      }
     },
     { passive: true },
   );
-  tooltip.addEventListener("mouseenter", cancelHide);
-  tooltip.addEventListener("mouseleave", scheduleHide);
+
+  if (tooltip) {
+    tooltip.addEventListener("mouseenter", cancelExplanationTooltipHide);
+    tooltip.addEventListener("mouseleave", () => {
+      if (explanationTooltipState.activeMode === "column") {
+        scheduleExplanationTooltipHide();
+      }
+    });
+  }
 
   document.addEventListener("click", (e) => {
+    const metricBtn = closestElement(e.target, ".metric-info-btn");
+    if (metricBtn) {
+      e.preventDefault();
+      e.stopPropagation();
+      if (explanationTooltipState.activeTrigger === metricBtn) {
+        hideExplanationTooltip({ restoreFocus: true });
+      } else {
+        const key = metricBtn.dataset.metricHelp;
+        const help = METRIC_HELP[key];
+        if (help) {
+          showExplanationTooltip({
+            trigger: metricBtn,
+            mode: "metric",
+            title: help.title,
+            definition: help.definition,
+            formula: help.formula,
+            sources: help.sources,
+            limitations: help.limitations,
+          });
+        }
+      }
+      return;
+    }
+
+    const colBtn = closestElement(e.target, ".column-info-btn") || closestElement(e.target, ".info-icon");
+    if (colBtn) {
+      e.preventDefault();
+      e.stopPropagation();
+      if (explanationTooltipState.activeTrigger === colBtn) {
+        hideExplanationTooltip({ restoreFocus: true });
+      } else {
+        const info = resolveColumnExplanation(colBtn);
+        if (info) {
+          showExplanationTooltip({
+            trigger: colBtn,
+            mode: "column",
+            title: info.title,
+            definition: info.definition,
+            formula: info.formula,
+            sources: info.sources,
+            limitations: info.limitations,
+          });
+        }
+      }
+      return;
+    }
+
+    const { tooltip: activeTooltip } = getExplanationTooltipElements();
     if (
-      tooltip.style.display === "block" &&
-      !tooltip.contains(e.target) &&
-      !closestElement(e.target, ".info-icon") &&
-      !closestElement(e.target, ".metric-info-btn")
+      explanationTooltipState.activeTrigger &&
+      activeTooltip &&
+      activeTooltip.style.display === "block" &&
+      !activeTooltip.contains(e.target)
     ) {
-      hide();
+      hideExplanationTooltip({ restoreFocus: false });
     }
   });
 
-  const showTooltip = (icon) => {
-    cancelHide();
-    activeIcon = icon;
-    const col = icon.dataset.col;
-    const def = columnDefs[col] ||
-      {
-        performance: {
-          label: "AA Intelligence",
-          definition:
-            "Artificial Analysis Intelligence Index, preserved unchanged for the Performance ranking.",
-          formula: "Performance score = AA Intelligence Index",
-          data_sources: "Artificial Analysis",
-          limitations: "Benchmarks test narrow capabilities.",
-        },
-        composite: {
-          label: "Composite Score",
-          definition:
-            "Weighted value score combining pure capabilities with cost and throughput considerations.",
-          formula: "50% Perf + 30% Cost Eff + 20% Speed",
-          data_sources: "LLMDEX Aggregated Pipeline",
-          limitations:
-            "Weights are generalized and may not fit specific use-cases.",
-        },
-        cost_input: {
-          label: "Input Cost",
-          definition: "Stated API price per 1,000,000 tokens of input/prompt.",
-          formula: "Real-world API cost",
-          data_sources: "Provider Documentation",
-          limitations:
-            "Does not account for volume discounts or exact tokenization differences.",
-        },
-        cost_output: {
-          label: "Output Cost",
-          definition:
-            "Stated API price per 1,000,000 tokens of output/completion.",
-          formula: "Real-world API cost",
-          data_sources: "Provider Documentation",
-          limitations: "Does not account for volume discounts.",
-        },
-        context: {
-          label: "Context Window",
-          definition: "Maximum input token capacity supported by the model.",
-          formula: "Context token limit",
-          data_sources: "Provider Documentation",
-          limitations:
-            "Some models degrade in recall accuracy at extreme context sizes.",
-        },
-      }[col] || {
-        label: col.charAt(0).toUpperCase() + col.slice(1).replace(/_/g, " "),
-        definition: "Information unavailable",
-        formula: "N/A",
-        data_sources: "N/A",
-        limitations: "N/A",
-      };
-
-    document.getElementById("tooltip-title").textContent = def.label || col;
-    document.getElementById("tooltip-definition").textContent =
-      def.definition || "—";
-    document.getElementById("tooltip-formula").textContent = def.formula || "—";
-    document.getElementById("tooltip-sources").textContent =
-      def.data_sources || "—";
-    document.getElementById("tooltip-limitations").textContent =
-      def.limitations || "—";
-
-    tooltip.style.display = "block";
-    tooltip.classList.remove("tooltip-above");
-
-    const iconRect = icon.getBoundingClientRect();
-    const tooltipW = tooltip.offsetWidth;
-    const tooltipH = tooltip.offsetHeight;
-    const gap = 12;
-    const vpW = window.innerWidth;
-    const vpH = window.innerHeight;
-
-    const iconCenterX = iconRect.left + iconRect.width / 2;
-    let left = iconCenterX - tooltipW / 2;
-    left = Math.max(12, Math.min(left, vpW - tooltipW - 12));
-
-    const arrowLeft = Math.max(20, Math.min(iconCenterX - left, tooltipW - 20));
-    tooltip.style.setProperty("--arrow-left", `${arrowLeft}px`);
-
-    const spaceBelow = vpH - iconRect.bottom - gap;
-    const spaceAbove = iconRect.top - gap;
-    let top;
-    if (spaceBelow >= tooltipH || spaceBelow >= spaceAbove) {
-      top = iconRect.bottom + gap;
-      tooltip.classList.remove("tooltip-above");
-    } else {
-      top = iconRect.top - tooltipH - gap;
-      tooltip.classList.add("tooltip-above");
-    }
-    top = Math.max(8, Math.min(top, vpH - tooltipH - 8));
-
-    tooltip.style.top = `${top}px`;
-    tooltip.style.left = `${left}px`;
-  };
-
-  // Use event delegation for dynamic info icons
   document.addEventListener(
     "mouseenter",
     (e) => {
-      const icon = closestElement(e.target, ".info-icon");
-      if (icon) showTooltip(icon);
+      const colBtn = closestElement(e.target, ".column-info-btn") || closestElement(e.target, ".info-icon");
+      if (colBtn && !closestElement(e.target, ".metric-info-btn")) {
+        if (explanationTooltipState.activeMode !== "metric") {
+          const info = resolveColumnExplanation(colBtn);
+          if (info) {
+            showExplanationTooltip({
+              trigger: colBtn,
+              mode: "column",
+              title: info.title,
+              definition: info.definition,
+              formula: info.formula,
+              sources: info.sources,
+              limitations: info.limitations,
+            });
+          }
+        }
+      }
     },
     true,
   );
@@ -4395,143 +4710,21 @@ function setupTooltips(columnDefs) {
   document.addEventListener(
     "mouseleave",
     (e) => {
-      const icon = closestElement(e.target, ".info-icon");
-      if (icon) scheduleHide();
+      const colBtn = closestElement(e.target, ".column-info-btn") || closestElement(e.target, ".info-icon");
+      if (colBtn && !closestElement(e.target, ".metric-info-btn")) {
+        if (explanationTooltipState.activeMode === "column") {
+          scheduleExplanationTooltipHide();
+        }
+      }
     },
     true,
   );
 
-  document.addEventListener("click", (e) => {
-    const icon = closestElement(e.target, ".info-icon");
-    if (icon) {
-      e.stopPropagation();
-      if (activeIcon === icon && tooltip.style.display === "block") {
-        hide();
-      } else {
-        showTooltip(icon);
-      }
-    }
-  });
-}
-
-let activeMetricHelpBtn = null;
-
-function setupMetricHelp() {
-  if (window.__metricHelpInitialized) return;
-  window.__metricHelpInitialized = true;
-
-  const tooltip = document.getElementById("column-tooltip");
-  const closeBtn = document.getElementById("tooltip-close");
-
-  const closeMetricTooltip = (restoreFocus = false) => {
-    if (!activeMetricHelpBtn) return;
-    const btnToFocus = activeMetricHelpBtn;
-    activeMetricHelpBtn.setAttribute("aria-expanded", "false");
-    activeMetricHelpBtn = null;
-    if (tooltip) {
-      tooltip.style.display = "none";
-    }
-    if (restoreFocus && btnToFocus && typeof btnToFocus.focus === "function") {
-      btnToFocus.focus();
-    }
-  };
-
-  const showMetricTooltip = (btn) => {
-    if (!tooltip) return;
-
-    if (activeMetricHelpBtn && activeMetricHelpBtn !== btn) {
-      closeMetricTooltip(false);
-    }
-
-    const key = btn.dataset.metricHelp;
-    const help = METRIC_HELP[key];
-    if (!help) return;
-
-    const titleEl = document.getElementById("tooltip-title");
-    const defEl = document.getElementById("tooltip-definition");
-    const formulaEl = document.getElementById("tooltip-formula");
-    const sourcesEl = document.getElementById("tooltip-sources");
-    const limEl = document.getElementById("tooltip-limitations");
-
-    if (titleEl) titleEl.textContent = help.title;
-    if (defEl) defEl.textContent = help.definition;
-    if (formulaEl) formulaEl.textContent = help.formula;
-    if (sourcesEl) sourcesEl.textContent = help.sources;
-    if (limEl) limEl.textContent = help.limitations;
-
-    btn.setAttribute("aria-expanded", "true");
-    activeMetricHelpBtn = btn;
-
-    tooltip.style.display = "block";
-    tooltip.classList.remove("tooltip-above");
-
-    const btnRect = btn.getBoundingClientRect();
-    const tooltipW = tooltip.offsetWidth;
-    const tooltipH = tooltip.offsetHeight;
-    const gap = 10;
-    const vpW = window.innerWidth;
-    const vpH = window.innerHeight;
-
-    const btnCenterX = btnRect.left + btnRect.width / 2;
-    let left = btnCenterX - tooltipW / 2;
-    left = Math.max(12, Math.min(left, vpW - tooltipW - 12));
-
-    const arrowLeft = Math.max(20, Math.min(btnCenterX - left, tooltipW - 20));
-    tooltip.style.setProperty("--arrow-left", `${arrowLeft}px`);
-
-    const spaceBelow = vpH - btnRect.bottom - gap;
-    const spaceAbove = btnRect.top - gap;
-    let top;
-    if (spaceBelow >= tooltipH || spaceBelow >= spaceAbove) {
-      top = btnRect.bottom + gap;
-      tooltip.classList.remove("tooltip-above");
-    } else {
-      top = btnRect.top - tooltipH - gap;
-      tooltip.classList.add("tooltip-above");
-    }
-    top = Math.max(8, Math.min(top, vpH - tooltipH - 8));
-
-    tooltip.style.top = `${top}px`;
-    tooltip.style.left = `${left}px`;
-  };
-
-  document.addEventListener("click", (e) => {
-    const btn = closestElement(e.target, ".metric-info-btn");
-    if (btn) {
-      e.preventDefault();
-      e.stopPropagation();
-      if (activeMetricHelpBtn === btn) {
-        closeMetricTooltip(true);
-      } else {
-        showMetricTooltip(btn);
-      }
-      return;
-    }
-
-    if (
-      activeMetricHelpBtn &&
-      tooltip &&
-      tooltip.style.display === "block" &&
-      !tooltip.contains(e.target)
-    ) {
-      closeMetricTooltip(false);
-    }
-  });
-
   document.addEventListener("keydown", (e) => {
-    if ((e.key === "Escape" || e.key === "Esc") && activeMetricHelpBtn) {
-      closeMetricTooltip(true);
+    if ((e.key === "Escape" || e.key === "Esc") && explanationTooltipState.activeTrigger) {
+      hideExplanationTooltip({ restoreFocus: true });
     }
   });
-
-  if (closeBtn) {
-    closeBtn.addEventListener("click", (e) => {
-      if (activeMetricHelpBtn) {
-        e.stopPropagation();
-        closeMetricTooltip(true);
-      }
-    });
-  }
 }
 
 // ══════════════════════════════════════════════════════════════

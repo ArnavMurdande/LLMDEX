@@ -28,7 +28,7 @@
         document.documentElement.dataset.theme = preferred;
       })();
     </script>
-    <link rel="stylesheet" href="styles.css?v=17" />
+    <link rel="stylesheet" href="styles.css?v=19" />
     <link rel="stylesheet" href="bento.css?v=3" />
     <link rel="stylesheet" href="pixelblast.bundle.css?v=1" />
     <link
@@ -821,11 +821,23 @@
     </section>
 
     <!-- Tooltip container -->
-    <div id="column-tooltip" class="column-tooltip" style="display: none">
+    <div
+      id="column-tooltip"
+      class="column-tooltip"
+      style="display: none"
+      role="dialog"
+      aria-labelledby="tooltip-title"
+      aria-modal="false"
+    >
       <div class="tooltip-header">
         <strong id="tooltip-title"></strong>
-        <button class="tooltip-close" id="tooltip-close">
-          <i class="fas fa-times"></i>
+        <button
+          class="tooltip-close"
+          id="tooltip-close"
+          type="button"
+          aria-label="Close explanation"
+        >
+          <i class="fas fa-times" aria-hidden="true"></i>
         </button>
       </div>
       <div class="tooltip-body">
@@ -861,8 +873,7 @@
           <span class="quality-status-pill" id="quality-status-pill">Loading</span>
         </div>
         <p class="section-desc">
-          Download the same processed datasets used by this dashboard and Power
-          BI. Source failures are visible and never replaced with fabricated rows.
+          Download processed datasets for the dashboard, Power BI, and external analysis. Source failures are visible and never replaced with fabricated rows.
         </p>
         <div id="stale-data-banner" class="stale-data-banner" hidden></div>
         <div class="quality-grid" id="quality-grid">
@@ -873,7 +884,7 @@
         </div>
         <div class="data-download-grid">
           <a class="data-download-card glass" href="../data/index/latest.csv" download>
-            <i class="fas fa-table"></i><div><strong>Latest models CSV</strong><span>Power BI-ready General index</span><small><i class="fas fa-download"></i> Download CSV</small></div>
+            <i class="fas fa-table"></i><div><strong>Latest models CSV</strong><span>Power BI-compatible General index</span><small><i class="fas fa-download"></i> Download CSV</small></div>
           </a>
           <a class="data-download-card glass" href="../data/index/latest.json" download>
             <i class="fas fa-code"></i><div><strong>Latest models JSON</strong><span>Full source and score contract</span><small><i class="fas fa-download"></i> Download JSON</small></div>
@@ -1008,6 +1019,6 @@
     <script src="bento.js?v=1"></script>
     <script src="pixelblast.bundle.js?v=1"></script>
     <script src="effects.js?v=4"></script>
-    <script src="app.js?v=28"></script>
+    <script src="app.js?v=29"></script>
   </body>
 </html>
