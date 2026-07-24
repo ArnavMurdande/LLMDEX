@@ -1,31 +1,39 @@
 # Data Sources
 
-## Artificial Analysis
+LLMDEX is an independent educational analytics project. LLMDEX is not affiliated with, endorsed by, or sponsored by Artificial Analysis, LLMStats, or any AI model provider.
 
-Role: default General ranking, Intelligence, official capability indices,
-prices, throughput, latency, and expanded benchmark observations.
+## Primary Source Matrix
 
-Extraction: public model leaderboard, browser-expanded table. All visible
-heading/value pairs are retained in `source_details`.
+| View or metric | Primary source | LLMDEX processing |
+| --- | --- | --- |
+| General performance | Artificial Analysis | Source-native order preserved |
+| Pricing and API speed | Artificial Analysis | Typed normalization and presentation |
+| Capability rankings | LLMStats | Source-native publication |
+| General consensus | Artificial Analysis + LLMStats | Family matching and percentile consensus |
+| Value and efficiency | Artificial Analysis metrics | LLMDEX-derived rankings |
+| Model identity | Both sources | LLMDEX family and variant resolution |
 
-Methodology links and the complete methodology-tile inventory are in
-`data/methodology/source_config.json`.
+## Source Overview & Methodological Notes
 
-## LLMStats
+### Artificial Analysis
 
-Role: source-native capability ranks/scores and the second General consensus
-signal.
+- **Role:** Default General ranking, Intelligence Index, pricing, generation throughput, latency, and expanded benchmark observations.
+- **Extraction:** Public model leaderboard and browser-expanded tables. All visible heading/value pairs are retained in `source_details`.
+- Methodology links and the complete methodology inventory are configured in `data/methodology/source_config.json`.
 
-Extraction: public server-rendered General table plus public server-rendered
-category top-model payloads. The scraper does not call paths disallowed by
-robots, automate verification, or expand client-only populations.
+### LLMStats
 
-The public Terms allow reuse with attribution. LLMDEX displays attribution and
-links back to source pages. A missing supplemental top-model payload is a
-warning if the visible category column remains available.
+- **Role:** Source-native capability ranks/scores and the secondary General consensus signal.
+- **Extraction:** Public server-rendered General table plus public server-rendered category top-model payloads.
+- Extraction adheres to public server contracts, displaying attribution and linking directly back to source pages.
 
-## Failure policy
+### Multi-Source Characteristics & Limitations
 
-A zero/invalid live result does not overwrite a healthy cleaned snapshot. The
-quality report records degraded status, age, row count, warnings, schema
-changes, and last successful update.
+- **Differing Update Times:** Upstream sources update their datasets independently. Timestamp differences between Artificial Analysis and LLMStats collections are tracked in metadata.
+- **Differing Model Coverage:** A model present in one source may be unlisted in another. Missing coverage is preserved as unavailable and does not produce a penalty.
+- **Non-Interchangeable Raw Scores:** Source-native scores reflect different evaluation suites and scoring scales. Raw scores from different sources are never directly averaged or treated as interchangeable raw units.
+- **Independence:** LLMDEX processes third-party observations independently and presents source attribution on every view.
+
+## Failure Policy
+
+A zero or invalid live result does not overwrite a healthy cleaned snapshot. The quality report records degraded status, age, row count, warnings, schema changes, and last successful update date.

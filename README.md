@@ -794,6 +794,11 @@ git status
 
 ## ⚠️ Limitations
 
+- LLMDEX does not independently execute every upstream benchmark.
+- Upstream sources (Artificial Analysis and LLMStats) may differ in methodology, coverage, providers, versions, and update time.
+- Output throughput (generated tokens per second) is not the same as latency or time to first token.
+- Listed context-window capacity is not the same as actual long-context benchmark retrieval or reasoning quality.
+- Missing values remain unavailable (`null`) and are never treated as zero.
 - LLMDEX depends on the availability and consistency of upstream public sources.
 - Capability rankings may use different benchmark compositions from general rankings.
 - A model may appear under different names or configurations across providers.
@@ -801,9 +806,7 @@ git status
 - Source percentiles are relative to the currently matched publication universe.
 - Historical comparisons may be affected by upstream methodology changes.
 - Sentiment data is experimental and should not be treated as a benchmark.
-- LLMDEX does not independently reproduce all upstream benchmark evaluations.
 - A high Source Alignment score means sources rank a family similarly; it does not prove model quality or benchmark correctness.
-- Upstream source changes may temporarily create unresolved model identities.
 - Public benchmark rankings should not be treated as the only factor when selecting a production model.
 
 ---
@@ -840,21 +843,22 @@ Potential future improvements include:
 
 ---
 
-## 📖 Data Attribution
+## 📖 Data Sources and Attribution
 
-General intelligence, pricing and API-performance observations are sourced from:
-
-- [Artificial Analysis](https://artificialanalysis.ai/leaderboards/models)
-
-Capability and benchmark-ranking observations are sourced from:
-
-- [LLMStats](https://llm-stats.com/leaderboards/llm-leaderboard)
-
-LLMDEX is an independent analytics project.
-
-It is not affiliated with, endorsed by or operated by Artificial Analysis, LLMStats, Google, OpenAI, Anthropic, Meta, Microsoft or any model provider represented in the datasets.
+- **Artificial Analysis** ([https://artificialanalysis.ai/](https://artificialanalysis.ai/)) supplies general intelligence, model pricing, generation throughput, latency, and API-performance observations.
+- **LLMStats** ([https://llm-stats.com/](https://llm-stats.com/)) supplies general and capability-specific leaderboard observations.
+- LLMDEX independently processes, links, and presents these observations.
+- LLMDEX is an independent analytics project and is not affiliated with, endorsed by, or sponsored by Artificial Analysis or LLMStats.
 
 All trademarks, product names and source data remain the property of their respective owners.
+
+---
+
+## 📜 Licensing Scope
+
+- Original LLMDEX software codebase and documentation are MIT licensed.
+- Third-party benchmark observations and source metrics are excluded from the software license.
+- See [NOTICE.md](NOTICE.md) for complete licensing scope and attribution terms.
 
 ---
 
@@ -898,7 +902,7 @@ Developed by **Arnav Murdande**.
 
 ## 📄 License
 
-See [LICENSE](LICENSE) for licensing information.
+See [LICENSE](LICENSE) for software license text and [NOTICE.md](NOTICE.md) for third-party data licensing scope.
 
 ---
 

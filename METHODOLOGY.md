@@ -1,20 +1,27 @@
 # LLMDEX Methodology
 
-## Source ownership
+## Overview
 
-Artificial Analysis powers the default General leaderboard, prices, throughput,
-latency, Value, and Efficiency. LLMStats powers the capability leaderboards.
-LLMDEX does not claim to have run either source's benchmarks.
+LLMDEX is an auditable, source-transparent LLM analytics platform. Every ranking decision is documented, every data point is traceable to its upstream source, and no missing value is ever fabricated.
 
-The live URLs and extraction policies are versioned in
-`data/methodology/source_config.json`. Benchmark names, versions, units, and
-provenance are versioned in `data/methodology/benchmark_registry.json`.
+LLMDEX does not independently execute or rerun upstream benchmark evaluations. A successfully processed dataset snapshot indicates that source data was ingested, validated, and normalized without pipeline failure; it does not imply independent verification of third-party benchmark executions.
 
-## General order
+## Source Ownership
 
-General opens on Artificial Analysis Performance. The upstream Intelligence
-order is unchanged. LLMDEX Score is a sortable secondary column and never
-silently replaces the default source order.
+Artificial Analysis powers the default General leaderboard, listed API prices, generation throughput, latency, Value, and Efficiency views. LLMStats powers the capability-specific leaderboards. LLMDEX preserves observations from both sources separately and links them only at the model-family level.
+
+The live URLs and extraction policies are versioned in `data/methodology/source_config.json`. Benchmark names, versions, units, and provenance are versioned in `data/methodology/benchmark_registry.json`.
+
+## Metric Distinctions
+
+LLMDEX clearly distinguishes between related but distinct performance and operational dimensions:
+
+- **Output Throughput vs. Latency:** Output throughput measures generated output tokens per second. Total response latency includes network transit, queuing, and processing delay. Time to First Token (TTFT) measures initial response latency. Output throughput is distinct from both TTFT and total latency.
+- **Context Capacity vs. Long-Context Quality:** Listed context-window size reflects the maximum published token capacity accepted by a model or deployment. It does not prove equivalent retrieval accuracy, attention preservation, or reasoning quality across the full context window.
+
+## General Order
+
+General opens on Artificial Analysis Performance. The upstream Intelligence order is preserved unchanged. The LLMDEX Score is a sortable secondary column and never silently replaces the default source order.
 
 Value retains the existing intent:
 
@@ -22,18 +29,15 @@ Value retains the existing intent:
 - 30% cost efficiency
 - 20% speed
 
-Available weights are redistributed when a component is missing. LLMStats does
-not influence Value or Efficiency.
+Available weights are redistributed when a component is missing. LLMStats does not influence Value or Efficiency.
 
-The displayed blended token price is `60% input price + 40% output price`.
-When only one price is available, that published price is used without
-inventing the missing component.
+The displayed blended token price is `60% input price + 40% output price`. When only one price is available, that published price is used without inventing the missing component.
 
-## Family identity
+Models with a listed zero API price may rank highest on API-price efficiency. However, self-hosting, hardware, electricity, engineering, and operational costs are not included in listed API pricing metrics.
 
-Family and variant are separate entities. Parsing retains reasoning effort,
-thinking/adaptive labels, fallback state, dates, context labels, parameter
-counts, and the original source name.
+## Family Identity
+
+Family and variant are separate entities. Parsing retains reasoning effort, thinking/adaptive labels, fallback state, dates, context labels, parameter counts, and the original source name.
 
 Automatic matching order:
 
@@ -43,11 +47,9 @@ Automatic matching order:
 4. Exact provider + normalized family + version.
 5. Exact known family mapping.
 
-Fuzzy similarity can only create an audit candidate. It cannot publish a merge.
-Statuses are `matched_exact`, `matched_family`, `matched_manual`,
-`source_missing`, `identity_unresolved`, `ambiguous`, and `rejected`.
+Fuzzy similarity can only create an audit candidate. It cannot publish a merge. Statuses are `matched_exact`, `matched_family`, `matched_manual`, `source_missing`, `identity_unresolved`, `ambiguous`, and `rejected`.
 
-## Representative selection
+## Representative Selection
 
 Consensus is family-level. One Artificial Analysis variant represents a family:
 
@@ -55,14 +57,11 @@ Consensus is family-level. One Artificial Analysis variant represents a family:
 2. Highest AA Intelligence.
 3. Stable alphabetical source name.
 
-Manual representative overrides are supported for exceptional deployments.
-Only the representative AA row receives the numeric family score. Other
-variants show `Family score available`.
+Manual representative overrides are supported for exceptional deployments. Only the representative AA row receives the numeric family score. Other variants show `Family score available`.
 
 ## LLMDEX General Consensus v1
 
-The universe is the confidently matched intersection of families that have an
-AA representative and an LLMStats General score.
+The universe is the confidently matched intersection of families that have an AA representative and an LLMStats General score.
 
 For each source, descending scores receive average ranks for ties:
 
@@ -92,43 +91,32 @@ Agreement = 100 - |AA percentile - LLMStats percentile|
 
 Agreement never changes score, rank, or SOTA status.
 
-## Coding consensus
+## Coding Consensus
 
 Coding consensus is available only where both directly comparable fields exist:
 
-- Official Artificial Analysis Coding Index (current methodology: equal-weight
-  Terminal-Bench v2.1 and SciCode).
+- Official Artificial Analysis Coding Index (current methodology: equal-weight Terminal-Bench v2.1 and SciCode).
 - LLMStats Coding Index.
 
-The older broad AA mean remains `aa_coding_proxy_legacy`; it is not presented as
-the official Coding Index.
+The older broad AA mean remains `aa_coding_proxy_legacy`; it is not presented as the official Coding Index.
 
-Other capability views remain LLMStats source-native until a directly
-comparable second source is available.
+Other capability views remain LLMStats source-native until a directly comparable second source is available.
 
-## Missing sources
+## Missing Sources
 
 - AA only: AA values and rank remain unchanged; LLMDEX Score is null.
 - LLMStats only: retained in capability datasets; AA match is null.
 - Identity review: both may have a candidate, but no score is published.
-- Every AA configuration in an approved family displays the same family-level
-  LLMDEX score, agreement, and consensus status. Source-native configuration
-  metrics remain distinct.
+- Every AA configuration in an approved family displays the same family-level LLMDEX score, agreement, and consensus status. Source-native configuration metrics remain distinct.
 
 Null is never converted to zero.
 
-## Availability and badges
+## Availability and Badges
 
-Availability is conservative: `open_source`, `open_weights`,
-`research_license`, `proprietary`, or `unknown`. A visible non-proprietary
-license is not automatically labeled open source.
+Availability is conservative: `open_source`, `open_weights`, `research_license`, `proprietary`, or `unknown`. A visible non-proprietary license is not automatically labeled open source.
 
-`SOTA` is the highest valid proprietary consensus family. `OPEN SOTA` is the
-highest valid open-weight/open-source consensus family. A single-source AA
-leader can receive `AA LEADER`, never LLMDEX SOTA.
+`SOTA` is the highest valid proprietary consensus family. `OPEN SOTA` is the highest valid open-weight/open-source consensus family. A single-source AA leader can receive `AA LEADER`, never LLMDEX SOTA.
 
 ## History
 
-Family, model, source, and score history are appended using date + entity +
-methodology version keys. A methodology change starts a new version; it does not
-rewrite old scores.
+Family, model, source, and score history are appended using date + entity + methodology version keys. A methodology change starts a new version; it does not rewrite old scores.
