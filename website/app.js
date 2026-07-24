@@ -3018,32 +3018,150 @@ function setupChatbot(data) {
   // Build the full ranked snapshot for deterministic local analysis.
   const snapshot = buildDataSnapshot(data);
 
+    function numberOrNull(...values) {
+    for (const value of values) {
+      if (value == null || value === "") continue;
+
+      const numeric = Number(value);
+
+      if (Number.isFinite(numeric)) {
+        return numeric;
+      }
+    }
+
+    return null;
+  }
+
   function buildDataSnapshot(dataset) {
     const ranked = [...dataset]
       .filter((d) => d.performance_rank != null)
       .sort((a, b) => a.performance_rank - b.performance_rank);
 
-    return ranked.map((m) => ({
-      model_name: m.canonical_name || m.model_name || "Unknown",
-      provider: m.provider || "Unknown",
-      performance_rank: m.performance_rank,
-      value_rank: m.value_rank,
-      efficiency_rank: m.efficiency_rank,
-      adjusted_performance:
-        m.adjusted_performance != null
-          ? +m.adjusted_performance.toFixed(2)
-          : null,
-      blended_cost_per_1m:
-        m.blended_cost_per_1m != null ? +m.blended_cost_per_1m.toFixed(2) : null,
-      output_cost_per_1m:
-        m.output_cost_per_1m != null ? +m.output_cost_per_1m.toFixed(2) : null,
-      context_window: m.context_window,
-      coding_score: m.coding_score != null ? +m.coding_score.toFixed(2) : null,
-      reasoning_score:
-        m.reasoning_score != null ? +m.reasoning_score.toFixed(2) : null,
-      confidence_factor:
-        m.confidence_factor != null ? +m.confidence_factor.toFixed(2) : null,
-    }));
+    return ranked.map((m) => {
+      const inputCost = numberOrNull(
+        m.input_cost_per_1m,
+        m.input_cost,
+      );
+
+      const outputCost = numberOrNull(
+        m.output_cost_per_1m,
+        m.output_cost,
+      );
+
+      let blendedCost = numberOrNull(
+        m.blended_cost_per_1m,
+      );
+
+      if (blendedCost == null) {
+        const weightedCosts = [];
+
+        if (inputCost != null) {
+          weightedCosts.push([inputCost, 0.6]);
+        }
+
+        if (outputCost != null) {
+          weightedCosts.push([outputCost, 0.4]);
+        }
+
+        if (weightedCosts.length > 0) {
+          const totalWeight = weightedCosts.reduce(
+            (sum, [, weight]) => sum + weight,
+            0,
+          );
+
+          blendedCost =
+            weightedCosts.reduce(
+              (sum, [value, weight]) => sum + value * weight,
+              0,
+            ) / totalWeight;
+        }
+      }
+
+      const adjustedPerformance = numberOrNull(
+        m.adjusted_performance,
+        m.performance_index,
+        m.intelligence_score,
+      );
+
+      const tokensPerSecond = numberOrNull(
+        m.tokens_per_second,
+      );
+
+      const latencySeconds = numberOrNull(
+        m.latency_seconds,
+        m.latency,
+      );
+
+      const speedIndex = numberOrNull(
+        m.speed_index,
+      );
+
+      return {
+        model_name:
+          m.canonical_name ||
+          m.model_name ||
+          "Unknown",
+
+        provider: m.provider || "Unknown",
+
+        performance_rank: m.performance_rank,
+        value_rank: m.value_rank,
+        efficiency_rank: m.efficiency_rank,
+
+        adjusted_performance:
+          adjustedPerformance != null
+            ? +adjustedPerformance.toFixed(2)
+            : null,
+
+        input_cost_per_1m:
+          inputCost != null
+            ? +inputCost.toFixed(2)
+            : null,
+
+        output_cost_per_1m:
+          outputCost != null
+            ? +outputCost.toFixed(2)
+            : null,
+
+        blended_cost_per_1m:
+          blendedCost != null
+            ? +blendedCost.toFixed(2)
+            : null,
+
+        tokens_per_second:
+          tokensPerSecond != null
+            ? +tokensPerSecond.toFixed(2)
+            : null,
+
+        latency_seconds:
+          latencySeconds != null
+            ? +latencySeconds.toFixed(2)
+            : null,
+
+        speed_index:
+          speedIndex != null
+            ? +speedIndex.toFixed(2)
+            : null,
+
+        context_window:
+          numberOrNull(m.context_window),
+
+        coding_score:
+          m.coding_score != null
+            ? +Number(m.coding_score).toFixed(2)
+            : null,
+
+        reasoning_score:
+          m.reasoning_score != null
+            ? +Number(m.reasoning_score).toFixed(2)
+            : null,
+
+        confidence_factor:
+          m.confidence_factor != null
+            ? +Number(m.confidence_factor).toFixed(2)
+            : null,
+      };
+    });
   }
 
   const advisorSources = new Set();
@@ -3669,30 +3787,186 @@ function setupChatbot(data) {
     }
 
     // Context window
+        // Speed, throughput, and latency are separate from cost efficiency.
+    const asksThroughput =
+      q.includes("fast") ||
+      q.includes("speed") ||
+      q.includes("throughput") ||
+      q.includes("tokens per second") ||
+      q.includes("token per second") ||
+      q.includes("tps");
+
+    const asksLatency =
+      q.includes("latency") ||
+      q.includes("responsive") ||
+      q.includes("responsiveness") ||
+      q.includes("quickest response") ||
+      q.includes("lowest delay");
+
+    if (asksThroughput || asksLatency) {
+      const throughputLeaders = [...models]
+        .filter(
+          (m) =>
+            m.tokens_per_second != null &&
+            Number(m.tokens_per_second) > 0,
+        )
+        .sort(
+          (a, b) =>
+            Number(b.tokens_per_second) -
+            Number(a.tokens_per_second),
+        )
+        .slice(0, 5);
+
+      const latencyLeaders = [...models]
+        .filter(
+          (m) =>
+            m.latency_seconds != null &&
+            Number(m.latency_seconds) >= 0,
+        )
+        .sort(
+          (a, b) =>
+            Number(a.latency_seconds) -
+            Number(b.latency_seconds),
+        )
+        .slice(0, 5);
+
+      if (
+        throughputLeaders.length === 0 &&
+        latencyLeaders.length === 0
+      ) {
+        return {
+          answer:
+            "This data is not available in the current dataset.",
+          referenced_models: [],
+          data_points_used: [],
+        };
+      }
+
+      const sections = [];
+      const referencedModels = [];
+      const dataPointsUsed = [];
+
+      if (
+        asksThroughput &&
+        throughputLeaders.length > 0
+      ) {
+        sections.push(
+          `Highest output throughput:\n` +
+            throughputLeaders
+              .map(
+                (m, i) =>
+                  `**${i + 1}. ${m.model_name}** (${m.provider}) — ${Number(
+                    m.tokens_per_second,
+                  ).toFixed(2)} tokens/second`,
+              )
+              .join("\n"),
+        );
+
+        referencedModels.push(
+          ...throughputLeaders.map(
+            (m) => m.model_name,
+          ),
+        );
+
+        dataPointsUsed.push(
+          "tokens_per_second",
+        );
+      }
+
+      /*
+       * A generic "fastest" or "speed" question is ambiguous,
+       * so show latency too. Explicit TPS questions only need
+       * the throughput ranking.
+       */
+      const genericSpeedQuestion =
+        q.includes("fast") ||
+        q.includes("speed");
+
+      if (
+        (asksLatency || genericSpeedQuestion) &&
+        latencyLeaders.length > 0
+      ) {
+        sections.push(
+          `Lowest measured latency:\n` +
+            latencyLeaders
+              .map(
+                (m, i) =>
+                  `**${i + 1}. ${m.model_name}** (${m.provider}) — ${Number(
+                    m.latency_seconds,
+                  ).toFixed(2)} seconds`,
+              )
+              .join("\n"),
+        );
+
+        referencedModels.push(
+          ...latencyLeaders.map(
+            (m) => m.model_name,
+          ),
+        );
+
+        dataPointsUsed.push(
+          "latency_seconds",
+        );
+      }
+
+      return {
+        answer:
+          `“Fastest” depends on the metric. Higher tokens/second means faster generation, while lower latency means a faster response.\n\n` +
+          sections.join("\n\n"),
+
+        referenced_models: [
+          ...new Set(referencedModels),
+        ],
+
+        data_points_used: dataPointsUsed,
+      };
+    }
+
+    // Context window
     if (
       q.includes("context") ||
-      q.includes("window") ||
+      q.includes("context window") ||
       q.includes("long document") ||
-      q.includes("token")
+      q.includes("long context") ||
+      q.includes("maximum input") ||
+      q.includes("max input") ||
+      q.includes("input tokens")
     ) {
       const withCtx = models.filter(
-        (m) => m.context_window != null && m.context_window > 0,
+        (m) =>
+          m.context_window != null &&
+          m.context_window > 0,
       );
+
       const sorted = [...withCtx]
-        .sort((a, b) => b.context_window - a.context_window)
+        .sort(
+          (a, b) =>
+            b.context_window -
+            a.context_window,
+        )
         .slice(0, 5);
+
       const answer =
         `Models with the largest context windows:\n\n` +
         sorted
           .map(
             (m, i) =>
-              `**${i + 1}. ${m.model_name}** (${m.provider}) — ${(m.context_window / 1000).toFixed(0)}K tokens, Performance: ${m.adjusted_performance}`,
+              `**${i + 1}. ${m.model_name}** (${m.provider}) — ${(
+                m.context_window / 1000
+              ).toFixed(0)}K tokens, Performance: ${
+                m.adjusted_performance
+              }`,
           )
           .join("\n");
+
       return {
         answer,
-        referenced_models: sorted.map((m) => m.model_name),
-        data_points_used: ["context_window", "adjusted_performance"],
+        referenced_models:
+          sorted.map((m) => m.model_name),
+        data_points_used: [
+          "context_window",
+          "adjusted_performance",
+        ],
       };
     }
 
@@ -3738,25 +4012,51 @@ function setupChatbot(data) {
     }
 
     // Efficiency
-    if (q.includes("efficien") || q.includes("speed") || q.includes("fast")) {
-      const withEff = models.filter((m) => m.efficiency_rank != null);
+        // Cost efficiency — deliberately separate from speed and latency.
+    if (
+      q.includes("efficien") ||
+      q.includes("performance per dollar")
+    ) {
+      const withEff = models.filter(
+        (m) => m.efficiency_rank != null,
+      );
+
       const sorted = [...withEff]
-        .sort((a, b) => a.efficiency_rank - b.efficiency_rank)
+        .sort(
+          (a, b) =>
+            a.efficiency_rank -
+            b.efficiency_rank,
+        )
         .slice(0, 5);
+
+      if (sorted.length === 0) {
+        return {
+          answer:
+            "This data is not available in the current dataset.",
+          referenced_models: [],
+          data_points_used: [],
+        };
+      }
+
       const answer =
-        `The most efficient models are:\n\n` +
+        `The most cost-efficient models are:\n\n` +
         sorted
           .map(
             (m, i) =>
               `**${i + 1}. ${m.model_name}** (${m.provider}) — Efficiency Rank #${m.efficiency_rank}, Performance: ${m.adjusted_performance}`,
           )
           .join("\n");
+
       return {
         answer,
-        referenced_models: sorted.map((m) => m.model_name),
-        data_points_used: ["efficiency_rank", "adjusted_performance"],
+        referenced_models:
+          sorted.map((m) => m.model_name),
+        data_points_used: [
+          "efficiency_rank",
+          "adjusted_performance",
+        ],
       };
-    }
+    }    
 
     // Default: overview
     const top5 = [...models]
