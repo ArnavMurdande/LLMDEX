@@ -1380,6 +1380,79 @@
       }
     }
   },
+  "anthropic/claude-opus-5": {
+    "family_id": "anthropic/claude-opus-5",
+    "canonical_family_name": "Claude Opus 5",
+    "provider": "Anthropic",
+    "version": null,
+    "source_aliases": {
+      "artificial_analysis": [
+        "Claude Opus 5 (high)",
+        "Claude Opus 5 (low)",
+        "Claude Opus 5 (max)",
+        "Claude Opus 5 (medium)",
+        "Claude Opus 5 (xhigh)"
+      ],
+      "llmstats": []
+    },
+    "source_ids": {},
+    "source_urls": {
+      "artificial_analysis": [
+        "https://artificialanalysis.ai/models/claude-opus-5",
+        "https://artificialanalysis.ai/models/claude-opus-5-high",
+        "https://artificialanalysis.ai/models/claude-opus-5-low",
+        "https://artificialanalysis.ai/models/claude-opus-5-medium",
+        "https://artificialanalysis.ai/models/claude-opus-5-xhigh"
+      ]
+    },
+    "variants": {
+      "anthropic/claude-opus-5:max": {
+        "variant_id": "anthropic/claude-opus-5:max",
+        "deployment_profile_id": "anthropic/claude-opus-5:max:deployment",
+        "source_name": "Claude Opus 5 (max)",
+        "reasoning_effort": "max",
+        "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": null
+      },
+      "anthropic/claude-opus-5:xhigh": {
+        "variant_id": "anthropic/claude-opus-5:xhigh",
+        "deployment_profile_id": "anthropic/claude-opus-5:xhigh:deployment",
+        "source_name": "Claude Opus 5 (xhigh)",
+        "reasoning_effort": "xhigh",
+        "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": null
+      },
+      "anthropic/claude-opus-5:high": {
+        "variant_id": "anthropic/claude-opus-5:high",
+        "deployment_profile_id": "anthropic/claude-opus-5:high:deployment",
+        "source_name": "Claude Opus 5 (high)",
+        "reasoning_effort": "high",
+        "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": null
+      },
+      "anthropic/claude-opus-5:medium": {
+        "variant_id": "anthropic/claude-opus-5:medium",
+        "deployment_profile_id": "anthropic/claude-opus-5:medium:deployment",
+        "source_name": "Claude Opus 5 (medium)",
+        "reasoning_effort": "medium",
+        "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": null
+      },
+      "anthropic/claude-opus-5:low": {
+        "variant_id": "anthropic/claude-opus-5:low",
+        "deployment_profile_id": "anthropic/claude-opus-5:low:deployment",
+        "source_name": "Claude Opus 5 (low)",
+        "reasoning_effort": "low",
+        "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": null
+      }
+    }
+  },
   "anthropic/claude-sonnet-4-6": {
     "family_id": "anthropic/claude-sonnet-4-6",
     "canonical_family_name": "Claude Sonnet 4.6",

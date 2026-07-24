@@ -1,22 +1,22 @@
 {
-  "generated_at": "2026-07-24T12:03:06.143576+00:00",
+  "generated_at": "2026-07-24T19:00:49.043701+00:00",
   "methodology_version": "LLMStats source-native current",
   "source": "LLMStats",
-  "source_updated_at": "2026-07-24T12:03:25.972742+00:00",
+  "source_updated_at": "2026-07-24T19:01:10.292533+00:00",
   "source_health": {
     "source": "LLMStats",
-    "rows_scraped": 84,
+    "rows_scraped": 85,
     "expected_range": [
       20,
       250
     ],
     "status": "healthy",
     "error_message": null,
-    "duration_seconds": 19.823,
-    "timestamp": "2026-07-24T12:03:25.972742+00:00",
+    "duration_seconds": 21.242,
+    "timestamp": "2026-07-24T19:01:10.292533+00:00",
     "parse_warning_count": 0,
     "warnings": [],
-    "last_successful_update": "2026-07-24T12:03:25.972742+00:00",
+    "last_successful_update": "2026-07-24T19:01:10.292533+00:00",
     "schema_changes": []
   },
   "capability": "math",
@@ -99,13 +99,13 @@
       "version": null,
       "source_name": "Humanity's Last Exam",
       "source_url": "https://llm-stats.com/benchmarks/humanity's-last-exam",
-      "source_population": 90
+      "source_population": 91
     }
   ],
   "rows": [
     {
       "category_rank": 1.0,
-      "category_score": 47.9,
+      "category_score": 47.1,
       "source_name": "Claude Mythos Preview",
       "provider": "Anthropic",
       "source_model_id": "claude-mythos-preview",
@@ -136,14 +136,14 @@
           "source_column_indices": {
             "math": 9
           },
-          "source_population": 90
+          "source_population": 91
         }
       },
       "source_updated_at": null
     },
     {
       "category_rank": 2.0,
-      "category_score": 44.1,
+      "category_score": 44.0,
       "source_name": "Qwen3.7 Max",
       "provider": "Qwen",
       "source_model_id": "qwen3.7-max",
@@ -191,14 +191,14 @@
           "source_column_indices": {
             "math": 9
           },
-          "source_population": 90
+          "source_population": 91
         }
       },
       "source_updated_at": null
     },
     {
       "category_rank": 3.0,
-      "category_score": 43.1,
+      "category_score": 43.0,
       "source_name": "Gemini 3.1 Pro",
       "provider": "Google",
       "source_model_id": "gemini-3.1-pro-preview",
@@ -229,14 +229,52 @@
           "source_column_indices": {
             "math": 9
           },
-          "source_population": 90
+          "source_population": 91
         }
       },
       "source_updated_at": null
     },
     {
       "category_rank": 4.0,
-      "category_score": 42.3,
+      "category_score": 42.4,
+      "source_name": "Claude Opus 5",
+      "provider": null,
+      "source_model_id": "claude-opus-5",
+      "source_model_url": "https://llm-stats.com/models/claude-opus-5",
+      "family_id": "unknown/claude-opus-5",
+      "matched_aa_family_id": null,
+      "match_status": "identity_unresolved",
+      "match_confidence": 0.8,
+      "score_status": "identity_review",
+      "score_status_label": "Identity review",
+      "availability_class": "unknown",
+      "is_sota": false,
+      "is_open_sota": false,
+      "rank_evidence": "source_rendered_table_order",
+      "benchmark_observations": {
+        "llmstats__humanity-s-last-exam": {
+          "benchmark_id": "llmstats__humanity-s-last-exam",
+          "canonical_name": "Humanity's Last Exam",
+          "source_name": "Humanity's Last Exam",
+          "value": 64.7,
+          "raw_value": "64.7%",
+          "version": null,
+          "provenance": "LLMStats public capability leaderboard",
+          "source_url": "https://llm-stats.com/benchmarks/humanity's-last-exam",
+          "capabilities": [
+            "math"
+          ],
+          "source_column_indices": {
+            "math": 9
+          },
+          "source_population": 91
+        }
+      },
+      "source_updated_at": null
+    },
+    {
+      "category_rank": 5.0,
+      "category_score": 42.0,
       "source_name": "Kimi K3",
       "provider": "MoonshotAI",
       "source_model_id": "kimi-k3",
@@ -267,14 +305,14 @@
           "source_column_indices": {
             "math": 9
           },
-          "source_population": 90
+          "source_population": 91
         }
       },
       "source_updated_at": null
     },
     {
-      "category_rank": 5.0,
-      "category_score": 42.0,
+      "category_rank": 6.0,
+      "category_score": 41.9,
       "source_name": "GLM-5.2",
       "provider": "ZAI",
       "source_model_id": "glm-5.2",
@@ -305,52 +343,14 @@
           "source_column_indices": {
             "math": 9
           },
-          "source_population": 90
-        }
-      },
-      "source_updated_at": null
-    },
-    {
-      "category_rank": 6.0,
-      "category_score": 41.9,
-      "source_name": "Claude Fable 5",
-      "provider": null,
-      "source_model_id": "claude-fable-5",
-      "source_model_url": "https://llm-stats.com/models/claude-fable-5",
-      "family_id": "anthropic/claude-fable-5",
-      "matched_aa_family_id": "anthropic/claude-fable-5",
-      "match_status": "matched_manual",
-      "match_confidence": 1.0,
-      "score_status": "consensus",
-      "score_status_label": "Consensus",
-      "availability_class": "proprietary",
-      "is_sota": false,
-      "is_open_sota": false,
-      "rank_evidence": "source_rendered_table_order",
-      "benchmark_observations": {
-        "llmstats__humanity-s-last-exam": {
-          "benchmark_id": "llmstats__humanity-s-last-exam",
-          "canonical_name": "Humanity's Last Exam",
-          "source_name": "Humanity's Last Exam",
-          "value": 64.5,
-          "raw_value": "64.5%",
-          "version": null,
-          "provenance": "LLMStats public capability leaderboard",
-          "source_url": "https://llm-stats.com/benchmarks/humanity's-last-exam",
-          "capabilities": [
-            "math"
-          ],
-          "source_column_indices": {
-            "math": 9
-          },
-          "source_population": 90
+          "source_population": 91
         }
       },
       "source_updated_at": null
     },
     {
       "category_rank": 7.0,
-      "category_score": 41.9,
+      "category_score": 41.7,
       "source_name": "Grok-4 Heavy",
       "provider": "xAI",
       "source_model_id": "grok-4-heavy",
@@ -398,14 +398,52 @@
           "source_column_indices": {
             "math": 9
           },
-          "source_population": 90
+          "source_population": 91
         }
       },
       "source_updated_at": null
     },
     {
       "category_rank": 8.0,
-      "category_score": 41.3,
+      "category_score": 41.5,
+      "source_name": "Claude Fable 5",
+      "provider": null,
+      "source_model_id": "claude-fable-5",
+      "source_model_url": "https://llm-stats.com/models/claude-fable-5",
+      "family_id": "anthropic/claude-fable-5",
+      "matched_aa_family_id": "anthropic/claude-fable-5",
+      "match_status": "matched_manual",
+      "match_confidence": 1.0,
+      "score_status": "consensus",
+      "score_status_label": "Consensus",
+      "availability_class": "proprietary",
+      "is_sota": false,
+      "is_open_sota": false,
+      "rank_evidence": "source_rendered_table_order",
+      "benchmark_observations": {
+        "llmstats__humanity-s-last-exam": {
+          "benchmark_id": "llmstats__humanity-s-last-exam",
+          "canonical_name": "Humanity's Last Exam",
+          "source_name": "Humanity's Last Exam",
+          "value": 64.5,
+          "raw_value": "64.5%",
+          "version": null,
+          "provenance": "LLMStats public capability leaderboard",
+          "source_url": "https://llm-stats.com/benchmarks/humanity's-last-exam",
+          "capabilities": [
+            "math"
+          ],
+          "source_column_indices": {
+            "math": 9
+          },
+          "source_population": 91
+        }
+      },
+      "source_updated_at": null
+    },
+    {
+      "category_rank": 9.0,
+      "category_score": 41.2,
       "source_name": "DeepSeek-V4-Pro-Max",
       "provider": "DeepSeek",
       "source_model_id": "deepseek-v4-pro-max",
@@ -453,52 +491,14 @@
           "source_column_indices": {
             "math": 9
           },
-          "source_population": 90
-        }
-      },
-      "source_updated_at": null
-    },
-    {
-      "category_rank": 9.0,
-      "category_score": 41.3,
-      "source_name": "Muse Spark 1.1",
-      "provider": null,
-      "source_model_id": "muse-spark-1.1",
-      "source_model_url": "https://llm-stats.com/models/muse-spark-1.1",
-      "family_id": "unknown/muse-spark-1-1",
-      "matched_aa_family_id": null,
-      "match_status": "identity_unresolved",
-      "match_confidence": 0.8,
-      "score_status": "identity_review",
-      "score_status_label": "Identity review",
-      "availability_class": "unknown",
-      "is_sota": false,
-      "is_open_sota": false,
-      "rank_evidence": "source_rendered_table_order",
-      "benchmark_observations": {
-        "llmstats__humanity-s-last-exam": {
-          "benchmark_id": "llmstats__humanity-s-last-exam",
-          "canonical_name": "Humanity's Last Exam",
-          "source_name": "Humanity's Last Exam",
-          "value": 62.1,
-          "raw_value": "62.1%",
-          "version": null,
-          "provenance": "LLMStats public capability leaderboard",
-          "source_url": "https://llm-stats.com/benchmarks/humanity's-last-exam",
-          "capabilities": [
-            "math"
-          ],
-          "source_column_indices": {
-            "math": 9
-          },
-          "source_population": 90
+          "source_population": 91
         }
       },
       "source_updated_at": null
     },
     {
       "category_rank": 10.0,
-      "category_score": 41.0,
+      "category_score": 40.9,
       "source_name": "Seed 2.1 Pro",
       "provider": null,
       "source_model_id": "seed-2.1-pro",
@@ -546,7 +546,7 @@
           "source_column_indices": {
             "math": 9
           },
-          "source_population": 90
+          "source_population": 91
         }
       },
       "source_updated_at": null
@@ -554,6 +554,44 @@
     {
       "category_rank": 11.0,
       "category_score": 40.7,
+      "source_name": "Muse Spark 1.1",
+      "provider": null,
+      "source_model_id": "muse-spark-1.1",
+      "source_model_url": "https://llm-stats.com/models/muse-spark-1.1",
+      "family_id": "unknown/muse-spark-1-1",
+      "matched_aa_family_id": null,
+      "match_status": "identity_unresolved",
+      "match_confidence": 0.8,
+      "score_status": "identity_review",
+      "score_status_label": "Identity review",
+      "availability_class": "unknown",
+      "is_sota": false,
+      "is_open_sota": false,
+      "rank_evidence": "source_rendered_table_order",
+      "benchmark_observations": {
+        "llmstats__humanity-s-last-exam": {
+          "benchmark_id": "llmstats__humanity-s-last-exam",
+          "canonical_name": "Humanity's Last Exam",
+          "source_name": "Humanity's Last Exam",
+          "value": 62.1,
+          "raw_value": "62.1%",
+          "version": null,
+          "provenance": "LLMStats public capability leaderboard",
+          "source_url": "https://llm-stats.com/benchmarks/humanity's-last-exam",
+          "capabilities": [
+            "math"
+          ],
+          "source_column_indices": {
+            "math": 9
+          },
+          "source_population": 91
+        }
+      },
+      "source_updated_at": null
+    },
+    {
+      "category_rank": 12.0,
+      "category_score": 40.6,
       "source_name": "Qwen3.7-Plus",
       "provider": "Qwen",
       "source_model_id": "qwen3.7-plus",
@@ -590,8 +628,8 @@
       "source_updated_at": null
     },
     {
-      "category_rank": 12.0,
-      "category_score": 40.6,
+      "category_rank": 13.0,
+      "category_score": 40.5,
       "source_name": "Seed 2.1 Turbo",
       "provider": null,
       "source_model_id": "seed-2.1-turbo",
@@ -639,14 +677,14 @@
           "source_column_indices": {
             "math": 9
           },
-          "source_population": 90
+          "source_population": 91
         }
       },
       "source_updated_at": null
     },
     {
-      "category_rank": 13.0,
-      "category_score": 40.5,
+      "category_rank": 14.0,
+      "category_score": 40.4,
       "source_name": "Claude Opus 4.6",
       "provider": "Anthropic",
       "source_model_id": "claude-opus-4-6",
@@ -696,14 +734,14 @@
           "source_column_indices": {
             "math": 9
           },
-          "source_population": 90
+          "source_population": 91
         }
       },
       "source_updated_at": null
     },
     {
-      "category_rank": 14.0,
-      "category_score": 40.5,
+      "category_rank": 15.0,
+      "category_score": 40.4,
       "source_name": "DeepSeek-V4-Flash-Max",
       "provider": "DeepSeek",
       "source_model_id": "deepseek-v4-flash-max",
@@ -751,45 +789,7 @@
           "source_column_indices": {
             "math": 9
           },
-          "source_population": 90
-        }
-      },
-      "source_updated_at": null
-    },
-    {
-      "category_rank": 15.0,
-      "category_score": 40.5,
-      "source_name": "Muse Spark",
-      "provider": "Meta",
-      "source_model_id": "muse-spark",
-      "source_model_url": "https://llm-stats.com/models/muse-spark",
-      "family_id": "meta/muse-spark",
-      "matched_aa_family_id": "meta/muse-spark",
-      "match_status": "matched_family",
-      "match_confidence": 0.95,
-      "score_status": "consensus",
-      "score_status_label": "Consensus",
-      "availability_class": "proprietary",
-      "is_sota": false,
-      "is_open_sota": false,
-      "rank_evidence": "source_rendered_table_order",
-      "benchmark_observations": {
-        "llmstats__humanity-s-last-exam": {
-          "benchmark_id": "llmstats__humanity-s-last-exam",
-          "canonical_name": "Humanity's Last Exam",
-          "source_name": "Humanity's Last Exam",
-          "value": 58.4,
-          "raw_value": "58.4%",
-          "version": null,
-          "provenance": "LLMStats public capability leaderboard",
-          "source_url": "https://llm-stats.com/benchmarks/humanity's-last-exam",
-          "capabilities": [
-            "math"
-          ],
-          "source_column_indices": {
-            "math": 9
-          },
-          "source_population": 90
+          "source_population": 91
         }
       },
       "source_updated_at": null
@@ -834,7 +834,45 @@
     },
     {
       "category_rank": 17.0,
-      "category_score": 40.1,
+      "category_score": 40.0,
+      "source_name": "Muse Spark",
+      "provider": "Meta",
+      "source_model_id": "muse-spark",
+      "source_model_url": "https://llm-stats.com/models/muse-spark",
+      "family_id": "meta/muse-spark",
+      "matched_aa_family_id": "meta/muse-spark",
+      "match_status": "matched_family",
+      "match_confidence": 0.95,
+      "score_status": "consensus",
+      "score_status_label": "Consensus",
+      "availability_class": "proprietary",
+      "is_sota": false,
+      "is_open_sota": false,
+      "rank_evidence": "source_rendered_table_order",
+      "benchmark_observations": {
+        "llmstats__humanity-s-last-exam": {
+          "benchmark_id": "llmstats__humanity-s-last-exam",
+          "canonical_name": "Humanity's Last Exam",
+          "source_name": "Humanity's Last Exam",
+          "value": 58.4,
+          "raw_value": "58.4%",
+          "version": null,
+          "provenance": "LLMStats public capability leaderboard",
+          "source_url": "https://llm-stats.com/benchmarks/humanity's-last-exam",
+          "capabilities": [
+            "math"
+          ],
+          "source_column_indices": {
+            "math": 9
+          },
+          "source_population": 91
+        }
+      },
+      "source_updated_at": null
+    },
+    {
+      "category_rank": 18.0,
+      "category_score": 39.8,
       "source_name": "Claude Opus 4.8",
       "provider": "Anthropic",
       "source_model_id": "claude-opus-4-8",
@@ -865,14 +903,14 @@
           "source_column_indices": {
             "math": 9
           },
-          "source_population": 90
+          "source_population": 91
         }
       },
       "source_updated_at": null
     },
     {
-      "category_rank": 18.0,
-      "category_score": 39.7,
+      "category_rank": 19.0,
+      "category_score": 39.5,
       "source_name": "Claude Opus 4.7",
       "provider": "Anthropic",
       "source_model_id": "claude-opus-4-7",
@@ -903,14 +941,14 @@
           "source_column_indices": {
             "math": 9
           },
-          "source_population": 90
+          "source_population": 91
         }
       },
       "source_updated_at": null
     },
     {
-      "category_rank": 19.0,
-      "category_score": 39.2,
+      "category_rank": 20.0,
+      "category_score": 39.1,
       "source_name": "GPT-5.2 Pro",
       "provider": "OpenAI",
       "source_model_id": "gpt-5.2-pro-2025-12-11",
@@ -944,44 +982,6 @@
             "reasoning": 0
           },
           "source_population": 114
-        }
-      },
-      "source_updated_at": null
-    },
-    {
-      "category_rank": 20.0,
-      "category_score": 38.7,
-      "source_name": "GPT-5.5",
-      "provider": "OpenAI",
-      "source_model_id": "gpt-5.5",
-      "source_model_url": "https://llm-stats.com/models/gpt-5.5",
-      "family_id": "openai/gpt-5-5",
-      "matched_aa_family_id": null,
-      "match_status": "identity_unresolved",
-      "match_confidence": 0.7778,
-      "score_status": "identity_review",
-      "score_status_label": "Identity review",
-      "availability_class": "unknown",
-      "is_sota": false,
-      "is_open_sota": false,
-      "rank_evidence": "source_rendered_table_order",
-      "benchmark_observations": {
-        "llmstats__humanity-s-last-exam": {
-          "benchmark_id": "llmstats__humanity-s-last-exam",
-          "canonical_name": "Humanity's Last Exam",
-          "source_name": "Humanity's Last Exam",
-          "value": 52.2,
-          "raw_value": "52.2%",
-          "version": null,
-          "provenance": "LLMStats public capability leaderboard",
-          "source_url": "https://llm-stats.com/benchmarks/humanity's-last-exam",
-          "capabilities": [
-            "math"
-          ],
-          "source_column_indices": {
-            "math": 9
-          },
-          "source_population": 90
         }
       },
       "source_updated_at": null
@@ -1053,14 +1053,52 @@
           "source_column_indices": {
             "math": 9
           },
-          "source_population": 90
+          "source_population": 91
         }
       },
       "source_updated_at": null
     },
     {
       "category_rank": 22.0,
-      "category_score": 38.4,
+      "category_score": 38.5,
+      "source_name": "GPT-5.5",
+      "provider": "OpenAI",
+      "source_model_id": "gpt-5.5",
+      "source_model_url": "https://llm-stats.com/models/gpt-5.5",
+      "family_id": "openai/gpt-5-5",
+      "matched_aa_family_id": null,
+      "match_status": "identity_unresolved",
+      "match_confidence": 0.7778,
+      "score_status": "identity_review",
+      "score_status_label": "Identity review",
+      "availability_class": "unknown",
+      "is_sota": false,
+      "is_open_sota": false,
+      "rank_evidence": "source_rendered_table_order",
+      "benchmark_observations": {
+        "llmstats__humanity-s-last-exam": {
+          "benchmark_id": "llmstats__humanity-s-last-exam",
+          "canonical_name": "Humanity's Last Exam",
+          "source_name": "Humanity's Last Exam",
+          "value": 52.2,
+          "raw_value": "52.2%",
+          "version": null,
+          "provenance": "LLMStats public capability leaderboard",
+          "source_url": "https://llm-stats.com/benchmarks/humanity's-last-exam",
+          "capabilities": [
+            "math"
+          ],
+          "source_column_indices": {
+            "math": 9
+          },
+          "source_population": 91
+        }
+      },
+      "source_updated_at": null
+    },
+    {
+      "category_rank": 23.0,
+      "category_score": 38.3,
       "source_name": "GPT-5.2",
       "provider": "OpenAI",
       "source_model_id": "gpt-5.2-2025-12-11",
@@ -1099,8 +1137,8 @@
       "source_updated_at": null
     },
     {
-      "category_rank": 23.0,
-      "category_score": 38.0,
+      "category_rank": 24.0,
+      "category_score": 37.9,
       "source_name": "Kimi K2.6",
       "provider": "MoonshotAI",
       "source_model_id": "kimi-k2.6",
@@ -1119,13 +1157,13 @@
       "source_updated_at": null
     },
     {
-      "category_rank": 24.0,
-      "category_score": 37.9,
-      "source_name": "24GPT-5.5 Pro",
+      "category_rank": 25.0,
+      "category_score": 37.7,
+      "source_name": "25GPT-5.5 Pro",
       "provider": null,
       "source_model_id": "gpt-5.5-pro",
       "source_model_url": "https://llm-stats.com/models/gpt-5.5-pro",
-      "family_id": "unknown/24gpt-5-5-pro",
+      "family_id": "unknown/25gpt-5-5-pro",
       "matched_aa_family_id": null,
       "match_status": "identity_unresolved",
       "match_confidence": 0.8,
@@ -1151,13 +1189,13 @@
           "source_column_indices": {
             "math": 9
           },
-          "source_population": 90
+          "source_population": 91
         }
       },
       "source_updated_at": null
     },
     {
-      "category_rank": 25.0,
+      "category_rank": 26.0,
       "category_score": 37.6,
       "source_name": "Qwen3.5-397B-A17B",
       "provider": "Qwen",
@@ -1195,8 +1233,8 @@
       "source_updated_at": null
     },
     {
-      "category_rank": 26.0,
-      "category_score": 37.6,
+      "category_rank": 27.0,
+      "category_score": 37.5,
       "source_name": "Gemini 3 Pro",
       "provider": "Google",
       "source_model_id": "gemini-3-pro-preview",
@@ -1244,14 +1282,14 @@
           "source_column_indices": {
             "math": 9
           },
-          "source_population": 90
+          "source_population": 91
         }
       },
       "source_updated_at": null
     },
     {
-      "category_rank": 27.0,
-      "category_score": 37.4,
+      "category_rank": 28.0,
+      "category_score": 37.3,
       "source_name": "Gemini 3 Flash",
       "provider": "Google",
       "source_model_id": "gemini-3-flash-preview",
@@ -1299,19 +1337,19 @@
           "source_column_indices": {
             "math": 9
           },
-          "source_population": 90
+          "source_population": 91
         }
       },
       "source_updated_at": null
     },
     {
-      "category_rank": 28.0,
-      "category_score": 37.2,
-      "source_name": "28Kimi K2.5",
+      "category_rank": 29.0,
+      "category_score": 37.1,
+      "source_name": "29Kimi K2.5",
       "provider": null,
       "source_model_id": "kimi-k2.5",
       "source_model_url": "https://llm-stats.com/models/kimi-k2.5",
-      "family_id": "unknown/28kimi-k2-5",
+      "family_id": "unknown/29kimi-k2-5",
       "matched_aa_family_id": null,
       "match_status": "identity_unresolved",
       "match_confidence": 0.8,
@@ -1371,19 +1409,19 @@
           "source_column_indices": {
             "math": 9
           },
-          "source_population": 90
+          "source_population": 91
         }
       },
       "source_updated_at": null
     },
     {
-      "category_rank": 29.0,
-      "category_score": 37.1,
-      "source_name": "Claude Sonnet 5",
+      "category_rank": 30.0,
+      "category_score": 36.9,
+      "source_name": "30Qwen3.5-122B-A10B",
       "provider": null,
-      "source_model_id": "claude-sonnet-5",
-      "source_model_url": "https://llm-stats.com/models/claude-sonnet-5",
-      "family_id": "unknown/claude-sonnet-5",
+      "source_model_id": "qwen3.5-122b-a10b",
+      "source_model_url": "https://llm-stats.com/models/qwen3.5-122b-a10b",
+      "family_id": "unknown/30qwen3-5-122b-a10b",
       "matched_aa_family_id": null,
       "match_status": "identity_unresolved",
       "match_confidence": 0.8,
@@ -1394,12 +1432,29 @@
       "is_open_sota": false,
       "rank_evidence": "source_rendered_table_order",
       "benchmark_observations": {
+        "llmstats__mmlu-pro": {
+          "benchmark_id": "llmstats__mmlu-pro",
+          "canonical_name": "MMLU-Pro",
+          "source_name": "MMLU-Pro",
+          "value": 86.7,
+          "raw_value": "86.7%",
+          "version": null,
+          "provenance": "LLMStats public capability leaderboard",
+          "source_url": "https://llm-stats.com/benchmarks/mmlu-pro",
+          "capabilities": [
+            "math"
+          ],
+          "source_column_indices": {
+            "math": 5
+          },
+          "source_population": 129
+        },
         "llmstats__humanity-s-last-exam": {
           "benchmark_id": "llmstats__humanity-s-last-exam",
           "canonical_name": "Humanity's Last Exam",
           "source_name": "Humanity's Last Exam",
-          "value": 57.4,
-          "raw_value": "57.4%",
+          "value": 47.5,
+          "raw_value": "47.5%",
           "version": null,
           "provenance": "LLMStats public capability leaderboard",
           "source_url": "https://llm-stats.com/benchmarks/humanity's-last-exam",
@@ -1409,14 +1464,14 @@
           "source_column_indices": {
             "math": 9
           },
-          "source_population": 90
+          "source_population": 91
         }
       },
       "source_updated_at": null
     },
     {
-      "category_rank": 30.0,
-      "category_score": 37.0,
+      "category_rank": 30.5,
+      "category_score": 36.9,
       "source_name": "GPT-5.4",
       "provider": "OpenAI",
       "source_model_id": "gpt-5.4",
@@ -1430,13 +1485,13 @@
       "availability_class": "unknown",
       "is_sota": false,
       "is_open_sota": false,
-      "rank_evidence": "source_rendered_table_order",
+      "rank_evidence": "derived_score_order_visible_server_population",
       "benchmark_observations": {},
       "source_updated_at": null
     },
     {
-      "category_rank": 31.0,
-      "category_score": 36.9,
+      "category_rank": 32.0,
+      "category_score": 36.8,
       "source_name": "GPT-5.6 Sol",
       "provider": "OpenAI",
       "source_model_id": "gpt-5.6-sol",
@@ -1455,8 +1510,8 @@
       "source_updated_at": null
     },
     {
-      "category_rank": 32.0,
-      "category_score": 35.8,
+      "category_rank": 33.0,
+      "category_score": 35.7,
       "source_name": "Hy3",
       "provider": "Tencent",
       "source_model_id": "hy3",
@@ -1475,8 +1530,8 @@
       "source_updated_at": null
     },
     {
-      "category_rank": 33.0,
-      "category_score": 34.9,
+      "category_rank": 34.0,
+      "category_score": 34.8,
       "source_name": "Claude Sonnet 4.6",
       "provider": "Anthropic",
       "source_model_id": "claude-sonnet-4-6",
@@ -1495,8 +1550,8 @@
       "source_updated_at": null
     },
     {
-      "category_rank": 34.0,
-      "category_score": 33.5,
+      "category_rank": 35.0,
+      "category_score": 33.4,
       "source_name": "GPT-5.6 Terra",
       "provider": "OpenAI",
       "source_model_id": "gpt-5.6-terra",
@@ -1515,7 +1570,7 @@
       "source_updated_at": null
     },
     {
-      "category_rank": 35.0,
+      "category_rank": 36.0,
       "category_score": 32.9,
       "source_name": "Seed 2.0 Pro",
       "provider": "Bytedance",
@@ -1546,8 +1601,8 @@
       "source_updated_at": null
     },
     {
-      "category_rank": 36.0,
-      "category_score": 30.1,
+      "category_rank": 37.0,
+      "category_score": 30.0,
       "source_name": "GPT-5.1",
       "provider": "OpenAI",
       "source_model_id": "gpt-5.1-2025-11-13",
@@ -1577,8 +1632,8 @@
       "source_updated_at": null
     },
     {
-      "category_rank": 37.0,
-      "category_score": 29.5,
+      "category_rank": 38.0,
+      "category_score": 29.4,
       "source_name": "GPT-5.6 Luna",
       "provider": "OpenAI",
       "source_model_id": "gpt-5.6-luna",

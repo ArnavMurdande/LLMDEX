@@ -256,6 +256,11 @@
         "similarity": 0.9333
       },
       {
+        "family_id": "anthropic/claude-opus-5",
+        "family_name": "Claude Opus 5",
+        "similarity": 0.8571
+      },
+      {
         "family_id": "anthropic/claude-sonnet-4-6",
         "family_name": "Claude Sonnet 4.6",
         "similarity": 0.75
@@ -495,6 +500,36 @@
   },
   {
     "source": "llmstats",
+    "source_name": "Claude Opus 5",
+    "source_model_id": "claude-opus-5",
+    "source_model_url": "https://llm-stats.com/models/claude-opus-5",
+    "provider": null,
+    "candidate_family_id": "anthropic/claude-opus-5",
+    "candidate_family_name": "Claude Opus 5",
+    "match_status": "identity_unresolved",
+    "match_confidence": 0.8,
+    "match_method": "fuzzy_review_candidate",
+    "review_reason": "Fuzzy candidates require manual approval and are excluded from scoring.",
+    "competing_candidates": [
+      {
+        "family_id": "anthropic/claude-opus-5",
+        "family_name": "Claude Opus 5",
+        "similarity": 1.0
+      },
+      {
+        "family_id": "anthropic/claude-opus-4-8",
+        "family_name": "Claude Opus 4.8",
+        "similarity": 0.8571
+      },
+      {
+        "family_id": "anthropic/claude-opus-4-7",
+        "family_name": "Claude Opus 4.7",
+        "similarity": 0.8571
+      }
+    ]
+  },
+  {
+    "source": "llmstats",
     "source_name": "Claude Sonnet 5",
     "source_model_id": "claude-sonnet-5",
     "source_model_url": "https://llm-stats.com/models/claude-sonnet-5",
@@ -634,6 +669,46 @@
   },
   {
     "source": "llmstats",
+    "source_name": "Gemini 3.6 Flash",
+    "source_model_id": "gemini-3.6-flash",
+    "source_model_url": "https://llm-stats.com/models/gemini-3.6-flash",
+    "provider": null,
+    "candidate_family_id": "google/gemini-3-6-flash",
+    "candidate_family_name": "Gemini 3.6 Flash",
+    "match_status": "identity_unresolved",
+    "match_confidence": 0.8,
+    "match_method": "fuzzy_review_candidate",
+    "review_reason": "Fuzzy candidates require manual approval and are excluded from scoring.",
+    "competing_candidates": [
+      {
+        "family_id": "google/gemini-3-6-flash",
+        "family_name": "Gemini 3.6 Flash",
+        "similarity": 1.0
+      },
+      {
+        "family_id": "google/gemini-3-5-flash",
+        "family_name": "Gemini 3.5 Flash",
+        "similarity": 0.9375
+      },
+      {
+        "family_id": "google/gemini-3-5-flash-lite",
+        "family_name": "Gemini 3.5 Flash-Lite",
+        "similarity": 0.8108
+      },
+      {
+        "family_id": "google/gemini-3-1-flash-lite",
+        "family_name": "Gemini 3.1 Flash-Lite",
+        "similarity": 0.8108
+      },
+      {
+        "family_id": "inclusionai/ling-2-6-flash",
+        "family_name": "Ling 2.6 Flash",
+        "similarity": 0.7333
+      }
+    ]
+  },
+  {
+    "source": "llmstats",
     "source_name": "Seed 2.1 Turbo",
     "source_model_id": "seed-2.1-turbo",
     "source_model_url": "https://llm-stats.com/models/seed-2.1-turbo",
@@ -688,66 +763,6 @@
   },
   {
     "source": "llmstats",
-    "source_name": "GPT-5.3 Codex",
-    "source_model_id": "gpt-5.3-codex",
-    "source_model_url": "https://llm-stats.com/models/gpt-5.3-codex",
-    "provider": null,
-    "candidate_family_id": "openai/gpt-5-3-codex",
-    "candidate_family_name": "GPT-5.3 Codex",
-    "match_status": "identity_unresolved",
-    "match_confidence": 0.8,
-    "match_method": "fuzzy_review_candidate",
-    "review_reason": "Fuzzy candidates require manual approval and are excluded from scoring.",
-    "competing_candidates": [
-      {
-        "family_id": "openai/gpt-5-3-codex",
-        "family_name": "GPT-5.3 Codex",
-        "similarity": 1.0
-      }
-    ]
-  },
-  {
-    "source": "llmstats",
-    "source_name": "Gemini 3.6 Flash",
-    "source_model_id": "gemini-3.6-flash",
-    "source_model_url": "https://llm-stats.com/models/gemini-3.6-flash",
-    "provider": null,
-    "candidate_family_id": "google/gemini-3-6-flash",
-    "candidate_family_name": "Gemini 3.6 Flash",
-    "match_status": "identity_unresolved",
-    "match_confidence": 0.8,
-    "match_method": "fuzzy_review_candidate",
-    "review_reason": "Fuzzy candidates require manual approval and are excluded from scoring.",
-    "competing_candidates": [
-      {
-        "family_id": "google/gemini-3-6-flash",
-        "family_name": "Gemini 3.6 Flash",
-        "similarity": 1.0
-      },
-      {
-        "family_id": "google/gemini-3-5-flash",
-        "family_name": "Gemini 3.5 Flash",
-        "similarity": 0.9375
-      },
-      {
-        "family_id": "google/gemini-3-5-flash-lite",
-        "family_name": "Gemini 3.5 Flash-Lite",
-        "similarity": 0.8108
-      },
-      {
-        "family_id": "google/gemini-3-1-flash-lite",
-        "family_name": "Gemini 3.1 Flash-Lite",
-        "similarity": 0.8108
-      },
-      {
-        "family_id": "inclusionai/ling-2-6-flash",
-        "family_name": "Ling 2.6 Flash",
-        "similarity": 0.7333
-      }
-    ]
-  },
-  {
-    "source": "llmstats",
     "source_name": "Kimi K2.7 Code",
     "source_model_id": "kimi-k2.7-code",
     "source_model_url": "https://llm-stats.com/models/kimi-k2.7-code",
@@ -782,7 +797,7 @@
   },
   {
     "source": "llmstats",
-    "source_name": "24GPT-5.5 Pro",
+    "source_name": "25GPT-5.5 Pro",
     "source_model_id": "gpt-5.5-pro",
     "source_model_url": "https://llm-stats.com/models/gpt-5.5-pro",
     "provider": null,
@@ -802,7 +817,7 @@
   },
   {
     "source": "llmstats",
-    "source_name": "28Kimi K2.5",
+    "source_name": "29Kimi K2.5",
     "source_model_id": "kimi-k2.5",
     "source_model_url": "https://llm-stats.com/models/kimi-k2.5",
     "provider": null,
@@ -817,6 +832,31 @@
         "family_id": "kimi/kimi-k2-6",
         "family_name": "Kimi K2.6",
         "similarity": 0.8
+      }
+    ]
+  },
+  {
+    "source": "llmstats",
+    "source_name": "30Qwen3.5-122B-A10B",
+    "source_model_id": "qwen3.5-122b-a10b",
+    "source_model_url": "https://llm-stats.com/models/qwen3.5-122b-a10b",
+    "provider": null,
+    "candidate_family_id": "alibaba/qwen3-5-122b-a10b",
+    "candidate_family_name": "Qwen3.5 122B A10B",
+    "match_status": "identity_unresolved",
+    "match_confidence": 0.8,
+    "match_method": "fuzzy_review_candidate",
+    "review_reason": "Fuzzy candidates require manual approval and are excluded from scoring.",
+    "competing_candidates": [
+      {
+        "family_id": "alibaba/qwen3-5-122b-a10b",
+        "family_name": "Qwen3.5 122B A10B",
+        "similarity": 0.9444
+      },
+      {
+        "family_id": "alibaba/qwen3-5-397b-a17b",
+        "family_name": "Qwen3.5 397B A17B",
+        "similarity": 0.7222
       }
     ]
   },
@@ -856,6 +896,11 @@
         "family_id": "anthropic/claude-opus-4-7",
         "family_name": "Claude Opus 4.7",
         "similarity": 0.9032
+      },
+      {
+        "family_id": "anthropic/claude-opus-5",
+        "family_name": "Claude Opus 5",
+        "similarity": 0.8966
       }
     ]
   },
@@ -1041,6 +1086,11 @@
         "family_id": "anthropic/claude-opus-4-7",
         "family_name": "Claude Opus 4.7",
         "similarity": 0.8667
+      },
+      {
+        "family_id": "anthropic/claude-opus-5",
+        "family_name": "Claude Opus 5",
+        "similarity": 0.8571
       }
     ]
   },
@@ -1163,6 +1213,11 @@
         "family_id": "anthropic/claude-opus-4-7",
         "family_name": "Claude Opus 4.7",
         "similarity": 0.875
+      },
+      {
+        "family_id": "anthropic/claude-opus-5",
+        "family_name": "Claude Opus 5",
+        "similarity": 0.8
       }
     ]
   },
@@ -1266,7 +1321,7 @@
   },
   {
     "source": "llmstats",
-    "source_name": "25Gemma 2 27B",
+    "source_name": "26Gemma 2 27B",
     "source_model_id": "gemma-2-27b-it",
     "source_model_url": "https://llm-stats.com/models/gemma-2-27b-it",
     "provider": null,
@@ -1286,32 +1341,7 @@
   },
   {
     "source": "llmstats",
-    "source_name": "27Qwen3.5-122B-A10B",
-    "source_model_id": "qwen3.5-122b-a10b",
-    "source_model_url": "https://llm-stats.com/models/qwen3.5-122b-a10b",
-    "provider": null,
-    "candidate_family_id": "alibaba/qwen3-5-122b-a10b",
-    "candidate_family_name": "Qwen3.5 122B A10B",
-    "match_status": "identity_unresolved",
-    "match_confidence": 0.8,
-    "match_method": "fuzzy_review_candidate",
-    "review_reason": "Fuzzy candidates require manual approval and are excluded from scoring.",
-    "competing_candidates": [
-      {
-        "family_id": "alibaba/qwen3-5-122b-a10b",
-        "family_name": "Qwen3.5 122B A10B",
-        "similarity": 0.9444
-      },
-      {
-        "family_id": "alibaba/qwen3-5-397b-a17b",
-        "family_name": "Qwen3.5 397B A17B",
-        "similarity": 0.7222
-      }
-    ]
-  },
-  {
-    "source": "llmstats",
-    "source_name": "28MiniMax M2.5",
+    "source_name": "29MiniMax M2.5",
     "source_model_id": "minimax-m2.5",
     "source_model_url": "https://llm-stats.com/models/minimax-m2.5",
     "provider": null,
@@ -1638,7 +1668,27 @@
   },
   {
     "source": "llmstats",
-    "source_name": "28Llama 3.1 70B Instruct",
+    "source_name": "20GPT-5.3 Codex",
+    "source_model_id": "gpt-5.3-codex",
+    "source_model_url": "https://llm-stats.com/models/gpt-5.3-codex",
+    "provider": null,
+    "candidate_family_id": "openai/gpt-5-3-codex",
+    "candidate_family_name": "GPT-5.3 Codex",
+    "match_status": "identity_unresolved",
+    "match_confidence": 0.8,
+    "match_method": "fuzzy_review_candidate",
+    "review_reason": "Fuzzy candidates require manual approval and are excluded from scoring.",
+    "competing_candidates": [
+      {
+        "family_id": "openai/gpt-5-3-codex",
+        "family_name": "GPT-5.3 Codex",
+        "similarity": 0.9286
+      }
+    ]
+  },
+  {
+    "source": "llmstats",
+    "source_name": "29Llama 3.1 70B Instruct",
     "source_model_id": "llama-3.1-70b-instruct",
     "source_model_url": "https://llm-stats.com/models/llama-3.1-70b-instruct",
     "provider": null,
