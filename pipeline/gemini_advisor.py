@@ -399,8 +399,21 @@ def _primary_rank(row: dict) -> float:
 
 
 def _has_data(row: dict) -> bool:
+    """Return True when a row has any publishable ranking or metric.
+
+    Ranking-only rows must remain eligible for query-aware matching even when
+    detailed metric values are unavailable. Missing values are still
+    serialized as null and are never converted to zero.
+    """
     fields = (
+        "llmdex_rank",
         "llmdex_score",
+        "llmdex_coding_rank",
+        "llmdex_coding_score",
+        "aa_rank",
+        "performance_rank",
+        "value_rank",
+        "efficiency_rank",
         "aa_intelligence",
         "llmstats_general_score",
         "adjusted_performance",
@@ -409,13 +422,19 @@ def _has_data(row: dict) -> bool:
         "output_cost",
         "input_cost_per_1m",
         "output_cost_per_1m",
+        "blended_cost_per_1m",
         "tokens_per_second",
         "latency",
         "latency_seconds",
+        "speed_index",
         "context_window",
         "aa_official_coding_index",
         "llmstats_coding_score",
+        "coding_score",
+        "reasoning_score",
+        "confidence_factor",
     )
+
     return any(row.get(field) is not None for field in fields)
 
 
