@@ -97,7 +97,7 @@
       <div class="hero-content">
         <div class="hero-eyebrow">
           <span class="hero-eyebrow-dot"></span>
-          Independent model intelligence
+          Source-transparent model comparison
         </div>
         <h1 class="animate-text">
           Find the right model.<br /><span class="gradient-text"
@@ -162,7 +162,7 @@
             </div>
           </div>
           <div class="terminal-footer">
-            Rankings are recalculated from the latest validated snapshot.
+            Rankings are recalculated from the latest successfully processed snapshot.
           </div>
         </div>
       </div>
@@ -181,51 +181,147 @@
           <h2>Market Overview</h2>
         </div>
         <div class="live-indicator">
-          <span class="pulse"></span> Latest validated snapshot
+          <span class="pulse"></span> Latest successfully processed snapshot
         </div>
       </div>
 
       <!-- Key Metrics Cards -->
       <div class="metrics-grid">
         <div class="metric-card glass" id="card-top-performer">
-          <h3><i class="fas fa-crown"></i> Top Performer</h3>
+          <h3>
+            <i class="fas fa-crown"></i> Top Performer
+            <button
+              class="metric-info-btn"
+              type="button"
+              data-metric-help="performance"
+              aria-label="Explain Performance Leader"
+              aria-expanded="false"
+            >
+              <i class="fas fa-info-circle" aria-hidden="true"></i>
+            </button>
+          </h3>
           <div class="value skeleton" id="top-model">—</div>
           <div class="sub" id="top-score">Performance: N/A</div>
+          <div class="metric-source">Source-native · Artificial Analysis</div>
         </div>
         <div class="metric-card glass" id="card-best-value">
-          <h3><i class="fas fa-star"></i> Best Value</h3>
+          <h3>
+            <i class="fas fa-star"></i> Best Value
+            <button
+              class="metric-info-btn"
+              type="button"
+              data-metric-help="value"
+              aria-label="Explain Best Value"
+              aria-expanded="false"
+            >
+              <i class="fas fa-info-circle" aria-hidden="true"></i>
+            </button>
+          </h3>
           <div class="value skeleton" id="val-model">—</div>
           <div class="sub" id="val-score">N/A</div>
+          <div class="metric-source">LLMDEX-derived · Artificial Analysis metrics</div>
         </div>
         <div class="metric-card glass" id="card-most-efficient">
-          <h3><i class="fas fa-bolt"></i> Most Efficient</h3>
+          <h3>
+            <i class="fas fa-bolt"></i> Most Efficient
+            <button
+              class="metric-info-btn"
+              type="button"
+              data-metric-help="efficiency"
+              aria-label="Explain Most Efficient"
+              aria-expanded="false"
+            >
+              <i class="fas fa-info-circle" aria-hidden="true"></i>
+            </button>
+          </h3>
           <div class="value skeleton" id="eff-model">—</div>
           <div class="sub" id="eff-score">N/A</div>
+          <div class="metric-source">LLMDEX-derived · Listed API pricing</div>
         </div>
         <div class="metric-card glass" id="card-models-tracked">
-          <h3><i class="fas fa-database"></i> Models Tracked</h3>
+          <h3>
+            <i class="fas fa-database"></i> Model Variants Tracked
+            <button
+              class="metric-info-btn"
+              type="button"
+              data-metric-help="model_variants"
+              aria-label="Explain Model Variants Tracked"
+              aria-expanded="false"
+            >
+              <i class="fas fa-info-circle" aria-hidden="true"></i>
+            </button>
+          </h3>
           <div class="value skeleton" id="total-models">—</div>
           <div class="sub" id="source-count">— validated source</div>
+          <div class="metric-source">LLMDEX published dataset</div>
         </div>
         <div class="metric-card glass" id="card-top-llmdex">
-          <h3><i class="fas fa-balance-scale"></i> Top LLMDEX Model</h3>
+          <h3>
+            <i class="fas fa-balance-scale"></i> Top LLMDEX Model
+            <button
+              class="metric-info-btn"
+              type="button"
+              data-metric-help="llmdex_consensus"
+              aria-label="Explain Top LLMDEX Model"
+              aria-expanded="false"
+            >
+              <i class="fas fa-info-circle" aria-hidden="true"></i>
+            </button>
+          </h3>
           <div class="value skeleton" id="top-llmdex-model">—</div>
           <div class="sub" id="top-llmdex-score">Consensus pending</div>
+          <div class="metric-source">LLMDEX consensus · Artificial Analysis + LLMStats</div>
         </div>
         <div class="metric-card glass" id="card-open-sota">
-          <h3><i class="fas fa-lock-open"></i> Open SOTA</h3>
+          <h3>
+            <i class="fas fa-lock-open"></i> Open-Weights SOTA
+            <button
+              class="metric-info-btn"
+              type="button"
+              data-metric-help="open_weights_sota"
+              aria-label="Explain Open-Weights SOTA"
+              aria-expanded="false"
+            >
+              <i class="fas fa-info-circle" aria-hidden="true"></i>
+            </button>
+          </h3>
           <div class="value skeleton" id="open-sota-model">—</div>
           <div class="sub" id="open-sota-score">Consensus pending</div>
+          <div class="metric-source">LLMDEX consensus · Open-weights families</div>
         </div>
         <div class="metric-card glass" id="card-matched-families">
-          <h3><i class="fas fa-link"></i> Matched Families</h3>
+          <h3>
+            <i class="fas fa-link"></i> Matched Families
+            <button
+              class="metric-info-btn"
+              type="button"
+              data-metric-help="matched_families"
+              aria-label="Explain Matched Families"
+              aria-expanded="false"
+            >
+              <i class="fas fa-info-circle" aria-hidden="true"></i>
+            </button>
+          </h3>
           <div class="value skeleton" id="matched-families">—</div>
           <div class="sub">Approved family matches</div>
+          <div class="metric-source">LLMDEX identity layer</div>
         </div>
         <div class="metric-card glass" id="card-last-updated">
-          <h3><i class="fas fa-clock"></i> Last Updated</h3>
+          <h3>
+            <i class="fas fa-clock"></i> Last Updated
+            <button
+              class="metric-info-btn"
+              type="button"
+              data-metric-help="processing_date"
+              aria-label="Explain Last Updated"
+              aria-expanded="false"
+            >
+              <i class="fas fa-info-circle" aria-hidden="true"></i>
+            </button>
+          </h3>
           <div class="value skeleton" id="last-updated">—</div>
           <div class="sub" id="last-updated-status">Source health loading</div>
+          <div class="metric-source">LLMDEX processing date</div>
         </div>
       </div>
 
@@ -312,7 +408,7 @@
               aria-live="polite"
             >
               <span class="source-viewer-dot" aria-hidden="true"></span>
-              <span><strong>Artificial Analysis based</strong> · Latest validated snapshot</span>
+              <span><strong>Source: Artificial Analysis</strong> · Latest successfully processed snapshot</span>
             </div>
           </div>
 
@@ -586,7 +682,7 @@
                 <p>
                   Hello! I'm the LLMDEX Data-Advisor. I can answer questions
                   about model performance, costs, and rankings using
-                  <strong>only verified benchmark data</strong>.
+                  <strong>only published, source-linked benchmark observations</strong>.
                 </p>
                 <div class="chat-suggestions">
                   <button
@@ -796,7 +892,7 @@
       <div class="container">
         <h2>Methodology</h2>
         <p class="methodology-intro">
-          LLMDEX is designed as a financial-grade analytics index. Every ranking
+          LLMDEX is designed as an auditable, source-transparent LLM analytics platform. Every ranking
           decision is documented, every data point is traceable, and no value is
           ever fabricated. Below is how the system works.
         </p>
@@ -847,17 +943,65 @@
             <p>
               Efficiency = Performance / Blended Cost, normalized as percentile
               ranks to prevent chart distortion. Only models with adjusted
-              performance ≥ 25 qualify. Free models receive maximum efficiency.
+              performance ≥ 25 qualify. Models with a listed zero API price may rank highest on API-price efficiency. Self-hosting, hardware, engineering, and operating costs are not included.
             </p>
           </div>
         </div>
       </div>
     </section>
 
+    <section
+      class="source-credits-section"
+      aria-labelledby="source-credits-title"
+    >
+      <div class="container source-credits-card glass">
+        <h2 id="source-credits-title">Data sources and attribution</h2>
+
+        <p>
+          General intelligence, model pricing, generation throughput, latency,
+          and API-performance observations are sourced from
+          <a
+            href="https://artificialanalysis.ai/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Artificial Analysis
+          </a>.
+        </p>
+
+        <p>
+          General and capability-specific benchmark rankings are sourced from
+          <a
+            href="https://llm-stats.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            LLMStats
+          </a>.
+        </p>
+
+        <p>
+          LLMDEX independently processes, links, and presents these observations.
+          LLMDEX is not affiliated with, endorsed by, or sponsored by either
+          source. Model coverage, metric definitions, providers, and update times
+          may differ between sources.
+        </p>
+
+        <p class="source-credits-note">
+          LLMDEX does not independently execute every upstream benchmark.
+          Third-party observations remain subject to their respective source
+          terms.
+        </p>
+      </div>
+    </section>
+
     <footer class="glass">
       <p>
-        &copy; 2026 LLMDEX. Open Source Analytics. Correctness > Visuals. Trust
-        > Hype.
+        &copy; 2026 LLMDEX. Independent educational analytics project.
+      </p>
+      <p class="footer-legal-note">
+        Original LLMDEX software is MIT licensed. Third-party benchmark
+        observations are not covered by the LLMDEX software license.
       </p>
     </footer>
 
