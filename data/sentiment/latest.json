@@ -1,35 +1,61 @@
 [
   {
-    "community_sentiment": null,
-    "mention_count": 3,
-    "controversy_index": null,
-    "sentiment_trend": null,
-    "confidence_score": 0,
+    "community_sentiment": 0.0029,
+    "mention_count": 13,
+    "controversy_index": 0.5,
+    "sentiment_trend": "stable",
+    "confidence_score": 0.07,
     "sentiment_method": "gemini",
+    "valid_posts": 2,
+    "strong_praise_count": 1,
+    "strong_criticism_count": 0,
     "model_name": "Claude Opus 5",
-    "scraped_at": "2026-07-24T20:02:52.039349+00:00",
+    "scraped_at": "2026-07-25T11:48:01.843385+00:00",
     "_experimental": true,
     "source_counts": {
-      "HackerNews": 3
+      "HackerNews": 4,
+      "Reddit": 9
     },
-    "community_examples": [],
-    "top_quotes": []
+    "community_examples": [
+      {
+        "source": "Hacker News",
+        "text": "Show HN: Impressive turn-based RPG prototype built with Opus 5 in 20 min Claude Opus 5 definitely feels a lot closer to the original Fable 5 release. With minimal instructions and about 2 iterations of feedback, I am...",
+        "url": "https://news.ycombinator.com/item?id=49046504"
+      },
+      {
+        "source": "Hacker News",
+        "text": "\u2026e in newer major version releases but I just tried out Opus 5 and it's similarly *** at writing. Fable is slightly better but not by far (and of course ridiculously more expensive). Adding skills helps but only...",
+        "url": "https://news.ycombinator.com/item?id=49045140"
+      }
+    ],
+    "top_quotes": [
+      {
+        "source": "Hacker News",
+        "text": "Show HN: Impressive turn-based RPG prototype built with Opus 5 in 20 min Claude Opus 5 definitely feels a lot closer to the original Fable 5 release. With minimal instructions and about 2 iterations of feedback, I am...",
+        "url": "https://news.ycombinator.com/item?id=49046504"
+      },
+      {
+        "source": "Hacker News",
+        "text": "\u2026e in newer major version releases but I just tried out Opus 5 and it's similarly *** at writing. Fable is slightly better but not by far (and of course ridiculously more expensive). Adding skills helps but only...",
+        "url": "https://news.ycombinator.com/item?id=49045140"
+      }
+    ]
   },
   {
-    "community_sentiment": -0.1074,
-    "mention_count": 22,
-    "controversy_index": 0.4,
-    "sentiment_trend": "negative",
-    "confidence_score": 0.17,
+    "community_sentiment": -0.0275,
+    "mention_count": 24,
+    "controversy_index": 0.1667,
+    "sentiment_trend": "stable",
+    "confidence_score": 0.2,
     "sentiment_method": "gemini",
-    "valid_posts": 5,
-    "strong_praise_count": 1,
+    "valid_posts": 6,
+    "strong_praise_count": 0,
     "strong_criticism_count": 1,
     "model_name": "Claude Fable 5",
-    "scraped_at": "2026-07-24T20:02:59.065102+00:00",
+    "scraped_at": "2026-07-25T11:48:08.734782+00:00",
     "_experimental": true,
     "source_counts": {
-      "HackerNews": 22
+      "HackerNews": 24
     },
     "community_examples": [
       {
@@ -67,26 +93,27 @@
     ]
   },
   {
-    "community_sentiment": 0.4995,
-    "mention_count": 18,
-    "controversy_index": 0.6,
+    "community_sentiment": 0.4632,
+    "mention_count": 24,
+    "controversy_index": 0.6667,
     "sentiment_trend": "positive",
-    "confidence_score": 0.17,
+    "confidence_score": 0.2,
     "sentiment_method": "gemini",
-    "valid_posts": 5,
+    "valid_posts": 6,
     "strong_praise_count": 3,
-    "strong_criticism_count": 0,
+    "strong_criticism_count": 1,
     "model_name": "GPT-5.6 Sol",
-    "scraped_at": "2026-07-24T20:03:02.758822+00:00",
+    "scraped_at": "2026-07-25T11:48:14.476537+00:00",
     "_experimental": true,
     "source_counts": {
+      "Reddit": 6,
       "HackerNews": 18
     },
     "community_examples": [
       {
         "source": "Hacker News",
-        "text": "GPT 5.6 solved all 6 problems from IMO 2026",
-        "url": "https://news.ycombinator.com/item?id=48940524"
+        "text": "GPT-5.6 Sol Pro solves open problem in convex optimization",
+        "url": "https://news.ycombinator.com/item?id=48939768"
       },
       {
         "source": "Hacker News",
@@ -94,16 +121,16 @@
         "url": "https://news.ycombinator.com/item?id=48991997"
       },
       {
-        "source": "Hacker News",
-        "text": "GPT-5.6 Sol Ultra produces proof of the Cycle Double Cover Conjecture [pdf]",
-        "url": "https://news.ycombinator.com/item?id=48863490"
+        "source": "Reddit",
+        "text": "Benchmark: Opus 5 beats out 4.8, Fable, and GPT 5.6 Sol as BEST WRITING MODEL But the REALY interesting part is its now the 2nd best model for Eroticism! Whoda thunk?!?!? Details and methodology here: submitted by...",
+        "url": "https://www.reddit.com/r/claude/comments/1v5r0rr/benchmark_opus_5_beats_out_48_fable_and_gpt_56/"
       }
     ],
     "top_quotes": [
       {
         "source": "Hacker News",
-        "text": "GPT 5.6 solved all 6 problems from IMO 2026",
-        "url": "https://news.ycombinator.com/item?id=48940524"
+        "text": "GPT-5.6 Sol Pro solves open problem in convex optimization",
+        "url": "https://news.ycombinator.com/item?id=48939768"
       },
       {
         "source": "Hacker News",
@@ -111,28 +138,27 @@
         "url": "https://news.ycombinator.com/item?id=48991997"
       },
       {
-        "source": "Hacker News",
-        "text": "GPT-5.6 Sol Ultra produces proof of the Cycle Double Cover Conjecture [pdf]",
-        "url": "https://news.ycombinator.com/item?id=48863490"
+        "source": "Reddit",
+        "text": "Benchmark: Opus 5 beats out 4.8, Fable, and GPT 5.6 Sol as BEST WRITING MODEL But the REALY interesting part is its now the 2nd best model for Eroticism! Whoda thunk?!?!? Details and methodology here: submitted by...",
+        "url": "https://www.reddit.com/r/claude/comments/1v5r0rr/benchmark_opus_5_beats_out_48_fable_and_gpt_56/"
       }
     ]
   },
   {
-    "community_sentiment": 0.7103,
-    "mention_count": 31,
-    "controversy_index": 0.4444,
+    "community_sentiment": 0.7181,
+    "mention_count": 29,
+    "controversy_index": 0.3333,
     "sentiment_trend": "positive",
     "confidence_score": 0.25,
     "sentiment_method": "gemini",
     "valid_posts": 9,
-    "strong_praise_count": 4,
+    "strong_praise_count": 3,
     "strong_criticism_count": 0,
     "model_name": "Kimi K3",
-    "scraped_at": "2026-07-24T20:03:09.559039+00:00",
+    "scraped_at": "2026-07-25T11:48:23.018861+00:00",
     "_experimental": true,
     "source_counts": {
-      "HackerNews": 28,
-      "Reddit": 3
+      "HackerNews": 29
     },
     "community_examples": [
       {
@@ -180,7 +206,7 @@
     "strong_praise_count": 1,
     "strong_criticism_count": 1,
     "model_name": "Claude Opus 4.8",
-    "scraped_at": "2026-07-24T20:03:13.301921+00:00",
+    "scraped_at": "2026-07-25T11:48:26.412160+00:00",
     "_experimental": true,
     "source_counts": {
       "HackerNews": 16
@@ -218,7 +244,7 @@
     "confidence_score": 0,
     "sentiment_method": "gemini",
     "model_name": "GPT-5.6 Terra",
-    "scraped_at": "2026-07-24T20:03:14.121489+00:00",
+    "scraped_at": "2026-07-25T11:48:27.197052+00:00",
     "_experimental": true,
     "source_counts": {
       "HackerNews": 2
@@ -237,7 +263,7 @@
     "strong_praise_count": 1,
     "strong_criticism_count": 0,
     "model_name": "Grok 4.5",
-    "scraped_at": "2026-07-24T20:03:16.200308+00:00",
+    "scraped_at": "2026-07-25T11:48:29.131564+00:00",
     "_experimental": true,
     "source_counts": {
       "HackerNews": 12
@@ -278,7 +304,7 @@
     "strong_praise_count": 0,
     "strong_criticism_count": 0,
     "model_name": "Claude Sonnet 5",
-    "scraped_at": "2026-07-24T20:03:18.146345+00:00",
+    "scraped_at": "2026-07-25T11:48:31.090336+00:00",
     "_experimental": true,
     "source_counts": {
       "HackerNews": 12
@@ -329,7 +355,7 @@
     "strong_praise_count": 0,
     "strong_criticism_count": 0,
     "model_name": "GPT-5.6 Luna",
-    "scraped_at": "2026-07-24T20:03:19.000784+00:00",
+    "scraped_at": "2026-07-25T11:48:31.748851+00:00",
     "_experimental": true,
     "source_counts": {
       "HackerNews": 2
@@ -360,7 +386,7 @@
     "strong_praise_count": 2,
     "strong_criticism_count": 0,
     "model_name": "GLM-5.2",
-    "scraped_at": "2026-07-24T20:03:23.541578+00:00",
+    "scraped_at": "2026-07-25T11:48:35.837585+00:00",
     "_experimental": true,
     "source_counts": {
       "HackerNews": 23
