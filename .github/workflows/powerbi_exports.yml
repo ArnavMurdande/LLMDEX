@@ -1,0 +1,62 @@
+name: Generate Power BI Exports
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "data/cleaned/**"
+      - "data/capabilities/**"
+      - "data/families/**"
+      - "data/history/**"
+      - "data/index/**"
+      - "data/identity/**"
+      - "pipeline/export_powerbi.py"
+    paths-ignore:
+      - "data/powerbi/**"
+      - "**.md"
+  workflow_dispatch:
+
+concurrency:
+  group: llmdex-powerbi-exports
+  cancel-in-progress: false
+
+jobs:
+  export-powerbi:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Generate Power BI Exports
+        run: python -m pipeline.export_powerbi --include-git-history
+        env:
+          PYTHONPATH: .
+
+      - name: Run Power BI Export Unit Tests
+        run: python -m unittest tests/test_powerbi_exports.py -v
+        env:
+          PYTHONPATH: .
+
+      - name: Commit and Push Power BI Exports
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/powerbi/v1/
+          if git diff --cached --quiet; then
+            echo "No changes in Power BI exports to commit."
+          else
+            git commit -m "Update Power BI exports [skip ci]"
+            git push origin main
+          fi

@@ -227,7 +227,7 @@ class FrontendContractTests(unittest.TestCase):
         self.assertIn('aria-label="Close explanation"', self.html)
 
     def test_power_bi_wording_consistency(self):
-        self.assertIn("Power BI-compatible General index", self.html)
+        self.assertIn("Power BI wide schema", self.html)
         self.assertIn("Download processed datasets for the dashboard, Power BI, and external analysis.", self.html)
         self.assertNotIn("Power BI-ready General index", self.html)
         self.assertNotIn("Download the same processed datasets used by this dashboard and Power BI", self.html)

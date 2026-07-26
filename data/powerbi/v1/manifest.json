@@ -1,0 +1,58 @@
+{
+  "schema_version": "powerbi-v2-wide",
+  "source_snapshot_dates": {
+    "artificial_analysis": "2026-07-24",
+    "llmstats": "2026-07-24"
+  },
+  "earliest_catalog_event_date": "2022-11-30",
+  "earliest_observed_snapshot_date": "2026-07-23",
+  "latest_observed_snapshot_date": "2026-07-24",
+  "catalog_event_row_count": 573,
+  "observed_snapshot_row_count": 520,
+  "historical_coverage_limitations": "Pre-LLMDEX historical rows represent repository-supported catalogue or release events and must not be interpreted as daily historical benchmark measurements.",
+  "row_counts": {
+    "artificial_analysis_benchmarks": 263,
+    "llmstats_benchmarks": 348,
+    "combined_latest": 1,
+    "model_family_history": 1093,
+    "data_dictionary": 184
+  },
+  "column_counts": {
+    "artificial_analysis_benchmarks": 73,
+    "llmstats_benchmarks": 76,
+    "model_family_history": 35
+  },
+  "number_of_benchmark_columns": 60,
+  "llmstats_general_row_count": 85,
+  "llmstats_general_missing_score_count": 55,
+  "llmstats_general_missing_rank_count": 55,
+  "llmstats_general_missing_provider_count": 0,
+  "llmstats_provider_populated_count": 348,
+  "llmstats_provider_missing_count": 0,
+  "llmstats_availability_unknown_count": 233,
+  "malformed_name_count_detected": 97,
+  "malformed_name_count_corrected": 97,
+  "unresolved_malformed_name_count": 0,
+  "consensus_family_count": 16,
+  "empty_reserved_columns": [
+    "aa_aime25",
+    "aa_livecodebench",
+    "aa_arena_elo",
+    "aa_reasoning_score",
+    "aa_multimodal_score",
+    "aa_cost_per_task_usd",
+    "aa_cache_read_cost_usd_per_1m",
+    "aa_cache_write_cost_usd_per_1m"
+  ],
+  "corrected_open_weight_inconsistency_count": 171,
+  "sha256_hashes": {
+    "artificial_analysis_benchmarks.csv": "536d630f96a7af0d4e2afbe81ed73237c13788f269411d236810dfd6832e89a2",
+    "llmstats_benchmarks.csv": "536270720c0381d2c0c0a6325822e7db36931d6fdf1e6bbfde173c06af902e24",
+    "combined_latest.json": "1e63ef5c2c9b7c0d612e9d251040f9deec80b002fa76e213f8780ebc71a169f8",
+    "model_family_history.csv": "d04e8a4e6ec80c235cbd2dd0553a00187463820c56ad380e50e5d5fb7197d54d",
+    "data_dictionary.csv": "bd06362228a4af9115613f8532e153b1042da670ab980dc4f5963951e641385b"
+  },
+  "validation_status": "valid",
+  "warnings": [],
+  "generated_from_commit": "23d406a2d431f5decc833347ff26853ca2c0a0b7"
+}

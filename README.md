@@ -183,17 +183,18 @@ It can help users:
 
 When Gemini is unavailable, LLMDEX falls back to deterministic analysis using the published dataset.
 
-### 📤 Analysis-Ready Exports
+### 📤 Analysis-Ready Power BI Exports
 
-Processed CSV and JSON files are published for:
+LLMDEX publishes a dedicated wide relational Power BI export layer under `data/powerbi/v1/`:
 
-- Power BI
-- Python
-- Pandas
-- Excel
-- Research workflows
-- Custom dashboards
-- Downstream APIs
+- **`artificial_analysis_benchmarks.csv`**: Wide typed table of Artificial Analysis performance, pricing, throughput, latency, TTFT, and benchmark observations (`aa_` prefix).
+- **`llmstats_benchmarks.csv`**: Wide typed table of LLMStats category ranks, scores, and dynamic benchmark metric columns (`benchmark_` prefix) across 8 categories.
+- **`combined_latest.json`**: Source-separated wide JSON contract preserving original namespaces and LLMDEX consensus.
+- **`model_family_history.csv`**: Wide model family progression dataset with explicit record types (`observed_snapshot`, `release_event`, `catalog_event`) (~Nov 2022 to present).
+- **`manifest.json`**: Operational manifest containing checksums, row counts, wide column counts, and snapshot provenance (`powerbi-v2-wide`).
+- **`data_dictionary.csv`**: Complete field metadata, units, computed source populations, and recommended Power BI aggregations.
+
+Read the [Power BI Integration Guide](docs/POWER_BI.md) for table grains, natural keys, and recommended star-schema relationships.
 
 ---
 
