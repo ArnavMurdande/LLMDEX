@@ -674,6 +674,7 @@ Environment variables are optional unless the related integration is enabled.
 |---|---|
 | `GEMINI_API_KEY` | Primary Gemini Advisor key |
 | `GEMINI_ADVISOR_KEY_1..5` | Gemini Advisor key rotation |
+| `LLMDEX_CORS_ALLOWED_ORIGINS` | Optional comma-separated API origins in addition to the production and localhost defaults |
 | `GEMINI_SENTIMENT_KEY_1..4` | Experimental sentiment collection |
 | `X_BEARER_TOKEN` | Optional X sentiment integration |
 | `PORT` | Application port, default `8080` |

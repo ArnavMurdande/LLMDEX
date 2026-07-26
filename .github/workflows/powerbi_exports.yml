@@ -5,6 +5,7 @@ on:
     branches:
       - main
     paths:
+      - ".github/workflows/powerbi_exports.yml"
       - "data/cleaned/**"
       - "data/capabilities/**"
       - "data/families/**"
@@ -12,10 +13,12 @@ on:
       - "data/index/**"
       - "data/identity/**"
       - "pipeline/export_powerbi.py"
+      - "tests/test_powerbi_exports.py"
   workflow_dispatch:
 
 concurrency:
-  group: llmdex-powerbi-exports
+  # Serialize with the daily publisher because both workflows write to main.
+  group: llmdex-multisource-update
   cancel-in-progress: false
 
 jobs:
@@ -27,12 +30,12 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           fetch-depth: 0
 
       - name: Set up Python 3.11
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v7
         with:
           python-version: "3.11"
 
@@ -48,12 +51,33 @@ jobs:
 
       - name: Commit and Push Power BI Exports
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git config --global user.name "GitHub Actions Bot"
+          git config --global user.email "actions@github.com"
           git add data/powerbi/v1/
+
           if git diff --cached --quiet; then
             echo "No changes in Power BI exports to commit."
-          else
-            git commit -m "Update Power BI exports [skip ci]"
-            git push origin main
+            exit 0
           fi
+
+          git commit -m "Update Power BI exports [skip ci]"
+
+          # A human push can still land after the shared workflow lock starts.
+          # Rebase and retry instead of rejecting the generated publication.
+          for attempt in 1 2 3; do
+            git fetch origin main
+            git stash --include-untracked || true
+            if git rebase -X theirs origin/main; then
+              git stash pop || true
+              if git push origin HEAD:main; then
+                exit 0
+              fi
+            else
+              git rebase --abort || true
+              git stash pop || true
+            fi
+            echo "Push race detected; retrying (${attempt}/3)."
+          done
+
+          echo "Unable to publish Power BI exports after three attempts."
+          exit 1

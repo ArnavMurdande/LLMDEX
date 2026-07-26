@@ -12,7 +12,7 @@ Usage:
   → Starts on http://localhost:8080
 
 SAFETY:
-  - CORS restricted to localhost
+  - API CORS restricted to approved production and local origins
   - Rate limiting enforced server-side
   - API keys never exposed to frontend
   - Gemini cannot access internet
@@ -51,6 +51,25 @@ WEBSITE_DIR = os.path.join(os.path.dirname(__file__), "website")
 DATA_DIR = Path(__file__).resolve().parent / "data"
 _DATA_CACHE = {}
 _DATA_CACHE_LOCK = threading.Lock()
+_DEFAULT_API_CORS_ORIGINS = frozenset(
+    {
+        "https://llmdex.onrender.com",
+        "https://llmdex.pages.dev",
+        "http://localhost:8080",
+        "http://127.0.0.1:8080",
+    }
+)
+
+
+def _api_cors_origins():
+    """Return the exact browser origins allowed to call the API."""
+    configured = os.environ.get("LLMDEX_CORS_ALLOWED_ORIGINS", "")
+    extra_origins = {
+        origin.strip().rstrip("/")
+        for origin in configured.split(",")
+        if origin.strip() and origin.strip() != "*"
+    }
+    return _DEFAULT_API_CORS_ORIGINS | extra_origins
 
 
 class LLMDEXHandler(SimpleHTTPRequestHandler):
@@ -77,6 +96,13 @@ class LLMDEXHandler(SimpleHTTPRequestHandler):
         parsed = urlparse(self.path)
 
         if parsed.path == "/api/advisor":
+            if not self._is_api_origin_allowed():
+                logger.warning(
+                    "Rejected Advisor request from unapproved origin: %s",
+                    self.headers.get("Origin"),
+                )
+                self._json_response({"error": "Origin not allowed"}, 403)
+                return
             self._handle_advisor()
         else:
             self.send_error(404, "Not Found")
@@ -418,20 +444,41 @@ class LLMDEXHandler(SimpleHTTPRequestHandler):
         """Send a JSON response."""
         self.send_response(status)
         self.send_header("Content-Type", "application/json")
-        self.send_header("Access-Control-Allow-Origin", "*")
-        self.send_header("Access-Control-Allow-Methods", "POST, GET, OPTIONS")
-        self.send_header("Access-Control-Allow-Headers", "Content-Type")
+        self._send_api_cors_headers()
         self.send_header("Cache-Control", "no-store")
         self._cache_control_sent = True
         self.end_headers()
         self.wfile.write(json.dumps(data).encode("utf-8"))
 
-    def do_OPTIONS(self):
-        """Handle CORS preflight requests."""
-        self.send_response(200)
-        self.send_header("Access-Control-Allow-Origin", "*")
+    def _request_origin(self):
+        return (self.headers.get("Origin") or "").strip().rstrip("/")
+
+    def _is_api_origin_allowed(self):
+        origin = self._request_origin()
+        return not origin or origin in _api_cors_origins()
+
+    def _send_api_cors_headers(self):
+        origin = self._request_origin()
+        if not origin or origin not in _api_cors_origins():
+            return
+        self.send_header("Access-Control-Allow-Origin", origin)
+        self.send_header("Vary", "Origin")
         self.send_header("Access-Control-Allow-Methods", "POST, GET, OPTIONS")
         self.send_header("Access-Control-Allow-Headers", "Content-Type")
+
+    def do_OPTIONS(self):
+        """Handle CORS preflight requests."""
+        parsed = urlparse(self.path)
+        if not parsed.path.startswith("/api/"):
+            self.send_error(404, "Not Found")
+            return
+        if not self._is_api_origin_allowed():
+            self._json_response({"error": "Origin not allowed"}, 403)
+            return
+        self.send_response(204)
+        self._send_api_cors_headers()
+        self.send_header("Cache-Control", "no-store")
+        self._cache_control_sent = True
         self.end_headers()
 
     def log_message(self, format, *args):

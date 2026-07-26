@@ -53,3 +53,11 @@ Alternatively, add a `llmdex-api-base` meta tag with the same origin. The
 browser never receives Gemini keys; `api_server.py` reads them server-side.
 When the website is served from `localhost`, the frontend automatically uses
 the same origin.
+
+The API accepts browser requests from the Render and Cloudflare production
+origins and from the same-origin local server by default. Add preview or custom
+domains explicitly with a comma-separated environment variable:
+
+```text
+LLMDEX_CORS_ALLOWED_ORIGINS=https://preview.example.com,https://llmdex.example.com
+```
