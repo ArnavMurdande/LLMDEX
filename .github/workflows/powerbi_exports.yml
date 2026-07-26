@@ -12,9 +12,6 @@ on:
       - "data/index/**"
       - "data/identity/**"
       - "pipeline/export_powerbi.py"
-    paths-ignore:
-      - "data/powerbi/**"
-      - "**.md"
   workflow_dispatch:
 
 concurrency:
