@@ -1,20 +1,20 @@
 {
   "schema_version": "powerbi-v2-wide",
   "source_snapshot_dates": {
-    "artificial_analysis": "2026-07-24",
-    "llmstats": "2026-07-24"
+    "artificial_analysis": "2026-07-26",
+    "llmstats": "2026-07-26"
   },
   "earliest_catalog_event_date": "2022-11-30",
   "earliest_observed_snapshot_date": "2026-07-23",
-  "latest_observed_snapshot_date": "2026-07-24",
+  "latest_observed_snapshot_date": "2026-07-26",
   "catalog_event_row_count": 573,
-  "observed_snapshot_row_count": 520,
+  "observed_snapshot_row_count": 1032,
   "historical_coverage_limitations": "Pre-LLMDEX historical rows represent repository-supported catalogue or release events and must not be interpreted as daily historical benchmark measurements.",
   "row_counts": {
     "artificial_analysis_benchmarks": 263,
     "llmstats_benchmarks": 348,
     "combined_latest": 1,
-    "model_family_history": 1093,
+    "model_family_history": 1605,
     "data_dictionary": 184
   },
   "column_counts": {
@@ -46,13 +46,13 @@
   ],
   "corrected_open_weight_inconsistency_count": 171,
   "sha256_hashes": {
-    "artificial_analysis_benchmarks.csv": "536d630f96a7af0d4e2afbe81ed73237c13788f269411d236810dfd6832e89a2",
-    "llmstats_benchmarks.csv": "536270720c0381d2c0c0a6325822e7db36931d6fdf1e6bbfde173c06af902e24",
-    "combined_latest.json": "1e63ef5c2c9b7c0d612e9d251040f9deec80b002fa76e213f8780ebc71a169f8",
-    "model_family_history.csv": "d04e8a4e6ec80c235cbd2dd0553a00187463820c56ad380e50e5d5fb7197d54d",
-    "data_dictionary.csv": "bd06362228a4af9115613f8532e153b1042da670ab980dc4f5963951e641385b"
+    "artificial_analysis_benchmarks.csv": "cca571471bead2f659e43833f46f5d570e2cbcd208363f1d2a6d02305d73b239",
+    "llmstats_benchmarks.csv": "9709f28f1ad6c545faa1879359c99cda65e35b7105899f25bd587679dc9a9fac",
+    "combined_latest.json": "34fd51a2c558f23c0f805af3a9a072355eda857c54729cb6e49e9cdf842353f1",
+    "model_family_history.csv": "394932d5da4c1e5e71fa20d1cb9aed488e59a52928e7c2378cb982decf907ad9",
+    "data_dictionary.csv": "abbc4caae8661eaf854d81e55bfb7a8f5df2cf178fae5f2a81a1da2f49e57141"
   },
   "validation_status": "valid",
   "warnings": [],
-  "generated_from_commit": "23d406a2d431f5decc833347ff26853ca2c0a0b7"
+  "generated_from_commit": "f28bad5424953ae89a56502f7573664f18e24e79"
 }
