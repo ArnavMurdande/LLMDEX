@@ -28,7 +28,7 @@ LLMDEX combines model intelligence, pricing, speed, capability benchmarks, histo
 
 Explore the deployed LLMDEX platform:
 
-### [https://llmdex.onrender.com/](https://llmdex.onrender.com/)
+### [https://llmdex.pages.dev/](https://llmdex.pages.dev/)
 
 LLMDEX provides:
 
