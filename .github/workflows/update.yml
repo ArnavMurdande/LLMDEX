@@ -73,6 +73,12 @@ jobs:
         env:
           PYTHONPATH: .
 
+      - name: Generate Power BI Exports
+        if: success()
+        run: python -m pipeline.export_powerbi --include-git-history
+        env:
+          PYTHONPATH: .
+
       - name: Validate publication contract
         if: success()
         run: python pipeline/validate_publication.py
@@ -124,7 +130,7 @@ jobs:
           git add data/history/release_dates.json || true
           git add data/history/*.json data/history/*.csv || true
           git add data/sentiment/latest.json || true
-          git add data/column_definitions.json || true
+          git add data/powerbi/v1/ || true
 
           if git diff --cached --quiet; then
             echo "No publication changes to commit."
@@ -133,14 +139,18 @@ jobs:
 
           git commit -m "Update benchmark data $(date -u +%Y-%m-%d) [skip ci]"
 
-          # Dependabot or another safe automation can advance main while this
-          # long-running scrape is active. Rebase the generated data commit and
-          # retry instead of failing with a non-fast-forward push.
+          # Rebase safely by stashing any remaining untracked artifacts
           for attempt in 1 2 3; do
             git fetch origin main
-            git rebase -X theirs origin/main
-            if git push origin HEAD:main; then
-              exit 0
+            git stash --include-untracked || true
+            if git rebase -X theirs origin/main; then
+              git stash pop || true
+              if git push origin HEAD:main; then
+                exit 0
+              fi
+            else
+              git rebase --abort || true
+              git stash pop || true
             fi
             echo "Push race detected; retrying (${attempt}/3)."
           done
