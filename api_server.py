@@ -109,27 +109,34 @@ class LLMDEXHandler(SimpleHTTPRequestHandler):
 
     def do_GET(self):
         """Handle GET requests — API routes + static files."""
-        parsed = urlparse(self.path)
+        try:
+            parsed = urlparse(self.path)
 
-        if parsed.path == "/api/health":
-            self._handle_health()
-        elif parsed.path == "/api/leaderboards/general":
-            self._handle_general_leaderboard(parse_qs(parsed.query))
-        elif parsed.path.startswith("/api/leaderboards/capabilities/"):
-            capability = parsed.path.rsplit("/", 1)[-1]
-            self._handle_capability_leaderboard(capability)
-        elif parsed.path == "/api/data-quality":
-            self._serve_json_contract(DATA_DIR / "quality" / "latest.json")
-        elif parsed.path == "/api/methodology":
-            self._handle_methodology()
-        elif parsed.path.startswith("/api/models/"):
-            self._handle_model_route(parsed.path)
-        elif parsed.path.startswith("/data/"):
-            # Serve data files from the project root
-            self._serve_data_file(parsed.path)
-        else:
-            # Serve static files from website/
-            super().do_GET()
+            if parsed.path == "/api/health":
+                self._handle_health()
+            elif parsed.path == "/api/leaderboards/general":
+                self._handle_general_leaderboard(parse_qs(parsed.query))
+            elif parsed.path.startswith("/api/leaderboards/capabilities/"):
+                capability = parsed.path.rsplit("/", 1)[-1]
+                self._handle_capability_leaderboard(capability)
+            elif parsed.path == "/api/data-quality":
+                self._serve_json_contract(DATA_DIR / "quality" / "latest.json")
+            elif parsed.path == "/api/methodology":
+                self._handle_methodology()
+            elif parsed.path.startswith("/api/models/"):
+                self._handle_model_route(parsed.path)
+            elif parsed.path.startswith("/data/"):
+                # Serve data files from the project root
+                self._serve_data_file(parsed.path)
+            else:
+                # Serve static files from website/
+                super().do_GET()
+        except Exception as exc:
+            logger.error("Error handling GET %s: %s", self.path, exc, exc_info=True)
+            try:
+                self.send_error(500, str(exc))
+            except Exception:
+                pass
 
     @staticmethod
     def _read_json(path: Path, default=None):

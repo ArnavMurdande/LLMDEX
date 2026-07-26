@@ -339,6 +339,23 @@ function setupTheme() {
     if (familyRenderRef) {
       familyRenderRef(document.getElementById("family-selector")?.value || "");
     }
+    const compSection = document.getElementById("comparison-section");
+    if (compSection && compSection.style.display !== "none" && allDataRef) {
+      const slugs = getSelectedSlugs();
+      if (slugs.length >= 2) {
+        const findModel = (slug) =>
+          allDataRef.find(
+            (d) =>
+              d.model_slug === slug ||
+              d.canonical_name === slug ||
+              d.model_name === slug,
+          );
+        const models = slugs.map(findModel).filter(Boolean);
+        if (models.length >= 2) {
+          renderComparisonRadar(models);
+        }
+      }
+    }
   });
 }
 
@@ -4912,11 +4929,14 @@ function triggerComparison(allData, section) {
 }
 
 function renderComparisonRadar(models) {
-  const colors = ["#3b82f6", "#f59e0b", "#10b981"];
+  const theme = chartTheme();
+  const colors = theme.categorical;
   const fills = [
-    "rgba(59,130,246,0.1)",
-    "rgba(245,158,11,0.1)",
-    "rgba(16,185,129,0.1)",
+    "rgba(59,130,246,0.15)",
+    "rgba(245,158,11,0.15)",
+    "rgba(16,185,129,0.15)",
+    "rgba(168,85,247,0.15)",
+    "rgba(236,72,153,0.15)",
   ];
 
   const axesDef = [
@@ -4941,8 +4961,8 @@ function renderComparisonRadar(models) {
       r: values,
       theta: labels,
       fill: "toself",
-      fillcolor: fills[i],
-      line: { color: colors[i] },
+      fillcolor: fills[i % fills.length],
+      line: { color: colors[i % colors.length] },
       name: model.canonical_name || model.model_name,
     };
   });
@@ -4951,7 +4971,7 @@ function renderComparisonRadar(models) {
   const layout = {
     title: {
       text: "Model Comparison",
-      font: { color: "#f8fafc", size: isMobile ? 13 : 18 },
+      font: { color: theme.text, size: isMobile ? 13 : 18 },
     },
     paper_bgcolor: "rgba(0,0,0,0)",
     margin: isMobile ? { t: 45, b: 65, l: 40, r: 40 } : { t: 60, b: 30 },
@@ -4959,18 +4979,20 @@ function renderComparisonRadar(models) {
       radialaxis: {
         visible: true,
         range: [0, 100],
-        color: "#94a3b8",
-        tickfont: { size: isMobile ? 6 : 12 },
+        color: theme.muted,
+        gridcolor: theme.grid,
+        tickfont: { size: isMobile ? 6 : 12, color: theme.muted },
       },
       bgcolor: "rgba(0,0,0,0)",
       angularaxis: {
-        color: "#f8fafc",
-        tickfont: { size: isMobile ? 7 : 12 },
+        color: theme.text,
+        gridcolor: theme.grid,
+        tickfont: { size: isMobile ? 7 : 12, color: theme.text },
       },
     },
     showlegend: true,
     legend: {
-      font: { color: "#f8fafc", size: isMobile ? 9 : 12 },
+      font: { color: theme.text, size: isMobile ? 9 : 12 },
       orientation: isMobile ? "h" : "v",
       y: isMobile ? -0.3 : undefined,
       x: isMobile ? 0.5 : undefined,
@@ -5358,7 +5380,7 @@ async function setupFamilyExplorer(allData) {
       title: {
         text: `<b>${brand}</b>${isMobile ? "" : " — Family Comparison"}`,
         font: {
-          color: "#f8fafc",
+          color: theme.text,
           size: isMobile ? 15 : 18,
           family: "Inter, system-ui, sans-serif",
         },
@@ -5366,28 +5388,28 @@ async function setupFamilyExplorer(allData) {
       },
       paper_bgcolor: "rgba(0,0,0,0)",
       plot_bgcolor: "rgba(0,0,0,0)",
-      font: { family: "Inter, system-ui, sans-serif", color: "#94a3b8" },
+      font: { family: "Inter, system-ui, sans-serif", color: theme.muted },
       xaxis: {
-        gridcolor: "rgba(255,255,255,0.04)",
+        gridcolor: theme.grid,
         tickangle: isMobile ? -45 : 0,
         automargin: true,
         showgrid: false,
-        tickfont: { size: isMobile ? 10 : 13, color: "#e2e8f0" },
+        tickfont: { size: isMobile ? 10 : 13, color: theme.text },
         type: "category",
         categoryorder: "array",
         categoryarray: xLabelsAll,
         tickpad: isMobile ? 8 : 14,
-        linecolor: "rgba(255,255,255,0.06)",
+        linecolor: theme.grid,
       },
       yaxis: {
         title: {
           text: isMobile ? "Score" : "Performance Score",
-          font: { color: "#94a3b8", size: isMobile ? 10 : 11 },
+          font: { color: theme.muted, size: isMobile ? 10 : 11 },
         },
-        gridcolor: "rgba(255,255,255,0.05)",
-        zerolinecolor: "rgba(255,255,255,0.06)",
+        gridcolor: theme.grid,
+        zerolinecolor: theme.grid,
         range: [rangeFloor, rangeCeil],
-        tickfont: { size: isMobile ? 10 : 11, color: "#94a3b8" },
+        tickfont: { size: isMobile ? 10 : 11, color: theme.muted },
       },
       margin: isMobile
         ? { t: 40, r: 15, b: 120, l: 45 }
@@ -5395,7 +5417,7 @@ async function setupFamilyExplorer(allData) {
       showlegend: true,
       legend: {
         font: {
-          color: "#e2e8f0",
+          color: theme.text,
           size: 13,
           family: "Inter, system-ui, sans-serif",
         },
