@@ -1,20 +1,20 @@
 {
   "schema_version": "powerbi-v2-wide",
   "source_snapshot_dates": {
-    "artificial_analysis": "2026-07-28",
-    "llmstats": "2026-07-28"
+    "artificial_analysis": "2026-07-29",
+    "llmstats": "2026-07-29"
   },
   "earliest_catalog_event_date": "2022-11-30",
   "earliest_observed_snapshot_date": "2026-07-23",
-  "latest_observed_snapshot_date": "2026-07-28",
+  "latest_observed_snapshot_date": "2026-07-29",
   "catalog_event_row_count": 573,
-  "observed_snapshot_row_count": 1544,
+  "observed_snapshot_row_count": 1797,
   "historical_coverage_limitations": "Pre-LLMDEX historical rows represent repository-supported catalogue or release events and must not be interpreted as daily historical benchmark measurements.",
   "row_counts": {
-    "artificial_analysis_benchmarks": 263,
+    "artificial_analysis_benchmarks": 257,
     "llmstats_benchmarks": 348,
     "combined_latest": 1,
-    "model_family_history": 2117,
+    "model_family_history": 2370,
     "data_dictionary": 184
   },
   "column_counts": {
@@ -29,11 +29,11 @@
   "llmstats_general_missing_provider_count": 0,
   "llmstats_provider_populated_count": 348,
   "llmstats_provider_missing_count": 0,
-  "llmstats_availability_unknown_count": 233,
+  "llmstats_availability_unknown_count": 247,
   "malformed_name_count_detected": 97,
   "malformed_name_count_corrected": 97,
   "unresolved_malformed_name_count": 0,
-  "consensus_family_count": 16,
+  "consensus_family_count": 14,
   "empty_reserved_columns": [
     "aa_aime25",
     "aa_livecodebench",
@@ -44,15 +44,15 @@
     "aa_cache_read_cost_usd_per_1m",
     "aa_cache_write_cost_usd_per_1m"
   ],
-  "corrected_open_weight_inconsistency_count": 172,
+  "corrected_open_weight_inconsistency_count": 171,
   "sha256_hashes": {
-    "artificial_analysis_benchmarks.csv": "f27005380c8b6ece62509ed212069446fea25c8ebc18a71f84414bc301b0cc6d",
-    "llmstats_benchmarks.csv": "3a6a554ebd970f46c2d1d8e90034fe4f2bb8c29afb717181f7039475aaca8bd1",
-    "combined_latest.json": "ee35826a6a68a054f40e785bb1c63460cb8479f818b2b4726d178a0d35292bfb",
-    "model_family_history.csv": "0fbb48c945a01c26dbbbe02388b1bb563d2fc1b6c639af1d941cab36fadf6651",
-    "data_dictionary.csv": "0039491b14e27fd6774c2ca5f3b11992848d25eb8306a1c466ab80fb8f78c66a"
+    "artificial_analysis_benchmarks.csv": "5e0debffee99ecad1bc046c5fee1c58104acdf3c8c19873f1e6aa0c86d717b98",
+    "llmstats_benchmarks.csv": "b6802aaa6b3ca9decdb0595e09c87150cb63b3f7143e2feaa97c5217e1cea4ae",
+    "combined_latest.json": "97068ecc02bd5f5c01fedc070f3530ddd26619a69eed3e1c050269032ec7e708",
+    "model_family_history.csv": "e03d429208361a3080fad6dfb15d178ebd118d0c3d39a1250bda63cacca88bcb",
+    "data_dictionary.csv": "cb6b1223486bf70635dac2853b715020e1ef1e97ca24b582829506ec7f043258"
   },
   "validation_status": "valid",
   "warnings": [],
-  "generated_from_commit": "deac1b00c0556019db5ef08727eb53852090e96b"
+  "generated_from_commit": "755fc17361c5f0a27ff21559d84abaffa1ff75d7"
 }

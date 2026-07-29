@@ -1316,70 +1316,6 @@
       }
     }
   },
-  "anthropic/claude-opus-4-7": {
-    "family_id": "anthropic/claude-opus-4-7",
-    "canonical_family_name": "Claude Opus 4.7",
-    "provider": "Anthropic",
-    "version": "4.7",
-    "source_aliases": {
-      "artificial_analysis": [
-        "Claude Opus 4.7 (Non-reasoning, high)"
-      ],
-      "llmstats": [
-        "Claude Opus 4.7"
-      ]
-    },
-    "source_ids": {},
-    "source_urls": {
-      "artificial_analysis": [
-        "https://artificialanalysis.ai/models/claude-opus-4-7-non-reasoning"
-      ]
-    },
-    "variants": {
-      "anthropic/claude-opus-4-7:high-non-reasoning": {
-        "variant_id": "anthropic/claude-opus-4-7:high-non-reasoning",
-        "deployment_profile_id": "anthropic/claude-opus-4-7:high-non-reasoning:deployment",
-        "source_name": "Claude Opus 4.7 (Non-reasoning, high)",
-        "reasoning_effort": "high",
-        "deployment_profile": [
-          "non-reasoning"
-        ],
-        "fallback_enabled": false,
-        "parameter_count": null
-      }
-    }
-  },
-  "anthropic/claude-opus-4-8": {
-    "family_id": "anthropic/claude-opus-4-8",
-    "canonical_family_name": "Claude Opus 4.8",
-    "provider": "Anthropic",
-    "version": "4.8",
-    "source_aliases": {
-      "artificial_analysis": [
-        "Claude Opus 4.8 (max)"
-      ],
-      "llmstats": [
-        "Claude Opus 4.8"
-      ]
-    },
-    "source_ids": {},
-    "source_urls": {
-      "artificial_analysis": [
-        "https://artificialanalysis.ai/models/claude-opus-4-8"
-      ]
-    },
-    "variants": {
-      "anthropic/claude-opus-4-8:max": {
-        "variant_id": "anthropic/claude-opus-4-8:max",
-        "deployment_profile_id": "anthropic/claude-opus-4-8:max:deployment",
-        "source_name": "Claude Opus 4.8 (max)",
-        "reasoning_effort": "max",
-        "deployment_profile": [],
-        "fallback_enabled": false,
-        "parameter_count": null
-      }
-    }
-  },
   "anthropic/claude-opus-5": {
     "family_id": "anthropic/claude-opus-5",
     "canonical_family_name": "Claude Opus 5",
@@ -6040,35 +5976,6 @@
       }
     }
   },
-  "stepfun/step-3-5-flash-2603": {
-    "family_id": "stepfun/step-3-5-flash-2603",
-    "canonical_family_name": "Step 3.5 Flash 2603",
-    "provider": "StepFun",
-    "version": "3.5",
-    "source_aliases": {
-      "artificial_analysis": [
-        "Step 3.5 Flash 2603"
-      ],
-      "llmstats": []
-    },
-    "source_ids": {},
-    "source_urls": {
-      "artificial_analysis": [
-        "https://artificialanalysis.ai/models/step-3-5-flash"
-      ]
-    },
-    "variants": {
-      "stepfun/step-3-5-flash-2603:default": {
-        "variant_id": "stepfun/step-3-5-flash-2603:default",
-        "deployment_profile_id": "stepfun/step-3-5-flash-2603:default:deployment",
-        "source_name": "Step 3.5 Flash 2603",
-        "reasoning_effort": null,
-        "deployment_profile": [],
-        "fallback_enabled": false,
-        "parameter_count": null
-      }
-    }
-  },
   "stepfun/step-3-7-flash": {
     "family_id": "stepfun/step-3-7-flash",
     "canonical_family_name": "Step 3.7 Flash",
@@ -6363,40 +6270,6 @@
       }
     }
   },
-  "trillion-labs/tri-21b-think-preview": {
-    "family_id": "trillion-labs/tri-21b-think-preview",
-    "canonical_family_name": "Tri-21B-think Preview",
-    "provider": "Trillion Labs",
-    "version": null,
-    "source_aliases": {
-      "artificial_analysis": [
-        "Tri-21B-think Preview"
-      ],
-      "llmstats": []
-    },
-    "source_ids": {},
-    "source_urls": {
-      "artificial_analysis": [
-        "https://artificialanalysis.ai/models/tri-21b-think-preview"
-      ]
-    },
-    "variants": {
-      "trillion-labs/tri-21b-think-preview:preview": {
-        "variant_id": "trillion-labs/tri-21b-think-preview:preview",
-        "deployment_profile_id": "trillion-labs/tri-21b-think-preview:preview:deployment",
-        "source_name": "Tri-21B-think Preview",
-        "reasoning_effort": null,
-        "deployment_profile": [
-          "preview"
-        ],
-        "fallback_enabled": false,
-        "parameter_count": {
-          "total_billions": 21.0,
-          "active_billions": null
-        }
-      }
-    }
-  },
   "upstage/solar-open-100b": {
     "family_id": "upstage/solar-open-100b",
     "canonical_family_name": "Solar Open 100B",
@@ -6428,48 +6301,6 @@
           "total_billions": 100.0,
           "active_billions": null
         }
-      }
-    }
-  },
-  "upstage/solar-pro-2": {
-    "family_id": "upstage/solar-pro-2",
-    "canonical_family_name": "Solar Pro 2",
-    "provider": "Upstage",
-    "version": null,
-    "source_aliases": {
-      "artificial_analysis": [
-        "Solar Pro 2",
-        "Solar Pro 2 (reasoning)"
-      ],
-      "llmstats": []
-    },
-    "source_ids": {},
-    "source_urls": {
-      "artificial_analysis": [
-        "https://artificialanalysis.ai/models/solar-pro-2",
-        "https://artificialanalysis.ai/models/solar-pro-2-reasoning"
-      ]
-    },
-    "variants": {
-      "upstage/solar-pro-2:reasoning": {
-        "variant_id": "upstage/solar-pro-2:reasoning",
-        "deployment_profile_id": "upstage/solar-pro-2:reasoning:deployment",
-        "source_name": "Solar Pro 2 (reasoning)",
-        "reasoning_effort": null,
-        "deployment_profile": [
-          "reasoning"
-        ],
-        "fallback_enabled": false,
-        "parameter_count": null
-      },
-      "upstage/solar-pro-2:default": {
-        "variant_id": "upstage/solar-pro-2:default",
-        "deployment_profile_id": "upstage/solar-pro-2:default:deployment",
-        "source_name": "Solar Pro 2",
-        "reasoning_effort": null,
-        "deployment_profile": [],
-        "fallback_enabled": false,
-        "parameter_count": null
       }
     }
   },
