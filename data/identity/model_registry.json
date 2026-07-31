@@ -1632,6 +1632,35 @@
       }
     }
   },
+  "celeris/celeris-1": {
+    "family_id": "celeris/celeris-1",
+    "canonical_family_name": "Celeris-1",
+    "provider": "Celeris",
+    "version": null,
+    "source_aliases": {
+      "artificial_analysis": [
+        "Celeris-1"
+      ],
+      "llmstats": []
+    },
+    "source_ids": {},
+    "source_urls": {
+      "artificial_analysis": [
+        "https://artificialanalysis.ai/models/celeris-1"
+      ]
+    },
+    "variants": {
+      "celeris/celeris-1:default": {
+        "variant_id": "celeris/celeris-1:default",
+        "deployment_profile_id": "celeris/celeris-1:default:deployment",
+        "source_name": "Celeris-1",
+        "reasoning_effort": null,
+        "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": null
+      }
+    }
+  },
   "china-mobile/jt-35b-flash": {
     "family_id": "china-mobile/jt-35b-flash",
     "canonical_family_name": "JT-35B-Flash",
@@ -1852,8 +1881,6 @@
     "version": null,
     "source_aliases": {
       "artificial_analysis": [
-        "DeepSeek V4 Flash (high)",
-        "DeepSeek V4 Flash (max)",
         "DeepSeek V4 Flash (non-reasoning)"
       ],
       "llmstats": [
@@ -1863,30 +1890,10 @@
     "source_ids": {},
     "source_urls": {
       "artificial_analysis": [
-        "https://artificialanalysis.ai/models/deepseek-v4-flash",
-        "https://artificialanalysis.ai/models/deepseek-v4-flash-high",
         "https://artificialanalysis.ai/models/deepseek-v4-flash-non-reasoning"
       ]
     },
     "variants": {
-      "deepseek/deepseek-v4-flash:max": {
-        "variant_id": "deepseek/deepseek-v4-flash:max",
-        "deployment_profile_id": "deepseek/deepseek-v4-flash:max:deployment",
-        "source_name": "DeepSeek V4 Flash (max)",
-        "reasoning_effort": "max",
-        "deployment_profile": [],
-        "fallback_enabled": false,
-        "parameter_count": null
-      },
-      "deepseek/deepseek-v4-flash:high": {
-        "variant_id": "deepseek/deepseek-v4-flash:high",
-        "deployment_profile_id": "deepseek/deepseek-v4-flash:high:deployment",
-        "source_name": "DeepSeek V4 Flash (high)",
-        "reasoning_effort": "high",
-        "deployment_profile": [],
-        "fallback_enabled": false,
-        "parameter_count": null
-      },
       "deepseek/deepseek-v4-flash:non-reasoning": {
         "variant_id": "deepseek/deepseek-v4-flash:non-reasoning",
         "deployment_profile_id": "deepseek/deepseek-v4-flash:non-reasoning:deployment",
@@ -1895,6 +1902,35 @@
         "deployment_profile": [
           "non-reasoning"
         ],
+        "fallback_enabled": false,
+        "parameter_count": null
+      }
+    }
+  },
+  "deepseek/deepseek-v4-flash-0731": {
+    "family_id": "deepseek/deepseek-v4-flash-0731",
+    "canonical_family_name": "DeepSeek V4 Flash 0731",
+    "provider": "DeepSeek",
+    "version": null,
+    "source_aliases": {
+      "artificial_analysis": [
+        "DeepSeek V4 Flash 0731 (max)"
+      ],
+      "llmstats": []
+    },
+    "source_ids": {},
+    "source_urls": {
+      "artificial_analysis": [
+        "https://artificialanalysis.ai/models/deepseek-v4-flash"
+      ]
+    },
+    "variants": {
+      "deepseek/deepseek-v4-flash-0731:max": {
+        "variant_id": "deepseek/deepseek-v4-flash-0731:max",
+        "deployment_profile_id": "deepseek/deepseek-v4-flash-0731:max:deployment",
+        "source_name": "DeepSeek V4 Flash 0731 (max)",
+        "reasoning_effort": "max",
+        "deployment_profile": [],
         "fallback_enabled": false,
         "parameter_count": null
       }
@@ -2981,7 +3017,8 @@
     "version": null,
     "source_aliases": {
       "artificial_analysis": [
-        "Kimi K3"
+        "Kimi K3 (low)",
+        "Kimi K3 (max)"
       ],
       "llmstats": [
         "Kimi K3"
@@ -2990,15 +3027,25 @@
     "source_ids": {},
     "source_urls": {
       "artificial_analysis": [
-        "https://artificialanalysis.ai/models/kimi-k3"
+        "https://artificialanalysis.ai/models/kimi-k3",
+        "https://artificialanalysis.ai/models/kimi-k3-low"
       ]
     },
     "variants": {
-      "kimi/kimi-k3:default": {
-        "variant_id": "kimi/kimi-k3:default",
-        "deployment_profile_id": "kimi/kimi-k3:default:deployment",
-        "source_name": "Kimi K3",
-        "reasoning_effort": null,
+      "kimi/kimi-k3:max": {
+        "variant_id": "kimi/kimi-k3:max",
+        "deployment_profile_id": "kimi/kimi-k3:max:deployment",
+        "source_name": "Kimi K3 (max)",
+        "reasoning_effort": "max",
+        "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": null
+      },
+      "kimi/kimi-k3:low": {
+        "variant_id": "kimi/kimi-k3:low",
+        "deployment_profile_id": "kimi/kimi-k3:low:deployment",
+        "source_name": "Kimi K3 (low)",
+        "reasoning_effort": "low",
         "deployment_profile": [],
         "fallback_enabled": false,
         "parameter_count": null
@@ -6199,6 +6246,35 @@
         "variant_id": "thinking-machines/inkling:default",
         "deployment_profile_id": "thinking-machines/inkling:default:deployment",
         "source_name": "Inkling",
+        "reasoning_effort": null,
+        "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": null
+      }
+    }
+  },
+  "thinking-machines/inkling-small": {
+    "family_id": "thinking-machines/inkling-small",
+    "canonical_family_name": "Inkling Small",
+    "provider": "Thinking Machines",
+    "version": null,
+    "source_aliases": {
+      "artificial_analysis": [
+        "Inkling Small"
+      ],
+      "llmstats": []
+    },
+    "source_ids": {},
+    "source_urls": {
+      "artificial_analysis": [
+        "https://artificialanalysis.ai/models/inkling-small"
+      ]
+    },
+    "variants": {
+      "thinking-machines/inkling-small:default": {
+        "variant_id": "thinking-machines/inkling-small:default",
+        "deployment_profile_id": "thinking-machines/inkling-small:default:deployment",
+        "source_name": "Inkling Small",
         "reasoning_effort": null,
         "deployment_profile": [],
         "fallback_enabled": false,

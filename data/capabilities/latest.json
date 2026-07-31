@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-07-30T12:13:28.690735+00:00",
+  "generated_at": "2026-07-31T12:28:50.440974+00:00",
   "methodology_version": "LLMStats source-native current",
-  "source_updated_at": "2026-07-30T12:13:48.124875+00:00",
+  "source_updated_at": "2026-07-31T12:29:11.828062+00:00",
   "source_health": {
     "source": "LLMStats",
     "rows_scraped": 85,
@@ -11,11 +11,11 @@
     ],
     "status": "healthy",
     "error_message": null,
-    "duration_seconds": 19.429,
-    "timestamp": "2026-07-30T12:13:48.124875+00:00",
+    "duration_seconds": 21.38,
+    "timestamp": "2026-07-31T12:29:11.828062+00:00",
     "parse_warning_count": 0,
     "warnings": [],
-    "last_successful_update": "2026-07-30T12:13:48.124875+00:00",
+    "last_successful_update": "2026-07-31T12:29:11.828062+00:00",
     "schema_changes": []
   },
   "categories": {
@@ -23,6 +23,14 @@
       "row_count": 41,
       "url": "data/capabilities/coding.json",
       "benchmark_columns": [
+        {
+          "benchmark_id": "llmstats__license",
+          "canonical_name": "LICENSE",
+          "version": null,
+          "source_name": "LICENSE",
+          "source_url": "https://llm-stats.com/leaderboards/best-ai-for-coding",
+          "source_population": null
+        },
         {
           "benchmark_id": "llmstats__arena-avg",
           "canonical_name": "Arena Avg",
@@ -150,6 +158,14 @@
       "url": "data/capabilities/math.json",
       "benchmark_columns": [
         {
+          "benchmark_id": "llmstats__license",
+          "canonical_name": "LICENSE",
+          "version": null,
+          "source_name": "LICENSE",
+          "source_url": "https://llm-stats.com/leaderboards/best-ai-for-math",
+          "source_population": null
+        },
+        {
           "benchmark_id": "aime_2025",
           "canonical_name": "AIME 2025",
           "version": "2025",
@@ -235,6 +251,14 @@
       "row_count": 40,
       "url": "data/capabilities/reasoning.json",
       "benchmark_columns": [
+        {
+          "benchmark_id": "llmstats__license",
+          "canonical_name": "LICENSE",
+          "version": null,
+          "source_name": "LICENSE",
+          "source_url": "https://llm-stats.com/leaderboards/best-ai-for-reasoning",
+          "source_population": null
+        },
         {
           "benchmark_id": "aime_2025",
           "canonical_name": "AIME 2025",
@@ -322,6 +346,14 @@
       "url": "data/capabilities/writing.json",
       "benchmark_columns": [
         {
+          "benchmark_id": "llmstats__license",
+          "canonical_name": "LICENSE",
+          "version": null,
+          "source_name": "LICENSE",
+          "source_url": "https://llm-stats.com/leaderboards/best-ai-for-writing",
+          "source_population": null
+        },
+        {
           "benchmark_id": "llmstats__tau2-telecom",
           "canonical_name": "Tau2 Telecom",
           "version": null,
@@ -407,6 +439,14 @@
       "row_count": 35,
       "url": "data/capabilities/research.json",
       "benchmark_columns": [
+        {
+          "benchmark_id": "llmstats__license",
+          "canonical_name": "LICENSE",
+          "version": null,
+          "source_name": "LICENSE",
+          "source_url": "https://llm-stats.com/leaderboards/best-ai-for-research",
+          "source_population": null
+        },
         {
           "benchmark_id": "browsecomp",
           "canonical_name": "BrowseComp",
@@ -494,6 +534,14 @@
       "url": "data/capabilities/long_context.json",
       "benchmark_columns": [
         {
+          "benchmark_id": "llmstats__license",
+          "canonical_name": "LICENSE",
+          "version": null,
+          "source_name": "LICENSE",
+          "source_url": "https://llm-stats.com/leaderboards/best-ai-for-long-context",
+          "source_population": null
+        },
+        {
           "benchmark_id": "llmstats__longbench-v2",
           "canonical_name": "LongBench v2",
           "version": null,
@@ -579,6 +627,14 @@
       "row_count": 41,
       "url": "data/capabilities/tool_calling.json",
       "benchmark_columns": [
+        {
+          "benchmark_id": "llmstats__license",
+          "canonical_name": "LICENSE",
+          "version": null,
+          "source_name": "LICENSE",
+          "source_url": "https://llm-stats.com/leaderboards/best-ai-for-tool-calling",
+          "source_population": null
+        },
         {
           "benchmark_id": "mcp_atlas",
           "canonical_name": "MCP Atlas",
