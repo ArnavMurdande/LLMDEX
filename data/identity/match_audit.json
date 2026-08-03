@@ -547,6 +547,31 @@
   },
   {
     "source": "llmstats",
+    "source_name": "DeepSeek-V4-Flash-0731",
+    "source_model_id": "deepseek-v4-flash-0731",
+    "source_model_url": "https://llm-stats.com/models/deepseek-v4-flash-0731",
+    "provider": null,
+    "candidate_family_id": "deepseek/deepseek-v4-flash-0731",
+    "candidate_family_name": "DeepSeek V4 Flash 0731",
+    "match_status": "identity_unresolved",
+    "match_confidence": 0.8,
+    "match_method": "fuzzy_review_candidate",
+    "review_reason": "Fuzzy candidates require manual approval and are excluded from scoring.",
+    "competing_candidates": [
+      {
+        "family_id": "deepseek/deepseek-v4-flash-0731",
+        "family_name": "DeepSeek V4 Flash 0731",
+        "similarity": 1.0
+      },
+      {
+        "family_id": "deepseek/deepseek-v4-flash",
+        "family_name": "DeepSeek V4 Flash",
+        "similarity": 0.8718
+      }
+    ]
+  },
+  {
+    "source": "llmstats",
     "source_name": "Muse Spark 1.1",
     "source_model_id": "muse-spark-1.1",
     "source_model_url": "https://llm-stats.com/models/muse-spark-1.1",
@@ -712,46 +737,6 @@
     "match_method": "no_candidate",
     "review_reason": "No corresponding family exists in the current AA population.",
     "competing_candidates": []
-  },
-  {
-    "source": "llmstats",
-    "source_name": "MiMo-V2.5-Pro",
-    "source_model_id": "mimo-v2.5-pro",
-    "source_model_url": "https://llm-stats.com/models/mimo-v2.5-pro",
-    "provider": null,
-    "candidate_family_id": "xiaomi/mimo-v2-5-pro",
-    "candidate_family_name": "MiMo-V2.5-Pro",
-    "match_status": "identity_unresolved",
-    "match_confidence": 0.8,
-    "match_method": "fuzzy_review_candidate",
-    "review_reason": "Fuzzy candidates require manual approval and are excluded from scoring.",
-    "competing_candidates": [
-      {
-        "family_id": "xiaomi/mimo-v2-5-pro",
-        "family_name": "MiMo-V2.5-Pro",
-        "similarity": 1.0
-      },
-      {
-        "family_id": "xiaomi/mimo-v2-5",
-        "family_name": "MiMo-V2.5",
-        "similarity": 0.8182
-      },
-      {
-        "family_id": "korea-telecom/mi-dm-k-2-5-pro",
-        "family_name": "Mi:dm K 2.5 Pro",
-        "similarity": 0.7857
-      },
-      {
-        "family_id": "google/gemini-2-5-pro",
-        "family_name": "Gemini 2.5 Pro",
-        "similarity": 0.7407
-      },
-      {
-        "family_id": "xiaomi/mimo-v2-omni",
-        "family_name": "MiMo-V2-Omni",
-        "similarity": 0.72
-      }
-    ]
   },
   {
     "source": "llmstats",
@@ -1600,7 +1585,7 @@
   },
   {
     "source": "llmstats",
-    "source_name": "8Llama 3.1 405B Instruct",
+    "source_name": "7Llama 3.1 405B Instruct",
     "source_model_id": "llama-3.1-405b-instruct",
     "source_model_url": "https://llm-stats.com/models/llama-3.1-405b-instruct",
     "provider": null,
@@ -1630,7 +1615,7 @@
   },
   {
     "source": "llmstats",
-    "source_name": "20GPT-5.3 Codex",
+    "source_name": "19GPT-5.3 Codex",
     "source_model_id": "gpt-5.3-codex",
     "source_model_url": "https://llm-stats.com/models/gpt-5.3-codex",
     "provider": null,
@@ -1650,7 +1635,7 @@
   },
   {
     "source": "llmstats",
-    "source_name": "29Llama 3.1 70B Instruct",
+    "source_name": "27Llama 3.1 70B Instruct",
     "source_model_id": "llama-3.1-70b-instruct",
     "source_model_url": "https://llm-stats.com/models/llama-3.1-70b-instruct",
     "provider": null,

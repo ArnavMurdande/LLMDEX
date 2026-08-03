@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-08-02T11:44:21.014012+00:00",
+  "generated_at": "2026-08-03T13:26:36.631484+00:00",
   "methodology_version": "LLMStats source-native current",
-  "source_updated_at": "2026-08-02T11:44:40.387431+00:00",
+  "source_updated_at": "2026-08-03T13:26:58.103084+00:00",
   "source_health": {
     "source": "LLMStats",
     "rows_scraped": 85,
@@ -11,11 +11,11 @@
     ],
     "status": "healthy",
     "error_message": null,
-    "duration_seconds": 19.367,
-    "timestamp": "2026-08-02T11:44:40.387431+00:00",
+    "duration_seconds": 21.465,
+    "timestamp": "2026-08-03T13:26:58.103084+00:00",
     "parse_warning_count": 0,
     "warnings": [],
-    "last_successful_update": "2026-08-02T11:44:40.387431+00:00",
+    "last_successful_update": "2026-08-03T13:26:58.103084+00:00",
     "schema_changes": []
   },
   "categories": {
@@ -128,19 +128,19 @@
           "source_population": 18
         },
         {
-          "benchmark_id": "llmstats__frontiercode-1-1",
-          "canonical_name": "FrontierCode 1.1",
-          "version": null,
-          "source_name": "FrontierCode 1.1",
-          "source_url": "https://llm-stats.com/benchmarks/frontiercode-1.1",
-          "source_population": 15
-        },
-        {
           "benchmark_id": "llmstats__terminal-bench-2-1",
           "canonical_name": "Terminal-Bench 2.1",
           "version": null,
           "source_name": "Terminal-Bench 2.1",
           "source_url": "https://llm-stats.com/benchmarks/terminal-bench-2.1",
+          "source_population": 16
+        },
+        {
+          "benchmark_id": "llmstats__frontiercode-1-1",
+          "canonical_name": "FrontierCode 1.1",
+          "version": null,
+          "source_name": "FrontierCode 1.1",
+          "source_url": "https://llm-stats.com/benchmarks/frontiercode-1.1",
           "source_population": 15
         },
         {
@@ -248,7 +248,7 @@
       ]
     },
     "reasoning": {
-      "row_count": 40,
+      "row_count": 41,
       "url": "data/capabilities/reasoning.json",
       "benchmark_columns": [
         {
@@ -644,6 +644,14 @@
           "source_population": 30
         },
         {
+          "benchmark_id": "llmstats__terminal-bench-2-1",
+          "canonical_name": "Terminal-Bench 2.1",
+          "version": null,
+          "source_name": "Terminal-Bench 2.1",
+          "source_url": "https://llm-stats.com/benchmarks/terminal-bench-2.1",
+          "source_population": 16
+        },
+        {
           "benchmark_id": "llmstats__terminal-bench-2-0",
           "canonical_name": "Terminal-Bench 2.0",
           "version": null,
@@ -665,15 +673,7 @@
           "version": null,
           "source_name": "Toolathlon",
           "source_url": "https://llm-stats.com/benchmarks/toolathlon",
-          "source_population": 30
-        },
-        {
-          "benchmark_id": "llmstats__terminal-bench-2-1",
-          "canonical_name": "Terminal-Bench 2.1",
-          "version": null,
-          "source_name": "Terminal-Bench 2.1",
-          "source_url": "https://llm-stats.com/benchmarks/terminal-bench-2.1",
-          "source_population": 15
+          "source_population": 31
         },
         {
           "benchmark_id": "llmstats__tau2-airline",
