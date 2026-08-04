@@ -1,37 +1,37 @@
 {
   "schema_version": "powerbi-v2-wide",
   "source_snapshot_dates": {
-    "artificial_analysis": "2026-08-03",
-    "llmstats": "2026-08-03"
+    "artificial_analysis": "2026-08-04",
+    "llmstats": "2026-08-04"
   },
   "earliest_catalog_event_date": "2022-11-30",
   "earliest_observed_snapshot_date": "2026-07-23",
-  "latest_observed_snapshot_date": "2026-08-03",
+  "latest_observed_snapshot_date": "2026-08-04",
   "catalog_event_row_count": 578,
-  "observed_snapshot_row_count": 3075,
+  "observed_snapshot_row_count": 3333,
   "historical_coverage_limitations": "Pre-LLMDEX historical rows represent repository-supported catalogue or release events and must not be interpreted as daily historical benchmark measurements.",
   "row_counts": {
     "artificial_analysis_benchmarks": 260,
-    "llmstats_benchmarks": 349,
+    "llmstats_benchmarks": 348,
     "combined_latest": 1,
-    "model_family_history": 3653,
-    "data_dictionary": 184
+    "model_family_history": 3911,
+    "data_dictionary": 179
   },
   "column_counts": {
     "artificial_analysis_benchmarks": 73,
-    "llmstats_benchmarks": 76,
+    "llmstats_benchmarks": 71,
     "model_family_history": 35
   },
-  "number_of_benchmark_columns": 60,
-  "llmstats_general_row_count": 85,
-  "llmstats_general_missing_score_count": 55,
-  "llmstats_general_missing_rank_count": 55,
+  "number_of_benchmark_columns": 55,
+  "llmstats_general_row_count": 86,
+  "llmstats_general_missing_score_count": 56,
+  "llmstats_general_missing_rank_count": 56,
   "llmstats_general_missing_provider_count": 0,
-  "llmstats_provider_populated_count": 349,
+  "llmstats_provider_populated_count": 348,
   "llmstats_provider_missing_count": 0,
-  "llmstats_availability_unknown_count": 248,
-  "malformed_name_count_detected": 97,
-  "malformed_name_count_corrected": 97,
+  "llmstats_availability_unknown_count": 247,
+  "malformed_name_count_detected": 100,
+  "malformed_name_count_corrected": 100,
   "unresolved_malformed_name_count": 0,
   "consensus_family_count": 14,
   "empty_reserved_columns": [
@@ -46,13 +46,13 @@
   ],
   "corrected_open_weight_inconsistency_count": 173,
   "sha256_hashes": {
-    "artificial_analysis_benchmarks.csv": "6b4a08bdcc55e829c2b2ca384dd3e9dbc2ca89f1181d1bdae8536544763c2af7",
-    "llmstats_benchmarks.csv": "1dfe043578032e066dc08400c48d1baa0cf81ae84578e0cf2a938a17e51cd015",
-    "combined_latest.json": "81d590c16690b8c75ec9e619cb0db16ac0f572d77976fbe7579a87b54a82ebc4",
-    "model_family_history.csv": "41029151f9e7704c143b3644bce693b94a0493e9d4e838acb7f916fd75e12e51",
-    "data_dictionary.csv": "7289879118bd57147691a8fbcc047a9a7cceeb8667cda2865061a5843d340e3b"
+    "artificial_analysis_benchmarks.csv": "24ef53a9fc8f2d9fbb421abcabec53e577dc4cd22e49a425baf6803c4b49a15a",
+    "llmstats_benchmarks.csv": "c8833ae4745ff758c0032cd897085ecc1c1f108d5cf39f443cd5ad7d00f62e06",
+    "combined_latest.json": "37b470f3298c9cca235bdc1af381c06644d5030e2848feb8797cb11f0680cadc",
+    "model_family_history.csv": "af2e514e36bc6d73d4267beebb623606517ef2e8426fbecd3a60e00f92b04b2f",
+    "data_dictionary.csv": "0521ab00c904d47b8a74e5d395ea6d25ec3fe783c2ad1222a9f287c4fc1539b9"
   },
   "validation_status": "valid",
   "warnings": [],
-  "generated_from_commit": "33cd5d61a45977ea31442ce07452de4c3fe8a6c7"
+  "generated_from_commit": "2255ea0e06520a3b14357894d9318d795c488b68"
 }

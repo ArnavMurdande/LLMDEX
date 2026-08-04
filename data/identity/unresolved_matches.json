@@ -86,6 +86,31 @@
   },
   {
     "source": "llmstats",
+    "source_name": "Qwen3.8 Max",
+    "source_model_id": "qwen3.8-max",
+    "source_model_url": "https://llm-stats.com/models/qwen3.8-max",
+    "provider": "Alibaba",
+    "candidate_family_id": "alibaba/qwen3-7",
+    "candidate_family_name": "Qwen3.7",
+    "match_status": "identity_unresolved",
+    "match_confidence": 0.8,
+    "match_method": "fuzzy_review_candidate",
+    "review_reason": "Fuzzy candidates require manual approval and are excluded from scoring.",
+    "competing_candidates": [
+      {
+        "family_id": "alibaba/qwen3-7",
+        "family_name": "Qwen3.7",
+        "similarity": 0.8571
+      },
+      {
+        "family_id": "alibaba/qwen3-5-0-8b",
+        "family_name": "Qwen3.5 0.8B",
+        "similarity": 0.7368
+      }
+    ]
+  },
+  {
+    "source": "llmstats",
     "source_name": "Gemini 3 Pro",
     "source_model_id": "gemini-3-pro-preview",
     "source_model_url": "https://llm-stats.com/models/gemini-3-pro-preview",
@@ -376,26 +401,6 @@
   },
   {
     "source": "llmstats",
-    "source_name": "Kimi K2.7 Code",
-    "source_model_id": "kimi-k2.7-code",
-    "source_model_url": "https://llm-stats.com/models/kimi-k2.7-code",
-    "provider": null,
-    "candidate_family_id": "kimi/kimi-k2-7-code",
-    "candidate_family_name": "Kimi K2.7 Code",
-    "match_status": "identity_unresolved",
-    "match_confidence": 0.8,
-    "match_method": "fuzzy_review_candidate",
-    "review_reason": "Fuzzy candidates require manual approval and are excluded from scoring.",
-    "competing_candidates": [
-      {
-        "family_id": "kimi/kimi-k2-7-code",
-        "family_name": "Kimi K2.7 Code",
-        "similarity": 1.0
-      }
-    ]
-  },
-  {
-    "source": "llmstats",
     "source_name": "25GPT-5.5 Pro",
     "source_model_id": "gpt-5.5-pro",
     "source_model_url": "https://llm-stats.com/models/gpt-5.5-pro",
@@ -431,31 +436,6 @@
         "family_id": "kimi/kimi-k2-6",
         "family_name": "Kimi K2.6",
         "similarity": 0.8
-      }
-    ]
-  },
-  {
-    "source": "llmstats",
-    "source_name": "30Qwen3.5-122B-A10B",
-    "source_model_id": "qwen3.5-122b-a10b",
-    "source_model_url": "https://llm-stats.com/models/qwen3.5-122b-a10b",
-    "provider": null,
-    "candidate_family_id": "alibaba/qwen3-5-122b-a10b",
-    "candidate_family_name": "Qwen3.5 122B A10B",
-    "match_status": "identity_unresolved",
-    "match_confidence": 0.8,
-    "match_method": "fuzzy_review_candidate",
-    "review_reason": "Fuzzy candidates require manual approval and are excluded from scoring.",
-    "competing_candidates": [
-      {
-        "family_id": "alibaba/qwen3-5-122b-a10b",
-        "family_name": "Qwen3.5 122B A10B",
-        "similarity": 0.9444
-      },
-      {
-        "family_id": "alibaba/qwen3-5-397b-a17b",
-        "family_name": "Qwen3.5 397B A17B",
-        "similarity": 0.7222
       }
     ]
   },
@@ -756,6 +736,31 @@
   },
   {
     "source": "llmstats",
+    "source_name": "28Qwen3.5-122B-A10B",
+    "source_model_id": "qwen3.5-122b-a10b",
+    "source_model_url": "https://llm-stats.com/models/qwen3.5-122b-a10b",
+    "provider": null,
+    "candidate_family_id": "alibaba/qwen3-5-122b-a10b",
+    "candidate_family_name": "Qwen3.5 122B A10B",
+    "match_status": "identity_unresolved",
+    "match_confidence": 0.8,
+    "match_method": "fuzzy_review_candidate",
+    "review_reason": "Fuzzy candidates require manual approval and are excluded from scoring.",
+    "competing_candidates": [
+      {
+        "family_id": "alibaba/qwen3-5-122b-a10b",
+        "family_name": "Qwen3.5 122B A10B",
+        "similarity": 0.9444
+      },
+      {
+        "family_id": "alibaba/qwen3-5-397b-a17b",
+        "family_name": "Qwen3.5 397B A17B",
+        "similarity": 0.7222
+      }
+    ]
+  },
+  {
+    "source": "llmstats",
     "source_name": "29MiniMax M2.5",
     "source_model_id": "minimax-m2.5",
     "source_model_url": "https://llm-stats.com/models/minimax-m2.5",
@@ -776,7 +781,7 @@
   },
   {
     "source": "llmstats",
-    "source_name": "12Mistral Small 4",
+    "source_name": "14Mistral Small 4",
     "source_model_id": "mistral-small-latest",
     "source_model_url": "https://llm-stats.com/models/mistral-small-latest",
     "provider": null,
@@ -806,7 +811,7 @@
   },
   {
     "source": "llmstats",
-    "source_name": "14Qwen3.5-27B",
+    "source_name": "15Qwen3.5-27B",
     "source_model_id": "qwen3.5-27b",
     "source_model_url": "https://llm-stats.com/models/qwen3.5-27b",
     "provider": null,
@@ -846,7 +851,7 @@
   },
   {
     "source": "llmstats",
-    "source_name": "15Nemotron 3 Ultra (550B A55B)",
+    "source_name": "16Nemotron 3 Ultra (550B A55B)",
     "source_model_id": "nemotron-3-ultra-550b-a55b",
     "source_model_url": "https://llm-stats.com/models/nemotron-3-ultra-550b-a55b",
     "provider": null,
@@ -866,7 +871,7 @@
   },
   {
     "source": "llmstats",
-    "source_name": "20Qwen3.5-35B-A3B",
+    "source_name": "22Qwen3.5-35B-A3B",
     "source_model_id": "qwen3.5-35b-a3b",
     "source_model_url": "https://llm-stats.com/models/qwen3.5-35b-a3b",
     "provider": null,
@@ -901,7 +906,7 @@
   },
   {
     "source": "llmstats",
-    "source_name": "24Qwen3.6-35B-A3B",
+    "source_name": "25Qwen3.6-35B-A3B",
     "source_model_id": "qwen3.6-35b-a3b",
     "source_model_url": "https://llm-stats.com/models/qwen3.6-35b-a3b",
     "provider": null,
@@ -931,7 +936,7 @@
   },
   {
     "source": "llmstats",
-    "source_name": "27Qwen3.5-9B",
+    "source_name": "28Qwen3.5-9B",
     "source_model_id": "qwen3.5-9b",
     "source_model_url": "https://llm-stats.com/models/qwen3.5-9b",
     "provider": null,
@@ -966,7 +971,7 @@
   },
   {
     "source": "llmstats",
-    "source_name": "28Qwen3.6-27B",
+    "source_name": "29Qwen3.6-27B",
     "source_model_id": "qwen3.6-27b",
     "source_model_url": "https://llm-stats.com/models/qwen3.6-27b",
     "provider": null,
@@ -991,7 +996,7 @@
   },
   {
     "source": "llmstats",
-    "source_name": "29Gemini 2.5 Pro",
+    "source_name": "30Gemini 2.5 Pro",
     "source_model_id": "gemini-2.5-pro",
     "source_model_url": "https://llm-stats.com/models/gemini-2.5-pro",
     "provider": null,
@@ -1041,7 +1046,7 @@
   },
   {
     "source": "llmstats",
-    "source_name": "19GPT-5.3 Codex",
+    "source_name": "18GPT-5.3 Codex",
     "source_model_id": "gpt-5.3-codex",
     "source_model_url": "https://llm-stats.com/models/gpt-5.3-codex",
     "provider": null,
@@ -1056,6 +1061,26 @@
         "family_id": "openai/gpt-5-3-codex",
         "family_name": "GPT-5.3 Codex",
         "similarity": 0.9286
+      }
+    ]
+  },
+  {
+    "source": "llmstats",
+    "source_name": "23Kimi K2.7 Code",
+    "source_model_id": "kimi-k2.7-code",
+    "source_model_url": "https://llm-stats.com/models/kimi-k2.7-code",
+    "provider": null,
+    "candidate_family_id": "kimi/kimi-k2-7-code",
+    "candidate_family_name": "Kimi K2.7 Code",
+    "match_status": "identity_unresolved",
+    "match_confidence": 0.8,
+    "match_method": "fuzzy_review_candidate",
+    "review_reason": "Fuzzy candidates require manual approval and are excluded from scoring.",
+    "competing_candidates": [
+      {
+        "family_id": "kimi/kimi-k2-7-code",
+        "family_name": "Kimi K2.7 Code",
+        "similarity": 0.9333
       }
     ]
   },
