@@ -191,6 +191,7 @@ jobs:
       pages: write
       id-token: write
       contents: read
+      actions: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -245,11 +246,49 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v6
 
+      - name: Cleanup duplicate github-pages artifacts
+        run: |
+          repo="${{ github.repository }}"
+          run_id="${{ github.run_id }}"
+          token="${{ secrets.GITHUB_TOKEN }}"
+          resp=$(curl -s -H "Authorization: Bearer $token" -H "Accept: application/vnd.github+json" "https://api.github.com/repos/$repo/actions/runs/$run_id/artifacts")
+          echo "$resp" | python3 -c '
+          import os, sys, json, subprocess
+          try:
+              data = json.load(sys.stdin)
+          except Exception:
+              sys.exit(0)
+          arts = [a for a in data.get("artifacts", []) if "github-pages" in a.get("name", "")]
+          if len(arts) <= 1:
+              print("No duplicate github-pages artifacts found.")
+              sys.exit(0)
+          arts_sorted = sorted(arts, key=lambda a: a.get("created_at", ""))
+          keep = arts_sorted[-1]["id"]
+          to_delete = [a["id"] for a in arts_sorted if a["id"] != keep]
+          repo = os.environ.get("REPO")
+          token = os.environ.get("TOKEN")
+          for aid in to_delete:
+              print(f"Deleting artifact {aid}...")
+              subprocess.call([
+                  "curl", "-s", "-X", "DELETE",
+                  "-H", f"Authorization: Bearer {token}",
+                  "-H", "Accept: application/vnd.github+json",
+                  f"https://api.github.com/repos/{repo}/actions/artifacts/{aid}"
+              ])
+          print("Cleanup complete.")
+          '
+        env:
+          REPO: ${{ github.repository }}
+          TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v5
         with:
+          name: github-pages-${{ github.run_id }}-${{ github.run_attempt }}
           path: _site
 
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v5
+        with:
+          artifact_name: github-pages-${{ github.run_id }}-${{ github.run_attempt }}
