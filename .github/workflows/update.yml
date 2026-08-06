@@ -259,16 +259,11 @@ jobs:
           except Exception:
               sys.exit(0)
           arts = [a for a in data.get("artifacts", []) if "github-pages" in a.get("name", "")]
-          if len(arts) <= 1:
-              print("No duplicate github-pages artifacts found.")
-              sys.exit(0)
-          arts_sorted = sorted(arts, key=lambda a: a.get("created_at", ""))
-          keep = arts_sorted[-1]["id"]
-          to_delete = [a["id"] for a in arts_sorted if a["id"] != keep]
           repo = os.environ.get("REPO")
           token = os.environ.get("TOKEN")
-          for aid in to_delete:
-              print(f"Deleting artifact {aid}...")
+          for a in arts:
+              aid = a["id"]
+              print(f"Deleting existing artifact {aid}...")
               subprocess.call([
                   "curl", "-s", "-X", "DELETE",
                   "-H", f"Authorization: Bearer {token}",
@@ -284,11 +279,8 @@ jobs:
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v5
         with:
-          name: github-pages-${{ github.run_id }}-${{ github.run_attempt }}
           path: _site
 
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v5
-        with:
-          artifact_name: github-pages-${{ github.run_id }}-${{ github.run_attempt }}
