@@ -4,7 +4,7 @@
 
 The project is a Python data pipeline with a framework-free static dashboard.
 `api_server.py` combines a `ThreadingHTTPServer`, the server-side Gemini Advisor,
-and static/data serving. GitHub Actions updates data and deploys GitHub Pages.
+and static/data serving. GitHub Actions updates data; Render and Cloudflare Pages deploy from `main`.
 
 The original path was moved from `LLM Benchmark Intelligence Dashboard` to
 `LLMDEX`; a local junction restores the saved workspace path without duplicating

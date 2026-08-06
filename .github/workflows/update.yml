@@ -22,8 +22,6 @@ jobs:
     timeout-minutes: 45
     permissions:
       contents: write
-      pages: write
-      id-token: write
       issues: write
 
     steps:
@@ -182,105 +180,8 @@ jobs:
           fi
 
   # ──────────────────────────────────────────
-  # Deploy website to GitHub Pages
+  # Render and Cloudflare Pages deploy from main through their Git integrations.
+  # GitHub Pages is intentionally omitted because it duplicates production
+  # hosting and can remain queued in GitHub's Pages service for several minutes.
+  # The daily workflow now ends immediately after publishing validated data.
   # ──────────────────────────────────────────
-  deploy-pages:
-    needs: update-data
-    runs-on: ubuntu-latest
-    permissions:
-      pages: write
-      id-token: write
-      contents: read
-      actions: write
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-
-    steps:
-      - name: Checkout repository (with latest data)
-        uses: actions/checkout@v7
-        with:
-          ref: main # Get the latest commit (including data updates)
-
-      - name: Set up Node.js 24
-        uses: actions/setup-node@v7
-        with:
-          node-version: "24"
-          cache: npm
-
-      - name: Build React Bits PixelBlast
-        run: |
-          npm ci
-          npm run build:effects
-
-      # Pull the latest changes (the data commit from the previous job)
-      - name: Pull latest data
-        run: git pull origin main || true
-
-      # Build a deploy folder: website at root + data alongside
-      - name: Build deploy directory
-        run: |
-          mkdir -p _site/data
-          # Copy website files to root of _site
-          cp -r website/* _site/
-          # Copy data files (the website fetches from ../data/)
-          # Since website is now at root, we need data at ./data/
-          # Update fetch paths from ../data/ to ./data/
-          sed -i 's|\.\./data/|./data/|g' _site/app.js
-          sed -i 's|\.\./data/|./data/|g' _site/index.html
-          # Copy only the data files the website needs
-          cp -r data/index _site/data/index || true
-          cp -r data/families _site/data/families || true
-          cp -r data/capabilities _site/data/capabilities || true
-          cp -r data/quality _site/data/quality || true
-          cp -r data/identity _site/data/identity || true
-          cp -r data/methodology _site/data/methodology || true
-          mkdir -p _site/data/cleaned
-          cp -r data/cleaned/llmstats _site/data/cleaned/llmstats || true
-          cp -r data/history _site/data/history || true
-          cp -r data/sentiment _site/data/sentiment || true
-          cp data/models.json _site/data/models.json || true
-          cp data/column_definitions.json _site/data/column_definitions.json || true
-          cp -r docs _site/docs || true
-
-      - name: Setup Pages
-        uses: actions/configure-pages@v6
-
-      - name: Cleanup duplicate github-pages artifacts
-        run: |
-          repo="${{ github.repository }}"
-          run_id="${{ github.run_id }}"
-          token="${{ secrets.GITHUB_TOKEN }}"
-          resp=$(curl -s -H "Authorization: Bearer $token" -H "Accept: application/vnd.github+json" "https://api.github.com/repos/$repo/actions/runs/$run_id/artifacts")
-          echo "$resp" | python3 -c '
-          import os, sys, json, subprocess
-          try:
-              data = json.load(sys.stdin)
-          except Exception:
-              sys.exit(0)
-          arts = [a for a in data.get("artifacts", []) if "github-pages" in a.get("name", "")]
-          repo = os.environ.get("REPO")
-          token = os.environ.get("TOKEN")
-          for a in arts:
-              aid = a["id"]
-              print(f"Deleting existing artifact {aid}...")
-              subprocess.call([
-                  "curl", "-s", "-X", "DELETE",
-                  "-H", f"Authorization: Bearer {token}",
-                  "-H", "Accept: application/vnd.github+json",
-                  f"https://api.github.com/repos/{repo}/actions/artifacts/{aid}"
-              ])
-          print("Cleanup complete.")
-          '
-        env:
-          REPO: ${{ github.repository }}
-          TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v5
-        with:
-          path: _site
-
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v5

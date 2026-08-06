@@ -22,7 +22,7 @@ version. Never approve solely from fuzzy similarity.
 ## Advisor unavailable
 
 Run `python scripts/check_gemini_keys.py`. Set `GEMINI_API_KEY` or advisor pool
-keys in the server environment. GitHub Pages has no server-side secret runtime,
+keys in the server environment. Cloudflare Pages has no server-side secret runtime,
 so the browser uses deterministic local analysis there.
 
 ## Frontend data not found

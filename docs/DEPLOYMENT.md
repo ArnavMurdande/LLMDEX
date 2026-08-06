@@ -1,6 +1,6 @@
 # Deployment
 
-## GitHub Pages
+## Automated publication
 
 The `Daily LLM Benchmark Update + Deploy` workflow:
 
@@ -11,9 +11,9 @@ The `Daily LLM Benchmark Update + Deploy` workflow:
 5. Runs identity matching, representatives, consensus, badges, history, and
    quality.
 6. Validates publication contracts.
-7. Commits only meaningful generated changes.
-8. Packages website, required data, and docs.
-9. Deploys GitHub Pages.
+7. Commits only meaningful generated changes to `main`.
+8. Lets the Render and Cloudflare Pages Git integrations deploy that commit.
+9. Does not invoke the redundant GitHub Pages deployment queue.
 
 Manual publication:
 
@@ -32,14 +32,14 @@ Merge to `main` and run the workflow manually if needed.
 Timestamped raw source payloads under `data/raw/` are intentionally excluded
 from Git history and retained in the workflow's dataset archive artifact.
 
-## Render
+## Render and Cloudflare Pages
 
-`api_server.py` can run on Render for the server-side Advisor and API. Static
-GitHub Pages remains sufficient for leaderboards. Render cold starts can delay
-the Advisor/API but do not delay static datasets.
+`api_server.py` runs on Render for the server-side Advisor and API. Cloudflare
+Pages serves the static leaderboards. Render cold starts can delay the Advisor
+or API but do not delay Cloudflare's static datasets.
 
-The static GitHub Pages deployment intentionally uses the deterministic,
-dataset-grounded local Advisor and does not probe a nonexistent same-origin API.
+The static Cloudflare Pages deployment intentionally uses the deterministic,
+dataset-grounded local Advisor unless a separate API origin is configured.
 To connect a separately hosted, CORS-enabled backend, define the API origin
 before `app.js` loads:
 
