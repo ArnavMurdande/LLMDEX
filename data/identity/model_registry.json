@@ -723,6 +723,37 @@
       }
     }
   },
+  "alibaba/qwen3-8": {
+    "family_id": "alibaba/qwen3-8",
+    "canonical_family_name": "Qwen3.8",
+    "provider": "Alibaba",
+    "version": "3.8",
+    "source_aliases": {
+      "artificial_analysis": [
+        "Qwen3.8 Max"
+      ],
+      "llmstats": [
+        "Qwen3.8 Max"
+      ]
+    },
+    "source_ids": {},
+    "source_urls": {
+      "artificial_analysis": [
+        "https://artificialanalysis.ai/models/qwen3-8-max"
+      ]
+    },
+    "variants": {
+      "alibaba/qwen3-8:max": {
+        "variant_id": "alibaba/qwen3-8:max",
+        "deployment_profile_id": "alibaba/qwen3-8:max:deployment",
+        "source_name": "Qwen3.8 Max",
+        "reasoning_effort": "max",
+        "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": null
+      }
+    }
+  },
   "alibaba/qwen3-coder-next": {
     "family_id": "alibaba/qwen3-coder-next",
     "canonical_family_name": "Qwen3 Coder Next",
@@ -2892,6 +2923,35 @@
       }
     }
   },
+  "inclusionai/ling-3-0-flash": {
+    "family_id": "inclusionai/ling-3-0-flash",
+    "canonical_family_name": "Ling-3.0-flash",
+    "provider": "InclusionAI",
+    "version": "3.0",
+    "source_aliases": {
+      "artificial_analysis": [
+        "Ling-3.0-flash"
+      ],
+      "llmstats": []
+    },
+    "source_ids": {},
+    "source_urls": {
+      "artificial_analysis": [
+        "https://artificialanalysis.ai/models/ling-3-0-flash"
+      ]
+    },
+    "variants": {
+      "inclusionai/ling-3-0-flash:default": {
+        "variant_id": "inclusionai/ling-3-0-flash:default",
+        "deployment_profile_id": "inclusionai/ling-3-0-flash:default:deployment",
+        "source_name": "Ling-3.0-flash",
+        "reasoning_effort": null,
+        "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": null
+      }
+    }
+  },
   "inclusionai/ling-mini-2-0": {
     "family_id": "inclusionai/ling-mini-2-0",
     "canonical_family_name": "Ling-mini-2.0",
@@ -4020,6 +4080,35 @@
         "variant_id": "meta/muse-spark-1-1:xhigh",
         "deployment_profile_id": "meta/muse-spark-1-1:xhigh:deployment",
         "source_name": "Muse Spark 1.1 (xhigh)",
+        "reasoning_effort": "xhigh",
+        "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": null
+      }
+    }
+  },
+  "meta/muse-spark-1-2": {
+    "family_id": "meta/muse-spark-1-2",
+    "canonical_family_name": "Muse Spark 1.2",
+    "provider": "Meta",
+    "version": "1.2",
+    "source_aliases": {
+      "artificial_analysis": [
+        "Muse Spark 1.2 (xhigh)"
+      ],
+      "llmstats": []
+    },
+    "source_ids": {},
+    "source_urls": {
+      "artificial_analysis": [
+        "https://artificialanalysis.ai/models/muse-spark-1-2"
+      ]
+    },
+    "variants": {
+      "meta/muse-spark-1-2:xhigh": {
+        "variant_id": "meta/muse-spark-1-2:xhigh",
+        "deployment_profile_id": "meta/muse-spark-1-2:xhigh:deployment",
+        "source_name": "Muse Spark 1.2 (xhigh)",
         "reasoning_effort": "xhigh",
         "deployment_profile": [],
         "fallback_enabled": false,

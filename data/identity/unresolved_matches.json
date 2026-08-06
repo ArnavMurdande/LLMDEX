@@ -86,31 +86,6 @@
   },
   {
     "source": "llmstats",
-    "source_name": "Qwen3.8 Max",
-    "source_model_id": "qwen3.8-max",
-    "source_model_url": "https://llm-stats.com/models/qwen3.8-max",
-    "provider": "Alibaba",
-    "candidate_family_id": "alibaba/qwen3-7",
-    "candidate_family_name": "Qwen3.7",
-    "match_status": "identity_unresolved",
-    "match_confidence": 0.8,
-    "match_method": "fuzzy_review_candidate",
-    "review_reason": "Fuzzy candidates require manual approval and are excluded from scoring.",
-    "competing_candidates": [
-      {
-        "family_id": "alibaba/qwen3-7",
-        "family_name": "Qwen3.7",
-        "similarity": 0.8571
-      },
-      {
-        "family_id": "alibaba/qwen3-5-0-8b",
-        "family_name": "Qwen3.5 0.8B",
-        "similarity": 0.7368
-      }
-    ]
-  },
-  {
-    "source": "llmstats",
     "source_name": "Gemini 3 Pro",
     "source_model_id": "gemini-3-pro-preview",
     "source_model_url": "https://llm-stats.com/models/gemini-3-pro-preview",
@@ -278,6 +253,11 @@
         "similarity": 1.0
       },
       {
+        "family_id": "meta/muse-spark-1-2",
+        "family_name": "Muse Spark 1.2",
+        "similarity": 0.9286
+      },
+      {
         "family_id": "meta/muse-spark",
         "family_name": "Muse Spark",
         "similarity": 0.8333
@@ -336,6 +316,11 @@
         "family_id": "google/gemini-3-1-flash-lite",
         "family_name": "Gemini 3.1 Flash-Lite",
         "similarity": 0.8108
+      },
+      {
+        "family_id": "inclusionai/ling-3-0-flash",
+        "family_name": "Ling-3.0-flash",
+        "similarity": 0.7333
       }
     ]
   },
@@ -393,8 +378,8 @@
         "similarity": 0.8108
       },
       {
-        "family_id": "inclusionai/ling-2-6-flash",
-        "family_name": "Ling 2.6 Flash",
+        "family_id": "inclusionai/ling-3-0-flash",
+        "family_name": "Ling-3.0-flash",
         "similarity": 0.7333
       }
     ]
