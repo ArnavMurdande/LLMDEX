@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-08-07T11:24:26.912531+00:00",
+  "generated_at": "2026-08-08T11:02:53.615832+00:00",
   "methodology_version": "LLMDEX General Consensus v1",
-  "status": "healthy",
+  "status": "degraded",
   "sources": {
     "artificial_analysis": {
       "source": "Artificial Analysis",
       "status": "healthy",
-      "rows_scraped": 265,
+      "rows_scraped": 250,
       "expected_range": [
         150,
         500
@@ -15,10 +15,10 @@
       "warnings": [
         "Health synthesized from the current validated publication."
       ],
-      "last_successful_update": "2026-08-07T11:24:26.912531+00:00",
+      "last_successful_update": "2026-08-08T11:02:53.615832+00:00",
       "schema_changes": [],
       "error_message": null,
-      "timestamp": "2026-08-07T11:24:26.912531+00:00",
+      "timestamp": "2026-08-08T11:02:53.615832+00:00",
       "snapshot_age_hours": 0.0
     },
     "llmstats": {
@@ -28,30 +28,36 @@
         20,
         250
       ],
-      "status": "healthy",
-      "error_message": null,
-      "duration_seconds": 21.932,
-      "timestamp": "2026-08-07T11:24:48.851791+00:00",
+      "status": "degraded",
+      "error_message": "No valid public leaderboard rows were extracted.",
+      "duration_seconds": 18.61,
+      "timestamp": "2026-08-08T11:03:12.232385+00:00",
       "parse_warning_count": 0,
-      "warnings": [],
-      "last_successful_update": "2026-08-07T11:24:48.851791+00:00",
-      "schema_changes": [],
-      "snapshot_age_hours": 0.0
+      "warnings": [
+        "Live extraction failed; serving the last-known-good LLMStats snapshot."
+      ],
+      "last_successful_update": "2026-08-07T11:24:48.851161+00:00",
+      "schema_changes": [
+        "Missing required columns: LLM Stats, Model, Organization"
+      ],
+      "snapshot_age_hours": 23.634656853055557
     }
   },
   "counts": {
-    "matched_families": 15,
-    "aa_only_families": 148,
-    "llmstats_only_families": 26,
-    "identity_review_count": 72,
+    "matched_families": 12,
+    "aa_only_families": 140,
+    "llmstats_only_families": 29,
+    "identity_review_count": 70,
     "ambiguous_match_count": 5,
-    "consensus_scored_families": 15
+    "consensus_scored_families": 12
   },
   "missing_benchmark_counts": {
-    "aa_intelligence": 74,
-    "llmstats_general": 231,
-    "aa_official_coding_index": 73,
-    "llmstats_coding": 221
+    "aa_intelligence": 76,
+    "llmstats_general": 221,
+    "aa_official_coding_index": 76,
+    "llmstats_coding": 211
   },
-  "warnings": []
+  "warnings": [
+    "LLMStats is degraded."
+  ]
 }

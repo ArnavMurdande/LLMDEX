@@ -630,68 +630,6 @@
       }
     }
   },
-  "alibaba/qwen3-6-plus": {
-    "family_id": "alibaba/qwen3-6-plus",
-    "canonical_family_name": "Qwen3.6 Plus",
-    "provider": "Alibaba",
-    "version": "3.6",
-    "source_aliases": {
-      "artificial_analysis": [
-        "Qwen3.6 Plus"
-      ],
-      "llmstats": [
-        "Qwen3.6 Plus"
-      ]
-    },
-    "source_ids": {},
-    "source_urls": {
-      "artificial_analysis": [
-        "https://artificialanalysis.ai/models/qwen3-6-plus"
-      ]
-    },
-    "variants": {
-      "alibaba/qwen3-6-plus:default": {
-        "variant_id": "alibaba/qwen3-6-plus:default",
-        "deployment_profile_id": "alibaba/qwen3-6-plus:default:deployment",
-        "source_name": "Qwen3.6 Plus",
-        "reasoning_effort": null,
-        "deployment_profile": [],
-        "fallback_enabled": false,
-        "parameter_count": null
-      }
-    }
-  },
-  "alibaba/qwen3-7": {
-    "family_id": "alibaba/qwen3-7",
-    "canonical_family_name": "Qwen3.7",
-    "provider": "Alibaba",
-    "version": "3.7",
-    "source_aliases": {
-      "artificial_analysis": [
-        "Qwen3.7 Max"
-      ],
-      "llmstats": [
-        "Qwen3.7 Max"
-      ]
-    },
-    "source_ids": {},
-    "source_urls": {
-      "artificial_analysis": [
-        "https://artificialanalysis.ai/models/qwen3-7-max"
-      ]
-    },
-    "variants": {
-      "alibaba/qwen3-7:max": {
-        "variant_id": "alibaba/qwen3-7:max",
-        "deployment_profile_id": "alibaba/qwen3-7:max:deployment",
-        "source_name": "Qwen3.7 Max",
-        "reasoning_effort": "max",
-        "deployment_profile": [],
-        "fallback_enabled": false,
-        "parameter_count": null
-      }
-    }
-  },
   "alibaba/qwen3-7-plus": {
     "family_id": "alibaba/qwen3-7-plus",
     "canonical_family_name": "Qwen3.7 Plus",
@@ -2083,64 +2021,6 @@
       }
     }
   },
-  "google/gemini-2-5-pro": {
-    "family_id": "google/gemini-2-5-pro",
-    "canonical_family_name": "Gemini 2.5 Pro",
-    "provider": "Google",
-    "version": "2.5",
-    "source_aliases": {
-      "artificial_analysis": [
-        "Gemini 2.5 Pro"
-      ],
-      "llmstats": []
-    },
-    "source_ids": {},
-    "source_urls": {
-      "artificial_analysis": [
-        "https://artificialanalysis.ai/models/gemini-2-5-pro"
-      ]
-    },
-    "variants": {
-      "google/gemini-2-5-pro:default": {
-        "variant_id": "google/gemini-2-5-pro:default",
-        "deployment_profile_id": "google/gemini-2-5-pro:default:deployment",
-        "source_name": "Gemini 2.5 Pro",
-        "reasoning_effort": null,
-        "deployment_profile": [],
-        "fallback_enabled": false,
-        "parameter_count": null
-      }
-    }
-  },
-  "google/gemini-3-1-flash-lite": {
-    "family_id": "google/gemini-3-1-flash-lite",
-    "canonical_family_name": "Gemini 3.1 Flash-Lite",
-    "provider": "Google",
-    "version": "3.1",
-    "source_aliases": {
-      "artificial_analysis": [
-        "Gemini 3.1 Flash-Lite"
-      ],
-      "llmstats": []
-    },
-    "source_ids": {},
-    "source_urls": {
-      "artificial_analysis": [
-        "https://artificialanalysis.ai/models/gemini-3-1-flash-lite-preview"
-      ]
-    },
-    "variants": {
-      "google/gemini-3-1-flash-lite:default": {
-        "variant_id": "google/gemini-3-1-flash-lite:default",
-        "deployment_profile_id": "google/gemini-3-1-flash-lite:default:deployment",
-        "source_name": "Gemini 3.1 Flash-Lite",
-        "reasoning_effort": null,
-        "deployment_profile": [],
-        "fallback_enabled": false,
-        "parameter_count": null
-      }
-    }
-  },
   "google/gemini-3-1-pro-preview": {
     "family_id": "google/gemini-3-1-pro-preview",
     "canonical_family_name": "Gemini 3.1 Pro Preview",
@@ -2181,7 +2061,6 @@
     "version": "3.5",
     "source_aliases": {
       "artificial_analysis": [
-        "Gemini 3.5 Flash",
         "Gemini 3.5 Flash (medium)",
         "Gemini 3.5 Flash (minimal)"
       ],
@@ -2190,26 +2069,25 @@
     "source_ids": {},
     "source_urls": {
       "artificial_analysis": [
-        "https://artificialanalysis.ai/models/gemini-3-5-flash",
         "https://artificialanalysis.ai/models/gemini-3-5-flash-medium",
         "https://artificialanalysis.ai/models/gemini-3-5-flash-minimal"
       ]
     },
     "variants": {
-      "google/gemini-3-5-flash:default": {
-        "variant_id": "google/gemini-3-5-flash:default",
-        "deployment_profile_id": "google/gemini-3-5-flash:default:deployment",
-        "source_name": "Gemini 3.5 Flash (minimal)",
-        "reasoning_effort": null,
-        "deployment_profile": [],
-        "fallback_enabled": false,
-        "parameter_count": null
-      },
       "google/gemini-3-5-flash:medium": {
         "variant_id": "google/gemini-3-5-flash:medium",
         "deployment_profile_id": "google/gemini-3-5-flash:medium:deployment",
         "source_name": "Gemini 3.5 Flash (medium)",
         "reasoning_effort": "medium",
+        "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": null
+      },
+      "google/gemini-3-5-flash:default": {
+        "variant_id": "google/gemini-3-5-flash:default",
+        "deployment_profile_id": "google/gemini-3-5-flash:default:deployment",
+        "source_name": "Gemini 3.5 Flash (minimal)",
+        "reasoning_effort": null,
         "deployment_profile": [],
         "fallback_enabled": false,
         "parameter_count": null
@@ -2865,72 +2743,14 @@
       }
     }
   },
-  "inclusionai/ling-2-6-1t": {
-    "family_id": "inclusionai/ling-2-6-1t",
-    "canonical_family_name": "Ling-2.6-1T",
-    "provider": "InclusionAI",
-    "version": "2.6",
-    "source_aliases": {
-      "artificial_analysis": [
-        "Ling-2.6-1T"
-      ],
-      "llmstats": []
-    },
-    "source_ids": {},
-    "source_urls": {
-      "artificial_analysis": [
-        "https://artificialanalysis.ai/models/ling-2-6-1t"
-      ]
-    },
-    "variants": {
-      "inclusionai/ling-2-6-1t:default": {
-        "variant_id": "inclusionai/ling-2-6-1t:default",
-        "deployment_profile_id": "inclusionai/ling-2-6-1t:default:deployment",
-        "source_name": "Ling-2.6-1T",
-        "reasoning_effort": null,
-        "deployment_profile": [],
-        "fallback_enabled": false,
-        "parameter_count": null
-      }
-    }
-  },
-  "inclusionai/ling-2-6-flash": {
-    "family_id": "inclusionai/ling-2-6-flash",
-    "canonical_family_name": "Ling 2.6 Flash",
-    "provider": "InclusionAI",
-    "version": "2.6",
-    "source_aliases": {
-      "artificial_analysis": [
-        "Ling 2.6 Flash"
-      ],
-      "llmstats": []
-    },
-    "source_ids": {},
-    "source_urls": {
-      "artificial_analysis": [
-        "https://artificialanalysis.ai/models/ling-2-6-flash"
-      ]
-    },
-    "variants": {
-      "inclusionai/ling-2-6-flash:default": {
-        "variant_id": "inclusionai/ling-2-6-flash:default",
-        "deployment_profile_id": "inclusionai/ling-2-6-flash:default:deployment",
-        "source_name": "Ling 2.6 Flash",
-        "reasoning_effort": null,
-        "deployment_profile": [],
-        "fallback_enabled": false,
-        "parameter_count": null
-      }
-    }
-  },
   "inclusionai/ling-3-0-flash": {
     "family_id": "inclusionai/ling-3-0-flash",
-    "canonical_family_name": "Ling-3.0-flash",
+    "canonical_family_name": "Ling 3.0 Flash",
     "provider": "InclusionAI",
     "version": "3.0",
     "source_aliases": {
       "artificial_analysis": [
-        "Ling-3.0-flash"
+        "Ling 3.0 Flash"
       ],
       "llmstats": []
     },
@@ -2944,7 +2764,7 @@
       "inclusionai/ling-3-0-flash:default": {
         "variant_id": "inclusionai/ling-3-0-flash:default",
         "deployment_profile_id": "inclusionai/ling-3-0-flash:default:deployment",
-        "source_name": "Ling-3.0-flash",
+        "source_name": "Ling 3.0 Flash",
         "reasoning_effort": null,
         "deployment_profile": [],
         "fallback_enabled": false,
@@ -2966,7 +2786,7 @@
     "source_ids": {},
     "source_urls": {
       "artificial_analysis": [
-        "https://artificialanalysis.ai/models/ling-3-0-tiny-rc2"
+        "https://artificialanalysis.ai/models/ling-3-0-tiny"
       ]
     },
     "variants": {
@@ -2974,35 +2794,6 @@
         "variant_id": "inclusionai/ling-3-0-tiny:default",
         "deployment_profile_id": "inclusionai/ling-3-0-tiny:default:deployment",
         "source_name": "Ling 3.0 Tiny",
-        "reasoning_effort": null,
-        "deployment_profile": [],
-        "fallback_enabled": false,
-        "parameter_count": null
-      }
-    }
-  },
-  "inclusionai/ling-mini-2-0": {
-    "family_id": "inclusionai/ling-mini-2-0",
-    "canonical_family_name": "Ling-mini-2.0",
-    "provider": "InclusionAI",
-    "version": "2.0",
-    "source_aliases": {
-      "artificial_analysis": [
-        "Ling-mini-2.0"
-      ],
-      "llmstats": []
-    },
-    "source_ids": {},
-    "source_urls": {
-      "artificial_analysis": [
-        "https://artificialanalysis.ai/models/ling-mini-2-0"
-      ]
-    },
-    "variants": {
-      "inclusionai/ling-mini-2-0:default": {
-        "variant_id": "inclusionai/ling-mini-2-0:default",
-        "deployment_profile_id": "inclusionai/ling-mini-2-0:default:deployment",
-        "source_name": "Ling-mini-2.0",
         "reasoning_effort": null,
         "deployment_profile": [],
         "fallback_enabled": false,
@@ -3063,37 +2854,6 @@
         "source_name": "Ring-flash-2.0",
         "reasoning_effort": null,
         "deployment_profile": [],
-        "fallback_enabled": false,
-        "parameter_count": null
-      }
-    }
-  },
-  "kimi/kimi-k2-6": {
-    "family_id": "kimi/kimi-k2-6",
-    "canonical_family_name": "Kimi K2.6",
-    "provider": "Kimi",
-    "version": "2.6",
-    "source_aliases": {
-      "artificial_analysis": [
-        "Kimi K2.6 (non-reasoning)"
-      ],
-      "llmstats": []
-    },
-    "source_ids": {},
-    "source_urls": {
-      "artificial_analysis": [
-        "https://artificialanalysis.ai/models/kimi-k2-6-non-reasoning"
-      ]
-    },
-    "variants": {
-      "kimi/kimi-k2-6:non-reasoning": {
-        "variant_id": "kimi/kimi-k2-6:non-reasoning",
-        "deployment_profile_id": "kimi/kimi-k2-6:non-reasoning:deployment",
-        "source_name": "Kimi K2.6 (non-reasoning)",
-        "reasoning_effort": null,
-        "deployment_profile": [
-          "non-reasoning"
-        ],
         "fallback_enabled": false,
         "parameter_count": null
       }
@@ -3224,66 +2984,6 @@
         "variant_id": "korea-telecom/mi-dm-k-2-5-pro:default",
         "deployment_profile_id": "korea-telecom/mi-dm-k-2-5-pro:default:deployment",
         "source_name": "Mi:dm K 2.5 Pro",
-        "reasoning_effort": null,
-        "deployment_profile": [],
-        "fallback_enabled": false,
-        "parameter_count": null
-      }
-    }
-  },
-  "korea-telecom/mi-dm-k-2-5-pro-preview": {
-    "family_id": "korea-telecom/mi-dm-k-2-5-pro-preview",
-    "canonical_family_name": "Mi:dm K 2.5 Pro Preview",
-    "provider": "Korea Telecom",
-    "version": "2.5",
-    "source_aliases": {
-      "artificial_analysis": [
-        "Mi:dm K 2.5 Pro Preview"
-      ],
-      "llmstats": []
-    },
-    "source_ids": {},
-    "source_urls": {
-      "artificial_analysis": [
-        "https://artificialanalysis.ai/models/midm-250-pro-rsnsft"
-      ]
-    },
-    "variants": {
-      "korea-telecom/mi-dm-k-2-5-pro-preview:preview": {
-        "variant_id": "korea-telecom/mi-dm-k-2-5-pro-preview:preview",
-        "deployment_profile_id": "korea-telecom/mi-dm-k-2-5-pro-preview:preview:deployment",
-        "source_name": "Mi:dm K 2.5 Pro Preview",
-        "reasoning_effort": null,
-        "deployment_profile": [
-          "preview"
-        ],
-        "fallback_enabled": false,
-        "parameter_count": null
-      }
-    }
-  },
-  "kwaikat/kat-coder-pro-v1": {
-    "family_id": "kwaikat/kat-coder-pro-v1",
-    "canonical_family_name": "KAT-Coder-Pro V1",
-    "provider": "KwaiKAT",
-    "version": null,
-    "source_aliases": {
-      "artificial_analysis": [
-        "KAT-Coder-Pro V1"
-      ],
-      "llmstats": []
-    },
-    "source_ids": {},
-    "source_urls": {
-      "artificial_analysis": [
-        "https://artificialanalysis.ai/models/kat-coder-pro-v1"
-      ]
-    },
-    "variants": {
-      "kwaikat/kat-coder-pro-v1:default": {
-        "variant_id": "kwaikat/kat-coder-pro-v1:default",
-        "deployment_profile_id": "kwaikat/kat-coder-pro-v1:default:deployment",
-        "source_name": "KAT-Coder-Pro V1",
         "reasoning_effort": null,
         "deployment_profile": [],
         "fallback_enabled": false,
@@ -4050,66 +3750,6 @@
         "deployment_profile_id": "meta/llama-4-scout:default:deployment",
         "source_name": "Llama 4 Scout",
         "reasoning_effort": null,
-        "deployment_profile": [],
-        "fallback_enabled": false,
-        "parameter_count": null
-      }
-    }
-  },
-  "meta/muse-spark": {
-    "family_id": "meta/muse-spark",
-    "canonical_family_name": "Muse Spark",
-    "provider": "Meta",
-    "version": null,
-    "source_aliases": {
-      "artificial_analysis": [
-        "Muse Spark"
-      ],
-      "llmstats": [
-        "Muse Spark"
-      ]
-    },
-    "source_ids": {},
-    "source_urls": {
-      "artificial_analysis": [
-        "https://artificialanalysis.ai/models/muse-spark"
-      ]
-    },
-    "variants": {
-      "meta/muse-spark:default": {
-        "variant_id": "meta/muse-spark:default",
-        "deployment_profile_id": "meta/muse-spark:default:deployment",
-        "source_name": "Muse Spark",
-        "reasoning_effort": null,
-        "deployment_profile": [],
-        "fallback_enabled": false,
-        "parameter_count": null
-      }
-    }
-  },
-  "meta/muse-spark-1-1": {
-    "family_id": "meta/muse-spark-1-1",
-    "canonical_family_name": "Muse Spark 1.1",
-    "provider": "Meta",
-    "version": "1.1",
-    "source_aliases": {
-      "artificial_analysis": [
-        "Muse Spark 1.1 (xhigh)"
-      ],
-      "llmstats": []
-    },
-    "source_ids": {},
-    "source_urls": {
-      "artificial_analysis": [
-        "https://artificialanalysis.ai/models/muse-spark-1-1"
-      ]
-    },
-    "variants": {
-      "meta/muse-spark-1-1:xhigh": {
-        "variant_id": "meta/muse-spark-1-1:xhigh",
-        "deployment_profile_id": "meta/muse-spark-1-1:xhigh:deployment",
-        "source_name": "Muse Spark 1.1 (xhigh)",
-        "reasoning_effort": "xhigh",
         "deployment_profile": [],
         "fallback_enabled": false,
         "parameter_count": null
@@ -5064,6 +4704,35 @@
       }
     }
   },
+  "nvidia/nemotron-3-super": {
+    "family_id": "nvidia/nemotron-3-super",
+    "canonical_family_name": "Nemotron 3 Super",
+    "provider": "NVIDIA",
+    "version": null,
+    "source_aliases": {
+      "artificial_analysis": [
+        "Nemotron 3 Super"
+      ],
+      "llmstats": []
+    },
+    "source_ids": {},
+    "source_urls": {
+      "artificial_analysis": [
+        "https://artificialanalysis.ai/models/nvidia-nemotron-3-super-120b-a12b"
+      ]
+    },
+    "variants": {
+      "nvidia/nemotron-3-super:default": {
+        "variant_id": "nvidia/nemotron-3-super:default",
+        "deployment_profile_id": "nvidia/nemotron-3-super:default:deployment",
+        "source_name": "Nemotron 3 Super",
+        "reasoning_effort": null,
+        "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": null
+      }
+    }
+  },
   "nvidia/nemotron-3-ultra": {
     "family_id": "nvidia/nemotron-3-ultra",
     "canonical_family_name": "Nemotron 3 Ultra",
@@ -5196,35 +4865,6 @@
           "total_billions": 4.0,
           "active_billions": null
         }
-      }
-    }
-  },
-  "nvidia/nvidia-nemotron-3-super": {
-    "family_id": "nvidia/nvidia-nemotron-3-super",
-    "canonical_family_name": "NVIDIA Nemotron 3 Super",
-    "provider": "NVIDIA",
-    "version": null,
-    "source_aliases": {
-      "artificial_analysis": [
-        "NVIDIA Nemotron 3 Super"
-      ],
-      "llmstats": []
-    },
-    "source_ids": {},
-    "source_urls": {
-      "artificial_analysis": [
-        "https://artificialanalysis.ai/models/nvidia-nemotron-3-super-120b-a12b"
-      ]
-    },
-    "variants": {
-      "nvidia/nvidia-nemotron-3-super:default": {
-        "variant_id": "nvidia/nvidia-nemotron-3-super:default",
-        "deployment_profile_id": "nvidia/nvidia-nemotron-3-super:default:deployment",
-        "source_name": "NVIDIA Nemotron 3 Super",
-        "reasoning_effort": null,
-        "deployment_profile": [],
-        "fallback_enabled": false,
-        "parameter_count": null
       }
     }
   },
@@ -6321,51 +5961,6 @@
         "source_name": "Hy3",
         "reasoning_effort": null,
         "deployment_profile": [],
-        "fallback_enabled": false,
-        "parameter_count": null
-      }
-    }
-  },
-  "tencent/hy3-preview": {
-    "family_id": "tencent/hy3-preview",
-    "canonical_family_name": "Hy3-preview",
-    "provider": "Tencent",
-    "version": null,
-    "source_aliases": {
-      "artificial_analysis": [
-        "Hy3-preview",
-        "Hy3-preview (non-reasoning)"
-      ],
-      "llmstats": []
-    },
-    "source_ids": {},
-    "source_urls": {
-      "artificial_analysis": [
-        "https://artificialanalysis.ai/models/hy3-non-reasoning",
-        "https://artificialanalysis.ai/models/hy3-preview"
-      ]
-    },
-    "variants": {
-      "tencent/hy3-preview:preview": {
-        "variant_id": "tencent/hy3-preview:preview",
-        "deployment_profile_id": "tencent/hy3-preview:preview:deployment",
-        "source_name": "Hy3-preview",
-        "reasoning_effort": null,
-        "deployment_profile": [
-          "preview"
-        ],
-        "fallback_enabled": false,
-        "parameter_count": null
-      },
-      "tencent/hy3-preview:non-reasoning-preview": {
-        "variant_id": "tencent/hy3-preview:non-reasoning-preview",
-        "deployment_profile_id": "tencent/hy3-preview:non-reasoning-preview:deployment",
-        "source_name": "Hy3-preview (non-reasoning)",
-        "reasoning_effort": null,
-        "deployment_profile": [
-          "non-reasoning",
-          "preview"
-        ],
         "fallback_enabled": false,
         "parameter_count": null
       }
