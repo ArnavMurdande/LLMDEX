@@ -43,7 +43,7 @@ const METRIC_HELP = {
     definition:
       "An LLMDEX-derived ranking balancing model performance, listed API cost, and measured generation speed.",
     formula:
-      "50% performance + 30% cost efficiency + 20% generation speed. Missing components are reweighted proportionally.",
+      "Performance and price are required. Speed is optional; when unavailable, its weight is redistributed proportionally between performance and cost.",
     sources:
       "Artificial Analysis observations processed by LLMDEX.",
     limitations:
@@ -4539,7 +4539,7 @@ function resolveColumnExplanation(btn, columnDefs = window.__columnDefs || {}) {
           "Performance relative to the model's listed blended API price, normalized across eligible models.",
         formula: "Performance divided by blended listed API cost, converted to a percentile rank.",
         sources: "Artificial Analysis performance and pricing observations; LLMDEX-derived ranking",
-        limitations: "Self-hosting, hardware, electricity, and operational costs are excluded. Models with zero listed API price receive top efficiency rank.",
+        limitations: "Self-hosting, hardware, electricity, and operational costs are excluded. Models without a valid listed API price are excluded from efficiency ranking.",
       },
       confidence: {
         label: "Confidence Factor",
