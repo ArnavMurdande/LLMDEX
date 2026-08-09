@@ -1,26 +1,26 @@
 [
   {
-    "community_sentiment": -0.3825,
+    "community_sentiment": -0.0544,
     "mention_count": 21,
-    "controversy_index": 0.1765,
-    "sentiment_trend": "negative",
-    "confidence_score": 0.57,
+    "controversy_index": 0.4286,
+    "sentiment_trend": "stable",
+    "confidence_score": 0.23,
     "sentiment_method": "gemini",
-    "valid_posts": 17,
+    "valid_posts": 7,
     "strong_praise_count": 1,
     "strong_criticism_count": 2,
     "model_name": "Claude Opus 5",
-    "scraped_at": "2026-08-09T11:07:07.067873+00:00",
+    "scraped_at": "2026-08-09T21:51:38.212682+00:00",
     "_experimental": true,
     "source_counts": {
-      "HackerNews": 19,
-      "Reddit": 2
+      "Reddit": 2,
+      "HackerNews": 19
     },
     "community_examples": [
       {
         "source": "Hacker News",
-        "text": "Show HN: Impressive turn-based RPG prototype built with Opus 5 in 20 min Claude Opus 5 definitely feels a lot closer to the original Fable 5 release. With minimal instructions and about 2 iterations of feedback, I am...",
-        "url": "https://news.ycombinator.com/item?id=49046504"
+        "text": "Why I prefer Opus 5 to Fable 5 I've been experimenting with both since the moment each came out. 4 games, 3 websites and 2 content creation engines later - I think I'm ready to share a bit of my experience and...",
+        "url": "https://news.ycombinator.com/item?id=49081970"
       },
       {
         "source": "Hacker News",
@@ -28,16 +28,16 @@
         "url": "https://news.ycombinator.com/item?id=49101543"
       },
       {
-        "source": "Reddit",
-        "text": "[Workflow] Structured CLAUDE.md for Effective Claude Opus 5 Interaction: Improving Code Explanations and Workflow Structured CLAUDE.md for Effective Claude Opus 5 Interaction: Improving Code Explanations and Workflow...",
-        "url": "https://www.reddit.com/r/ClaudeWorkflows/comments/1vicruz/workflow_structured_claudemd_for_effective_claude/"
+        "source": "Hacker News",
+        "text": "I sent Claude Opus 5 '\u2013-' and it wrote me 5k tokens about a cartographer",
+        "url": "https://news.ycombinator.com/item?id=49089689"
       }
     ],
     "top_quotes": [
       {
         "source": "Hacker News",
-        "text": "Show HN: Impressive turn-based RPG prototype built with Opus 5 in 20 min Claude Opus 5 definitely feels a lot closer to the original Fable 5 release. With minimal instructions and about 2 iterations of feedback, I am...",
-        "url": "https://news.ycombinator.com/item?id=49046504"
+        "text": "Why I prefer Opus 5 to Fable 5 I've been experimenting with both since the moment each came out. 4 games, 3 websites and 2 content creation engines later - I think I'm ready to share a bit of my experience and...",
+        "url": "https://news.ycombinator.com/item?id=49081970"
       },
       {
         "source": "Hacker News",
@@ -45,9 +45,9 @@
         "url": "https://news.ycombinator.com/item?id=49101543"
       },
       {
-        "source": "Reddit",
-        "text": "[Workflow] Structured CLAUDE.md for Effective Claude Opus 5 Interaction: Improving Code Explanations and Workflow Structured CLAUDE.md for Effective Claude Opus 5 Interaction: Improving Code Explanations and Workflow...",
-        "url": "https://www.reddit.com/r/ClaudeWorkflows/comments/1vicruz/workflow_structured_claudemd_for_effective_claude/"
+        "source": "Hacker News",
+        "text": "I sent Claude Opus 5 '\u2013-' and it wrote me 5k tokens about a cartographer",
+        "url": "https://news.ycombinator.com/item?id=49089689"
       }
     ]
   },
@@ -62,7 +62,7 @@
     "strong_praise_count": 2,
     "strong_criticism_count": 1,
     "model_name": "Claude Fable 5",
-    "scraped_at": "2026-08-09T11:07:11.241051+00:00",
+    "scraped_at": "2026-08-09T21:51:43.140185+00:00",
     "_experimental": true,
     "source_counts": {
       "HackerNews": 20
@@ -104,7 +104,7 @@
   },
   {
     "community_sentiment": -0.0851,
-    "mention_count": 17,
+    "mention_count": 16,
     "controversy_index": 0.25,
     "sentiment_trend": "stable",
     "confidence_score": 0.25,
@@ -113,10 +113,10 @@
     "strong_praise_count": 1,
     "strong_criticism_count": 1,
     "model_name": "GPT-5.6 Sol",
-    "scraped_at": "2026-08-09T11:07:14.670807+00:00",
+    "scraped_at": "2026-08-09T21:51:49.568187+00:00",
     "_experimental": true,
     "source_counts": {
-      "HackerNews": 17
+      "HackerNews": 16
     },
     "community_examples": [
       {
@@ -164,7 +164,7 @@
     "strong_praise_count": 0,
     "strong_criticism_count": 0,
     "model_name": "Kimi K3",
-    "scraped_at": "2026-08-09T11:07:18.850912+00:00",
+    "scraped_at": "2026-08-09T21:51:54.476068+00:00",
     "_experimental": true,
     "source_counts": {
       "HackerNews": 23
@@ -205,17 +205,14 @@
     ]
   },
   {
-    "community_sentiment": 0.8473,
+    "community_sentiment": 0.3099,
     "mention_count": 5,
-    "controversy_index": 1.0,
+    "controversy_index": 0.0,
     "sentiment_trend": "positive",
-    "confidence_score": 0.07,
-    "sentiment_method": "gemini",
-    "valid_posts": 2,
-    "strong_praise_count": 2,
-    "strong_criticism_count": 0,
+    "confidence_score": 0.17,
+    "sentiment_method": "vader_fallback",
     "model_name": "Qwen3.8 Max",
-    "scraped_at": "2026-08-09T11:07:19.977095+00:00",
+    "scraped_at": "2026-08-09T21:53:24.491456+00:00",
     "_experimental": true,
     "source_counts": {
       "HackerNews": 5
@@ -230,6 +227,11 @@
         "source": "Hacker News",
         "text": "Qwen3.8-Max: A New Bar for Coding and Cowork",
         "url": "https://news.ycombinator.com/item?id=49150470"
+      },
+      {
+        "source": "Hacker News",
+        "text": "Qwen3.8 Max Intelligence, Performance and Price Analysis",
+        "url": "https://news.ycombinator.com/item?id=49197499"
       }
     ],
     "top_quotes": [
@@ -242,32 +244,31 @@
         "source": "Hacker News",
         "text": "Qwen3.8-Max: A New Bar for Coding and Cowork",
         "url": "https://news.ycombinator.com/item?id=49150470"
+      },
+      {
+        "source": "Hacker News",
+        "text": "Qwen3.8 Max Intelligence, Performance and Price Analysis",
+        "url": "https://news.ycombinator.com/item?id=49197499"
       }
     ]
   },
   {
-    "community_sentiment": 0.4,
-    "mention_count": 12,
-    "controversy_index": 0.5,
-    "sentiment_trend": "positive",
-    "confidence_score": 0.07,
+    "community_sentiment": 0.0,
+    "mention_count": 5,
+    "controversy_index": 0.0,
+    "sentiment_trend": "stable",
+    "confidence_score": 0.03,
     "sentiment_method": "gemini",
-    "valid_posts": 2,
-    "strong_praise_count": 1,
+    "valid_posts": 1,
+    "strong_praise_count": 0,
     "strong_criticism_count": 0,
     "model_name": "Muse Spark 1.2",
-    "scraped_at": "2026-08-09T11:07:21.959806+00:00",
+    "scraped_at": "2026-08-09T21:53:25.644197+00:00",
     "_experimental": true,
     "source_counts": {
-      "HackerNews": 5,
-      "Reddit": 7
+      "HackerNews": 5
     },
     "community_examples": [
-      {
-        "source": "Reddit",
-        "text": "\"Muse Spark 1.2 just cracked the top 5 on the Vals Index, at just $0.69 per test. This is 3x cheaper than Kimi and 10x or more cheaper than Fable, Opus, and 5.6 Sol.\" Compared to Muse Spark 1.1, v1.2 improved 3.5...",
-        "url": "https://www.reddit.com/r/ProAI/comments/1vh2i0n/muse_spark_12_just_cracked_the_top_5_on_the_vals/"
-      },
       {
         "source": "Hacker News",
         "text": "Muse Spark 1.2: Improved Agentic Performance at Higher Cost per Task",
@@ -276,11 +277,6 @@
     ],
     "top_quotes": [
       {
-        "source": "Reddit",
-        "text": "\"Muse Spark 1.2 just cracked the top 5 on the Vals Index, at just $0.69 per test. This is 3x cheaper than Kimi and 10x or more cheaper than Fable, Opus, and 5.6 Sol.\" Compared to Muse Spark 1.1, v1.2 improved 3.5...",
-        "url": "https://www.reddit.com/r/ProAI/comments/1vh2i0n/muse_spark_12_just_cracked_the_top_5_on_the_vals/"
-      },
-      {
         "source": "Hacker News",
         "text": "Muse Spark 1.2: Improved Agentic Performance at Higher Cost per Task",
         "url": "https://news.ycombinator.com/item?id=49193082"
@@ -288,20 +284,36 @@
     ]
   },
   {
-    "community_sentiment": null,
-    "mention_count": 2,
-    "controversy_index": null,
-    "sentiment_trend": null,
-    "confidence_score": 0,
+    "community_sentiment": -0.5,
+    "mention_count": 3,
+    "controversy_index": 0.0,
+    "sentiment_trend": "negative",
+    "confidence_score": 0.03,
     "sentiment_method": "gemini",
+    "valid_posts": 1,
+    "strong_praise_count": 0,
+    "strong_criticism_count": 0,
     "model_name": "GPT-5.6 Terra",
-    "scraped_at": "2026-08-09T11:07:22.623152+00:00",
+    "scraped_at": "2026-08-09T21:53:26.450080+00:00",
     "_experimental": true,
     "source_counts": {
+      "Reddit": 1,
       "HackerNews": 2
     },
-    "community_examples": [],
-    "top_quotes": []
+    "community_examples": [
+      {
+        "source": "Reddit",
+        "text": "An Empirical Comparision of Claude Pro and ChatGPT Plus Pulled the Artificial Analysis numbers because every thread on this is vibes and no data. Opus 5 beats GPT-5.6 Sol on intelligence, 61 vs 59, which is basically...",
+        "url": "https://www.reddit.com/r/ClaudeCode/comments/1vh143f/an_empirical_comparision_of_claude_pro_and/"
+      }
+    ],
+    "top_quotes": [
+      {
+        "source": "Reddit",
+        "text": "An Empirical Comparision of Claude Pro and ChatGPT Plus Pulled the Artificial Analysis numbers because every thread on this is vibes and no data. Opus 5 beats GPT-5.6 Sol on intelligence, 61 vs 59, which is basically...",
+        "url": "https://www.reddit.com/r/ClaudeCode/comments/1vh143f/an_empirical_comparision_of_claude_pro_and/"
+      }
+    ]
   },
   {
     "community_sentiment": 0.4926,
@@ -314,7 +326,7 @@
     "strong_praise_count": 0,
     "strong_criticism_count": 0,
     "model_name": "Grok 4.5",
-    "scraped_at": "2026-08-09T11:07:24.499284+00:00",
+    "scraped_at": "2026-08-09T21:53:28.298179+00:00",
     "_experimental": true,
     "source_counts": {
       "HackerNews": 12
@@ -365,7 +377,7 @@
     "strong_praise_count": 1,
     "strong_criticism_count": 0,
     "model_name": "Claude Sonnet 5",
-    "scraped_at": "2026-08-09T11:07:26.453614+00:00",
+    "scraped_at": "2026-08-09T21:53:30.390931+00:00",
     "_experimental": true,
     "source_counts": {
       "HackerNews": 12
@@ -406,17 +418,17 @@
     ]
   },
   {
-    "community_sentiment": 0.6715,
+    "community_sentiment": 0.6089,
     "mention_count": 23,
-    "controversy_index": 0.5714,
+    "controversy_index": 0.2857,
     "sentiment_trend": "positive",
     "confidence_score": 0.23,
     "sentiment_method": "gemini",
     "valid_posts": 7,
-    "strong_praise_count": 4,
+    "strong_praise_count": 2,
     "strong_criticism_count": 0,
     "model_name": "GLM-5.2",
-    "scraped_at": "2026-08-09T11:07:33.262982+00:00",
+    "scraped_at": "2026-08-09T21:53:34.719353+00:00",
     "_experimental": true,
     "source_counts": {
       "HackerNews": 23
