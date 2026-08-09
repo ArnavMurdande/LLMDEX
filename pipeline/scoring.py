@@ -15,7 +15,7 @@ UPGRADES (v3):
     - THREE INDEPENDENT LEADERBOARDS:
         performance_rank  — pure intelligence, no cost/speed influence
         value_rank        — composite_index (existing weighted blend)
-        efficiency_rank   — performance / blended cost (threshold: 60+)
+        efficiency_rank   — performance / blended cost (threshold: 25+)
     - BIAS CORRECTION:
         adjusted_performance uses confidence_factor to prevent
         sparse-data models from unfairly dominating.
@@ -180,16 +180,17 @@ def compute_composite_index(
     Used for value_rank leaderboard.
 
     SAFETY:
-    - If performance is None, the model is EXCLUDED from ranking.
-    - If cost or speed is None, we redistribute their weight to
-      performance rather than filling in a fake value.
+    - Performance and cost are mandatory for Value eligibility.
+    - If speed is missing, its weight is redistributed proportionally
+      between performance and cost rather than inventing a speed value.
     """
-    if not _is_valid(performance):
+    if not _is_valid(performance) or not _is_valid(cost):
         return None
 
-    available = {"performance": float(performance)}
-    if _is_valid(cost):
-        available["cost"] = float(cost)
+    available = {
+        "performance": float(performance),
+        "cost": float(cost),
+    }
     if _is_valid(speed):
         available["speed"] = float(speed)
 
@@ -272,10 +273,23 @@ def compute_efficiency_percentile(df: pd.DataFrame) -> pd.Series:
     percentile normalization that preserves relative spacing
     and never artificially clamps the distribution.
 
-    Formula: efficiency_percentile = rank(raw_efficiency) / N * 100
+    Eligibility is applied before normalization so excluded low-performance
+    models cannot influence the published percentile population.
+
+    Average ranks are anchored to the observed eligible range:
+        efficiency_percentile =
+            (average_rank - min_rank) / (max_rank - min_rank) * 100
+
+    This gives tied leaders 100 and tied lowest models 0. A population
+    with a single distinct efficiency value receives 100.
     """
     raw = df["raw_efficiency"]
-    valid_mask = raw.notna()
+    adjusted = df["adjusted_performance"]
+    valid_mask = (
+        raw.notna()
+        & adjusted.notna()
+        & (adjusted >= EFFICIENCY_PERF_THRESHOLD)
+    )
     result = pd.Series(np.nan, index=df.index)
 
     if valid_mask.sum() == 0:
@@ -284,8 +298,14 @@ def compute_efficiency_percentile(df: pd.DataFrame) -> pd.Series:
     # Percentile rank: 0 = worst, 100 = best
     valid_values = raw[valid_mask]
     ranked = valid_values.rank(method="average", ascending=True)
-    n = len(ranked)
-    percentiles = (ranked / n) * 100.0
+    min_rank = ranked.min()
+    max_rank = ranked.max()
+    if max_rank == min_rank:
+        percentiles = pd.Series(100.0, index=ranked.index)
+    else:
+        percentiles = (
+            (ranked - min_rank) / (max_rank - min_rank)
+        ) * 100.0
     result[valid_mask] = percentiles.round(2)
 
     return result
@@ -420,7 +440,7 @@ def score_dataset(df: pd.DataFrame) -> pd.DataFrame:
         axis=1,
     )
 
-    # ── Composite index (uses adjusted performance for fairness) ──
+    # ── Composite index (Value requires performance and pricing) ──
     df["composite_index"] = df.apply(
         lambda row: compute_composite_index(
             row.get("adjusted_performance"),
@@ -430,7 +450,7 @@ def score_dataset(df: pd.DataFrame) -> pd.DataFrame:
         axis=1,
     )
 
-    # ── PART 3: Raw efficiency + percentile normalization ──
+    # ── PART 3: Raw efficiency + eligible-universe normalization ──
     df["raw_efficiency"] = df.apply(
         lambda row: compute_raw_efficiency(row.to_dict()), axis=1
     )
@@ -474,12 +494,9 @@ def score_dataset(df: pd.DataFrame) -> pd.DataFrame:
         left_index=True, right_index=True, how="left",
     )
 
-    # ── 3. efficiency_rank: perf/cost, threshold >= 60 ──
-    eff_eligible = df[
-        (df["adjusted_performance"].notna()) &
-        (df["adjusted_performance"] >= EFFICIENCY_PERF_THRESHOLD) &
-        (df["raw_efficiency"].notna())
-    ].copy()
+    # ── 3. efficiency_rank: perf/cost, threshold >= 25 ──
+    # efficiency_score is only populated for the eligible universe.
+    eff_eligible = df[df["efficiency_score"].notna()].copy()
     eff_eligible = eff_eligible.sort_values(
         by=["efficiency_score", "adjusted_performance", "model_name"],
         ascending=[False, False, True],

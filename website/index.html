@@ -937,16 +937,16 @@
             <h3><i class="fas fa-star"></i> Value Leaderboard</h3>
             <p>
               Composite: 50% Performance + 30% Cost Efficiency + 20% Speed.
-              Missing components redistribute weight proportionally. Uses
-              adjusted performance for fairness.
+              Performance and pricing are required. If speed is unavailable,
+              its weight redistributes proportionally between performance and cost.
             </p>
           </div>
           <div class="method-card glass">
             <h3><i class="fas fa-bolt"></i> Efficiency Leaderboard</h3>
             <p>
-              Efficiency = Performance / Blended Cost, normalized as percentile
-              ranks to prevent chart distortion. Only models with adjusted
-              performance ≥ 25 qualify. Models with a listed zero API price may rank highest on API-price efficiency. Self-hosting, hardware, engineering, and operating costs are not included.
+              Efficiency = Performance / Blended Cost. Only models with valid
+              pricing and adjusted performance ≥ 25 qualify; percentile scores
+              are calculated only within that eligible population. Models with a listed zero API price may rank highest on API-price efficiency. Self-hosting, hardware, engineering, and operating costs are not included.
             </p>
           </div>
         </div>

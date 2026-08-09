@@ -1,7 +1,9 @@
 {
   "current": {
     "general": "LLMDEX General Consensus v1",
-    "coding": "LLMDEX Coding Consensus v1"
+    "coding": "LLMDEX Coding Consensus v1",
+    "value": "LLMDEX Value v2",
+    "efficiency": "LLMDEX Efficiency v2"
   },
   "versions": {
     "LLMDEX General Consensus v1": {
@@ -17,6 +19,21 @@
       "tie_method": "descending average rank",
       "missing_data": "Unavailable unless both directly comparable source indices exist.",
       "introduced": "2026-07-23"
+    },
+    "LLMDEX Value v2": {
+      "entity": "model_variant",
+      "formula": "50% performance + 30% cost + 20% speed; missing speed is proportionally redistributed",
+      "eligibility": "Valid performance and blended token price are required.",
+      "missing_data": "Missing price produces no composite score or Value rank.",
+      "introduced": "2026-08-10"
+    },
+    "LLMDEX Efficiency v2": {
+      "entity": "model_variant",
+      "formula": "Performance divided by blended cost, percentile-normalized within the eligible population",
+      "tie_method": "ascending average rank",
+      "eligibility": "Valid price and adjusted performance of at least 25 are required.",
+      "missing_data": "Ineligible models have no Efficiency score or rank and do not affect percentiles.",
+      "introduced": "2026-08-10"
     }
   }
 }

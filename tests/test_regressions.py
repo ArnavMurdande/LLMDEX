@@ -223,6 +223,84 @@ class RankingRegressionTests(unittest.TestCase):
         )
         self.assertAlmostEqual(scored.iloc[0]["blended_cost_per_1m"], 4.4)
 
+    def test_value_requires_price_and_only_redistributes_missing_speed(self):
+        scored = score_dataset(
+            pd.DataFrame(
+                [
+                    {
+                        "model_name": "Unpriced Model",
+                        "intelligence_score": 50,
+                        "tokens_per_second": 100,
+                    },
+                    {
+                        "model_name": "Priced Model Without Speed",
+                        "intelligence_score": 50,
+                        "blended_cost_per_1m": 2,
+                    },
+                ]
+            )
+        ).set_index("model_name")
+
+        self.assertTrue(pd.isna(scored.loc["Unpriced Model", "composite_index"]))
+        self.assertTrue(pd.isna(scored.loc["Unpriced Model", "value_rank"]))
+
+        priced = scored.loc["Priced Model Without Speed"]
+        expected = round(
+            (
+                priced["adjusted_performance"] * 0.50
+                + priced["cost_index"] * 0.30
+            )
+            / 0.80,
+            2,
+        )
+        self.assertEqual(priced["composite_index"], expected)
+        self.assertEqual(priced["value_rank"], 1)
+
+    def test_efficiency_percentiles_use_only_the_eligible_population(self):
+        scored = score_dataset(
+            pd.DataFrame(
+                [
+                    {
+                        "model_name": "Excluded Low Performance",
+                        "intelligence_score": 10,
+                        "blended_cost_per_1m": 0.1,
+                    },
+                    {
+                        "model_name": "Eligible Lower Efficiency",
+                        "intelligence_score": 25,
+                        "blended_cost_per_1m": 10,
+                    },
+                    {
+                        "model_name": "Eligible Higher Efficiency",
+                        "intelligence_score": 50,
+                        "blended_cost_per_1m": 1,
+                    },
+                    {
+                        "model_name": "Eligible Higher Efficiency Twin",
+                        "intelligence_score": 50,
+                        "blended_cost_per_1m": 1,
+                    },
+                ]
+            )
+        ).set_index("model_name")
+
+        excluded = scored.loc["Excluded Low Performance"]
+        self.assertTrue(pd.isna(excluded["efficiency_score"]))
+        self.assertTrue(pd.isna(excluded["efficiency_rank"]))
+        self.assertEqual(
+            scored.loc["Eligible Lower Efficiency", "efficiency_score"], 0.0
+        )
+        self.assertEqual(
+            scored.loc["Eligible Higher Efficiency", "efficiency_score"], 100.0
+        )
+        self.assertEqual(
+            scored.loc["Eligible Higher Efficiency Twin", "efficiency_score"],
+            100.0,
+        )
+        self.assertEqual(
+            scored.loc["Eligible Higher Efficiency", "efficiency_rank"], 1
+        )
+
     def test_stronger_tier_two_model_can_outrank_weaker_tier_one_model(self):
         rows = pd.DataFrame(
             [

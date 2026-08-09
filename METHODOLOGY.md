@@ -29,11 +29,13 @@ Value retains the existing intent:
 - 30% cost efficiency
 - 20% speed
 
-Available weights are redistributed when a component is missing. LLMStats does not influence Value or Efficiency.
+A valid performance score and blended token price are required for Value eligibility. If speed is unavailable, its 20% weight is redistributed proportionally between performance and cost, producing 62.5% performance and 37.5% cost. Missing price is never redistributed: the model remains unranked in Value. LLMStats does not influence Value or Efficiency.
 
 The displayed blended token price is `60% input price + 40% output price`. When only one price is available, that published price is used without inventing the missing component.
 
 Models with a listed zero API price may rank highest on API-price efficiency. However, self-hosting, hardware, electricity, engineering, and operational costs are not included in listed API pricing metrics.
+
+Efficiency eligibility is applied before normalization: a model must have valid pricing and adjusted performance of at least 25. Eligible raw performance-per-dollar ratios receive average ranks that are mapped across the observed eligible rank range from `0–100`. Tied leaders receive 100, tied lowest models receive 0, and a population with one distinct efficiency value receives 100. Ineligible models have no Efficiency score or rank and cannot affect eligible percentiles.
 
 ## Family Identity
 

@@ -976,11 +976,11 @@ const TAB_DESCRIPTIONS = {
     intelligence scores are used unchanged. No cost, speed, or completeness
     penalty influences Performance rank.`,
   "value-tab": `<strong>Value Leaderboard:</strong> Composite ranking blending 50% Performance + 
-    30% Cost Efficiency + 20% Speed. Best for choosing a well-rounded model. 
-    Uses adjusted performance for fairness.`,
-  "efficiency-tab": `<strong>Efficiency Leaderboard:</strong> Performance per dollar, using percentile 
-    normalization. Only models with adjusted performance ≥ 25 are included.
-    Best for cost-sensitive deployments.`,
+    30% Cost Efficiency + 20% Speed. Performance and pricing are required; when
+    speed is unavailable, its weight redistributes between performance and cost.`,
+  "efficiency-tab": `<strong>Efficiency Leaderboard:</strong> Performance per dollar. Only models
+    with valid pricing and adjusted performance ≥ 25 are included, and percentiles
+    are calculated solely within that eligible population.`,
 };
 
 function setupLeaderboardTabs(data) {
