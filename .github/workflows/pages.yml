@@ -11,7 +11,7 @@ on:
       - .github/workflows/pages.yml
   workflow_run:
     workflows:
-      - Daily LLM Benchmark Update + Deploy
+      - Daily LLM Benchmark Update
       - Dependency Maintenance
     types:
       - completed
