@@ -1,0 +1,61 @@
+name: Dependency Maintenance
+
+on:
+  repository_dispatch:
+    types:
+      - dependency-merged
+  workflow_dispatch:
+
+concurrency:
+  group: llmdex-multisource-update
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  rebuild-frontend-effects:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout current main
+        uses: actions/checkout@v7
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Set up Node.js 24
+        uses: actions/setup-node@v7
+        with:
+          node-version: "24"
+          cache: npm
+
+      - name: Rebuild checked-in frontend effects
+        run: |
+          npm ci
+          npm run build:effects
+          node --check website/app.js
+
+      - name: Publish rebuilt bundle when needed
+        run: |
+          git config --global user.name "GitHub Actions Bot"
+          git config --global user.email "actions@github.com"
+          git add website/pixelblast.bundle.js website/pixelblast.bundle.css
+
+          if git diff --cached --quiet; then
+            echo "Dependency update requires no bundle change."
+            exit 0
+          fi
+
+          git commit -m "Build frontend bundle after dependency update [skip ci]"
+          for attempt in 1 2 3; do
+            git fetch origin main
+            if git rebase origin/main && git push origin HEAD:main; then
+              exit 0
+            fi
+            git rebase --abort || true
+            echo "Push race detected; retrying (${attempt}/3)."
+          done
+
+          echo "Unable to publish the rebuilt bundle after three attempts."
+          exit 1

@@ -50,9 +50,9 @@ jobs:
       - name: Lint Python for runtime errors
         run: ruff check --select E9,F63,F7,F82 api_server.py pipeline scraper scripts utils tests
 
-      # ──────────────────────────────────────────
+      # â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
       # Run the main scraper + merge pipeline
-      # ──────────────────────────────────────────
+      # â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
       - name: Run Scraper and Top-10 Sentiment Pipeline
         id: pipeline
         run: python pipeline/run_pipeline.py --with-sentiment
@@ -64,7 +64,7 @@ jobs:
           GEMINI_SENTIMENT_KEY_4: ${{ secrets.GEMINI_SENTIMENT_KEY_4 }}
           X_BEARER_TOKEN: ${{ secrets.X_BEARER_TOKEN }}
 
-      # ── Build family history data ──
+      # â”€â”€ Build family history data â”€â”€
       - name: Build Family History
         if: success()
         run: python pipeline/build_family_history.py
@@ -83,7 +83,7 @@ jobs:
         env:
           PYTHONPATH: .
 
-      # ── Upload pipeline report as CI artifact ──
+      # â”€â”€ Upload pipeline report as CI artifact â”€â”€
       - name: Upload Pipeline Report
         if: always()
         uses: actions/upload-artifact@v7
@@ -92,7 +92,7 @@ jobs:
           path: data/pipeline_reports/
           retention-days: 90
 
-      # ── Upload archived datasets as CI artifact ──
+      # â”€â”€ Upload archived datasets as CI artifact â”€â”€
       - name: Upload Dataset Archives
         if: success()
         uses: actions/upload-artifact@v7
@@ -106,7 +106,7 @@ jobs:
             data/raw/llmstats/
           retention-days: 365
 
-      # ── Commit data files back to main branch ──
+      # â”€â”€ Commit data files back to main branch â”€â”€
       - name: Commit and Push Data
         if: success()
         run: |
@@ -156,7 +156,7 @@ jobs:
           echo "Unable to publish generated data after three attempts."
           exit 1
 
-      # ── On failure: upload report for debugging ──
+      # â”€â”€ On failure: upload report for debugging â”€â”€
       - name: Upload Failure Report
         if: failure()
         uses: actions/upload-artifact@v7
@@ -179,9 +179,9 @@ jobs:
             gh issue create --title "$title" --body "The scraper, sentiment, or publication contract failed. Inspect the workflow artifact and logs: ${run_url}"
           fi
 
-  # ──────────────────────────────────────────
+  # â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   # Render and Cloudflare Pages deploy from main through their Git integrations.
-  # GitHub Pages is intentionally omitted because it duplicates production
-  # hosting and can remain queued in GitHub's Pages service for several minutes.
-  # The daily workflow now ends immediately after publishing validated data.
-  # ──────────────────────────────────────────
+  # GitHub Pages runs separately after this workflow succeeds, so a Pages queue
+  # cannot delay or fail the benchmark publication job.
+  # The daily workflow ends immediately after publishing validated data.
+  # â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€

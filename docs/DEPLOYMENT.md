@@ -13,7 +13,7 @@ The `Daily LLM Benchmark Update + Deploy` workflow:
 6. Validates publication contracts.
 7. Commits only meaningful generated changes to `main`.
 8. Lets the Render and Cloudflare Pages Git integrations deploy that commit.
-9. Does not invoke the redundant GitHub Pages deployment queue.
+9. Triggers the isolated GitHub Pages workflow after a successful publication.
 
 Manual publication:
 
@@ -32,11 +32,12 @@ Merge to `main` and run the workflow manually if needed.
 Timestamped raw source payloads under `data/raw/` are intentionally excluded
 from Git history and retained in the workflow's dataset archive artifact.
 
-## Render and Cloudflare Pages
+## Static hosting
 
 `api_server.py` runs on Render for the server-side Advisor and API. Cloudflare
-Pages serves the static leaderboards. Render cold starts can delay the Advisor
-or API but do not delay Cloudflare's static datasets.
+Pages is the primary static host, while GitHub Pages is an independently built
+backup. Render cold starts can delay the Advisor or API but do not delay static
+datasets.
 
 The static Cloudflare Pages deployment intentionally uses the deterministic,
 dataset-grounded local Advisor unless a separate API origin is configured.

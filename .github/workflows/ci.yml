@@ -30,6 +30,10 @@ jobs:
         run: |
           npm ci
           npm run build:effects
+
+      - name: Verify committed visual effects bundle
+        if: github.actor != 'dependabot[bot]'
+        run: |
           git diff --exit-code -- website/pixelblast.bundle.js website/pixelblast.bundle.css
 
       - name: Set up Python 3.11

@@ -8,8 +8,8 @@ on:
       - synchronize
 
 concurrency:
-  group: llmdex-dependabot-safe-automerge
-  cancel-in-progress: false
+  group: llmdex-dependabot-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
 
 permissions:
   contents: write
@@ -18,8 +18,9 @@ permissions:
 
 jobs:
   test-and-merge:
-    if: github.actor == 'dependabot[bot]'
+    if: github.event.pull_request.user.login == 'dependabot[bot]'
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     steps:
       - name: Read Dependabot update metadata
         id: metadata
@@ -28,9 +29,7 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Wait for LLMDEX CI
-        if: >-
-          steps.metadata.outputs.update-type == 'version-update:semver-patch' ||
-          steps.metadata.outputs.update-type == 'version-update:semver-minor'
+        if: steps.metadata.outputs.update-type != 'version-update:semver-major'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           HEAD_SHA: ${{ github.event.pull_request.head.sha }}
@@ -72,10 +71,11 @@ jobs:
           exit 1
 
       - name: Squash-merge tested patch and minor updates
-        if: >-
-          steps.metadata.outputs.update-type == 'version-update:semver-patch' ||
-          steps.metadata.outputs.update-type == 'version-update:semver-minor'
+        if: steps.metadata.outputs.update-type != 'version-update:semver-major'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR_URL: ${{ github.event.pull_request.html_url }}
-        run: gh pr merge --squash "$PR_URL"
+          REPOSITORY: ${{ github.repository }}
+        run: |
+          gh pr merge --squash "$PR_URL"
+          gh api "/repos/${REPOSITORY}/dispatches" -f event_type=dependency-merged
