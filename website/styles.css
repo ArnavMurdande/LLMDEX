@@ -5123,14 +5123,16 @@ select option,
   color: var(--text-primary) !important;
 }
 
-:root[data-theme="light"] .nav-links {
-  background: rgba(255, 255, 255, 0.95);
-  border-color: rgba(0, 0, 0, 0.1);
-  box-shadow: 0 12px 38px rgba(0, 0, 0, 0.12);
-}
+@media (max-width: 768px) {
+  :root[data-theme="light"] .nav-links {
+    background: rgba(255, 255, 255, 0.95);
+    border-color: rgba(0, 0, 0, 0.1);
+    box-shadow: 0 12px 38px rgba(0, 0, 0, 0.12);
+  }
 
-:root[data-theme="light"] .nav-links a {
-  border-bottom-color: rgba(0, 0, 0, 0.06);
+  :root[data-theme="light"] .nav-links a {
+    border-bottom-color: rgba(0, 0, 0, 0.06);
+  }
 }
 
 .nav-links .github-link i,
