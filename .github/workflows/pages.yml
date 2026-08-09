@@ -1,6 +1,14 @@
 name: Deploy GitHub Pages
 
 on:
+  push:
+    branches:
+      - main
+    paths:
+      - website/**
+      - data/**
+      - docs/**
+      - .github/workflows/pages.yml
   workflow_run:
     workflows:
       - Daily LLM Benchmark Update + Deploy
