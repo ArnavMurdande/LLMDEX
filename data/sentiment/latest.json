@@ -10,7 +10,7 @@
     "strong_praise_count": 1,
     "strong_criticism_count": 2,
     "model_name": "Claude Opus 5",
-    "scraped_at": "2026-08-09T21:51:38.212682+00:00",
+    "scraped_at": "2026-08-09T22:00:06.586041+00:00",
     "_experimental": true,
     "source_counts": {
       "Reddit": 2,
@@ -52,17 +52,17 @@
     ]
   },
   {
-    "community_sentiment": -0.0685,
+    "community_sentiment": -0.1375,
     "mention_count": 20,
     "controversy_index": 0.5,
-    "sentiment_trend": "stable",
+    "sentiment_trend": "negative",
     "confidence_score": 0.2,
     "sentiment_method": "gemini",
     "valid_posts": 6,
     "strong_praise_count": 2,
     "strong_criticism_count": 1,
     "model_name": "Claude Fable 5",
-    "scraped_at": "2026-08-09T21:51:43.140185+00:00",
+    "scraped_at": "2026-08-09T22:00:11.914108+00:00",
     "_experimental": true,
     "source_counts": {
       "HackerNews": 20
@@ -113,7 +113,7 @@
     "strong_praise_count": 1,
     "strong_criticism_count": 1,
     "model_name": "GPT-5.6 Sol",
-    "scraped_at": "2026-08-09T21:51:49.568187+00:00",
+    "scraped_at": "2026-08-09T22:00:15.636660+00:00",
     "_experimental": true,
     "source_counts": {
       "HackerNews": 16
@@ -154,20 +154,21 @@
     ]
   },
   {
-    "community_sentiment": 0.4545,
-    "mention_count": 23,
+    "community_sentiment": 0.4515,
+    "mention_count": 28,
     "controversy_index": 0.0,
     "sentiment_trend": "positive",
-    "confidence_score": 0.1,
+    "confidence_score": 0.07,
     "sentiment_method": "gemini",
-    "valid_posts": 3,
+    "valid_posts": 2,
     "strong_praise_count": 0,
     "strong_criticism_count": 0,
     "model_name": "Kimi K3",
-    "scraped_at": "2026-08-09T21:51:54.476068+00:00",
+    "scraped_at": "2026-08-09T22:00:23.071037+00:00",
     "_experimental": true,
     "source_counts": {
-      "HackerNews": 23
+      "HackerNews": 23,
+      "Reddit": 5
     },
     "community_examples": [
       {
@@ -179,11 +180,6 @@
         "source": "Hacker News",
         "text": "Self-hosting Kimi K3: 20% more hardware cost, 20% better task resolution",
         "url": "https://news.ycombinator.com/item?id=49098130"
-      },
-      {
-        "source": "Hacker News",
-        "text": "Kimi K3 Is Open, Opus 5 Is Good, DeepSeek V4 Flash Is Cheap: LLMs on Baba Is You",
-        "url": "https://news.ycombinator.com/item?id=49146588"
       }
     ],
     "top_quotes": [
@@ -196,23 +192,21 @@
         "source": "Hacker News",
         "text": "Self-hosting Kimi K3: 20% more hardware cost, 20% better task resolution",
         "url": "https://news.ycombinator.com/item?id=49098130"
-      },
-      {
-        "source": "Hacker News",
-        "text": "Kimi K3 Is Open, Opus 5 Is Good, DeepSeek V4 Flash Is Cheap: LLMs on Baba Is You",
-        "url": "https://news.ycombinator.com/item?id=49146588"
       }
     ]
   },
   {
-    "community_sentiment": 0.3099,
+    "community_sentiment": 0.8473,
     "mention_count": 5,
-    "controversy_index": 0.0,
+    "controversy_index": 1.0,
     "sentiment_trend": "positive",
-    "confidence_score": 0.17,
-    "sentiment_method": "vader_fallback",
+    "confidence_score": 0.07,
+    "sentiment_method": "gemini",
+    "valid_posts": 2,
+    "strong_praise_count": 2,
+    "strong_criticism_count": 0,
     "model_name": "Qwen3.8 Max",
-    "scraped_at": "2026-08-09T21:53:24.491456+00:00",
+    "scraped_at": "2026-08-09T22:00:24.322299+00:00",
     "_experimental": true,
     "source_counts": {
       "HackerNews": 5
@@ -227,11 +221,6 @@
         "source": "Hacker News",
         "text": "Qwen3.8-Max: A New Bar for Coding and Cowork",
         "url": "https://news.ycombinator.com/item?id=49150470"
-      },
-      {
-        "source": "Hacker News",
-        "text": "Qwen3.8 Max Intelligence, Performance and Price Analysis",
-        "url": "https://news.ycombinator.com/item?id=49197499"
       }
     ],
     "top_quotes": [
@@ -244,11 +233,6 @@
         "source": "Hacker News",
         "text": "Qwen3.8-Max: A New Bar for Coding and Cowork",
         "url": "https://news.ycombinator.com/item?id=49150470"
-      },
-      {
-        "source": "Hacker News",
-        "text": "Qwen3.8 Max Intelligence, Performance and Price Analysis",
-        "url": "https://news.ycombinator.com/item?id=49197499"
       }
     ]
   },
@@ -263,7 +247,7 @@
     "strong_praise_count": 0,
     "strong_criticism_count": 0,
     "model_name": "Muse Spark 1.2",
-    "scraped_at": "2026-08-09T21:53:25.644197+00:00",
+    "scraped_at": "2026-08-09T22:00:27.372635+00:00",
     "_experimental": true,
     "source_counts": {
       "HackerNews": 5
@@ -284,36 +268,20 @@
     ]
   },
   {
-    "community_sentiment": -0.5,
-    "mention_count": 3,
-    "controversy_index": 0.0,
-    "sentiment_trend": "negative",
-    "confidence_score": 0.03,
+    "community_sentiment": null,
+    "mention_count": 2,
+    "controversy_index": null,
+    "sentiment_trend": null,
+    "confidence_score": 0,
     "sentiment_method": "gemini",
-    "valid_posts": 1,
-    "strong_praise_count": 0,
-    "strong_criticism_count": 0,
     "model_name": "GPT-5.6 Terra",
-    "scraped_at": "2026-08-09T21:53:26.450080+00:00",
+    "scraped_at": "2026-08-09T22:00:28.138500+00:00",
     "_experimental": true,
     "source_counts": {
-      "Reddit": 1,
       "HackerNews": 2
     },
-    "community_examples": [
-      {
-        "source": "Reddit",
-        "text": "An Empirical Comparision of Claude Pro and ChatGPT Plus Pulled the Artificial Analysis numbers because every thread on this is vibes and no data. Opus 5 beats GPT-5.6 Sol on intelligence, 61 vs 59, which is basically...",
-        "url": "https://www.reddit.com/r/ClaudeCode/comments/1vh143f/an_empirical_comparision_of_claude_pro_and/"
-      }
-    ],
-    "top_quotes": [
-      {
-        "source": "Reddit",
-        "text": "An Empirical Comparision of Claude Pro and ChatGPT Plus Pulled the Artificial Analysis numbers because every thread on this is vibes and no data. Opus 5 beats GPT-5.6 Sol on intelligence, 61 vs 59, which is basically...",
-        "url": "https://www.reddit.com/r/ClaudeCode/comments/1vh143f/an_empirical_comparision_of_claude_pro_and/"
-      }
-    ]
+    "community_examples": [],
+    "top_quotes": []
   },
   {
     "community_sentiment": 0.4926,
@@ -326,7 +294,7 @@
     "strong_praise_count": 0,
     "strong_criticism_count": 0,
     "model_name": "Grok 4.5",
-    "scraped_at": "2026-08-09T21:53:28.298179+00:00",
+    "scraped_at": "2026-08-09T22:00:29.982487+00:00",
     "_experimental": true,
     "source_counts": {
       "HackerNews": 12
@@ -377,7 +345,7 @@
     "strong_praise_count": 1,
     "strong_criticism_count": 0,
     "model_name": "Claude Sonnet 5",
-    "scraped_at": "2026-08-09T21:53:30.390931+00:00",
+    "scraped_at": "2026-08-09T22:00:31.961219+00:00",
     "_experimental": true,
     "source_counts": {
       "HackerNews": 12
@@ -418,17 +386,17 @@
     ]
   },
   {
-    "community_sentiment": 0.6089,
+    "community_sentiment": 0.6475,
     "mention_count": 23,
-    "controversy_index": 0.2857,
+    "controversy_index": 0.5714,
     "sentiment_trend": "positive",
     "confidence_score": 0.23,
     "sentiment_method": "gemini",
     "valid_posts": 7,
-    "strong_praise_count": 2,
+    "strong_praise_count": 4,
     "strong_criticism_count": 0,
     "model_name": "GLM-5.2",
-    "scraped_at": "2026-08-09T21:53:34.719353+00:00",
+    "scraped_at": "2026-08-09T22:00:36.315809+00:00",
     "_experimental": true,
     "source_counts": {
       "HackerNews": 23
