@@ -127,6 +127,20 @@ a:hover {
 .highlight {
   color: var(--accent-glow);
 }
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--text-primary);
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+  line-height: 1;
+  transition: color 0.2s ease;
+}
+.hamburger:hover {
+  color: var(--accent-glow);
+}
 .nav-links {
   display: flex;
   gap: 1.5rem;
@@ -5103,6 +5117,20 @@ select option,
   background: rgba(255, 255, 255, 0.68) !important;
   border-color: rgba(0, 0, 0, 0.075) !important;
   box-shadow: 0 12px 38px rgba(0, 0, 0, 0.1) !important;
+}
+
+:root[data-theme="light"] .hamburger {
+  color: var(--text-primary) !important;
+}
+
+:root[data-theme="light"] .nav-links {
+  background: rgba(255, 255, 255, 0.95);
+  border-color: rgba(0, 0, 0, 0.1);
+  box-shadow: 0 12px 38px rgba(0, 0, 0, 0.12);
+}
+
+:root[data-theme="light"] .nav-links a {
+  border-bottom-color: rgba(0, 0, 0, 0.06);
 }
 
 .nav-links .github-link i,
