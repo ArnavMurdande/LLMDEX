@@ -1033,15 +1033,6 @@
       ]
     },
     "variants": {
-      "amazon/nova-2-0-lite:medium": {
-        "variant_id": "amazon/nova-2-0-lite:medium",
-        "deployment_profile_id": "amazon/nova-2-0-lite:medium:deployment",
-        "source_name": "Nova 2.0 Lite (medium)",
-        "reasoning_effort": "medium",
-        "deployment_profile": [],
-        "fallback_enabled": false,
-        "parameter_count": null
-      },
       "amazon/nova-2-0-lite:high-reasoning": {
         "variant_id": "amazon/nova-2-0-lite:high-reasoning",
         "deployment_profile_id": "amazon/nova-2-0-lite:high-reasoning:deployment",
@@ -1050,6 +1041,15 @@
         "deployment_profile": [
           "reasoning"
         ],
+        "fallback_enabled": false,
+        "parameter_count": null
+      },
+      "amazon/nova-2-0-lite:medium": {
+        "variant_id": "amazon/nova-2-0-lite:medium",
+        "deployment_profile_id": "amazon/nova-2-0-lite:medium:deployment",
+        "source_name": "Nova 2.0 Lite (medium)",
+        "reasoning_effort": "medium",
+        "deployment_profile": [],
         "fallback_enabled": false,
         "parameter_count": null
       },
@@ -3756,6 +3756,35 @@
       }
     }
   },
+  "meta/muse-glimmer": {
+    "family_id": "meta/muse-glimmer",
+    "canonical_family_name": "Muse Glimmer",
+    "provider": "Meta",
+    "version": null,
+    "source_aliases": {
+      "artificial_analysis": [
+        "Muse Glimmer (high)"
+      ],
+      "llmstats": []
+    },
+    "source_ids": {},
+    "source_urls": {
+      "artificial_analysis": [
+        "https://artificialanalysis.ai/models/muse-glimmer"
+      ]
+    },
+    "variants": {
+      "meta/muse-glimmer:high": {
+        "variant_id": "meta/muse-glimmer:high",
+        "deployment_profile_id": "meta/muse-glimmer:high:deployment",
+        "source_name": "Muse Glimmer (high)",
+        "reasoning_effort": "high",
+        "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": null
+      }
+    }
+  },
   "meta/muse-spark-1-2": {
     "family_id": "meta/muse-spark-1-2",
     "canonical_family_name": "Muse Spark 1.2",
@@ -4670,14 +4699,88 @@
       }
     }
   },
-  "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning": {
-    "family_id": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning",
-    "canonical_family_name": "Nemotron 3 Nano Omni 30B A3B Reasoning",
+  "nvidia/nemotron-3-nano": {
+    "family_id": "nvidia/nemotron-3-nano",
+    "canonical_family_name": "Nemotron 3 Nano",
     "provider": "NVIDIA",
     "version": null,
     "source_aliases": {
       "artificial_analysis": [
-        "Nemotron 3 Nano Omni 30B A3B Reasoning"
+        "Nemotron 3 Nano",
+        "Nemotron 3 Nano (reasoning)"
+      ],
+      "llmstats": []
+    },
+    "source_ids": {},
+    "source_urls": {
+      "artificial_analysis": [
+        "https://artificialanalysis.ai/models/nvidia-nemotron-3-nano-30b-a3b",
+        "https://artificialanalysis.ai/models/nvidia-nemotron-3-nano-30b-a3b-reasoning"
+      ]
+    },
+    "variants": {
+      "nvidia/nemotron-3-nano:reasoning": {
+        "variant_id": "nvidia/nemotron-3-nano:reasoning",
+        "deployment_profile_id": "nvidia/nemotron-3-nano:reasoning:deployment",
+        "source_name": "Nemotron 3 Nano (reasoning)",
+        "reasoning_effort": null,
+        "deployment_profile": [
+          "reasoning"
+        ],
+        "fallback_enabled": false,
+        "parameter_count": null
+      },
+      "nvidia/nemotron-3-nano:default": {
+        "variant_id": "nvidia/nemotron-3-nano:default",
+        "deployment_profile_id": "nvidia/nemotron-3-nano:default:deployment",
+        "source_name": "Nemotron 3 Nano",
+        "reasoning_effort": null,
+        "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": null
+      }
+    }
+  },
+  "nvidia/nemotron-3-nano-4b": {
+    "family_id": "nvidia/nemotron-3-nano-4b",
+    "canonical_family_name": "Nemotron 3 Nano 4B",
+    "provider": "NVIDIA",
+    "version": null,
+    "source_aliases": {
+      "artificial_analysis": [
+        "Nemotron 3 Nano 4B"
+      ],
+      "llmstats": []
+    },
+    "source_ids": {},
+    "source_urls": {
+      "artificial_analysis": [
+        "https://artificialanalysis.ai/models/nvidia-nemotron-3-nano-4b"
+      ]
+    },
+    "variants": {
+      "nvidia/nemotron-3-nano-4b:default": {
+        "variant_id": "nvidia/nemotron-3-nano-4b:default",
+        "deployment_profile_id": "nvidia/nemotron-3-nano-4b:default:deployment",
+        "source_name": "Nemotron 3 Nano 4B",
+        "reasoning_effort": null,
+        "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": {
+          "total_billions": 4.0,
+          "active_billions": null
+        }
+      }
+    }
+  },
+  "nvidia/nemotron-3-nano-omni-30b-a3b": {
+    "family_id": "nvidia/nemotron-3-nano-omni-30b-a3b",
+    "canonical_family_name": "Nemotron 3 Nano Omni 30B A3B",
+    "provider": "NVIDIA",
+    "version": null,
+    "source_aliases": {
+      "artificial_analysis": [
+        "Nemotron 3 Nano Omni 30B A3B"
       ],
       "llmstats": []
     },
@@ -4688,14 +4791,12 @@
       ]
     },
     "variants": {
-      "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:reasoning": {
-        "variant_id": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:reasoning",
-        "deployment_profile_id": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:reasoning:deployment",
-        "source_name": "Nemotron 3 Nano Omni 30B A3B Reasoning",
+      "nvidia/nemotron-3-nano-omni-30b-a3b:default": {
+        "variant_id": "nvidia/nemotron-3-nano-omni-30b-a3b:default",
+        "deployment_profile_id": "nvidia/nemotron-3-nano-omni-30b-a3b:default:deployment",
+        "source_name": "Nemotron 3 Nano Omni 30B A3B",
         "reasoning_effort": null,
-        "deployment_profile": [
-          "reasoning"
-        ],
+        "deployment_profile": [],
         "fallback_enabled": false,
         "parameter_count": {
           "total_billions": 30.0,
@@ -4789,80 +4890,6 @@
         "fallback_enabled": false,
         "parameter_count": {
           "total_billions": 30.0,
-          "active_billions": null
-        }
-      }
-    }
-  },
-  "nvidia/nvidia-nemotron-3-nano": {
-    "family_id": "nvidia/nvidia-nemotron-3-nano",
-    "canonical_family_name": "NVIDIA Nemotron 3 Nano",
-    "provider": "NVIDIA",
-    "version": null,
-    "source_aliases": {
-      "artificial_analysis": [
-        "NVIDIA Nemotron 3 Nano",
-        "NVIDIA Nemotron 3 Nano (reasoning)"
-      ],
-      "llmstats": []
-    },
-    "source_ids": {},
-    "source_urls": {
-      "artificial_analysis": [
-        "https://artificialanalysis.ai/models/nvidia-nemotron-3-nano-30b-a3b",
-        "https://artificialanalysis.ai/models/nvidia-nemotron-3-nano-30b-a3b-reasoning"
-      ]
-    },
-    "variants": {
-      "nvidia/nvidia-nemotron-3-nano:reasoning": {
-        "variant_id": "nvidia/nvidia-nemotron-3-nano:reasoning",
-        "deployment_profile_id": "nvidia/nvidia-nemotron-3-nano:reasoning:deployment",
-        "source_name": "NVIDIA Nemotron 3 Nano (reasoning)",
-        "reasoning_effort": null,
-        "deployment_profile": [
-          "reasoning"
-        ],
-        "fallback_enabled": false,
-        "parameter_count": null
-      },
-      "nvidia/nvidia-nemotron-3-nano:default": {
-        "variant_id": "nvidia/nvidia-nemotron-3-nano:default",
-        "deployment_profile_id": "nvidia/nvidia-nemotron-3-nano:default:deployment",
-        "source_name": "NVIDIA Nemotron 3 Nano",
-        "reasoning_effort": null,
-        "deployment_profile": [],
-        "fallback_enabled": false,
-        "parameter_count": null
-      }
-    }
-  },
-  "nvidia/nvidia-nemotron-3-nano-4b": {
-    "family_id": "nvidia/nvidia-nemotron-3-nano-4b",
-    "canonical_family_name": "NVIDIA Nemotron 3 Nano 4B",
-    "provider": "NVIDIA",
-    "version": null,
-    "source_aliases": {
-      "artificial_analysis": [
-        "NVIDIA Nemotron 3 Nano 4B"
-      ],
-      "llmstats": []
-    },
-    "source_ids": {},
-    "source_urls": {
-      "artificial_analysis": [
-        "https://artificialanalysis.ai/models/nvidia-nemotron-3-nano-4b"
-      ]
-    },
-    "variants": {
-      "nvidia/nvidia-nemotron-3-nano-4b:default": {
-        "variant_id": "nvidia/nvidia-nemotron-3-nano-4b:default",
-        "deployment_profile_id": "nvidia/nvidia-nemotron-3-nano-4b:default:deployment",
-        "source_name": "NVIDIA Nemotron 3 Nano 4B",
-        "reasoning_effort": null,
-        "deployment_profile": [],
-        "fallback_enabled": false,
-        "parameter_count": {
-          "total_billions": 4.0,
           "active_billions": null
         }
       }
