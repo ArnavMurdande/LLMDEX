@@ -1288,6 +1288,7 @@
     "version": null,
     "source_aliases": {
       "artificial_analysis": [
+        "Claude Fable 5 (with Opus 5 fallback)",
         "Claude Fable 5 (with fallback)"
       ],
       "llmstats": [
@@ -1297,14 +1298,15 @@
     "source_ids": {},
     "source_urls": {
       "artificial_analysis": [
-        "https://artificialanalysis.ai/models/claude-fable-5"
+        "https://artificialanalysis.ai/models/claude-fable-5",
+        "https://artificialanalysis.ai/models/claude-fable-5-opus-5-fallback"
       ]
     },
     "variants": {
       "anthropic/claude-fable-5:fallback": {
         "variant_id": "anthropic/claude-fable-5:fallback",
         "deployment_profile_id": "anthropic/claude-fable-5:fallback:deployment",
-        "source_name": "Claude Fable 5 (with fallback)",
+        "source_name": "Claude Fable 5 (with Opus 5 fallback)",
         "reasoning_effort": null,
         "deployment_profile": [
           "fallback"
@@ -1952,9 +1954,9 @@
     "source_ids": {},
     "source_urls": {
       "artificial_analysis": [
-        "https://artificialanalysis.ai/models/deepseek-v4-pro",
-        "https://artificialanalysis.ai/models/deepseek-v4-pro-high",
-        "https://artificialanalysis.ai/models/deepseek-v4-pro-non-reasoning"
+        "https://artificialanalysis.ai/models/deepseek-v4-pro-0424",
+        "https://artificialanalysis.ai/models/deepseek-v4-pro-0424-high",
+        "https://artificialanalysis.ai/models/deepseek-v4-pro-0424-non-reasoning"
       ]
     },
     "variants": {
@@ -1984,6 +1986,35 @@
         "deployment_profile": [
           "non-reasoning"
         ],
+        "fallback_enabled": false,
+        "parameter_count": null
+      }
+    }
+  },
+  "deepseek/deepseek-v4-pro-0813": {
+    "family_id": "deepseek/deepseek-v4-pro-0813",
+    "canonical_family_name": "DeepSeek V4 Pro 0813",
+    "provider": "DeepSeek",
+    "version": null,
+    "source_aliases": {
+      "artificial_analysis": [
+        "DeepSeek V4 Pro 0813 (max)"
+      ],
+      "llmstats": []
+    },
+    "source_ids": {},
+    "source_urls": {
+      "artificial_analysis": [
+        "https://artificialanalysis.ai/models/deepseek-v4-pro"
+      ]
+    },
+    "variants": {
+      "deepseek/deepseek-v4-pro-0813:max": {
+        "variant_id": "deepseek/deepseek-v4-pro-0813:max",
+        "deployment_profile_id": "deepseek/deepseek-v4-pro-0813:max:deployment",
+        "source_name": "DeepSeek V4 Pro 0813 (max)",
+        "reasoning_effort": "max",
+        "deployment_profile": [],
         "fallback_enabled": false,
         "parameter_count": null
       }
@@ -3206,6 +3237,35 @@
       }
     }
   },
+  "lg-ai-research/k-exaone-2-0-0803": {
+    "family_id": "lg-ai-research/k-exaone-2-0-0803",
+    "canonical_family_name": "K-EXAONE 2.0 0803",
+    "provider": "LG AI Research",
+    "version": "2.0",
+    "source_aliases": {
+      "artificial_analysis": [
+        "K-EXAONE 2.0 0803"
+      ],
+      "llmstats": []
+    },
+    "source_ids": {},
+    "source_urls": {
+      "artificial_analysis": [
+        "https://artificialanalysis.ai/models/k-exaone-2-0-0803"
+      ]
+    },
+    "variants": {
+      "lg-ai-research/k-exaone-2-0-0803:default": {
+        "variant_id": "lg-ai-research/k-exaone-2-0-0803:default",
+        "deployment_profile_id": "lg-ai-research/k-exaone-2-0-0803:default:deployment",
+        "source_name": "K-EXAONE 2.0 0803",
+        "reasoning_effort": null,
+        "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": null
+      }
+    }
+  },
   "liquid-ai/lfm2-2-6b": {
     "family_id": "liquid-ai/lfm2-2-6b",
     "canonical_family_name": "LFM2 2.6B",
@@ -4271,6 +4331,35 @@
           "total_billions": 12.7,
           "active_billions": null
         }
+      }
+    }
+  },
+  "motif-technologies/motif-3": {
+    "family_id": "motif-technologies/motif-3",
+    "canonical_family_name": "Motif 3",
+    "provider": "Motif Technologies",
+    "version": null,
+    "source_aliases": {
+      "artificial_analysis": [
+        "Motif 3"
+      ],
+      "llmstats": []
+    },
+    "source_ids": {},
+    "source_urls": {
+      "artificial_analysis": [
+        "https://artificialanalysis.ai/models/motif-3"
+      ]
+    },
+    "variants": {
+      "motif-technologies/motif-3:default": {
+        "variant_id": "motif-technologies/motif-3:default",
+        "deployment_profile_id": "motif-technologies/motif-3:default:deployment",
+        "source_name": "Motif 3",
+        "reasoning_effort": null,
+        "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": null
       }
     }
   },
@@ -5784,6 +5873,35 @@
       }
     }
   },
+  "sk-telecom/a-x-k2": {
+    "family_id": "sk-telecom/a-x-k2",
+    "canonical_family_name": "A.X-K2",
+    "provider": "SK Telecom",
+    "version": null,
+    "source_aliases": {
+      "artificial_analysis": [
+        "A.X-K2"
+      ],
+      "llmstats": []
+    },
+    "source_ids": {},
+    "source_urls": {
+      "artificial_analysis": [
+        "https://artificialanalysis.ai/models/a-x-k2"
+      ]
+    },
+    "variants": {
+      "sk-telecom/a-x-k2:default": {
+        "variant_id": "sk-telecom/a-x-k2:default",
+        "deployment_profile_id": "sk-telecom/a-x-k2:default:deployment",
+        "source_name": "A.X-K2",
+        "reasoning_effort": null,
+        "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": null
+      }
+    }
+  },
   "spacexai/grok-4-3": {
     "family_id": "spacexai/grok-4-3",
     "canonical_family_name": "Grok 4.3",
@@ -5859,6 +5977,35 @@
         "variant_id": "spacexai/grok-4-5:high",
         "deployment_profile_id": "spacexai/grok-4-5:high:deployment",
         "source_name": "Grok 4.5 (high)",
+        "reasoning_effort": "high",
+        "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": null
+      }
+    }
+  },
+  "spacexai/grok-4-6": {
+    "family_id": "spacexai/grok-4-6",
+    "canonical_family_name": "Grok 4.6",
+    "provider": "SpaceXAI",
+    "version": "4.6",
+    "source_aliases": {
+      "artificial_analysis": [
+        "Grok 4.6 (high)"
+      ],
+      "llmstats": []
+    },
+    "source_ids": {},
+    "source_urls": {
+      "artificial_analysis": [
+        "https://artificialanalysis.ai/models/grok-4-6"
+      ]
+    },
+    "variants": {
+      "spacexai/grok-4-6:high": {
+        "variant_id": "spacexai/grok-4-6:high",
+        "deployment_profile_id": "spacexai/grok-4-6:high:deployment",
+        "source_name": "Grok 4.6 (high)",
         "reasoning_effort": "high",
         "deployment_profile": [],
         "fallback_enabled": false,
@@ -6178,6 +6325,38 @@
       }
     }
   },
+  "upstage/solar-open2-250b": {
+    "family_id": "upstage/solar-open2-250b",
+    "canonical_family_name": "Solar Open2 250B",
+    "provider": "Upstage",
+    "version": null,
+    "source_aliases": {
+      "artificial_analysis": [
+        "Solar Open2 250B"
+      ],
+      "llmstats": []
+    },
+    "source_ids": {},
+    "source_urls": {
+      "artificial_analysis": [
+        "https://artificialanalysis.ai/models/solar-open2-250b"
+      ]
+    },
+    "variants": {
+      "upstage/solar-open2-250b:default": {
+        "variant_id": "upstage/solar-open2-250b:default",
+        "deployment_profile_id": "upstage/solar-open2-250b:default:deployment",
+        "source_name": "Solar Open2 250B",
+        "reasoning_effort": null,
+        "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": {
+          "total_billions": 250.0,
+          "active_billions": null
+        }
+      }
+    }
+  },
   "upstage/solar-pro-3": {
     "family_id": "upstage/solar-pro-3",
     "canonical_family_name": "Solar Pro 3",
@@ -6200,6 +6379,35 @@
         "variant_id": "upstage/solar-pro-3:default",
         "deployment_profile_id": "upstage/solar-pro-3:default:deployment",
         "source_name": "Solar Pro 3",
+        "reasoning_effort": null,
+        "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": null
+      }
+    }
+  },
+  "upstage/solar-pro-4": {
+    "family_id": "upstage/solar-pro-4",
+    "canonical_family_name": "Solar Pro 4",
+    "provider": "Upstage",
+    "version": null,
+    "source_aliases": {
+      "artificial_analysis": [
+        "Solar Pro 4"
+      ],
+      "llmstats": []
+    },
+    "source_ids": {},
+    "source_urls": {
+      "artificial_analysis": [
+        "https://artificialanalysis.ai/models/solar-pro4"
+      ]
+    },
+    "variants": {
+      "upstage/solar-pro-4:default": {
+        "variant_id": "upstage/solar-pro-4:default",
+        "deployment_profile_id": "upstage/solar-pro-4:default:deployment",
+        "source_name": "Solar Pro 4",
         "reasoning_effort": null,
         "deployment_profile": [],
         "fallback_enabled": false,
