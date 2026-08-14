@@ -692,6 +692,35 @@
       }
     }
   },
+  "alibaba/qwen3-8-2-4t-a95b": {
+    "family_id": "alibaba/qwen3-8-2-4t-a95b",
+    "canonical_family_name": "Qwen3.8 2.4T A95B",
+    "provider": "Alibaba",
+    "version": "3.8",
+    "source_aliases": {
+      "artificial_analysis": [
+        "Qwen3.8 2.4T A95B"
+      ],
+      "llmstats": []
+    },
+    "source_ids": {},
+    "source_urls": {
+      "artificial_analysis": [
+        "https://artificialanalysis.ai/models/qwen3-8-2-4t-a95b"
+      ]
+    },
+    "variants": {
+      "alibaba/qwen3-8-2-4t-a95b:default": {
+        "variant_id": "alibaba/qwen3-8-2-4t-a95b:default",
+        "deployment_profile_id": "alibaba/qwen3-8-2-4t-a95b:default:deployment",
+        "source_name": "Qwen3.8 2.4T A95B",
+        "reasoning_effort": null,
+        "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": null
+      }
+    }
+  },
   "alibaba/qwen3-coder-next": {
     "family_id": "alibaba/qwen3-coder-next",
     "canonical_family_name": "Qwen3 Coder Next",
@@ -1288,7 +1317,6 @@
     "version": null,
     "source_aliases": {
       "artificial_analysis": [
-        "Claude Fable 5 (with Opus 5 fallback)",
         "Claude Fable 5 (with fallback)"
       ],
       "llmstats": [
@@ -1298,15 +1326,14 @@
     "source_ids": {},
     "source_urls": {
       "artificial_analysis": [
-        "https://artificialanalysis.ai/models/claude-fable-5",
-        "https://artificialanalysis.ai/models/claude-fable-5-opus-5-fallback"
+        "https://artificialanalysis.ai/models/claude-fable-5"
       ]
     },
     "variants": {
       "anthropic/claude-fable-5:fallback": {
         "variant_id": "anthropic/claude-fable-5:fallback",
         "deployment_profile_id": "anthropic/claude-fable-5:fallback:deployment",
-        "source_name": "Claude Fable 5 (with Opus 5 fallback)",
+        "source_name": "Claude Fable 5 (with fallback)",
         "reasoning_effort": null,
         "deployment_profile": [
           "fallback"
@@ -2177,6 +2204,57 @@
         "deployment_profile_id": "google/gemini-3-6-flash:default:deployment",
         "source_name": "Gemini 3.6 Flash",
         "reasoning_effort": null,
+        "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": null
+      }
+    }
+  },
+  "google/gemini-3-7-flash": {
+    "family_id": "google/gemini-3-7-flash",
+    "canonical_family_name": "Gemini 3.7 Flash",
+    "provider": "Google",
+    "version": "3.7",
+    "source_aliases": {
+      "artificial_analysis": [
+        "Gemini 3.7 Flash (high)",
+        "Gemini 3.7 Flash (low)",
+        "Gemini 3.7 Flash (medium)"
+      ],
+      "llmstats": []
+    },
+    "source_ids": {},
+    "source_urls": {
+      "artificial_analysis": [
+        "https://artificialanalysis.ai/models/gemini-3-7-flash",
+        "https://artificialanalysis.ai/models/gemini-3-7-flash-low",
+        "https://artificialanalysis.ai/models/gemini-3-7-flash-medium"
+      ]
+    },
+    "variants": {
+      "google/gemini-3-7-flash:high": {
+        "variant_id": "google/gemini-3-7-flash:high",
+        "deployment_profile_id": "google/gemini-3-7-flash:high:deployment",
+        "source_name": "Gemini 3.7 Flash (high)",
+        "reasoning_effort": "high",
+        "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": null
+      },
+      "google/gemini-3-7-flash:medium": {
+        "variant_id": "google/gemini-3-7-flash:medium",
+        "deployment_profile_id": "google/gemini-3-7-flash:medium:deployment",
+        "source_name": "Gemini 3.7 Flash (medium)",
+        "reasoning_effort": "medium",
+        "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": null
+      },
+      "google/gemini-3-7-flash:low": {
+        "variant_id": "google/gemini-3-7-flash:low",
+        "deployment_profile_id": "google/gemini-3-7-flash:low:deployment",
+        "source_name": "Gemini 3.7 Flash (low)",
+        "reasoning_effort": "low",
         "deployment_profile": [],
         "fallback_enabled": false,
         "parameter_count": null
@@ -3237,14 +3315,14 @@
       }
     }
   },
-  "lg-ai-research/k-exaone-2-0-0803": {
-    "family_id": "lg-ai-research/k-exaone-2-0-0803",
-    "canonical_family_name": "K-EXAONE 2.0 0803",
+  "lg-ai-research/k-exaone-2-0": {
+    "family_id": "lg-ai-research/k-exaone-2-0",
+    "canonical_family_name": "K-EXAONE 2.0",
     "provider": "LG AI Research",
     "version": "2.0",
     "source_aliases": {
       "artificial_analysis": [
-        "K-EXAONE 2.0 0803"
+        "K-EXAONE 2.0"
       ],
       "llmstats": []
     },
@@ -3255,10 +3333,10 @@
       ]
     },
     "variants": {
-      "lg-ai-research/k-exaone-2-0-0803:default": {
-        "variant_id": "lg-ai-research/k-exaone-2-0-0803:default",
-        "deployment_profile_id": "lg-ai-research/k-exaone-2-0-0803:default:deployment",
-        "source_name": "K-EXAONE 2.0 0803",
+      "lg-ai-research/k-exaone-2-0:default": {
+        "variant_id": "lg-ai-research/k-exaone-2-0:default",
+        "deployment_profile_id": "lg-ai-research/k-exaone-2-0:default:deployment",
+        "source_name": "K-EXAONE 2.0",
         "reasoning_effort": null,
         "deployment_profile": [],
         "fallback_enabled": false,

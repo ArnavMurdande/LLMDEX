@@ -327,13 +327,18 @@
     "source_model_id": "gemini-3-flash-preview",
     "source_model_url": "https://llm-stats.com/models/gemini-3-flash-preview",
     "provider": "Google",
-    "candidate_family_id": "google/gemini-3-6-flash",
-    "candidate_family_name": "Gemini 3.6 Flash",
+    "candidate_family_id": "google/gemini-3-7-flash",
+    "candidate_family_name": "Gemini 3.7 Flash",
     "match_status": "ambiguous",
     "match_confidence": 0.8,
     "match_method": "fuzzy_review_candidate",
     "review_reason": "Fuzzy candidates require manual approval and are excluded from scoring.",
     "competing_candidates": [
+      {
+        "family_id": "google/gemini-3-7-flash",
+        "family_name": "Gemini 3.7 Flash",
+        "similarity": 0.9333
+      },
       {
         "family_id": "google/gemini-3-6-flash",
         "family_name": "Gemini 3.6 Flash",
@@ -665,6 +670,11 @@
         "similarity": 1.0
       },
       {
+        "family_id": "google/gemini-3-7-flash",
+        "family_name": "Gemini 3.7 Flash",
+        "similarity": 0.9375
+      },
+      {
         "family_id": "google/gemini-3-6-flash",
         "family_name": "Gemini 3.6 Flash",
         "similarity": 0.9375
@@ -732,6 +742,11 @@
         "family_id": "google/gemini-3-6-flash",
         "family_name": "Gemini 3.6 Flash",
         "similarity": 1.0
+      },
+      {
+        "family_id": "google/gemini-3-7-flash",
+        "family_name": "Gemini 3.7 Flash",
+        "similarity": 0.9375
       },
       {
         "family_id": "google/gemini-3-5-flash",
