@@ -191,6 +191,8 @@ LLMDEX publishes a dedicated wide relational Power BI export layer under `data/p
 - **`llmstats_benchmarks.csv`**: Wide typed table of LLMStats category ranks, scores, and dynamic benchmark metric columns (`benchmark_` prefix) across 8 categories.
 - **`combined_latest.json`**: Source-separated wide JSON contract preserving original namespaces and LLMDEX consensus.
 - **`model_family_history.csv`**: Wide model family progression dataset with explicit record types (`observed_snapshot`, `release_event`, `catalog_event`) (~Nov 2022 to present).
+- **`provider_metadata.csv`**: Canonical provider dimension for aliases, headquarters geography, locally hosted logo URLs, and joins through the backwards-compatible `provider_id` added to each fact export.
+- **`provider_metadata_validation.json`**: Discovery counts, unresolved enrichment IDs, and raw-provider-to-canonical mappings.
 - **`manifest.json`**: Operational manifest containing checksums, row counts, wide column counts, and snapshot provenance (`powerbi-v2-wide`).
 - **`data_dictionary.csv`**: Complete field metadata, units, computed source populations, and recommended Power BI aggregations.
 

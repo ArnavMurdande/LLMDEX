@@ -6,7 +6,7 @@ LLMDEX provides a dedicated, Power BI-oriented export layer located under `data/
 
 ## Published Export Contracts (`powerbi-v2-wide`)
 
-The export layer provides four primary wide datasets alongside manifest and data dictionary files:
+The export layer provides four primary CSV datasets plus the backward-compatible combined JSON, manifest, validation, and data dictionary files:
 
 | File | Type | Table Grain | Natural Key | Primary Purpose |
 | --- | --- | --- | --- | --- |
@@ -14,6 +14,7 @@ The export layer provides four primary wide datasets alongside manifest and data
 | `llmstats_benchmarks.csv` | CSV | 1 row per `snapshot_date` + `capability` + `source_model_id/source_name` | `snapshot_date` + `capability` + `source_model_id/source_name` | Wide typed table containing category ranks, category scores, and dynamic benchmark metric columns (`benchmark_` prefix) across 8 capability categories. |
 | `combined_latest.json` | JSON | Source-separated JSON document | `schema_version` + `generated_from_snapshot` | Wide JSON contract preserving source-native namespaces (`artificial_analysis`, `llmstats`) and consensus (`llmdex`). |
 | `model_family_history.csv` | CSV | 1 row per `observation_date` + `family_id` + `record_type` | `observation_date` + `family_id` + `record_type` | Complete model family history with explicit record types (`observed_snapshot`, `release_event`, `catalog_event`) spanning 2022 to present. |
+| `provider_metadata.csv` | CSV | 1 row per canonical provider | `provider_id` | Provider identity, aliases, headquarters-city geography, locally hosted logo URL, official website, and verification provenance. |
 | `manifest.json` | JSON | Metadata manifest | N/A | Hashes, row counts, wide column counts, snapshot dates, coverage limitations, and Git provenance. |
 | `data_dictionary.csv` | CSV | Field metadata dictionary | `table_name` + `column_name` | Column data types, descriptions, units, nullable status, computed source populations, and recommended aggregations. |
 
@@ -38,6 +39,10 @@ DimFamily (family_id) ────┬───> FactArtificialAnalysis (family_i
 DimModel (model_key) ─────────> FactArtificialAnalysis (model_key)
 DimCapability (capability) ────> FactLLMStats (capability)
 
+DimProvider (provider_id) ──┬──> FactArtificialAnalysis (provider_id)
+                            ├──> FactLLMStats (provider_id)
+                            └──> FactFamilyHistory (provider_id)
+
 DimDate (date) ───────────┬───> FactArtificialAnalysis (snapshot_date)
                           ├───> FactLLMStats (snapshot_date)
                           └───> FactFamilyHistory (observation_date)
@@ -49,6 +54,7 @@ DimDate (date) ───────────┬───> FactArtificialAnal
 - **`DimFamily[family_id]`** $\rightarrow$ **`FactFamilyHistory[family_id]`** (1:Many)
 - **`DimModel[model_key]`** $\rightarrow$ **`FactArtificialAnalysis[model_key]`** (1:Many)
 - **`DimCapability[capability]`** $\rightarrow$ **`FactLLMStats[capability]`** (1:Many)
+- **`DimProvider[provider_id]`** $\rightarrow$ each fact table's **`provider_id`** (1:Many)
 - **`DimDate[date]`** $\rightarrow$ **`FactArtificialAnalysis[snapshot_date]`** (1:Many)
 - **`DimDate[date]`** $\rightarrow$ **`FactLLMStats[snapshot_date]`** (1:Many)
 - **`DimDate[date]`** $\rightarrow$ **`FactFamilyHistory[observation_date]`** (1:Many)
@@ -69,3 +75,9 @@ in
 ```
 
 > **Note**: CSV exports use **UTF-8 with BOM** for seamless encoding detection in Power BI Desktop and Microsoft Excel.
+
+## Provider metadata maintenance
+
+The exporter discovers provider values from all three fact datasets on every run, resolves aliases through `data/methodology/provider_metadata_registry.json`, and emits unknown providers instead of failing. Unknown enrichment remains blank and is listed in `provider_metadata_validation.json`. Stable IDs are explicit registry IDs when known and deterministic normalized slugs otherwise.
+
+Curated geography uses the provider's current primary headquarters country and headquarters-city centroid—not a street address. To enrich a new provider, add its canonical name, aliases, authoritative source URL, verified date, and only verified optional attributes to the registry. Logos are served from `website/assets/providers/<provider_id>.svg`; the exporter creates a neutral deterministic LLMDEX monogram when an official local asset is unavailable.

@@ -50,6 +50,8 @@ class PowerBIExportsTests(unittest.TestCase):
             "llmstats_benchmarks.csv",
             "combined_latest.json",
             "model_family_history.csv",
+            "provider_metadata.csv",
+            "provider_metadata_validation.json",
             "manifest.json",
             "data_dictionary.csv",
         ]
@@ -223,6 +225,39 @@ class PowerBIExportsTests(unittest.TestCase):
         self.assertEqual(len(collector.cards), 4)
         for card in collector.cards:
             self.assertTrue(card["href"].startswith("./data/powerbi/v1/"))
+        self.assertIn("./data/powerbi/v1/provider_metadata.csv", [card["href"] for card in collector.cards])
+        self.assertNotIn("./data/powerbi/v1/combined_latest.json", [card["href"] for card in collector.cards])
+
+    def test_13_provider_metadata_schema_and_joins(self):
+        expected = [
+            "schema_version", "snapshot_date", "provider_id", "provider_name",
+            "parent_company", "provider_group", "provider_aliases", "country",
+            "country_code", "region", "hq_city", "latitude", "longitude",
+            "website_url", "logo_url", "logo_dark_url", "brand_color",
+            "founded_year", "is_active", "metadata_source_url", "metadata_verified_at",
+        ]
+        with open(POWERBI_DIR / "provider_metadata.csv", "r", encoding="utf-8-sig") as f:
+            reader = csv.DictReader(f)
+            rows = list(reader)
+            self.assertEqual(expected, reader.fieldnames)
+        ids = [row["provider_id"] for row in rows]
+        self.assertEqual(len(ids), len(set(ids)))
+        self.assertGreater(len(ids), 0)
+        for row in rows:
+            if row["latitude"]:
+                self.assertTrue(-90 <= float(row["latitude"]) <= 90)
+            if row["longitude"]:
+                self.assertTrue(-180 <= float(row["longitude"]) <= 180)
+            self.assertTrue(row["logo_url"].startswith("https://llmdex.pages.dev/assets/providers/"))
+            self.assertTrue((ROOT / "website" / "assets" / "providers" / f"{row['provider_id']}.svg").is_file())
+        provider_ids = set(ids)
+        for filename in ("artificial_analysis_benchmarks.csv", "llmstats_benchmarks.csv", "model_family_history.csv"):
+            with open(POWERBI_DIR / filename, "r", encoding="utf-8-sig") as f:
+                fact_rows = list(csv.DictReader(f))
+            self.assertIn("provider_id", fact_rows[0])
+            for row in fact_rows:
+                if row.get("provider"):
+                    self.assertIn(row["provider_id"], provider_ids, f"Orphan provider in {filename}: {row['provider']}")
 
 
 if __name__ == "__main__":

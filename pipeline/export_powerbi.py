@@ -18,8 +18,11 @@ import subprocess
 import sys
 import tempfile
 from collections import Counter, defaultdict
+from datetime import date
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Set, Tuple
+
+from pipeline.provider_metadata import PROVIDER_COLUMNS, build_provider_metadata
 
 ROOT = Path(__file__).resolve().parents[1]
 POWERBI_DIR = ROOT / "data" / "powerbi" / "v1"
@@ -346,6 +349,7 @@ AA_WIDE_COLUMNS = [
     "canonical_name",
     "source_name",
     "provider",
+    "provider_id",
     "creator",
     "availability_class",
     "license_type",
@@ -1303,7 +1307,7 @@ def build_data_dictionary_csv(
 
     llm_base_cols = [
         "schema_version", "snapshot_date", "source", "capability", "source_model_id",
-        "source_name", "original_source_name", "canonical_name", "family_id", "provider",
+        "source_name", "original_source_name", "canonical_name", "family_id", "provider", "provider_id",
         "availability_class", "is_open_weights", "category_rank", "category_score",
         "match_status", "source_model_url"
     ]
@@ -1354,7 +1358,7 @@ def build_data_dictionary_csv(
     hist_cols = [
         "schema_version", "observation_date", "snapshot_date", "release_date",
         "first_seen_date", "last_seen_date", "record_type", "family_id",
-        "canonical_family_name", "provider", "representative_variant_id",
+        "canonical_family_name", "provider", "provider_id", "representative_variant_id",
         "representative_model_name", "availability_class", "is_open_weights",
         "is_current", "source_presence", "aa_intelligence", "aa_rank",
         "llmstats_general_score", "llmstats_general_rank", "llmdex_score",
@@ -1438,6 +1442,20 @@ def run_exports(include_git_history: bool = False) -> Dict[str, Any]:
         include_git_history=include_git_history,
     )
 
+    print("Generating Provider Metadata CSV...")
+    provider_values = [
+        row.get("provider", "")
+        for rows in (aa_wide_rows, llmstats_wide_rows, history_wide_rows)
+        for row in rows
+        if row.get("provider")
+    ]
+    provider_rows, provider_mapping, provider_report = build_provider_metadata(
+        provider_values, date.today().isoformat()
+    )
+    for rows in (aa_wide_rows, llmstats_wide_rows, history_wide_rows):
+        for row in rows:
+            row["provider_id"] = provider_mapping.get((row.get("provider") or "").strip(), "")
+
     print("Generating Combined Latest JSON...")
     combined_json_doc = build_combined_latest_json(
         aa_wide_rows,
@@ -1455,6 +1473,29 @@ def run_exports(include_git_history: bool = False) -> Dict[str, Any]:
         bm_cols,
         bm_orig_names,
     )
+    provider_types = {
+        "latitude": "Decimal number", "longitude": "Decimal number",
+        "founded_year": "Whole number", "is_active": "True/False",
+        "snapshot_date": "Date", "metadata_verified_at": "Date",
+    }
+    for column in PROVIDER_COLUMNS:
+        data_dict_rows.append({
+            "table_name": "provider_metadata",
+            "column_name": column,
+            "original_metric_name": column.replace("_", " ").title(),
+            "data_type": provider_types.get(column, "Text"),
+            "description": f"Provider dimension field {column}",
+            "unit": "degrees" if column in {"latitude", "longitude"} else "",
+            "higher_is_better": "",
+            "source_population": str(sum(1 for row in provider_rows if row.get(column) != "")),
+            "population_definition": "Dynamically discovered canonical providers",
+            "recommended_aggregation": "Do not summarize",
+            "source": "LLMDEX provider registry",
+            "metric_origin": "LLMDEX curated metadata",
+            "nullable": bool_str(column not in {"schema_version", "snapshot_date", "provider_id", "provider_name"}),
+            "currently_populated": bool_str(any(row.get(column) != "" for row in provider_rows)),
+        })
+    data_dict_rows.sort(key=lambda row: (row["table_name"], row["column_name"]))
 
     consensus_fam_count = len(combined_json_doc.get("llmdex", {}).get("consensus", []))
 
@@ -1473,7 +1514,7 @@ def run_exports(include_git_history: bool = False) -> Dict[str, Any]:
         llmstats_csv_path = tmp_path / "llmstats_benchmarks.csv"
         llm_fieldnames = [
             "schema_version", "snapshot_date", "source", "capability", "source_model_id",
-            "source_name", "original_source_name", "canonical_name", "family_id", "provider",
+            "source_name", "original_source_name", "canonical_name", "family_id", "provider", "provider_id",
             "availability_class", "is_open_weights", "category_rank", "category_score",
             "match_status", "source_model_url"
         ] + bm_cols
@@ -1494,7 +1535,7 @@ def run_exports(include_git_history: bool = False) -> Dict[str, Any]:
         hist_fieldnames = [
             "schema_version", "observation_date", "snapshot_date", "release_date",
             "first_seen_date", "last_seen_date", "record_type", "family_id",
-            "canonical_family_name", "provider", "representative_variant_id",
+            "canonical_family_name", "provider", "provider_id", "representative_variant_id",
             "representative_model_name", "availability_class", "is_open_weights",
             "is_current", "source_presence", "aa_intelligence", "aa_rank",
             "llmstats_general_score", "llmstats_general_rank", "llmdex_score",
@@ -1512,6 +1553,16 @@ def run_exports(include_git_history: bool = False) -> Dict[str, Any]:
                 )
                 writer.writeheader()
                 writer.writerows(history_wide_rows)
+
+        provider_csv_path = tmp_path / "provider_metadata.csv"
+        with open(provider_csv_path, "w", encoding="utf-8-sig", newline="") as f:
+            writer = csv.DictWriter(f, fieldnames=PROVIDER_COLUMNS, lineterminator="\n")
+            writer.writeheader()
+            writer.writerows(provider_rows)
+
+        provider_report_path = tmp_path / "provider_metadata_validation.json"
+        with open(provider_report_path, "w", encoding="utf-8") as f:
+            json.dump(provider_report, f, indent=2, allow_nan=False, ensure_ascii=False)
 
         dict_csv_path = tmp_path / "data_dictionary.csv"
         dict_fieldnames = [
@@ -1535,6 +1586,8 @@ def run_exports(include_git_history: bool = False) -> Dict[str, Any]:
             "llmstats_benchmarks.csv",
             "combined_latest.json",
             "model_family_history.csv",
+            "provider_metadata.csv",
+            "provider_metadata_validation.json",
             "data_dictionary.csv",
         ]:
             h = hashlib.sha256()
@@ -1562,13 +1615,19 @@ def run_exports(include_git_history: bool = False) -> Dict[str, Any]:
                 "llmstats_benchmarks": len(llmstats_wide_rows),
                 "combined_latest": 1,
                 "model_family_history": len(history_wide_rows),
+                "provider_metadata": len(provider_rows),
                 "data_dictionary": len(data_dict_rows),
             },
             "column_counts": {
                 "artificial_analysis_benchmarks": len(AA_WIDE_COLUMNS),
                 "llmstats_benchmarks": len(llm_fieldnames),
                 "model_family_history": len(hist_fieldnames),
+                "provider_metadata": len(PROVIDER_COLUMNS),
             },
+            "providers_discovered": provider_report["providers_discovered"],
+            "providers_fully_enriched": provider_report["providers_fully_enriched"],
+            "providers_requiring_metadata": provider_report["providers_requiring_metadata"],
+            "unresolved_provider_ids": provider_report["unresolved_provider_ids"],
             "number_of_benchmark_columns": len(bm_cols),
             "llmstats_general_row_count": llm_stats["llmstats_general_row_count"],
             "llmstats_general_missing_score_count": llm_stats["llmstats_general_missing_score_count"],
@@ -1585,7 +1644,7 @@ def run_exports(include_git_history: bool = False) -> Dict[str, Any]:
             "corrected_open_weight_inconsistency_count": corrected_ow_count,
             "sha256_hashes": hashes,
             "validation_status": "valid",
-            "warnings": [],
+            "warnings": ([f"Provider metadata required: {', '.join(provider_report['unresolved_provider_ids'])}"] if provider_report["unresolved_provider_ids"] else []),
             "generated_from_commit": get_git_commit_sha(),
         }
 
@@ -1599,6 +1658,8 @@ def run_exports(include_git_history: bool = False) -> Dict[str, Any]:
             "llmstats_benchmarks.csv",
             "combined_latest.json",
             "model_family_history.csv",
+            "provider_metadata.csv",
+            "provider_metadata_validation.json",
             "manifest.json",
             "data_dictionary.csv",
         ]:
@@ -1609,6 +1670,7 @@ def run_exports(include_git_history: bool = False) -> Dict[str, Any]:
     print(f"  - llmstats_benchmarks.csv ({len(llmstats_wide_rows)} rows, {len(llm_fieldnames)} cols, {len(bm_cols)} benchmark cols)")
     print(f"  - combined_latest.json ({consensus_fam_count} consensus families)")
     print(f"  - model_family_history.csv ({len(history_wide_rows)} rows, {len(hist_fieldnames)} cols)")
+    print(f"  - provider_metadata.csv ({len(provider_rows)} providers; {provider_report['providers_fully_enriched']} fully enriched; {provider_report['providers_requiring_metadata']} requiring metadata)")
     print(f"  - manifest.json (schema: {SCHEMA_VERSION})")
     print(f"  - data_dictionary.csv ({len(data_dict_rows)} rows)")
 

@@ -51,6 +51,7 @@ jobs:
           cp -r data/cleaned/llmstats _site/data/cleaned/llmstats
           cp -r data/history _site/data/history
           cp -r data/sentiment _site/data/sentiment
+          cp -r data/powerbi _site/data/powerbi
           cp data/models.json _site/data/
           cp -r docs _site/docs
           touch _site/.nojekyll

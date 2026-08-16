@@ -15,13 +15,47 @@
     "llmstats_benchmarks": 307,
     "combined_latest": 1,
     "model_family_history": 7121,
-    "data_dictionary": 181
+    "provider_metadata": 59,
+    "data_dictionary": 205
   },
   "column_counts": {
-    "artificial_analysis_benchmarks": 73,
-    "llmstats_benchmarks": 73,
-    "model_family_history": 35
+    "artificial_analysis_benchmarks": 74,
+    "llmstats_benchmarks": 74,
+    "model_family_history": 36,
+    "provider_metadata": 21
   },
+  "providers_discovered": 59,
+  "providers_fully_enriched": 32,
+  "providers_requiring_metadata": 27,
+  "unresolved_provider_ids": [
+    "ai9stars",
+    "allen-institute-for-ai",
+    "arcee-ai",
+    "celeris",
+    "china-mobile",
+    "deep-cogito",
+    "inception",
+    "inclusionai",
+    "korea-telecom",
+    "kwaikat",
+    "liquid-ai",
+    "mbzuai-institute-of-foundation-models",
+    "motif-technologies",
+    "multiverse-computing",
+    "nanbeige",
+    "nex-agi",
+    "nous-research",
+    "openbmb",
+    "openchat",
+    "prime-intellect",
+    "reka-ai",
+    "sapiens-ai",
+    "sk-telecom",
+    "stepfun",
+    "swiss-ai-initiative",
+    "tii-uae",
+    "trillion-labs"
+  ],
   "number_of_benchmark_columns": 57,
   "llmstats_general_row_count": 97,
   "llmstats_general_missing_score_count": 67,
@@ -46,13 +80,17 @@
   ],
   "corrected_open_weight_inconsistency_count": 177,
   "sha256_hashes": {
-    "artificial_analysis_benchmarks.csv": "f1c1b9ea6eb67856d7ce7ce258a340736f6366157488789110e30674aca748f2",
-    "llmstats_benchmarks.csv": "7126b01bf045c0fcee1bcb418cf707a747167628f56b2425b22fd3f29ade3c42",
-    "combined_latest.json": "b5a75014f5f089664612d3d51b538303d61d338ffdc06543021a07c07b7463b4",
-    "model_family_history.csv": "6353ba629f7ed5436fb5f21a2d90ad5f0bdb7a0f151684d5050a6a547b37d50e",
-    "data_dictionary.csv": "ed9ab78db38e4cdace9c8b9f5b620693c428bc23d3791ade0aa23dbe71896e42"
+    "artificial_analysis_benchmarks.csv": "16b08122410ecdd0fa3eb6555e3eea453dd4b878f9c494da4ffbdc84c5813029",
+    "llmstats_benchmarks.csv": "a5812dfcbe19eba1e4ddc7e6226fe5cea8abac2b7a900e5dae5ccc38b46f7113",
+    "combined_latest.json": "e774c6139ec92bfe7017673da33f8c316fd9c3d86bd8ad67c486bfb486baadb3",
+    "model_family_history.csv": "5a55cb003b25b5bee5ca0375b8a9ee9f754a33bf745842719e417371c05b6703",
+    "provider_metadata.csv": "8c5ea60bb320a437a75ce6a7e664503db99e0048971f262dcadc9425e2fc2036",
+    "provider_metadata_validation.json": "74bf8c901a8878ad6bd77507251f34190804c84b8b2c15d980738be0670cd47e",
+    "data_dictionary.csv": "bfa70f7274f7438641719aa9498f9f29ce1c28bf23c6ed9cc81b5046a3684557"
   },
   "validation_status": "valid",
-  "warnings": [],
-  "generated_from_commit": "b6f4a028b0c1c6e6e6140c2869e2022c4947604d"
+  "warnings": [
+    "Provider metadata required: ai9stars, allen-institute-for-ai, arcee-ai, celeris, china-mobile, deep-cogito, inception, inclusionai, korea-telecom, kwaikat, liquid-ai, mbzuai-institute-of-foundation-models, motif-technologies, multiverse-computing, nanbeige, nex-agi, nous-research, openbmb, openchat, prime-intellect, reka-ai, sapiens-ai, sk-telecom, stepfun, swiss-ai-initiative, tii-uae, trillion-labs"
+  ],
+  "generated_from_commit": "29f3b9c99c23f3d1431b015c1699b6c1b7132267"
 }
