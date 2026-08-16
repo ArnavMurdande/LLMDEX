@@ -1,0 +1,144 @@
+table DimModelAA
+	lineageTag: 3a1da37c-eb93-4306-abd3-d67972e0f2cd
+
+	column model_key
+		lineageTag: 11f23c58-1c7d-480c-ba01-096eb2cfccd2
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [model_key]
+
+		annotation SummarizationSetBy = Automatic
+
+	column model_name
+		lineageTag: b205afeb-a09e-4c6e-a303-7da5010058a0
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [model_name]
+
+		annotation SummarizationSetBy = Automatic
+
+	column family_id
+		lineageTag: 39322d9a-8d10-4ed5-8f5b-dbf635be2cb2
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [family_id]
+
+		annotation SummarizationSetBy = Automatic
+
+	column variant_id
+		lineageTag: 915331fa-7c75-47b2-8e8c-82ee323f524a
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [variant_id]
+
+		annotation SummarizationSetBy = Automatic
+
+	column provider_id
+		lineageTag: e34ed20c-f48e-4d31-9074-97bcbe502136
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [provider_id]
+
+		annotation SummarizationSetBy = Automatic
+
+	column provider
+		lineageTag: e6d5275f-5895-41c9-b1c9-84f06c73426c
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [provider]
+
+		annotation SummarizationSetBy = Automatic
+
+	column availability_class
+		lineageTag: 0e76f44b-51a7-4a0b-8999-9e0664c2b5b8
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [availability_class]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimModelAA = calculated
+		mode: import
+		source =
+				
+				VAR ModelKeys =
+				    FILTER (
+				        DISTINCT (
+				            SELECTCOLUMNS (
+				                'FactAA',
+				                "model_key", 'FactAA'[model_key]
+				            )
+				        ),
+				        NOT ISBLANK ( [model_key] )
+				            && [model_key] <> ""
+				    )
+				RETURN
+				    ADDCOLUMNS (
+				        ModelKeys,
+				
+				        "model_name",
+				            VAR CurrentModel = [model_key]
+				            RETURN
+				                MAXX (
+				                    FILTER (
+				                        ALL ( 'FactAA' ),
+				                        'FactAA'[model_key] = CurrentModel
+				                    ),
+				                    'FactAA'[canonical_name]
+				                ),
+				
+				        "family_id",
+				            VAR CurrentModel = [model_key]
+				            RETURN
+				                MAXX (
+				                    FILTER (
+				                        ALL ( 'FactAA' ),
+				                        'FactAA'[model_key] = CurrentModel
+				                    ),
+				                    'FactAA'[family_id]
+				                ),
+				
+				        "variant_id",
+				            VAR CurrentModel = [model_key]
+				            RETURN
+				                MAXX (
+				                    FILTER (
+				                        ALL ( 'FactAA' ),
+				                        'FactAA'[model_key] = CurrentModel
+				                    ),
+				                    'FactAA'[variant_id]
+				                ),
+				
+				        "provider_id",
+				            VAR CurrentModel = [model_key]
+				            RETURN
+				                MAXX (
+				                    FILTER ( ALL ( 'FactAA' ), 'FactAA'[model_key] = CurrentModel ),
+				                    'FactAA'[provider_id]
+				                ),
+				
+				        "provider",
+				            VAR CurrentModel = [model_key]
+				            RETURN
+				                MAXX (
+				                    FILTER (
+				                        ALL ( 'FactAA' ),
+				                        'FactAA'[model_key] = CurrentModel
+				                    ),
+				                    'FactAA'[provider]
+				                ),
+				
+				        "availability_class",
+				            VAR CurrentModel = [model_key]
+				            RETURN
+				                MAXX (
+				                    FILTER (
+				                        ALL ( 'FactAA' ),
+				                        'FactAA'[model_key] = CurrentModel
+				                    ),
+				                    'FactAA'[availability_class]
+				                )
+				    )
+
+	annotation PBI_Id = 8cfc7f5515254703aeac69db79f50afb
+

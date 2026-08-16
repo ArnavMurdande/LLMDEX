@@ -1,0 +1,258 @@
+table DimLeaderAA
+	lineageTag: ad15690d-d4a9-446b-94e6-e33067791008
+
+	measure 'Leader Model' = SELECTEDVALUE ( 'DimLeaderAA'[model_name] )
+		lineageTag: 936abe67-3518-4c96-9753-3fd69504fc76
+
+	measure 'Leader Provider' = SELECTEDVALUE ( 'DimLeaderAA'[provider_name] )
+		lineageTag: 236edebd-68c8-4447-81f0-a50fae945bed
+
+	measure 'Leader Logo' = SELECTEDVALUE ( 'DimLeaderAA'[logo_url] )
+		lineageTag: df3c2018-09a5-46c2-b3bd-24c85d0a2c29
+		dataCategory: ImageUrl
+
+	measure 'Leader Composite' = MAX ( 'DimLeaderAA'[composite_index] )
+		formatString: 0.0
+		lineageTag: 0b48c507-b77c-4807-b86f-ee8de298f163
+
+	measure 'Leader Performance Score' = MAX ( 'DimLeaderAA'[performance_score] )
+		formatString: 0.0
+		lineageTag: 56930873-e567-46c9-bb60-34283bbe9164
+
+	measure 'Leader Performance Rank' = MIN ( 'DimLeaderAA'[performance_rank] )
+		formatString: 0
+		lineageTag: 819a1a7a-8843-4a2c-bbc0-179ddd81f3e5
+
+	measure 'Leader Value Rank' = MIN ( 'DimLeaderAA'[value_rank] )
+		formatString: 0
+		lineageTag: 1b3ac810-910f-4755-8c16-f90010fb6f03
+
+	measure 'Leader Efficiency Rank' = MIN ( 'DimLeaderAA'[efficiency_rank] )
+		formatString: 0
+		lineageTag: c54575a7-5936-475a-821c-bbc5b0671e12
+
+	measure 'Leader Cost' = MAX ( 'DimLeaderAA'[blended_cost] )
+		formatString: 0.00
+		lineageTag: 42aba7a8-3158-4211-998a-3810058345b8
+
+	measure 'Leader Speed' = MAX ( 'DimLeaderAA'[output_speed] )
+		formatString: 0.0
+		lineageTag: 837c57fc-3349-4fa1-a882-7e7e1a89769e
+
+	measure 'Leader Intelligence' = MAX ( 'DimLeaderAA'[intelligence] )
+		formatString: 0.0
+		lineageTag: f5545eb9-aeca-4604-b81b-3e1ef983c8b7
+
+	measure 'Leader Performance Summary' = "Rank #" & FORMAT ( [Leader Performance Rank], "0" ) & "  •  Score " & FORMAT ( [Leader Performance Score], "0.0" )
+		lineageTag: fc58ec98-cf32-4bbc-89c9-d6288f25bdfd
+
+	measure 'Leader Value Summary' = "Rank #" & FORMAT ( [Leader Value Rank], "0" ) & "  •  $" & FORMAT ( [Leader Cost], "0.00" ) & " / 1M"
+		lineageTag: f359c9fa-2d2e-4e6b-a1bd-b9fa3eb5efee
+
+	measure 'Leader Efficiency Summary' = "Rank #" & FORMAT ( [Leader Efficiency Rank], "0" ) & "  •  " & FORMAT ( [Leader Speed], "0" ) & " tok/s"
+		lineageTag: 48054042-c51c-4d0f-abe9-b979931fa416
+
+	column model_key
+		lineageTag: 8ff7ead3-3bf2-4726-afb7-755df32f7e64
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [model_key]
+
+		annotation SummarizationSetBy = Automatic
+
+	column family_id
+		lineageTag: ae9ba897-79e7-47a2-8bfd-33a899c49391
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [family_id]
+
+		annotation SummarizationSetBy = Automatic
+
+	column model_name
+		lineageTag: c6e8ca61-885d-4d5d-b283-64a5f2f329cf
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [model_name]
+
+		annotation SummarizationSetBy = Automatic
+
+	column provider_id
+		lineageTag: a963568b-f8a3-4f40-ab00-8b58d0de709f
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [provider_id]
+
+		annotation SummarizationSetBy = Automatic
+
+	column provider_name
+		lineageTag: 0b7b5374-0779-4c1d-9048-f77fdb9e2eb6
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [provider_name]
+
+		annotation SummarizationSetBy = Automatic
+
+	column logo_url
+		lineageTag: d80ff1ca-0b8a-4229-8331-6c4b6ec2149d
+		dataCategory: ImageUrl
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [logo_url]
+
+		annotation SummarizationSetBy = Automatic
+
+	column availability_class
+		lineageTag: e306d34c-6cce-400e-9ea3-6b78b6ce7695
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [availability_class]
+
+		annotation SummarizationSetBy = Automatic
+
+	column composite_index
+		lineageTag: 0394b86f-6145-40bf-9e6f-84d04bbce597
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [composite_index]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column performance_score
+		lineageTag: 775aacda-c419-4dd0-b249-717714bcac28
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [performance_score]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column performance_rank
+		formatString: 0
+		lineageTag: d8927a41-8df5-481a-a64a-5bea6a143f32
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [performance_rank]
+
+		annotation SummarizationSetBy = Automatic
+
+	column value_rank
+		formatString: 0
+		lineageTag: ac72b504-e359-4538-84dc-9462b150c11c
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [value_rank]
+
+		annotation SummarizationSetBy = Automatic
+
+	column efficiency_rank
+		formatString: 0
+		lineageTag: 047624c0-e480-4f2b-9a08-29f722aee5bd
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [efficiency_rank]
+
+		annotation SummarizationSetBy = Automatic
+
+	column blended_cost
+		lineageTag: 5e6ad384-85d5-4197-8545-825ca6093757
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [blended_cost]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column output_speed
+		lineageTag: 9be0bfba-b717-4f8d-8c40-b9d173d00ff2
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [output_speed]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column intelligence
+		lineageTag: 3fb6965e-222f-4ebb-8562-4ea7be7f172e
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [intelligence]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column overall_rank
+		formatString: 0
+		lineageTag: 389df452-055c-4bdb-80e9-55698e82db89
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [overall_rank]
+
+		annotation SummarizationSetBy = Automatic
+
+	column value_display_rank
+		formatString: 0
+		lineageTag: feed2cf5-cfcd-4a44-9474-f85aebd0aea4
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [value_display_rank]
+
+		annotation SummarizationSetBy = Automatic
+
+	column efficiency_display_rank
+		formatString: 0
+		lineageTag: 67d8975c-ced9-48cb-aa4f-86394317a991
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [efficiency_display_rank]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimLeaderAA = calculated
+		mode: import
+		source =
+				VAR LatestDate = CALCULATE ( MAX ( 'FactAA'[snapshot_date] ), ALL ( 'FactAA' ) )
+				VAR Base =
+				    FILTER (
+				        ALL ( 'FactAA' ),
+				        'FactAA'[snapshot_date] = LatestDate
+				            && 'FactAA'[is_family_representative] = TRUE ()
+				            && NOT ISBLANK ( 'FactAA'[llmdex_performance_rank] )
+				    )
+				VAR Ranked =
+				    ADDCOLUMNS (
+				        Base,
+				        "__overall_rank", RANKX ( Base, 'FactAA'[llmdex_performance_rank], , ASC, DENSE ),
+				        "__value_display_rank", IF ( NOT ISBLANK ( 'FactAA'[llmdex_value_rank] ), RANKX ( FILTER ( Base, NOT ISBLANK ( 'FactAA'[llmdex_value_rank] ) ), 'FactAA'[llmdex_value_rank], , ASC, DENSE ) ),
+				        "__efficiency_display_rank", IF ( NOT ISBLANK ( 'FactAA'[llmdex_efficiency_rank] ), RANKX ( FILTER ( Base, NOT ISBLANK ( 'FactAA'[llmdex_efficiency_rank] ) ), 'FactAA'[llmdex_efficiency_rank], , ASC, DENSE ) )
+				    )
+				RETURN
+				    SELECTCOLUMNS (
+				        Ranked,
+				        "model_key", 'FactAA'[model_key],
+				        "family_id", 'FactAA'[family_id],
+				        "model_name", 'FactAA'[canonical_name],
+				        "provider_id", 'FactAA'[provider_id],
+				        "provider_name", COALESCE ( LOOKUPVALUE ( 'DimProvider'[provider_name], 'DimProvider'[provider_id], 'FactAA'[provider_id] ), 'FactAA'[provider] ),
+				        "logo_url", LOOKUPVALUE ( 'DimProvider'[logo_url], 'DimProvider'[provider_id], 'FactAA'[provider_id] ),
+				        "availability_class", 'FactAA'[availability_class],
+				        "composite_index", 'FactAA'[llmdex_composite_index],
+				        "performance_score", 'FactAA'[llmdex_adjusted_performance],
+				        "performance_rank", 'FactAA'[llmdex_performance_rank],
+				        "value_rank", 'FactAA'[llmdex_value_rank],
+				        "efficiency_rank", 'FactAA'[llmdex_efficiency_rank],
+				        "blended_cost", 'FactAA'[aa_blended_cost_usd_per_1m],
+				        "output_speed", 'FactAA'[aa_tokens_per_second],
+				        "intelligence", 'FactAA'[aa_intelligence_score],
+				        "overall_rank", [__overall_rank],
+				        "value_display_rank", [__value_display_rank],
+				        "efficiency_display_rank", [__efficiency_display_rank]
+				    )
+
+	annotation PBI_Id = 1c65332940a0434d86f57dd9d474a198
+

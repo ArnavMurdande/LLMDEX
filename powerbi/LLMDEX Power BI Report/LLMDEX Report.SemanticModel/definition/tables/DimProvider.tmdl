@@ -1,0 +1,212 @@
+table DimProvider
+	lineageTag: 03f5d96b-4c84-4148-973c-59f3810efed2
+
+	measure 'Provider Count' = DISTINCTCOUNT ( 'DimProvider'[provider_id] )
+		formatString: 0
+		lineageTag: 294673d4-04ad-4b1a-bc3a-f728481cbdc0
+
+	measure 'Mapped Provider Count' = CALCULATE ( DISTINCTCOUNT ( 'DimProvider'[provider_id] ), NOT ISBLANK ( 'DimProvider'[country] ) )
+		formatString: 0
+		lineageTag: 39262e95-1654-4bce-b536-75b13ec10c61
+
+	column schema_version
+		dataType: string
+		lineageTag: d485f274-cd19-4444-b7d4-423984d0eee0
+		summarizeBy: none
+		sourceColumn: schema_version
+
+		annotation SummarizationSetBy = Automatic
+
+	column snapshot_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 966da569-422a-47d3-abf0-1433b2667cde
+		summarizeBy: none
+		sourceColumn: snapshot_date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column provider_id
+		dataType: string
+		lineageTag: 1c81055b-14f6-47ed-850f-8ad9c22bcf15
+		summarizeBy: none
+		sourceColumn: provider_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column provider_name
+		dataType: string
+		lineageTag: d2111951-3ed4-4375-841b-534ba09e9f80
+		summarizeBy: none
+		sourceColumn: provider_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column parent_company
+		dataType: string
+		lineageTag: 686a92d9-02e9-4ea8-b71d-c51118eeef9b
+		summarizeBy: none
+		sourceColumn: parent_company
+
+		annotation SummarizationSetBy = Automatic
+
+	column provider_group
+		dataType: string
+		lineageTag: 3bfb5b07-3462-4752-a33c-c473cf9910ca
+		summarizeBy: none
+		sourceColumn: provider_group
+
+		annotation SummarizationSetBy = Automatic
+
+	column provider_aliases
+		dataType: string
+		lineageTag: 73a1d687-975c-40e7-9ec3-31ec5bbf4c57
+		summarizeBy: none
+		sourceColumn: provider_aliases
+
+		annotation SummarizationSetBy = Automatic
+
+	column country
+		dataType: string
+		lineageTag: d1ff9d47-832c-473c-8e45-acbf2f2880ca
+		dataCategory: Country
+		summarizeBy: none
+		sourceColumn: country
+
+		annotation SummarizationSetBy = Automatic
+
+	column country_code
+		dataType: string
+		lineageTag: 93c79e7b-d519-4567-971b-8163012a283b
+		summarizeBy: none
+		sourceColumn: country_code
+
+		annotation SummarizationSetBy = Automatic
+
+	column region
+		dataType: string
+		lineageTag: a484bfbc-f2f9-4fe6-9a1e-e879fbe2a720
+		summarizeBy: none
+		sourceColumn: region
+
+		annotation SummarizationSetBy = Automatic
+
+	column hq_city
+		dataType: string
+		lineageTag: 096dd6df-1ad2-4dc6-8627-594bdfa288db
+		dataCategory: City
+		summarizeBy: none
+		sourceColumn: hq_city
+
+		annotation SummarizationSetBy = Automatic
+
+	column latitude
+		dataType: double
+		lineageTag: 59e9e887-6b95-42b2-8c63-12e89a3e2af2
+		dataCategory: Latitude
+		summarizeBy: sum
+		sourceColumn: latitude
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column longitude
+		dataType: double
+		lineageTag: 68cfaaeb-b02e-44c7-8f1f-e156a4c8b0f1
+		dataCategory: Longitude
+		summarizeBy: sum
+		sourceColumn: longitude
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column website_url
+		dataType: string
+		lineageTag: df882387-6dc8-4772-9303-f8019214d8fc
+		dataCategory: WebUrl
+		summarizeBy: none
+		sourceColumn: website_url
+
+		annotation SummarizationSetBy = Automatic
+
+	column logo_url
+		dataType: string
+		lineageTag: c83c403e-6116-4554-b0e8-4d908620e85c
+		dataCategory: ImageUrl
+		summarizeBy: none
+		sourceColumn: logo_url
+
+		annotation SummarizationSetBy = Automatic
+
+	column logo_dark_url
+		dataType: string
+		lineageTag: 6af294b4-9905-4005-b135-6d345654e521
+		dataCategory: ImageUrl
+		summarizeBy: none
+		sourceColumn: logo_dark_url
+
+		annotation SummarizationSetBy = Automatic
+
+	column brand_color
+		dataType: string
+		lineageTag: b6864869-bbce-48aa-ac17-7344912d9aea
+		summarizeBy: none
+		sourceColumn: brand_color
+
+		annotation SummarizationSetBy = Automatic
+
+	column founded_year
+		dataType: int64
+		formatString: 0
+		lineageTag: 93fadf9a-c13f-49be-baf5-1ceae96adf19
+		summarizeBy: sum
+		sourceColumn: founded_year
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_active
+		dataType: boolean
+		lineageTag: ef562491-bc8a-4b50-b244-a31d2989a42e
+		summarizeBy: none
+		sourceColumn: is_active
+
+		annotation SummarizationSetBy = Automatic
+
+	column metadata_source_url
+		dataType: string
+		lineageTag: 82608fa1-f611-41f9-9000-296c302bf4a5
+		dataCategory: WebUrl
+		summarizeBy: none
+		sourceColumn: metadata_source_url
+
+		annotation SummarizationSetBy = Automatic
+
+	column metadata_verified_at
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: dedbf8d1-d6b7-4d0c-97c0-9de42c233ce8
+		summarizeBy: none
+		sourceColumn: metadata_verified_at
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	partition DimProvider = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(Web.Contents("https://llmdex.pages.dev/data/powerbi/v1/provider_metadata.csv"),[Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				    #"Use First Row as Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Change Type" = Table.TransformColumnTypes(#"Use First Row as Headers",{{"schema_version", type text}, {"snapshot_date", type date}, {"provider_id", type text}, {"provider_name", type text}, {"parent_company", type text}, {"provider_group", type text}, {"provider_aliases", type text}, {"country", type text}, {"country_code", type text}, {"region", type text}, {"hq_city", type text}, {"latitude", type number}, {"longitude", type number}, {"website_url", type text}, {"logo_url", type text}, {"logo_dark_url", type text}, {"brand_color", type text}, {"founded_year", Int64.Type}, {"is_active", type logical}, {"metadata_source_url", type text}, {"metadata_verified_at", type date}}, [Culture="en-US", MissingField=MissingField.UseNull])
+				in
+				    #"Change Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

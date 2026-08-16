@@ -1,0 +1,237 @@
+table DimFamily
+	lineageTag: d89db2b7-7063-419e-8ab8-8cc3b60cf6f7
+
+	column family_id
+		lineageTag: d7339535-024e-48b7-9a98-0fae2117592c
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [family_id]
+
+		annotation SummarizationSetBy = Automatic
+
+	column family_name =
+			
+			VAR CurrentFamily =
+			    'DimFamily'[family_id]
+			
+			VAR CurrentHistoryName =
+			    MAXX (
+			        FILTER (
+			            ALL ( 'FactHistory' ),
+			            'FactHistory'[family_id] = CurrentFamily
+			                && 'FactHistory'[is_current] = TRUE ()
+			                && NOT ISBLANK ( 'FactHistory'[canonical_family_name] )
+			        ),
+			        'FactHistory'[canonical_family_name]
+			    )
+			
+			VAR AAName =
+			    MAXX (
+			        FILTER (
+			            ALL ( 'FactAA' ),
+			            'FactAA'[family_id] = CurrentFamily
+			                && NOT ISBLANK ( 'FactAA'[canonical_name] )
+			        ),
+			        'FactAA'[canonical_name]
+			    )
+			
+			VAR LLMStatsName =
+			    MAXX (
+			        FILTER (
+			            ALL ( 'FactLLMStats' ),
+			            'FactLLMStats'[family_id] = CurrentFamily
+			                && NOT ISBLANK ( 'FactLLMStats'[canonical_name] )
+			        ),
+			        'FactLLMStats'[canonical_name]
+			    )
+			
+			VAR AnyHistoryName =
+			    MAXX (
+			        FILTER (
+			            ALL ( 'FactHistory' ),
+			            'FactHistory'[family_id] = CurrentFamily
+			                && NOT ISBLANK ( 'FactHistory'[canonical_family_name] )
+			        ),
+			        'FactHistory'[canonical_family_name]
+			    )
+			
+			RETURN
+			    COALESCE (
+			        CurrentHistoryName,
+			        AAName,
+			        LLMStatsName,
+			        AnyHistoryName,
+			        CurrentFamily
+			    )
+		lineageTag: 7bfa556e-0313-4159-905b-5fb29bef843d
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column provider =
+			
+			VAR CurrentFamily =
+			    'DimFamily'[family_id]
+			
+			VAR AAProvider =
+			    MAXX (
+			        FILTER (
+			            ALL ( 'FactAA' ),
+			            'FactAA'[family_id] = CurrentFamily
+			                && NOT ISBLANK ( 'FactAA'[provider] )
+			                && 'FactAA'[provider] <> "Unknown"
+			        ),
+			        'FactAA'[provider]
+			    )
+			
+			VAR LLMStatsProvider =
+			    MAXX (
+			        FILTER (
+			            ALL ( 'FactLLMStats' ),
+			            'FactLLMStats'[family_id] = CurrentFamily
+			                && NOT ISBLANK ( 'FactLLMStats'[provider] )
+			                && 'FactLLMStats'[provider] <> "Unknown"
+			        ),
+			        'FactLLMStats'[provider]
+			    )
+			
+			VAR CurrentHistoryProvider =
+			    MAXX (
+			        FILTER (
+			            ALL ( 'FactHistory' ),
+			            'FactHistory'[family_id] = CurrentFamily
+			                && 'FactHistory'[is_current] = TRUE ()
+			                && NOT ISBLANK ( 'FactHistory'[provider] )
+			                && 'FactHistory'[provider] <> "Unknown"
+			        ),
+			        'FactHistory'[provider]
+			    )
+			
+			VAR AnyHistoryProvider =
+			    MAXX (
+			        FILTER (
+			            ALL ( 'FactHistory' ),
+			            'FactHistory'[family_id] = CurrentFamily
+			                && NOT ISBLANK ( 'FactHistory'[provider] )
+			                && 'FactHistory'[provider] <> "Unknown"
+			        ),
+			        'FactHistory'[provider]
+			    )
+			
+			RETURN
+			    COALESCE (
+			        AAProvider,
+			        LLMStatsProvider,
+			        CurrentHistoryProvider,
+			        AnyHistoryProvider,
+			        "Unknown"
+			    )
+		lineageTag: 1882a003-e458-4ed7-b1c8-8adf13b77286
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column availability_class =
+			
+			VAR CurrentFamily =
+			    'DimFamily'[family_id]
+			
+			VAR AAAvailability =
+			    MAXX (
+			        FILTER (
+			            ALL ( 'FactAA' ),
+			            'FactAA'[family_id] = CurrentFamily
+			                && 'FactAA'[availability_class]
+			                    IN { "open_weights", "proprietary" }
+			        ),
+			        'FactAA'[availability_class]
+			    )
+			
+			VAR LLMStatsAvailability =
+			    MAXX (
+			        FILTER (
+			            ALL ( 'FactLLMStats' ),
+			            'FactLLMStats'[family_id] = CurrentFamily
+			                && 'FactLLMStats'[availability_class]
+			                    IN { "open_weights", "proprietary" }
+			        ),
+			        'FactLLMStats'[availability_class]
+			    )
+			
+			VAR CurrentHistoryAvailability =
+			    MAXX (
+			        FILTER (
+			            ALL ( 'FactHistory' ),
+			            'FactHistory'[family_id] = CurrentFamily
+			                && 'FactHistory'[is_current] = TRUE ()
+			                && 'FactHistory'[availability_class]
+			                    IN { "open_weights", "proprietary" }
+			        ),
+			        'FactHistory'[availability_class]
+			    )
+			
+			VAR AnyHistoryAvailability =
+			    MAXX (
+			        FILTER (
+			            ALL ( 'FactHistory' ),
+			            'FactHistory'[family_id] = CurrentFamily
+			                && 'FactHistory'[availability_class]
+			                    IN { "open_weights", "proprietary" }
+			        ),
+			        'FactHistory'[availability_class]
+			    )
+			
+			RETURN
+			    COALESCE (
+			        AAAvailability,
+			        LLMStatsAvailability,
+			        CurrentHistoryAvailability,
+			        AnyHistoryAvailability,
+			        "unknown"
+			    )
+		lineageTag: e89daa70-452d-47de-9215-ad0c3818515d
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_open_weights =
+			
+			SWITCH (
+			    'DimFamily'[availability_class],
+			    "open_weights", TRUE (),
+			    "proprietary", FALSE (),
+			    BLANK ()
+			)
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 647e1fc7-600c-42c9-b58d-8d40384e68f7
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimFamily = calculated
+		mode: import
+		source =
+				
+				FILTER (
+				    DISTINCT (
+				        UNION (
+				            SELECTCOLUMNS (
+				                'FactAA',
+				                "family_id", 'FactAA'[family_id]
+				            ),
+				            SELECTCOLUMNS (
+				                'FactLLMStats',
+				                "family_id", 'FactLLMStats'[family_id]
+				            ),
+				            SELECTCOLUMNS (
+				                'FactHistory',
+				                "family_id", 'FactHistory'[family_id]
+				            )
+				        )
+				    ),
+				    NOT ISBLANK ( [family_id] )
+				        && [family_id] <> ""
+				)
+
+	annotation PBI_Id = 4eadad19c4724194a0bfb5fd31da0311
+

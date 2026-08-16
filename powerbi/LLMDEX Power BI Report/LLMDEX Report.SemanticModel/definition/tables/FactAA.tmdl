@@ -1,0 +1,833 @@
+table FactAA
+	lineageTag: d49f3da7-5967-4b1e-9044-bb0890356fea
+
+	measure 'Latest AA Snapshot' = CALCULATE ( MAX ( 'FactAA'[snapshot_date] ), REMOVEFILTERS ( 'FactAA' ), REMOVEFILTERS ( 'DimDate' ), REMOVEFILTERS ( 'DimModelAA' ), REMOVEFILTERS ( 'DimFamily' ), REMOVEFILTERS ( 'DimProvider' ) )
+		formatString: General Date
+		lineageTag: 1fb85fab-4454-4331-8941-fa2eb5decd12
+
+	measure 'AA Value Rank' =
+			VAR LatestDate = [Latest AA Snapshot]
+			RETURN CALCULATE ( MIN ( 'FactAA'[llmdex_value_rank] ), REMOVEFILTERS ( 'DimDate' ), 'FactAA'[snapshot_date] = LatestDate )
+		formatString: 0
+		lineageTag: 377fb728-fa5c-4833-9d04-e1a69e3b3dcd
+
+	measure 'AA Performance Rank' =
+			VAR LatestDate = [Latest AA Snapshot]
+			RETURN CALCULATE ( MIN ( 'FactAA'[llmdex_performance_rank] ), REMOVEFILTERS ( 'DimDate' ), 'FactAA'[snapshot_date] = LatestDate )
+		formatString: 0
+		lineageTag: 00fef106-38a4-4f17-9d75-3028bf99328d
+
+	measure 'AA Efficiency Rank' =
+			VAR LatestDate = [Latest AA Snapshot]
+			RETURN CALCULATE ( MIN ( 'FactAA'[llmdex_efficiency_rank] ), REMOVEFILTERS ( 'DimDate' ), 'FactAA'[snapshot_date] = LatestDate )
+		formatString: 0
+		lineageTag: 334971aa-8aa5-42f8-9708-eefb48aadb52
+
+	measure 'AA Performance Index' =
+			VAR LatestDate = [Latest AA Snapshot]
+			VAR CurrentRank = [AA Performance Rank]
+			VAR MaximumRank = CALCULATE ( MAX ( 'FactAA'[llmdex_performance_rank] ), REMOVEFILTERS ( 'DimDate' ), REMOVEFILTERS ( 'DimModelAA' ), REMOVEFILTERS ( 'DimFamily' ), REMOVEFILTERS ( 'DimProvider' ), 'FactAA'[snapshot_date] = LatestDate )
+			RETURN IF ( ISBLANK ( CurrentRank ), BLANK (), 100 * DIVIDE ( MaximumRank - CurrentRank, MaximumRank - 1 ) )
+		formatString: 0.0
+		lineageTag: 161a113c-b937-4a3e-be40-b6b9cd5c8aba
+
+	measure 'AA Value Index' =
+			VAR LatestDate = [Latest AA Snapshot]
+			VAR CurrentRank = [AA Value Rank]
+			VAR MaximumRank = CALCULATE ( MAX ( 'FactAA'[llmdex_value_rank] ), REMOVEFILTERS ( 'DimDate' ), REMOVEFILTERS ( 'DimModelAA' ), REMOVEFILTERS ( 'DimFamily' ), REMOVEFILTERS ( 'DimProvider' ), 'FactAA'[snapshot_date] = LatestDate )
+			RETURN IF ( ISBLANK ( CurrentRank ), BLANK (), 100 * DIVIDE ( MaximumRank - CurrentRank, MaximumRank - 1 ) )
+		formatString: 0.0
+		lineageTag: 4745269a-6206-46e7-a3d6-5a36500277d5
+
+	measure 'AA Efficiency Index' =
+			VAR LatestDate = [Latest AA Snapshot]
+			VAR CurrentRank = [AA Efficiency Rank]
+			VAR MaximumRank = CALCULATE ( MAX ( 'FactAA'[llmdex_efficiency_rank] ), REMOVEFILTERS ( 'DimDate' ), REMOVEFILTERS ( 'DimModelAA' ), REMOVEFILTERS ( 'DimFamily' ), REMOVEFILTERS ( 'DimProvider' ), 'FactAA'[snapshot_date] = LatestDate )
+			RETURN IF ( ISBLANK ( CurrentRank ), BLANK (), 100 * DIVIDE ( MaximumRank - CurrentRank, MaximumRank - 1 ) )
+		formatString: 0.0
+		lineageTag: 695d6a15-a854-439b-b9bf-77c90eee1e1e
+
+	measure 'AA Blended Cost' =
+			VAR LatestDate = [Latest AA Snapshot]
+			RETURN CALCULATE ( MAX ( 'FactAA'[aa_blended_cost_usd_per_1m] ), REMOVEFILTERS ( 'DimDate' ), 'FactAA'[snapshot_date] = LatestDate )
+		formatString: 0.00
+		lineageTag: dbc34c3a-2864-4b32-b43a-5a3f8033bf76
+
+	measure 'AA Output Speed' =
+			VAR LatestDate = [Latest AA Snapshot]
+			RETURN CALCULATE ( MAX ( 'FactAA'[aa_tokens_per_second] ), REMOVEFILTERS ( 'DimDate' ), 'FactAA'[snapshot_date] = LatestDate )
+		formatString: 0.0
+		lineageTag: eca4051c-8b55-49bb-94e8-54e9364b276e
+
+	measure 'AA Latency' =
+			VAR LatestDate = [Latest AA Snapshot]
+			RETURN CALCULATE ( MAX ( 'FactAA'[aa_latency_seconds] ), REMOVEFILTERS ( 'DimDate' ), 'FactAA'[snapshot_date] = LatestDate )
+		formatString: 0.00
+		lineageTag: b3abd585-d9a9-4466-b2d4-c4b4ef8d5081
+
+	measure 'AA Context Window' =
+			VAR LatestDate = [Latest AA Snapshot]
+			RETURN CALCULATE ( MAX ( 'FactAA'[aa_context_window_tokens] ), REMOVEFILTERS ( 'DimDate' ), 'FactAA'[snapshot_date] = LatestDate )
+		formatString: 0
+		lineageTag: d321f6fa-3709-4e48-8a05-37916d5bcba5
+
+	measure 'AA Intelligence' =
+			VAR LatestDate = [Latest AA Snapshot]
+			RETURN CALCULATE ( MAX ( 'FactAA'[aa_intelligence_score] ), REMOVEFILTERS ( 'DimDate' ), 'FactAA'[snapshot_date] = LatestDate )
+		formatString: 0.0
+		lineageTag: 0300cb9e-fc68-4721-86db-67fca3860686
+
+	measure 'AA Composite Score' =
+			VAR LatestDate = [Latest AA Snapshot]
+			RETURN CALCULATE ( MAX ( 'FactAA'[llmdex_composite_index] ), REMOVEFILTERS ( 'DimDate' ), 'FactAA'[snapshot_date] = LatestDate )
+		formatString: 0.0
+		lineageTag: d03195dd-7c89-4581-ac5c-d428e5d29efd
+
+	measure 'Latest AA Model Count' =
+			VAR LatestDate = [Latest AA Snapshot]
+			RETURN CALCULATE ( DISTINCTCOUNT ( 'FactAA'[model_key] ), REMOVEFILTERS ( 'DimDate' ), 'FactAA'[snapshot_date] = LatestDate )
+		formatString: 0
+		lineageTag: 48cf843c-1e1d-45b9-8e7f-990fde994dac
+
+	measure 'Latest AA Provider Count' =
+			VAR LatestDate = [Latest AA Snapshot]
+			RETURN CALCULATE ( DISTINCTCOUNT ( 'FactAA'[provider_id] ), REMOVEFILTERS ( 'DimDate' ), 'FactAA'[snapshot_date] = LatestDate )
+		formatString: 0
+		lineageTag: cd8be9e7-51a5-4d70-a8e2-bff802aabe4a
+
+	measure 'Current Representative Model Count' =
+			VAR LatestDate = [Latest AA Snapshot]
+			RETURN CALCULATE ( DISTINCTCOUNT ( 'FactAA'[family_id] ), REMOVEFILTERS ( 'DimDate' ), 'FactAA'[snapshot_date] = LatestDate, 'FactAA'[is_family_representative] = TRUE () )
+		formatString: 0
+		lineageTag: 6b94613b-1f18-4e76-9e6f-9173d46a7253
+
+	measure 'Current Avg Composite' =
+			VAR LatestDate = [Latest AA Snapshot]
+			RETURN CALCULATE ( AVERAGE ( 'FactAA'[llmdex_composite_index] ), REMOVEFILTERS ( 'DimDate' ), 'FactAA'[snapshot_date] = LatestDate, 'FactAA'[is_family_representative] = TRUE () )
+		formatString: 0.0
+		lineageTag: 0c654d01-2fe1-4e9c-8c98-ff41e09577e7
+
+	measure 'Geography Coverage %' =
+			VAR LatestDate = [Latest AA Snapshot]
+			VAR TotalModels = CALCULATE ( DISTINCTCOUNT ( 'FactAA'[family_id] ), REMOVEFILTERS ( 'DimDate' ), REMOVEFILTERS ( 'DimProvider' ), 'FactAA'[snapshot_date] = LatestDate, 'FactAA'[is_family_representative] = TRUE () )
+			VAR MappedModels = CALCULATE ( DISTINCTCOUNT ( 'FactAA'[family_id] ), REMOVEFILTERS ( 'DimDate' ), FILTER ( ALL ( 'DimProvider' ), NOT ISBLANK ( 'DimProvider'[country] ) ), 'FactAA'[snapshot_date] = LatestDate, 'FactAA'[is_family_representative] = TRUE () )
+			RETURN DIVIDE ( MappedModels, TotalModels )
+		formatString: 0.0%
+		lineageTag: 7d905de5-3349-4380-a1c0-01f6d1d1f9f9
+
+	column schema_version
+		dataType: string
+		lineageTag: 5f059806-979e-4b77-8d0b-15d3cf0ae838
+		summarizeBy: none
+		sourceColumn: schema_version
+
+		annotation SummarizationSetBy = Automatic
+
+	column snapshot_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: ceb11736-696a-468a-88ad-087def6ef0d5
+		summarizeBy: none
+		sourceColumn: snapshot_date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column source
+		dataType: string
+		lineageTag: 2502c609-8078-4e30-9be9-6087b5915d2f
+		summarizeBy: none
+		sourceColumn: source
+
+		annotation SummarizationSetBy = Automatic
+
+	column model_key
+		dataType: string
+		lineageTag: b89c6550-5987-4780-a266-e2116eadf309
+		summarizeBy: none
+		sourceColumn: model_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column family_id
+		dataType: string
+		lineageTag: 3dc1b4e6-16a8-49a4-8bb1-49389b28c75f
+		summarizeBy: none
+		sourceColumn: family_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column variant_id
+		dataType: string
+		lineageTag: ea77213e-6ea4-4538-ac9d-fd5ba93c4096
+		summarizeBy: none
+		sourceColumn: variant_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column canonical_name
+		dataType: string
+		lineageTag: 6277d1c9-da8d-4ebe-9672-d70bc389424f
+		summarizeBy: none
+		sourceColumn: canonical_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column source_name
+		dataType: string
+		lineageTag: cb66fb6f-5634-43bb-87e9-69fa57526123
+		summarizeBy: none
+		sourceColumn: source_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column provider
+		dataType: string
+		lineageTag: 29e142a6-6594-435a-864a-d86227cb87f0
+		summarizeBy: none
+		sourceColumn: provider
+
+		annotation SummarizationSetBy = Automatic
+
+	column provider_id
+		dataType: string
+		lineageTag: eabcef27-17f0-455b-9f48-ff0bd147c9e1
+		summarizeBy: none
+		sourceColumn: provider_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column creator
+		dataType: string
+		lineageTag: 1edd692d-df5a-4f7b-9594-c53e8e3e9e48
+		summarizeBy: none
+		sourceColumn: creator
+
+		annotation SummarizationSetBy = Automatic
+
+	column availability_class
+		dataType: string
+		lineageTag: a5370e08-1526-4668-9241-cd421296c6f2
+		summarizeBy: none
+		sourceColumn: availability_class
+
+		annotation SummarizationSetBy = Automatic
+
+	column license_type
+		dataType: string
+		lineageTag: 6dda025d-b70a-49d9-b2c8-0feb2f4071bb
+		summarizeBy: none
+		sourceColumn: license_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_open_weights
+		dataType: boolean
+		lineageTag: d844408c-afdc-47d8-8afe-f316c1fdc31c
+		summarizeBy: none
+		sourceColumn: is_open_weights
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_family_representative
+		dataType: boolean
+		lineageTag: d005d3b4-d4b0-4f3e-b230-1a89d93a86b9
+		summarizeBy: none
+		sourceColumn: is_family_representative
+
+		annotation SummarizationSetBy = Automatic
+
+	column source_model_id
+		dataType: string
+		lineageTag: adf7a683-5b47-4e38-885f-e247ff5a85de
+		summarizeBy: none
+		sourceColumn: source_model_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column source_model_url
+		dataType: string
+		lineageTag: c0e4dc1e-ce38-4856-a04f-81f339a13496
+		dataCategory: WebUrl
+		summarizeBy: none
+		sourceColumn: source_model_url
+
+		annotation SummarizationSetBy = Automatic
+
+	column source_rank
+		dataType: int64
+		formatString: 0
+		lineageTag: ed7664ee-adde-4522-9146-3b9f619855cd
+		summarizeBy: sum
+		sourceColumn: source_rank
+
+		annotation SummarizationSetBy = Automatic
+
+	column methodology_version
+		dataType: string
+		lineageTag: c5bcee74-3922-4cf5-b903-656871add0bb
+		summarizeBy: none
+		sourceColumn: methodology_version
+
+		annotation SummarizationSetBy = Automatic
+
+	column aa_intelligence_score
+		dataType: double
+		lineageTag: 45fd4417-bc32-4f63-b42e-3a2c5d9c9aa4
+		summarizeBy: sum
+		sourceColumn: aa_intelligence_score
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column aa_official_coding_index
+		dataType: double
+		lineageTag: 36adbd82-d41f-4ca8-99ea-19913e85eb3f
+		summarizeBy: sum
+		sourceColumn: aa_official_coding_index
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column aa_omniscience_index
+		dataType: double
+		lineageTag: 9ae0bcc8-366a-46a5-9499-ceb26da9cf3f
+		summarizeBy: sum
+		sourceColumn: aa_omniscience_index
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column aa_context_window_tokens
+		dataType: int64
+		formatString: 0
+		lineageTag: 42e477ee-cdac-4e65-815e-29926b4a6753
+		summarizeBy: sum
+		sourceColumn: aa_context_window_tokens
+
+		annotation SummarizationSetBy = Automatic
+
+	column aa_gdpval
+		dataType: double
+		lineageTag: c3f9972e-95a8-4cbf-8e77-4d5fc16cadd6
+		summarizeBy: sum
+		sourceColumn: aa_gdpval
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column aa_terminalbench_hard
+		dataType: double
+		lineageTag: 77f8b86d-5db8-4245-b2c2-0f205af8de88
+		summarizeBy: sum
+		sourceColumn: aa_terminalbench_hard
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column aa_terminalbench_v21
+		dataType: double
+		lineageTag: 84aaddfa-f557-4811-b1f8-fff688ad1cdd
+		summarizeBy: sum
+		sourceColumn: aa_terminalbench_v21
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column aa_tau2
+		dataType: double
+		lineageTag: 123bd566-164d-4516-9c86-74659792fc94
+		summarizeBy: sum
+		sourceColumn: aa_tau2
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column aa_tau3_banking
+		dataType: double
+		lineageTag: 773431b1-f43d-4e78-a42c-52a8a870eed7
+		summarizeBy: sum
+		sourceColumn: aa_tau3_banking
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column aa_lcr
+		dataType: double
+		lineageTag: ac7088f3-7d19-4b1f-b2e1-b24b0f91ceb6
+		summarizeBy: sum
+		sourceColumn: aa_lcr
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column aa_omniscience_accuracy
+		dataType: double
+		lineageTag: 09781356-b2aa-44c7-a669-8843f352b488
+		summarizeBy: sum
+		sourceColumn: aa_omniscience_accuracy
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column aa_non_hallucination_rate
+		dataType: double
+		lineageTag: a74e62c5-5e00-43d9-ba28-9a5a3d99843d
+		summarizeBy: sum
+		sourceColumn: aa_non_hallucination_rate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column aa_hle
+		dataType: double
+		lineageTag: 6a41a3fc-9a24-4e92-b80b-86480a9fb169
+		summarizeBy: sum
+		sourceColumn: aa_hle
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column aa_gpqa
+		dataType: double
+		lineageTag: b8fb349c-38e9-4ba6-9a0c-eda3cb57b1b0
+		summarizeBy: sum
+		sourceColumn: aa_gpqa
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column aa_scicode
+		dataType: double
+		lineageTag: 414ba033-3079-4bd4-9bc8-8a78322db940
+		summarizeBy: sum
+		sourceColumn: aa_scicode
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column aa_ifbench
+		dataType: double
+		lineageTag: 1c0b246e-1679-4ad5-84f4-4d24f42c713e
+		summarizeBy: sum
+		sourceColumn: aa_ifbench
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column aa_critpt
+		dataType: double
+		lineageTag: 7d9d13fc-d535-4218-abbf-35aedc676e7a
+		summarizeBy: sum
+		sourceColumn: aa_critpt
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column aa_mmmu_pro
+		dataType: double
+		lineageTag: fcbe31e4-0a5b-4973-9c74-234366384e66
+		summarizeBy: sum
+		sourceColumn: aa_mmmu_pro
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column aa_apex_agents
+		dataType: double
+		lineageTag: a2726c44-01a6-4e9a-85bd-75a34f012028
+		summarizeBy: sum
+		sourceColumn: aa_apex_agents
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column aa_itbench
+		dataType: double
+		lineageTag: 4125752f-3bff-451e-a203-4f81a777d451
+		summarizeBy: sum
+		sourceColumn: aa_itbench
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column aa_aime25
+		dataType: double
+		lineageTag: d0ba7ebf-8818-4bb5-8cb9-396eb5cc0c72
+		summarizeBy: sum
+		sourceColumn: aa_aime25
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column aa_livecodebench
+		dataType: double
+		lineageTag: 44cdc0f5-329f-46d5-a779-2a5e38b87860
+		summarizeBy: sum
+		sourceColumn: aa_livecodebench
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column aa_arena_elo
+		dataType: double
+		lineageTag: 7d221c16-766b-4e99-a453-2b03c06facdb
+		summarizeBy: sum
+		sourceColumn: aa_arena_elo
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column aa_reasoning_score
+		dataType: double
+		lineageTag: 48cd4c95-f256-4519-9569-473c64b6debc
+		summarizeBy: sum
+		sourceColumn: aa_reasoning_score
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column aa_multimodal_score
+		dataType: double
+		lineageTag: ec61a6cc-b3e6-4a33-846e-6b4bac3b8585
+		summarizeBy: sum
+		sourceColumn: aa_multimodal_score
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column aa_cost_per_task_usd
+		dataType: double
+		lineageTag: 2d0785e3-3d9b-4794-9436-50320016b339
+		summarizeBy: sum
+		sourceColumn: aa_cost_per_task_usd
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column aa_input_cost_usd_per_1m
+		dataType: double
+		lineageTag: 9cdd0e55-875c-4acd-92b6-8688a95604b7
+		summarizeBy: sum
+		sourceColumn: aa_input_cost_usd_per_1m
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column aa_output_cost_usd_per_1m
+		dataType: double
+		lineageTag: f06f83e6-b6d1-4338-9c7b-18d7e97e19c8
+		summarizeBy: sum
+		sourceColumn: aa_output_cost_usd_per_1m
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column aa_blended_cost_usd_per_1m
+		dataType: double
+		lineageTag: f0a862c6-1a8e-44a1-b873-cbdd2e05de8a
+		summarizeBy: sum
+		sourceColumn: aa_blended_cost_usd_per_1m
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column aa_cache_read_cost_usd_per_1m
+		dataType: double
+		lineageTag: 1390d0cf-f03e-4783-aa1c-52aca5165fbd
+		summarizeBy: sum
+		sourceColumn: aa_cache_read_cost_usd_per_1m
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column aa_cache_write_cost_usd_per_1m
+		dataType: double
+		lineageTag: 60d93480-3985-4250-af91-ead80c1ea6ff
+		summarizeBy: sum
+		sourceColumn: aa_cache_write_cost_usd_per_1m
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column aa_tokens_per_second
+		dataType: double
+		lineageTag: 655cd756-f6c4-4404-ae49-fd14a38fe90c
+		summarizeBy: sum
+		sourceColumn: aa_tokens_per_second
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column aa_speed_p5_tokens_per_second
+		dataType: double
+		lineageTag: 991794df-2d95-4957-8bd8-1534345c7b50
+		summarizeBy: sum
+		sourceColumn: aa_speed_p5_tokens_per_second
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column aa_speed_p25_tokens_per_second
+		dataType: double
+		lineageTag: 9f1bac84-96c6-429a-ab38-e1f853eda129
+		summarizeBy: sum
+		sourceColumn: aa_speed_p25_tokens_per_second
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column aa_speed_p75_tokens_per_second
+		dataType: double
+		lineageTag: 00f5fb3e-b4e8-44db-9565-ef2a6f446aa6
+		summarizeBy: sum
+		sourceColumn: aa_speed_p75_tokens_per_second
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column aa_speed_p95_tokens_per_second
+		dataType: double
+		lineageTag: 63cc088b-4695-4557-8afd-46f0f3995d56
+		summarizeBy: sum
+		sourceColumn: aa_speed_p95_tokens_per_second
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column aa_latency_seconds
+		dataType: double
+		lineageTag: fd2dfb41-f857-4c3f-bebc-adb880a67612
+		summarizeBy: sum
+		sourceColumn: aa_latency_seconds
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column aa_latency_first_token_seconds
+		dataType: double
+		lineageTag: f8f84181-3360-441e-b26a-2acebbac3f9d
+		summarizeBy: sum
+		sourceColumn: aa_latency_first_token_seconds
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column aa_latency_p5_seconds
+		dataType: double
+		lineageTag: 161b1fc3-c66d-4c44-9e1d-3f96bc7c3446
+		summarizeBy: sum
+		sourceColumn: aa_latency_p5_seconds
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column aa_latency_p25_seconds
+		dataType: double
+		lineageTag: 8053df47-47c0-435f-944d-0fec37083f8d
+		summarizeBy: sum
+		sourceColumn: aa_latency_p25_seconds
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column aa_latency_p75_seconds
+		dataType: double
+		lineageTag: 759095d1-7b7c-4cec-90ab-a707cb746dbe
+		summarizeBy: sum
+		sourceColumn: aa_latency_p75_seconds
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column aa_latency_p95_seconds
+		dataType: double
+		lineageTag: 34926fad-6979-4114-a734-15165d582a53
+		summarizeBy: sum
+		sourceColumn: aa_latency_p95_seconds
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column aa_total_response_time_seconds
+		dataType: double
+		lineageTag: fbb7e481-8e19-4251-80d7-910f85b1bfcf
+		summarizeBy: sum
+		sourceColumn: aa_total_response_time_seconds
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column aa_reasoning_time_seconds
+		dataType: double
+		lineageTag: a2a927e5-c4b1-4768-a625-2dda1a20fc02
+		summarizeBy: sum
+		sourceColumn: aa_reasoning_time_seconds
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column llmdex_adjusted_performance
+		dataType: double
+		lineageTag: db9b1fa7-5ff9-4451-a54b-21321bcd2fcf
+		summarizeBy: sum
+		sourceColumn: llmdex_adjusted_performance
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column llmdex_cost_index
+		dataType: double
+		lineageTag: 4312838e-8141-49bb-9869-758848e4d168
+		summarizeBy: sum
+		sourceColumn: llmdex_cost_index
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column llmdex_speed_index
+		dataType: double
+		lineageTag: dcb9a31e-d02e-4d62-8d6a-030a0c12452b
+		summarizeBy: sum
+		sourceColumn: llmdex_speed_index
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column llmdex_coverage_score
+		dataType: double
+		lineageTag: ab30eba0-6c66-4e9f-b40d-8fd853af90d5
+		summarizeBy: sum
+		sourceColumn: llmdex_coverage_score
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column llmdex_confidence_factor
+		dataType: double
+		lineageTag: d07aa869-39e4-4fb2-bade-45d872df70dc
+		summarizeBy: sum
+		sourceColumn: llmdex_confidence_factor
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column llmdex_composite_index
+		dataType: double
+		lineageTag: 6c7a0eb0-d3a5-49d6-8ec9-1356aeb1a709
+		summarizeBy: sum
+		sourceColumn: llmdex_composite_index
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column llmdex_efficiency_score
+		dataType: double
+		lineageTag: 41eca0a9-24df-4c1d-8e4f-f7e254ef4ea9
+		summarizeBy: sum
+		sourceColumn: llmdex_efficiency_score
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column llmdex_performance_rank
+		dataType: int64
+		formatString: 0
+		lineageTag: 93c274a6-b172-402d-99ed-27e12c32f5bf
+		summarizeBy: sum
+		sourceColumn: llmdex_performance_rank
+
+		annotation SummarizationSetBy = Automatic
+
+	column llmdex_value_rank
+		dataType: int64
+		formatString: 0
+		lineageTag: fd84e546-8bf2-4769-9761-2ddbf7235a16
+		summarizeBy: sum
+		sourceColumn: llmdex_value_rank
+
+		annotation SummarizationSetBy = Automatic
+
+	column llmdex_efficiency_rank
+		dataType: int64
+		formatString: 0
+		lineageTag: 2f6754df-9249-42f6-b192-b7fc403ae3d9
+		summarizeBy: sum
+		sourceColumn: llmdex_efficiency_rank
+
+		annotation SummarizationSetBy = Automatic
+
+	column llmdex_performance_component_count
+		dataType: int64
+		formatString: 0
+		lineageTag: 7b68d0e2-a3fb-4ac5-a86d-6a80920ba7da
+		summarizeBy: sum
+		sourceColumn: llmdex_performance_component_count
+
+		annotation SummarizationSetBy = Automatic
+
+	partition FactAA = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(Web.Contents("https://llmdex.pages.dev/data/powerbi/v1/artificial_analysis_benchmarks.csv"),[Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				    #"Use First Row as Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Change Type" = Table.TransformColumnTypes(#"Use First Row as Headers",{{"schema_version", type text}, {"snapshot_date", type date}, {"source", type text}, {"model_key", type text}, {"family_id", type text}, {"variant_id", type text}, {"canonical_name", type text}, {"source_name", type text}, {"provider", type text}, {"provider_id", type text}, {"creator", type text}, {"availability_class", type text}, {"license_type", type text}, {"is_open_weights", type logical}, {"is_family_representative", type logical}, {"source_model_id", type text}, {"source_model_url", type text}, {"source_rank", Int64.Type}, {"methodology_version", type text}, {"aa_intelligence_score", type number}, {"aa_official_coding_index", type number}, {"aa_omniscience_index", type number}, {"aa_context_window_tokens", Int64.Type}, {"aa_gdpval", type number}, {"aa_terminalbench_hard", type number}, {"aa_terminalbench_v21", type number}, {"aa_tau2", type number}, {"aa_tau3_banking", type number}, {"aa_lcr", type number}, {"aa_omniscience_accuracy", type number}, {"aa_non_hallucination_rate", type number}, {"aa_hle", type number}, {"aa_gpqa", type number}, {"aa_scicode", type number}, {"aa_ifbench", type number}, {"aa_critpt", type number}, {"aa_mmmu_pro", type number}, {"aa_apex_agents", type number}, {"aa_itbench", type number}, {"aa_aime25", type number}, {"aa_livecodebench", type number}, {"aa_arena_elo", type number}, {"aa_reasoning_score", type number}, {"aa_multimodal_score", type number}, {"aa_cost_per_task_usd", type number}, {"aa_input_cost_usd_per_1m", type number}, {"aa_output_cost_usd_per_1m", type number}, {"aa_blended_cost_usd_per_1m", type number}, {"aa_cache_read_cost_usd_per_1m", type number}, {"aa_cache_write_cost_usd_per_1m", type number}, {"aa_tokens_per_second", type number}, {"aa_speed_p5_tokens_per_second", type number}, {"aa_speed_p25_tokens_per_second", type number}, {"aa_speed_p75_tokens_per_second", type number}, {"aa_speed_p95_tokens_per_second", type number}, {"aa_latency_seconds", type number}, {"aa_latency_first_token_seconds", type number}, {"aa_latency_p5_seconds", type number}, {"aa_latency_p25_seconds", type number}, {"aa_latency_p75_seconds", type number}, {"aa_latency_p95_seconds", type number}, {"aa_total_response_time_seconds", type number}, {"aa_reasoning_time_seconds", type number}, {"llmdex_adjusted_performance", type number}, {"llmdex_cost_index", type number}, {"llmdex_speed_index", type number}, {"llmdex_coverage_score", type number}, {"llmdex_confidence_factor", type number}, {"llmdex_composite_index", type number}, {"llmdex_efficiency_score", type number}, {"llmdex_performance_rank", Int64.Type}, {"llmdex_value_rank", Int64.Type}, {"llmdex_efficiency_rank", Int64.Type}, {"llmdex_performance_component_count", Int64.Type}}, [Culture="en-US", MissingField=MissingField.UseNull])
+				in
+				    #"Change Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

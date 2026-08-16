@@ -1,0 +1,369 @@
+table FactHistory
+	lineageTag: 7b55f995-1b1c-40e3-a04c-4447234790b5
+
+	measure 'Latest History Date' = CALCULATE ( MAX ( 'FactHistory'[observation_date] ), REMOVEFILTERS ( 'FactHistory' ), REMOVEFILTERS ( 'DimDate' ), REMOVEFILTERS ( 'DimFamily' ), REMOVEFILTERS ( 'DimProvider' ) )
+		formatString: General Date
+		lineageTag: 235eccc1-af3c-4e90-a1fc-7740d5232893
+
+	measure 'History Current Family Count' = CALCULATE ( DISTINCTCOUNT ( 'FactHistory'[family_id] ), 'FactHistory'[is_current] = TRUE () )
+		formatString: 0
+		lineageTag: a487df4d-e35a-4303-b4ea-984a06130aec
+
+	measure 'History Intelligence' = AVERAGE ( 'FactHistory'[aa_intelligence] )
+		formatString: 0.0
+		lineageTag: 7060a60f-3c65-4bec-863b-d26b940f3860
+
+	measure 'History Avg LLMDEX Score' = AVERAGE ( 'FactHistory'[llmdex_score] )
+		formatString: 0.0
+		lineageTag: 670f4b75-4fd1-4244-b09c-9a967b98f6a9
+
+	measure 'History Avg Blended Cost' = AVERAGE ( 'FactHistory'[blended_cost_usd_per_1m] )
+		formatString: 0.00
+		lineageTag: 0eda9608-2112-4dad-94e2-71182e29d4ff
+
+	measure 'History Avg Output Speed' = AVERAGE ( 'FactHistory'[tokens_per_second] )
+		formatString: 0.0
+		lineageTag: 6059958d-207e-412b-8396-8ff2a84a4b54
+
+	column schema_version
+		dataType: string
+		lineageTag: f550058a-d5fe-4ade-a463-a2a74ed42241
+		summarizeBy: none
+		sourceColumn: schema_version
+
+		annotation SummarizationSetBy = Automatic
+
+	column observation_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 6864d6f2-88b6-432b-a00a-88ddfe5df74b
+		summarizeBy: none
+		sourceColumn: observation_date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column snapshot_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: e45baf20-3b77-4e71-852c-4e5e6254f4d8
+		summarizeBy: none
+		sourceColumn: snapshot_date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column release_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: bcb5bce4-969f-4506-a6fb-b9613255e244
+		summarizeBy: none
+		sourceColumn: release_date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column first_seen_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 6cbe0e35-4a06-4251-8366-d9769148335e
+		summarizeBy: none
+		sourceColumn: first_seen_date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column last_seen_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 66b051d6-f156-4c1a-ab7b-5c1959bd83f7
+		summarizeBy: none
+		sourceColumn: last_seen_date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column record_type
+		dataType: string
+		lineageTag: ed1b6ce1-1716-492f-9f38-9f46b4e84d8d
+		summarizeBy: none
+		sourceColumn: record_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column family_id
+		dataType: string
+		lineageTag: ea828c7f-e9a4-43a9-93f7-94fea7a63cfa
+		summarizeBy: none
+		sourceColumn: family_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column canonical_family_name
+		dataType: string
+		lineageTag: 009f3b9f-116a-432a-a0a8-69056946c6dd
+		summarizeBy: none
+		sourceColumn: canonical_family_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column provider
+		dataType: string
+		lineageTag: d664c018-ad93-4141-a945-c467bf123b0e
+		summarizeBy: none
+		sourceColumn: provider
+
+		annotation SummarizationSetBy = Automatic
+
+	column provider_id
+		dataType: string
+		lineageTag: e16e2236-6838-494e-9570-857e30507f8a
+		summarizeBy: none
+		sourceColumn: provider_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column representative_variant_id
+		dataType: string
+		lineageTag: 9a90fac3-7f5a-40c8-acf7-c14634919406
+		summarizeBy: none
+		sourceColumn: representative_variant_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column representative_model_name
+		dataType: string
+		lineageTag: d0bc5c73-749d-412b-b736-56057d5c328b
+		summarizeBy: none
+		sourceColumn: representative_model_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column availability_class
+		dataType: string
+		lineageTag: 1c279abc-c675-435b-b01f-5b308c501fdc
+		summarizeBy: none
+		sourceColumn: availability_class
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_open_weights
+		dataType: boolean
+		lineageTag: af029820-4d43-42a3-9ff5-5164a8da512a
+		summarizeBy: none
+		sourceColumn: is_open_weights
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_current
+		dataType: boolean
+		lineageTag: 4fff93c8-c800-427b-a423-709b066bd863
+		summarizeBy: none
+		sourceColumn: is_current
+
+		annotation SummarizationSetBy = Automatic
+
+	column source_presence
+		dataType: string
+		lineageTag: 87966d25-7391-4a86-98df-9f12e07a5a64
+		summarizeBy: none
+		sourceColumn: source_presence
+
+		annotation SummarizationSetBy = Automatic
+
+	column aa_intelligence
+		dataType: double
+		lineageTag: 23c466fa-09da-43e4-ab50-e062e159b1fd
+		summarizeBy: sum
+		sourceColumn: aa_intelligence
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column aa_rank
+		dataType: int64
+		formatString: 0
+		lineageTag: 5c7fc362-fc2a-46a3-aa41-6ccb80b7512e
+		summarizeBy: sum
+		sourceColumn: aa_rank
+
+		annotation SummarizationSetBy = Automatic
+
+	column llmstats_general_score
+		dataType: double
+		lineageTag: 04a1df7e-fc7a-49ce-8926-b29e0bf4d806
+		summarizeBy: sum
+		sourceColumn: llmstats_general_score
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column llmstats_general_rank
+		dataType: double
+		lineageTag: 3565c836-056d-4679-92f1-89d97e7530a1
+		summarizeBy: sum
+		sourceColumn: llmstats_general_rank
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column llmdex_score
+		dataType: double
+		lineageTag: 03019ffb-2abe-47c6-b39b-5662289b55ed
+		summarizeBy: sum
+		sourceColumn: llmdex_score
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column llmdex_rank
+		dataType: double
+		lineageTag: 44cbca90-f5e1-4d2c-b548-fd59ae08a914
+		summarizeBy: sum
+		sourceColumn: llmdex_rank
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column agreement
+		dataType: double
+		lineageTag: 8dca47a3-2e09-496d-88ac-c6894892d024
+		summarizeBy: sum
+		sourceColumn: agreement
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column input_cost_usd_per_1m
+		dataType: double
+		lineageTag: 567e6f3a-4afa-4e79-b307-b0f774ba19a4
+		summarizeBy: sum
+		sourceColumn: input_cost_usd_per_1m
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column output_cost_usd_per_1m
+		dataType: double
+		lineageTag: 7f514cc2-d291-404f-adf1-98b0b48a7248
+		summarizeBy: sum
+		sourceColumn: output_cost_usd_per_1m
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column blended_cost_usd_per_1m
+		dataType: double
+		lineageTag: 830f37b0-b337-4fe5-b090-eb932ea6764b
+		summarizeBy: sum
+		sourceColumn: blended_cost_usd_per_1m
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column tokens_per_second
+		dataType: double
+		lineageTag: 635f703e-ef99-430a-bc7c-bdbbaaee34f6
+		summarizeBy: sum
+		sourceColumn: tokens_per_second
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column latency_seconds
+		dataType: double
+		lineageTag: e8d76a8e-eeef-4d98-8376-ab68b705a446
+		summarizeBy: sum
+		sourceColumn: latency_seconds
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column context_window_tokens
+		dataType: int64
+		formatString: 0
+		lineageTag: b95811a5-ef28-480b-8420-ab005a28b6ea
+		summarizeBy: sum
+		sourceColumn: context_window_tokens
+
+		annotation SummarizationSetBy = Automatic
+
+	column score_status
+		dataType: string
+		lineageTag: de8f349f-dc6e-4c6f-b68b-156eb10b3bfc
+		summarizeBy: none
+		sourceColumn: score_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column score_version
+		dataType: string
+		lineageTag: aff7ca71-0e2b-47d7-9b6b-49226cfea860
+		summarizeBy: none
+		sourceColumn: score_version
+
+		annotation SummarizationSetBy = Automatic
+
+	column historical_metric_source
+		dataType: string
+		lineageTag: b180d9b3-6010-4b77-bc6f-6b13094552e8
+		summarizeBy: none
+		sourceColumn: historical_metric_source
+
+		annotation SummarizationSetBy = Automatic
+
+	column metric_methodology_version
+		dataType: string
+		lineageTag: 653051bd-f854-4236-b26f-4f8e21bec156
+		summarizeBy: none
+		sourceColumn: metric_methodology_version
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_comparable_to_current
+		dataType: boolean
+		lineageTag: b9ee4768-919b-47e7-a866-785c278574cd
+		summarizeBy: none
+		sourceColumn: is_comparable_to_current
+
+		annotation SummarizationSetBy = Automatic
+
+	column evidence_source
+		dataType: string
+		lineageTag: ec9b7ecd-82d5-4e1e-950e-3d655c3ad13b
+		dataCategory: WebUrl
+		summarizeBy: none
+		sourceColumn: evidence_source
+
+		annotation SummarizationSetBy = Automatic
+
+	partition FactHistory = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(Web.Contents("https://llmdex.pages.dev/data/powerbi/v1/model_family_history.csv"),[Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				    #"Use First Row as Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Change Type" = Table.TransformColumnTypes(#"Use First Row as Headers",{{"schema_version", type text}, {"observation_date", type date}, {"snapshot_date", type date}, {"release_date", type date}, {"first_seen_date", type date}, {"last_seen_date", type date}, {"record_type", type text}, {"family_id", type text}, {"canonical_family_name", type text}, {"provider", type text}, {"provider_id", type text}, {"representative_variant_id", type text}, {"representative_model_name", type text}, {"availability_class", type text}, {"is_open_weights", type logical}, {"is_current", type logical}, {"source_presence", type text}, {"aa_intelligence", type number}, {"aa_rank", Int64.Type}, {"llmstats_general_score", type number}, {"llmstats_general_rank", type number}, {"llmdex_score", type number}, {"llmdex_rank", type number}, {"agreement", type number}, {"input_cost_usd_per_1m", type number}, {"output_cost_usd_per_1m", type number}, {"blended_cost_usd_per_1m", type number}, {"tokens_per_second", type number}, {"latency_seconds", type number}, {"context_window_tokens", Int64.Type}, {"score_status", type text}, {"score_version", type text}, {"historical_metric_source", type text}, {"metric_methodology_version", type text}, {"is_comparable_to_current", type logical}, {"evidence_source", type text}}, [Culture="en-US", MissingField=MissingField.UseNull])
+				in
+				    #"Change Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

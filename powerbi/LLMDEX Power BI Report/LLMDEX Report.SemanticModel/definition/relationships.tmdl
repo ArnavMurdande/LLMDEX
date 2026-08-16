@@ -1,0 +1,44 @@
+relationship 06751392-4a15-616d-ebd1-0a2e51824343
+	fromColumn: FactAA.family_id
+	toColumn: DimFamily.family_id
+
+relationship 6cc9a149-648e-d0a4-47a6-97b6a5c63429
+	fromColumn: FactLLMStats.family_id
+	toColumn: DimFamily.family_id
+
+relationship 83f90a9e-9476-8166-45de-970d963f878e
+	fromColumn: FactHistory.family_id
+	toColumn: DimFamily.family_id
+
+relationship d2eb86c4-6fa0-f8cc-93db-17fc4c1a35d0
+	fromColumn: FactAA.model_key
+	toColumn: DimModelAA.model_key
+
+relationship 5a9066a4-3cfc-d75f-e1f3-829598994dc7
+	fromColumn: FactLLMStats.capability
+	toColumn: DimCapability.capability
+
+relationship 09569a41-96cf-565c-a258-bf23a8f464cf
+	fromColumn: FactAA.snapshot_date
+	toColumn: DimDate.Date
+
+relationship 94903012-6d32-7371-f8a3-175125a37aa0
+	fromColumn: FactHistory.observation_date
+	toColumn: DimDate.Date
+
+relationship d99986ce-9b4c-ec81-a685-1296a26257f9
+	fromColumn: FactLLMStats.snapshot_date
+	toColumn: DimDate.Date
+
+relationship a5d41442-1e4d-4678-ab1a-eb283f9a5ad9
+	fromColumn: FactAA.provider_id
+	toColumn: DimProvider.provider_id
+
+relationship 08473afd-cae2-4850-8d6b-130bf4f2733d
+	fromColumn: FactLLMStats.provider_id
+	toColumn: DimProvider.provider_id
+
+relationship 4ddd9532-ab9b-4297-abc8-673dc938b077
+	fromColumn: FactHistory.provider_id
+	toColumn: DimProvider.provider_id
+

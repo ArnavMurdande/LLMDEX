@@ -1,0 +1,759 @@
+table FactLLMStats
+	lineageTag: f1df2938-d9ed-489b-b4d5-5734b18d2c2f
+
+	measure 'Latest LLMStats Snapshot' = CALCULATE ( MAX ( 'FactLLMStats'[snapshot_date] ), REMOVEFILTERS ( 'FactLLMStats' ), REMOVEFILTERS ( 'DimDate' ), REMOVEFILTERS ( 'DimFamily' ), REMOVEFILTERS ( 'DimCapability' ), REMOVEFILTERS ( 'DimProvider' ) )
+		formatString: General Date
+		lineageTag: 7143c905-7417-40ef-815f-a064fd95d3dd
+
+	measure 'Latest LLMStats Model Count' =
+			VAR LatestDate = [Latest LLMStats Snapshot]
+			RETURN CALCULATE ( DISTINCTCOUNT ( 'FactLLMStats'[family_id] ), REMOVEFILTERS ( 'DimDate' ), 'FactLLMStats'[snapshot_date] = LatestDate )
+		formatString: 0
+		lineageTag: b6dbb84d-008a-4240-bef6-a40da5b9a788
+
+	measure 'LLMStats Category Score' =
+			VAR LatestDate = [Latest LLMStats Snapshot]
+			RETURN CALCULATE ( MAX ( 'FactLLMStats'[category_score] ), REMOVEFILTERS ( 'DimDate' ), 'FactLLMStats'[snapshot_date] = LatestDate )
+		formatString: 0.0
+		lineageTag: 27346a4b-c375-4ebb-9cab-d683b157cc62
+
+	measure 'LLMStats Avg Category Score' =
+			VAR LatestDate = [Latest LLMStats Snapshot]
+			RETURN CALCULATE ( AVERAGE ( 'FactLLMStats'[category_score] ), REMOVEFILTERS ( 'DimDate' ), 'FactLLMStats'[snapshot_date] = LatestDate )
+		formatString: 0.0
+		lineageTag: 3769ff86-738a-4d20-b447-edaa6b0ac2b4
+
+	measure 'LLMStats Category Rank' =
+			VAR LatestDate = [Latest LLMStats Snapshot]
+			RETURN CALCULATE ( MIN ( 'FactLLMStats'[category_rank] ), REMOVEFILTERS ( 'DimDate' ), 'FactLLMStats'[snapshot_date] = LatestDate )
+		formatString: 0
+		lineageTag: 49a1cb9e-3ec2-4ab6-9043-a168b0cc6f64
+
+	column schema_version
+		dataType: string
+		lineageTag: 85bfe8c3-f322-45b9-a5fe-ab9f9745b70b
+		summarizeBy: none
+		sourceColumn: schema_version
+
+		annotation SummarizationSetBy = Automatic
+
+	column snapshot_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: ad99c3a0-0a39-4083-99ca-3297997fad19
+		summarizeBy: none
+		sourceColumn: snapshot_date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column source
+		dataType: string
+		lineageTag: 7c996bba-06ac-4714-b1aa-60986079e4b6
+		summarizeBy: none
+		sourceColumn: source
+
+		annotation SummarizationSetBy = Automatic
+
+	column capability
+		dataType: string
+		lineageTag: dda43639-6ab3-41fa-b630-7c9063e85273
+		summarizeBy: none
+		sourceColumn: capability
+
+		annotation SummarizationSetBy = Automatic
+
+	column source_model_id
+		dataType: string
+		lineageTag: e77efa3d-4992-45ba-95fb-468c8024b978
+		summarizeBy: none
+		sourceColumn: source_model_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column source_name
+		dataType: string
+		lineageTag: 722e2ead-0a54-41b9-b4b2-c962bf91aba6
+		summarizeBy: none
+		sourceColumn: source_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column original_source_name
+		dataType: string
+		lineageTag: 4c1c99a3-0908-4c9e-b277-7af35d5f1d80
+		summarizeBy: none
+		sourceColumn: original_source_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column canonical_name
+		dataType: string
+		lineageTag: cfe10462-b76e-4272-b107-8741b2caf3af
+		summarizeBy: none
+		sourceColumn: canonical_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column family_id
+		dataType: string
+		lineageTag: d9619b39-accd-4a2b-81d9-87b8eb22cf17
+		summarizeBy: none
+		sourceColumn: family_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column provider
+		dataType: string
+		lineageTag: 7cef6f27-ea0a-4381-91d5-0b3f00b42a65
+		summarizeBy: none
+		sourceColumn: provider
+
+		annotation SummarizationSetBy = Automatic
+
+	column provider_id
+		dataType: string
+		lineageTag: 66c79298-9084-4242-b850-8d2cd2bf609f
+		summarizeBy: none
+		sourceColumn: provider_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column availability_class
+		dataType: string
+		lineageTag: 8ee45e2c-89d7-4ac6-9a25-7958fcc9ddd5
+		summarizeBy: none
+		sourceColumn: availability_class
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_open_weights
+		dataType: boolean
+		lineageTag: d00b44c7-60bc-4fa7-970b-e70cb570d973
+		summarizeBy: none
+		sourceColumn: is_open_weights
+
+		annotation SummarizationSetBy = Automatic
+
+	column category_rank
+		dataType: double
+		lineageTag: 0fa5a12c-fc6b-42ab-89c5-2fee5f568ca0
+		summarizeBy: sum
+		sourceColumn: category_rank
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column category_score
+		dataType: double
+		lineageTag: 20204d59-c3a9-437d-bc7f-1fcca1394fee
+		summarizeBy: sum
+		sourceColumn: category_score
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column match_status
+		dataType: string
+		lineageTag: 023f6ea2-8963-4039-8fea-404fd3dab8f1
+		summarizeBy: none
+		sourceColumn: match_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column source_model_url
+		dataType: string
+		lineageTag: 664db03c-eb28-4a6c-b644-fd234a98e9df
+		dataCategory: WebUrl
+		summarizeBy: none
+		sourceColumn: source_model_url
+
+		annotation SummarizationSetBy = Automatic
+
+	column benchmark_aime_2025
+		dataType: double
+		lineageTag: 82132870-2ff2-4005-bd87-8101bcdbacb4
+		summarizeBy: sum
+		sourceColumn: benchmark_aime_2025
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column benchmark_arc_agi_v2
+		dataType: double
+		lineageTag: b8815c8f-a343-4e55-85b4-415d580143f0
+		summarizeBy: sum
+		sourceColumn: benchmark_arc_agi_v2
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column benchmark_browsecomp
+		dataType: double
+		lineageTag: 0bd2ac55-f584-4428-b79e-03eef69e35a1
+		summarizeBy: sum
+		sourceColumn: benchmark_browsecomp
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column benchmark_gpqa
+		dataType: double
+		lineageTag: baeb00df-cd40-4a3e-ad02-6f2245d3ccb8
+		summarizeBy: sum
+		sourceColumn: benchmark_gpqa
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column benchmark_llmstats_aa_lcr
+		dataType: double
+		lineageTag: f27c4496-8cfb-4d0a-8654-3eea3f3f33c2
+		summarizeBy: sum
+		sourceColumn: benchmark_llmstats_aa_lcr
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column benchmark_llmstats_apex_agents
+		dataType: double
+		lineageTag: c2fc910c-6b0b-4d71-b559-03594cc82bf9
+		summarizeBy: sum
+		sourceColumn: benchmark_llmstats_apex_agents
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column benchmark_llmstats_arena_avg
+		dataType: double
+		lineageTag: 46f5be7a-6e63-48b1-bd04-c02818988fc6
+		summarizeBy: sum
+		sourceColumn: benchmark_llmstats_arena_avg
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column benchmark_llmstats_automationbench
+		dataType: double
+		lineageTag: 14c70216-c7ec-4fed-a7bf-3de659f54247
+		summarizeBy: sum
+		sourceColumn: benchmark_llmstats_automationbench
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column benchmark_llmstats_browsecomp_zh
+		dataType: double
+		lineageTag: ca13c955-c513-402d-965c-763f69c09b95
+		summarizeBy: sum
+		sourceColumn: benchmark_llmstats_browsecomp_zh
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column benchmark_llmstats_charxiv_r
+		dataType: double
+		lineageTag: 6c8635c4-89ad-4577-bc99-ad3e7cccf775
+		summarizeBy: sum
+		sourceColumn: benchmark_llmstats_charxiv_r
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column benchmark_llmstats_code_arena
+		dataType: double
+		lineageTag: 39eb0b72-9da9-417e-a355-e688eb267a46
+		summarizeBy: sum
+		sourceColumn: benchmark_llmstats_code_arena
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column benchmark_llmstats_deepsearchqa
+		dataType: double
+		lineageTag: 635d0efa-cbeb-4b68-92d2-035e9b8a1efd
+		summarizeBy: sum
+		sourceColumn: benchmark_llmstats_deepsearchqa
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column benchmark_llmstats_deepswe_1_1
+		dataType: double
+		lineageTag: 0ee8982b-d529-4a5c-88da-5b55420fb085
+		summarizeBy: sum
+		sourceColumn: benchmark_llmstats_deepswe_1_1
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column benchmark_llmstats_finance
+		dataType: double
+		lineageTag: a95a70a5-e310-4ced-9b90-67f7f92baae4
+		summarizeBy: sum
+		sourceColumn: benchmark_llmstats_finance
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column benchmark_llmstats_frontiercode_1_1
+		dataType: double
+		lineageTag: 32daf1d4-8e6e-45a9-90b2-1fcbb09d5c13
+		summarizeBy: sum
+		sourceColumn: benchmark_llmstats_frontiercode_1_1
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column benchmark_llmstats_frontiermath
+		dataType: double
+		lineageTag: 3472eac2-54ab-4152-bc57-c5ffa634828d
+		summarizeBy: sum
+		sourceColumn: benchmark_llmstats_frontiermath
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column benchmark_llmstats_health
+		dataType: double
+		lineageTag: 2035d450-38c9-4454-974d-a779f71116c6
+		summarizeBy: sum
+		sourceColumn: benchmark_llmstats_health
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column benchmark_llmstats_hle
+		dataType: double
+		lineageTag: 1761895e-6cbe-4fc9-adef-79e7ce3e0ae3
+		summarizeBy: sum
+		sourceColumn: benchmark_llmstats_hle
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column benchmark_llmstats_legal
+		dataType: double
+		lineageTag: 2419d417-4033-4905-a315-5baf0e54b192
+		summarizeBy: sum
+		sourceColumn: benchmark_llmstats_legal
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column benchmark_llmstats_livecodebench
+		dataType: double
+		lineageTag: c2a6182c-3ff1-44ec-88f0-1717a828a798
+		summarizeBy: sum
+		sourceColumn: benchmark_llmstats_livecodebench
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column benchmark_llmstats_livecodebench_v6
+		dataType: double
+		lineageTag: 04794be7-346b-4605-a20a-f12c41b7d34f
+		summarizeBy: sum
+		sourceColumn: benchmark_llmstats_livecodebench_v6
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column benchmark_llmstats_longbench_v2
+		dataType: double
+		lineageTag: b54e8512-2d35-41de-bb89-acfabbfda902
+		summarizeBy: sum
+		sourceColumn: benchmark_llmstats_longbench_v2
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column benchmark_llmstats_lvbench
+		dataType: double
+		lineageTag: 4657ad13-40d1-4ad8-9d63-49586f49efac
+		summarizeBy: sum
+		sourceColumn: benchmark_llmstats_lvbench
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column benchmark_llmstats_mathvista
+		dataType: double
+		lineageTag: a64684d5-3c5f-4bd7-8b5f-445c769efc05
+		summarizeBy: sum
+		sourceColumn: benchmark_llmstats_mathvista
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column benchmark_llmstats_mm_mt_bench
+		dataType: double
+		lineageTag: e654e361-cd7a-47e8-bcda-0bf5c91b4a8e
+		summarizeBy: sum
+		sourceColumn: benchmark_llmstats_mm_mt_bench
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column benchmark_llmstats_mmlu_pro
+		dataType: double
+		lineageTag: 2cc031f5-ac4e-434d-82d3-ba909ee46cbb
+		summarizeBy: sum
+		sourceColumn: benchmark_llmstats_mmlu_pro
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column benchmark_llmstats_mmmlu
+		dataType: double
+		lineageTag: 547a6479-d73e-43fd-85a9-a1a713c76871
+		summarizeBy: sum
+		sourceColumn: benchmark_llmstats_mmmlu
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column benchmark_llmstats_mmmu_pro
+		dataType: double
+		lineageTag: 50ec92cd-2105-4af7-b8d0-b2e1530e8ee4
+		summarizeBy: sum
+		sourceColumn: benchmark_llmstats_mmmu_pro
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column benchmark_llmstats_mrcr_v2_8_needle
+		dataType: double
+		lineageTag: 8cb67c9b-f075-4f6c-9046-eb5a7af4a112
+		summarizeBy: sum
+		sourceColumn: benchmark_llmstats_mrcr_v2_8_needle
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column benchmark_llmstats_mt_bench
+		dataType: double
+		lineageTag: 9eaa6eca-7baf-4908-b8e8-12887b598a18
+		summarizeBy: sum
+		sourceColumn: benchmark_llmstats_mt_bench
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column benchmark_llmstats_multi_challenge
+		dataType: double
+		lineageTag: 16d232e3-1041-4446-afe0-a7270ebd278f
+		summarizeBy: sum
+		sourceColumn: benchmark_llmstats_multi_challenge
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column benchmark_llmstats_multi_if
+		dataType: double
+		lineageTag: 056eaadf-a739-434d-97b0-9b91314ee11e
+		summarizeBy: sum
+		sourceColumn: benchmark_llmstats_multi_if
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column benchmark_llmstats_natural_questions
+		dataType: double
+		lineageTag: 03c926f1-8ec1-42bb-89fb-f08325f51a88
+		summarizeBy: sum
+		sourceColumn: benchmark_llmstats_natural_questions
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column benchmark_llmstats_nl2repo
+		dataType: double
+		lineageTag: 4eb64679-a246-4ed0-9632-22fb6bbd7c36
+		summarizeBy: sum
+		sourceColumn: benchmark_llmstats_nl2repo
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column benchmark_llmstats_osworld
+		dataType: double
+		lineageTag: b67bbce2-3bfb-4e38-a7e9-8083772beec1
+		summarizeBy: sum
+		sourceColumn: benchmark_llmstats_osworld
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column benchmark_llmstats_screenspot_pro
+		dataType: double
+		lineageTag: 03c6b97a-8d41-4af8-8152-da71bc6af447
+		summarizeBy: sum
+		sourceColumn: benchmark_llmstats_screenspot_pro
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column benchmark_llmstats_seal_0
+		dataType: double
+		lineageTag: 9cab3a67-1471-4a62-9cec-76de051589c8
+		summarizeBy: sum
+		sourceColumn: benchmark_llmstats_seal_0
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column benchmark_llmstats_simpleqa
+		dataType: double
+		lineageTag: 5d66bbb3-145e-4e7e-a72d-6d221a8c1a11
+		summarizeBy: sum
+		sourceColumn: benchmark_llmstats_simpleqa
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column benchmark_llmstats_swe_bench_multilingual
+		dataType: double
+		lineageTag: c8099ee5-cda0-4943-85ea-fb4ef186da82
+		summarizeBy: sum
+		sourceColumn: benchmark_llmstats_swe_bench_multilingual
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column benchmark_llmstats_swe_bench_pro
+		dataType: double
+		lineageTag: fe9eb8e6-2b20-496f-a512-9efa75cb5795
+		summarizeBy: sum
+		sourceColumn: benchmark_llmstats_swe_bench_pro
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column benchmark_llmstats_tau2_airline
+		dataType: double
+		lineageTag: 0a43e2f8-ea87-4261-886b-c874541d6b7c
+		summarizeBy: sum
+		sourceColumn: benchmark_llmstats_tau2_airline
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column benchmark_llmstats_tau2_retail
+		dataType: double
+		lineageTag: 69e42752-fea1-47ad-b137-d49164882583
+		summarizeBy: sum
+		sourceColumn: benchmark_llmstats_tau2_retail
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column benchmark_llmstats_tau2_telecom
+		dataType: double
+		lineageTag: e650c1fa-dd35-48e1-9372-b67d69f08765
+		summarizeBy: sum
+		sourceColumn: benchmark_llmstats_tau2_telecom
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column benchmark_llmstats_tau3_banking
+		dataType: double
+		lineageTag: fcb499ee-0a75-44da-922e-6c7b215d8386
+		summarizeBy: sum
+		sourceColumn: benchmark_llmstats_tau3_banking
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column benchmark_llmstats_tau_bench_airline
+		dataType: double
+		lineageTag: c2d186fc-95e5-4f94-8cf7-c873862b544e
+		summarizeBy: sum
+		sourceColumn: benchmark_llmstats_tau_bench_airline
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column benchmark_llmstats_tau_bench_retail
+		dataType: double
+		lineageTag: a92ed79b-3962-426a-860f-ccda1d2641e7
+		summarizeBy: sum
+		sourceColumn: benchmark_llmstats_tau_bench_retail
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column benchmark_llmstats_terminal_bench_2_0
+		dataType: double
+		lineageTag: 730c342a-6a5a-45b0-bf6a-bc60294b170f
+		summarizeBy: sum
+		sourceColumn: benchmark_llmstats_terminal_bench_2_0
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column benchmark_llmstats_terminal_bench_2_1
+		dataType: double
+		lineageTag: 47c7e361-77b5-4af7-8cb7-d2fa113a5000
+		summarizeBy: sum
+		sourceColumn: benchmark_llmstats_terminal_bench_2_1
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column benchmark_llmstats_toolathlon
+		dataType: double
+		lineageTag: 68d6e54a-30e4-4467-9e0b-34a76227782d
+		summarizeBy: sum
+		sourceColumn: benchmark_llmstats_toolathlon
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column benchmark_llmstats_vision
+		dataType: double
+		lineageTag: f5c52f5c-638c-4699-ac72-d0c14c978168
+		summarizeBy: sum
+		sourceColumn: benchmark_llmstats_vision
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column benchmark_llmstats_widesearch
+		dataType: double
+		lineageTag: 9f854672-2c6c-4447-822d-74194c26f6f5
+		summarizeBy: sum
+		sourceColumn: benchmark_llmstats_widesearch
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column benchmark_llmstats_writingbench
+		dataType: double
+		lineageTag: 84240181-a1d1-4f68-9756-683fc5d13781
+		summarizeBy: sum
+		sourceColumn: benchmark_llmstats_writingbench
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column benchmark_mcp_atlas
+		dataType: double
+		lineageTag: fae654c5-8dd7-4de1-a382-3c4f98f5dc4f
+		summarizeBy: sum
+		sourceColumn: benchmark_mcp_atlas
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column benchmark_mrcr_v2
+		dataType: double
+		lineageTag: ddb6fe84-0a29-49ad-a21b-e69aad82df8e
+		summarizeBy: sum
+		sourceColumn: benchmark_mrcr_v2
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column benchmark_scicode
+		dataType: double
+		lineageTag: 6aab96a9-e061-46d2-9bf4-279594e0e438
+		summarizeBy: sum
+		sourceColumn: benchmark_scicode
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column benchmark_swe_bench_verified
+		dataType: double
+		lineageTag: f0453c9f-3ac3-4031-a38c-1deb668d21e1
+		summarizeBy: sum
+		sourceColumn: benchmark_swe_bench_verified
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column benchmark_terminal_bench_llmstats
+		dataType: double
+		lineageTag: afce36e4-3cb0-48cc-8ceb-077b0b4523f6
+		summarizeBy: sum
+		sourceColumn: benchmark_terminal_bench_llmstats
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition FactLLMStats = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(Web.Contents("https://llmdex.pages.dev/data/powerbi/v1/llmstats_benchmarks.csv"),[Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				    #"Use First Row as Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Change Type" = Table.TransformColumnTypes(#"Use First Row as Headers",{{"schema_version", type text}, {"snapshot_date", type date}, {"source", type text}, {"capability", type text}, {"source_model_id", type text}, {"source_name", type text}, {"original_source_name", type text}, {"canonical_name", type text}, {"family_id", type text}, {"provider", type text}, {"provider_id", type text}, {"availability_class", type text}, {"is_open_weights", type logical}, {"category_rank", type number}, {"category_score", type number}, {"match_status", type text}, {"source_model_url", type text}, {"benchmark_aime_2025", type number}, {"benchmark_arc_agi_v2", type number}, {"benchmark_browsecomp", type number}, {"benchmark_gpqa", type number}, {"benchmark_llmstats_aa_lcr", type number}, {"benchmark_llmstats_apex_agents", type number}, {"benchmark_llmstats_arena_avg", type number}, {"benchmark_llmstats_automationbench", type number}, {"benchmark_llmstats_browsecomp_zh", type number}, {"benchmark_llmstats_charxiv_r", type number}, {"benchmark_llmstats_code_arena", type number}, {"benchmark_llmstats_deepsearchqa", type number}, {"benchmark_llmstats_deepswe_1_1", type number}, {"benchmark_llmstats_finance", type number}, {"benchmark_llmstats_frontiercode_1_1", type number}, {"benchmark_llmstats_frontiermath", type number}, {"benchmark_llmstats_health", type number}, {"benchmark_llmstats_hle", type number}, {"benchmark_llmstats_legal", type number}, {"benchmark_llmstats_livecodebench", type number}, {"benchmark_llmstats_livecodebench_v6", type number}, {"benchmark_llmstats_longbench_v2", type number}, {"benchmark_llmstats_lvbench", type number}, {"benchmark_llmstats_mathvista", type number}, {"benchmark_llmstats_mm_mt_bench", type number}, {"benchmark_llmstats_mmlu_pro", type number}, {"benchmark_llmstats_mmmlu", type number}, {"benchmark_llmstats_mmmu_pro", type number}, {"benchmark_llmstats_mrcr_v2_8_needle", type number}, {"benchmark_llmstats_mt_bench", type number}, {"benchmark_llmstats_multi_challenge", type number}, {"benchmark_llmstats_multi_if", type number}, {"benchmark_llmstats_natural_questions", type number}, {"benchmark_llmstats_nl2repo", type number}, {"benchmark_llmstats_osworld", type number}, {"benchmark_llmstats_screenspot_pro", type number}, {"benchmark_llmstats_seal_0", type number}, {"benchmark_llmstats_simpleqa", type number}, {"benchmark_llmstats_swe_bench_multilingual", type number}, {"benchmark_llmstats_swe_bench_pro", type number}, {"benchmark_llmstats_tau2_airline", type number}, {"benchmark_llmstats_tau2_retail", type number}, {"benchmark_llmstats_tau2_telecom", type number}, {"benchmark_llmstats_tau3_banking", type number}, {"benchmark_llmstats_tau_bench_airline", type number}, {"benchmark_llmstats_tau_bench_retail", type number}, {"benchmark_llmstats_terminal_bench_2_0", type number}, {"benchmark_llmstats_terminal_bench_2_1", type number}, {"benchmark_llmstats_toolathlon", type number}, {"benchmark_llmstats_vision", type number}, {"benchmark_llmstats_widesearch", type number}, {"benchmark_llmstats_writingbench", type number}, {"benchmark_mcp_atlas", type number}, {"benchmark_mrcr_v2", type number}, {"benchmark_scicode", type number}, {"benchmark_swe_bench_verified", type number}, {"benchmark_terminal_bench_llmstats", type number}}, [Culture="en-US", MissingField=MissingField.UseNull])
+				in
+				    #"Change Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

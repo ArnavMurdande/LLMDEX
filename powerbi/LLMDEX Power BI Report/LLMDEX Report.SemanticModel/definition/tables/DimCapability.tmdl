@@ -1,0 +1,51 @@
+table DimCapability
+	lineageTag: 5da450cf-fc96-4821-b286-0a248ac3c9aa
+
+	column capability
+		lineageTag: c7725c2c-8f1c-4782-9be0-78cdc93a2af9
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [capability]
+
+		annotation SummarizationSetBy = Automatic
+
+	column capability_name
+		lineageTag: 7fa02ec4-cecf-4e09-96b9-7d1b07b30843
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [capability_name]
+		sortByColumn: sort_order
+
+		annotation SummarizationSetBy = Automatic
+
+	column sort_order
+		formatString: 0
+		lineageTag: 1ba94179-1613-4b9e-90c4-4b38f6444f94
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [sort_order]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimCapability = calculated
+		mode: import
+		source =
+				
+				DATATABLE (
+				    "capability", STRING,
+				    "capability_name", STRING,
+				    "sort_order", INTEGER,
+				    {
+				        { "general", "General", 1 },
+				        { "coding", "Coding", 2 },
+				        { "math", "Mathematics", 3 },
+				        { "reasoning", "Reasoning", 4 },
+				        { "writing", "Writing", 5 },
+				        { "research", "Research", 6 },
+				        { "long_context", "Long Context", 7 },
+				        { "tool_calling", "Tool Calling", 8 }
+				    }
+				)
+
+	annotation PBI_Id = d6d4984f25e24900ba3d6c5756dd6594
+

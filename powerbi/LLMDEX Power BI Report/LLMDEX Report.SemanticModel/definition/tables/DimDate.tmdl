@@ -1,0 +1,113 @@
+table DimDate
+	lineageTag: 3d4902a7-8b49-4840-820c-7b409299be0b
+
+	column Date
+		formatString: Long Date
+		lineageTag: 07d4dccc-0e2a-4c22-9bf6-c83724423098
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Date]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Year
+		formatString: 0
+		lineageTag: 91c30542-6c74-463b-b573-7a59a540ea96
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Year]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Month Number'
+		formatString: 0
+		lineageTag: 4447edbc-9302-4637-a5ac-73aaf7064bb1
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Month Number]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Month Name'
+		lineageTag: 60a5bf73-b42b-4602-b347-a5e6cd61cc85
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Month Name]
+		sortByColumn: 'Month Number'
+
+		annotation SummarizationSetBy = Automatic
+
+	column Quarter
+		lineageTag: aed6e1a8-cfe2-43c7-b49a-9631709d3bff
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Quarter]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Year Month'
+		lineageTag: 1b1db181-602a-4d92-962b-ec396e4d9353
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Year Month]
+		sortByColumn: 'Year Month Sort'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Year Month Sort'
+		formatString: 0
+		lineageTag: 147cee3b-8b04-4215-a015-01fe2ef6fba5
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Year Month Sort]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimDate = calculated
+		mode: import
+		source =
+				
+				VAR AllDates =
+				    FILTER (
+				        DISTINCT (
+				            UNION (
+				                SELECTCOLUMNS (
+				                    'FactAA',
+				                    "Date", 'FactAA'[snapshot_date]
+				                ),
+				                SELECTCOLUMNS (
+				                    'FactLLMStats',
+				                    "Date", 'FactLLMStats'[snapshot_date]
+				                ),
+				                SELECTCOLUMNS (
+				                    'FactHistory',
+				                    "Date", 'FactHistory'[observation_date]
+				                )
+				            )
+				        ),
+				        NOT ISBLANK ( [Date] )
+				    )
+				
+				VAR MinimumDate =
+				    MINX ( AllDates, [Date] )
+				
+				VAR MaximumDate =
+				    MAXX ( AllDates, [Date] )
+				
+				RETURN
+				    ADDCOLUMNS (
+				        CALENDAR ( MinimumDate, MaximumDate ),
+				        "Year", YEAR ( [Date] ),
+				        "Month Number", MONTH ( [Date] ),
+				        "Month Name", FORMAT ( [Date], "MMM" ),
+				        "Quarter", "Q" & FORMAT ( [Date], "Q" ),
+				        "Year Month", FORMAT ( [Date], "YYYY-MM" ),
+				        "Year Month Sort",
+				            YEAR ( [Date] ) * 100
+				                + MONTH ( [Date] )
+				    )
+
+	annotation PBI_Id = b6e935483f8242bda20400bc529d9eae
+
