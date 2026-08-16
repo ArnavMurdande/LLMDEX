@@ -1,45 +1,41 @@
 {
-  "generated_at": "2026-08-16T10:51:21.295034+00:00",
+  "generated_at": "2026-08-16T13:00:45.483449+00:00",
   "methodology_version": "LLMStats source-native current",
   "source": "LLMStats",
-  "source_updated_at": "2026-08-07T11:24:48.851161+00:00",
+  "source_updated_at": "2026-08-16T13:00:45.483449+00:00",
   "source_health": {
     "source": "LLMStats",
-    "rows_scraped": 86,
+    "rows_scraped": 97,
     "expected_range": [
       20,
       250
     ],
-    "status": "degraded",
-    "error_message": "No valid public leaderboard rows were extracted.",
-    "duration_seconds": 20.715,
-    "timestamp": "2026-08-16T10:51:42.018712+00:00",
+    "status": "healthy",
+    "error_message": null,
+    "duration_seconds": 17.425,
+    "timestamp": "2026-08-16T13:00:45.483449+00:00",
     "parse_warning_count": 0,
-    "warnings": [
-      "Live extraction failed; serving the last-known-good LLMStats snapshot."
-    ],
-    "last_successful_update": "2026-08-07T11:24:48.851161+00:00",
-    "schema_changes": [
-      "Missing required columns: LLM Stats, Model, Organization"
-    ]
+    "warnings": [],
+    "last_successful_update": "2026-08-16T13:00:45.483449+00:00",
+    "schema_changes": []
   },
   "capability": "tool_calling",
   "benchmark_columns": [
-    {
-      "benchmark_id": "llmstats__license",
-      "canonical_name": "LICENSE",
-      "version": null,
-      "source_name": "LICENSE",
-      "source_url": "https://llm-stats.com/leaderboards/best-ai-for-tool-calling",
-      "source_population": null
-    },
     {
       "benchmark_id": "llmstats__terminal-bench-2-1",
       "canonical_name": "Terminal-Bench 2.1",
       "version": null,
       "source_name": "Terminal-Bench 2.1",
       "source_url": "https://llm-stats.com/benchmarks/terminal-bench-2.1",
-      "source_population": 17
+      "source_population": 28
+    },
+    {
+      "benchmark_id": "llmstats__toolathlon",
+      "canonical_name": "Toolathlon",
+      "version": null,
+      "source_name": "Toolathlon",
+      "source_url": "https://llm-stats.com/benchmarks/toolathlon",
+      "source_population": 37
     },
     {
       "benchmark_id": "mcp_atlas",
@@ -47,7 +43,7 @@
       "version": "source-reported",
       "source_name": "MCP Atlas",
       "source_url": "https://llm-stats.com/benchmarks/mcp-atlas",
-      "source_population": 30
+      "source_population": 33
     },
     {
       "benchmark_id": "llmstats__terminal-bench-2-0",
@@ -55,7 +51,7 @@
       "version": null,
       "source_name": "Terminal-Bench 2.0",
       "source_url": "https://llm-stats.com/benchmarks/terminal-bench-2",
-      "source_population": 49
+      "source_population": 51
     },
     {
       "benchmark_id": "llmstats__tau2-telecom",
@@ -64,14 +60,6 @@
       "source_name": "Tau2 Telecom",
       "source_url": "https://llm-stats.com/benchmarks/tau2-telecom",
       "source_population": 35
-    },
-    {
-      "benchmark_id": "llmstats__toolathlon",
-      "canonical_name": "Toolathlon",
-      "version": null,
-      "source_name": "Toolathlon",
-      "source_url": "https://llm-stats.com/benchmarks/toolathlon",
-      "source_population": 31
     },
     {
       "benchmark_id": "llmstats__tau2-airline",
@@ -90,38 +78,39 @@
       "source_population": 26
     },
     {
+      "benchmark_id": "llmstats__automationbench",
+      "canonical_name": "AutomationBench",
+      "version": null,
+      "source_name": "AutomationBench",
+      "source_url": "https://llm-stats.com/benchmarks/automationbench",
+      "source_population": 12
+    },
+    {
+      "benchmark_id": "llmstats__tau3-banking",
+      "canonical_name": "Tau3 Banking",
+      "version": null,
+      "source_name": "Tau3 Banking",
+      "source_url": "https://llm-stats.com/benchmarks/tau3-banking",
+      "source_population": 7
+    },
+    {
       "benchmark_id": "llmstats__t2-bench",
       "canonical_name": "t2-bench",
       "version": null,
       "source_name": "t2-bench",
       "source_url": "https://llm-stats.com/benchmarks/t2-bench",
       "source_population": 23
-    },
-    {
-      "benchmark_id": "llmstats__tau-bench-retail",
-      "canonical_name": "TAU-bench Retail",
-      "version": null,
-      "source_name": "TAU-bench Retail",
-      "source_url": "https://llm-stats.com/benchmarks/tau-bench-retail",
-      "source_population": 25
-    },
-    {
-      "benchmark_id": "llmstats__tau-bench-airline",
-      "canonical_name": "TAU-bench Airline",
-      "version": null,
-      "source_name": "TAU-bench Airline",
-      "source_url": "https://llm-stats.com/benchmarks/tau-bench-airline",
-      "source_population": 23
     }
   ],
   "rows": [
     {
       "category_rank": 1.0,
-      "category_score": 38.3,
+      "category_score": 38.1,
       "source_name": "Kimi K3",
       "provider": "MoonshotAI",
       "source_model_id": "kimi-k3",
       "source_model_url": "https://llm-stats.com/models/kimi-k3",
+      "license": "Open Source",
       "family_id": "kimi/kimi-k3",
       "matched_aa_family_id": "kimi/kimi-k3",
       "match_status": "matched_manual",
@@ -147,10 +136,10 @@
             "tool_calling"
           ],
           "source_column_indices": {
-            "coding": 8,
-            "tool_calling": 2
+            "coding": 14,
+            "tool_calling": 9
           },
-          "source_population": 30
+          "source_population": 33
         },
         "llmstats__toolathlon": {
           "benchmark_id": "llmstats__toolathlon",
@@ -165,9 +154,9 @@
             "tool_calling"
           ],
           "source_column_indices": {
-            "tool_calling": 5
+            "tool_calling": 8
           },
-          "source_population": 31
+          "source_population": 37
         },
         "llmstats__terminal-bench-2-1": {
           "benchmark_id": "llmstats__terminal-bench-2-1",
@@ -184,22 +173,117 @@
             "tool_calling"
           ],
           "source_column_indices": {
-            "coding": 13,
-            "reasoning": 9,
-            "tool_calling": 1
+            "coding": 15,
+            "reasoning": 7,
+            "tool_calling": 7
           },
-          "source_population": 17
+          "source_population": 28
+        },
+        "llmstats__automationbench": {
+          "benchmark_id": "llmstats__automationbench",
+          "canonical_name": "AutomationBench",
+          "source_name": "AutomationBench",
+          "value": 30.8,
+          "raw_value": "30.8%",
+          "version": null,
+          "provenance": "LLMStats public capability leaderboard",
+          "source_url": "https://llm-stats.com/benchmarks/automationbench",
+          "capabilities": [
+            "tool_calling"
+          ],
+          "source_column_indices": {
+            "tool_calling": 14
+          },
+          "source_population": 12
         }
       },
       "source_updated_at": null
     },
     {
       "category_rank": 2.0,
-      "category_score": 34.8,
+      "category_score": 36.3,
+      "source_name": "GLM-5.3",
+      "provider": "Z AI",
+      "source_model_id": "glm-5.3",
+      "source_model_url": "https://llm-stats.com/models/glm-5.3",
+      "license": "— License unknown",
+      "family_id": "z-ai/glm-5-3",
+      "matched_aa_family_id": null,
+      "match_status": "identity_unresolved",
+      "match_confidence": 0.8,
+      "score_status": "identity_review",
+      "score_status_label": "Identity review",
+      "availability_class": "unknown",
+      "is_sota": false,
+      "is_open_sota": false,
+      "rank_evidence": "source_rendered_table_order",
+      "benchmark_observations": {
+        "llmstats__terminal-bench-2-1": {
+          "benchmark_id": "llmstats__terminal-bench-2-1",
+          "canonical_name": "Terminal-Bench 2.1",
+          "source_name": "Terminal-Bench 2.1",
+          "value": 88.2,
+          "raw_value": "88.2%",
+          "version": null,
+          "provenance": "LLMStats public capability leaderboard",
+          "source_url": "https://llm-stats.com/benchmarks/terminal-bench-2.1",
+          "capabilities": [
+            "coding",
+            "reasoning",
+            "tool_calling"
+          ],
+          "source_column_indices": {
+            "coding": 15,
+            "reasoning": 7,
+            "tool_calling": 7
+          },
+          "source_population": 28
+        },
+        "llmstats__toolathlon": {
+          "benchmark_id": "llmstats__toolathlon",
+          "canonical_name": "Toolathlon",
+          "source_name": "Toolathlon",
+          "value": 73.0,
+          "raw_value": "73.0%",
+          "version": null,
+          "provenance": "LLMStats public capability leaderboard",
+          "source_url": "https://llm-stats.com/benchmarks/toolathlon",
+          "capabilities": [
+            "tool_calling"
+          ],
+          "source_column_indices": {
+            "tool_calling": 8
+          },
+          "source_population": 37
+        },
+        "llmstats__automationbench": {
+          "benchmark_id": "llmstats__automationbench",
+          "canonical_name": "AutomationBench",
+          "source_name": "AutomationBench",
+          "value": 48.2,
+          "raw_value": "48.2%",
+          "version": null,
+          "provenance": "LLMStats public capability leaderboard",
+          "source_url": "https://llm-stats.com/benchmarks/automationbench",
+          "capabilities": [
+            "tool_calling"
+          ],
+          "source_column_indices": {
+            "tool_calling": 14
+          },
+          "source_population": 12
+        }
+      },
+      "source_updated_at": null
+    },
+    {
+      "category_rank": 3.0,
+      "category_score": 34.9,
       "source_name": "GPT-5.6 Sol",
       "provider": "OpenAI",
       "source_model_id": "gpt-5.6-sol",
       "source_model_url": "https://llm-stats.com/models/gpt-5.6-sol",
+      "license": "Proprietary",
       "family_id": "openai/gpt-5-6-sol",
       "matched_aa_family_id": "openai/gpt-5-6-sol",
       "match_status": "matched_manual",
@@ -207,7 +291,7 @@
       "score_status": "consensus",
       "score_status_label": "Consensus",
       "availability_class": "proprietary",
-      "is_sota": true,
+      "is_sota": false,
       "is_open_sota": false,
       "rank_evidence": "source_rendered_table_order",
       "benchmark_observations": {
@@ -224,9 +308,9 @@
             "tool_calling"
           ],
           "source_column_indices": {
-            "tool_calling": 5
+            "tool_calling": 8
           },
-          "source_population": 31
+          "source_population": 37
         },
         "llmstats__terminal-bench-2-1": {
           "benchmark_id": "llmstats__terminal-bench-2-1",
@@ -243,134 +327,57 @@
             "tool_calling"
           ],
           "source_column_indices": {
-            "coding": 13,
-            "reasoning": 9,
-            "tool_calling": 1
+            "coding": 15,
+            "reasoning": 7,
+            "tool_calling": 7
           },
-          "source_population": 17
-        }
-      },
-      "source_updated_at": null
-    },
-    {
-      "category_rank": 3.0,
-      "category_score": 33.0,
-      "source_name": "Muse Spark 1.1",
-      "provider": null,
-      "source_model_id": "muse-spark-1.1",
-      "source_model_url": "https://llm-stats.com/models/muse-spark-1.1",
-      "family_id": "unknown/muse-spark-1-1",
-      "matched_aa_family_id": null,
-      "match_status": "identity_unresolved",
-      "match_confidence": 0.8,
-      "score_status": "identity_review",
-      "score_status_label": "Identity review",
-      "availability_class": "unknown",
-      "is_sota": false,
-      "is_open_sota": false,
-      "rank_evidence": "source_rendered_table_order",
-      "benchmark_observations": {
-        "mcp_atlas": {
-          "benchmark_id": "mcp_atlas",
-          "canonical_name": "MCP Atlas",
-          "source_name": "MCP Atlas",
-          "value": 88.1,
-          "raw_value": "88.1%",
-          "version": "source-reported",
-          "provenance": "Source observation",
-          "source_url": "https://llm-stats.com/benchmarks/mcp-atlas",
-          "capabilities": [
-            "coding",
-            "tool_calling"
-          ],
-          "source_column_indices": {
-            "coding": 8,
-            "tool_calling": 2
-          },
-          "source_population": 30
+          "source_population": 28
         },
-        "llmstats__terminal-bench-2-1": {
-          "benchmark_id": "llmstats__terminal-bench-2-1",
-          "canonical_name": "Terminal-Bench 2.1",
-          "source_name": "Terminal-Bench 2.1",
-          "value": 80.0,
-          "raw_value": "80.0%",
+        "llmstats__automationbench": {
+          "benchmark_id": "llmstats__automationbench",
+          "canonical_name": "AutomationBench",
+          "source_name": "AutomationBench",
+          "value": 18.1,
+          "raw_value": "18.1%",
           "version": null,
           "provenance": "LLMStats public capability leaderboard",
-          "source_url": "https://llm-stats.com/benchmarks/terminal-bench-2.1",
-          "capabilities": [
-            "coding",
-            "reasoning",
-            "tool_calling"
-          ],
-          "source_column_indices": {
-            "coding": 13,
-            "reasoning": 9,
-            "tool_calling": 1
-          },
-          "source_population": 17
-        },
-        "llmstats__toolathlon": {
-          "benchmark_id": "llmstats__toolathlon",
-          "canonical_name": "Toolathlon",
-          "source_name": "Toolathlon",
-          "value": 75.6,
-          "raw_value": "75.6%",
-          "version": null,
-          "provenance": "LLMStats public capability leaderboard",
-          "source_url": "https://llm-stats.com/benchmarks/toolathlon",
+          "source_url": "https://llm-stats.com/benchmarks/automationbench",
           "capabilities": [
             "tool_calling"
           ],
           "source_column_indices": {
-            "tool_calling": 5
+            "tool_calling": 14
           },
-          "source_population": 31
+          "source_population": 12
         }
       },
       "source_updated_at": null
     },
     {
       "category_rank": 4.0,
-      "category_score": 32.9,
-      "source_name": "GPT-5.6 Terra",
-      "provider": "OpenAI",
-      "source_model_id": "gpt-5.6-terra",
-      "source_model_url": "https://llm-stats.com/models/gpt-5.6-terra",
-      "family_id": "openai/gpt-5-6-terra",
-      "matched_aa_family_id": "openai/gpt-5-6-terra",
-      "match_status": "matched_manual",
-      "match_confidence": 1.0,
+      "category_score": 34.4,
+      "source_name": "DeepSeek-V4-Pro-0813",
+      "provider": "DeepSeek",
+      "source_model_id": "deepseek-v4-pro-0813",
+      "source_model_url": "https://llm-stats.com/models/deepseek-v4-pro-0813",
+      "license": "Open Source",
+      "family_id": "deepseek/deepseek-v4-pro-0813",
+      "matched_aa_family_id": "deepseek/deepseek-v4-pro-0813",
+      "match_status": "matched_family",
+      "match_confidence": 0.95,
       "score_status": "consensus",
       "score_status_label": "Consensus",
-      "availability_class": "proprietary",
+      "availability_class": "open_weights",
       "is_sota": false,
       "is_open_sota": false,
       "rank_evidence": "source_rendered_table_order",
       "benchmark_observations": {
-        "llmstats__toolathlon": {
-          "benchmark_id": "llmstats__toolathlon",
-          "canonical_name": "Toolathlon",
-          "source_name": "Toolathlon",
-          "value": 53.1,
-          "raw_value": "53.1%",
-          "version": null,
-          "provenance": "LLMStats public capability leaderboard",
-          "source_url": "https://llm-stats.com/benchmarks/toolathlon",
-          "capabilities": [
-            "tool_calling"
-          ],
-          "source_column_indices": {
-            "tool_calling": 5
-          },
-          "source_population": 31
-        },
         "llmstats__terminal-bench-2-1": {
           "benchmark_id": "llmstats__terminal-bench-2-1",
           "canonical_name": "Terminal-Bench 2.1",
           "source_name": "Terminal-Bench 2.1",
-          "value": 87.4,
-          "raw_value": "87.4%",
+          "value": 87.9,
+          "raw_value": "87.9%",
           "version": null,
           "provenance": "LLMStats public capability leaderboard",
           "source_url": "https://llm-stats.com/benchmarks/terminal-bench-2.1",
@@ -380,1167 +387,57 @@
             "tool_calling"
           ],
           "source_column_indices": {
-            "coding": 13,
-            "reasoning": 9,
-            "tool_calling": 1
+            "coding": 15,
+            "reasoning": 7,
+            "tool_calling": 7
           },
-          "source_population": 17
+          "source_population": 28
+        },
+        "llmstats__toolathlon": {
+          "benchmark_id": "llmstats__toolathlon",
+          "canonical_name": "Toolathlon",
+          "source_name": "Toolathlon",
+          "value": 74.1,
+          "raw_value": "74.1%",
+          "version": null,
+          "provenance": "LLMStats public capability leaderboard",
+          "source_url": "https://llm-stats.com/benchmarks/toolathlon",
+          "capabilities": [
+            "tool_calling"
+          ],
+          "source_column_indices": {
+            "tool_calling": 8
+          },
+          "source_population": 37
+        },
+        "llmstats__automationbench": {
+          "benchmark_id": "llmstats__automationbench",
+          "canonical_name": "AutomationBench",
+          "source_name": "AutomationBench",
+          "value": 31.8,
+          "raw_value": "31.8%",
+          "version": null,
+          "provenance": "LLMStats public capability leaderboard",
+          "source_url": "https://llm-stats.com/benchmarks/automationbench",
+          "capabilities": [
+            "tool_calling"
+          ],
+          "source_column_indices": {
+            "tool_calling": 14
+          },
+          "source_population": 12
         }
       },
       "source_updated_at": null
     },
     {
       "category_rank": 5.0,
-      "category_score": 32.5,
-      "source_name": "Gemini 3.5 Flash",
-      "provider": null,
-      "source_model_id": "gemini-3.5-flash",
-      "source_model_url": "https://llm-stats.com/models/gemini-3.5-flash",
-      "family_id": "unknown/gemini-3-5-flash",
-      "matched_aa_family_id": null,
-      "match_status": "identity_unresolved",
-      "match_confidence": 0.8,
-      "score_status": "identity_review",
-      "score_status_label": "Identity review",
-      "availability_class": "unknown",
-      "is_sota": false,
-      "is_open_sota": false,
-      "rank_evidence": "source_rendered_table_order",
-      "benchmark_observations": {
-        "llmstats__terminal-bench-2-0": {
-          "benchmark_id": "llmstats__terminal-bench-2-0",
-          "canonical_name": "Terminal-Bench 2.0",
-          "source_name": "Terminal-Bench 2.0",
-          "value": 76.2,
-          "raw_value": "76.2%",
-          "version": null,
-          "provenance": "LLMStats public capability leaderboard",
-          "source_url": "https://llm-stats.com/benchmarks/terminal-bench-2",
-          "capabilities": [
-            "coding",
-            "tool_calling"
-          ],
-          "source_column_indices": {
-            "coding": 5,
-            "tool_calling": 3
-          },
-          "source_population": 49
-        },
-        "mcp_atlas": {
-          "benchmark_id": "mcp_atlas",
-          "canonical_name": "MCP Atlas",
-          "source_name": "MCP Atlas",
-          "value": 83.6,
-          "raw_value": "83.6%",
-          "version": "source-reported",
-          "provenance": "Source observation",
-          "source_url": "https://llm-stats.com/benchmarks/mcp-atlas",
-          "capabilities": [
-            "coding",
-            "tool_calling"
-          ],
-          "source_column_indices": {
-            "coding": 8,
-            "tool_calling": 2
-          },
-          "source_population": 30
-        },
-        "llmstats__toolathlon": {
-          "benchmark_id": "llmstats__toolathlon",
-          "canonical_name": "Toolathlon",
-          "source_name": "Toolathlon",
-          "value": 56.5,
-          "raw_value": "56.5%",
-          "version": null,
-          "provenance": "LLMStats public capability leaderboard",
-          "source_url": "https://llm-stats.com/benchmarks/toolathlon",
-          "capabilities": [
-            "tool_calling"
-          ],
-          "source_column_indices": {
-            "tool_calling": 5
-          },
-          "source_population": 31
-        }
-      },
-      "source_updated_at": null
-    },
-    {
-      "category_rank": 6.0,
-      "category_score": 32.1,
-      "source_name": "Claude Opus 4.8",
-      "provider": "Anthropic",
-      "source_model_id": "claude-opus-4-8",
-      "source_model_url": "https://llm-stats.com/models/claude-opus-4-8",
-      "family_id": "anthropic/claude-opus-4-8",
-      "matched_aa_family_id": null,
-      "match_status": "identity_unresolved",
-      "match_confidence": 0.8,
-      "score_status": "identity_review",
-      "score_status_label": "Identity review",
-      "availability_class": "unknown",
-      "is_sota": false,
-      "is_open_sota": false,
-      "rank_evidence": "source_rendered_table_order",
-      "benchmark_observations": {
-        "mcp_atlas": {
-          "benchmark_id": "mcp_atlas",
-          "canonical_name": "MCP Atlas",
-          "source_name": "MCP Atlas",
-          "value": 82.2,
-          "raw_value": "82.2%",
-          "version": "source-reported",
-          "provenance": "Source observation",
-          "source_url": "https://llm-stats.com/benchmarks/mcp-atlas",
-          "capabilities": [
-            "coding",
-            "tool_calling"
-          ],
-          "source_column_indices": {
-            "coding": 8,
-            "tool_calling": 2
-          },
-          "source_population": 30
-        },
-        "llmstats__toolathlon": {
-          "benchmark_id": "llmstats__toolathlon",
-          "canonical_name": "Toolathlon",
-          "source_name": "Toolathlon",
-          "value": 59.9,
-          "raw_value": "59.9%",
-          "version": null,
-          "provenance": "LLMStats public capability leaderboard",
-          "source_url": "https://llm-stats.com/benchmarks/toolathlon",
-          "capabilities": [
-            "tool_calling"
-          ],
-          "source_column_indices": {
-            "tool_calling": 5
-          },
-          "source_population": 31
-        },
-        "llmstats__terminal-bench-2-0": {
-          "benchmark_id": "llmstats__terminal-bench-2-0",
-          "canonical_name": "Terminal-Bench 2.0",
-          "source_name": "Terminal-Bench 2.0",
-          "value": 74.6,
-          "raw_value": "74.6%",
-          "version": null,
-          "provenance": "LLMStats public capability leaderboard",
-          "source_url": "https://llm-stats.com/benchmarks/terminal-bench-2",
-          "capabilities": [
-            "coding",
-            "tool_calling"
-          ],
-          "source_column_indices": {
-            "coding": 5,
-            "tool_calling": 3
-          },
-          "source_population": 49
-        }
-      },
-      "source_updated_at": null
-    },
-    {
-      "category_rank": 7.0,
-      "category_score": 30.8,
-      "source_name": "7Llama 3.1 405B Instruct",
-      "provider": null,
-      "source_model_id": "llama-3.1-405b-instruct",
-      "source_model_url": "https://llm-stats.com/models/llama-3.1-405b-instruct",
-      "family_id": "unknown/7llama-3-1-405b-instruct",
-      "matched_aa_family_id": null,
-      "match_status": "ambiguous",
-      "match_confidence": 0.7556,
-      "score_status": "identity_review",
-      "score_status_label": "Identity review",
-      "availability_class": "unknown",
-      "is_sota": false,
-      "is_open_sota": false,
-      "rank_evidence": "source_rendered_table_order",
-      "benchmark_observations": {},
-      "source_updated_at": null
-    },
-    {
-      "category_rank": 8.0,
-      "category_score": 30.4,
-      "source_name": "GPT-5.5",
-      "provider": "OpenAI",
-      "source_model_id": "gpt-5.5",
-      "source_model_url": "https://llm-stats.com/models/gpt-5.5",
-      "family_id": "openai/gpt-5-5",
-      "matched_aa_family_id": null,
-      "match_status": "identity_unresolved",
-      "match_confidence": 0.7778,
-      "score_status": "identity_review",
-      "score_status_label": "Identity review",
-      "availability_class": "unknown",
-      "is_sota": false,
-      "is_open_sota": false,
-      "rank_evidence": "source_rendered_table_order",
-      "benchmark_observations": {
-        "mcp_atlas": {
-          "benchmark_id": "mcp_atlas",
-          "canonical_name": "MCP Atlas",
-          "source_name": "MCP Atlas",
-          "value": 75.3,
-          "raw_value": "75.3%",
-          "version": "source-reported",
-          "provenance": "Source observation",
-          "source_url": "https://llm-stats.com/benchmarks/mcp-atlas",
-          "capabilities": [
-            "coding",
-            "tool_calling"
-          ],
-          "source_column_indices": {
-            "coding": 8,
-            "tool_calling": 2
-          },
-          "source_population": 30
-        },
-        "llmstats__toolathlon": {
-          "benchmark_id": "llmstats__toolathlon",
-          "canonical_name": "Toolathlon",
-          "source_name": "Toolathlon",
-          "value": 55.6,
-          "raw_value": "55.6%",
-          "version": null,
-          "provenance": "LLMStats public capability leaderboard",
-          "source_url": "https://llm-stats.com/benchmarks/toolathlon",
-          "capabilities": [
-            "tool_calling"
-          ],
-          "source_column_indices": {
-            "tool_calling": 5
-          },
-          "source_population": 31
-        },
-        "llmstats__terminal-bench-2-0": {
-          "benchmark_id": "llmstats__terminal-bench-2-0",
-          "canonical_name": "Terminal-Bench 2.0",
-          "source_name": "Terminal-Bench 2.0",
-          "value": 82.7,
-          "raw_value": "82.7%",
-          "version": null,
-          "provenance": "LLMStats public capability leaderboard",
-          "source_url": "https://llm-stats.com/benchmarks/terminal-bench-2",
-          "capabilities": [
-            "coding",
-            "tool_calling"
-          ],
-          "source_column_indices": {
-            "coding": 5,
-            "tool_calling": 3
-          },
-          "source_population": 49
-        },
-        "llmstats__tau2-telecom": {
-          "benchmark_id": "llmstats__tau2-telecom",
-          "canonical_name": "Tau2 Telecom",
-          "source_name": "Tau2 Telecom",
-          "value": 98.0,
-          "raw_value": "98.0%",
-          "version": null,
-          "provenance": "LLMStats public capability leaderboard",
-          "source_url": "https://llm-stats.com/benchmarks/tau2-telecom",
-          "capabilities": [
-            "tool_calling",
-            "writing"
-          ],
-          "source_column_indices": {
-            "writing": 1,
-            "tool_calling": 4
-          },
-          "source_population": 35
-        }
-      },
-      "source_updated_at": null
-    },
-    {
-      "category_rank": 9.0,
-      "category_score": 29.6,
-      "source_name": "DeepSeek-V4-Flash-0731",
-      "provider": null,
-      "source_model_id": "deepseek-v4-flash-0731",
-      "source_model_url": "https://llm-stats.com/models/deepseek-v4-flash-0731",
-      "family_id": "unknown/deepseek-v4-flash-0731",
-      "matched_aa_family_id": null,
-      "match_status": "identity_unresolved",
-      "match_confidence": 0.8,
-      "score_status": "identity_review",
-      "score_status_label": "Identity review",
-      "availability_class": "unknown",
-      "is_sota": false,
-      "is_open_sota": false,
-      "rank_evidence": "source_rendered_table_order",
-      "benchmark_observations": {
-        "llmstats__terminal-bench-2-1": {
-          "benchmark_id": "llmstats__terminal-bench-2-1",
-          "canonical_name": "Terminal-Bench 2.1",
-          "source_name": "Terminal-Bench 2.1",
-          "value": 82.7,
-          "raw_value": "82.7%",
-          "version": null,
-          "provenance": "LLMStats public capability leaderboard",
-          "source_url": "https://llm-stats.com/benchmarks/terminal-bench-2.1",
-          "capabilities": [
-            "coding",
-            "reasoning",
-            "tool_calling"
-          ],
-          "source_column_indices": {
-            "coding": 13,
-            "reasoning": 9,
-            "tool_calling": 1
-          },
-          "source_population": 17
-        },
-        "llmstats__toolathlon": {
-          "benchmark_id": "llmstats__toolathlon",
-          "canonical_name": "Toolathlon",
-          "source_name": "Toolathlon",
-          "value": 70.3,
-          "raw_value": "70.3%",
-          "version": null,
-          "provenance": "LLMStats public capability leaderboard",
-          "source_url": "https://llm-stats.com/benchmarks/toolathlon",
-          "capabilities": [
-            "tool_calling"
-          ],
-          "source_column_indices": {
-            "tool_calling": 5
-          },
-          "source_population": 31
-        }
-      },
-      "source_updated_at": null
-    },
-    {
-      "category_rank": 10.0,
-      "category_score": 29.1,
-      "source_name": "Claude Mythos Preview",
-      "provider": "Anthropic",
-      "source_model_id": "claude-mythos-preview",
-      "source_model_url": "https://llm-stats.com/models/claude-mythos-preview",
-      "family_id": "anthropic/claude-mythos-preview",
-      "matched_aa_family_id": null,
-      "match_status": "source_missing",
-      "match_confidence": 0.0,
-      "score_status": "llmstats_only",
-      "score_status_label": "LLMStats only",
-      "availability_class": "unknown",
-      "is_sota": false,
-      "is_open_sota": false,
-      "rank_evidence": "source_rendered_table_order",
-      "benchmark_observations": {
-        "llmstats__terminal-bench-2-0": {
-          "benchmark_id": "llmstats__terminal-bench-2-0",
-          "canonical_name": "Terminal-Bench 2.0",
-          "source_name": "Terminal-Bench 2.0",
-          "value": 82.0,
-          "raw_value": "82.0%",
-          "version": null,
-          "provenance": "LLMStats public capability leaderboard",
-          "source_url": "https://llm-stats.com/benchmarks/terminal-bench-2",
-          "capabilities": [
-            "coding",
-            "tool_calling"
-          ],
-          "source_column_indices": {
-            "coding": 5,
-            "tool_calling": 3
-          },
-          "source_population": 49
-        }
-      },
-      "source_updated_at": null
-    },
-    {
-      "category_rank": 11.0,
-      "category_score": 28.1,
-      "source_name": "GPT-5.4",
-      "provider": "OpenAI",
-      "source_model_id": "gpt-5.4",
-      "source_model_url": "https://llm-stats.com/models/gpt-5.4",
-      "family_id": "openai/gpt-5-4",
-      "matched_aa_family_id": null,
-      "match_status": "source_missing",
-      "match_confidence": 0.0,
-      "score_status": "llmstats_only",
-      "score_status_label": "LLMStats only",
-      "availability_class": "unknown",
-      "is_sota": false,
-      "is_open_sota": false,
-      "rank_evidence": "source_rendered_table_order",
-      "benchmark_observations": {
-        "mcp_atlas": {
-          "benchmark_id": "mcp_atlas",
-          "canonical_name": "MCP Atlas",
-          "source_name": "MCP Atlas",
-          "value": 67.2,
-          "raw_value": "67.2%",
-          "version": "source-reported",
-          "provenance": "Source observation",
-          "source_url": "https://llm-stats.com/benchmarks/mcp-atlas",
-          "capabilities": [
-            "coding",
-            "tool_calling"
-          ],
-          "source_column_indices": {
-            "coding": 8,
-            "tool_calling": 2
-          },
-          "source_population": 30
-        },
-        "llmstats__toolathlon": {
-          "benchmark_id": "llmstats__toolathlon",
-          "canonical_name": "Toolathlon",
-          "source_name": "Toolathlon",
-          "value": 54.6,
-          "raw_value": "54.6%",
-          "version": null,
-          "provenance": "LLMStats public capability leaderboard",
-          "source_url": "https://llm-stats.com/benchmarks/toolathlon",
-          "capabilities": [
-            "tool_calling"
-          ],
-          "source_column_indices": {
-            "tool_calling": 5
-          },
-          "source_population": 31
-        },
-        "llmstats__terminal-bench-2-0": {
-          "benchmark_id": "llmstats__terminal-bench-2-0",
-          "canonical_name": "Terminal-Bench 2.0",
-          "source_name": "Terminal-Bench 2.0",
-          "value": 75.1,
-          "raw_value": "75.1%",
-          "version": null,
-          "provenance": "LLMStats public capability leaderboard",
-          "source_url": "https://llm-stats.com/benchmarks/terminal-bench-2",
-          "capabilities": [
-            "coding",
-            "tool_calling"
-          ],
-          "source_column_indices": {
-            "coding": 5,
-            "tool_calling": 3
-          },
-          "source_population": 49
-        },
-        "llmstats__tau2-telecom": {
-          "benchmark_id": "llmstats__tau2-telecom",
-          "canonical_name": "Tau2 Telecom",
-          "source_name": "Tau2 Telecom",
-          "value": 98.9,
-          "raw_value": "98.9%",
-          "version": null,
-          "provenance": "LLMStats public capability leaderboard",
-          "source_url": "https://llm-stats.com/benchmarks/tau2-telecom",
-          "capabilities": [
-            "tool_calling",
-            "writing"
-          ],
-          "source_column_indices": {
-            "writing": 1,
-            "tool_calling": 4
-          },
-          "source_population": 35
-        }
-      },
-      "source_updated_at": null
-    },
-    {
-      "category_rank": 12.0,
-      "category_score": 28.0,
-      "source_name": "Qwen3.7 Max",
-      "provider": "Qwen",
-      "source_model_id": "qwen3.7-max",
-      "source_model_url": "https://llm-stats.com/models/qwen3.7-max",
-      "family_id": "alibaba/qwen3-7",
-      "matched_aa_family_id": null,
-      "match_status": "identity_unresolved",
-      "match_confidence": 0.8,
-      "score_status": "identity_review",
-      "score_status_label": "Identity review",
-      "availability_class": "unknown",
-      "is_sota": false,
-      "is_open_sota": false,
-      "rank_evidence": "source_rendered_table_order",
-      "benchmark_observations": {
-        "mcp_atlas": {
-          "benchmark_id": "mcp_atlas",
-          "canonical_name": "MCP Atlas",
-          "source_name": "MCP Atlas",
-          "value": 76.4,
-          "raw_value": "76.4%",
-          "version": "source-reported",
-          "provenance": "Source observation",
-          "source_url": "https://llm-stats.com/benchmarks/mcp-atlas",
-          "capabilities": [
-            "coding",
-            "tool_calling"
-          ],
-          "source_column_indices": {
-            "coding": 8,
-            "tool_calling": 2
-          },
-          "source_population": 30
-        },
-        "llmstats__terminal-bench-2-0": {
-          "benchmark_id": "llmstats__terminal-bench-2-0",
-          "canonical_name": "Terminal-Bench 2.0",
-          "source_name": "Terminal-Bench 2.0",
-          "value": 69.7,
-          "raw_value": "69.7%",
-          "version": null,
-          "provenance": "LLMStats public capability leaderboard",
-          "source_url": "https://llm-stats.com/benchmarks/terminal-bench-2",
-          "capabilities": [
-            "coding",
-            "tool_calling"
-          ],
-          "source_column_indices": {
-            "coding": 5,
-            "tool_calling": 3
-          },
-          "source_population": 49
-        }
-      },
-      "source_updated_at": null
-    },
-    {
-      "category_rank": 13.0,
-      "category_score": 27.9,
-      "source_name": "GPT-5.6 Luna",
-      "provider": "OpenAI",
-      "source_model_id": "gpt-5.6-luna",
-      "source_model_url": "https://llm-stats.com/models/gpt-5.6-luna",
-      "family_id": "openai/gpt-5-6-luna",
-      "matched_aa_family_id": "openai/gpt-5-6-luna",
-      "match_status": "matched_family",
-      "match_confidence": 0.95,
-      "score_status": "consensus",
-      "score_status_label": "Consensus",
-      "availability_class": "proprietary",
-      "is_sota": false,
-      "is_open_sota": false,
-      "rank_evidence": "source_rendered_table_order",
-      "benchmark_observations": {
-        "llmstats__toolathlon": {
-          "benchmark_id": "llmstats__toolathlon",
-          "canonical_name": "Toolathlon",
-          "source_name": "Toolathlon",
-          "value": 53.4,
-          "raw_value": "53.4%",
-          "version": null,
-          "provenance": "LLMStats public capability leaderboard",
-          "source_url": "https://llm-stats.com/benchmarks/toolathlon",
-          "capabilities": [
-            "tool_calling"
-          ],
-          "source_column_indices": {
-            "tool_calling": 5
-          },
-          "source_population": 31
-        },
-        "llmstats__terminal-bench-2-1": {
-          "benchmark_id": "llmstats__terminal-bench-2-1",
-          "canonical_name": "Terminal-Bench 2.1",
-          "source_name": "Terminal-Bench 2.1",
-          "value": 84.7,
-          "raw_value": "84.7%",
-          "version": null,
-          "provenance": "LLMStats public capability leaderboard",
-          "source_url": "https://llm-stats.com/benchmarks/terminal-bench-2.1",
-          "capabilities": [
-            "coding",
-            "reasoning",
-            "tool_calling"
-          ],
-          "source_column_indices": {
-            "coding": 13,
-            "reasoning": 9,
-            "tool_calling": 1
-          },
-          "source_population": 17
-        }
-      },
-      "source_updated_at": null
-    },
-    {
-      "category_rank": 14.0,
-      "category_score": 27.2,
-      "source_name": "Seed 2.1 Pro",
-      "provider": null,
-      "source_model_id": "seed-2.1-pro",
-      "source_model_url": "https://llm-stats.com/models/seed-2.1-pro",
-      "family_id": "unknown/seed-2-1-pro",
-      "matched_aa_family_id": null,
-      "match_status": "source_missing",
-      "match_confidence": 0.0,
-      "score_status": "llmstats_only",
-      "score_status_label": "LLMStats only",
-      "availability_class": "unknown",
-      "is_sota": false,
-      "is_open_sota": false,
-      "rank_evidence": "source_rendered_table_order",
-      "benchmark_observations": {
-        "mcp_atlas": {
-          "benchmark_id": "mcp_atlas",
-          "canonical_name": "MCP Atlas",
-          "source_name": "MCP Atlas",
-          "value": 83.8,
-          "raw_value": "83.8%",
-          "version": "source-reported",
-          "provenance": "Source observation",
-          "source_url": "https://llm-stats.com/benchmarks/mcp-atlas",
-          "capabilities": [
-            "coding",
-            "tool_calling"
-          ],
-          "source_column_indices": {
-            "coding": 8,
-            "tool_calling": 2
-          },
-          "source_population": 30
-        },
-        "llmstats__terminal-bench-2-1": {
-          "benchmark_id": "llmstats__terminal-bench-2-1",
-          "canonical_name": "Terminal-Bench 2.1",
-          "source_name": "Terminal-Bench 2.1",
-          "value": 71.0,
-          "raw_value": "71.0%",
-          "version": null,
-          "provenance": "LLMStats public capability leaderboard",
-          "source_url": "https://llm-stats.com/benchmarks/terminal-bench-2.1",
-          "capabilities": [
-            "coding",
-            "reasoning",
-            "tool_calling"
-          ],
-          "source_column_indices": {
-            "coding": 13,
-            "reasoning": 9,
-            "tool_calling": 1
-          },
-          "source_population": 17
-        },
-        "llmstats__toolathlon": {
-          "benchmark_id": "llmstats__toolathlon",
-          "canonical_name": "Toolathlon",
-          "source_name": "Toolathlon",
-          "value": 50.6,
-          "raw_value": "50.6%",
-          "version": null,
-          "provenance": "LLMStats public capability leaderboard",
-          "source_url": "https://llm-stats.com/benchmarks/toolathlon",
-          "capabilities": [
-            "tool_calling"
-          ],
-          "source_column_indices": {
-            "tool_calling": 5
-          },
-          "source_population": 31
-        }
-      },
-      "source_updated_at": null
-    },
-    {
-      "category_rank": 15.0,
-      "category_score": 27.2,
-      "source_name": "Claude Sonnet 5",
-      "provider": null,
-      "source_model_id": "claude-sonnet-5",
-      "source_model_url": "https://llm-stats.com/models/claude-sonnet-5",
-      "family_id": "unknown/claude-sonnet-5",
-      "matched_aa_family_id": null,
-      "match_status": "identity_unresolved",
-      "match_confidence": 0.8,
-      "score_status": "identity_review",
-      "score_status_label": "Identity review",
-      "availability_class": "unknown",
-      "is_sota": false,
-      "is_open_sota": false,
-      "rank_evidence": "source_rendered_table_order",
-      "benchmark_observations": {
-        "llmstats__terminal-bench-2-0": {
-          "benchmark_id": "llmstats__terminal-bench-2-0",
-          "canonical_name": "Terminal-Bench 2.0",
-          "source_name": "Terminal-Bench 2.0",
-          "value": 80.4,
-          "raw_value": "80.4%",
-          "version": null,
-          "provenance": "LLMStats public capability leaderboard",
-          "source_url": "https://llm-stats.com/benchmarks/terminal-bench-2",
-          "capabilities": [
-            "coding",
-            "tool_calling"
-          ],
-          "source_column_indices": {
-            "coding": 5,
-            "tool_calling": 3
-          },
-          "source_population": 49
-        },
-        "llmstats__toolathlon": {
-          "benchmark_id": "llmstats__toolathlon",
-          "canonical_name": "Toolathlon",
-          "source_name": "Toolathlon",
-          "value": 54.3,
-          "raw_value": "54.3%",
-          "version": null,
-          "provenance": "LLMStats public capability leaderboard",
-          "source_url": "https://llm-stats.com/benchmarks/toolathlon",
-          "capabilities": [
-            "tool_calling"
-          ],
-          "source_column_indices": {
-            "tool_calling": 5
-          },
-          "source_population": 31
-        }
-      },
-      "source_updated_at": null
-    },
-    {
-      "category_rank": 16.0,
-      "category_score": 27.2,
-      "source_name": "Claude Opus 5",
-      "provider": null,
-      "source_model_id": "claude-opus-5",
-      "source_model_url": "https://llm-stats.com/models/claude-opus-5",
-      "family_id": "unknown/claude-opus-5",
-      "matched_aa_family_id": null,
-      "match_status": "identity_unresolved",
-      "match_confidence": 0.8,
-      "score_status": "identity_review",
-      "score_status_label": "Identity review",
-      "availability_class": "unknown",
-      "is_sota": false,
-      "is_open_sota": false,
-      "rank_evidence": "source_rendered_table_order",
-      "benchmark_observations": {},
-      "source_updated_at": null
-    },
-    {
-      "category_rank": 17.0,
-      "category_score": 27.1,
-      "source_name": "2LongCat-Flash-Thinking-2601",
-      "provider": null,
-      "source_model_id": "longcat-flash-thinking-2601",
-      "source_model_url": "https://llm-stats.com/models/longcat-flash-thinking-2601",
-      "family_id": "unknown/2longcat-flash-thinking-2601",
-      "matched_aa_family_id": null,
-      "match_status": "source_missing",
-      "match_confidence": 0.0,
-      "score_status": "llmstats_only",
-      "score_status_label": "LLMStats only",
-      "availability_class": "unknown",
-      "is_sota": false,
-      "is_open_sota": false,
-      "rank_evidence": "source_rendered_table_order",
-      "benchmark_observations": {
-        "llmstats__tau2-telecom": {
-          "benchmark_id": "llmstats__tau2-telecom",
-          "canonical_name": "Tau2 Telecom",
-          "source_name": "Tau2 Telecom",
-          "value": 99.3,
-          "raw_value": "99.3%",
-          "version": null,
-          "provenance": "LLMStats public capability leaderboard",
-          "source_url": "https://llm-stats.com/benchmarks/tau2-telecom",
-          "capabilities": [
-            "tool_calling",
-            "writing"
-          ],
-          "source_column_indices": {
-            "writing": 1,
-            "tool_calling": 4
-          },
-          "source_population": 35
-        },
-        "llmstats__tau2-airline": {
-          "benchmark_id": "llmstats__tau2-airline",
-          "canonical_name": "Tau2 Airline",
-          "source_name": "Tau2 Airline",
-          "value": 76.5,
-          "raw_value": "76.5%",
-          "version": null,
-          "provenance": "LLMStats public capability leaderboard",
-          "source_url": "https://llm-stats.com/benchmarks/tau2-airline",
-          "capabilities": [
-            "tool_calling",
-            "writing"
-          ],
-          "source_column_indices": {
-            "writing": 3,
-            "tool_calling": 6
-          },
-          "source_population": 23
-        },
-        "llmstats__tau2-retail": {
-          "benchmark_id": "llmstats__tau2-retail",
-          "canonical_name": "Tau2 Retail",
-          "source_name": "Tau2 Retail",
-          "value": 88.6,
-          "raw_value": "88.6%",
-          "version": null,
-          "provenance": "LLMStats public capability leaderboard",
-          "source_url": "https://llm-stats.com/benchmarks/tau2-retail",
-          "capabilities": [
-            "tool_calling",
-            "writing"
-          ],
-          "source_column_indices": {
-            "writing": 4,
-            "tool_calling": 7
-          },
-          "source_population": 26
-        }
-      },
-      "source_updated_at": null
-    },
-    {
-      "category_rank": 18.0,
-      "category_score": 26.8,
-      "source_name": "18GPT-5.3 Codex",
-      "provider": null,
-      "source_model_id": "gpt-5.3-codex",
-      "source_model_url": "https://llm-stats.com/models/gpt-5.3-codex",
-      "family_id": "unknown/18gpt-5-3-codex",
-      "matched_aa_family_id": null,
-      "match_status": "identity_unresolved",
-      "match_confidence": 0.8,
-      "score_status": "identity_review",
-      "score_status_label": "Identity review",
-      "availability_class": "unknown",
-      "is_sota": false,
-      "is_open_sota": false,
-      "rank_evidence": "source_rendered_table_order",
-      "benchmark_observations": {
-        "llmstats__terminal-bench-2-0": {
-          "benchmark_id": "llmstats__terminal-bench-2-0",
-          "canonical_name": "Terminal-Bench 2.0",
-          "source_name": "Terminal-Bench 2.0",
-          "value": 77.3,
-          "raw_value": "77.3%",
-          "version": null,
-          "provenance": "LLMStats public capability leaderboard",
-          "source_url": "https://llm-stats.com/benchmarks/terminal-bench-2",
-          "capabilities": [
-            "tool_calling"
-          ],
-          "source_column_indices": {
-            "tool_calling": 3
-          },
-          "source_population": 49
-        }
-      },
-      "source_updated_at": null
-    },
-    {
-      "category_rank": 19.0,
-      "category_score": 26.7,
-      "source_name": "Claude Fable 5",
-      "provider": null,
-      "source_model_id": "claude-fable-5",
-      "source_model_url": "https://llm-stats.com/models/claude-fable-5",
-      "family_id": "anthropic/claude-fable-5",
-      "matched_aa_family_id": "anthropic/claude-fable-5",
-      "match_status": "matched_manual",
-      "match_confidence": 1.0,
-      "score_status": "consensus",
-      "score_status_label": "Consensus",
-      "availability_class": "proprietary",
-      "is_sota": false,
-      "is_open_sota": false,
-      "rank_evidence": "source_rendered_table_order",
-      "benchmark_observations": {
-        "llmstats__terminal-bench-2-1": {
-          "benchmark_id": "llmstats__terminal-bench-2-1",
-          "canonical_name": "Terminal-Bench 2.1",
-          "source_name": "Terminal-Bench 2.1",
-          "value": 84.3,
-          "raw_value": "84.3%",
-          "version": null,
-          "provenance": "LLMStats public capability leaderboard",
-          "source_url": "https://llm-stats.com/benchmarks/terminal-bench-2.1",
-          "capabilities": [
-            "coding",
-            "reasoning",
-            "tool_calling"
-          ],
-          "source_column_indices": {
-            "coding": 13,
-            "reasoning": 9,
-            "tool_calling": 1
-          },
-          "source_population": 17
-        }
-      },
-      "source_updated_at": null
-    },
-    {
-      "category_rank": 20.0,
-      "category_score": 26.6,
-      "source_name": "Claude Opus 4.7",
-      "provider": "Anthropic",
-      "source_model_id": "claude-opus-4-7",
-      "source_model_url": "https://llm-stats.com/models/claude-opus-4-7",
-      "family_id": "anthropic/claude-opus-4-7",
-      "matched_aa_family_id": null,
-      "match_status": "identity_unresolved",
-      "match_confidence": 0.8,
-      "score_status": "identity_review",
-      "score_status_label": "Identity review",
-      "availability_class": "unknown",
-      "is_sota": false,
-      "is_open_sota": false,
-      "rank_evidence": "source_rendered_table_order",
-      "benchmark_observations": {
-        "mcp_atlas": {
-          "benchmark_id": "mcp_atlas",
-          "canonical_name": "MCP Atlas",
-          "source_name": "MCP Atlas",
-          "value": 77.3,
-          "raw_value": "77.3%",
-          "version": "source-reported",
-          "provenance": "Source observation",
-          "source_url": "https://llm-stats.com/benchmarks/mcp-atlas",
-          "capabilities": [
-            "coding",
-            "tool_calling"
-          ],
-          "source_column_indices": {
-            "coding": 8,
-            "tool_calling": 2
-          },
-          "source_population": 30
-        },
-        "llmstats__terminal-bench-2-0": {
-          "benchmark_id": "llmstats__terminal-bench-2-0",
-          "canonical_name": "Terminal-Bench 2.0",
-          "source_name": "Terminal-Bench 2.0",
-          "value": 69.4,
-          "raw_value": "69.4%",
-          "version": null,
-          "provenance": "LLMStats public capability leaderboard",
-          "source_url": "https://llm-stats.com/benchmarks/terminal-bench-2",
-          "capabilities": [
-            "coding",
-            "tool_calling"
-          ],
-          "source_column_indices": {
-            "coding": 5,
-            "tool_calling": 3
-          },
-          "source_population": 49
-        }
-      },
-      "source_updated_at": null
-    },
-    {
-      "category_rank": 21.0,
-      "category_score": 26.3,
-      "source_name": "5Claude Sonnet 4.5",
-      "provider": null,
-      "source_model_id": "claude-sonnet-4-5-20250929",
-      "source_model_url": "https://llm-stats.com/models/claude-sonnet-4-5-20250929",
-      "family_id": "unknown/5claude-sonnet-4-5",
-      "matched_aa_family_id": null,
-      "match_status": "ambiguous",
-      "match_confidence": 0.8,
-      "score_status": "identity_review",
-      "score_status_label": "Identity review",
-      "availability_class": "unknown",
-      "is_sota": false,
-      "is_open_sota": false,
-      "rank_evidence": "source_rendered_table_order",
-      "benchmark_observations": {
-        "llmstats__tau-bench-retail": {
-          "benchmark_id": "llmstats__tau-bench-retail",
-          "canonical_name": "TAU-bench Retail",
-          "source_name": "TAU-bench Retail",
-          "value": 86.2,
-          "raw_value": "86.2%",
-          "version": null,
-          "provenance": "LLMStats public capability leaderboard",
-          "source_url": "https://llm-stats.com/benchmarks/tau-bench-retail",
-          "capabilities": [
-            "tool_calling",
-            "writing"
-          ],
-          "source_column_indices": {
-            "writing": 5,
-            "tool_calling": 9
-          },
-          "source_population": 25
-        },
-        "llmstats__tau-bench-airline": {
-          "benchmark_id": "llmstats__tau-bench-airline",
-          "canonical_name": "TAU-bench Airline",
-          "source_name": "TAU-bench Airline",
-          "value": 70.0,
-          "raw_value": "70.0%",
-          "version": null,
-          "provenance": "LLMStats public capability leaderboard",
-          "source_url": "https://llm-stats.com/benchmarks/tau-bench-airline",
-          "capabilities": [
-            "tool_calling",
-            "writing"
-          ],
-          "source_column_indices": {
-            "writing": 6,
-            "tool_calling": 10
-          },
-          "source_population": 23
-        }
-      },
-      "source_updated_at": null
-    },
-    {
-      "category_rank": 22.0,
-      "category_score": 26.3,
-      "source_name": "Claude Opus 4.6",
-      "provider": "Anthropic",
-      "source_model_id": "claude-opus-4-6",
-      "source_model_url": "https://llm-stats.com/models/claude-opus-4-6",
-      "family_id": "anthropic/claude-opus-4-6",
-      "matched_aa_family_id": null,
-      "match_status": "identity_unresolved",
-      "match_confidence": 0.8,
-      "score_status": "identity_review",
-      "score_status_label": "Identity review",
-      "availability_class": "unknown",
-      "is_sota": false,
-      "is_open_sota": false,
-      "rank_evidence": "source_rendered_table_order",
-      "benchmark_observations": {
-        "mcp_atlas": {
-          "benchmark_id": "mcp_atlas",
-          "canonical_name": "MCP Atlas",
-          "source_name": "MCP Atlas",
-          "value": 62.7,
-          "raw_value": "62.7%",
-          "version": "source-reported",
-          "provenance": "Source observation",
-          "source_url": "https://llm-stats.com/benchmarks/mcp-atlas",
-          "capabilities": [
-            "coding",
-            "tool_calling"
-          ],
-          "source_column_indices": {
-            "coding": 8,
-            "tool_calling": 2
-          },
-          "source_population": 30
-        },
-        "llmstats__terminal-bench-2-0": {
-          "benchmark_id": "llmstats__terminal-bench-2-0",
-          "canonical_name": "Terminal-Bench 2.0",
-          "source_name": "Terminal-Bench 2.0",
-          "value": 65.4,
-          "raw_value": "65.4%",
-          "version": null,
-          "provenance": "LLMStats public capability leaderboard",
-          "source_url": "https://llm-stats.com/benchmarks/terminal-bench-2",
-          "capabilities": [
-            "coding",
-            "tool_calling"
-          ],
-          "source_column_indices": {
-            "coding": 5,
-            "tool_calling": 3
-          },
-          "source_population": 49
-        },
-        "llmstats__tau2-telecom": {
-          "benchmark_id": "llmstats__tau2-telecom",
-          "canonical_name": "Tau2 Telecom",
-          "source_name": "Tau2 Telecom",
-          "value": 99.3,
-          "raw_value": "99.3%",
-          "version": null,
-          "provenance": "LLMStats public capability leaderboard",
-          "source_url": "https://llm-stats.com/benchmarks/tau2-telecom",
-          "capabilities": [
-            "tool_calling",
-            "writing"
-          ],
-          "source_column_indices": {
-            "writing": 1,
-            "tool_calling": 4
-          },
-          "source_population": 35
-        },
-        "llmstats__tau2-retail": {
-          "benchmark_id": "llmstats__tau2-retail",
-          "canonical_name": "Tau2 Retail",
-          "source_name": "Tau2 Retail",
-          "value": 91.9,
-          "raw_value": "91.9%",
-          "version": null,
-          "provenance": "LLMStats public capability leaderboard",
-          "source_url": "https://llm-stats.com/benchmarks/tau2-retail",
-          "capabilities": [
-            "tool_calling",
-            "writing"
-          ],
-          "source_column_indices": {
-            "writing": 4,
-            "tool_calling": 7
-          },
-          "source_population": 26
-        }
-      },
-      "source_updated_at": null
-    },
-    {
-      "category_rank": 23.0,
-      "category_score": 26.1,
-      "source_name": "23Kimi K2.7 Code",
-      "provider": null,
-      "source_model_id": "kimi-k2.7-code",
-      "source_model_url": "https://llm-stats.com/models/kimi-k2.7-code",
-      "family_id": "unknown/23kimi-k2-7-code",
-      "matched_aa_family_id": null,
-      "match_status": "identity_unresolved",
-      "match_confidence": 0.8,
-      "score_status": "identity_review",
-      "score_status_label": "Identity review",
-      "availability_class": "unknown",
-      "is_sota": false,
-      "is_open_sota": false,
-      "rank_evidence": "source_rendered_table_order",
-      "benchmark_observations": {
-        "mcp_atlas": {
-          "benchmark_id": "mcp_atlas",
-          "canonical_name": "MCP Atlas",
-          "source_name": "MCP Atlas",
-          "value": 76.0,
-          "raw_value": "76.0%",
-          "version": "source-reported",
-          "provenance": "Source observation",
-          "source_url": "https://llm-stats.com/benchmarks/mcp-atlas",
-          "capabilities": [
-            "tool_calling"
-          ],
-          "source_column_indices": {
-            "tool_calling": 2
-          },
-          "source_population": 30
-        }
-      },
-      "source_updated_at": null
-    },
-    {
-      "category_rank": 24.0,
-      "category_score": 25.0,
+      "category_score": 34.4,
       "source_name": "Qwen3.8 Max",
-      "provider": "Qwen",
+      "provider": "Alibaba",
       "source_model_id": "qwen3.8-max",
       "source_model_url": "https://llm-stats.com/models/qwen3.8-max",
+      "license": "Open Source",
       "family_id": "alibaba/qwen3-8",
       "matched_aa_family_id": "alibaba/qwen3-8",
       "match_status": "matched_family",
@@ -1567,23 +464,58 @@
             "tool_calling"
           ],
           "source_column_indices": {
-            "coding": 13,
-            "reasoning": 9,
-            "tool_calling": 1
+            "coding": 15,
+            "reasoning": 7,
+            "tool_calling": 7
           },
-          "source_population": 17
+          "source_population": 28
+        },
+        "llmstats__toolathlon": {
+          "benchmark_id": "llmstats__toolathlon",
+          "canonical_name": "Toolathlon",
+          "source_name": "Toolathlon",
+          "value": 72.5,
+          "raw_value": "72.5%",
+          "version": null,
+          "provenance": "LLMStats public capability leaderboard",
+          "source_url": "https://llm-stats.com/benchmarks/toolathlon",
+          "capabilities": [
+            "tool_calling"
+          ],
+          "source_column_indices": {
+            "tool_calling": 8
+          },
+          "source_population": 37
+        },
+        "llmstats__automationbench": {
+          "benchmark_id": "llmstats__automationbench",
+          "canonical_name": "AutomationBench",
+          "source_name": "AutomationBench",
+          "value": 27.3,
+          "raw_value": "27.3%",
+          "version": null,
+          "provenance": "LLMStats public capability leaderboard",
+          "source_url": "https://llm-stats.com/benchmarks/automationbench",
+          "capabilities": [
+            "tool_calling"
+          ],
+          "source_column_indices": {
+            "tool_calling": 14
+          },
+          "source_population": 12
         }
       },
       "source_updated_at": null
     },
     {
-      "category_rank": 25.0,
-      "category_score": 24.9,
-      "source_name": "GLM-5.2",
-      "provider": "ZAI",
-      "source_model_id": "glm-5.2",
-      "source_model_url": "https://llm-stats.com/models/glm-5.2",
-      "family_id": "zai/glm-5-2",
+      "category_rank": 6.0,
+      "category_score": 33.2,
+      "source_name": "Muse Spark 1.1",
+      "provider": "Baidu",
+      "source_model_id": "muse-spark-1.1",
+      "source_model_url": "https://llm-stats.com/models/muse-spark-1.1",
+      "license": "Proprietary",
+      "family_id": "baidu/muse-spark-1-1",
       "matched_aa_family_id": null,
       "match_status": "source_missing",
       "match_confidence": 0.0,
@@ -1598,8 +530,8 @@
           "benchmark_id": "mcp_atlas",
           "canonical_name": "MCP Atlas",
           "source_name": "MCP Atlas",
-          "value": 76.8,
-          "raw_value": "76.8%",
+          "value": 88.1,
+          "raw_value": "88.1%",
           "version": "source-reported",
           "provenance": "Source observation",
           "source_url": "https://llm-stats.com/benchmarks/mcp-atlas",
@@ -1608,17 +540,38 @@
             "tool_calling"
           ],
           "source_column_indices": {
-            "coding": 8,
-            "tool_calling": 2
+            "coding": 14,
+            "tool_calling": 9
           },
-          "source_population": 30
+          "source_population": 33
+        },
+        "llmstats__terminal-bench-2-1": {
+          "benchmark_id": "llmstats__terminal-bench-2-1",
+          "canonical_name": "Terminal-Bench 2.1",
+          "source_name": "Terminal-Bench 2.1",
+          "value": 80.0,
+          "raw_value": "80.0%",
+          "version": null,
+          "provenance": "LLMStats public capability leaderboard",
+          "source_url": "https://llm-stats.com/benchmarks/terminal-bench-2.1",
+          "capabilities": [
+            "coding",
+            "reasoning",
+            "tool_calling"
+          ],
+          "source_column_indices": {
+            "coding": 15,
+            "reasoning": 7,
+            "tool_calling": 7
+          },
+          "source_population": 28
         },
         "llmstats__toolathlon": {
           "benchmark_id": "llmstats__toolathlon",
           "canonical_name": "Toolathlon",
           "source_name": "Toolathlon",
-          "value": 48.2,
-          "raw_value": "48.2%",
+          "value": 75.6,
+          "raw_value": "75.6%",
           "version": null,
           "provenance": "LLMStats public capability leaderboard",
           "source_url": "https://llm-stats.com/benchmarks/toolathlon",
@@ -1626,9 +579,576 @@
             "tool_calling"
           ],
           "source_column_indices": {
-            "tool_calling": 5
+            "tool_calling": 8
           },
-          "source_population": 31
+          "source_population": 37
+        }
+      },
+      "source_updated_at": null
+    },
+    {
+      "category_rank": 7.0,
+      "category_score": 32.5,
+      "source_name": "GPT-5.6 Terra",
+      "provider": "OpenAI",
+      "source_model_id": "gpt-5.6-terra",
+      "source_model_url": "https://llm-stats.com/models/gpt-5.6-terra",
+      "license": "Proprietary",
+      "family_id": "openai/gpt-5-6-terra",
+      "matched_aa_family_id": "openai/gpt-5-6-terra",
+      "match_status": "matched_manual",
+      "match_confidence": 1.0,
+      "score_status": "consensus",
+      "score_status_label": "Consensus",
+      "availability_class": "proprietary",
+      "is_sota": false,
+      "is_open_sota": false,
+      "rank_evidence": "source_rendered_table_order",
+      "benchmark_observations": {
+        "llmstats__terminal-bench-2-1": {
+          "benchmark_id": "llmstats__terminal-bench-2-1",
+          "canonical_name": "Terminal-Bench 2.1",
+          "source_name": "Terminal-Bench 2.1",
+          "value": 87.4,
+          "raw_value": "87.4%",
+          "version": null,
+          "provenance": "LLMStats public capability leaderboard",
+          "source_url": "https://llm-stats.com/benchmarks/terminal-bench-2.1",
+          "capabilities": [
+            "coding",
+            "reasoning",
+            "tool_calling"
+          ],
+          "source_column_indices": {
+            "coding": 15,
+            "reasoning": 7,
+            "tool_calling": 7
+          },
+          "source_population": 28
+        },
+        "llmstats__toolathlon": {
+          "benchmark_id": "llmstats__toolathlon",
+          "canonical_name": "Toolathlon",
+          "source_name": "Toolathlon",
+          "value": 53.1,
+          "raw_value": "53.1%",
+          "version": null,
+          "provenance": "LLMStats public capability leaderboard",
+          "source_url": "https://llm-stats.com/benchmarks/toolathlon",
+          "capabilities": [
+            "tool_calling"
+          ],
+          "source_column_indices": {
+            "tool_calling": 8
+          },
+          "source_population": 37
+        },
+        "llmstats__automationbench": {
+          "benchmark_id": "llmstats__automationbench",
+          "canonical_name": "AutomationBench",
+          "source_name": "AutomationBench",
+          "value": 15.2,
+          "raw_value": "15.2%",
+          "version": null,
+          "provenance": "LLMStats public capability leaderboard",
+          "source_url": "https://llm-stats.com/benchmarks/automationbench",
+          "capabilities": [
+            "tool_calling"
+          ],
+          "source_column_indices": {
+            "tool_calling": 14
+          },
+          "source_population": 12
+        }
+      },
+      "source_updated_at": null
+    },
+    {
+      "category_rank": 8.0,
+      "category_score": 32.1,
+      "source_name": "Gemini 3.5 Flash",
+      "provider": "Google",
+      "source_model_id": "gemini-3.5-flash",
+      "source_model_url": "https://llm-stats.com/models/gemini-3.5-flash",
+      "license": "Proprietary",
+      "family_id": "google/gemini-3-5-flash",
+      "matched_aa_family_id": "google/gemini-3-5-flash",
+      "match_status": "matched_family",
+      "match_confidence": 0.95,
+      "score_status": "consensus",
+      "score_status_label": "Consensus",
+      "availability_class": "proprietary",
+      "is_sota": false,
+      "is_open_sota": false,
+      "rank_evidence": "source_rendered_table_order",
+      "benchmark_observations": {
+        "mcp_atlas": {
+          "benchmark_id": "mcp_atlas",
+          "canonical_name": "MCP Atlas",
+          "source_name": "MCP Atlas",
+          "value": 83.6,
+          "raw_value": "83.6%",
+          "version": "source-reported",
+          "provenance": "Source observation",
+          "source_url": "https://llm-stats.com/benchmarks/mcp-atlas",
+          "capabilities": [
+            "coding",
+            "tool_calling"
+          ],
+          "source_column_indices": {
+            "coding": 14,
+            "tool_calling": 9
+          },
+          "source_population": 33
+        },
+        "llmstats__toolathlon": {
+          "benchmark_id": "llmstats__toolathlon",
+          "canonical_name": "Toolathlon",
+          "source_name": "Toolathlon",
+          "value": 56.5,
+          "raw_value": "56.5%",
+          "version": null,
+          "provenance": "LLMStats public capability leaderboard",
+          "source_url": "https://llm-stats.com/benchmarks/toolathlon",
+          "capabilities": [
+            "tool_calling"
+          ],
+          "source_column_indices": {
+            "tool_calling": 8
+          },
+          "source_population": 37
+        },
+        "llmstats__terminal-bench-2-0": {
+          "benchmark_id": "llmstats__terminal-bench-2-0",
+          "canonical_name": "Terminal-Bench 2.0",
+          "source_name": "Terminal-Bench 2.0",
+          "value": 76.2,
+          "raw_value": "76.2%",
+          "version": null,
+          "provenance": "LLMStats public capability leaderboard",
+          "source_url": "https://llm-stats.com/benchmarks/terminal-bench-2",
+          "capabilities": [
+            "coding",
+            "tool_calling"
+          ],
+          "source_column_indices": {
+            "coding": 11,
+            "tool_calling": 10
+          },
+          "source_population": 51
+        }
+      },
+      "source_updated_at": null
+    },
+    {
+      "category_rank": 9.0,
+      "category_score": 31.6,
+      "source_name": "Claude Opus 4.8",
+      "provider": "Anthropic",
+      "source_model_id": "claude-opus-4-8",
+      "source_model_url": "https://llm-stats.com/models/claude-opus-4-8",
+      "license": "Proprietary",
+      "family_id": "anthropic/claude-opus-4-8",
+      "matched_aa_family_id": null,
+      "match_status": "identity_unresolved",
+      "match_confidence": 0.8,
+      "score_status": "identity_review",
+      "score_status_label": "Identity review",
+      "availability_class": "unknown",
+      "is_sota": false,
+      "is_open_sota": false,
+      "rank_evidence": "source_rendered_table_order",
+      "benchmark_observations": {
+        "mcp_atlas": {
+          "benchmark_id": "mcp_atlas",
+          "canonical_name": "MCP Atlas",
+          "source_name": "MCP Atlas",
+          "value": 82.2,
+          "raw_value": "82.2%",
+          "version": "source-reported",
+          "provenance": "Source observation",
+          "source_url": "https://llm-stats.com/benchmarks/mcp-atlas",
+          "capabilities": [
+            "coding",
+            "tool_calling"
+          ],
+          "source_column_indices": {
+            "coding": 14,
+            "tool_calling": 9
+          },
+          "source_population": 33
+        },
+        "llmstats__toolathlon": {
+          "benchmark_id": "llmstats__toolathlon",
+          "canonical_name": "Toolathlon",
+          "source_name": "Toolathlon",
+          "value": 59.9,
+          "raw_value": "59.9%",
+          "version": null,
+          "provenance": "LLMStats public capability leaderboard",
+          "source_url": "https://llm-stats.com/benchmarks/toolathlon",
+          "capabilities": [
+            "tool_calling"
+          ],
+          "source_column_indices": {
+            "tool_calling": 8
+          },
+          "source_population": 37
+        },
+        "llmstats__terminal-bench-2-0": {
+          "benchmark_id": "llmstats__terminal-bench-2-0",
+          "canonical_name": "Terminal-Bench 2.0",
+          "source_name": "Terminal-Bench 2.0",
+          "value": 74.6,
+          "raw_value": "74.6%",
+          "version": null,
+          "provenance": "LLMStats public capability leaderboard",
+          "source_url": "https://llm-stats.com/benchmarks/terminal-bench-2",
+          "capabilities": [
+            "coding",
+            "tool_calling"
+          ],
+          "source_column_indices": {
+            "coding": 11,
+            "tool_calling": 10
+          },
+          "source_population": 51
+        }
+      },
+      "source_updated_at": null
+    },
+    {
+      "category_rank": 10.0,
+      "category_score": 30.8,
+      "source_name": "Llama 3.1 405B Instruct",
+      "provider": "Meta",
+      "source_model_id": "llama-3.1-405b-instruct",
+      "source_model_url": "https://llm-stats.com/models/llama-3.1-405b-instruct",
+      "license": "Open Source",
+      "family_id": "meta/llama-3-1-405b-instruct",
+      "matched_aa_family_id": null,
+      "match_status": "identity_unresolved",
+      "match_confidence": 0.7568,
+      "score_status": "identity_review",
+      "score_status_label": "Identity review",
+      "availability_class": "unknown",
+      "is_sota": false,
+      "is_open_sota": false,
+      "rank_evidence": "source_rendered_table_order",
+      "benchmark_observations": {},
+      "source_updated_at": null
+    },
+    {
+      "category_rank": 11.0,
+      "category_score": 29.5,
+      "source_name": "GPT-5.5",
+      "provider": "OpenAI",
+      "source_model_id": "gpt-5.5",
+      "source_model_url": "https://llm-stats.com/models/gpt-5.5",
+      "license": "Proprietary",
+      "family_id": "openai/gpt-5-5",
+      "matched_aa_family_id": null,
+      "match_status": "identity_unresolved",
+      "match_confidence": 0.7778,
+      "score_status": "identity_review",
+      "score_status_label": "Identity review",
+      "availability_class": "unknown",
+      "is_sota": false,
+      "is_open_sota": false,
+      "rank_evidence": "source_rendered_table_order",
+      "benchmark_observations": {
+        "mcp_atlas": {
+          "benchmark_id": "mcp_atlas",
+          "canonical_name": "MCP Atlas",
+          "source_name": "MCP Atlas",
+          "value": 75.3,
+          "raw_value": "75.3%",
+          "version": "source-reported",
+          "provenance": "Source observation",
+          "source_url": "https://llm-stats.com/benchmarks/mcp-atlas",
+          "capabilities": [
+            "coding",
+            "tool_calling"
+          ],
+          "source_column_indices": {
+            "coding": 14,
+            "tool_calling": 9
+          },
+          "source_population": 33
+        },
+        "llmstats__toolathlon": {
+          "benchmark_id": "llmstats__toolathlon",
+          "canonical_name": "Toolathlon",
+          "source_name": "Toolathlon",
+          "value": 55.6,
+          "raw_value": "55.6%",
+          "version": null,
+          "provenance": "LLMStats public capability leaderboard",
+          "source_url": "https://llm-stats.com/benchmarks/toolathlon",
+          "capabilities": [
+            "tool_calling"
+          ],
+          "source_column_indices": {
+            "tool_calling": 8
+          },
+          "source_population": 37
+        },
+        "llmstats__terminal-bench-2-0": {
+          "benchmark_id": "llmstats__terminal-bench-2-0",
+          "canonical_name": "Terminal-Bench 2.0",
+          "source_name": "Terminal-Bench 2.0",
+          "value": 82.7,
+          "raw_value": "82.7%",
+          "version": null,
+          "provenance": "LLMStats public capability leaderboard",
+          "source_url": "https://llm-stats.com/benchmarks/terminal-bench-2",
+          "capabilities": [
+            "coding",
+            "tool_calling"
+          ],
+          "source_column_indices": {
+            "coding": 11,
+            "tool_calling": 10
+          },
+          "source_population": 51
+        },
+        "llmstats__tau2-telecom": {
+          "benchmark_id": "llmstats__tau2-telecom",
+          "canonical_name": "Tau2 Telecom",
+          "source_name": "Tau2 Telecom",
+          "value": 98.0,
+          "raw_value": "98.0%",
+          "version": null,
+          "provenance": "LLMStats public capability leaderboard",
+          "source_url": "https://llm-stats.com/benchmarks/tau2-telecom",
+          "capabilities": [
+            "tool_calling",
+            "writing"
+          ],
+          "source_column_indices": {
+            "writing": 7,
+            "tool_calling": 11
+          },
+          "source_population": 35
+        }
+      },
+      "source_updated_at": null
+    },
+    {
+      "category_rank": 12.0,
+      "category_score": 29.4,
+      "source_name": "Claude Mythos Preview",
+      "provider": "Anthropic",
+      "source_model_id": "claude-mythos-preview",
+      "source_model_url": "https://llm-stats.com/models/claude-mythos-preview",
+      "license": "Proprietary",
+      "family_id": "anthropic/claude-mythos-preview",
+      "matched_aa_family_id": null,
+      "match_status": "source_missing",
+      "match_confidence": 0.0,
+      "score_status": "llmstats_only",
+      "score_status_label": "LLMStats only",
+      "availability_class": "unknown",
+      "is_sota": false,
+      "is_open_sota": false,
+      "rank_evidence": "source_rendered_table_order",
+      "benchmark_observations": {
+        "llmstats__terminal-bench-2-0": {
+          "benchmark_id": "llmstats__terminal-bench-2-0",
+          "canonical_name": "Terminal-Bench 2.0",
+          "source_name": "Terminal-Bench 2.0",
+          "value": 82.0,
+          "raw_value": "82.0%",
+          "version": null,
+          "provenance": "LLMStats public capability leaderboard",
+          "source_url": "https://llm-stats.com/benchmarks/terminal-bench-2",
+          "capabilities": [
+            "coding",
+            "tool_calling"
+          ],
+          "source_column_indices": {
+            "coding": 11,
+            "tool_calling": 10
+          },
+          "source_population": 51
+        }
+      },
+      "source_updated_at": null
+    },
+    {
+      "category_rank": 13.0,
+      "category_score": 29.2,
+      "source_name": "Gemini 3.7 Flash",
+      "provider": "Google",
+      "source_model_id": "gemini-3.7-flash",
+      "source_model_url": "https://llm-stats.com/models/gemini-3.7-flash",
+      "license": "Proprietary",
+      "family_id": "google/gemini-3-7-flash",
+      "matched_aa_family_id": "google/gemini-3-7-flash",
+      "match_status": "matched_family",
+      "match_confidence": 0.95,
+      "score_status": "consensus",
+      "score_status_label": "Consensus",
+      "availability_class": "proprietary",
+      "is_sota": false,
+      "is_open_sota": false,
+      "rank_evidence": "source_rendered_table_order",
+      "benchmark_observations": {
+        "llmstats__terminal-bench-2-1": {
+          "benchmark_id": "llmstats__terminal-bench-2-1",
+          "canonical_name": "Terminal-Bench 2.1",
+          "source_name": "Terminal-Bench 2.1",
+          "value": 85.8,
+          "raw_value": "85.8%",
+          "version": null,
+          "provenance": "LLMStats public capability leaderboard",
+          "source_url": "https://llm-stats.com/benchmarks/terminal-bench-2.1",
+          "capabilities": [
+            "coding",
+            "reasoning",
+            "tool_calling"
+          ],
+          "source_column_indices": {
+            "coding": 15,
+            "reasoning": 7,
+            "tool_calling": 7
+          },
+          "source_population": 28
+        },
+        "llmstats__automationbench": {
+          "benchmark_id": "llmstats__automationbench",
+          "canonical_name": "AutomationBench",
+          "source_name": "AutomationBench",
+          "value": 30.4,
+          "raw_value": "30.4%",
+          "version": null,
+          "provenance": "LLMStats public capability leaderboard",
+          "source_url": "https://llm-stats.com/benchmarks/automationbench",
+          "capabilities": [
+            "tool_calling"
+          ],
+          "source_column_indices": {
+            "tool_calling": 14
+          },
+          "source_population": 12
+        }
+      },
+      "source_updated_at": null
+    },
+    {
+      "category_rank": 14.0,
+      "category_score": 28.2,
+      "source_name": "Seed 2.1 Pro",
+      "provider": "ByteDance",
+      "source_model_id": "seed-2.1-pro",
+      "source_model_url": "https://llm-stats.com/models/seed-2.1-pro",
+      "license": "Proprietary",
+      "family_id": "bytedance/seed-2-1-pro",
+      "matched_aa_family_id": null,
+      "match_status": "source_missing",
+      "match_confidence": 0.0,
+      "score_status": "llmstats_only",
+      "score_status_label": "LLMStats only",
+      "availability_class": "unknown",
+      "is_sota": false,
+      "is_open_sota": false,
+      "rank_evidence": "source_rendered_table_order",
+      "benchmark_observations": {
+        "mcp_atlas": {
+          "benchmark_id": "mcp_atlas",
+          "canonical_name": "MCP Atlas",
+          "source_name": "MCP Atlas",
+          "value": 83.8,
+          "raw_value": "83.8%",
+          "version": "source-reported",
+          "provenance": "Source observation",
+          "source_url": "https://llm-stats.com/benchmarks/mcp-atlas",
+          "capabilities": [
+            "coding",
+            "tool_calling"
+          ],
+          "source_column_indices": {
+            "coding": 14,
+            "tool_calling": 9
+          },
+          "source_population": 33
+        },
+        "llmstats__terminal-bench-2-1": {
+          "benchmark_id": "llmstats__terminal-bench-2-1",
+          "canonical_name": "Terminal-Bench 2.1",
+          "source_name": "Terminal-Bench 2.1",
+          "value": 71.0,
+          "raw_value": "71.0%",
+          "version": null,
+          "provenance": "LLMStats public capability leaderboard",
+          "source_url": "https://llm-stats.com/benchmarks/terminal-bench-2.1",
+          "capabilities": [
+            "coding",
+            "reasoning",
+            "tool_calling"
+          ],
+          "source_column_indices": {
+            "coding": 15,
+            "reasoning": 7,
+            "tool_calling": 7
+          },
+          "source_population": 28
+        },
+        "llmstats__toolathlon": {
+          "benchmark_id": "llmstats__toolathlon",
+          "canonical_name": "Toolathlon",
+          "source_name": "Toolathlon",
+          "value": 50.6,
+          "raw_value": "50.6%",
+          "version": null,
+          "provenance": "LLMStats public capability leaderboard",
+          "source_url": "https://llm-stats.com/benchmarks/toolathlon",
+          "capabilities": [
+            "tool_calling"
+          ],
+          "source_column_indices": {
+            "tool_calling": 8
+          },
+          "source_population": 37
+        }
+      },
+      "source_updated_at": null
+    },
+    {
+      "category_rank": 15.0,
+      "category_score": 28.2,
+      "source_name": "DeepSeek-V4-Flash-0731",
+      "provider": "DeepSeek",
+      "source_model_id": "deepseek-v4-flash-0731",
+      "source_model_url": "https://llm-stats.com/models/deepseek-v4-flash-0731",
+      "license": "Open Source",
+      "family_id": "deepseek/deepseek-v4-flash-0731",
+      "matched_aa_family_id": "deepseek/deepseek-v4-flash-0731",
+      "match_status": "matched_family",
+      "match_confidence": 0.95,
+      "score_status": "consensus",
+      "score_status_label": "Consensus",
+      "availability_class": "open_weights",
+      "is_sota": false,
+      "is_open_sota": false,
+      "rank_evidence": "source_rendered_table_order",
+      "benchmark_observations": {
+        "llmstats__toolathlon": {
+          "benchmark_id": "llmstats__toolathlon",
+          "canonical_name": "Toolathlon",
+          "source_name": "Toolathlon",
+          "value": 70.3,
+          "raw_value": "70.3%",
+          "version": null,
+          "provenance": "LLMStats public capability leaderboard",
+          "source_url": "https://llm-stats.com/benchmarks/toolathlon",
+          "capabilities": [
+            "tool_calling"
+          ],
+          "source_column_indices": {
+            "tool_calling": 8
+          },
+          "source_population": 37
         },
         "llmstats__terminal-bench-2-1": {
           "benchmark_id": "llmstats__terminal-bench-2-1",
@@ -1645,22 +1165,879 @@
             "tool_calling"
           ],
           "source_column_indices": {
-            "coding": 13,
-            "reasoning": 9,
-            "tool_calling": 1
+            "coding": 15,
+            "reasoning": 7,
+            "tool_calling": 7
           },
-          "source_population": 17
+          "source_population": 28
+        },
+        "llmstats__automationbench": {
+          "benchmark_id": "llmstats__automationbench",
+          "canonical_name": "AutomationBench",
+          "source_name": "AutomationBench",
+          "value": 25.1,
+          "raw_value": "25.1%",
+          "version": null,
+          "provenance": "LLMStats public capability leaderboard",
+          "source_url": "https://llm-stats.com/benchmarks/automationbench",
+          "capabilities": [
+            "tool_calling"
+          ],
+          "source_column_indices": {
+            "tool_calling": 14
+          },
+          "source_population": 12
+        }
+      },
+      "source_updated_at": null
+    },
+    {
+      "category_rank": 16.0,
+      "category_score": 28.1,
+      "source_name": "GPT-5.6 Luna",
+      "provider": "OpenAI",
+      "source_model_id": "gpt-5.6-luna",
+      "source_model_url": "https://llm-stats.com/models/gpt-5.6-luna",
+      "license": "Proprietary",
+      "family_id": "openai/gpt-5-6-luna",
+      "matched_aa_family_id": "openai/gpt-5-6-luna",
+      "match_status": "matched_family",
+      "match_confidence": 0.95,
+      "score_status": "consensus",
+      "score_status_label": "Consensus",
+      "availability_class": "proprietary",
+      "is_sota": false,
+      "is_open_sota": false,
+      "rank_evidence": "source_rendered_table_order",
+      "benchmark_observations": {
+        "llmstats__terminal-bench-2-1": {
+          "benchmark_id": "llmstats__terminal-bench-2-1",
+          "canonical_name": "Terminal-Bench 2.1",
+          "source_name": "Terminal-Bench 2.1",
+          "value": 84.7,
+          "raw_value": "84.7%",
+          "version": null,
+          "provenance": "LLMStats public capability leaderboard",
+          "source_url": "https://llm-stats.com/benchmarks/terminal-bench-2.1",
+          "capabilities": [
+            "coding",
+            "reasoning",
+            "tool_calling"
+          ],
+          "source_column_indices": {
+            "coding": 15,
+            "reasoning": 7,
+            "tool_calling": 7
+          },
+          "source_population": 28
+        },
+        "llmstats__toolathlon": {
+          "benchmark_id": "llmstats__toolathlon",
+          "canonical_name": "Toolathlon",
+          "source_name": "Toolathlon",
+          "value": 53.4,
+          "raw_value": "53.4%",
+          "version": null,
+          "provenance": "LLMStats public capability leaderboard",
+          "source_url": "https://llm-stats.com/benchmarks/toolathlon",
+          "capabilities": [
+            "tool_calling"
+          ],
+          "source_column_indices": {
+            "tool_calling": 8
+          },
+          "source_population": 37
+        },
+        "llmstats__automationbench": {
+          "benchmark_id": "llmstats__automationbench",
+          "canonical_name": "AutomationBench",
+          "source_name": "AutomationBench",
+          "value": 14.9,
+          "raw_value": "14.9%",
+          "version": null,
+          "provenance": "LLMStats public capability leaderboard",
+          "source_url": "https://llm-stats.com/benchmarks/automationbench",
+          "capabilities": [
+            "tool_calling"
+          ],
+          "source_column_indices": {
+            "tool_calling": 14
+          },
+          "source_population": 12
+        }
+      },
+      "source_updated_at": null
+    },
+    {
+      "category_rank": 17.0,
+      "category_score": 27.9,
+      "source_name": "Qwen3.7 Max",
+      "provider": "Qwen",
+      "source_model_id": "qwen3.7-max",
+      "source_model_url": "https://llm-stats.com/models/qwen3.7-max",
+      "license": "Proprietary",
+      "family_id": "alibaba/qwen3-7",
+      "matched_aa_family_id": null,
+      "match_status": "identity_unresolved",
+      "match_confidence": 0.8,
+      "score_status": "identity_review",
+      "score_status_label": "Identity review",
+      "availability_class": "unknown",
+      "is_sota": false,
+      "is_open_sota": false,
+      "rank_evidence": "source_rendered_table_order",
+      "benchmark_observations": {
+        "mcp_atlas": {
+          "benchmark_id": "mcp_atlas",
+          "canonical_name": "MCP Atlas",
+          "source_name": "MCP Atlas",
+          "value": 76.4,
+          "raw_value": "76.4%",
+          "version": "source-reported",
+          "provenance": "Source observation",
+          "source_url": "https://llm-stats.com/benchmarks/mcp-atlas",
+          "capabilities": [
+            "coding",
+            "tool_calling"
+          ],
+          "source_column_indices": {
+            "coding": 14,
+            "tool_calling": 9
+          },
+          "source_population": 33
+        },
+        "llmstats__terminal-bench-2-0": {
+          "benchmark_id": "llmstats__terminal-bench-2-0",
+          "canonical_name": "Terminal-Bench 2.0",
+          "source_name": "Terminal-Bench 2.0",
+          "value": 69.7,
+          "raw_value": "69.7%",
+          "version": null,
+          "provenance": "LLMStats public capability leaderboard",
+          "source_url": "https://llm-stats.com/benchmarks/terminal-bench-2",
+          "capabilities": [
+            "coding",
+            "tool_calling"
+          ],
+          "source_column_indices": {
+            "coding": 11,
+            "tool_calling": 10
+          },
+          "source_population": 51
+        }
+      },
+      "source_updated_at": null
+    },
+    {
+      "category_rank": 18.0,
+      "category_score": 27.3,
+      "source_name": "GPT-5.4",
+      "provider": "OpenAI",
+      "source_model_id": "gpt-5.4",
+      "source_model_url": "https://llm-stats.com/models/gpt-5.4",
+      "license": "Proprietary",
+      "family_id": "openai/gpt-5-4",
+      "matched_aa_family_id": null,
+      "match_status": "source_missing",
+      "match_confidence": 0.0,
+      "score_status": "llmstats_only",
+      "score_status_label": "LLMStats only",
+      "availability_class": "unknown",
+      "is_sota": false,
+      "is_open_sota": false,
+      "rank_evidence": "source_rendered_table_order",
+      "benchmark_observations": {
+        "mcp_atlas": {
+          "benchmark_id": "mcp_atlas",
+          "canonical_name": "MCP Atlas",
+          "source_name": "MCP Atlas",
+          "value": 67.2,
+          "raw_value": "67.2%",
+          "version": "source-reported",
+          "provenance": "Source observation",
+          "source_url": "https://llm-stats.com/benchmarks/mcp-atlas",
+          "capabilities": [
+            "coding",
+            "tool_calling"
+          ],
+          "source_column_indices": {
+            "coding": 14,
+            "tool_calling": 9
+          },
+          "source_population": 33
+        },
+        "llmstats__toolathlon": {
+          "benchmark_id": "llmstats__toolathlon",
+          "canonical_name": "Toolathlon",
+          "source_name": "Toolathlon",
+          "value": 54.6,
+          "raw_value": "54.6%",
+          "version": null,
+          "provenance": "LLMStats public capability leaderboard",
+          "source_url": "https://llm-stats.com/benchmarks/toolathlon",
+          "capabilities": [
+            "tool_calling"
+          ],
+          "source_column_indices": {
+            "tool_calling": 8
+          },
+          "source_population": 37
+        },
+        "llmstats__terminal-bench-2-0": {
+          "benchmark_id": "llmstats__terminal-bench-2-0",
+          "canonical_name": "Terminal-Bench 2.0",
+          "source_name": "Terminal-Bench 2.0",
+          "value": 75.1,
+          "raw_value": "75.1%",
+          "version": null,
+          "provenance": "LLMStats public capability leaderboard",
+          "source_url": "https://llm-stats.com/benchmarks/terminal-bench-2",
+          "capabilities": [
+            "coding",
+            "tool_calling"
+          ],
+          "source_column_indices": {
+            "coding": 11,
+            "tool_calling": 10
+          },
+          "source_population": 51
+        },
+        "llmstats__tau2-telecom": {
+          "benchmark_id": "llmstats__tau2-telecom",
+          "canonical_name": "Tau2 Telecom",
+          "source_name": "Tau2 Telecom",
+          "value": 98.9,
+          "raw_value": "98.9%",
+          "version": null,
+          "provenance": "LLMStats public capability leaderboard",
+          "source_url": "https://llm-stats.com/benchmarks/tau2-telecom",
+          "capabilities": [
+            "tool_calling",
+            "writing"
+          ],
+          "source_column_indices": {
+            "writing": 7,
+            "tool_calling": 11
+          },
+          "source_population": 35
+        }
+      },
+      "source_updated_at": null
+    },
+    {
+      "category_rank": 19.0,
+      "category_score": 27.1,
+      "source_name": "GPT-5.3 Codex",
+      "provider": "OpenAI",
+      "source_model_id": "gpt-5.3-codex",
+      "source_model_url": "https://llm-stats.com/models/gpt-5.3-codex",
+      "license": "Proprietary",
+      "family_id": "openai/gpt-5-3-codex",
+      "matched_aa_family_id": "openai/gpt-5-3-codex",
+      "match_status": "matched_family",
+      "match_confidence": 0.95,
+      "score_status": "consensus",
+      "score_status_label": "Consensus",
+      "availability_class": "proprietary",
+      "is_sota": false,
+      "is_open_sota": false,
+      "rank_evidence": "source_rendered_table_order",
+      "benchmark_observations": {
+        "llmstats__terminal-bench-2-0": {
+          "benchmark_id": "llmstats__terminal-bench-2-0",
+          "canonical_name": "Terminal-Bench 2.0",
+          "source_name": "Terminal-Bench 2.0",
+          "value": 77.3,
+          "raw_value": "77.3%",
+          "version": null,
+          "provenance": "LLMStats public capability leaderboard",
+          "source_url": "https://llm-stats.com/benchmarks/terminal-bench-2",
+          "capabilities": [
+            "tool_calling"
+          ],
+          "source_column_indices": {
+            "tool_calling": 10
+          },
+          "source_population": 51
+        }
+      },
+      "source_updated_at": null
+    },
+    {
+      "category_rank": 20.0,
+      "category_score": 26.5,
+      "source_name": "Claude Opus 4.7",
+      "provider": "Anthropic",
+      "source_model_id": "claude-opus-4-7",
+      "source_model_url": "https://llm-stats.com/models/claude-opus-4-7",
+      "license": "Proprietary",
+      "family_id": "anthropic/claude-opus-4-7",
+      "matched_aa_family_id": null,
+      "match_status": "identity_unresolved",
+      "match_confidence": 0.8,
+      "score_status": "identity_review",
+      "score_status_label": "Identity review",
+      "availability_class": "unknown",
+      "is_sota": false,
+      "is_open_sota": false,
+      "rank_evidence": "source_rendered_table_order",
+      "benchmark_observations": {
+        "mcp_atlas": {
+          "benchmark_id": "mcp_atlas",
+          "canonical_name": "MCP Atlas",
+          "source_name": "MCP Atlas",
+          "value": 77.3,
+          "raw_value": "77.3%",
+          "version": "source-reported",
+          "provenance": "Source observation",
+          "source_url": "https://llm-stats.com/benchmarks/mcp-atlas",
+          "capabilities": [
+            "coding",
+            "tool_calling"
+          ],
+          "source_column_indices": {
+            "coding": 14,
+            "tool_calling": 9
+          },
+          "source_population": 33
+        },
+        "llmstats__terminal-bench-2-0": {
+          "benchmark_id": "llmstats__terminal-bench-2-0",
+          "canonical_name": "Terminal-Bench 2.0",
+          "source_name": "Terminal-Bench 2.0",
+          "value": 69.4,
+          "raw_value": "69.4%",
+          "version": null,
+          "provenance": "LLMStats public capability leaderboard",
+          "source_url": "https://llm-stats.com/benchmarks/terminal-bench-2",
+          "capabilities": [
+            "coding",
+            "tool_calling"
+          ],
+          "source_column_indices": {
+            "coding": 11,
+            "tool_calling": 10
+          },
+          "source_population": 51
+        }
+      },
+      "source_updated_at": null
+    },
+    {
+      "category_rank": 21.0,
+      "category_score": 26.4,
+      "source_name": "LongCat-Flash-Thinking-2601",
+      "provider": "Meituan",
+      "source_model_id": "longcat-flash-thinking-2601",
+      "source_model_url": "https://llm-stats.com/models/longcat-flash-thinking-2601",
+      "license": "Open Source",
+      "family_id": "meituan/longcat-flash-thinking-2601",
+      "matched_aa_family_id": null,
+      "match_status": "source_missing",
+      "match_confidence": 0.0,
+      "score_status": "llmstats_only",
+      "score_status_label": "LLMStats only",
+      "availability_class": "unknown",
+      "is_sota": false,
+      "is_open_sota": false,
+      "rank_evidence": "source_rendered_table_order",
+      "benchmark_observations": {
+        "llmstats__tau2-telecom": {
+          "benchmark_id": "llmstats__tau2-telecom",
+          "canonical_name": "Tau2 Telecom",
+          "source_name": "Tau2 Telecom",
+          "value": 99.3,
+          "raw_value": "99.3%",
+          "version": null,
+          "provenance": "LLMStats public capability leaderboard",
+          "source_url": "https://llm-stats.com/benchmarks/tau2-telecom",
+          "capabilities": [
+            "tool_calling",
+            "writing"
+          ],
+          "source_column_indices": {
+            "writing": 7,
+            "tool_calling": 11
+          },
+          "source_population": 35
+        },
+        "llmstats__tau2-airline": {
+          "benchmark_id": "llmstats__tau2-airline",
+          "canonical_name": "Tau2 Airline",
+          "source_name": "Tau2 Airline",
+          "value": 76.5,
+          "raw_value": "76.5%",
+          "version": null,
+          "provenance": "LLMStats public capability leaderboard",
+          "source_url": "https://llm-stats.com/benchmarks/tau2-airline",
+          "capabilities": [
+            "tool_calling",
+            "writing"
+          ],
+          "source_column_indices": {
+            "writing": 9,
+            "tool_calling": 12
+          },
+          "source_population": 23
+        },
+        "llmstats__tau2-retail": {
+          "benchmark_id": "llmstats__tau2-retail",
+          "canonical_name": "Tau2 Retail",
+          "source_name": "Tau2 Retail",
+          "value": 88.6,
+          "raw_value": "88.6%",
+          "version": null,
+          "provenance": "LLMStats public capability leaderboard",
+          "source_url": "https://llm-stats.com/benchmarks/tau2-retail",
+          "capabilities": [
+            "tool_calling",
+            "writing"
+          ],
+          "source_column_indices": {
+            "writing": 10,
+            "tool_calling": 13
+          },
+          "source_population": 26
+        }
+      },
+      "source_updated_at": null
+    },
+    {
+      "category_rank": 22.0,
+      "category_score": 26.3,
+      "source_name": "Claude Sonnet 4.5",
+      "provider": "Anthropic",
+      "source_model_id": "claude-sonnet-4-5-20250929",
+      "source_model_url": "https://llm-stats.com/models/claude-sonnet-4-5-20250929",
+      "license": "Proprietary",
+      "family_id": "anthropic/claude-sonnet-4-5",
+      "matched_aa_family_id": null,
+      "match_status": "ambiguous",
+      "match_confidence": 0.8,
+      "score_status": "identity_review",
+      "score_status_label": "Identity review",
+      "availability_class": "unknown",
+      "is_sota": false,
+      "is_open_sota": false,
+      "rank_evidence": "source_rendered_table_order",
+      "benchmark_observations": {
+        "llmstats__tau2-retail": {
+          "benchmark_id": "llmstats__tau2-retail",
+          "canonical_name": "TAU2 Retail",
+          "source_name": "TAU2 Retail",
+          "value": 86.2,
+          "raw_value": "86.2%",
+          "version": "unknown",
+          "provenance": "Unknown provenance",
+          "source_url": "https://llm-stats.com/models/claude-sonnet-4-5-20250929"
+        }
+      },
+      "source_updated_at": null
+    },
+    {
+      "category_rank": 23.0,
+      "category_score": 26.2,
+      "source_name": "Claude Sonnet 5",
+      "provider": "Anthropic",
+      "source_model_id": "claude-sonnet-5",
+      "source_model_url": "https://llm-stats.com/models/claude-sonnet-5",
+      "license": "Proprietary",
+      "family_id": "anthropic/claude-sonnet-5",
+      "matched_aa_family_id": "anthropic/claude-sonnet-5",
+      "match_status": "matched_family",
+      "match_confidence": 0.95,
+      "score_status": "consensus",
+      "score_status_label": "Consensus",
+      "availability_class": "proprietary",
+      "is_sota": false,
+      "is_open_sota": false,
+      "rank_evidence": "source_rendered_table_order",
+      "benchmark_observations": {
+        "llmstats__toolathlon": {
+          "benchmark_id": "llmstats__toolathlon",
+          "canonical_name": "Toolathlon",
+          "source_name": "Toolathlon",
+          "value": 54.3,
+          "raw_value": "54.3%",
+          "version": null,
+          "provenance": "LLMStats public capability leaderboard",
+          "source_url": "https://llm-stats.com/benchmarks/toolathlon",
+          "capabilities": [
+            "tool_calling"
+          ],
+          "source_column_indices": {
+            "tool_calling": 8
+          },
+          "source_population": 37
+        },
+        "llmstats__terminal-bench-2-0": {
+          "benchmark_id": "llmstats__terminal-bench-2-0",
+          "canonical_name": "Terminal-Bench 2.0",
+          "source_name": "Terminal-Bench 2.0",
+          "value": 80.4,
+          "raw_value": "80.4%",
+          "version": null,
+          "provenance": "LLMStats public capability leaderboard",
+          "source_url": "https://llm-stats.com/benchmarks/terminal-bench-2",
+          "capabilities": [
+            "coding",
+            "tool_calling"
+          ],
+          "source_column_indices": {
+            "coding": 11,
+            "tool_calling": 10
+          },
+          "source_population": 51
+        },
+        "llmstats__automationbench": {
+          "benchmark_id": "llmstats__automationbench",
+          "canonical_name": "AutomationBench",
+          "source_name": "AutomationBench",
+          "value": 13.5,
+          "raw_value": "13.5%",
+          "version": null,
+          "provenance": "LLMStats public capability leaderboard",
+          "source_url": "https://llm-stats.com/benchmarks/automationbench",
+          "capabilities": [
+            "tool_calling"
+          ],
+          "source_column_indices": {
+            "tool_calling": 14
+          },
+          "source_population": 12
+        }
+      },
+      "source_updated_at": null
+    },
+    {
+      "category_rank": 24.0,
+      "category_score": 25.8,
+      "source_name": "Kimi K2.7 Code",
+      "provider": "Moonshot AI",
+      "source_model_id": "kimi-k2.7-code",
+      "source_model_url": "https://llm-stats.com/models/kimi-k2.7-code",
+      "license": "Open Source",
+      "family_id": "moonshot-ai/kimi-k2-7-code",
+      "matched_aa_family_id": null,
+      "match_status": "source_missing",
+      "match_confidence": 0.0,
+      "score_status": "llmstats_only",
+      "score_status_label": "LLMStats only",
+      "availability_class": "unknown",
+      "is_sota": false,
+      "is_open_sota": false,
+      "rank_evidence": "source_rendered_table_order",
+      "benchmark_observations": {
+        "mcp_atlas": {
+          "benchmark_id": "mcp_atlas",
+          "canonical_name": "MCP Atlas",
+          "source_name": "MCP Atlas",
+          "value": 76.0,
+          "raw_value": "76.0%",
+          "version": "source-reported",
+          "provenance": "Source observation",
+          "source_url": "https://llm-stats.com/benchmarks/mcp-atlas",
+          "capabilities": [
+            "tool_calling"
+          ],
+          "source_column_indices": {
+            "tool_calling": 9
+          },
+          "source_population": 33
+        }
+      },
+      "source_updated_at": null
+    },
+    {
+      "category_rank": 25.0,
+      "category_score": 25.7,
+      "source_name": "Claude Fable 5",
+      "provider": "Anthropic",
+      "source_model_id": "claude-fable-5",
+      "source_model_url": "https://llm-stats.com/models/claude-fable-5",
+      "license": "Proprietary",
+      "family_id": "anthropic/claude-fable-5",
+      "matched_aa_family_id": "anthropic/claude-fable-5",
+      "match_status": "matched_manual",
+      "match_confidence": 1.0,
+      "score_status": "consensus",
+      "score_status_label": "Consensus",
+      "availability_class": "proprietary",
+      "is_sota": false,
+      "is_open_sota": false,
+      "rank_evidence": "source_rendered_table_order",
+      "benchmark_observations": {
+        "llmstats__terminal-bench-2-1": {
+          "benchmark_id": "llmstats__terminal-bench-2-1",
+          "canonical_name": "Terminal-Bench 2.1",
+          "source_name": "Terminal-Bench 2.1",
+          "value": 84.3,
+          "raw_value": "84.3%",
+          "version": null,
+          "provenance": "LLMStats public capability leaderboard",
+          "source_url": "https://llm-stats.com/benchmarks/terminal-bench-2.1",
+          "capabilities": [
+            "coding",
+            "reasoning",
+            "tool_calling"
+          ],
+          "source_column_indices": {
+            "coding": 15,
+            "reasoning": 7,
+            "tool_calling": 7
+          },
+          "source_population": 28
+        },
+        "llmstats__automationbench": {
+          "benchmark_id": "llmstats__automationbench",
+          "canonical_name": "AutomationBench",
+          "source_name": "AutomationBench",
+          "value": 17.4,
+          "raw_value": "17.4%",
+          "version": null,
+          "provenance": "LLMStats public capability leaderboard",
+          "source_url": "https://llm-stats.com/benchmarks/automationbench",
+          "capabilities": [
+            "tool_calling"
+          ],
+          "source_column_indices": {
+            "tool_calling": 14
+          },
+          "source_population": 12
         }
       },
       "source_updated_at": null
     },
     {
       "category_rank": 26.0,
-      "category_score": 24.6,
+      "category_score": 25.6,
+      "source_name": "Claude Opus 4.6",
+      "provider": "Anthropic",
+      "source_model_id": "claude-opus-4-6",
+      "source_model_url": "https://llm-stats.com/models/claude-opus-4-6",
+      "license": "Proprietary",
+      "family_id": "anthropic/claude-opus-4-6",
+      "matched_aa_family_id": null,
+      "match_status": "identity_unresolved",
+      "match_confidence": 0.8,
+      "score_status": "identity_review",
+      "score_status_label": "Identity review",
+      "availability_class": "unknown",
+      "is_sota": false,
+      "is_open_sota": false,
+      "rank_evidence": "source_rendered_table_order",
+      "benchmark_observations": {
+        "mcp_atlas": {
+          "benchmark_id": "mcp_atlas",
+          "canonical_name": "MCP Atlas",
+          "source_name": "MCP Atlas",
+          "value": 62.7,
+          "raw_value": "62.7%",
+          "version": "source-reported",
+          "provenance": "Source observation",
+          "source_url": "https://llm-stats.com/benchmarks/mcp-atlas",
+          "capabilities": [
+            "coding",
+            "tool_calling"
+          ],
+          "source_column_indices": {
+            "coding": 14,
+            "tool_calling": 9
+          },
+          "source_population": 33
+        },
+        "llmstats__terminal-bench-2-0": {
+          "benchmark_id": "llmstats__terminal-bench-2-0",
+          "canonical_name": "Terminal-Bench 2.0",
+          "source_name": "Terminal-Bench 2.0",
+          "value": 65.4,
+          "raw_value": "65.4%",
+          "version": null,
+          "provenance": "LLMStats public capability leaderboard",
+          "source_url": "https://llm-stats.com/benchmarks/terminal-bench-2",
+          "capabilities": [
+            "coding",
+            "tool_calling"
+          ],
+          "source_column_indices": {
+            "coding": 11,
+            "tool_calling": 10
+          },
+          "source_population": 51
+        },
+        "llmstats__tau2-telecom": {
+          "benchmark_id": "llmstats__tau2-telecom",
+          "canonical_name": "Tau2 Telecom",
+          "source_name": "Tau2 Telecom",
+          "value": 99.3,
+          "raw_value": "99.3%",
+          "version": null,
+          "provenance": "LLMStats public capability leaderboard",
+          "source_url": "https://llm-stats.com/benchmarks/tau2-telecom",
+          "capabilities": [
+            "tool_calling",
+            "writing"
+          ],
+          "source_column_indices": {
+            "writing": 7,
+            "tool_calling": 11
+          },
+          "source_population": 35
+        },
+        "llmstats__tau2-retail": {
+          "benchmark_id": "llmstats__tau2-retail",
+          "canonical_name": "Tau2 Retail",
+          "source_name": "Tau2 Retail",
+          "value": 91.9,
+          "raw_value": "91.9%",
+          "version": null,
+          "provenance": "LLMStats public capability leaderboard",
+          "source_url": "https://llm-stats.com/benchmarks/tau2-retail",
+          "capabilities": [
+            "tool_calling",
+            "writing"
+          ],
+          "source_column_indices": {
+            "writing": 10,
+            "tool_calling": 13
+          },
+          "source_population": 26
+        }
+      },
+      "source_updated_at": null
+    },
+    {
+      "category_rank": 27.0,
+      "category_score": 25.2,
+      "source_name": "Qwen3.8-27B",
+      "provider": "Alibaba",
+      "source_model_id": "qwen3.8-27b",
+      "source_model_url": "https://llm-stats.com/models/qwen3.8-27b",
+      "license": "Open Source",
+      "family_id": "alibaba/qwen3-8-27b",
+      "matched_aa_family_id": null,
+      "match_status": "identity_unresolved",
+      "match_confidence": 0.8,
+      "score_status": "identity_review",
+      "score_status_label": "Identity review",
+      "availability_class": "unknown",
+      "is_sota": false,
+      "is_open_sota": false,
+      "rank_evidence": "source_rendered_table_order",
+      "benchmark_observations": {
+        "llmstats__terminal-bench-2-1": {
+          "benchmark_id": "llmstats__terminal-bench-2-1",
+          "canonical_name": "Terminal-Bench 2.1",
+          "source_name": "Terminal-Bench 2.1",
+          "value": 73.0,
+          "raw_value": "73.0%",
+          "version": null,
+          "provenance": "LLMStats public capability leaderboard",
+          "source_url": "https://llm-stats.com/benchmarks/terminal-bench-2.1",
+          "capabilities": [
+            "coding",
+            "reasoning",
+            "tool_calling"
+          ],
+          "source_column_indices": {
+            "coding": 15,
+            "reasoning": 7,
+            "tool_calling": 7
+          },
+          "source_population": 28
+        }
+      },
+      "source_updated_at": null
+    },
+    {
+      "category_rank": 28.0,
+      "category_score": 25.1,
+      "source_name": "Grok 4.5",
+      "provider": "xAI",
+      "source_model_id": "grok-4.5",
+      "source_model_url": "https://llm-stats.com/models/grok-4.5",
+      "license": "Proprietary",
+      "family_id": "xai/grok-4-5",
+      "matched_aa_family_id": null,
+      "match_status": "source_missing",
+      "match_confidence": 0.0,
+      "score_status": "llmstats_only",
+      "score_status_label": "LLMStats only",
+      "availability_class": "unknown",
+      "is_sota": false,
+      "is_open_sota": false,
+      "rank_evidence": "source_rendered_table_order",
+      "benchmark_observations": {
+        "llmstats__terminal-bench-2-1": {
+          "benchmark_id": "llmstats__terminal-bench-2-1",
+          "canonical_name": "Terminal-Bench 2.1",
+          "source_name": "Terminal-Bench 2.1",
+          "value": 83.3,
+          "raw_value": "83.3%",
+          "version": null,
+          "provenance": "LLMStats public capability leaderboard",
+          "source_url": "https://llm-stats.com/benchmarks/terminal-bench-2.1",
+          "capabilities": [
+            "coding",
+            "reasoning",
+            "tool_calling"
+          ],
+          "source_column_indices": {
+            "coding": 15,
+            "reasoning": 7,
+            "tool_calling": 7
+          },
+          "source_population": 28
+        },
+        "llmstats__tau3-banking": {
+          "benchmark_id": "llmstats__tau3-banking",
+          "canonical_name": "Tau3 Banking",
+          "source_name": "Tau3 Banking",
+          "value": 33.0,
+          "raw_value": "33.0%",
+          "version": null,
+          "provenance": "LLMStats public capability leaderboard",
+          "source_url": "https://llm-stats.com/benchmarks/tau3-banking",
+          "capabilities": [
+            "tool_calling"
+          ],
+          "source_column_indices": {
+            "tool_calling": 15
+          },
+          "source_population": 7
+        }
+      },
+      "source_updated_at": null
+    },
+    {
+      "category_rank": 29.0,
+      "category_score": 24.5,
+      "source_name": "Llama 3.1 70B Instruct",
+      "provider": "Meta",
+      "source_model_id": "llama-3.1-70b-instruct",
+      "source_model_url": "https://llm-stats.com/models/llama-3.1-70b-instruct",
+      "license": "Open Source",
+      "family_id": "meta/llama-3-1-70b-instruct",
+      "matched_aa_family_id": null,
+      "match_status": "source_missing",
+      "match_confidence": 0.0,
+      "score_status": "llmstats_only",
+      "score_status_label": "LLMStats only",
+      "availability_class": "unknown",
+      "is_sota": false,
+      "is_open_sota": false,
+      "rank_evidence": "source_rendered_table_order",
+      "benchmark_observations": {},
+      "source_updated_at": null
+    },
+    {
+      "category_rank": 30.0,
+      "category_score": 24.4,
       "source_name": "Qwen3.7-Plus",
-      "provider": "Qwen",
+      "provider": "Alibaba",
       "source_model_id": "qwen3.7-plus",
       "source_model_url": "https://llm-stats.com/models/qwen3.7-plus",
+      "license": "Proprietary",
       "family_id": "alibaba/qwen3-7-plus",
       "matched_aa_family_id": "alibaba/qwen3-7-plus",
       "match_status": "matched_family",
@@ -1682,14 +2059,12 @@
           "provenance": "Source observation",
           "source_url": "https://llm-stats.com/benchmarks/mcp-atlas",
           "capabilities": [
-            "coding",
             "tool_calling"
           ],
           "source_column_indices": {
-            "coding": 8,
-            "tool_calling": 2
+            "tool_calling": 9
           },
-          "source_population": 30
+          "source_population": 33
         },
         "llmstats__terminal-bench-2-0": {
           "benchmark_id": "llmstats__terminal-bench-2-0",
@@ -1701,688 +2076,14 @@
           "provenance": "LLMStats public capability leaderboard",
           "source_url": "https://llm-stats.com/benchmarks/terminal-bench-2",
           "capabilities": [
-            "coding",
             "tool_calling"
           ],
           "source_column_indices": {
-            "coding": 5,
-            "tool_calling": 3
+            "tool_calling": 10
           },
-          "source_population": 49
+          "source_population": 51
         }
       },
-      "source_updated_at": null
-    },
-    {
-      "category_rank": 27.0,
-      "category_score": 24.5,
-      "source_name": "27Llama 3.1 70B Instruct",
-      "provider": null,
-      "source_model_id": "llama-3.1-70b-instruct",
-      "source_model_url": "https://llm-stats.com/models/llama-3.1-70b-instruct",
-      "family_id": "unknown/27llama-3-1-70b-instruct",
-      "matched_aa_family_id": null,
-      "match_status": "identity_unresolved",
-      "match_confidence": 0.7556,
-      "score_status": "identity_review",
-      "score_status_label": "Identity review",
-      "availability_class": "unknown",
-      "is_sota": false,
-      "is_open_sota": false,
-      "rank_evidence": "source_rendered_table_order",
-      "benchmark_observations": {},
-      "source_updated_at": null
-    },
-    {
-      "category_rank": 28.0,
-      "category_score": 24.4,
-      "source_name": "Hy3",
-      "provider": "Tencent",
-      "source_model_id": "hy3",
-      "source_model_url": "https://llm-stats.com/models/hy3",
-      "family_id": "tencent/hy3",
-      "matched_aa_family_id": "tencent/hy3",
-      "match_status": "matched_family",
-      "match_confidence": 0.95,
-      "score_status": "consensus",
-      "score_status_label": "Consensus",
-      "availability_class": "open_weights",
-      "is_sota": false,
-      "is_open_sota": false,
-      "rank_evidence": "source_rendered_table_order",
-      "benchmark_observations": {
-        "mcp_atlas": {
-          "benchmark_id": "mcp_atlas",
-          "canonical_name": "MCP Atlas",
-          "source_name": "MCP Atlas",
-          "value": 79.1,
-          "raw_value": "79.1%",
-          "version": "source-reported",
-          "provenance": "Source observation",
-          "source_url": "https://llm-stats.com/benchmarks/mcp-atlas",
-          "capabilities": [
-            "coding",
-            "tool_calling"
-          ],
-          "source_column_indices": {
-            "coding": 8,
-            "tool_calling": 2
-          },
-          "source_population": 30
-        },
-        "llmstats__toolathlon": {
-          "benchmark_id": "llmstats__toolathlon",
-          "canonical_name": "Toolathlon",
-          "source_name": "Toolathlon",
-          "value": 48.5,
-          "raw_value": "48.5%",
-          "version": null,
-          "provenance": "LLMStats public capability leaderboard",
-          "source_url": "https://llm-stats.com/benchmarks/toolathlon",
-          "capabilities": [
-            "tool_calling"
-          ],
-          "source_column_indices": {
-            "tool_calling": 5
-          },
-          "source_population": 31
-        },
-        "llmstats__terminal-bench-2-1": {
-          "benchmark_id": "llmstats__terminal-bench-2-1",
-          "canonical_name": "Terminal-Bench 2.1",
-          "source_name": "Terminal-Bench 2.1",
-          "value": 71.7,
-          "raw_value": "71.7%",
-          "version": null,
-          "provenance": "LLMStats public capability leaderboard",
-          "source_url": "https://llm-stats.com/benchmarks/terminal-bench-2.1",
-          "capabilities": [
-            "coding",
-            "reasoning",
-            "tool_calling"
-          ],
-          "source_column_indices": {
-            "coding": 13,
-            "reasoning": 9,
-            "tool_calling": 1
-          },
-          "source_population": 17
-        }
-      },
-      "source_updated_at": null
-    },
-    {
-      "category_rank": 29.0,
-      "category_score": 24.3,
-      "source_name": "DeepSeek-V4-Pro-Max",
-      "provider": "DeepSeek",
-      "source_model_id": "deepseek-v4-pro-max",
-      "source_model_url": "https://llm-stats.com/models/deepseek-v4-pro-max",
-      "family_id": "deepseek/deepseek-v4-pro",
-      "matched_aa_family_id": "deepseek/deepseek-v4-pro",
-      "match_status": "matched_family",
-      "match_confidence": 0.95,
-      "score_status": "consensus",
-      "score_status_label": "Consensus",
-      "availability_class": "open_weights",
-      "is_sota": false,
-      "is_open_sota": false,
-      "rank_evidence": "source_rendered_table_order",
-      "benchmark_observations": {
-        "mcp_atlas": {
-          "benchmark_id": "mcp_atlas",
-          "canonical_name": "MCP Atlas",
-          "source_name": "MCP Atlas",
-          "value": 73.6,
-          "raw_value": "73.6%",
-          "version": "source-reported",
-          "provenance": "Source observation",
-          "source_url": "https://llm-stats.com/benchmarks/mcp-atlas",
-          "capabilities": [
-            "coding",
-            "tool_calling"
-          ],
-          "source_column_indices": {
-            "coding": 8,
-            "tool_calling": 2
-          },
-          "source_population": 30
-        },
-        "llmstats__toolathlon": {
-          "benchmark_id": "llmstats__toolathlon",
-          "canonical_name": "Toolathlon",
-          "source_name": "Toolathlon",
-          "value": 51.8,
-          "raw_value": "51.8%",
-          "version": null,
-          "provenance": "LLMStats public capability leaderboard",
-          "source_url": "https://llm-stats.com/benchmarks/toolathlon",
-          "capabilities": [
-            "tool_calling"
-          ],
-          "source_column_indices": {
-            "tool_calling": 5
-          },
-          "source_population": 31
-        },
-        "llmstats__terminal-bench-2-0": {
-          "benchmark_id": "llmstats__terminal-bench-2-0",
-          "canonical_name": "Terminal-Bench 2.0",
-          "source_name": "Terminal-Bench 2.0",
-          "value": 67.9,
-          "raw_value": "67.9%",
-          "version": null,
-          "provenance": "LLMStats public capability leaderboard",
-          "source_url": "https://llm-stats.com/benchmarks/terminal-bench-2",
-          "capabilities": [
-            "coding",
-            "tool_calling"
-          ],
-          "source_column_indices": {
-            "coding": 5,
-            "tool_calling": 3
-          },
-          "source_population": 49
-        }
-      },
-      "source_updated_at": null
-    },
-    {
-      "category_rank": 30.0,
-      "category_score": 24.2,
-      "source_name": "Gemini 3.1 Pro",
-      "provider": "Google",
-      "source_model_id": "gemini-3.1-pro-preview",
-      "source_model_url": "https://llm-stats.com/models/gemini-3.1-pro-preview",
-      "family_id": "google/gemini-3-1-pro-preview",
-      "matched_aa_family_id": "google/gemini-3-1-pro-preview",
-      "match_status": "matched_manual",
-      "match_confidence": 1.0,
-      "score_status": "consensus",
-      "score_status_label": "Consensus",
-      "availability_class": "proprietary",
-      "is_sota": false,
-      "is_open_sota": false,
-      "rank_evidence": "source_rendered_table_order",
-      "benchmark_observations": {
-        "mcp_atlas": {
-          "benchmark_id": "mcp_atlas",
-          "canonical_name": "MCP Atlas",
-          "source_name": "MCP Atlas",
-          "value": 69.2,
-          "raw_value": "69.2%",
-          "version": "source-reported",
-          "provenance": "Source observation",
-          "source_url": "https://llm-stats.com/benchmarks/mcp-atlas",
-          "capabilities": [
-            "coding",
-            "tool_calling"
-          ],
-          "source_column_indices": {
-            "coding": 8,
-            "tool_calling": 2
-          },
-          "source_population": 30
-        },
-        "llmstats__terminal-bench-2-0": {
-          "benchmark_id": "llmstats__terminal-bench-2-0",
-          "canonical_name": "Terminal-Bench 2.0",
-          "source_name": "Terminal-Bench 2.0",
-          "value": 68.5,
-          "raw_value": "68.5%",
-          "version": null,
-          "provenance": "LLMStats public capability leaderboard",
-          "source_url": "https://llm-stats.com/benchmarks/terminal-bench-2",
-          "capabilities": [
-            "coding",
-            "tool_calling"
-          ],
-          "source_column_indices": {
-            "coding": 5,
-            "tool_calling": 3
-          },
-          "source_population": 49
-        },
-        "llmstats__t2-bench": {
-          "benchmark_id": "llmstats__t2-bench",
-          "canonical_name": "t2-bench",
-          "source_name": "t2-bench",
-          "value": 99.3,
-          "raw_value": "99.3%",
-          "version": null,
-          "provenance": "LLMStats public capability leaderboard",
-          "source_url": "https://llm-stats.com/benchmarks/t2-bench",
-          "capabilities": [
-            "tool_calling"
-          ],
-          "source_column_indices": {
-            "tool_calling": 8
-          },
-          "source_population": 23
-        }
-      },
-      "source_updated_at": null
-    },
-    {
-      "category_rank": 31.0,
-      "category_score": 22.7,
-      "source_name": "Claude Sonnet 4.6",
-      "provider": "Anthropic",
-      "source_model_id": "claude-sonnet-4-6",
-      "source_model_url": "https://llm-stats.com/models/claude-sonnet-4-6",
-      "family_id": "anthropic/claude-sonnet-4-6",
-      "matched_aa_family_id": "anthropic/claude-sonnet-4-6",
-      "match_status": "matched_family",
-      "match_confidence": 0.95,
-      "score_status": "consensus",
-      "score_status_label": "Consensus",
-      "availability_class": "proprietary",
-      "is_sota": false,
-      "is_open_sota": false,
-      "rank_evidence": "derived_score_order_visible_server_population",
-      "benchmark_observations": {
-        "mcp_atlas": {
-          "benchmark_id": "mcp_atlas",
-          "canonical_name": "MCP Atlas",
-          "source_name": "MCP Atlas",
-          "value": 61.3,
-          "raw_value": "61.3%",
-          "version": "source-reported",
-          "provenance": "Source observation",
-          "source_url": "https://llm-stats.com/models/claude-sonnet-4-6"
-        },
-        "llmstats__tau2-telecom": {
-          "benchmark_id": "llmstats__tau2-telecom",
-          "canonical_name": "Tau2 Telecom",
-          "source_name": "Tau2 Telecom",
-          "value": 97.9,
-          "raw_value": "97.9%",
-          "version": null,
-          "provenance": "LLMStats public capability leaderboard",
-          "source_url": "https://llm-stats.com/benchmarks/tau2-telecom",
-          "capabilities": [
-            "writing"
-          ],
-          "source_column_indices": {
-            "writing": 1
-          },
-          "source_population": 35
-        },
-        "llmstats__tau2-retail": {
-          "benchmark_id": "llmstats__tau2-retail",
-          "canonical_name": "Tau2 Retail",
-          "source_name": "Tau2 Retail",
-          "value": 91.7,
-          "raw_value": "91.7%",
-          "version": null,
-          "provenance": "LLMStats public capability leaderboard",
-          "source_url": "https://llm-stats.com/benchmarks/tau2-retail",
-          "capabilities": [
-            "writing"
-          ],
-          "source_column_indices": {
-            "writing": 4
-          },
-          "source_population": 26
-        }
-      },
-      "source_updated_at": null
-    },
-    {
-      "category_rank": 32.0,
-      "category_score": 22.5,
-      "source_name": "Kimi K2.6",
-      "provider": "MoonshotAI",
-      "source_model_id": "kimi-k2.6",
-      "source_model_url": "https://llm-stats.com/models/kimi-k2.6",
-      "family_id": "moonshot-ai/kimi-k2-6",
-      "matched_aa_family_id": null,
-      "match_status": "source_missing",
-      "match_confidence": 0.0,
-      "score_status": "llmstats_only",
-      "score_status_label": "LLMStats only",
-      "availability_class": "unknown",
-      "is_sota": false,
-      "is_open_sota": false,
-      "rank_evidence": "derived_score_order_visible_server_population",
-      "benchmark_observations": {
-        "llmstats__toolathlon": {
-          "benchmark_id": "llmstats__toolathlon",
-          "canonical_name": "Toolathlon",
-          "source_name": "Toolathlon",
-          "value": 50.0,
-          "raw_value": "50.0%",
-          "version": "unknown",
-          "provenance": "Unknown provenance",
-          "source_url": "https://llm-stats.com/models/kimi-k2.6"
-        },
-        "llmstats__terminal-bench-2-0": {
-          "benchmark_id": "llmstats__terminal-bench-2-0",
-          "canonical_name": "Terminal-Bench 2.0",
-          "source_name": "Terminal-Bench 2.0",
-          "value": 66.7,
-          "raw_value": "66.7%",
-          "version": null,
-          "provenance": "LLMStats public capability leaderboard",
-          "source_url": "https://llm-stats.com/benchmarks/terminal-bench-2",
-          "capabilities": [
-            "coding"
-          ],
-          "source_column_indices": {
-            "coding": 5
-          },
-          "source_population": 49
-        }
-      },
-      "source_updated_at": null
-    },
-    {
-      "category_rank": 33.0,
-      "category_score": 21.9,
-      "source_name": "Grok 4.5",
-      "provider": "xAI",
-      "source_model_id": "grok-4.5",
-      "source_model_url": "https://llm-stats.com/models/grok-4.5",
-      "family_id": "xai/grok-4-5",
-      "matched_aa_family_id": null,
-      "match_status": "source_missing",
-      "match_confidence": 0.0,
-      "score_status": "llmstats_only",
-      "score_status_label": "LLMStats only",
-      "availability_class": "unknown",
-      "is_sota": false,
-      "is_open_sota": false,
-      "rank_evidence": "derived_score_order_visible_server_population",
-      "benchmark_observations": {
-        "llmstats__terminal-bench-2-1": {
-          "benchmark_id": "llmstats__terminal-bench-2-1",
-          "canonical_name": "Terminal-Bench 2.1",
-          "source_name": "Terminal-Bench 2.1",
-          "value": 83.3,
-          "raw_value": "83.3%",
-          "version": null,
-          "provenance": "LLMStats public capability leaderboard",
-          "source_url": "https://llm-stats.com/benchmarks/terminal-bench-2.1",
-          "capabilities": [
-            "coding",
-            "reasoning"
-          ],
-          "source_column_indices": {
-            "coding": 13,
-            "reasoning": 9
-          },
-          "source_population": 17
-        }
-      },
-      "source_updated_at": null
-    },
-    {
-      "category_rank": 34.0,
-      "category_score": 21.6,
-      "source_name": "Qwen3.6 Plus",
-      "provider": "Qwen",
-      "source_model_id": "qwen3.6-plus",
-      "source_model_url": "https://llm-stats.com/models/qwen3.6-plus",
-      "family_id": "alibaba/qwen3-6-plus",
-      "matched_aa_family_id": null,
-      "match_status": "identity_unresolved",
-      "match_confidence": 0.8,
-      "score_status": "identity_review",
-      "score_status_label": "Identity review",
-      "availability_class": "unknown",
-      "is_sota": false,
-      "is_open_sota": false,
-      "rank_evidence": "derived_score_order_visible_server_population",
-      "benchmark_observations": {
-        "mcp_atlas": {
-          "benchmark_id": "mcp_atlas",
-          "canonical_name": "MCP Atlas",
-          "source_name": "MCP Atlas",
-          "value": 74.1,
-          "raw_value": "74.1%",
-          "version": "source-reported",
-          "provenance": "Source observation",
-          "source_url": "https://llm-stats.com/models/qwen3.6-plus"
-        },
-        "llmstats__toolathlon": {
-          "benchmark_id": "llmstats__toolathlon",
-          "canonical_name": "Toolathlon",
-          "source_name": "Toolathlon",
-          "value": 39.8,
-          "raw_value": "39.8%",
-          "version": "unknown",
-          "provenance": "Unknown provenance",
-          "source_url": "https://llm-stats.com/models/qwen3.6-plus"
-        }
-      },
-      "source_updated_at": null
-    },
-    {
-      "category_rank": 35.0,
-      "category_score": 21.0,
-      "source_name": "GPT-5.2",
-      "provider": "OpenAI",
-      "source_model_id": "gpt-5.2-2025-12-11",
-      "source_model_url": "https://llm-stats.com/models/gpt-5.2-2025-12-11",
-      "family_id": "openai/gpt-5-2",
-      "matched_aa_family_id": null,
-      "match_status": "source_missing",
-      "match_confidence": 0.0,
-      "score_status": "llmstats_only",
-      "score_status_label": "LLMStats only",
-      "availability_class": "unknown",
-      "is_sota": false,
-      "is_open_sota": false,
-      "rank_evidence": "derived_score_order_visible_server_population",
-      "benchmark_observations": {
-        "mcp_atlas": {
-          "benchmark_id": "mcp_atlas",
-          "canonical_name": "MCP Atlas",
-          "source_name": "MCP Atlas",
-          "value": 60.6,
-          "raw_value": "60.6%",
-          "version": "source-reported",
-          "provenance": "Source observation",
-          "source_url": "https://llm-stats.com/models/gpt-5.2-2025-12-11"
-        },
-        "llmstats__toolathlon": {
-          "benchmark_id": "llmstats__toolathlon",
-          "canonical_name": "Toolathlon",
-          "source_name": "Toolathlon",
-          "value": 46.3,
-          "raw_value": "46.3%",
-          "version": "unknown",
-          "provenance": "Unknown provenance",
-          "source_url": "https://llm-stats.com/models/gpt-5.2-2025-12-11"
-        },
-        "llmstats__tau2-telecom": {
-          "benchmark_id": "llmstats__tau2-telecom",
-          "canonical_name": "Tau2 Telecom",
-          "source_name": "Tau2 Telecom",
-          "value": 98.7,
-          "raw_value": "98.7%",
-          "version": null,
-          "provenance": "LLMStats public capability leaderboard",
-          "source_url": "https://llm-stats.com/benchmarks/tau2-telecom",
-          "capabilities": [
-            "writing"
-          ],
-          "source_column_indices": {
-            "writing": 1
-          },
-          "source_population": 35
-        },
-        "llmstats__tau2-retail": {
-          "benchmark_id": "llmstats__tau2-retail",
-          "canonical_name": "Tau2 Retail",
-          "source_name": "Tau2 Retail",
-          "value": 82.0,
-          "raw_value": "82.0%",
-          "version": null,
-          "provenance": "LLMStats public capability leaderboard",
-          "source_url": "https://llm-stats.com/benchmarks/tau2-retail",
-          "capabilities": [
-            "writing"
-          ],
-          "source_column_indices": {
-            "writing": 4
-          },
-          "source_population": 26
-        }
-      },
-      "source_updated_at": null
-    },
-    {
-      "category_rank": 36.0,
-      "category_score": 18.5,
-      "source_name": "DeepSeek-V4-Flash-Max",
-      "provider": "DeepSeek",
-      "source_model_id": "deepseek-v4-flash-max",
-      "source_model_url": "https://llm-stats.com/models/deepseek-v4-flash-max",
-      "family_id": "deepseek/deepseek-v4-flash",
-      "matched_aa_family_id": "deepseek/deepseek-v4-flash",
-      "match_status": "matched_family",
-      "match_confidence": 0.95,
-      "score_status": "consensus",
-      "score_status_label": "Consensus",
-      "availability_class": "open_weights",
-      "is_sota": false,
-      "is_open_sota": false,
-      "rank_evidence": "derived_score_order_visible_server_population",
-      "benchmark_observations": {
-        "mcp_atlas": {
-          "benchmark_id": "mcp_atlas",
-          "canonical_name": "MCP Atlas",
-          "source_name": "MCP Atlas",
-          "value": 69.0,
-          "raw_value": "69.0%",
-          "version": "source-reported",
-          "provenance": "Source observation",
-          "source_url": "https://llm-stats.com/models/deepseek-v4-flash-max"
-        },
-        "llmstats__toolathlon": {
-          "benchmark_id": "llmstats__toolathlon",
-          "canonical_name": "Toolathlon",
-          "source_name": "Toolathlon",
-          "value": 47.8,
-          "raw_value": "47.8%",
-          "version": "unknown",
-          "provenance": "Unknown provenance",
-          "source_url": "https://llm-stats.com/models/deepseek-v4-flash-max"
-        }
-      },
-      "source_updated_at": null
-    },
-    {
-      "category_rank": 37.0,
-      "category_score": 17.6,
-      "source_name": "Qwen3.5-397B-A17B",
-      "provider": "Qwen",
-      "source_model_id": "qwen3.5-397b-a17b",
-      "source_model_url": "https://llm-stats.com/models/qwen3.5-397b-a17b",
-      "family_id": "alibaba/qwen3-5-397b-a17b",
-      "matched_aa_family_id": "alibaba/qwen3-5-397b-a17b",
-      "match_status": "matched_family",
-      "match_confidence": 0.95,
-      "score_status": "consensus",
-      "score_status_label": "Consensus",
-      "availability_class": "open_weights",
-      "is_sota": false,
-      "is_open_sota": false,
-      "rank_evidence": "derived_score_order_visible_server_population",
-      "benchmark_observations": {
-        "llmstats__toolathlon": {
-          "benchmark_id": "llmstats__toolathlon",
-          "canonical_name": "Toolathlon",
-          "source_name": "Toolathlon",
-          "value": 38.3,
-          "raw_value": "38.3%",
-          "version": "unknown",
-          "provenance": "Unknown provenance",
-          "source_url": "https://llm-stats.com/models/qwen3.5-397b-a17b"
-        }
-      },
-      "source_updated_at": null
-    },
-    {
-      "category_rank": 38.0,
-      "category_score": 17.4,
-      "source_name": "Gemini 3 Flash",
-      "provider": "Google",
-      "source_model_id": "gemini-3-flash-preview",
-      "source_model_url": "https://llm-stats.com/models/gemini-3-flash-preview",
-      "family_id": "google/gemini-3-flash",
-      "matched_aa_family_id": null,
-      "match_status": "ambiguous",
-      "match_confidence": 0.8,
-      "score_status": "identity_review",
-      "score_status_label": "Identity review",
-      "availability_class": "unknown",
-      "is_sota": false,
-      "is_open_sota": false,
-      "rank_evidence": "derived_score_order_visible_server_population",
-      "benchmark_observations": {
-        "mcp_atlas": {
-          "benchmark_id": "mcp_atlas",
-          "canonical_name": "MCP Atlas",
-          "source_name": "MCP Atlas",
-          "value": 57.4,
-          "raw_value": "57.4%",
-          "version": "source-reported",
-          "provenance": "Source observation",
-          "source_url": "https://llm-stats.com/models/gemini-3-flash-preview"
-        },
-        "llmstats__toolathlon": {
-          "benchmark_id": "llmstats__toolathlon",
-          "canonical_name": "Toolathlon",
-          "source_name": "Toolathlon",
-          "value": 49.4,
-          "raw_value": "49.4%",
-          "version": "unknown",
-          "provenance": "Unknown provenance",
-          "source_url": "https://llm-stats.com/models/gemini-3-flash-preview"
-        }
-      },
-      "source_updated_at": null
-    },
-    {
-      "category_rank": 39.0,
-      "category_score": 16.8,
-      "source_name": "Muse Spark",
-      "provider": "Meta",
-      "source_model_id": "muse-spark",
-      "source_model_url": "https://llm-stats.com/models/muse-spark",
-      "family_id": "meta/muse-spark",
-      "matched_aa_family_id": null,
-      "match_status": "identity_unresolved",
-      "match_confidence": 0.8,
-      "score_status": "identity_review",
-      "score_status_label": "Identity review",
-      "availability_class": "unknown",
-      "is_sota": false,
-      "is_open_sota": false,
-      "rank_evidence": "derived_score_order_visible_server_population",
-      "benchmark_observations": {},
-      "source_updated_at": null
-    },
-    {
-      "category_rank": 40.0,
-      "category_score": 13.7,
-      "source_name": "Gemini 3 Pro",
-      "provider": "Google",
-      "source_model_id": "gemini-3-pro-preview",
-      "source_model_url": "https://llm-stats.com/models/gemini-3-pro-preview",
-      "family_id": "google/gemini-3-pro",
-      "matched_aa_family_id": null,
-      "match_status": "source_missing",
-      "match_confidence": 0.0,
-      "score_status": "llmstats_only",
-      "score_status_label": "LLMStats only",
-      "availability_class": "unknown",
-      "is_sota": false,
-      "is_open_sota": false,
-      "rank_evidence": "derived_score_order_visible_server_population",
-      "benchmark_observations": {},
       "source_updated_at": null
     }
   ],

@@ -1,6 +1,6 @@
 {
-  "config_version": "2026-07-23",
-  "reviewed_at": "2026-07-23T00:00:00Z",
+  "config_version": "2026-08-16",
+  "reviewed_at": "2026-08-16T00:00:00Z",
   "sources": {
     "artificial_analysis": {
       "display_name": "Artificial Analysis",
@@ -63,7 +63,7 @@
         "forbidden_paths": ["/api/"],
         "rate_limit_seconds": 2,
         "expected_rows": [20, 250],
-        "published_population_note": "General comes from the public server-rendered table. Capability pages are read from their public browser-rendered tables, without private APIs or verification bypasses."
+        "published_population_note": "General and capability pages are read from their public browser-rendered tables, without private APIs or verification bypasses."
       },
       "attribution": "Capability rankings and benchmark data from LLMStats."
     }

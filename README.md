@@ -303,7 +303,7 @@ Text representation:
 ```text
 Artificial Analysis expanded table ─┐
                                     ├─ Identity Registry ─ Family Representatives
-LLMStats public server HTML ────────┘                         │
+LLMStats public rendered pages ────┘                         │
                                                               ▼
                                             Tie-Aware Source Percentiles
                                                               │
@@ -547,7 +547,7 @@ python pipeline\validate_publication.py
 
 The Artificial Analysis stage requires Chrome.
 
-LLMStats extraction uses public server-rendered pages declared in:
+LLMStats extraction uses public browser-rendered pages declared in:
 
 ```text
 data/methodology/source_config.json

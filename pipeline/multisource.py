@@ -79,7 +79,7 @@ def _write_csv(path: Path, rows: Iterable[Mapping[str, Any]]) -> None:
         delete=False,
         suffix=".tmp",
     ) as handle:
-        writer = csv.DictWriter(handle, fieldnames=fields)
+        writer = csv.DictWriter(handle, fieldnames=fields, lineterminator="\n")
         if fields:
             writer.writeheader()
             for row in materialized:
@@ -192,7 +192,16 @@ def _capability_contract(
     for source in llmstats_rows:
         score = (source.get("category_scores") or {}).get(capability)
         rank = (source.get("category_ranks") or {}).get(capability)
-        if score is None and rank is None:
+        rank_evidence = (source.get("rank_evidence") or {}).get(capability)
+        if (
+            score is None
+            or rank is None
+            or rank_evidence
+            not in {
+                "source_rendered_table_order",
+                "source_published_top_models_order",
+            }
+        ):
             continue
         observations = {
             benchmark_id: observation
@@ -219,6 +228,7 @@ def _capability_contract(
                 "provider": source.get("provider"),
                 "source_model_id": source.get("source_model_id"),
                 "source_model_url": source.get("source_model_url"),
+                "license": (source.get("source_details") or {}).get("License"),
                 "family_id": source.get("family_id"),
                 "matched_aa_family_id": source.get("matched_aa_family_id"),
                 "match_status": source.get("match_status"),
@@ -228,7 +238,7 @@ def _capability_contract(
                 "availability_class": source.get("availability_class"),
                 "is_sota": source.get("is_sota"),
                 "is_open_sota": source.get("is_open_sota"),
-                "rank_evidence": (source.get("rank_evidence") or {}).get(capability),
+                "rank_evidence": rank_evidence,
                 "benchmark_observations": observations,
                 "source_updated_at": source.get("source_updated_at"),
             }
@@ -310,17 +320,14 @@ def _append_idempotent_csv(
     if path.exists():
         with path.open("r", encoding="utf-8", newline="") as handle:
             existing = list(csv.DictReader(handle))
-    keys = {
-        tuple(str(row.get(field, "")) for field in key_fields) for row in existing
-    }
-    additions = [
-        row
-        for row in rows
-        if tuple(str(row.get(field, "")) for field in key_fields) not in keys
-    ]
-    if not additions:
-        return
-    _write_csv(path, [*existing, *additions])
+    # Re-running a snapshot on the same day replaces that natural key instead
+    # of appending a duplicate. This also repairs duplicates produced by older
+    # pipeline versions while retaining the original chronological order.
+    deduped: Dict[tuple[str, ...], dict] = {}
+    for row in [*existing, *rows]:
+        key = tuple(str(row.get(field, "")) for field in key_fields)
+        deduped[key] = row
+    _write_csv(path, list(deduped.values()))
 
 
 def _quality_report(

@@ -242,7 +242,7 @@ class FrontendContractTests(unittest.TestCase):
         self.assertNotIn("OPEN SOTA", readme)
         self.assertNotIn("OPEN SOTA", methodology)
 
-        self.assertIn("publicly rendered server-side pages", data_sources)
+        self.assertIn("Public browser-rendered General", data_sources)
         self.assertNotIn("adheres to public server contracts", data_sources)
 
     def test_general_header_information_buttons(self):

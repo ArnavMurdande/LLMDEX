@@ -24,8 +24,8 @@ LLMDEX is an independent educational analytics project. LLMDEX is not affiliated
 ### LLMStats
 
 - **Role:** Source-native capability ranks/scores and the secondary General consensus signal.
-- **Extraction:** Public server-rendered General table plus public server-rendered category top-model payloads.
-- Extraction uses publicly rendered server-side pages. LLMDEX displays visible attribution and links directly back to the source pages.
+- **Extraction:** Public browser-rendered General and capability leaderboard tables. Embedded public top-model data is retained only as a fallback when a rendered capability table cannot be captured.
+- Extraction uses the visible public pages without private APIs or verification bypasses. LLMDEX displays attribution and links directly back to the source pages.
 
 ### Multi-Source Characteristics & Limitations
 

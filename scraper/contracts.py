@@ -197,7 +197,7 @@ class LLMStatsObservation:
     Composite/category scores remain separate from benchmark observations.
     Missing values are None. ``category_ranks`` records source order where it
     is published and deterministic score order for the remaining visible
-    server-rendered population, with ``rank_evidence`` documenting which.
+    browser-rendered population, with ``rank_evidence`` documenting which.
     """
 
     source_name: str

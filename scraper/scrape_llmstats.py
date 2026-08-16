@@ -1,8 +1,8 @@
-"""Policy-aware LLMStats server-rendered leaderboard scraper.
+"""Policy-aware LLMStats public leaderboard scraper.
 
-Only public HTML pages listed in ``data/methodology/source_config.json`` are
+Only public pages listed in ``data/methodology/source_config.json`` are
 requested. The scraper never calls the site's disallowed API paths, expands
-client-only rows, or attempts to solve/bypass verification controls.
+beyond visible public tables, or attempts to solve/bypass verification controls.
 """
 
 from __future__ import annotations
@@ -11,6 +11,7 @@ import json
 import re
 import time
 from datetime import datetime, timezone
+from html import escape as html_escape
 from html.parser import HTMLParser
 from pathlib import Path
 from typing import Any, Dict, Iterable, List, Optional
@@ -42,6 +43,34 @@ DEFAULT_HEADERS = {
     "Accept-Language": "en-US,en;q=0.9",
 }
 REQUIRED_HEADERS = {"Model", "LLM Stats", "Organization"}
+KNOWN_MODEL_PROVIDERS = {
+    "claude": "Anthropic",
+    "gpt": "OpenAI",
+    "o3": "OpenAI",
+    "o1": "OpenAI",
+    "gemini": "Google",
+    "gemma": "Google",
+    "qwen": "Alibaba",
+    "llama": "Meta",
+    "mistral": "Mistral AI",
+    "glm": "Z AI",
+    "kimi": "Moonshot AI",
+    "minimax": "MiniMax",
+    "mimo": "Xiaomi",
+    "seed": "ByteDance",
+    "muse": "Baidu",
+    "mai": "Microsoft",
+    "longcat": "Meituan",
+    "nova": "Amazon",
+    "hermes": "Nous Research",
+    "nemotron": "NVIDIA",
+    "deepseek": "DeepSeek",
+    "grok": "xAI",
+    "sakana": "Sakana AI",
+    "hy3": "Tencent",
+    "inkling": "Thinking Machines",
+    "solar": "Upstage",
+}
 
 
 def _clean(value: Any) -> str:
@@ -59,6 +88,15 @@ def _number(value: Any) -> Optional[float]:
 
 def _slug(value: str) -> str:
     return re.sub(r"[^a-z0-9]+", "-", value.casefold()).strip("-")
+
+
+def _infer_provider(source_name: str, source_model_id: Optional[str]) -> Optional[str]:
+    """Fill a missing organization from an unambiguous model-series prefix."""
+    normalized = _slug(f"{source_model_id or ''} {source_name}")
+    for prefix, provider in KNOWN_MODEL_PROVIDERS.items():
+        if normalized.startswith(prefix):
+            return provider
+    return None
 
 
 class _PublicTableParser(HTMLParser):
@@ -172,6 +210,44 @@ def _rendered_header_name(value: Any) -> str:
     return _clean(lines[0]) if lines else ""
 
 
+def _strip_rendered_rank_prefix(value: Any, source_position: int) -> str:
+    """Remove the visual row number that some LLMStats model links include."""
+    name = _clean(value)
+    prefix = str(source_position)
+    if name.startswith(prefix) and len(name) > len(prefix):
+        following = name[len(prefix)]
+        if not following.isdigit():
+            return name[len(prefix) :].lstrip(".# ")
+    return re.sub(r"^#\s*\d+\s+", "", name).strip()
+
+
+def _rendered_table_to_html(table: Dict[str, Any]) -> str:
+    """Convert a public rendered table snapshot into the legacy parser input."""
+    headers = list(table.get("headers") or [])
+    names = [_rendered_header_name(header.get("text")) for header in headers]
+    model_index = next(
+        (index for index, name in enumerate(names) if name.casefold() == "model"),
+        None,
+    )
+    parts = ["<table><tr>"]
+    parts.extend(f"<th>{html_escape(name)}</th>" for name in names)
+    parts.append("</tr>")
+    for row in table.get("rows") or []:
+        cells = list(row.get("cells") or [])
+        if len(cells) < len(headers):
+            continue
+        parts.append("<tr>")
+        for index, cell in enumerate(cells[: len(headers)]):
+            value = html_escape(_clean(cell.get("text")))
+            if index == model_index and row.get("model_url"):
+                href = html_escape(str(row["model_url"]), quote=True)
+                value = f'<a href="{href}">{value}</a>'
+            parts.append(f"<td>{value}</td>")
+        parts.append("</tr>")
+    parts.append("</table>")
+    return "".join(parts)
+
+
 def parse_rendered_capability_table(
     table: Dict[str, Any],
     category: str,
@@ -200,9 +276,9 @@ def parse_rendered_capability_table(
 
     benchmark_map = _source_name_to_benchmark()
     benchmark_columns: List[Dict[str, Any]] = []
-    for index, header in enumerate(headers[6:]):
+    for index, header in enumerate(headers):
         source_name = _rendered_header_name(header.get("text"))
-        if not source_name:
+        if index < 6 or not source_name or source_name.casefold() == "license":
             continue
         registered = benchmark_map.get(source_name.casefold())
         benchmark_id = (
@@ -232,6 +308,7 @@ def parse_rendered_capability_table(
                 ),
                 "source_url": header.get("source_url") or page_url,
                 "source_column_index": index,
+                "table_column_index": index,
                 "source_population": (
                     int(coverage_match.group(1).replace(",", ""))
                     if coverage_match
@@ -245,7 +322,9 @@ def parse_rendered_capability_table(
         cells = list(row.get("cells") or [])
         if len(cells) < len(headers):
             continue
-        source_name = _clean(row.get("model_name"))
+        source_name = _strip_rendered_rank_prefix(
+            row.get("model_name"), source_position
+        )
         source_model_url = row.get("model_url") or page_url
         if not source_name:
             model_lines = [
@@ -255,7 +334,9 @@ def parse_rendered_capability_table(
             ]
             if model_lines and re.fullmatch(r"#?\d+", model_lines[0]):
                 model_lines = model_lines[1:]
-            source_name = _clean(model_lines[0] if model_lines else "")
+            source_name = _strip_rendered_rank_prefix(
+                model_lines[0] if model_lines else "", source_position
+            )
         if not source_name:
             continue
         source_model_id = (
@@ -268,7 +349,8 @@ def parse_rendered_capability_table(
             continue
 
         observations: Dict[str, Dict[str, Any]] = {}
-        for offset, column in enumerate(benchmark_columns, start=6):
+        for column in benchmark_columns:
+            offset = column["table_column_index"]
             raw_value = _clean(cells[offset].get("text"))
             value = _number(raw_value)
             if value is None:
@@ -311,6 +393,11 @@ def parse_rendered_capability_table(
                     "LLMStats context": _clean(cells[3].get("text")),
                     "LLMStats speed": _clean(cells[4].get("text")),
                     "LLMStats TTFT": _clean(cells[5].get("text")),
+                    "License": (
+                        _clean(cells[names.index("LICENSE")].get("text"))
+                        if "LICENSE" in names
+                        else None
+                    ),
                 },
             }
         )
@@ -330,9 +417,7 @@ def _extract_rendered_capability_tables(
     """Read the visible public capability tables with one bounded browser."""
     tables: Dict[str, Dict[str, Any]] = {}
     warnings: List[str] = []
-    category_urls = {
-        category: url for category, url in urls.items() if category != "general"
-    }
+    category_urls = dict(urls)
     try:
         with managed_driver(headless=True) as driver:
             for position, (category, url) in enumerate(category_urls.items()):
@@ -349,17 +434,22 @@ def _extract_rendered_capability_tables(
                         """
                         const done = arguments[arguments.length - 1];
                         const deadline = Date.now() + arguments[0];
+                        const category = arguments[1];
                         const inspect = () => {
                           const candidates = Array.from(
                             document.querySelectorAll("table"),
                           );
                           const table = candidates.find((candidate) => {
-                            const first = candidate.querySelector("thead th");
-                            return (
-                              first &&
-                              first.textContent.trim().toLowerCase() === "model" &&
-                              candidate.querySelectorAll("tbody tr").length >= 10
+                            const labels = Array.from(
+                              candidate.querySelectorAll("thead th"),
+                            ).map((header) =>
+                              header.innerText.trim().split("\\n")[0].toLowerCase()
                             );
+                            const correctSchema = category === "general"
+                              ? labels.includes("model") && labels.includes("llm stats")
+                              : labels.includes("model") && labels.includes("rating");
+                            return correctSchema &&
+                              candidate.querySelectorAll("tbody tr").length >= 10;
                           });
                           if (!table) {
                             if (Date.now() < deadline) {
@@ -387,7 +477,7 @@ def _extract_rendered_capability_tables(
                               title: cell.getAttribute("title"),
                             }));
                             const modelLink = row.querySelector(
-                              'td:first-child a[href*="/models/"]',
+                              'a[href*="/models/"]',
                             );
                             return {
                               model_name: modelLink?.textContent.trim() || null,
@@ -400,6 +490,7 @@ def _extract_rendered_capability_tables(
                         inspect();
                         """,
                         max(1000, timeout * 1000),
+                        category,
                     )
                     if not table:
                         body_text = driver.find_element("tag name", "body").text
@@ -413,11 +504,21 @@ def _extract_rendered_capability_tables(
                                 f"{category} rendered public table unavailable."
                             )
                         continue
-                    parsed, diagnostics = parse_rendered_capability_table(
-                        table,
-                        category,
-                        url,
-                    )
+                    if category == "general":
+                        diagnostics = {
+                            "headers": [
+                                _rendered_header_name(header.get("text"))
+                                for header in table.get("headers") or []
+                            ],
+                            "schema_changes": [],
+                        }
+                        parsed = table.get("rows") or []
+                    else:
+                        parsed, diagnostics = parse_rendered_capability_table(
+                            table,
+                            category,
+                            url,
+                        )
                     if not parsed or diagnostics["schema_changes"]:
                         warnings.extend(diagnostics["schema_changes"])
                         continue
@@ -475,8 +576,12 @@ def parse_llmstats_table(
     *,
     category_top_models: Optional[Dict[str, List[dict]]] = None,
     category_tables: Optional[Dict[str, Dict[str, Any]]] = None,
+    rendered_general_table: Optional[Dict[str, Any]] = None,
 ) -> tuple[List[LLMStatsObservation], Dict[str, Any]]:
-    """Parse the visible server-rendered General table into source-native rows."""
+    """Parse the visible browser-rendered General table into source-native rows."""
+    source_html = html
+    if rendered_general_table:
+        html = _rendered_table_to_html(rendered_general_table)
     config = _load_config()["sources"]["llmstats"]
     headers, table_rows = _find_leaderboard_table(html)
     schema_changes: List[str] = []
@@ -492,7 +597,7 @@ def parse_llmstats_table(
 
     category_columns = config["category_columns"]
     benchmark_map = _source_name_to_benchmark()
-    source_updated_at = _extract_updated_at(html)
+    source_updated_at = _extract_updated_at(source_html)
     parsed: List[Dict[str, Any]] = []
     seen_ids: Dict[str, int] = {}
     duplicate_ids: List[str] = []
@@ -659,7 +764,7 @@ def parse_llmstats_table(
                     }
                 existing["benchmark_observations"][benchmark_id] = observation
 
-    # Category pages publish their leading models as server-rendered structured
+    # Category pages may also publish leading models as embedded structured
     # data. Preserve models that are not in the currently visible General table
     # so capability views do not silently lose a source-published leader.
     for category, published in (category_top_models or {}).items():
@@ -728,7 +833,7 @@ def parse_llmstats_table(
         evidence = {
             category: row.get("rank_evidence", {}).get(
                 category,
-                "derived_score_order_visible_server_population",
+                "derived_score_order_visible_rendered_population",
             )
             for category in categories
         }
@@ -748,7 +853,9 @@ def parse_llmstats_table(
                 source_name=row["source_name"],
                 source_model_url=row["source_model_url"],
                 source_model_id=row["source_model_id"],
-                provider=row["provider"],
+                provider=row["provider"] or _infer_provider(
+                    row["source_name"], row["source_model_id"]
+                ),
                 scraped_at=timestamp,
                 general_score=row["general_score"],
                 general_rank=ranks.get("general"),
@@ -796,12 +903,14 @@ def scrape_llmstats(
     warnings: List[str] = []
     try:
         general_html = _fetch_html(client, urls["general"], timeout)
-        category_tables, rendered_warnings = _extract_rendered_capability_tables(
+        rendered_tables, rendered_warnings = _extract_rendered_capability_tables(
             urls,
             timeout=timeout,
             delay_seconds=float(delay or 0),
         )
         warnings.extend(rendered_warnings)
+        rendered_general = rendered_tables.pop("general", None)
+        category_tables = rendered_tables
         category_top_models: Dict[str, List[dict]] = {}
         missing_categories: List[str] = []
         for category, url in urls.items():
@@ -827,6 +936,17 @@ def scrape_llmstats(
             urls["general"],
             category_top_models=category_top_models,
             category_tables=category_tables,
+            rendered_general_table=(
+                {
+                    "headers": [
+                        {"text": header}
+                        for header in rendered_general["diagnostics"]["headers"]
+                    ],
+                    "rows": rendered_general["rows"],
+                }
+                if rendered_general
+                else None
+            ),
         )
         schema_changes = list(diagnostics["schema_changes"])
         if missing_categories:

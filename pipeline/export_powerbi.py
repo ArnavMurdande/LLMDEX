@@ -80,6 +80,9 @@ KNOWN_MODEL_PROVIDERS = {
     "nova": "Amazon",
     "hermes": "Nous Research",
     "nemotron": "NVIDIA",
+    "deepseek": "DeepSeek",
+    "grok": "xAI",
+    "sakana": "Sakana AI",
 }
 
 
@@ -1461,7 +1464,9 @@ def run_exports(include_git_history: bool = False) -> Dict[str, Any]:
         aa_csv_path = tmp_path / "artificial_analysis_benchmarks.csv"
         with open(aa_csv_path, "w", encoding="utf-8-sig", newline="") as f:
             if aa_wide_rows:
-                writer = csv.DictWriter(f, fieldnames=AA_WIDE_COLUMNS)
+                writer = csv.DictWriter(
+                    f, fieldnames=AA_WIDE_COLUMNS, lineterminator="\n"
+                )
                 writer.writeheader()
                 writer.writerows(aa_wide_rows)
 
@@ -1475,7 +1480,9 @@ def run_exports(include_git_history: bool = False) -> Dict[str, Any]:
 
         with open(llmstats_csv_path, "w", encoding="utf-8-sig", newline="") as f:
             if llmstats_wide_rows:
-                writer = csv.DictWriter(f, fieldnames=llm_fieldnames)
+                writer = csv.DictWriter(
+                    f, fieldnames=llm_fieldnames, lineterminator="\n"
+                )
                 writer.writeheader()
                 writer.writerows(llmstats_wide_rows)
 
@@ -1500,7 +1507,9 @@ def run_exports(include_git_history: bool = False) -> Dict[str, Any]:
 
         with open(history_csv_path, "w", encoding="utf-8-sig", newline="") as f:
             if history_wide_rows:
-                writer = csv.DictWriter(f, fieldnames=hist_fieldnames)
+                writer = csv.DictWriter(
+                    f, fieldnames=hist_fieldnames, lineterminator="\n"
+                )
                 writer.writeheader()
                 writer.writerows(history_wide_rows)
 
@@ -1514,7 +1523,9 @@ def run_exports(include_git_history: bool = False) -> Dict[str, Any]:
 
         with open(dict_csv_path, "w", encoding="utf-8-sig", newline="") as f:
             if data_dict_rows:
-                writer = csv.DictWriter(f, fieldnames=dict_fieldnames)
+                writer = csv.DictWriter(
+                    f, fieldnames=dict_fieldnames, lineterminator="\n"
+                )
                 writer.writeheader()
                 writer.writerows(data_dict_rows)
 

@@ -6,7 +6,7 @@ The `Daily LLM Benchmark Update + Deploy` workflow:
 
 1. Installs cached Python dependencies.
 2. Runs unit/fixture tests and runtime lint checks.
-3. Scrapes Artificial Analysis and policy-permitted LLMStats HTML.
+3. Scrapes Artificial Analysis and policy-permitted public LLMStats pages.
 4. Builds source-native cleaned datasets.
 5. Runs identity matching, representatives, consensus, badges, history, and
    quality.

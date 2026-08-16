@@ -374,6 +374,7 @@ def build_consensus(
                 "generated_at": timestamp,
             }
         )
+        matched_family_ids.add(llmstats["family_id"])
 
     _apply_percentile_consensus(
         family_records,

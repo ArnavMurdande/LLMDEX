@@ -312,6 +312,36 @@ class ConsensusScoreTests(unittest.TestCase):
         self.assertEqual(score, 50.0)
         self.assertEqual(agreement, 0.0)
 
+    def test_llmstats_variants_collapse_to_one_family_record(self):
+        llmstats = [
+            {
+                "source": "llmstats",
+                "source_name": "GPT-5.1 Thinking",
+                "source_model_id": "gpt-5.1-thinking",
+                "general_score": 42.0,
+                "general_rank": 1.0,
+                "category_scores": {},
+                "category_ranks": {},
+            },
+            {
+                "source": "llmstats",
+                "source_name": "GPT-5.1",
+                "source_model_id": "gpt-5.1",
+                "general_score": 40.0,
+                "general_rank": 2.0,
+                "category_scores": {},
+                "category_ranks": {},
+            },
+        ]
+        output = build_consensus(
+            [],
+            llmstats,
+            {},
+            generated_at="2026-08-16T00:00:00+00:00",
+        )
+        family_ids = [row["family_id"] for row in output["families"]]
+        self.assertEqual(family_ids, ["unknown/gpt-5-1"])
+
 
 if __name__ == "__main__":
     unittest.main()

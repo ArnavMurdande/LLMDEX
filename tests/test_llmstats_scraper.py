@@ -5,6 +5,7 @@ from pathlib import Path
 
 from scraper.scrape_llmstats import (
     _extract_top_models,
+    _infer_provider,
     parse_llmstats_table,
     parse_rendered_capability_table,
 )
@@ -14,6 +15,12 @@ FIXTURES = Path(__file__).parent / "fixtures"
 
 
 class LLMStatsFixtureTests(unittest.TestCase):
+    def test_missing_provider_uses_unambiguous_series_prefix(self):
+        self.assertEqual(
+            _infer_provider("DeepSeek-V4-Pro-Max", "deepseek-v4-pro-max"),
+            "DeepSeek",
+        )
+
     def test_table_schema_and_source_native_names(self):
         general = (FIXTURES / "llmstats_general.html").read_text(encoding="utf-8")
         coding = (FIXTURES / "llmstats_coding.html").read_text(encoding="utf-8")
@@ -72,6 +79,7 @@ class LLMStatsFixtureTests(unittest.TestCase):
                 {"text": "Context window"},
                 {"text": "Speed\nchars/s"},
                 {"text": "TTFT\nlatency"},
+                {"text": "LICENSE"},
                 {
                     "text": "SWE-Bench Verified\n104 models",
                     "source_url": "https://llm-stats.com/benchmarks/swe-bench",
@@ -92,6 +100,7 @@ class LLMStatsFixtureTests(unittest.TestCase):
                         {"text": "1M"},
                         {"text": "120"},
                         {"text": "0.2"},
+                        {"text": "Closed"},
                         {"text": "76.5"},
                         {"text": "81.2"},
                     ],
@@ -105,6 +114,7 @@ class LLMStatsFixtureTests(unittest.TestCase):
         )
         self.assertEqual(diagnostics["schema_changes"], [])
         self.assertEqual(len(diagnostics["benchmark_columns"]), 2)
+        self.assertEqual(rows[0]["source_details"]["License"], "Closed")
         self.assertEqual(rows[0]["category_rank"], 1.0)
         self.assertEqual(
             rows[0]["benchmark_observations"]["swe_bench_verified"][
@@ -116,6 +126,50 @@ class LLMStatsFixtureTests(unittest.TestCase):
             rows[0]["benchmark_observations"]["llmstats__livecodebench"]["value"],
             81.2,
         )
+
+    def test_rendered_general_table_is_accepted_when_server_html_has_no_table(self):
+        rendered = {
+            "headers": [
+                {"text": ""},
+                {"text": "Model"},
+                {"text": "LLM Stats"},
+                {"text": "Coding"},
+                {"text": "Organization"},
+            ],
+            "rows": [
+                {
+                    "model_name": "Claude Opus 5",
+                    "model_url": "https://llm-stats.com/models/claude-opus-5",
+                    "cells": [
+                        {"text": ""},
+                        {"text": "Claude Opus 5"},
+                        {"text": "56.3"},
+                        {"text": "42.7"},
+                        {"text": "Anthropic"},
+                    ],
+                },
+                {
+                    "model_name": "Gemini 3.7 Flash",
+                    "model_url": "https://llm-stats.com/models/gemini-3-7-flash",
+                    "cells": [
+                        {"text": ""},
+                        {"text": "Gemini 3.7 Flash"},
+                        {"text": "44.2"},
+                        {"text": "35.1"},
+                        {"text": "Google"},
+                    ],
+                },
+            ],
+        }
+        rows, diagnostics = parse_llmstats_table(
+            "<html><body>client rendered</body></html>",
+            "https://llm-stats.com/leaderboards/llm-leaderboard",
+            rendered_general_table=rendered,
+        )
+        self.assertEqual(diagnostics["schema_changes"], [])
+        self.assertEqual([row.source_name for row in rows], ["Claude Opus 5", "Gemini 3.7 Flash"])
+        self.assertEqual(rows[0].provider, "Anthropic")
+        self.assertEqual(rows[1].category_scores["coding"], 35.1)
 
 
 if __name__ == "__main__":

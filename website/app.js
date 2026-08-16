@@ -1133,6 +1133,7 @@ function populateCapabilityTable(rows, contract) {
     { key: "source_name", label: "Model", sortable: true },
     { key: "provider", label: "Provider", sortable: true },
     { key: "category_score", label: `${CAPABILITY_CONFIGS[currentCapability]?.title || "Capability"} Score`, sortable: true },
+    { key: "license", label: "License", sortable: true },
     ...benchmarkColumns.map((benchmark) => ({
       key: benchmark.benchmark_id,
       label: benchmark.canonical_name,
@@ -1253,6 +1254,8 @@ function populateCapabilityTable(rows, contract) {
         </div>`;
       } else if (column.key === "provider") {
         td.textContent = row.provider || "—";
+      } else if (column.key === "license") {
+        td.textContent = row.license || "—";
       } else if (column.key === "category_score") {
         td.innerHTML =
           row.category_score == null
