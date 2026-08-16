@@ -1,19 +1,20 @@
 [
   {
-    "community_sentiment": -0.0063,
-    "mention_count": 19,
+    "community_sentiment": -0.1445,
+    "mention_count": 21,
     "controversy_index": 0.4286,
-    "sentiment_trend": "stable",
+    "sentiment_trend": "negative",
     "confidence_score": 0.23,
     "sentiment_method": "gemini",
     "valid_posts": 7,
     "strong_praise_count": 1,
     "strong_criticism_count": 2,
     "model_name": "Claude Opus 5",
-    "scraped_at": "2026-08-15T10:52:16.235961+00:00",
+    "scraped_at": "2026-08-16T10:53:04.745915+00:00",
     "_experimental": true,
     "source_counts": {
-      "HackerNews": 19
+      "HackerNews": 19,
+      "Reddit": 2
     },
     "community_examples": [
       {
@@ -23,8 +24,8 @@
       },
       {
         "source": "Hacker News",
-        "text": "\u2026e in newer major version releases but I just tried out Opus 5 and it's similarly *** at writing. Fable is slightly better but not by far (and of course ridiculously more expensive). Adding skills helps but only...",
-        "url": "https://news.ycombinator.com/item?id=49045140"
+        "text": "Claude Opus 5 cheated when tasked with running a vending machine",
+        "url": "https://news.ycombinator.com/item?id=49101543"
       },
       {
         "source": "Hacker News",
@@ -40,8 +41,8 @@
       },
       {
         "source": "Hacker News",
-        "text": "\u2026e in newer major version releases but I just tried out Opus 5 and it's similarly *** at writing. Fable is slightly better but not by far (and of course ridiculously more expensive). Adding skills helps but only...",
-        "url": "https://news.ycombinator.com/item?id=49045140"
+        "text": "Claude Opus 5 cheated when tasked with running a vending machine",
+        "url": "https://news.ycombinator.com/item?id=49101543"
       },
       {
         "source": "Hacker News",
@@ -51,54 +52,53 @@
     ]
   },
   {
-    "community_sentiment": -0.1587,
-    "mention_count": 22,
-    "controversy_index": 0.2,
-    "sentiment_trend": "negative",
+    "community_sentiment": 0.1191,
+    "mention_count": 17,
+    "controversy_index": 0.4,
+    "sentiment_trend": "positive",
     "confidence_score": 0.17,
     "sentiment_method": "gemini",
     "valid_posts": 5,
-    "strong_praise_count": 1,
+    "strong_praise_count": 2,
     "strong_criticism_count": 0,
     "model_name": "Claude Fable 5",
-    "scraped_at": "2026-08-15T10:52:20.584050+00:00",
+    "scraped_at": "2026-08-16T10:53:10.972820+00:00",
     "_experimental": true,
     "source_counts": {
-      "HackerNews": 18,
-      "Reddit": 4
+      "HackerNews": 17
     },
     "community_examples": [
       {
         "source": "Hacker News",
-        "text": "\u2026e Opus 5 definitely feels a lot closer to the original Fable 5 release. With minimal instructions and about 2 iterations of feedback, I am really surprised with it's output, especially the visuals.",
-        "url": "https://news.ycombinator.com/item?id=49046504"
+        "text": "Tweet claiming Claude Fable 5 has helped disprove the Jacobian conjecture",
+        "url": "https://news.ycombinator.com/item?id=48974144"
+      },
+      {
+        "source": "Hacker News",
+        "text": "Degraded performance for Claude Mythos 5, Claude Fable 5, and Claude Opus 5",
+        "url": "https://news.ycombinator.com/item?id=49179554"
       },
       {
         "source": "Hacker News",
         "text": "Why I prefer Opus 5 to Fable 5 I've been experimenting with both since the moment each came out. 4 games, 3 websites and 2 content creation engines later - I think I'm ready to share a bit of my experience and...",
         "url": "https://news.ycombinator.com/item?id=49081970"
-      },
-      {
-        "source": "Reddit",
-        "text": "GLM-5.3 benchmark breakdown: where it actually beats Fable 5 / GPT-5.6 Sol, and where the \"beats the frontier\" headlines are wrong Z.ai dropped GLM-5.3 on August 14. I went through the launch materials, the benchmark...",
-        "url": "https://www.reddit.com/r/AIToolsPerformance/comments/1voygbi/glm53_benchmark_breakdown_where_it_actually_beats/"
       }
     ],
     "top_quotes": [
       {
         "source": "Hacker News",
-        "text": "\u2026e Opus 5 definitely feels a lot closer to the original Fable 5 release. With minimal instructions and about 2 iterations of feedback, I am really surprised with it's output, especially the visuals.",
-        "url": "https://news.ycombinator.com/item?id=49046504"
+        "text": "Tweet claiming Claude Fable 5 has helped disprove the Jacobian conjecture",
+        "url": "https://news.ycombinator.com/item?id=48974144"
+      },
+      {
+        "source": "Hacker News",
+        "text": "Degraded performance for Claude Mythos 5, Claude Fable 5, and Claude Opus 5",
+        "url": "https://news.ycombinator.com/item?id=49179554"
       },
       {
         "source": "Hacker News",
         "text": "Why I prefer Opus 5 to Fable 5 I've been experimenting with both since the moment each came out. 4 games, 3 websites and 2 content creation engines later - I think I'm ready to share a bit of my experience and...",
         "url": "https://news.ycombinator.com/item?id=49081970"
-      },
-      {
-        "source": "Reddit",
-        "text": "GLM-5.3 benchmark breakdown: where it actually beats Fable 5 / GPT-5.6 Sol, and where the \"beats the frontier\" headlines are wrong Z.ai dropped GLM-5.3 on August 14. I went through the launch materials, the benchmark...",
-        "url": "https://www.reddit.com/r/AIToolsPerformance/comments/1voygbi/glm53_benchmark_breakdown_where_it_actually_beats/"
       }
     ]
   },
@@ -113,7 +113,7 @@
     "strong_praise_count": 2,
     "strong_criticism_count": 1,
     "model_name": "GPT-5.6 Sol",
-    "scraped_at": "2026-08-15T10:52:24.387061+00:00",
+    "scraped_at": "2026-08-16T10:53:18.384797+00:00",
     "_experimental": true,
     "source_counts": {
       "HackerNews": 17
@@ -154,20 +154,21 @@
     ]
   },
   {
-    "community_sentiment": 0.7128,
-    "mention_count": 8,
+    "community_sentiment": 0.5,
+    "mention_count": 12,
     "controversy_index": 0.0,
     "sentiment_trend": "positive",
-    "confidence_score": 0.07,
+    "confidence_score": 0.03,
     "sentiment_method": "gemini",
-    "valid_posts": 2,
+    "valid_posts": 1,
     "strong_praise_count": 0,
     "strong_criticism_count": 0,
     "model_name": "Grok 4.6",
-    "scraped_at": "2026-08-15T10:52:25.591973+00:00",
+    "scraped_at": "2026-08-16T10:53:20.975219+00:00",
     "_experimental": true,
     "source_counts": {
-      "HackerNews": 8
+      "Reddit": 6,
+      "HackerNews": 6
     },
     "community_examples": [
       {
@@ -195,7 +196,7 @@
     "strong_praise_count": 0,
     "strong_criticism_count": 0,
     "model_name": "Kimi K3",
-    "scraped_at": "2026-08-15T10:52:30.909556+00:00",
+    "scraped_at": "2026-08-16T10:53:25.876177+00:00",
     "_experimental": true,
     "source_counts": {
       "HackerNews": 24
@@ -246,7 +247,7 @@
     "strong_praise_count": 2,
     "strong_criticism_count": 0,
     "model_name": "Qwen3.8 Max",
-    "scraped_at": "2026-08-15T10:52:31.941332+00:00",
+    "scraped_at": "2026-08-16T10:53:27.912239+00:00",
     "_experimental": true,
     "source_counts": {
       "HackerNews": 5
@@ -284,7 +285,7 @@
     "confidence_score": 0,
     "sentiment_method": "gemini",
     "model_name": "Qwen3.8 2.4T A95B",
-    "scraped_at": "2026-08-15T10:52:32.634388+00:00",
+    "scraped_at": "2026-08-16T10:53:28.963562+00:00",
     "_experimental": true,
     "source_counts": {
       "HackerNews": 3
@@ -303,7 +304,7 @@
     "strong_praise_count": 0,
     "strong_criticism_count": 0,
     "model_name": "Muse Spark 1.2",
-    "scraped_at": "2026-08-15T10:52:33.750227+00:00",
+    "scraped_at": "2026-08-16T10:53:30.374764+00:00",
     "_experimental": true,
     "source_counts": {
       "HackerNews": 6
@@ -324,36 +325,20 @@
     ]
   },
   {
-    "community_sentiment": 0.0,
-    "mention_count": 4,
-    "controversy_index": 0.0,
-    "sentiment_trend": "stable",
-    "confidence_score": 0.03,
+    "community_sentiment": null,
+    "mention_count": 2,
+    "controversy_index": null,
+    "sentiment_trend": null,
+    "confidence_score": 0,
     "sentiment_method": "gemini",
-    "valid_posts": 1,
-    "strong_praise_count": 0,
-    "strong_criticism_count": 0,
     "model_name": "GPT-5.6 Terra",
-    "scraped_at": "2026-08-15T10:52:34.625936+00:00",
+    "scraped_at": "2026-08-16T10:53:31.108759+00:00",
     "_experimental": true,
     "source_counts": {
-      "Reddit": 2,
       "HackerNews": 2
     },
-    "community_examples": [
-      {
-        "source": "Hacker News",
-        "text": "GPT-5.6-terra used 48.5% more context than Mimo-2.5-pro",
-        "url": "https://news.ycombinator.com/item?id=48919754"
-      }
-    ],
-    "top_quotes": [
-      {
-        "source": "Hacker News",
-        "text": "GPT-5.6-terra used 48.5% more context than Mimo-2.5-pro",
-        "url": "https://news.ycombinator.com/item?id=48919754"
-      }
-    ]
+    "community_examples": [],
+    "top_quotes": []
   },
   {
     "community_sentiment": null,
@@ -363,7 +348,7 @@
     "confidence_score": 0,
     "sentiment_method": "gemini",
     "model_name": "Gemini 3.7 Flash",
-    "scraped_at": "2026-08-15T10:52:35.565328+00:00",
+    "scraped_at": "2026-08-16T10:53:32.278060+00:00",
     "_experimental": true,
     "source_counts": {
       "HackerNews": 4
