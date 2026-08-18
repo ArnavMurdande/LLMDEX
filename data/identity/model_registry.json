@@ -727,6 +727,40 @@
       }
     }
   },
+  "alibaba/qwen3-8-27b": {
+    "family_id": "alibaba/qwen3-8-27b",
+    "canonical_family_name": "Qwen3.8 27B",
+    "provider": "Alibaba",
+    "version": "3.8",
+    "source_aliases": {
+      "artificial_analysis": [
+        "Qwen3.8 27B"
+      ],
+      "llmstats": [
+        "Qwen3.8-27B"
+      ]
+    },
+    "source_ids": {},
+    "source_urls": {
+      "artificial_analysis": [
+        "https://artificialanalysis.ai/models/qwen3-8-27b"
+      ]
+    },
+    "variants": {
+      "alibaba/qwen3-8-27b:default": {
+        "variant_id": "alibaba/qwen3-8-27b:default",
+        "deployment_profile_id": "alibaba/qwen3-8-27b:default:deployment",
+        "source_name": "Qwen3.8 27B",
+        "reasoning_effort": null,
+        "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": {
+          "total_billions": 27.0,
+          "active_billions": null
+        }
+      }
+    }
+  },
   "alibaba/qwen3-coder-next": {
     "family_id": "alibaba/qwen3-coder-next",
     "canonical_family_name": "Qwen3 Coder Next",
