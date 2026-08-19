@@ -547,19 +547,13 @@
     "source_model_id": "glm-5.3",
     "source_model_url": "https://llm-stats.com/models/glm-5.3",
     "provider": "Z AI",
-    "candidate_family_id": "z-ai/glm-5-2",
-    "candidate_family_name": "GLM-5.2",
-    "match_status": "identity_unresolved",
-    "match_confidence": 0.8,
-    "match_method": "fuzzy_review_candidate",
-    "review_reason": "Fuzzy candidates require manual approval and are excluded from scoring.",
-    "competing_candidates": [
-      {
-        "family_id": "z-ai/glm-5-2",
-        "family_name": "GLM-5.2",
-        "similarity": 0.8571
-      }
-    ]
+    "candidate_family_id": "z-ai/glm-5-3",
+    "candidate_family_name": "GLM-5.3",
+    "match_status": "matched_family",
+    "match_confidence": 0.95,
+    "match_method": "exact_provider_family_version",
+    "review_reason": null,
+    "competing_candidates": []
   },
   {
     "source": "llmstats",
