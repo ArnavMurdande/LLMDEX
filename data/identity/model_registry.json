@@ -734,7 +734,9 @@
     "version": "3.8",
     "source_aliases": {
       "artificial_analysis": [
-        "Qwen3.8 27B"
+        "Qwen3.8 27B (low)",
+        "Qwen3.8 27B (medium)",
+        "Qwen3.8 27B (xhigh)"
       ],
       "llmstats": [
         "Qwen3.8-27B"
@@ -743,15 +745,41 @@
     "source_ids": {},
     "source_urls": {
       "artificial_analysis": [
-        "https://artificialanalysis.ai/models/qwen3-8-27b"
+        "https://artificialanalysis.ai/models/qwen3-8-27b",
+        "https://artificialanalysis.ai/models/qwen3-8-27b-low",
+        "https://artificialanalysis.ai/models/qwen3-8-27b-medium"
       ]
     },
     "variants": {
-      "alibaba/qwen3-8-27b:default": {
-        "variant_id": "alibaba/qwen3-8-27b:default",
-        "deployment_profile_id": "alibaba/qwen3-8-27b:default:deployment",
-        "source_name": "Qwen3.8 27B",
-        "reasoning_effort": null,
+      "alibaba/qwen3-8-27b:xhigh": {
+        "variant_id": "alibaba/qwen3-8-27b:xhigh",
+        "deployment_profile_id": "alibaba/qwen3-8-27b:xhigh:deployment",
+        "source_name": "Qwen3.8 27B (xhigh)",
+        "reasoning_effort": "xhigh",
+        "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": {
+          "total_billions": 27.0,
+          "active_billions": null
+        }
+      },
+      "alibaba/qwen3-8-27b:medium": {
+        "variant_id": "alibaba/qwen3-8-27b:medium",
+        "deployment_profile_id": "alibaba/qwen3-8-27b:medium:deployment",
+        "source_name": "Qwen3.8 27B (medium)",
+        "reasoning_effort": "medium",
+        "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": {
+          "total_billions": 27.0,
+          "active_billions": null
+        }
+      },
+      "alibaba/qwen3-8-27b:low": {
+        "variant_id": "alibaba/qwen3-8-27b:low",
+        "deployment_profile_id": "alibaba/qwen3-8-27b:low:deployment",
+        "source_name": "Qwen3.8 27B (low)",
+        "reasoning_effort": "low",
         "deployment_profile": [],
         "fallback_enabled": false,
         "parameter_count": {
@@ -3528,6 +3556,38 @@
       }
     }
   },
+  "liquid-ai/lfm2-5-2-6b": {
+    "family_id": "liquid-ai/lfm2-5-2-6b",
+    "canonical_family_name": "LFM2.5-2.6B",
+    "provider": "Liquid AI",
+    "version": "2.5",
+    "source_aliases": {
+      "artificial_analysis": [
+        "LFM2.5-2.6B"
+      ],
+      "llmstats": []
+    },
+    "source_ids": {},
+    "source_urls": {
+      "artificial_analysis": [
+        "https://artificialanalysis.ai/models/lfm2-5-2-6b"
+      ]
+    },
+    "variants": {
+      "liquid-ai/lfm2-5-2-6b:default": {
+        "variant_id": "liquid-ai/lfm2-5-2-6b:default",
+        "deployment_profile_id": "liquid-ai/lfm2-5-2-6b:default:deployment",
+        "source_name": "LFM2.5-2.6B",
+        "reasoning_effort": null,
+        "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": {
+          "total_billions": 2.6,
+          "active_billions": null
+        }
+      }
+    }
+  },
   "liquid-ai/lfm2-5-8b-a1b": {
     "family_id": "liquid-ai/lfm2-5-8b-a1b",
     "canonical_family_name": "LFM2.5-8B-A1B",
@@ -6133,14 +6193,20 @@
     "version": "4.6",
     "source_aliases": {
       "artificial_analysis": [
-        "Grok 4.6 (high)"
+        "Grok 4.6 (high)",
+        "Grok 4.6 (low)",
+        "Grok 4.6 (medium)",
+        "Grok 4.6 (xhigh)"
       ],
       "llmstats": []
     },
     "source_ids": {},
     "source_urls": {
       "artificial_analysis": [
-        "https://artificialanalysis.ai/models/grok-4-6"
+        "https://artificialanalysis.ai/models/grok-4-6",
+        "https://artificialanalysis.ai/models/grok-4-6-low",
+        "https://artificialanalysis.ai/models/grok-4-6-medium",
+        "https://artificialanalysis.ai/models/grok-4-6-xhigh"
       ]
     },
     "variants": {
@@ -6149,6 +6215,33 @@
         "deployment_profile_id": "spacexai/grok-4-6:high:deployment",
         "source_name": "Grok 4.6 (high)",
         "reasoning_effort": "high",
+        "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": null
+      },
+      "spacexai/grok-4-6:xhigh": {
+        "variant_id": "spacexai/grok-4-6:xhigh",
+        "deployment_profile_id": "spacexai/grok-4-6:xhigh:deployment",
+        "source_name": "Grok 4.6 (xhigh)",
+        "reasoning_effort": "xhigh",
+        "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": null
+      },
+      "spacexai/grok-4-6:medium": {
+        "variant_id": "spacexai/grok-4-6:medium",
+        "deployment_profile_id": "spacexai/grok-4-6:medium:deployment",
+        "source_name": "Grok 4.6 (medium)",
+        "reasoning_effort": "medium",
+        "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": null
+      },
+      "spacexai/grok-4-6:low": {
+        "variant_id": "spacexai/grok-4-6:low",
+        "deployment_profile_id": "spacexai/grok-4-6:low:deployment",
+        "source_name": "Grok 4.6 (low)",
+        "reasoning_effort": "low",
         "deployment_profile": [],
         "fallback_enabled": false,
         "parameter_count": null

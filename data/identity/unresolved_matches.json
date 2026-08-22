@@ -221,6 +221,31 @@
   },
   {
     "source": "llmstats",
+    "source_name": "DeepSeek-V4-Flash-Vision-Exp",
+    "source_model_id": "deepseek-v4-flash-vision-exp",
+    "source_model_url": "https://llm-stats.com/models/deepseek-v4-flash-vision-exp",
+    "provider": "DeepSeek",
+    "candidate_family_id": "deepseek/deepseek-v4-flash",
+    "candidate_family_name": "DeepSeek V4 Flash",
+    "match_status": "identity_unresolved",
+    "match_confidence": 0.7556,
+    "match_method": "fuzzy_review_candidate",
+    "review_reason": "Fuzzy candidates require manual approval and are excluded from scoring.",
+    "competing_candidates": [
+      {
+        "family_id": "deepseek/deepseek-v4-flash",
+        "family_name": "DeepSeek V4 Flash",
+        "similarity": 0.7556
+      },
+      {
+        "family_id": "deepseek/deepseek-v4-flash-0731",
+        "family_name": "DeepSeek V4 Flash 0731",
+        "similarity": 0.72
+      }
+    ]
+  },
+  {
+    "source": "llmstats",
     "source_name": "Qwen3.6 Plus",
     "source_model_id": "qwen3.6-plus",
     "source_model_url": "https://llm-stats.com/models/qwen3.6-plus",

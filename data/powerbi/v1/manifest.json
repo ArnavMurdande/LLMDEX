@@ -1,26 +1,26 @@
 {
   "schema_version": "powerbi-v2-wide",
   "source_snapshot_dates": {
-    "artificial_analysis": "2026-08-21",
-    "llmstats": "2026-08-21"
+    "artificial_analysis": "2026-08-22",
+    "llmstats": "2026-08-22"
   },
   "earliest_catalog_event_date": "2022-11-30",
   "earliest_observed_snapshot_date": "2026-07-23",
-  "latest_observed_snapshot_date": "2026-08-21",
-  "catalog_event_row_count": 597,
-  "observed_snapshot_row_count": 7801,
+  "latest_observed_snapshot_date": "2026-08-22",
+  "catalog_event_row_count": 603,
+  "observed_snapshot_row_count": 8057,
   "historical_coverage_limitations": "Pre-LLMDEX historical rows represent repository-supported catalogue or release events and must not be interpreted as daily historical benchmark measurements.",
   "row_counts": {
-    "artificial_analysis_benchmarks": 264,
+    "artificial_analysis_benchmarks": 270,
     "llmstats_benchmarks": 307,
     "combined_latest": 1,
-    "model_family_history": 8398,
+    "model_family_history": 8660,
     "provider_metadata": 59,
-    "data_dictionary": 205
+    "data_dictionary": 204
   },
   "column_counts": {
     "artificial_analysis_benchmarks": 74,
-    "llmstats_benchmarks": 74,
+    "llmstats_benchmarks": 73,
     "model_family_history": 36,
     "provider_metadata": 21
   },
@@ -56,14 +56,14 @@
     "tii-uae",
     "trillion-labs"
   ],
-  "number_of_benchmark_columns": 57,
+  "number_of_benchmark_columns": 56,
   "llmstats_general_row_count": 97,
   "llmstats_general_missing_score_count": 67,
   "llmstats_general_missing_rank_count": 67,
   "llmstats_general_missing_provider_count": 0,
   "llmstats_provider_populated_count": 307,
   "llmstats_provider_missing_count": 0,
-  "llmstats_availability_unknown_count": 185,
+  "llmstats_availability_unknown_count": 187,
   "malformed_name_count_detected": 0,
   "malformed_name_count_corrected": 0,
   "unresolved_malformed_name_count": 0,
@@ -78,19 +78,19 @@
     "aa_cache_read_cost_usd_per_1m",
     "aa_cache_write_cost_usd_per_1m"
   ],
-  "corrected_open_weight_inconsistency_count": 178,
+  "corrected_open_weight_inconsistency_count": 181,
   "sha256_hashes": {
-    "artificial_analysis_benchmarks.csv": "2a9cb7fec16b8cb0b7cdab595b6bafcec14fb05dd16a4f7689bfeb00be9cfff4",
-    "llmstats_benchmarks.csv": "30b8d2a586cbd80d972b8d9dd2db967f87bb1baee10b6cd6121268cb5fdf940b",
-    "combined_latest.json": "f54fa9a7508177d652657896aa35349c74c43da2da0475a839539952c6356fc8",
-    "model_family_history.csv": "1f0bf165c5a07c475853b4996b30bcaea3575e7efa89e34e7d243f93275525ba",
-    "provider_metadata.csv": "7ff4414a1252d8775eb74bad7cddedadcb5dc986a9d5e0c4590b496bdec3798e",
-    "provider_metadata_validation.json": "d607d767fb459cc34b3b792a3b5982f2f4ef0a1110a57cdfdb42fc23d3bb3b19",
-    "data_dictionary.csv": "93ec10ad9b0ecd59c42eecce4c73e38b8c68e4cc98f1183815345d7f20387a07"
+    "artificial_analysis_benchmarks.csv": "0c9d4214f74a927d8039379149e287f0e3e6e43118d83d770b2ca6a0047538fd",
+    "llmstats_benchmarks.csv": "8380dd3c11a070bb8db11223f8ef0f174416c4be5da61b9d59b0d0fb73a0443f",
+    "combined_latest.json": "ddb107284c02d3f87905da5f7254002446478fdebc87f387658dc8bb8a1a6826",
+    "model_family_history.csv": "3f6ad4ace39257f981456a3666e1d0b5dec2bdc9be363b1228fb90d24245258b",
+    "provider_metadata.csv": "347774300d1685eb778c38ec240507752a3b25f6942ec5f0708f5159966a6021",
+    "provider_metadata_validation.json": "da19328c44f9d1af728f0d9a9b938be768d40e34450f9d0f6f8d1ebf26c38761",
+    "data_dictionary.csv": "b468b6a6bdbb0ea61d5bef7d63e8fedba77d3a2dc6f7d63aeb9de8640a74fef7"
   },
   "validation_status": "valid",
   "warnings": [
     "Provider metadata required: ai9stars, allen-institute-for-ai, arcee-ai, celeris, china-mobile, deep-cogito, inception, inclusionai, korea-telecom, kwaikat, liquid-ai, mbzuai-institute-of-foundation-models, motif-technologies, multiverse-computing, nanbeige, nex-agi, nous-research, openbmb, openchat, prime-intellect, reka-ai, sapiens-ai, sk-telecom, stepfun, swiss-ai-initiative, tii-uae, trillion-labs"
   ],
-  "generated_from_commit": "6e6b6239116abd5d1e8589ea1c17e5c709204b8e"
+  "generated_from_commit": "9e283aa33d3ab2fbe1d0f59e7308fcf065e0dfc8"
 }
