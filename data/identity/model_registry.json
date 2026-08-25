@@ -736,6 +736,7 @@
       "artificial_analysis": [
         "Qwen3.8 27B (low)",
         "Qwen3.8 27B (medium)",
+        "Qwen3.8 27B (non-reasoning)",
         "Qwen3.8 27B (xhigh)"
       ],
       "llmstats": [
@@ -747,7 +748,8 @@
       "artificial_analysis": [
         "https://artificialanalysis.ai/models/qwen3-8-27b",
         "https://artificialanalysis.ai/models/qwen3-8-27b-low",
-        "https://artificialanalysis.ai/models/qwen3-8-27b-medium"
+        "https://artificialanalysis.ai/models/qwen3-8-27b-medium",
+        "https://artificialanalysis.ai/models/qwen3-8-27b-non-reasoning"
       ]
     },
     "variants": {
@@ -781,6 +783,20 @@
         "source_name": "Qwen3.8 27B (low)",
         "reasoning_effort": "low",
         "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": {
+          "total_billions": 27.0,
+          "active_billions": null
+        }
+      },
+      "alibaba/qwen3-8-27b:non-reasoning": {
+        "variant_id": "alibaba/qwen3-8-27b:non-reasoning",
+        "deployment_profile_id": "alibaba/qwen3-8-27b:non-reasoning:deployment",
+        "source_name": "Qwen3.8 27B (non-reasoning)",
+        "reasoning_effort": null,
+        "deployment_profile": [
+          "non-reasoning"
+        ],
         "fallback_enabled": false,
         "parameter_count": {
           "total_billions": 27.0,
@@ -2030,6 +2046,35 @@
         "variant_id": "deepseek/deepseek-v4-flash-0731:max",
         "deployment_profile_id": "deepseek/deepseek-v4-flash-0731:max:deployment",
         "source_name": "DeepSeek V4 Flash 0731 (max)",
+        "reasoning_effort": "max",
+        "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": null
+      }
+    }
+  },
+  "deepseek/deepseek-v4-flash-vision": {
+    "family_id": "deepseek/deepseek-v4-flash-vision",
+    "canonical_family_name": "DeepSeek V4 Flash Vision",
+    "provider": "DeepSeek",
+    "version": null,
+    "source_aliases": {
+      "artificial_analysis": [
+        "DeepSeek V4 Flash Vision (max)"
+      ],
+      "llmstats": []
+    },
+    "source_ids": {},
+    "source_urls": {
+      "artificial_analysis": [
+        "https://artificialanalysis.ai/models/deepseek-v4-flash-vision"
+      ]
+    },
+    "variants": {
+      "deepseek/deepseek-v4-flash-vision:max": {
+        "variant_id": "deepseek/deepseek-v4-flash-vision:max",
+        "deployment_profile_id": "deepseek/deepseek-v4-flash-vision:max:deployment",
+        "source_name": "DeepSeek V4 Flash Vision (max)",
         "reasoning_effort": "max",
         "deployment_profile": [],
         "fallback_enabled": false,
