@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-08-25T11:01:35.412334+00:00",
+  "generated_at": "2026-08-26T11:03:52.533526+00:00",
   "methodology_version": "LLMStats source-native current",
-  "source_updated_at": "2026-08-25T11:01:59.602106+00:00",
+  "source_updated_at": "2026-08-26T11:04:18.999303+00:00",
   "source_health": {
     "source": "LLMStats",
-    "rows_scraped": 97,
+    "rows_scraped": 96,
     "expected_range": [
       20,
       250
     ],
     "status": "healthy",
     "error_message": null,
-    "duration_seconds": 24.181,
-    "timestamp": "2026-08-25T11:01:59.602106+00:00",
+    "duration_seconds": 26.457,
+    "timestamp": "2026-08-26T11:04:18.999303+00:00",
     "parse_warning_count": 0,
     "warnings": [],
-    "last_successful_update": "2026-08-25T11:01:59.602106+00:00",
+    "last_successful_update": "2026-08-26T11:04:18.999303+00:00",
     "schema_changes": []
   },
   "categories": {
@@ -155,7 +155,7 @@
           "version": "2025",
           "source_name": "AIME 2025",
           "source_url": "https://llm-stats.com/benchmarks/aime-2025",
-          "source_population": 115
+          "source_population": 116
         },
         {
           "benchmark_id": "llmstats__mmlu-pro",
@@ -163,7 +163,7 @@
           "version": null,
           "source_name": "MMLU-Pro",
           "source_url": "https://llm-stats.com/benchmarks/mmlu-pro",
-          "source_population": 134
+          "source_population": 135
         },
         {
           "benchmark_id": "llmstats__aime-2024",
@@ -214,20 +214,20 @@
           "source_population": 30
         },
         {
+          "benchmark_id": "llmstats__aime-2026",
+          "canonical_name": "AIME 2026",
+          "version": null,
+          "source_name": "AIME 2026",
+          "source_url": "https://llm-stats.com/benchmarks/aime-2026",
+          "source_population": 22
+        },
+        {
           "benchmark_id": "scicode",
           "canonical_name": "SciCode",
           "version": "source-reported",
           "source_name": "SciCode",
           "source_url": "https://llm-stats.com/benchmarks/scicode",
           "source_population": 21
-        },
-        {
-          "benchmark_id": "llmstats__mmlu",
-          "canonical_name": "MMLU",
-          "version": null,
-          "source_name": "MMLU",
-          "source_url": "https://llm-stats.com/benchmarks/mmlu",
-          "source_population": 101
         }
       ]
     },
@@ -249,7 +249,7 @@
           "version": "2025",
           "source_name": "AIME 2025",
           "source_url": "https://llm-stats.com/benchmarks/aime-2025",
-          "source_population": 115
+          "source_population": 116
         },
         {
           "benchmark_id": "swe_bench_verified",
@@ -268,20 +268,12 @@
           "source_population": 66
         },
         {
-          "benchmark_id": "llmstats__livecodebench-v6",
-          "canonical_name": "LiveCodeBench v6",
-          "version": null,
-          "source_name": "LiveCodeBench v6",
-          "source_url": "https://llm-stats.com/benchmarks/livecodebench-v6",
-          "source_population": 56
-        },
-        {
           "benchmark_id": "gpqa",
           "canonical_name": "GPQA",
           "version": "source-reported",
           "source_name": "GPQA",
           "source_url": "https://llm-stats.com/benchmarks/gpqa",
-          "source_population": 239
+          "source_population": 240
         },
         {
           "benchmark_id": "llmstats__mmlu-pro",
@@ -289,7 +281,15 @@
           "version": null,
           "source_name": "MMLU-Pro",
           "source_url": "https://llm-stats.com/benchmarks/mmlu-pro",
-          "source_population": 134
+          "source_population": 135
+        },
+        {
+          "benchmark_id": "llmstats__livecodebench-v6",
+          "canonical_name": "LiveCodeBench v6",
+          "version": null,
+          "source_name": "LiveCodeBench v6",
+          "source_url": "https://llm-stats.com/benchmarks/livecodebench-v6",
+          "source_population": 57
         },
         {
           "benchmark_id": "llmstats__aime-2024",
@@ -327,7 +327,15 @@
           "version": null,
           "source_name": "Tau2 Telecom",
           "source_url": "https://llm-stats.com/benchmarks/tau2-telecom",
-          "source_population": 35
+          "source_population": 36
+        },
+        {
+          "benchmark_id": "llmstats__tau2-airline",
+          "canonical_name": "Tau2 Airline",
+          "version": null,
+          "source_name": "Tau2 Airline",
+          "source_url": "https://llm-stats.com/benchmarks/tau2-airline",
+          "source_population": 24
         },
         {
           "benchmark_id": "llmstats__multi-challenge",
@@ -338,20 +346,12 @@
           "source_population": 29
         },
         {
-          "benchmark_id": "llmstats__tau2-airline",
-          "canonical_name": "Tau2 Airline",
-          "version": null,
-          "source_name": "Tau2 Airline",
-          "source_url": "https://llm-stats.com/benchmarks/tau2-airline",
-          "source_population": 23
-        },
-        {
           "benchmark_id": "llmstats__tau2-retail",
           "canonical_name": "Tau2 Retail",
           "version": null,
           "source_name": "Tau2 Retail",
           "source_url": "https://llm-stats.com/benchmarks/tau2-retail",
-          "source_population": 26
+          "source_population": 27
         },
         {
           "benchmark_id": "llmstats__tau-bench-retail",
@@ -499,7 +499,7 @@
           "version": null,
           "source_name": "AA-LCR",
           "source_url": "https://llm-stats.com/benchmarks/aa-lcr",
-          "source_population": 18
+          "source_population": 19
         },
         {
           "benchmark_id": "llmstats__longbench-v2",
@@ -596,6 +596,14 @@
           "source_population": 37
         },
         {
+          "benchmark_id": "llmstats__tau2-telecom",
+          "canonical_name": "Tau2 Telecom",
+          "version": null,
+          "source_name": "Tau2 Telecom",
+          "source_url": "https://llm-stats.com/benchmarks/tau2-telecom",
+          "source_population": 36
+        },
+        {
           "benchmark_id": "mcp_atlas",
           "canonical_name": "MCP Atlas",
           "version": "source-reported",
@@ -612,20 +620,12 @@
           "source_population": 51
         },
         {
-          "benchmark_id": "llmstats__tau2-telecom",
-          "canonical_name": "Tau2 Telecom",
-          "version": null,
-          "source_name": "Tau2 Telecom",
-          "source_url": "https://llm-stats.com/benchmarks/tau2-telecom",
-          "source_population": 35
-        },
-        {
           "benchmark_id": "llmstats__tau2-airline",
           "canonical_name": "Tau2 Airline",
           "version": null,
           "source_name": "Tau2 Airline",
           "source_url": "https://llm-stats.com/benchmarks/tau2-airline",
-          "source_population": 23
+          "source_population": 24
         },
         {
           "benchmark_id": "llmstats__tau2-retail",
@@ -633,7 +633,7 @@
           "version": null,
           "source_name": "Tau2 Retail",
           "source_url": "https://llm-stats.com/benchmarks/tau2-retail",
-          "source_population": 26
+          "source_population": 27
         },
         {
           "benchmark_id": "llmstats__automationbench",

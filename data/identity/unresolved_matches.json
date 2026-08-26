@@ -436,31 +436,6 @@
   },
   {
     "source": "llmstats",
-    "source_name": "Claude Sonnet 4",
-    "source_model_id": "claude-sonnet-4-20250514",
-    "source_model_url": "https://llm-stats.com/models/claude-sonnet-4-20250514",
-    "provider": "Anthropic",
-    "candidate_family_id": "anthropic/claude-sonnet-4-6",
-    "candidate_family_name": "Claude Sonnet 4.6",
-    "match_status": "ambiguous",
-    "match_confidence": 0.8,
-    "match_method": "fuzzy_review_candidate",
-    "review_reason": "Fuzzy candidates require manual approval and are excluded from scoring.",
-    "competing_candidates": [
-      {
-        "family_id": "anthropic/claude-sonnet-4-6",
-        "family_name": "Claude Sonnet 4.6",
-        "similarity": 0.9375
-      },
-      {
-        "family_id": "anthropic/claude-sonnet-5",
-        "family_name": "Claude Sonnet 5",
-        "similarity": 0.9333
-      }
-    ]
-  },
-  {
-    "source": "llmstats",
     "source_name": "MiMo-V2-Pro",
     "source_model_id": "mimo-v2-pro",
     "source_model_url": "https://llm-stats.com/models/mimo-v2-pro",
@@ -486,6 +461,31 @@
         "family_id": "xiaomi/mimo-v2-omni",
         "family_name": "MiMo-V2-Omni",
         "similarity": 0.7826
+      }
+    ]
+  },
+  {
+    "source": "llmstats",
+    "source_name": "Claude Sonnet 4",
+    "source_model_id": "claude-sonnet-4-20250514",
+    "source_model_url": "https://llm-stats.com/models/claude-sonnet-4-20250514",
+    "provider": "Anthropic",
+    "candidate_family_id": "anthropic/claude-sonnet-4-6",
+    "candidate_family_name": "Claude Sonnet 4.6",
+    "match_status": "ambiguous",
+    "match_confidence": 0.8,
+    "match_method": "fuzzy_review_candidate",
+    "review_reason": "Fuzzy candidates require manual approval and are excluded from scoring.",
+    "competing_candidates": [
+      {
+        "family_id": "anthropic/claude-sonnet-4-6",
+        "family_name": "Claude Sonnet 4.6",
+        "similarity": 0.9375
+      },
+      {
+        "family_id": "anthropic/claude-sonnet-5",
+        "family_name": "Claude Sonnet 5",
+        "similarity": 0.9333
       }
     ]
   },

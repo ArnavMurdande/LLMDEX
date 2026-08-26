@@ -1122,6 +1122,36 @@
   },
   {
     "source": "llmstats",
+    "source_name": "MiMo-V2-Pro",
+    "source_model_id": "mimo-v2-pro",
+    "source_model_url": "https://llm-stats.com/models/mimo-v2-pro",
+    "provider": "Xiaomi",
+    "candidate_family_id": "xiaomi/mimo-v2-5-pro",
+    "candidate_family_name": "MiMo-V2.5-Pro",
+    "match_status": "identity_unresolved",
+    "match_confidence": 0.8,
+    "match_method": "fuzzy_review_candidate",
+    "review_reason": "Fuzzy candidates require manual approval and are excluded from scoring.",
+    "competing_candidates": [
+      {
+        "family_id": "xiaomi/mimo-v2-5-pro",
+        "family_name": "MiMo-V2.5-Pro",
+        "similarity": 0.9167
+      },
+      {
+        "family_id": "xiaomi/mimo-v2-5",
+        "family_name": "MiMo-V2.5",
+        "similarity": 0.8
+      },
+      {
+        "family_id": "xiaomi/mimo-v2-omni",
+        "family_name": "MiMo-V2-Omni",
+        "similarity": 0.7826
+      }
+    ]
+  },
+  {
+    "source": "llmstats",
     "source_name": "GLM-4.5-Air",
     "source_model_id": "glm-4.5-air",
     "source_model_url": "https://llm-stats.com/models/glm-4.5-air",
@@ -1186,36 +1216,6 @@
     "match_method": "no_candidate",
     "review_reason": "No corresponding family exists in the current AA population.",
     "competing_candidates": []
-  },
-  {
-    "source": "llmstats",
-    "source_name": "MiMo-V2-Pro",
-    "source_model_id": "mimo-v2-pro",
-    "source_model_url": "https://llm-stats.com/models/mimo-v2-pro",
-    "provider": "Xiaomi",
-    "candidate_family_id": "xiaomi/mimo-v2-5-pro",
-    "candidate_family_name": "MiMo-V2.5-Pro",
-    "match_status": "identity_unresolved",
-    "match_confidence": 0.8,
-    "match_method": "fuzzy_review_candidate",
-    "review_reason": "Fuzzy candidates require manual approval and are excluded from scoring.",
-    "competing_candidates": [
-      {
-        "family_id": "xiaomi/mimo-v2-5-pro",
-        "family_name": "MiMo-V2.5-Pro",
-        "similarity": 0.9167
-      },
-      {
-        "family_id": "xiaomi/mimo-v2-5",
-        "family_name": "MiMo-V2.5",
-        "similarity": 0.8
-      },
-      {
-        "family_id": "xiaomi/mimo-v2-omni",
-        "family_name": "MiMo-V2-Omni",
-        "similarity": 0.7826
-      }
-    ]
   },
   {
     "source": "llmstats",
@@ -1321,20 +1321,6 @@
     "source_model_id": "qwen3-coder-480b-a35b-instruct",
     "source_model_url": "https://llm-stats.com/models/qwen3-coder-480b-a35b-instruct",
     "provider": "Alibaba",
-    "candidate_family_id": null,
-    "candidate_family_name": null,
-    "match_status": "source_missing",
-    "match_confidence": 0.0,
-    "match_method": "no_candidate",
-    "review_reason": "No corresponding family exists in the current AA population.",
-    "competing_candidates": []
-  },
-  {
-    "source": "llmstats",
-    "source_name": "Llama-3.3 Nemotron Super 49B v1",
-    "source_model_id": "llama-3.3-nemotron-super-49b-v1",
-    "source_model_url": "https://llm-stats.com/models/llama-3.3-nemotron-super-49b-v1",
-    "provider": "Meta",
     "candidate_family_id": null,
     "candidate_family_name": null,
     "match_status": "source_missing",
@@ -1625,16 +1611,16 @@
   },
   {
     "source": "llmstats",
-    "source_name": "Gemini 2.5 Pro",
-    "source_model_id": "gemini-2.5-pro",
-    "source_model_url": "https://llm-stats.com/models/gemini-2.5-pro",
-    "provider": "Google",
-    "candidate_family_id": null,
-    "candidate_family_name": null,
-    "match_status": "source_missing",
-    "match_confidence": 0.0,
-    "match_method": "no_candidate",
-    "review_reason": "No corresponding family exists in the current AA population.",
+    "source_name": "Qwen3.5-9B",
+    "source_model_id": "qwen3.5-9b",
+    "source_model_url": "https://llm-stats.com/models/qwen3.5-9b",
+    "provider": "Alibaba",
+    "candidate_family_id": "alibaba/qwen3-5-9b",
+    "candidate_family_name": "Qwen3.5 9B",
+    "match_status": "matched_family",
+    "match_confidence": 0.95,
+    "match_method": "exact_provider_family_version",
+    "review_reason": null,
     "competing_candidates": []
   },
   {

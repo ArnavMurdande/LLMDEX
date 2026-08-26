@@ -1,22 +1,22 @@
 {
-  "generated_at": "2026-08-25T11:01:35.412334+00:00",
+  "generated_at": "2026-08-26T11:03:52.533526+00:00",
   "methodology_version": "LLMStats source-native current",
   "source": "LLMStats",
-  "source_updated_at": "2026-08-25T11:01:59.602106+00:00",
+  "source_updated_at": "2026-08-26T11:04:18.999303+00:00",
   "source_health": {
     "source": "LLMStats",
-    "rows_scraped": 97,
+    "rows_scraped": 96,
     "expected_range": [
       20,
       250
     ],
     "status": "healthy",
     "error_message": null,
-    "duration_seconds": 24.181,
-    "timestamp": "2026-08-25T11:01:59.602106+00:00",
+    "duration_seconds": 26.457,
+    "timestamp": "2026-08-26T11:04:18.999303+00:00",
     "parse_warning_count": 0,
     "warnings": [],
-    "last_successful_update": "2026-08-25T11:01:59.602106+00:00",
+    "last_successful_update": "2026-08-26T11:04:18.999303+00:00",
     "schema_changes": []
   },
   "capability": "tool_calling",
@@ -38,6 +38,14 @@
       "source_population": 37
     },
     {
+      "benchmark_id": "llmstats__tau2-telecom",
+      "canonical_name": "Tau2 Telecom",
+      "version": null,
+      "source_name": "Tau2 Telecom",
+      "source_url": "https://llm-stats.com/benchmarks/tau2-telecom",
+      "source_population": 36
+    },
+    {
       "benchmark_id": "mcp_atlas",
       "canonical_name": "MCP Atlas",
       "version": "source-reported",
@@ -54,20 +62,12 @@
       "source_population": 51
     },
     {
-      "benchmark_id": "llmstats__tau2-telecom",
-      "canonical_name": "Tau2 Telecom",
-      "version": null,
-      "source_name": "Tau2 Telecom",
-      "source_url": "https://llm-stats.com/benchmarks/tau2-telecom",
-      "source_population": 35
-    },
-    {
       "benchmark_id": "llmstats__tau2-airline",
       "canonical_name": "Tau2 Airline",
       "version": null,
       "source_name": "Tau2 Airline",
       "source_url": "https://llm-stats.com/benchmarks/tau2-airline",
-      "source_population": 23
+      "source_population": 24
     },
     {
       "benchmark_id": "llmstats__tau2-retail",
@@ -75,7 +75,7 @@
       "version": null,
       "source_name": "Tau2 Retail",
       "source_url": "https://llm-stats.com/benchmarks/tau2-retail",
-      "source_population": 26
+      "source_population": 27
     },
     {
       "benchmark_id": "llmstats__automationbench",
@@ -137,7 +137,7 @@
           ],
           "source_column_indices": {
             "coding": 14,
-            "tool_calling": 9
+            "tool_calling": 10
           },
           "source_population": 33
         },
@@ -541,7 +541,7 @@
           ],
           "source_column_indices": {
             "coding": 14,
-            "tool_calling": 9
+            "tool_calling": 10
           },
           "source_population": 33
         },
@@ -697,7 +697,7 @@
           ],
           "source_column_indices": {
             "coding": 14,
-            "tool_calling": 9
+            "tool_calling": 10
           },
           "source_population": 33
         },
@@ -733,7 +733,7 @@
           ],
           "source_column_indices": {
             "coding": 11,
-            "tool_calling": 10
+            "tool_calling": 11
           },
           "source_population": 51
         }
@@ -774,7 +774,7 @@
           ],
           "source_column_indices": {
             "coding": 14,
-            "tool_calling": 9
+            "tool_calling": 10
           },
           "source_population": 33
         },
@@ -810,7 +810,7 @@
           ],
           "source_column_indices": {
             "coding": 11,
-            "tool_calling": 10
+            "tool_calling": 11
           },
           "source_population": 51
         }
@@ -840,7 +840,7 @@
     },
     {
       "category_rank": 11.0,
-      "category_score": 29.5,
+      "category_score": 29.6,
       "source_name": "GPT-5.5",
       "provider": "OpenAI",
       "source_model_id": "gpt-5.5",
@@ -872,7 +872,7 @@
           ],
           "source_column_indices": {
             "coding": 14,
-            "tool_calling": 9
+            "tool_calling": 10
           },
           "source_population": 33
         },
@@ -908,7 +908,7 @@
           ],
           "source_column_indices": {
             "coding": 11,
-            "tool_calling": 10
+            "tool_calling": 11
           },
           "source_population": 51
         },
@@ -927,9 +927,9 @@
           ],
           "source_column_indices": {
             "writing": 7,
-            "tool_calling": 11
+            "tool_calling": 9
           },
-          "source_population": 35
+          "source_population": 36
         }
       },
       "source_updated_at": null
@@ -968,7 +968,7 @@
           ],
           "source_column_indices": {
             "coding": 11,
-            "tool_calling": 10
+            "tool_calling": 11
           },
           "source_population": 51
         }
@@ -1129,7 +1129,7 @@
           ],
           "source_column_indices": {
             "coding": 14,
-            "tool_calling": 9
+            "tool_calling": 10
           },
           "source_population": 33
         },
@@ -1285,7 +1285,7 @@
           ],
           "source_column_indices": {
             "coding": 14,
-            "tool_calling": 9
+            "tool_calling": 10
           },
           "source_population": 33
         },
@@ -1304,7 +1304,7 @@
           ],
           "source_column_indices": {
             "coding": 11,
-            "tool_calling": 10
+            "tool_calling": 11
           },
           "source_population": 51
         }
@@ -1420,7 +1420,7 @@
           ],
           "source_column_indices": {
             "coding": 14,
-            "tool_calling": 9
+            "tool_calling": 10
           },
           "source_population": 33
         },
@@ -1456,7 +1456,7 @@
           ],
           "source_column_indices": {
             "coding": 11,
-            "tool_calling": 10
+            "tool_calling": 11
           },
           "source_population": 51
         },
@@ -1475,9 +1475,9 @@
           ],
           "source_column_indices": {
             "writing": 7,
-            "tool_calling": 11
+            "tool_calling": 9
           },
-          "source_population": 35
+          "source_population": 36
         }
       },
       "source_updated_at": null
@@ -1514,7 +1514,7 @@
             "tool_calling"
           ],
           "source_column_indices": {
-            "tool_calling": 10
+            "tool_calling": 11
           },
           "source_population": 51
         }
@@ -1555,7 +1555,7 @@
           ],
           "source_column_indices": {
             "coding": 14,
-            "tool_calling": 9
+            "tool_calling": 10
           },
           "source_population": 33
         },
@@ -1574,7 +1574,7 @@
           ],
           "source_column_indices": {
             "coding": 11,
-            "tool_calling": 10
+            "tool_calling": 11
           },
           "source_population": 51
         }
@@ -1615,9 +1615,9 @@
           ],
           "source_column_indices": {
             "writing": 7,
-            "tool_calling": 11
+            "tool_calling": 9
           },
-          "source_population": 35
+          "source_population": 36
         },
         "llmstats__tau2-airline": {
           "benchmark_id": "llmstats__tau2-airline",
@@ -1633,10 +1633,10 @@
             "writing"
           ],
           "source_column_indices": {
-            "writing": 9,
+            "writing": 8,
             "tool_calling": 12
           },
-          "source_population": 23
+          "source_population": 24
         },
         "llmstats__tau2-retail": {
           "benchmark_id": "llmstats__tau2-retail",
@@ -1655,14 +1655,14 @@
             "writing": 10,
             "tool_calling": 13
           },
-          "source_population": 26
+          "source_population": 27
         }
       },
       "source_updated_at": null
     },
     {
       "category_rank": 23.0,
-      "category_score": 26.3,
+      "category_score": 26.2,
       "source_name": "Claude Sonnet 4.5",
       "provider": "Anthropic",
       "source_model_id": "claude-sonnet-4-5-20250929",
@@ -1743,7 +1743,7 @@
           ],
           "source_column_indices": {
             "coding": 11,
-            "tool_calling": 10
+            "tool_calling": 11
           },
           "source_population": 51
         },
@@ -1799,7 +1799,7 @@
             "tool_calling"
           ],
           "source_column_indices": {
-            "tool_calling": 9
+            "tool_calling": 10
           },
           "source_population": 33
         }
@@ -1840,7 +1840,7 @@
           ],
           "source_column_indices": {
             "coding": 14,
-            "tool_calling": 9
+            "tool_calling": 10
           },
           "source_population": 33
         },
@@ -1859,7 +1859,7 @@
           ],
           "source_column_indices": {
             "coding": 11,
-            "tool_calling": 10
+            "tool_calling": 11
           },
           "source_population": 51
         },
@@ -1878,9 +1878,9 @@
           ],
           "source_column_indices": {
             "writing": 7,
-            "tool_calling": 11
+            "tool_calling": 9
           },
-          "source_population": 35
+          "source_population": 36
         },
         "llmstats__tau2-retail": {
           "benchmark_id": "llmstats__tau2-retail",
@@ -1899,7 +1899,7 @@
             "writing": 10,
             "tool_calling": 13
           },
-          "source_population": 26
+          "source_population": 27
         }
       },
       "source_updated_at": null
