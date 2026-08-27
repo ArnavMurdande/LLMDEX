@@ -442,9 +442,7 @@
         "Qwen3.5 9B",
         "Qwen3.5 9B (non-reasoning)"
       ],
-      "llmstats": [
-        "Qwen3.5-9B"
-      ]
+      "llmstats": []
     },
     "source_ids": {},
     "source_urls": {
@@ -804,6 +802,37 @@
           "total_billions": 27.0,
           "active_billions": null
         }
+      }
+    }
+  },
+  "alibaba/qwen3-8-flash-next": {
+    "family_id": "alibaba/qwen3-8-flash-next",
+    "canonical_family_name": "Qwen3.8-Flash-Next",
+    "provider": "Alibaba",
+    "version": "3.8",
+    "source_aliases": {
+      "artificial_analysis": [
+        "Qwen3.8-Flash-Next"
+      ],
+      "llmstats": [
+        "Qwen3.8-Flash-Next"
+      ]
+    },
+    "source_ids": {},
+    "source_urls": {
+      "artificial_analysis": [
+        "https://artificialanalysis.ai/models/qwen3-8-flash-next"
+      ]
+    },
+    "variants": {
+      "alibaba/qwen3-8-flash-next:default": {
+        "variant_id": "alibaba/qwen3-8-flash-next:default",
+        "deployment_profile_id": "alibaba/qwen3-8-flash-next:default:deployment",
+        "source_name": "Qwen3.8-Flash-Next",
+        "reasoning_effort": null,
+        "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": null
       }
     }
   },
@@ -2942,6 +2971,102 @@
         "variant_id": "ibm/granite-4-1-8b:default",
         "deployment_profile_id": "ibm/granite-4-1-8b:default:deployment",
         "source_name": "Granite 4.1 8B",
+        "reasoning_effort": null,
+        "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": {
+          "total_billions": 8.0,
+          "active_billions": null
+        }
+      }
+    }
+  },
+  "ibm/granite-4-2-30b": {
+    "family_id": "ibm/granite-4-2-30b",
+    "canonical_family_name": "Granite 4.2 30B",
+    "provider": "IBM",
+    "version": "4.2",
+    "source_aliases": {
+      "artificial_analysis": [
+        "Granite 4.2 30B"
+      ],
+      "llmstats": []
+    },
+    "source_ids": {},
+    "source_urls": {
+      "artificial_analysis": [
+        "https://artificialanalysis.ai/models/granite-4-2-30b"
+      ]
+    },
+    "variants": {
+      "ibm/granite-4-2-30b:default": {
+        "variant_id": "ibm/granite-4-2-30b:default",
+        "deployment_profile_id": "ibm/granite-4-2-30b:default:deployment",
+        "source_name": "Granite 4.2 30B",
+        "reasoning_effort": null,
+        "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": {
+          "total_billions": 30.0,
+          "active_billions": null
+        }
+      }
+    }
+  },
+  "ibm/granite-4-2-3b": {
+    "family_id": "ibm/granite-4-2-3b",
+    "canonical_family_name": "Granite 4.2 3B",
+    "provider": "IBM",
+    "version": "4.2",
+    "source_aliases": {
+      "artificial_analysis": [
+        "Granite 4.2 3B"
+      ],
+      "llmstats": []
+    },
+    "source_ids": {},
+    "source_urls": {
+      "artificial_analysis": [
+        "https://artificialanalysis.ai/models/granite-4-2-3b"
+      ]
+    },
+    "variants": {
+      "ibm/granite-4-2-3b:default": {
+        "variant_id": "ibm/granite-4-2-3b:default",
+        "deployment_profile_id": "ibm/granite-4-2-3b:default:deployment",
+        "source_name": "Granite 4.2 3B",
+        "reasoning_effort": null,
+        "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": {
+          "total_billions": 3.0,
+          "active_billions": null
+        }
+      }
+    }
+  },
+  "ibm/granite-4-2-8b": {
+    "family_id": "ibm/granite-4-2-8b",
+    "canonical_family_name": "Granite 4.2 8B",
+    "provider": "IBM",
+    "version": "4.2",
+    "source_aliases": {
+      "artificial_analysis": [
+        "Granite 4.2 8B"
+      ],
+      "llmstats": []
+    },
+    "source_ids": {},
+    "source_urls": {
+      "artificial_analysis": [
+        "https://artificialanalysis.ai/models/granite-4-2-8b"
+      ]
+    },
+    "variants": {
+      "ibm/granite-4-2-8b:default": {
+        "variant_id": "ibm/granite-4-2-8b:default",
+        "deployment_profile_id": "ibm/granite-4-2-8b:default:deployment",
+        "source_name": "Granite 4.2 8B",
         "reasoning_effort": null,
         "deployment_profile": [],
         "fallback_enabled": false,
@@ -6026,6 +6151,35 @@
       }
     }
   },
+  "sapiens-ai/agnes-2-5-pro-beta": {
+    "family_id": "sapiens-ai/agnes-2-5-pro-beta",
+    "canonical_family_name": "Agnes 2.5 Pro Beta",
+    "provider": "Sapiens AI",
+    "version": "2.5",
+    "source_aliases": {
+      "artificial_analysis": [
+        "Agnes 2.5 Pro Beta"
+      ],
+      "llmstats": []
+    },
+    "source_ids": {},
+    "source_urls": {
+      "artificial_analysis": [
+        "https://artificialanalysis.ai/models/agnes-2-5-pro-beta"
+      ]
+    },
+    "variants": {
+      "sapiens-ai/agnes-2-5-pro-beta:default": {
+        "variant_id": "sapiens-ai/agnes-2-5-pro-beta:default",
+        "deployment_profile_id": "sapiens-ai/agnes-2-5-pro-beta:default:deployment",
+        "source_name": "Agnes 2.5 Pro Beta",
+        "reasoning_effort": null,
+        "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": null
+      }
+    }
+  },
   "sarvam/sarvam-105b": {
     "family_id": "sarvam/sarvam-105b",
     "canonical_family_name": "Sarvam 105B",
@@ -6939,9 +7093,7 @@
       "artificial_analysis": [
         "GLM-5.3 (max)"
       ],
-      "llmstats": [
-        "GLM-5.3"
-      ]
+      "llmstats": []
     },
     "source_ids": {},
     "source_urls": {
@@ -6955,6 +7107,35 @@
         "deployment_profile_id": "z-ai/glm-5-3:max:deployment",
         "source_name": "GLM-5.3 (max)",
         "reasoning_effort": "max",
+        "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": null
+      }
+    }
+  },
+  "z-ai/glm-5-3-flash": {
+    "family_id": "z-ai/glm-5-3-flash",
+    "canonical_family_name": "GLM-5.3-Flash",
+    "provider": "Z AI",
+    "version": "5.3",
+    "source_aliases": {
+      "artificial_analysis": [
+        "GLM-5.3-Flash"
+      ],
+      "llmstats": []
+    },
+    "source_ids": {},
+    "source_urls": {
+      "artificial_analysis": [
+        "https://artificialanalysis.ai/models/glm-5-3-flash"
+      ]
+    },
+    "variants": {
+      "z-ai/glm-5-3-flash:default": {
+        "variant_id": "z-ai/glm-5-3-flash:default",
+        "deployment_profile_id": "z-ai/glm-5-3-flash:default:deployment",
+        "source_name": "GLM-5.3-Flash",
+        "reasoning_effort": null,
         "deployment_profile": [],
         "fallback_enabled": false,
         "parameter_count": null
