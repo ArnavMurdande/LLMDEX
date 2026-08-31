@@ -41,6 +41,36 @@
   },
   {
     "source": "llmstats",
+    "source_name": "Qwen3.8 Flash",
+    "source_model_id": "qwen3.8-flash",
+    "source_model_url": "https://llm-stats.com/models/qwen3.8-flash",
+    "provider": "Alibaba",
+    "candidate_family_id": "alibaba/qwen3-8-flash-next",
+    "candidate_family_name": "Qwen3.8-Flash-Next",
+    "match_status": "identity_unresolved",
+    "match_confidence": 0.8,
+    "match_method": "fuzzy_review_candidate",
+    "review_reason": "Fuzzy candidates require manual approval and are excluded from scoring.",
+    "competing_candidates": [
+      {
+        "family_id": "alibaba/qwen3-8-flash-next",
+        "family_name": "Qwen3.8-Flash-Next",
+        "similarity": 0.8387
+      },
+      {
+        "family_id": "alibaba/qwen3-5-omni-flash",
+        "family_name": "Qwen3.5 Omni Flash",
+        "similarity": 0.7742
+      },
+      {
+        "family_id": "alibaba/qwen3-7-plus",
+        "family_name": "Qwen3.7 Plus",
+        "similarity": 0.72
+      }
+    ]
+  },
+  {
+    "source": "llmstats",
     "source_name": "GPT-5.5",
     "source_model_id": "gpt-5.5",
     "source_model_url": "https://llm-stats.com/models/gpt-5.5",

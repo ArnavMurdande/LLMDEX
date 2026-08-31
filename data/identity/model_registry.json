@@ -596,9 +596,7 @@
         "Qwen3.6 35B A3B",
         "Qwen3.6 35B A3B (Non-reasoning)"
       ],
-      "llmstats": [
-        "Qwen3.6-35B-A3B"
-      ]
+      "llmstats": []
     },
     "source_ids": {},
     "source_urls": {
@@ -1655,6 +1653,35 @@
         "deployment_profile_id": "anthropic/claude-sonnet-5:xhigh:deployment",
         "source_name": "Claude Sonnet 5 (xhigh)",
         "reasoning_effort": "xhigh",
+        "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": null
+      }
+    }
+  },
+  "apodex/apodex-1-1": {
+    "family_id": "apodex/apodex-1-1",
+    "canonical_family_name": "Apodex 1.1",
+    "provider": "Apodex",
+    "version": "1.1",
+    "source_aliases": {
+      "artificial_analysis": [
+        "Apodex 1.1"
+      ],
+      "llmstats": []
+    },
+    "source_ids": {},
+    "source_urls": {
+      "artificial_analysis": [
+        "https://artificialanalysis.ai/models/apodex-1-1"
+      ]
+    },
+    "variants": {
+      "apodex/apodex-1-1:default": {
+        "variant_id": "apodex/apodex-1-1:default",
+        "deployment_profile_id": "apodex/apodex-1-1:default:deployment",
+        "source_name": "Apodex 1.1",
+        "reasoning_effort": null,
         "deployment_profile": [],
         "fallback_enabled": false,
         "parameter_count": null
