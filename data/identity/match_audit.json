@@ -141,6 +141,20 @@
   },
   {
     "source": "llmstats",
+    "source_name": "Gemini 3.8 Flash",
+    "source_model_id": "gemini-3.8-flash",
+    "source_model_url": "https://llm-stats.com/models/gemini-3.8-flash",
+    "provider": "Google",
+    "candidate_family_id": "google/gemini-3-8-flash",
+    "candidate_family_name": "Gemini 3.8 Flash",
+    "match_status": "matched_family",
+    "match_confidence": 0.95,
+    "match_method": "exact_provider_family_version",
+    "review_reason": null,
+    "competing_candidates": []
+  },
+  {
+    "source": "llmstats",
     "source_name": "Hy4 preview",
     "source_model_id": "hy4-preview",
     "source_model_url": "https://llm-stats.com/models/hy4-preview",
@@ -189,20 +203,6 @@
   },
   {
     "source": "llmstats",
-    "source_name": "Gemini 3.7 Flash",
-    "source_model_id": "gemini-3.7-flash",
-    "source_model_url": "https://llm-stats.com/models/gemini-3.7-flash",
-    "provider": "Google",
-    "candidate_family_id": "google/gemini-3-7-flash",
-    "candidate_family_name": "Gemini 3.7 Flash",
-    "match_status": "matched_family",
-    "match_confidence": 0.95,
-    "match_method": "exact_provider_family_version",
-    "review_reason": null,
-    "competing_candidates": []
-  },
-  {
-    "source": "llmstats",
     "source_name": "Muse Spark 1.1",
     "source_model_id": "muse-spark-1.1",
     "source_model_url": "https://llm-stats.com/models/muse-spark-1.1",
@@ -220,6 +220,20 @@
         "similarity": 0.9286
       }
     ]
+  },
+  {
+    "source": "llmstats",
+    "source_name": "Gemini 3.7 Flash",
+    "source_model_id": "gemini-3.7-flash",
+    "source_model_url": "https://llm-stats.com/models/gemini-3.7-flash",
+    "provider": "Google",
+    "candidate_family_id": "google/gemini-3-7-flash",
+    "candidate_family_name": "Gemini 3.7 Flash",
+    "match_status": "matched_family",
+    "match_confidence": 0.95,
+    "match_method": "exact_provider_family_version",
+    "review_reason": null,
+    "competing_candidates": []
   },
   {
     "source": "llmstats",
@@ -301,6 +315,20 @@
   },
   {
     "source": "llmstats",
+    "source_name": "Grok 4.6",
+    "source_model_id": "grok-4.6",
+    "source_model_url": "https://llm-stats.com/models/grok-4.6",
+    "provider": "xAI",
+    "candidate_family_id": null,
+    "candidate_family_name": null,
+    "match_status": "source_missing",
+    "match_confidence": 0.0,
+    "match_method": "no_candidate",
+    "review_reason": "No corresponding family exists in the current AA population.",
+    "competing_candidates": []
+  },
+  {
+    "source": "llmstats",
     "source_name": "DeepSeek-V4-Flash-Vision-Exp",
     "source_model_id": "deepseek-v4-flash-vision-exp",
     "source_model_url": "https://llm-stats.com/models/deepseek-v4-flash-vision-exp",
@@ -331,52 +359,10 @@
   },
   {
     "source": "llmstats",
-    "source_name": "Grok 4.6",
-    "source_model_id": "grok-4.6",
-    "source_model_url": "https://llm-stats.com/models/grok-4.6",
-    "provider": "xAI",
-    "candidate_family_id": null,
-    "candidate_family_name": null,
-    "match_status": "source_missing",
-    "match_confidence": 0.0,
-    "match_method": "no_candidate",
-    "review_reason": "No corresponding family exists in the current AA population.",
-    "competing_candidates": []
-  },
-  {
-    "source": "llmstats",
     "source_name": "Seed 2.1 Pro",
     "source_model_id": "seed-2.1-pro",
     "source_model_url": "https://llm-stats.com/models/seed-2.1-pro",
     "provider": "Bytedance",
-    "candidate_family_id": null,
-    "candidate_family_name": null,
-    "match_status": "source_missing",
-    "match_confidence": 0.0,
-    "match_method": "no_candidate",
-    "review_reason": "No corresponding family exists in the current AA population.",
-    "competing_candidates": []
-  },
-  {
-    "source": "llmstats",
-    "source_name": "GPT-5.6 Luna",
-    "source_model_id": "gpt-5.6-luna",
-    "source_model_url": "https://llm-stats.com/models/gpt-5.6-luna",
-    "provider": "OpenAI",
-    "candidate_family_id": "openai/gpt-5-6-luna",
-    "candidate_family_name": "GPT-5.6 Luna",
-    "match_status": "matched_family",
-    "match_confidence": 0.95,
-    "match_method": "exact_provider_family_version",
-    "review_reason": null,
-    "competing_candidates": []
-  },
-  {
-    "source": "llmstats",
-    "source_name": "Grok 4.5",
-    "source_model_id": "grok-4.5",
-    "source_model_url": "https://llm-stats.com/models/grok-4.5",
-    "provider": "xAI",
     "candidate_family_id": null,
     "candidate_family_name": null,
     "match_status": "source_missing",
@@ -401,12 +387,26 @@
   },
   {
     "source": "llmstats",
-    "source_name": "DeepSeek-V4-Flash-0731",
-    "source_model_id": "deepseek-v4-flash-0731",
-    "source_model_url": "https://llm-stats.com/models/deepseek-v4-flash-0731",
-    "provider": "DeepSeek",
-    "candidate_family_id": "deepseek/deepseek-v4-flash-0731",
-    "candidate_family_name": "DeepSeek V4 Flash 0731",
+    "source_name": "Grok 4.5",
+    "source_model_id": "grok-4.5",
+    "source_model_url": "https://llm-stats.com/models/grok-4.5",
+    "provider": "xAI",
+    "candidate_family_id": null,
+    "candidate_family_name": null,
+    "match_status": "source_missing",
+    "match_confidence": 0.0,
+    "match_method": "no_candidate",
+    "review_reason": "No corresponding family exists in the current AA population.",
+    "competing_candidates": []
+  },
+  {
+    "source": "llmstats",
+    "source_name": "GPT-5.6 Luna",
+    "source_model_id": "gpt-5.6-luna",
+    "source_model_url": "https://llm-stats.com/models/gpt-5.6-luna",
+    "provider": "OpenAI",
+    "candidate_family_id": "openai/gpt-5-6-luna",
+    "candidate_family_name": "GPT-5.6 Luna",
     "match_status": "matched_family",
     "match_confidence": 0.95,
     "match_method": "exact_provider_family_version",
@@ -450,6 +450,20 @@
   },
   {
     "source": "llmstats",
+    "source_name": "DeepSeek-V4-Flash-0731",
+    "source_model_id": "deepseek-v4-flash-0731",
+    "source_model_url": "https://llm-stats.com/models/deepseek-v4-flash-0731",
+    "provider": "DeepSeek",
+    "candidate_family_id": "deepseek/deepseek-v4-flash-0731",
+    "candidate_family_name": "DeepSeek V4 Flash 0731",
+    "match_status": "matched_family",
+    "match_confidence": 0.95,
+    "match_method": "exact_provider_family_version",
+    "review_reason": null,
+    "competing_candidates": []
+  },
+  {
+    "source": "llmstats",
     "source_name": "Qwen3.8-27B",
     "source_model_id": "qwen3.8-27b",
     "source_model_url": "https://llm-stats.com/models/qwen3.8-27b",
@@ -475,31 +489,6 @@
     "match_method": "exact_provider_family_version",
     "review_reason": null,
     "competing_candidates": []
-  },
-  {
-    "source": "llmstats",
-    "source_name": "Claude Opus 4.6",
-    "source_model_id": "claude-opus-4-6",
-    "source_model_url": "https://llm-stats.com/models/claude-opus-4-6",
-    "provider": "Anthropic",
-    "candidate_family_id": "anthropic/claude-opus-5",
-    "candidate_family_name": "Claude Opus 5",
-    "match_status": "identity_unresolved",
-    "match_confidence": 0.8,
-    "match_method": "fuzzy_review_candidate",
-    "review_reason": "Fuzzy candidates require manual approval and are excluded from scoring.",
-    "competing_candidates": [
-      {
-        "family_id": "anthropic/claude-opus-5",
-        "family_name": "Claude Opus 5",
-        "similarity": 0.8571
-      },
-      {
-        "family_id": "anthropic/claude-sonnet-4-6",
-        "family_name": "Claude Sonnet 4.6",
-        "similarity": 0.75
-      }
-    ]
   },
   {
     "source": "llmstats",
@@ -604,6 +593,31 @@
     "match_method": "exact_provider_family_version",
     "review_reason": null,
     "competing_candidates": []
+  },
+  {
+    "source": "llmstats",
+    "source_name": "Claude Opus 4.6",
+    "source_model_id": "claude-opus-4-6",
+    "source_model_url": "https://llm-stats.com/models/claude-opus-4-6",
+    "provider": "Anthropic",
+    "candidate_family_id": "anthropic/claude-opus-5",
+    "candidate_family_name": "Claude Opus 5",
+    "match_status": "identity_unresolved",
+    "match_confidence": 0.8,
+    "match_method": "fuzzy_review_candidate",
+    "review_reason": "Fuzzy candidates require manual approval and are excluded from scoring.",
+    "competing_candidates": [
+      {
+        "family_id": "anthropic/claude-opus-5",
+        "family_name": "Claude Opus 5",
+        "similarity": 0.8571
+      },
+      {
+        "family_id": "anthropic/claude-sonnet-4-6",
+        "family_name": "Claude Sonnet 4.6",
+        "similarity": 0.75
+      }
+    ]
   },
   {
     "source": "llmstats",
@@ -1439,6 +1453,26 @@
   },
   {
     "source": "llmstats",
+    "source_name": "Nemotron 3 Ultra (550B A55B)",
+    "source_model_id": "nemotron-3-ultra-550b-a55b",
+    "source_model_url": "https://llm-stats.com/models/nemotron-3-ultra-550b-a55b",
+    "provider": "NVIDIA",
+    "candidate_family_id": "nvidia/nemotron-3-ultra",
+    "candidate_family_name": "Nemotron 3 Ultra",
+    "match_status": "identity_unresolved",
+    "match_confidence": 0.7619,
+    "match_method": "fuzzy_review_candidate",
+    "review_reason": "Fuzzy candidates require manual approval and are excluded from scoring.",
+    "competing_candidates": [
+      {
+        "family_id": "nvidia/nemotron-3-ultra",
+        "family_name": "Nemotron 3 Ultra",
+        "similarity": 0.7619
+      }
+    ]
+  },
+  {
+    "source": "llmstats",
     "source_name": "Qwen3.5-27B",
     "source_model_id": "qwen3.5-27b",
     "source_model_url": "https://llm-stats.com/models/qwen3.5-27b",
@@ -1474,26 +1508,6 @@
         "family_id": "alibaba/qwen3-5-4b",
         "family_name": "Qwen3.5 4B",
         "similarity": 0.8571
-      }
-    ]
-  },
-  {
-    "source": "llmstats",
-    "source_name": "Nemotron 3 Ultra (550B A55B)",
-    "source_model_id": "nemotron-3-ultra-550b-a55b",
-    "source_model_url": "https://llm-stats.com/models/nemotron-3-ultra-550b-a55b",
-    "provider": "NVIDIA",
-    "candidate_family_id": "nvidia/nemotron-3-ultra",
-    "candidate_family_name": "Nemotron 3 Ultra",
-    "match_status": "identity_unresolved",
-    "match_confidence": 0.7619,
-    "match_method": "fuzzy_review_candidate",
-    "review_reason": "Fuzzy candidates require manual approval and are excluded from scoring.",
-    "competing_candidates": [
-      {
-        "family_id": "nvidia/nemotron-3-ultra",
-        "family_name": "Nemotron 3 Ultra",
-        "similarity": 0.7619
       }
     ]
   },

@@ -7,20 +7,20 @@
   "earliest_catalog_event_date": "2022-11-30",
   "earliest_observed_snapshot_date": "2026-07-23",
   "latest_observed_snapshot_date": "2026-09-02",
-  "catalog_event_row_count": 618,
-  "observed_snapshot_row_count": 10902,
+  "catalog_event_row_count": 621,
+  "observed_snapshot_row_count": 10903,
   "historical_coverage_limitations": "Pre-LLMDEX historical rows represent repository-supported catalogue or release events and must not be interpreted as daily historical benchmark measurements.",
   "row_counts": {
-    "artificial_analysis_benchmarks": 285,
-    "llmstats_benchmarks": 303,
+    "artificial_analysis_benchmarks": 288,
+    "llmstats_benchmarks": 304,
     "combined_latest": 1,
-    "model_family_history": 11520,
+    "model_family_history": 11524,
     "provider_metadata": 60,
-    "data_dictionary": 204
+    "data_dictionary": 203
   },
   "column_counts": {
     "artificial_analysis_benchmarks": 74,
-    "llmstats_benchmarks": 73,
+    "llmstats_benchmarks": 72,
     "model_family_history": 36,
     "provider_metadata": 21
   },
@@ -57,18 +57,18 @@
     "tii-uae",
     "trillion-labs"
   ],
-  "number_of_benchmark_columns": 56,
-  "llmstats_general_row_count": 93,
-  "llmstats_general_missing_score_count": 63,
-  "llmstats_general_missing_rank_count": 63,
+  "number_of_benchmark_columns": 55,
+  "llmstats_general_row_count": 94,
+  "llmstats_general_missing_score_count": 64,
+  "llmstats_general_missing_rank_count": 64,
   "llmstats_general_missing_provider_count": 0,
-  "llmstats_provider_populated_count": 303,
+  "llmstats_provider_populated_count": 304,
   "llmstats_provider_missing_count": 0,
-  "llmstats_availability_unknown_count": 188,
+  "llmstats_availability_unknown_count": 185,
   "malformed_name_count_detected": 0,
   "malformed_name_count_corrected": 0,
   "unresolved_malformed_name_count": 0,
-  "consensus_family_count": 14,
+  "consensus_family_count": 15,
   "empty_reserved_columns": [
     "aa_aime25",
     "aa_livecodebench",
@@ -81,17 +81,17 @@
   ],
   "corrected_open_weight_inconsistency_count": 189,
   "sha256_hashes": {
-    "artificial_analysis_benchmarks.csv": "0b57e1ecc4e4eed9666683316b9913b222984bb411c662f6eab52ac5f5908a67",
-    "llmstats_benchmarks.csv": "7a9c524176abcf8ee37d86e6432d05521522da4fe0d053a7ea60cadcc653aa27",
-    "combined_latest.json": "d678c9ef918e91553584feba519f300e28bf1aa845fd565568b96d445b176564",
-    "model_family_history.csv": "c122af7a1500e7aa9179d2fde0f490d7d0f8fb6ecae4552e0435635c3b772022",
-    "provider_metadata.csv": "7dea36cf578abda85085624bb51c16baf785f1b2fb98d05bd2b57966b9bed90f",
-    "provider_metadata_validation.json": "96c431fc388b52a220112f3318a38bc6e501c0ec94bac86d785d152d29325fec",
-    "data_dictionary.csv": "f554fcb3e19a7b87c39865a4c9dbf62dfc34f1e121ac2c38914f2d52c83269ca"
+    "artificial_analysis_benchmarks.csv": "f57fcfd30e019176e8a754866dc3534e5dab6f45b1c8804c3b315a4e167ba971",
+    "llmstats_benchmarks.csv": "80ea8fd72d67c7124e5a68a3a7f9d5bfec94b95cfdf221d36f18c13aaaba246e",
+    "combined_latest.json": "d5c0a18a0fbd605d2d4c913c62ef6587e6aee89900f10af3e38bd2e58568ad01",
+    "model_family_history.csv": "451d8b9a34d2a0799f2a0ce8a3c1e8d613e8f58780a50fd1fd74242cf6be06c2",
+    "provider_metadata.csv": "b0c36f625378265f5af823af3af77a899e3161a56df98ec433f1db2b1fd98395",
+    "provider_metadata_validation.json": "d3ac8393b24be5251bc597688a3205fd9b85ab223872e8fca88c973a2753a56a",
+    "data_dictionary.csv": "5a1c3d53572c361440f297ba6125eeb70ac394a713811ca4069230d794daa8f7"
   },
   "validation_status": "valid",
   "warnings": [
     "Provider metadata required: ai9stars, allen-institute-for-ai, apodex, arcee-ai, celeris, china-mobile, deep-cogito, inception, inclusionai, korea-telecom, kwaikat, liquid-ai, mbzuai-institute-of-foundation-models, motif-technologies, multiverse-computing, nanbeige, nex-agi, nous-research, openbmb, openchat, prime-intellect, reka-ai, sapiens-ai, sk-telecom, stepfun, swiss-ai-initiative, tii-uae, trillion-labs"
   ],
-  "generated_from_commit": "2ee21edf1c1dd60ef038757c2618f58ba5389223"
+  "generated_from_commit": "3c01a4f87720c6474965e2ff2d71eea620b4b8a9"
 }

@@ -1,117 +1,110 @@
 [
   {
-    "community_sentiment": 0.2793,
-    "mention_count": 11,
+    "community_sentiment": 0.1322,
+    "mention_count": 12,
     "controversy_index": 0.0,
     "sentiment_trend": "positive",
-    "confidence_score": 0.13,
-    "sentiment_method": "gemini",
-    "valid_posts": 4,
-    "strong_praise_count": 0,
-    "strong_criticism_count": 0,
+    "confidence_score": 0.4,
+    "sentiment_method": "vader_fallback",
     "model_name": "Claude Fable 5.1",
-    "scraped_at": "2026-09-02T14:41:29.050259+00:00",
+    "scraped_at": "2026-09-02T18:47:07.302927+00:00",
     "_experimental": true,
     "source_counts": {
-      "HackerNews": 11
+      "Reddit": 6,
+      "HackerNews": 6
     },
     "community_examples": [
       {
-        "source": "Hacker News",
-        "text": "Claude Fable 5.1 made me a nice animated pelican",
-        "url": "https://news.ycombinator.com/item?id=49530472"
+        "source": "Reddit",
+        "text": "Claude Fable 5.1 is out: Mythos level intelligence, 52.6% on agentic research, and up to 45% cheaper agent workloads Anthropic just released Claude Fable 5.1, and this looks less like a routine update and more like a...",
+        "url": "https://www.reddit.com/r/Agents_Everywhere/comments/1w522pd/claude_fable_51_is_out_mythos_level_intelligence/"
       },
       {
-        "source": "Hacker News",
-        "text": "Claude Fable 5.1 tightens restrictions on reusing thinking blocks",
-        "url": "https://news.ycombinator.com/item?id=49530535"
+        "source": "Reddit",
+        "text": "Guardrails don\u2019t make the model safer. They make it slower, dumber, and more expensive. The 2026 rules will make that worse. Yesterday I tried something stupidly simple. I wanted an attack-surface analysis of an...",
+        "url": "https://www.reddit.com/r/hackingai/comments/1w58quh/guardrails_dont_make_the_model_safer_they_make_it/"
+      },
+      {
+        "source": "Reddit",
+        "text": "Anthropic relance la course aux mod\u00e8les avec Claude Fable 5.1 Anthropic a lanc\u00e9 Claude Fable 5.1 (ainsi qu'une d\u00e9clinaison restreinte nomm\u00e9e Mythos 5.1), un nouveau mod\u00e8le qui s'empare de la premi\u00e8re place des...",
+        "url": "https://www.reddit.com/r/actutech/comments/1w5do5i/anthropic_relance_la_course_aux_mod\u00e8les_avec/"
       }
     ],
     "top_quotes": [
       {
-        "source": "Hacker News",
-        "text": "Claude Fable 5.1 made me a nice animated pelican",
-        "url": "https://news.ycombinator.com/item?id=49530472"
+        "source": "Reddit",
+        "text": "Claude Fable 5.1 is out: Mythos level intelligence, 52.6% on agentic research, and up to 45% cheaper agent workloads Anthropic just released Claude Fable 5.1, and this looks less like a routine update and more like a...",
+        "url": "https://www.reddit.com/r/Agents_Everywhere/comments/1w522pd/claude_fable_51_is_out_mythos_level_intelligence/"
       },
       {
-        "source": "Hacker News",
-        "text": "Claude Fable 5.1 tightens restrictions on reusing thinking blocks",
-        "url": "https://news.ycombinator.com/item?id=49530535"
+        "source": "Reddit",
+        "text": "Guardrails don\u2019t make the model safer. They make it slower, dumber, and more expensive. The 2026 rules will make that worse. Yesterday I tried something stupidly simple. I wanted an attack-surface analysis of an...",
+        "url": "https://www.reddit.com/r/hackingai/comments/1w58quh/guardrails_dont_make_the_model_safer_they_make_it/"
+      },
+      {
+        "source": "Reddit",
+        "text": "Anthropic relance la course aux mod\u00e8les avec Claude Fable 5.1 Anthropic a lanc\u00e9 Claude Fable 5.1 (ainsi qu'une d\u00e9clinaison restreinte nomm\u00e9e Mythos 5.1), un nouveau mod\u00e8le qui s'empare de la premi\u00e8re place des...",
+        "url": "https://www.reddit.com/r/actutech/comments/1w5do5i/anthropic_relance_la_course_aux_mod\u00e8les_avec/"
       }
     ]
   },
   {
-    "community_sentiment": -0.3763,
-    "mention_count": 22,
-    "controversy_index": 0.3333,
-    "sentiment_trend": "negative",
-    "confidence_score": 0.25,
-    "sentiment_method": "gemini",
-    "valid_posts": 9,
-    "strong_praise_count": 1,
-    "strong_criticism_count": 2,
+    "community_sentiment": 0.0922,
+    "mention_count": 25,
+    "controversy_index": 0.0,
+    "sentiment_trend": "stable",
+    "confidence_score": 0.83,
+    "sentiment_method": "vader_fallback",
     "model_name": "Claude Opus 5",
-    "scraped_at": "2026-09-02T14:41:36.889920+00:00",
+    "scraped_at": "2026-09-02T18:47:07.316406+00:00",
     "_experimental": true,
     "source_counts": {
+      "Reddit": 3,
       "HackerNews": 22
     },
     "community_examples": [
       {
         "source": "Hacker News",
-        "text": "Show HN: Impressive turn-based RPG prototype built with Opus 5 in 20 min Claude Opus 5 definitely feels a lot closer to the original Fable 5 release. With minimal instructions and about 2 iterations of feedback, I am...",
-        "url": "https://news.ycombinator.com/item?id=49046504"
-      },
-      {
-        "source": "Hacker News",
-        "text": "Opus 5.0 drives incoherence into the stratosphere",
-        "url": "https://news.ycombinator.com/item?id=49364658"
-      },
-      {
-        "source": "Hacker News",
         "text": "Why I prefer Opus 5 to Fable 5 I've been experimenting with both since the moment each came out. 4 games, 3 websites and 2 content creation engines later - I think I'm ready to share a bit of my experience and...",
         "url": "https://news.ycombinator.com/item?id=49081970"
+      },
+      {
+        "source": "Hacker News",
+        "text": "Claude Opus 5 cheated when tasked with running a vending machine",
+        "url": "https://news.ycombinator.com/item?id=49101543"
       }
     ],
     "top_quotes": [
       {
         "source": "Hacker News",
-        "text": "Show HN: Impressive turn-based RPG prototype built with Opus 5 in 20 min Claude Opus 5 definitely feels a lot closer to the original Fable 5 release. With minimal instructions and about 2 iterations of feedback, I am...",
-        "url": "https://news.ycombinator.com/item?id=49046504"
-      },
-      {
-        "source": "Hacker News",
-        "text": "Opus 5.0 drives incoherence into the stratosphere",
-        "url": "https://news.ycombinator.com/item?id=49364658"
-      },
-      {
-        "source": "Hacker News",
         "text": "Why I prefer Opus 5 to Fable 5 I've been experimenting with both since the moment each came out. 4 games, 3 websites and 2 content creation engines later - I think I'm ready to share a bit of my experience and...",
         "url": "https://news.ycombinator.com/item?id=49081970"
+      },
+      {
+        "source": "Hacker News",
+        "text": "Claude Opus 5 cheated when tasked with running a vending machine",
+        "url": "https://news.ycombinator.com/item?id=49101543"
       }
     ]
   },
   {
-    "community_sentiment": 0.0873,
-    "mention_count": 19,
-    "controversy_index": 0.4,
-    "sentiment_trend": "stable",
-    "confidence_score": 0.17,
-    "sentiment_method": "gemini",
-    "valid_posts": 5,
-    "strong_praise_count": 1,
-    "strong_criticism_count": 1,
+    "community_sentiment": 0.2067,
+    "mention_count": 18,
+    "controversy_index": 0.0,
+    "sentiment_trend": "positive",
+    "confidence_score": 0.6,
+    "sentiment_method": "vader_fallback",
     "model_name": "Claude Fable 5",
-    "scraped_at": "2026-09-02T14:41:42.136665+00:00",
+    "scraped_at": "2026-09-02T18:47:07.338182+00:00",
     "_experimental": true,
     "source_counts": {
-      "HackerNews": 19
+      "HackerNews": 18
     },
     "community_examples": [
       {
         "source": "Hacker News",
-        "text": "\u2026e Opus 5 definitely feels a lot closer to the original Fable 5 release. With minimal instructions and about 2 iterations of feedback, I am really surprised with it's output, especially the visuals.",
-        "url": "https://news.ycombinator.com/item?id=49046504"
+        "text": "Why I prefer Opus 5 to Fable 5 I've been experimenting with both since the moment each came out. 4 games, 3 websites and 2 content creation engines later - I think I'm ready to share a bit of my experience and...",
+        "url": "https://news.ycombinator.com/item?id=49081970"
       },
       {
         "source": "Hacker News",
@@ -120,15 +113,15 @@
       },
       {
         "source": "Hacker News",
-        "text": "Claude Fable 5.1 made me a nice animated pelican",
-        "url": "https://news.ycombinator.com/item?id=49530472"
+        "text": "Claude Fable 5.1 and Claude Mythos 5.1 What's new in Claude Fable 5.1 \u2013 Card:",
+        "url": "https://news.ycombinator.com/item?id=49525378"
       }
     ],
     "top_quotes": [
       {
         "source": "Hacker News",
-        "text": "\u2026e Opus 5 definitely feels a lot closer to the original Fable 5 release. With minimal instructions and about 2 iterations of feedback, I am really surprised with it's output, especially the visuals.",
-        "url": "https://news.ycombinator.com/item?id=49046504"
+        "text": "Why I prefer Opus 5 to Fable 5 I've been experimenting with both since the moment each came out. 4 games, 3 websites and 2 content creation engines later - I think I'm ready to share a bit of my experience and...",
+        "url": "https://news.ycombinator.com/item?id=49081970"
       },
       {
         "source": "Hacker News",
@@ -137,23 +130,20 @@
       },
       {
         "source": "Hacker News",
-        "text": "Claude Fable 5.1 made me a nice animated pelican",
-        "url": "https://news.ycombinator.com/item?id=49530472"
+        "text": "Claude Fable 5.1 and Claude Mythos 5.1 What's new in Claude Fable 5.1 \u2013 Card:",
+        "url": "https://news.ycombinator.com/item?id=49525378"
       }
     ]
   },
   {
-    "community_sentiment": -0.0723,
+    "community_sentiment": 0.0312,
     "mention_count": 21,
-    "controversy_index": 0.375,
+    "controversy_index": 0.1429,
     "sentiment_trend": "stable",
-    "confidence_score": 0.25,
-    "sentiment_method": "gemini",
-    "valid_posts": 8,
-    "strong_praise_count": 2,
-    "strong_criticism_count": 1,
+    "confidence_score": 0.7,
+    "sentiment_method": "vader_fallback",
     "model_name": "GPT-5.6 Sol",
-    "scraped_at": "2026-09-02T14:41:49.579075+00:00",
+    "scraped_at": "2026-09-02T18:47:07.363263+00:00",
     "_experimental": true,
     "source_counts": {
       "HackerNews": 21
@@ -171,8 +161,8 @@
       },
       {
         "source": "Hacker News",
-        "text": "Is GPT-5.6 Sol Max Worth It? I ran some test with gpt- 5.6 sol in max reasoning on both codex cli and my own agent harness: I tested only 1 task and the toekn efficency difference is not as great as in high mode:...",
-        "url": "https://news.ycombinator.com/item?id=48947713"
+        "text": "Accelerating GPT-5.6 Sol Ultrafast",
+        "url": "https://news.ycombinator.com/item?id=49289844"
       }
     ],
     "top_quotes": [
@@ -188,23 +178,20 @@
       },
       {
         "source": "Hacker News",
-        "text": "Is GPT-5.6 Sol Max Worth It? I ran some test with gpt- 5.6 sol in max reasoning on both codex cli and my own agent harness: I tested only 1 task and the toekn efficency difference is not as great as in high mode:...",
-        "url": "https://news.ycombinator.com/item?id=48947713"
+        "text": "Accelerating GPT-5.6 Sol Ultrafast",
+        "url": "https://news.ycombinator.com/item?id=49289844"
       }
     ]
   },
   {
-    "community_sentiment": 0.5564,
+    "community_sentiment": 0.1714,
     "mention_count": 11,
     "controversy_index": 0.0,
     "sentiment_trend": "positive",
-    "confidence_score": 0.07,
-    "sentiment_method": "gemini",
-    "valid_posts": 2,
-    "strong_praise_count": 0,
-    "strong_criticism_count": 0,
+    "confidence_score": 0.37,
+    "sentiment_method": "vader_fallback",
     "model_name": "Grok 4.6",
-    "scraped_at": "2026-09-02T14:41:52.464682+00:00",
+    "scraped_at": "2026-09-02T18:47:07.379712+00:00",
     "_experimental": true,
     "source_counts": {
       "HackerNews": 11
@@ -212,206 +199,246 @@
     "community_examples": [
       {
         "source": "Hacker News",
-        "text": "SpaceXAI debuts Grok 4.6, overtaking Kimi K3's and matching GPT-5.6 Sol",
-        "url": "https://news.ycombinator.com/item?id=49289032"
+        "text": "Grok 4.6 scores 61 on the Artificial Analysis Intelligence Index",
+        "url": "https://news.ycombinator.com/item?id=49275385"
+      },
+      {
+        "source": "Hacker News",
+        "text": "Introducing Grok 4.6",
+        "url": "https://news.ycombinator.com/item?id=49274374"
       }
     ],
     "top_quotes": [
       {
         "source": "Hacker News",
-        "text": "SpaceXAI debuts Grok 4.6, overtaking Kimi K3's and matching GPT-5.6 Sol",
-        "url": "https://news.ycombinator.com/item?id=49289032"
+        "text": "Grok 4.6 scores 61 on the Artificial Analysis Intelligence Index",
+        "url": "https://news.ycombinator.com/item?id=49275385"
+      },
+      {
+        "source": "Hacker News",
+        "text": "Introducing Grok 4.6",
+        "url": "https://news.ycombinator.com/item?id=49274374"
       }
     ]
   },
   {
-    "community_sentiment": 0.4545,
-    "mention_count": 25,
-    "controversy_index": 0.0,
+    "community_sentiment": 0.1435,
+    "mention_count": 26,
+    "controversy_index": 0.0385,
     "sentiment_trend": "positive",
-    "confidence_score": 0.1,
-    "sentiment_method": "gemini",
-    "valid_posts": 3,
-    "strong_praise_count": 0,
-    "strong_criticism_count": 0,
+    "confidence_score": 0.87,
+    "sentiment_method": "vader_fallback",
     "model_name": "Kimi K3",
-    "scraped_at": "2026-09-02T14:42:01.860193+00:00",
+    "scraped_at": "2026-09-02T18:47:07.390672+00:00",
     "_experimental": true,
     "source_counts": {
-      "HackerNews": 25
+      "HackerNews": 26
     },
     "community_examples": [
       {
         "source": "Hacker News",
-        "text": "Running Kimi K3 on MI355X at Better Performance per Dollar Than B300",
-        "url": "https://news.ycombinator.com/item?id=49141073"
+        "text": "Kimi K3 and GLM-5.3 are better than Gemini 3.8 Flash Based on artificialanalysis.ai, Kimi K3 and GLM-5.3 are more intelligent than the new Gemini 3.8 Flash[1][2].Gemini 3.8 Flash comes in eighth place with a score of...",
+        "url": "https://news.ycombinator.com/item?id=49539315"
       },
       {
         "source": "Hacker News",
-        "text": "Self-hosting Kimi K3: 20% more hardware cost, 20% better task resolution",
-        "url": "https://news.ycombinator.com/item?id=49098130"
+        "text": "\u2026istilled 120B scores 83.61% on FinanceReasoning, above Kimi K3 (81.93%) and Inkling (65.13%). We released the 20B open weights. With V4 as the teacher though, we realized it would be timely to measure if the...",
+        "url": "https://news.ycombinator.com/item?id=49113599"
       },
       {
         "source": "Hacker News",
-        "text": "Kimi K3 Is Open, Opus 5 Is Good, DeepSeek V4 Flash Is Cheap: LLMs on Baba Is You",
-        "url": "https://news.ycombinator.com/item?id=49146588"
+        "text": "Kimi K3 Architecture Overview and Notes",
+        "url": "https://news.ycombinator.com/item?id=49085698"
       }
     ],
     "top_quotes": [
       {
         "source": "Hacker News",
-        "text": "Running Kimi K3 on MI355X at Better Performance per Dollar Than B300",
-        "url": "https://news.ycombinator.com/item?id=49141073"
+        "text": "Kimi K3 and GLM-5.3 are better than Gemini 3.8 Flash Based on artificialanalysis.ai, Kimi K3 and GLM-5.3 are more intelligent than the new Gemini 3.8 Flash[1][2].Gemini 3.8 Flash comes in eighth place with a score of...",
+        "url": "https://news.ycombinator.com/item?id=49539315"
       },
       {
         "source": "Hacker News",
-        "text": "Self-hosting Kimi K3: 20% more hardware cost, 20% better task resolution",
-        "url": "https://news.ycombinator.com/item?id=49098130"
+        "text": "\u2026istilled 120B scores 83.61% on FinanceReasoning, above Kimi K3 (81.93%) and Inkling (65.13%). We released the 20B open weights. With V4 as the teacher though, we realized it would be timely to measure if the...",
+        "url": "https://news.ycombinator.com/item?id=49113599"
       },
       {
         "source": "Hacker News",
-        "text": "Kimi K3 Is Open, Opus 5 Is Good, DeepSeek V4 Flash Is Cheap: LLMs on Baba Is You",
-        "url": "https://news.ycombinator.com/item?id=49146588"
+        "text": "Kimi K3 Architecture Overview and Notes",
+        "url": "https://news.ycombinator.com/item?id=49085698"
       }
     ]
   },
   {
-    "community_sentiment": 0.7487,
-    "mention_count": 14,
-    "controversy_index": 0.2857,
-    "sentiment_trend": "positive",
-    "confidence_score": 0.23,
-    "sentiment_method": "gemini",
-    "valid_posts": 7,
-    "strong_praise_count": 2,
-    "strong_criticism_count": 0,
-    "model_name": "GLM-5.3",
-    "scraped_at": "2026-09-02T14:42:08.870112+00:00",
-    "_experimental": true,
-    "source_counts": {
-      "HackerNews": 11,
-      "Reddit": 3
-    },
-    "community_examples": [
-      {
-        "source": "Hacker News",
-        "text": "I spent $266 and four AI models to own my tablet. GLM-5.3 finished it in a day",
-        "url": "https://news.ycombinator.com/item?id=49409073"
-      },
-      {
-        "source": "Reddit",
-        "text": "Kimi, GLM 5.3 Flash, Deepseek with full memory, web research, canvas and voice. We all should have access to high grade intelligence without big AI Open source models are climbing the intelligence charts this year in...",
-        "url": "https://www.reddit.com/r/kimi/comments/1w4ajqr/kimi_glm_53_flash_deepseek_with_full_memory_web/"
-      },
-      {
-        "source": "Reddit",
-        "text": "GLM-5.3 Flash With the new GLM Flash being a really good model, and giving fair usage within API or subscription, here's another 10% off the already cheap costs. submitted by /u/Info-NoInfo to r/Discount_Subscription...",
-        "url": "https://www.reddit.com/r/Discount_Subscription/comments/1w4dl6g/glm53_flash/"
-      }
-    ],
-    "top_quotes": [
-      {
-        "source": "Hacker News",
-        "text": "I spent $266 and four AI models to own my tablet. GLM-5.3 finished it in a day",
-        "url": "https://news.ycombinator.com/item?id=49409073"
-      },
-      {
-        "source": "Reddit",
-        "text": "Kimi, GLM 5.3 Flash, Deepseek with full memory, web research, canvas and voice. We all should have access to high grade intelligence without big AI Open source models are climbing the intelligence charts this year in...",
-        "url": "https://www.reddit.com/r/kimi/comments/1w4ajqr/kimi_glm_53_flash_deepseek_with_full_memory_web/"
-      },
-      {
-        "source": "Reddit",
-        "text": "GLM-5.3 Flash With the new GLM Flash being a really good model, and giving fair usage within API or subscription, here's another 10% off the already cheap costs. submitted by /u/Info-NoInfo to r/Discount_Subscription...",
-        "url": "https://www.reddit.com/r/Discount_Subscription/comments/1w4dl6g/glm53_flash/"
-      }
-    ]
-  },
-  {
-    "community_sentiment": 0.8,
-    "mention_count": 7,
+    "community_sentiment": 0.102,
+    "mention_count": 13,
     "controversy_index": 0.0,
     "sentiment_trend": "positive",
-    "confidence_score": 0.03,
-    "sentiment_method": "gemini",
-    "valid_posts": 1,
-    "strong_praise_count": 0,
-    "strong_criticism_count": 0,
-    "model_name": "Qwen3.8 Max",
-    "scraped_at": "2026-09-02T14:42:11.412941+00:00",
+    "confidence_score": 0.43,
+    "sentiment_method": "vader_fallback",
+    "model_name": "GLM-5.3",
+    "scraped_at": "2026-09-02T18:47:07.402077+00:00",
     "_experimental": true,
     "source_counts": {
-      "HackerNews": 7
+      "HackerNews": 13
     },
     "community_examples": [
       {
         "source": "Hacker News",
-        "text": "Qwen3.8-Max: A New Bar for Coding and Cowork",
-        "url": "https://news.ycombinator.com/item?id=49150470"
+        "text": "Reasoning prefills on a few open models I wrapped this small followup to stolen-thoughts.com in a gist for easier reading and wanted to share it here.My hunch is that this might not just be reasoning distillation; it...",
+        "url": "https://news.ycombinator.com/item?id=49320387"
+      },
+      {
+        "source": "Hacker News",
+        "text": "GLM-5.3: Frontier coding with emergent cyber capabilities",
+        "url": "https://news.ycombinator.com/item?id=49294997"
       }
     ],
     "top_quotes": [
       {
         "source": "Hacker News",
-        "text": "Qwen3.8-Max: A New Bar for Coding and Cowork",
-        "url": "https://news.ycombinator.com/item?id=49150470"
+        "text": "Reasoning prefills on a few open models I wrapped this small followup to stolen-thoughts.com in a gist for easier reading and wanted to share it here.My hunch is that this might not just be reasoning distillation; it...",
+        "url": "https://news.ycombinator.com/item?id=49320387"
+      },
+      {
+        "source": "Hacker News",
+        "text": "GLM-5.3: Frontier coding with emergent cyber capabilities",
+        "url": "https://news.ycombinator.com/item?id=49294997"
       }
     ]
   },
   {
-    "community_sentiment": null,
-    "mention_count": 3,
-    "controversy_index": null,
-    "sentiment_trend": null,
-    "confidence_score": 0,
-    "sentiment_method": "gemini",
-    "model_name": "Qwen3.8 2.4T A95B",
-    "scraped_at": "2026-09-02T14:42:12.171236+00:00",
+    "community_sentiment": 0.1214,
+    "mention_count": 9,
+    "controversy_index": 0.0,
+    "sentiment_trend": "positive",
+    "confidence_score": 0.3,
+    "sentiment_method": "vader_fallback",
+    "model_name": "Gemini 3.8 Flash",
+    "scraped_at": "2026-09-02T18:47:07.414471+00:00",
     "_experimental": true,
     "source_counts": {
+      "HackerNews": 9
+    },
+    "community_examples": [
+      {
+        "source": "Hacker News",
+        "text": "Kimi K3 and GLM-5.3 are better than Gemini 3.8 Flash Based on artificialanalysis.ai, Kimi K3 and GLM-5.3 are more intelligent than the new Gemini 3.8 Flash[1][2].Gemini 3.8 Flash comes in eighth place with a score of...",
+        "url": "https://news.ycombinator.com/item?id=49539315"
+      },
+      {
+        "source": "Hacker News",
+        "text": "Gemini 3.8 Flash and 3.8 Flash Cyber",
+        "url": "https://news.ycombinator.com/item?id=49537553"
+      },
+      {
+        "source": "Hacker News",
+        "text": "Gemini 3.8 Flash and 3.8 Flash Cyber",
+        "url": "https://news.ycombinator.com/item?id=49538007"
+      }
+    ],
+    "top_quotes": [
+      {
+        "source": "Hacker News",
+        "text": "Kimi K3 and GLM-5.3 are better than Gemini 3.8 Flash Based on artificialanalysis.ai, Kimi K3 and GLM-5.3 are more intelligent than the new Gemini 3.8 Flash[1][2].Gemini 3.8 Flash comes in eighth place with a score of...",
+        "url": "https://news.ycombinator.com/item?id=49539315"
+      },
+      {
+        "source": "Hacker News",
+        "text": "Gemini 3.8 Flash and 3.8 Flash Cyber",
+        "url": "https://news.ycombinator.com/item?id=49537553"
+      },
+      {
+        "source": "Hacker News",
+        "text": "Gemini 3.8 Flash and 3.8 Flash Cyber",
+        "url": "https://news.ycombinator.com/item?id=49538007"
+      }
+    ]
+  },
+  {
+    "community_sentiment": 0.2479,
+    "mention_count": 8,
+    "controversy_index": 0.0,
+    "sentiment_trend": "positive",
+    "confidence_score": 0.27,
+    "sentiment_method": "vader_fallback",
+    "model_name": "Qwen3.8 Max",
+    "scraped_at": "2026-09-02T18:47:07.423561+00:00",
+    "_experimental": true,
+    "source_counts": {
+      "HackerNews": 8
+    },
+    "community_examples": [
+      {
+        "source": "Hacker News",
+        "text": "Qwen3.8 Max now ranked as the best overall model by agentic index",
+        "url": "https://news.ycombinator.com/item?id=49200652"
+      },
+      {
+        "source": "Hacker News",
+        "text": "Qwen3.8-Max: A New Bar for Coding and Cowork",
+        "url": "https://news.ycombinator.com/item?id=49150470"
+      },
+      {
+        "source": "Hacker News",
+        "text": "Qwen3.8-Max just got upgraded",
+        "url": "https://news.ycombinator.com/item?id=49532474"
+      }
+    ],
+    "top_quotes": [
+      {
+        "source": "Hacker News",
+        "text": "Qwen3.8 Max now ranked as the best overall model by agentic index",
+        "url": "https://news.ycombinator.com/item?id=49200652"
+      },
+      {
+        "source": "Hacker News",
+        "text": "Qwen3.8-Max: A New Bar for Coding and Cowork",
+        "url": "https://news.ycombinator.com/item?id=49150470"
+      },
+      {
+        "source": "Hacker News",
+        "text": "Qwen3.8-Max just got upgraded",
+        "url": "https://news.ycombinator.com/item?id=49532474"
+      }
+    ]
+  },
+  {
+    "community_sentiment": 0.2251,
+    "mention_count": 6,
+    "controversy_index": 0.0,
+    "sentiment_trend": "positive",
+    "confidence_score": 0.2,
+    "sentiment_method": "vader_fallback",
+    "model_name": "Qwen3.8 2.4T A95B",
+    "scraped_at": "2026-09-02T18:47:07.433386+00:00",
+    "_experimental": true,
+    "source_counts": {
+      "Reddit": 3,
       "HackerNews": 3
     },
-    "community_examples": [],
-    "top_quotes": []
-  },
-  {
-    "community_sentiment": 0.5926,
-    "mention_count": 12,
-    "controversy_index": 0.0,
-    "sentiment_trend": "positive",
-    "confidence_score": 0.1,
-    "sentiment_method": "gemini",
-    "valid_posts": 3,
-    "strong_praise_count": 0,
-    "strong_criticism_count": 0,
-    "model_name": "GLM-5.3-Flash",
-    "scraped_at": "2026-09-02T14:42:15.928187+00:00",
-    "_experimental": true,
-    "source_counts": {
-      "HackerNews": 12
-    },
     "community_examples": [
       {
-        "source": "Hacker News",
-        "text": "The fastest and cheapest GLM 5.3 Flash endpoint",
-        "url": "https://news.ycombinator.com/item?id=49455437"
+        "source": "Reddit",
+        "text": "Why do research labs mostly use Off-Policy Distillation for creating \"better\" models? Recently, I saw empero-ai distilling Qwen3.8 2.4T A95B into older Qwen3.5 releases. I was hyped until I saw Off-Policy...",
+        "url": "https://www.reddit.com/r/LocalLLaMA/comments/1w0lfhm/why_do_research_labs_mostly_use_offpolicy/"
       },
       {
-        "source": "Hacker News",
-        "text": "GLM 5.3 Flash faster and cheaper",
-        "url": "https://news.ycombinator.com/item?id=49462330"
+        "source": "Reddit",
+        "text": "Qwen3.8-2.4T-A95B is out now! Qwen3.8 can now be run locally! We shrank Qwen3.8-2.4T-A95B from 4.9TB to 397GB (-91% size) via Dynamic 1-bit by selectively quantizing layers Run on 410GB+ RAM/VRAM via Unsloth Desktop...",
+        "url": "https://www.reddit.com/r/unsloth/comments/1vmi95m/qwen3824ta95b_is_out_now/"
       }
     ],
     "top_quotes": [
       {
-        "source": "Hacker News",
-        "text": "The fastest and cheapest GLM 5.3 Flash endpoint",
-        "url": "https://news.ycombinator.com/item?id=49455437"
+        "source": "Reddit",
+        "text": "Why do research labs mostly use Off-Policy Distillation for creating \"better\" models? Recently, I saw empero-ai distilling Qwen3.8 2.4T A95B into older Qwen3.5 releases. I was hyped until I saw Off-Policy...",
+        "url": "https://www.reddit.com/r/LocalLLaMA/comments/1w0lfhm/why_do_research_labs_mostly_use_offpolicy/"
       },
       {
-        "source": "Hacker News",
-        "text": "GLM 5.3 Flash faster and cheaper",
-        "url": "https://news.ycombinator.com/item?id=49462330"
+        "source": "Reddit",
+        "text": "Qwen3.8-2.4T-A95B is out now! Qwen3.8 can now be run locally! We shrank Qwen3.8-2.4T-A95B from 4.9TB to 397GB (-91% size) via Dynamic 1-bit by selectively quantizing layers Run on 410GB+ RAM/VRAM via Unsloth Desktop...",
+        "url": "https://www.reddit.com/r/unsloth/comments/1vmi95m/qwen3824ta95b_is_out_now/"
       }
     ]
   }

@@ -2538,6 +2538,59 @@
       }
     }
   },
+  "google/gemini-3-8-flash": {
+    "family_id": "google/gemini-3-8-flash",
+    "canonical_family_name": "Gemini 3.8 Flash",
+    "provider": "Google",
+    "version": "3.8",
+    "source_aliases": {
+      "artificial_analysis": [
+        "Gemini 3.8 Flash (high)",
+        "Gemini 3.8 Flash (low)",
+        "Gemini 3.8 Flash (medium)"
+      ],
+      "llmstats": [
+        "Gemini 3.8 Flash"
+      ]
+    },
+    "source_ids": {},
+    "source_urls": {
+      "artificial_analysis": [
+        "https://artificialanalysis.ai/models/gemini-3-8-flash",
+        "https://artificialanalysis.ai/models/gemini-3-8-flash-low",
+        "https://artificialanalysis.ai/models/gemini-3-8-flash-medium"
+      ]
+    },
+    "variants": {
+      "google/gemini-3-8-flash:high": {
+        "variant_id": "google/gemini-3-8-flash:high",
+        "deployment_profile_id": "google/gemini-3-8-flash:high:deployment",
+        "source_name": "Gemini 3.8 Flash (high)",
+        "reasoning_effort": "high",
+        "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": null
+      },
+      "google/gemini-3-8-flash:medium": {
+        "variant_id": "google/gemini-3-8-flash:medium",
+        "deployment_profile_id": "google/gemini-3-8-flash:medium:deployment",
+        "source_name": "Gemini 3.8 Flash (medium)",
+        "reasoning_effort": "medium",
+        "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": null
+      },
+      "google/gemini-3-8-flash:low": {
+        "variant_id": "google/gemini-3-8-flash:low",
+        "deployment_profile_id": "google/gemini-3-8-flash:low:deployment",
+        "source_name": "Gemini 3.8 Flash (low)",
+        "reasoning_effort": "low",
+        "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": null
+      }
+    }
+  },
   "google/gemini-3-deep-think": {
     "family_id": "google/gemini-3-deep-think",
     "canonical_family_name": "Gemini 3 Deep Think",

@@ -156,6 +156,26 @@
   },
   {
     "source": "llmstats",
+    "source_name": "Claude Opus 4.7",
+    "source_model_id": "claude-opus-4-7",
+    "source_model_url": "https://llm-stats.com/models/claude-opus-4-7",
+    "provider": "Anthropic",
+    "candidate_family_id": "anthropic/claude-opus-5",
+    "candidate_family_name": "Claude Opus 5",
+    "match_status": "identity_unresolved",
+    "match_confidence": 0.8,
+    "match_method": "fuzzy_review_candidate",
+    "review_reason": "Fuzzy candidates require manual approval and are excluded from scoring.",
+    "competing_candidates": [
+      {
+        "family_id": "anthropic/claude-opus-5",
+        "family_name": "Claude Opus 5",
+        "similarity": 0.8571
+      }
+    ]
+  },
+  {
+    "source": "llmstats",
     "source_name": "Claude Opus 4.6",
     "source_model_id": "claude-opus-4-6",
     "source_model_url": "https://llm-stats.com/models/claude-opus-4-6",
@@ -176,26 +196,6 @@
         "family_id": "anthropic/claude-sonnet-4-6",
         "family_name": "Claude Sonnet 4.6",
         "similarity": 0.75
-      }
-    ]
-  },
-  {
-    "source": "llmstats",
-    "source_name": "Claude Opus 4.7",
-    "source_model_id": "claude-opus-4-7",
-    "source_model_url": "https://llm-stats.com/models/claude-opus-4-7",
-    "provider": "Anthropic",
-    "candidate_family_id": "anthropic/claude-opus-5",
-    "candidate_family_name": "Claude Opus 5",
-    "match_status": "identity_unresolved",
-    "match_confidence": 0.8,
-    "match_method": "fuzzy_review_candidate",
-    "review_reason": "Fuzzy candidates require manual approval and are excluded from scoring.",
-    "competing_candidates": [
-      {
-        "family_id": "anthropic/claude-opus-5",
-        "family_name": "Claude Opus 5",
-        "similarity": 0.8571
       }
     ]
   },
@@ -641,6 +641,26 @@
   },
   {
     "source": "llmstats",
+    "source_name": "Nemotron 3 Ultra (550B A55B)",
+    "source_model_id": "nemotron-3-ultra-550b-a55b",
+    "source_model_url": "https://llm-stats.com/models/nemotron-3-ultra-550b-a55b",
+    "provider": "NVIDIA",
+    "candidate_family_id": "nvidia/nemotron-3-ultra",
+    "candidate_family_name": "Nemotron 3 Ultra",
+    "match_status": "identity_unresolved",
+    "match_confidence": 0.7619,
+    "match_method": "fuzzy_review_candidate",
+    "review_reason": "Fuzzy candidates require manual approval and are excluded from scoring.",
+    "competing_candidates": [
+      {
+        "family_id": "nvidia/nemotron-3-ultra",
+        "family_name": "Nemotron 3 Ultra",
+        "similarity": 0.7619
+      }
+    ]
+  },
+  {
+    "source": "llmstats",
     "source_name": "Qwen3.5-27B",
     "source_model_id": "qwen3.5-27b",
     "source_model_url": "https://llm-stats.com/models/qwen3.5-27b",
@@ -676,26 +696,6 @@
         "family_id": "alibaba/qwen3-5-4b",
         "family_name": "Qwen3.5 4B",
         "similarity": 0.8571
-      }
-    ]
-  },
-  {
-    "source": "llmstats",
-    "source_name": "Nemotron 3 Ultra (550B A55B)",
-    "source_model_id": "nemotron-3-ultra-550b-a55b",
-    "source_model_url": "https://llm-stats.com/models/nemotron-3-ultra-550b-a55b",
-    "provider": "NVIDIA",
-    "candidate_family_id": "nvidia/nemotron-3-ultra",
-    "candidate_family_name": "Nemotron 3 Ultra",
-    "match_status": "identity_unresolved",
-    "match_confidence": 0.7619,
-    "match_method": "fuzzy_review_candidate",
-    "review_reason": "Fuzzy candidates require manual approval and are excluded from scoring.",
-    "competing_candidates": [
-      {
-        "family_id": "nvidia/nemotron-3-ultra",
-        "family_name": "Nemotron 3 Ultra",
-        "similarity": 0.7619
       }
     ]
   },
