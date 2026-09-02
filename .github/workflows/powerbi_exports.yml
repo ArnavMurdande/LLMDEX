@@ -62,7 +62,7 @@ jobs:
             exit 0
           fi
 
-          git commit -m "Update Power BI exports [skip ci]"
+          git commit -m "Update Power BI exports"
 
           # A human push can still land after the shared workflow lock starts.
           # Rebase and retry instead of rejecting the generated publication.

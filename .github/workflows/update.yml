@@ -6,6 +6,7 @@ on:
       - main
     paths-ignore:
       - "data/**"
+      - "website/assets/providers/**"
       - "**.md"
   schedule:
     # 4:00 PM IST = 10:30 AM UTC
@@ -136,7 +137,7 @@ jobs:
             exit 0
           fi
 
-          git commit -m "Update benchmark data $(date -u +%Y-%m-%d) [skip ci]"
+          git commit -m "Update benchmark data $(date -u +%Y-%m-%d)"
 
           # Rebase safely by stashing any remaining untracked artifacts
           for attempt in 1 2 3; do
