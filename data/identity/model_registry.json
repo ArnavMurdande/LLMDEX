@@ -1463,6 +1463,91 @@
       }
     }
   },
+  "anthropic/claude-fable-5-1": {
+    "family_id": "anthropic/claude-fable-5-1",
+    "canonical_family_name": "Claude Fable 5.1",
+    "provider": "Anthropic",
+    "version": "5.1",
+    "source_aliases": {
+      "artificial_analysis": [
+        "Claude Fable 5.1 (high with fallback)",
+        "Claude Fable 5.1 (low with fallback)",
+        "Claude Fable 5.1 (max with fallback)",
+        "Claude Fable 5.1 (medium with fallback)",
+        "Claude Fable 5.1 (xhigh with fallback)"
+      ],
+      "llmstats": [
+        "Claude Fable 5.1"
+      ]
+    },
+    "source_ids": {},
+    "source_urls": {
+      "artificial_analysis": [
+        "https://artificialanalysis.ai/models/claude-fable-5-1",
+        "https://artificialanalysis.ai/models/claude-fable-5-1-high",
+        "https://artificialanalysis.ai/models/claude-fable-5-1-low",
+        "https://artificialanalysis.ai/models/claude-fable-5-1-medium",
+        "https://artificialanalysis.ai/models/claude-fable-5-1-xhigh"
+      ]
+    },
+    "variants": {
+      "anthropic/claude-fable-5-1:max-fallback": {
+        "variant_id": "anthropic/claude-fable-5-1:max-fallback",
+        "deployment_profile_id": "anthropic/claude-fable-5-1:max-fallback:deployment",
+        "source_name": "Claude Fable 5.1 (max with fallback)",
+        "reasoning_effort": "max",
+        "deployment_profile": [
+          "fallback"
+        ],
+        "fallback_enabled": true,
+        "parameter_count": null
+      },
+      "anthropic/claude-fable-5-1:xhigh-fallback": {
+        "variant_id": "anthropic/claude-fable-5-1:xhigh-fallback",
+        "deployment_profile_id": "anthropic/claude-fable-5-1:xhigh-fallback:deployment",
+        "source_name": "Claude Fable 5.1 (xhigh with fallback)",
+        "reasoning_effort": "xhigh",
+        "deployment_profile": [
+          "fallback"
+        ],
+        "fallback_enabled": true,
+        "parameter_count": null
+      },
+      "anthropic/claude-fable-5-1:high-fallback": {
+        "variant_id": "anthropic/claude-fable-5-1:high-fallback",
+        "deployment_profile_id": "anthropic/claude-fable-5-1:high-fallback:deployment",
+        "source_name": "Claude Fable 5.1 (high with fallback)",
+        "reasoning_effort": "high",
+        "deployment_profile": [
+          "fallback"
+        ],
+        "fallback_enabled": true,
+        "parameter_count": null
+      },
+      "anthropic/claude-fable-5-1:medium-fallback": {
+        "variant_id": "anthropic/claude-fable-5-1:medium-fallback",
+        "deployment_profile_id": "anthropic/claude-fable-5-1:medium-fallback:deployment",
+        "source_name": "Claude Fable 5.1 (medium with fallback)",
+        "reasoning_effort": "medium",
+        "deployment_profile": [
+          "fallback"
+        ],
+        "fallback_enabled": true,
+        "parameter_count": null
+      },
+      "anthropic/claude-fable-5-1:low-fallback": {
+        "variant_id": "anthropic/claude-fable-5-1:low-fallback",
+        "deployment_profile_id": "anthropic/claude-fable-5-1:low-fallback:deployment",
+        "source_name": "Claude Fable 5.1 (low with fallback)",
+        "reasoning_effort": "low",
+        "deployment_profile": [
+          "fallback"
+        ],
+        "fallback_enabled": true,
+        "parameter_count": null
+      }
+    }
+  },
   "anthropic/claude-opus-5": {
     "family_id": "anthropic/claude-opus-5",
     "canonical_family_name": "Claude Opus 5",

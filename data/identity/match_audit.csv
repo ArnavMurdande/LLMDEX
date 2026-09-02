@@ -1,4 +1,5 @@
 source,source_name,source_model_id,source_model_url,provider,candidate_family_id,candidate_family_name,match_status,match_confidence,match_method,review_reason
+llmstats,Claude Fable 5.1,claude-fable-5-1,https://llm-stats.com/models/claude-fable-5-1,Anthropic,anthropic/claude-fable-5-1,Claude Fable 5.1,matched_family,0.95,exact_provider_family_version,
 llmstats,GPT-5.6 Sol,gpt-5.6-sol,https://llm-stats.com/models/gpt-5.6-sol,OpenAI,openai/gpt-5-6-sol,GPT-5.6 Sol,matched_manual,1.0,approved_alias,
 llmstats,Claude Opus 5,claude-opus-5,https://llm-stats.com/models/claude-opus-5,Anthropic,anthropic/claude-opus-5,Claude Opus 5,matched_family,0.95,exact_provider_family_version,
 llmstats,Claude Mythos Preview,claude-mythos-preview,https://llm-stats.com/models/claude-mythos-preview,Anthropic,,,source_missing,0.0,no_candidate,No corresponding family exists in the current AA population.
@@ -20,8 +21,8 @@ llmstats,GPT-5.5,gpt-5.5,https://llm-stats.com/models/gpt-5.5,OpenAI,openai/gpt-
 llmstats,DeepSeek-V4-Flash-Vision-Exp,deepseek-v4-flash-vision-exp,https://llm-stats.com/models/deepseek-v4-flash-vision-exp,DeepSeek,deepseek/deepseek-v4-flash-vision,DeepSeek V4 Flash Vision,identity_unresolved,0.8,fuzzy_review_candidate,Fuzzy candidates require manual approval and are excluded from scoring.
 llmstats,Grok 4.6,grok-4.6,https://llm-stats.com/models/grok-4.6,xAI,,,source_missing,0.0,no_candidate,No corresponding family exists in the current AA population.
 llmstats,Seed 2.1 Pro,seed-2.1-pro,https://llm-stats.com/models/seed-2.1-pro,Bytedance,,,source_missing,0.0,no_candidate,No corresponding family exists in the current AA population.
-llmstats,Grok 4.5,grok-4.5,https://llm-stats.com/models/grok-4.5,xAI,,,source_missing,0.0,no_candidate,No corresponding family exists in the current AA population.
 llmstats,GPT-5.6 Luna,gpt-5.6-luna,https://llm-stats.com/models/gpt-5.6-luna,OpenAI,openai/gpt-5-6-luna,GPT-5.6 Luna,matched_family,0.95,exact_provider_family_version,
+llmstats,Grok 4.5,grok-4.5,https://llm-stats.com/models/grok-4.5,xAI,,,source_missing,0.0,no_candidate,No corresponding family exists in the current AA population.
 llmstats,GLM-5.2,glm-5.2,https://llm-stats.com/models/glm-5.2,ZAI,,,source_missing,0.0,no_candidate,No corresponding family exists in the current AA population.
 llmstats,DeepSeek-V4-Flash-0731,deepseek-v4-flash-0731,https://llm-stats.com/models/deepseek-v4-flash-0731,DeepSeek,deepseek/deepseek-v4-flash-0731,DeepSeek V4 Flash 0731,matched_family,0.95,exact_provider_family_version,
 llmstats,Qwen3.7 Max,qwen3.7-max,https://llm-stats.com/models/qwen3.7-max,Alibaba,alibaba/qwen3-8,Qwen3.8,identity_unresolved,0.8,fuzzy_review_candidate,Fuzzy candidates require manual approval and are excluded from scoring.
@@ -35,8 +36,8 @@ llmstats,Gemini 3.1 Pro,gemini-3.1-pro-preview,https://llm-stats.com/models/gemi
 llmstats,Grok-4 Heavy,grok-4-heavy,https://llm-stats.com/models/grok-4-heavy,xAI,,,source_missing,0.0,no_candidate,No corresponding family exists in the current AA population.
 llmstats,DeepSeek-V4-Pro-Max,deepseek-v4-pro-max,https://llm-stats.com/models/deepseek-v4-pro-max,DeepSeek,deepseek/deepseek-v4-pro,DeepSeek V4 Pro,matched_family,0.95,exact_provider_family_version,
 llmstats,DeepSeek-V4-Flash-Max,deepseek-v4-flash-max,https://llm-stats.com/models/deepseek-v4-flash-max,DeepSeek,deepseek/deepseek-v4-flash,DeepSeek V4 Flash,matched_family,0.95,exact_provider_family_version,
-llmstats,Muse Spark,muse-spark,https://llm-stats.com/models/muse-spark,Baidu,,,source_missing,0.0,no_candidate,No corresponding family exists in the current AA population.
 llmstats,Qwen3.7-Plus,qwen3.7-plus,https://llm-stats.com/models/qwen3.7-plus,Alibaba,alibaba/qwen3-7-plus,Qwen3.7 Plus,matched_family,0.95,exact_provider_family_version,
+llmstats,Muse Spark,muse-spark,https://llm-stats.com/models/muse-spark,Baidu,,,source_missing,0.0,no_candidate,No corresponding family exists in the current AA population.
 llmstats,Sakana Namazu,sakana-namazu,https://llm-stats.com/models/sakana-namazu,Sakana AI,,,source_missing,0.0,no_candidate,No corresponding family exists in the current AA population.
 llmstats,Qwen3.6 Plus,qwen3.6-plus,https://llm-stats.com/models/qwen3.6-plus,Alibaba,alibaba/qwen3-7-plus,Qwen3.7 Plus,identity_unresolved,0.8,fuzzy_review_candidate,Fuzzy candidates require manual approval and are excluded from scoring.
 llmstats,Seed 2.1 Turbo,seed-2.1-turbo,https://llm-stats.com/models/seed-2.1-turbo,ByteDance,,,source_missing,0.0,no_candidate,No corresponding family exists in the current AA population.
@@ -91,4 +92,3 @@ llmstats,Gemini 3.6 Flash,gemini-3.6-flash,https://llm-stats.com/models/gemini-3
 llmstats,Gemini 3.5 Flash,gemini-3.5-flash,https://llm-stats.com/models/gemini-3.5-flash,Google,google/gemini-3-5-flash,Gemini 3.5 Flash,matched_family,0.95,exact_provider_family_version,
 llmstats,Llama 3.1 405B Instruct,llama-3.1-405b-instruct,https://llm-stats.com/models/llama-3.1-405b-instruct,Meta,meta/llama-3-1-405b,Llama 3.1 405B,identity_unresolved,0.7568,fuzzy_review_candidate,Fuzzy candidates require manual approval and are excluded from scoring.
 llmstats,GPT-5.3 Codex,gpt-5.3-codex,https://llm-stats.com/models/gpt-5.3-codex,OpenAI,openai/gpt-5-3-codex,GPT-5.3 Codex,matched_family,0.95,exact_provider_family_version,
-llmstats,Kimi K2.7 Code,kimi-k2.7-code,https://llm-stats.com/models/kimi-k2.7-code,Moonshot AI,,,source_missing,0.0,no_candidate,No corresponding family exists in the current AA population.
