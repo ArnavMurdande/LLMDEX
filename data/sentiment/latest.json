@@ -1,58 +1,55 @@
 [
   {
-    "community_sentiment": 0.3746,
+    "community_sentiment": 0.1962,
     "mention_count": 12,
-    "controversy_index": 0.6667,
+    "controversy_index": 0.0,
     "sentiment_trend": "positive",
-    "confidence_score": 0.1,
-    "sentiment_method": "gemini",
-    "valid_posts": 3,
-    "strong_praise_count": 1,
-    "strong_criticism_count": 1,
+    "confidence_score": 0.4,
+    "sentiment_method": "vader_fallback",
     "model_name": "Claude Fable 5.1",
-    "scraped_at": "2026-09-02T18:57:46.695796+00:00",
+    "scraped_at": "2026-09-03T14:45:27.069588+00:00",
     "_experimental": true,
     "source_counts": {
-      "Reddit": 6,
-      "HackerNews": 6
+      "Reddit": 7,
+      "HackerNews": 5
     },
     "community_examples": [
       {
         "source": "Reddit",
-        "text": "\"Big news: Fable 5.1 (Max) by @AnthropicAI just landed #1 in the Code Arena: WebDev with 1765 pts - breaking away from the pack with a huge +77pt margin. Fable 5.1 (Max) is a significant improvement from Fable 5...",
-        "url": "https://www.reddit.com/r/accelerate/comments/1w5htwn/big_news_fable_51_max_by_anthropicai_just_landed/"
+        "text": "[Workflow] Optimizing CLAUDE.md and Prompts for Advanced Claude Models (e.g., Fable 5.1): Key Guidelines Optimizing CLAUDE.md and Prompts for Advanced Claude Models (e.g., Fable 5.1): Key Guidelines Workflow value:...",
+        "url": "https://www.reddit.com/r/ClaudeWorkflows/comments/1w5k4wq/workflow_optimizing_claudemd_and_prompts_for/"
       },
       {
         "source": "Reddit",
-        "text": "Guardrails don\u2019t make the model safer. They make it slower, dumber, and more expensive. The 2026 rules will make that worse. Yesterday I tried something stupidly simple. I wanted an attack-surface analysis of an...",
-        "url": "https://www.reddit.com/r/hackingai/comments/1w58quh/guardrails_dont_make_the_model_safer_they_make_it/"
+        "text": "Claude Fable 5.1 dropped with cache reads 75% cheaper than Fable 5. Cache reads on fable 5.1 came in at $0.25 per million tokens which is 75% below fable 5 and anthropic says that pulls a typical workload bill down...",
+        "url": "https://www.reddit.com/r/ClaudeAI/comments/1w657al/claude_fable_51_dropped_with_cache_reads_75/"
       },
       {
-        "source": "Hacker News",
-        "text": "Claude Fable 5.1 made me a nice animated pelican",
-        "url": "https://news.ycombinator.com/item?id=49530472"
+        "source": "Reddit",
+        "text": "\"Big news: Fable 5.1 (Max) by @AnthropicAI just landed #1 in the Code Arena: WebDev with 1765 pts - breaking away from the pack with a huge +77pt margin. Fable 5.1 (Max) is a significant improvement from Fable 5...",
+        "url": "https://www.reddit.com/r/accelerate/comments/1w5htwn/big_news_fable_51_max_by_anthropicai_just_landed/"
       }
     ],
     "top_quotes": [
       {
         "source": "Reddit",
-        "text": "\"Big news: Fable 5.1 (Max) by @AnthropicAI just landed #1 in the Code Arena: WebDev with 1765 pts - breaking away from the pack with a huge +77pt margin. Fable 5.1 (Max) is a significant improvement from Fable 5...",
-        "url": "https://www.reddit.com/r/accelerate/comments/1w5htwn/big_news_fable_51_max_by_anthropicai_just_landed/"
+        "text": "[Workflow] Optimizing CLAUDE.md and Prompts for Advanced Claude Models (e.g., Fable 5.1): Key Guidelines Optimizing CLAUDE.md and Prompts for Advanced Claude Models (e.g., Fable 5.1): Key Guidelines Workflow value:...",
+        "url": "https://www.reddit.com/r/ClaudeWorkflows/comments/1w5k4wq/workflow_optimizing_claudemd_and_prompts_for/"
       },
       {
         "source": "Reddit",
-        "text": "Guardrails don\u2019t make the model safer. They make it slower, dumber, and more expensive. The 2026 rules will make that worse. Yesterday I tried something stupidly simple. I wanted an attack-surface analysis of an...",
-        "url": "https://www.reddit.com/r/hackingai/comments/1w58quh/guardrails_dont_make_the_model_safer_they_make_it/"
+        "text": "Claude Fable 5.1 dropped with cache reads 75% cheaper than Fable 5. Cache reads on fable 5.1 came in at $0.25 per million tokens which is 75% below fable 5 and anthropic says that pulls a typical workload bill down...",
+        "url": "https://www.reddit.com/r/ClaudeAI/comments/1w657al/claude_fable_51_dropped_with_cache_reads_75/"
       },
       {
-        "source": "Hacker News",
-        "text": "Claude Fable 5.1 made me a nice animated pelican",
-        "url": "https://news.ycombinator.com/item?id=49530472"
+        "source": "Reddit",
+        "text": "\"Big news: Fable 5.1 (Max) by @AnthropicAI just landed #1 in the Code Arena: WebDev with 1765 pts - breaking away from the pack with a huge +77pt margin. Fable 5.1 (Max) is a significant improvement from Fable 5...",
+        "url": "https://www.reddit.com/r/accelerate/comments/1w5htwn/big_news_fable_51_max_by_anthropicai_just_landed/"
       }
     ]
   },
   {
-    "community_sentiment": -0.3905,
+    "community_sentiment": -0.3763,
     "mention_count": 22,
     "controversy_index": 0.3333,
     "sentiment_trend": "negative",
@@ -62,7 +59,7 @@
     "strong_praise_count": 1,
     "strong_criticism_count": 2,
     "model_name": "Claude Opus 5",
-    "scraped_at": "2026-09-02T18:58:52.025967+00:00",
+    "scraped_at": "2026-09-03T14:46:51.243995+00:00",
     "_experimental": true,
     "source_counts": {
       "HackerNews": 22
@@ -103,26 +100,58 @@
     ]
   },
   {
-    "community_sentiment": 0.1983,
-    "mention_count": 18,
-    "controversy_index": 0.5,
+    "community_sentiment": 0.5,
+    "mention_count": 5,
+    "controversy_index": 0.0,
     "sentiment_trend": "positive",
-    "confidence_score": 0.2,
+    "confidence_score": 0.03,
     "sentiment_method": "gemini",
-    "valid_posts": 6,
-    "strong_praise_count": 2,
-    "strong_criticism_count": 1,
-    "model_name": "Claude Fable 5",
-    "scraped_at": "2026-09-02T18:58:58.991619+00:00",
+    "valid_posts": 1,
+    "strong_praise_count": 0,
+    "strong_criticism_count": 0,
+    "model_name": "Muse Spark 1.3",
+    "scraped_at": "2026-09-03T14:46:52.666372+00:00",
     "_experimental": true,
     "source_counts": {
-      "HackerNews": 18
+      "HackerNews": 5
     },
     "community_examples": [
       {
         "source": "Hacker News",
-        "text": "Tweet claiming Claude Fable 5 has helped disprove the Jacobian conjecture",
-        "url": "https://news.ycombinator.com/item?id=48974144"
+        "text": "Meta's Muse Spark 1.3 beats Google's frontier model on artificialanalysis",
+        "url": "https://news.ycombinator.com/item?id=49542481"
+      }
+    ],
+    "top_quotes": [
+      {
+        "source": "Hacker News",
+        "text": "Meta's Muse Spark 1.3 beats Google's frontier model on artificialanalysis",
+        "url": "https://news.ycombinator.com/item?id=49542481"
+      }
+    ]
+  },
+  {
+    "community_sentiment": 0.2006,
+    "mention_count": 25,
+    "controversy_index": 0.5714,
+    "sentiment_trend": "positive",
+    "confidence_score": 0.23,
+    "sentiment_method": "gemini",
+    "valid_posts": 7,
+    "strong_praise_count": 3,
+    "strong_criticism_count": 1,
+    "model_name": "Claude Fable 5",
+    "scraped_at": "2026-09-03T14:47:05.168869+00:00",
+    "_experimental": true,
+    "source_counts": {
+      "HackerNews": 20,
+      "Reddit": 5
+    },
+    "community_examples": [
+      {
+        "source": "Reddit",
+        "text": "\u2026g projects. Builders who want help turning models like Claude Fable 5.1 into real workflows can get prompts, coaching, and support inside the AI Profit Boardroom . Watch the video below:",
+        "url": "https://www.reddit.com/r/AISEOInsider/comments/1w64ftr/claude_fable_new_model_just_set_a_crazy_ai_record/"
       },
       {
         "source": "Hacker News",
@@ -137,9 +166,9 @@
     ],
     "top_quotes": [
       {
-        "source": "Hacker News",
-        "text": "Tweet claiming Claude Fable 5 has helped disprove the Jacobian conjecture",
-        "url": "https://news.ycombinator.com/item?id=48974144"
+        "source": "Reddit",
+        "text": "\u2026g projects. Builders who want help turning models like Claude Fable 5.1 into real workflows can get prompts, coaching, and support inside the AI Profit Boardroom . Watch the video below:",
+        "url": "https://www.reddit.com/r/AISEOInsider/comments/1w64ftr/claude_fable_new_model_just_set_a_crazy_ai_record/"
       },
       {
         "source": "Hacker News",
@@ -164,7 +193,7 @@
     "strong_praise_count": 2,
     "strong_criticism_count": 1,
     "model_name": "GPT-5.6 Sol",
-    "scraped_at": "2026-09-02T18:59:04.873653+00:00",
+    "scraped_at": "2026-09-03T14:47:29.638425+00:00",
     "_experimental": true,
     "source_counts": {
       "HackerNews": 21
@@ -205,28 +234,22 @@
     ]
   },
   {
-    "community_sentiment": 0.6,
-    "mention_count": 12,
-    "controversy_index": 0.3333,
+    "community_sentiment": 0.5564,
+    "mention_count": 11,
+    "controversy_index": 0.0,
     "sentiment_trend": "positive",
-    "confidence_score": 0.1,
+    "confidence_score": 0.07,
     "sentiment_method": "gemini",
-    "valid_posts": 3,
-    "strong_praise_count": 1,
+    "valid_posts": 2,
+    "strong_praise_count": 0,
     "strong_criticism_count": 0,
     "model_name": "Grok 4.6",
-    "scraped_at": "2026-09-02T18:59:06.918109+00:00",
+    "scraped_at": "2026-09-03T14:47:32.192401+00:00",
     "_experimental": true,
     "source_counts": {
-      "Reddit": 2,
-      "HackerNews": 10
+      "HackerNews": 11
     },
     "community_examples": [
-      {
-        "source": "Reddit",
-        "text": "Troll farm? IMO Grok 4.6 is really good. What\u2019s everyone deal?? I\u2019m using grok for graph system workflows on financial analysis that can breakdown 100s of detailed filed and create investor ready presentations that...",
-        "url": "https://www.reddit.com/r/grok/comments/1w2d96q/troll_farm_imo_grok_46_is_really_good_whats/"
-      },
       {
         "source": "Hacker News",
         "text": "SpaceXAI debuts Grok 4.6, overtaking Kimi K3's and matching GPT-5.6 Sol",
@@ -235,11 +258,6 @@
     ],
     "top_quotes": [
       {
-        "source": "Reddit",
-        "text": "Troll farm? IMO Grok 4.6 is really good. What\u2019s everyone deal?? I\u2019m using grok for graph system workflows on financial analysis that can breakdown 100s of detailed filed and create investor ready presentations that...",
-        "url": "https://www.reddit.com/r/grok/comments/1w2d96q/troll_farm_imo_grok_46_is_really_good_whats/"
-      },
-      {
         "source": "Hacker News",
         "text": "SpaceXAI debuts Grok 4.6, overtaking Kimi K3's and matching GPT-5.6 Sol",
         "url": "https://news.ycombinator.com/item?id=49289032"
@@ -247,17 +265,17 @@
     ]
   },
   {
-    "community_sentiment": 0.506,
+    "community_sentiment": 0.5148,
     "mention_count": 26,
     "controversy_index": 0.0,
     "sentiment_trend": "positive",
-    "confidence_score": 0.17,
+    "confidence_score": 0.13,
     "sentiment_method": "gemini",
-    "valid_posts": 5,
+    "valid_posts": 4,
     "strong_praise_count": 0,
     "strong_criticism_count": 0,
     "model_name": "Kimi K3",
-    "scraped_at": "2026-09-02T19:01:06.527159+00:00",
+    "scraped_at": "2026-09-03T14:49:26.984358+00:00",
     "_experimental": true,
     "source_counts": {
       "HackerNews": 26
@@ -270,13 +288,13 @@
       },
       {
         "source": "Hacker News",
-        "text": "Kimi K3 Is Open, Opus 5 Is Good, DeepSeek V4 Flash Is Cheap: LLMs on Baba Is You",
-        "url": "https://news.ycombinator.com/item?id=49146588"
+        "text": "Running Kimi K3 on MI355X at Better Performance per Dollar Than B300",
+        "url": "https://news.ycombinator.com/item?id=49141073"
       },
       {
         "source": "Hacker News",
-        "text": "Running Kimi K3 on MI355X at Better Performance per Dollar Than B300",
-        "url": "https://news.ycombinator.com/item?id=49141073"
+        "text": "Self-hosting Kimi K3: 20% more hardware cost, 20% better task resolution",
+        "url": "https://news.ycombinator.com/item?id=49098130"
       }
     ],
     "top_quotes": [
@@ -287,18 +305,18 @@
       },
       {
         "source": "Hacker News",
-        "text": "Kimi K3 Is Open, Opus 5 Is Good, DeepSeek V4 Flash Is Cheap: LLMs on Baba Is You",
-        "url": "https://news.ycombinator.com/item?id=49146588"
+        "text": "Running Kimi K3 on MI355X at Better Performance per Dollar Than B300",
+        "url": "https://news.ycombinator.com/item?id=49141073"
       },
       {
         "source": "Hacker News",
-        "text": "Running Kimi K3 on MI355X at Better Performance per Dollar Than B300",
-        "url": "https://news.ycombinator.com/item?id=49141073"
+        "text": "Self-hosting Kimi K3: 20% more hardware cost, 20% better task resolution",
+        "url": "https://news.ycombinator.com/item?id=49098130"
       }
     ]
   },
   {
-    "community_sentiment": 0.7361,
+    "community_sentiment": 0.7321,
     "mention_count": 13,
     "controversy_index": 0.5,
     "sentiment_trend": "positive",
@@ -308,7 +326,7 @@
     "strong_praise_count": 2,
     "strong_criticism_count": 0,
     "model_name": "GLM-5.3",
-    "scraped_at": "2026-09-02T19:02:04.352816+00:00",
+    "scraped_at": "2026-09-03T14:49:41.540149+00:00",
     "_experimental": true,
     "source_counts": {
       "HackerNews": 13
@@ -349,14 +367,48 @@
     ]
   },
   {
-    "community_sentiment": 0.1213,
-    "mention_count": 9,
+    "community_sentiment": -0.4,
+    "mention_count": 12,
     "controversy_index": 0.0,
-    "sentiment_trend": "positive",
-    "confidence_score": 0.3,
-    "sentiment_method": "vader_fallback",
+    "sentiment_trend": "negative",
+    "confidence_score": 0.03,
+    "sentiment_method": "gemini",
+    "valid_posts": 1,
+    "strong_praise_count": 0,
+    "strong_criticism_count": 0,
     "model_name": "Gemini 3.8 Flash",
-    "scraped_at": "2026-09-02T19:03:32.977286+00:00",
+    "scraped_at": "2026-09-03T14:49:44.242334+00:00",
+    "_experimental": true,
+    "source_counts": {
+      "HackerNews": 12
+    },
+    "community_examples": [
+      {
+        "source": "Hacker News",
+        "text": "Kimi K3 and GLM-5.3 are better than Gemini 3.8 Flash Based on artificialanalysis.ai, Kimi K3 and GLM-5.3 are more intelligent than the new Gemini 3.8 Flash[1][2].Gemini 3.8 Flash comes in eighth place with a score of...",
+        "url": "https://news.ycombinator.com/item?id=49539315"
+      }
+    ],
+    "top_quotes": [
+      {
+        "source": "Hacker News",
+        "text": "Kimi K3 and GLM-5.3 are better than Gemini 3.8 Flash Based on artificialanalysis.ai, Kimi K3 and GLM-5.3 are more intelligent than the new Gemini 3.8 Flash[1][2].Gemini 3.8 Flash comes in eighth place with a score of...",
+        "url": "https://news.ycombinator.com/item?id=49539315"
+      }
+    ]
+  },
+  {
+    "community_sentiment": 0.8428,
+    "mention_count": 9,
+    "controversy_index": 0.3333,
+    "sentiment_trend": "positive",
+    "confidence_score": 0.1,
+    "sentiment_method": "gemini",
+    "valid_posts": 3,
+    "strong_praise_count": 1,
+    "strong_criticism_count": 0,
+    "model_name": "Qwen3.8 Max",
+    "scraped_at": "2026-09-03T14:49:49.382508+00:00",
     "_experimental": true,
     "source_counts": {
       "HackerNews": 9
@@ -364,57 +416,6 @@
     "community_examples": [
       {
         "source": "Hacker News",
-        "text": "Kimi K3 and GLM-5.3 are better than Gemini 3.8 Flash Based on artificialanalysis.ai, Kimi K3 and GLM-5.3 are more intelligent than the new Gemini 3.8 Flash[1][2].Gemini 3.8 Flash comes in eighth place with a score of...",
-        "url": "https://news.ycombinator.com/item?id=49539315"
-      },
-      {
-        "source": "Hacker News",
-        "text": "Gemini 3.8 Flash and 3.8 Flash Cyber",
-        "url": "https://news.ycombinator.com/item?id=49537553"
-      },
-      {
-        "source": "Hacker News",
-        "text": "Gemini 3.8 Flash and 3.8 Flash Cyber",
-        "url": "https://news.ycombinator.com/item?id=49538007"
-      }
-    ],
-    "top_quotes": [
-      {
-        "source": "Hacker News",
-        "text": "Kimi K3 and GLM-5.3 are better than Gemini 3.8 Flash Based on artificialanalysis.ai, Kimi K3 and GLM-5.3 are more intelligent than the new Gemini 3.8 Flash[1][2].Gemini 3.8 Flash comes in eighth place with a score of...",
-        "url": "https://news.ycombinator.com/item?id=49539315"
-      },
-      {
-        "source": "Hacker News",
-        "text": "Gemini 3.8 Flash and 3.8 Flash Cyber",
-        "url": "https://news.ycombinator.com/item?id=49537553"
-      },
-      {
-        "source": "Hacker News",
-        "text": "Gemini 3.8 Flash and 3.8 Flash Cyber",
-        "url": "https://news.ycombinator.com/item?id=49538007"
-      }
-    ]
-  },
-  {
-    "community_sentiment": 0.8473,
-    "mention_count": 8,
-    "controversy_index": 1.0,
-    "sentiment_trend": "positive",
-    "confidence_score": 0.07,
-    "sentiment_method": "gemini",
-    "valid_posts": 2,
-    "strong_praise_count": 2,
-    "strong_criticism_count": 0,
-    "model_name": "Qwen3.8 Max",
-    "scraped_at": "2026-09-02T19:03:35.014144+00:00",
-    "_experimental": true,
-    "source_counts": {
-      "HackerNews": 8
-    },
-    "community_examples": [
-      {
-        "source": "Hacker News",
         "text": "Qwen3.8 Max now ranked as the best overall model by agentic index",
         "url": "https://news.ycombinator.com/item?id=49200652"
       },
@@ -436,21 +437,5 @@
         "url": "https://news.ycombinator.com/item?id=49150470"
       }
     ]
-  },
-  {
-    "community_sentiment": null,
-    "mention_count": 3,
-    "controversy_index": null,
-    "sentiment_trend": null,
-    "confidence_score": 0,
-    "sentiment_method": "gemini",
-    "model_name": "Qwen3.8 2.4T A95B",
-    "scraped_at": "2026-09-02T19:04:10.781366+00:00",
-    "_experimental": true,
-    "source_counts": {
-      "HackerNews": 3
-    },
-    "community_examples": [],
-    "top_quotes": []
   }
 ]

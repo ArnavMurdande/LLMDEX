@@ -2463,9 +2463,7 @@
       "artificial_analysis": [
         "Gemini 3.6 Flash"
       ],
-      "llmstats": [
-        "Gemini 3.6 Flash"
-      ]
+      "llmstats": []
     },
     "source_ids": {},
     "source_urls": {
@@ -4090,6 +4088,38 @@
       }
     }
   },
+  "mbzuai-institute-of-foundation-models/k2-horizon-375b-a23b": {
+    "family_id": "mbzuai-institute-of-foundation-models/k2-horizon-375b-a23b",
+    "canonical_family_name": "K2 Horizon 375B A23B",
+    "provider": "MBZUAI Institute of Foundation Models",
+    "version": null,
+    "source_aliases": {
+      "artificial_analysis": [
+        "K2 Horizon 375B A23B"
+      ],
+      "llmstats": []
+    },
+    "source_ids": {},
+    "source_urls": {
+      "artificial_analysis": [
+        "https://artificialanalysis.ai/models/k2-horizon-375b-a23b"
+      ]
+    },
+    "variants": {
+      "mbzuai-institute-of-foundation-models/k2-horizon-375b-a23b:default": {
+        "variant_id": "mbzuai-institute-of-foundation-models/k2-horizon-375b-a23b:default",
+        "deployment_profile_id": "mbzuai-institute-of-foundation-models/k2-horizon-375b-a23b:default:deployment",
+        "source_name": "K2 Horizon 375B A23B",
+        "reasoning_effort": null,
+        "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": {
+          "total_billions": 375.0,
+          "active_billions": null
+        }
+      }
+    }
+  },
   "mbzuai-institute-of-foundation-models/k2-think-v2": {
     "family_id": "mbzuai-institute-of-foundation-models/k2-think-v2",
     "canonical_family_name": "K2 Think V2",
@@ -4407,6 +4437,48 @@
         "variant_id": "meta/muse-spark-1-2:xhigh",
         "deployment_profile_id": "meta/muse-spark-1-2:xhigh:deployment",
         "source_name": "Muse Spark 1.2 (xhigh)",
+        "reasoning_effort": "xhigh",
+        "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": null
+      }
+    }
+  },
+  "meta/muse-spark-1-3": {
+    "family_id": "meta/muse-spark-1-3",
+    "canonical_family_name": "Muse Spark 1.3",
+    "provider": "Meta",
+    "version": "1.3",
+    "source_aliases": {
+      "artificial_analysis": [
+        "Muse Spark 1.3 (max)",
+        "Muse Spark 1.3 (xhigh)"
+      ],
+      "llmstats": [
+        "Muse Spark 1.3"
+      ]
+    },
+    "source_ids": {},
+    "source_urls": {
+      "artificial_analysis": [
+        "https://artificialanalysis.ai/models/muse-spark-1-3",
+        "https://artificialanalysis.ai/models/muse-spark-1-3-xhigh"
+      ]
+    },
+    "variants": {
+      "meta/muse-spark-1-3:max": {
+        "variant_id": "meta/muse-spark-1-3:max",
+        "deployment_profile_id": "meta/muse-spark-1-3:max:deployment",
+        "source_name": "Muse Spark 1.3 (max)",
+        "reasoning_effort": "max",
+        "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": null
+      },
+      "meta/muse-spark-1-3:xhigh": {
+        "variant_id": "meta/muse-spark-1-3:xhigh",
+        "deployment_profile_id": "meta/muse-spark-1-3:xhigh:deployment",
+        "source_name": "Muse Spark 1.3 (xhigh)",
         "reasoning_effort": "xhigh",
         "deployment_profile": [],
         "fallback_enabled": false,
@@ -4943,7 +5015,7 @@
     "version": null,
     "source_aliases": {
       "artificial_analysis": [
-        "HyperNova 60B 2605"
+        "HyperNova 60B 2605 (high)"
       ],
       "llmstats": []
     },
@@ -4954,11 +5026,11 @@
       ]
     },
     "variants": {
-      "multiverse-computing/hypernova-60b-2605:default": {
-        "variant_id": "multiverse-computing/hypernova-60b-2605:default",
-        "deployment_profile_id": "multiverse-computing/hypernova-60b-2605:default:deployment",
-        "source_name": "HyperNova 60B 2605",
-        "reasoning_effort": null,
+      "multiverse-computing/hypernova-60b-2605:high": {
+        "variant_id": "multiverse-computing/hypernova-60b-2605:high",
+        "deployment_profile_id": "multiverse-computing/hypernova-60b-2605:high:deployment",
+        "source_name": "HyperNova 60B 2605 (high)",
+        "reasoning_effort": "high",
         "deployment_profile": [],
         "fallback_enabled": false,
         "parameter_count": {
@@ -4975,7 +5047,7 @@
     "version": null,
     "source_aliases": {
       "artificial_analysis": [
-        "Quasar 438B"
+        "Quasar 438B (max)"
       ],
       "llmstats": []
     },
@@ -4986,11 +5058,11 @@
       ]
     },
     "variants": {
-      "multiverse-computing/quasar-438b:default": {
-        "variant_id": "multiverse-computing/quasar-438b:default",
-        "deployment_profile_id": "multiverse-computing/quasar-438b:default:deployment",
-        "source_name": "Quasar 438B",
-        "reasoning_effort": null,
+      "multiverse-computing/quasar-438b:max": {
+        "variant_id": "multiverse-computing/quasar-438b:max",
+        "deployment_profile_id": "multiverse-computing/quasar-438b:max:deployment",
+        "source_name": "Quasar 438B (max)",
+        "reasoning_effort": "max",
         "deployment_profile": [],
         "fallback_enabled": false,
         "parameter_count": {

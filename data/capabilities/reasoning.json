@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-09-02T18:56:06.474807+00:00",
+  "generated_at": "2026-09-03T14:43:13.212929+00:00",
   "methodology_version": "LLMStats source-native current",
   "source": "LLMStats",
-  "source_updated_at": "2026-09-02T18:56:29.745339+00:00",
+  "source_updated_at": "2026-09-03T14:43:37.920289+00:00",
   "source_health": {
     "source": "LLMStats",
     "rows_scraped": 94,
@@ -12,11 +12,11 @@
     ],
     "status": "healthy",
     "error_message": null,
-    "duration_seconds": 23.264,
-    "timestamp": "2026-09-02T18:56:29.745339+00:00",
+    "duration_seconds": 24.698,
+    "timestamp": "2026-09-03T14:43:37.920289+00:00",
     "parse_warning_count": 0,
     "warnings": [],
-    "last_successful_update": "2026-09-02T18:56:29.745339+00:00",
+    "last_successful_update": "2026-09-03T14:43:37.920289+00:00",
     "schema_changes": []
   },
   "capability": "reasoning",
@@ -27,7 +27,7 @@
       "version": null,
       "source_name": "Terminal-Bench 2.1",
       "source_url": "https://llm-stats.com/benchmarks/terminal-bench-2.1",
-      "source_population": 34
+      "source_population": 35
     },
     {
       "benchmark_id": "aime_2025",
@@ -165,7 +165,7 @@
     },
     {
       "category_rank": 2.0,
-      "category_score": 55.5,
+      "category_score": 55.1,
       "source_name": "GPT-5.6 Sol",
       "provider": "OpenAI",
       "source_model_id": "gpt-5.6-sol",
@@ -235,18 +235,18 @@
             "tool_calling"
           ],
           "source_column_indices": {
-            "coding": 15,
+            "coding": 14,
             "reasoning": 7,
             "tool_calling": 7
           },
-          "source_population": 34
+          "source_population": 35
         }
       },
       "source_updated_at": null
     },
     {
       "category_rank": 3.0,
-      "category_score": 55.0,
+      "category_score": 54.8,
       "source_name": "Claude Opus 5",
       "provider": "Anthropic",
       "source_model_id": "claude-opus-5",
@@ -267,7 +267,7 @@
     },
     {
       "category_rank": 4.0,
-      "category_score": 54.6,
+      "category_score": 54.5,
       "source_name": "Claude Fable 5.1",
       "provider": "Anthropic",
       "source_model_id": "claude-fable-5-1",
@@ -288,7 +288,7 @@
     },
     {
       "category_rank": 5.0,
-      "category_score": 53.3,
+      "category_score": 53.1,
       "source_name": "GLM-5.3",
       "provider": "ZAI",
       "source_model_id": "glm-5.3",
@@ -339,18 +339,61 @@
             "tool_calling"
           ],
           "source_column_indices": {
-            "coding": 15,
+            "coding": 14,
             "reasoning": 7,
             "tool_calling": 7
           },
-          "source_population": 34
+          "source_population": 35
         }
       },
       "source_updated_at": null
     },
     {
       "category_rank": 6.0,
-      "category_score": 53.1,
+      "category_score": 53.0,
+      "source_name": "Muse Spark 1.3",
+      "provider": "Meta",
+      "source_model_id": "muse-spark-1.3",
+      "source_model_url": "https://llm-stats.com/models/muse-spark-1.3",
+      "license": "Proprietary",
+      "family_id": "meta/muse-spark-1-3",
+      "matched_aa_family_id": "meta/muse-spark-1-3",
+      "match_status": "matched_family",
+      "match_confidence": 0.95,
+      "score_status": "consensus",
+      "score_status_label": "Consensus",
+      "availability_class": "proprietary",
+      "is_sota": false,
+      "is_open_sota": false,
+      "rank_evidence": "source_rendered_table_order",
+      "benchmark_observations": {
+        "llmstats__terminal-bench-2-1": {
+          "benchmark_id": "llmstats__terminal-bench-2-1",
+          "canonical_name": "Terminal-Bench 2.1",
+          "source_name": "Terminal-Bench 2.1",
+          "value": 88.8,
+          "raw_value": "88.8%",
+          "version": null,
+          "provenance": "LLMStats public capability leaderboard",
+          "source_url": "https://llm-stats.com/benchmarks/terminal-bench-2.1",
+          "capabilities": [
+            "coding",
+            "reasoning",
+            "tool_calling"
+          ],
+          "source_column_indices": {
+            "coding": 14,
+            "reasoning": 7,
+            "tool_calling": 7
+          },
+          "source_population": 35
+        }
+      },
+      "source_updated_at": null
+    },
+    {
+      "category_rank": 7.0,
+      "category_score": 52.9,
       "source_name": "Kimi K3",
       "provider": "MoonshotAI",
       "source_model_id": "kimi-k3",
@@ -401,18 +444,18 @@
             "tool_calling"
           ],
           "source_column_indices": {
-            "coding": 15,
+            "coding": 14,
             "reasoning": 7,
             "tool_calling": 7
           },
-          "source_population": 34
+          "source_population": 35
         }
       },
       "source_updated_at": null
     },
     {
-      "category_rank": 7.0,
-      "category_score": 52.6,
+      "category_rank": 8.0,
+      "category_score": 52.4,
       "source_name": "Claude Fable 5",
       "provider": "Anthropic",
       "source_model_id": "claude-fable-5",
@@ -482,18 +525,18 @@
             "tool_calling"
           ],
           "source_column_indices": {
-            "coding": 15,
+            "coding": 14,
             "reasoning": 7,
             "tool_calling": 7
           },
-          "source_population": 34
+          "source_population": 35
         }
       },
       "source_updated_at": null
     },
     {
-      "category_rank": 8.0,
-      "category_score": 51.3,
+      "category_rank": 9.0,
+      "category_score": 51.0,
       "source_name": "Qwen3.8 Max",
       "provider": "Qwen",
       "source_model_id": "qwen3.8-max",
@@ -563,18 +606,18 @@
             "tool_calling"
           ],
           "source_column_indices": {
-            "coding": 15,
+            "coding": 14,
             "reasoning": 7,
             "tool_calling": 7
           },
-          "source_population": 34
+          "source_population": 35
         }
       },
       "source_updated_at": null
     },
     {
-      "category_rank": 9.0,
-      "category_score": 51.2,
+      "category_rank": 10.0,
+      "category_score": 51.0,
       "source_name": "Hy4 preview",
       "provider": "Tencent",
       "source_model_id": "hy4-preview",
@@ -644,18 +687,18 @@
             "tool_calling"
           ],
           "source_column_indices": {
-            "coding": 15,
+            "coding": 14,
             "reasoning": 7,
             "tool_calling": 7
           },
-          "source_population": 34
+          "source_population": 35
         }
       },
       "source_updated_at": null
     },
     {
-      "category_rank": 10.0,
-      "category_score": 50.8,
+      "category_rank": 11.0,
+      "category_score": 50.9,
       "source_name": "Claude Opus 4.8",
       "provider": "Anthropic",
       "source_model_id": "claude-opus-4-8",
@@ -733,8 +776,8 @@
       "source_updated_at": null
     },
     {
-      "category_rank": 11.0,
-      "category_score": 50.6,
+      "category_rank": 12.0,
+      "category_score": 50.5,
       "source_name": "Muse Spark 1.1",
       "provider": "Meta",
       "source_model_id": "muse-spark-1.1",
@@ -742,7 +785,7 @@
       "license": "Proprietary",
       "family_id": "meta/muse-spark-1-1",
       "matched_aa_family_id": null,
-      "match_status": "identity_unresolved",
+      "match_status": "ambiguous",
       "match_confidence": 0.8,
       "score_status": "identity_review",
       "score_status_label": "Identity review",
@@ -804,80 +847,18 @@
             "tool_calling"
           ],
           "source_column_indices": {
-            "coding": 15,
+            "coding": 14,
             "reasoning": 7,
             "tool_calling": 7
           },
-          "source_population": 34
-        }
-      },
-      "source_updated_at": null
-    },
-    {
-      "category_rank": 12.0,
-      "category_score": 50.1,
-      "source_name": "DeepSeek-V4-Pro-0813",
-      "provider": "DeepSeek",
-      "source_model_id": "deepseek-v4-pro-0813",
-      "source_model_url": "https://llm-stats.com/models/deepseek-v4-pro-0813",
-      "license": "Open Source",
-      "family_id": "deepseek/deepseek-v4-pro-0813",
-      "matched_aa_family_id": "deepseek/deepseek-v4-pro-0813",
-      "match_status": "matched_family",
-      "match_confidence": 0.95,
-      "score_status": "consensus",
-      "score_status_label": "Consensus",
-      "availability_class": "open_weights",
-      "is_sota": false,
-      "is_open_sota": false,
-      "rank_evidence": "source_rendered_table_order",
-      "benchmark_observations": {
-        "llmstats__toolathlon": {
-          "benchmark_id": "llmstats__toolathlon",
-          "canonical_name": "Toolathlon",
-          "source_name": "Toolathlon",
-          "value": 74.1,
-          "raw_value": "74.1%",
-          "version": null,
-          "provenance": "LLMStats public capability leaderboard",
-          "source_url": "https://llm-stats.com/benchmarks/toolathlon",
-          "capabilities": [
-            "reasoning",
-            "tool_calling"
-          ],
-          "source_column_indices": {
-            "reasoning": 16,
-            "tool_calling": 8
-          },
-          "source_population": 41
-        },
-        "llmstats__terminal-bench-2-1": {
-          "benchmark_id": "llmstats__terminal-bench-2-1",
-          "canonical_name": "Terminal-Bench 2.1",
-          "source_name": "Terminal-Bench 2.1",
-          "value": 87.9,
-          "raw_value": "87.9%",
-          "version": null,
-          "provenance": "LLMStats public capability leaderboard",
-          "source_url": "https://llm-stats.com/benchmarks/terminal-bench-2.1",
-          "capabilities": [
-            "coding",
-            "reasoning",
-            "tool_calling"
-          ],
-          "source_column_indices": {
-            "coding": 15,
-            "reasoning": 7,
-            "tool_calling": 7
-          },
-          "source_population": 34
+          "source_population": 35
         }
       },
       "source_updated_at": null
     },
     {
       "category_rank": 13.0,
-      "category_score": 50.1,
+      "category_score": 49.8,
       "source_name": "GPT-5.6 Terra",
       "provider": "OpenAI",
       "source_model_id": "gpt-5.6-terra",
@@ -947,39 +928,80 @@
             "tool_calling"
           ],
           "source_column_indices": {
-            "coding": 15,
+            "coding": 14,
             "reasoning": 7,
             "tool_calling": 7
           },
-          "source_population": 34
+          "source_population": 35
         }
       },
       "source_updated_at": null
     },
     {
       "category_rank": 14.0,
-      "category_score": 49.9,
-      "source_name": "Grok 4.6",
-      "provider": "xAI",
-      "source_model_id": "grok-4.6",
-      "source_model_url": "https://llm-stats.com/models/grok-4.6",
-      "license": "Proprietary",
-      "family_id": "xai/grok-4-6",
-      "matched_aa_family_id": null,
-      "match_status": "source_missing",
-      "match_confidence": 0.0,
-      "score_status": "llmstats_only",
-      "score_status_label": "LLMStats only",
-      "availability_class": "unknown",
+      "category_score": 49.8,
+      "source_name": "DeepSeek-V4-Pro-0813",
+      "provider": "DeepSeek",
+      "source_model_id": "deepseek-v4-pro-0813",
+      "source_model_url": "https://llm-stats.com/models/deepseek-v4-pro-0813",
+      "license": "Open Source",
+      "family_id": "deepseek/deepseek-v4-pro-0813",
+      "matched_aa_family_id": "deepseek/deepseek-v4-pro-0813",
+      "match_status": "matched_family",
+      "match_confidence": 0.95,
+      "score_status": "consensus",
+      "score_status_label": "Consensus",
+      "availability_class": "open_weights",
       "is_sota": false,
       "is_open_sota": false,
       "rank_evidence": "source_rendered_table_order",
-      "benchmark_observations": {},
+      "benchmark_observations": {
+        "llmstats__toolathlon": {
+          "benchmark_id": "llmstats__toolathlon",
+          "canonical_name": "Toolathlon",
+          "source_name": "Toolathlon",
+          "value": 74.1,
+          "raw_value": "74.1%",
+          "version": null,
+          "provenance": "LLMStats public capability leaderboard",
+          "source_url": "https://llm-stats.com/benchmarks/toolathlon",
+          "capabilities": [
+            "reasoning",
+            "tool_calling"
+          ],
+          "source_column_indices": {
+            "reasoning": 16,
+            "tool_calling": 8
+          },
+          "source_population": 41
+        },
+        "llmstats__terminal-bench-2-1": {
+          "benchmark_id": "llmstats__terminal-bench-2-1",
+          "canonical_name": "Terminal-Bench 2.1",
+          "source_name": "Terminal-Bench 2.1",
+          "value": 87.9,
+          "raw_value": "87.9%",
+          "version": null,
+          "provenance": "LLMStats public capability leaderboard",
+          "source_url": "https://llm-stats.com/benchmarks/terminal-bench-2.1",
+          "capabilities": [
+            "coding",
+            "reasoning",
+            "tool_calling"
+          ],
+          "source_column_indices": {
+            "coding": 14,
+            "reasoning": 7,
+            "tool_calling": 7
+          },
+          "source_population": 35
+        }
+      },
       "source_updated_at": null
     },
     {
       "category_rank": 15.0,
-      "category_score": 49.8,
+      "category_score": 49.6,
       "source_name": "GLM-5.3-Flash",
       "provider": "ZAI",
       "source_model_id": "glm-5.3-flash",
@@ -1030,18 +1052,39 @@
             "tool_calling"
           ],
           "source_column_indices": {
-            "coding": 15,
+            "coding": 14,
             "reasoning": 7,
             "tool_calling": 7
           },
-          "source_population": 34
+          "source_population": 35
         }
       },
       "source_updated_at": null
     },
     {
       "category_rank": 16.0,
-      "category_score": 49.3,
+      "category_score": 49.6,
+      "source_name": "Grok 4.6",
+      "provider": "xAI",
+      "source_model_id": "grok-4.6",
+      "source_model_url": "https://llm-stats.com/models/grok-4.6",
+      "license": "Proprietary",
+      "family_id": "xai/grok-4-6",
+      "matched_aa_family_id": null,
+      "match_status": "source_missing",
+      "match_confidence": 0.0,
+      "score_status": "llmstats_only",
+      "score_status_label": "LLMStats only",
+      "availability_class": "unknown",
+      "is_sota": false,
+      "is_open_sota": false,
+      "rank_evidence": "source_rendered_table_order",
+      "benchmark_observations": {},
+      "source_updated_at": null
+    },
+    {
+      "category_rank": 17.0,
+      "category_score": 49.1,
       "source_name": "Qwen3.8-Flash-Next",
       "provider": "Qwen",
       "source_model_id": "qwen3.8-flash-next",
@@ -1117,8 +1160,8 @@
       "source_updated_at": null
     },
     {
-      "category_rank": 17.0,
-      "category_score": 49.2,
+      "category_rank": 18.0,
+      "category_score": 49.1,
       "source_name": "Qwen3.8 Flash",
       "provider": "Qwen",
       "source_model_id": "qwen3.8-flash",
@@ -1194,8 +1237,8 @@
       "source_updated_at": null
     },
     {
-      "category_rank": 18.0,
-      "category_score": 48.2,
+      "category_rank": 19.0,
+      "category_score": 48.1,
       "source_name": "Claude Sonnet 5",
       "provider": "Anthropic",
       "source_model_id": "claude-sonnet-5",
@@ -1271,7 +1314,7 @@
       "source_updated_at": null
     },
     {
-      "category_rank": 19.0,
+      "category_rank": 20.0,
       "category_score": 48.0,
       "source_name": "GPT-5.5",
       "provider": "OpenAI",
@@ -1331,94 +1374,8 @@
       "source_updated_at": null
     },
     {
-      "category_rank": 20.0,
-      "category_score": 47.9,
-      "source_name": "Gemini 3.7 Flash",
-      "provider": "Google",
-      "source_model_id": "gemini-3.7-flash",
-      "source_model_url": "https://llm-stats.com/models/gemini-3.7-flash",
-      "license": "Proprietary",
-      "family_id": "google/gemini-3-7-flash",
-      "matched_aa_family_id": "google/gemini-3-7-flash",
-      "match_status": "matched_family",
-      "match_confidence": 0.95,
-      "score_status": "consensus",
-      "score_status_label": "Consensus",
-      "availability_class": "proprietary",
-      "is_sota": false,
-      "is_open_sota": false,
-      "rank_evidence": "source_rendered_table_order",
-      "benchmark_observations": {
-        "llmstats__terminal-bench-2-1": {
-          "benchmark_id": "llmstats__terminal-bench-2-1",
-          "canonical_name": "Terminal-Bench 2.1",
-          "source_name": "Terminal-Bench 2.1",
-          "value": 85.8,
-          "raw_value": "85.8%",
-          "version": null,
-          "provenance": "LLMStats public capability leaderboard",
-          "source_url": "https://llm-stats.com/benchmarks/terminal-bench-2.1",
-          "capabilities": [
-            "coding",
-            "reasoning",
-            "tool_calling"
-          ],
-          "source_column_indices": {
-            "coding": 15,
-            "reasoning": 7,
-            "tool_calling": 7
-          },
-          "source_population": 34
-        }
-      },
-      "source_updated_at": null
-    },
-    {
       "category_rank": 21.0,
-      "category_score": 47.6,
-      "source_name": "Gemini 3.8 Flash",
-      "provider": "Google",
-      "source_model_id": "gemini-3.8-flash",
-      "source_model_url": "https://llm-stats.com/models/gemini-3.8-flash",
-      "license": "Proprietary",
-      "family_id": "google/gemini-3-8-flash",
-      "matched_aa_family_id": "google/gemini-3-8-flash",
-      "match_status": "matched_family",
-      "match_confidence": 0.95,
-      "score_status": "consensus",
-      "score_status_label": "Consensus",
-      "availability_class": "proprietary",
-      "is_sota": false,
-      "is_open_sota": false,
-      "rank_evidence": "source_rendered_table_order",
-      "benchmark_observations": {
-        "llmstats__terminal-bench-2-1": {
-          "benchmark_id": "llmstats__terminal-bench-2-1",
-          "canonical_name": "Terminal-Bench 2.1",
-          "source_name": "Terminal-Bench 2.1",
-          "value": 89.4,
-          "raw_value": "89.4%",
-          "version": null,
-          "provenance": "LLMStats public capability leaderboard",
-          "source_url": "https://llm-stats.com/benchmarks/terminal-bench-2.1",
-          "capabilities": [
-            "coding",
-            "reasoning",
-            "tool_calling"
-          ],
-          "source_column_indices": {
-            "coding": 15,
-            "reasoning": 7,
-            "tool_calling": 7
-          },
-          "source_population": 34
-        }
-      },
-      "source_updated_at": null
-    },
-    {
-      "category_rank": 22.0,
-      "category_score": 47.6,
+      "category_score": 47.5,
       "source_name": "Seed 2.1 Pro",
       "provider": "Bytedance",
       "source_model_id": "seed-2.1-pro",
@@ -1488,17 +1445,103 @@
             "tool_calling"
           ],
           "source_column_indices": {
-            "coding": 15,
+            "coding": 14,
             "reasoning": 7,
             "tool_calling": 7
           },
-          "source_population": 34
+          "source_population": 35
+        }
+      },
+      "source_updated_at": null
+    },
+    {
+      "category_rank": 22.0,
+      "category_score": 47.5,
+      "source_name": "Gemini 3.7 Flash",
+      "provider": "Google",
+      "source_model_id": "gemini-3.7-flash",
+      "source_model_url": "https://llm-stats.com/models/gemini-3.7-flash",
+      "license": "Proprietary",
+      "family_id": "google/gemini-3-7-flash",
+      "matched_aa_family_id": "google/gemini-3-7-flash",
+      "match_status": "matched_family",
+      "match_confidence": 0.95,
+      "score_status": "consensus",
+      "score_status_label": "Consensus",
+      "availability_class": "proprietary",
+      "is_sota": false,
+      "is_open_sota": false,
+      "rank_evidence": "source_rendered_table_order",
+      "benchmark_observations": {
+        "llmstats__terminal-bench-2-1": {
+          "benchmark_id": "llmstats__terminal-bench-2-1",
+          "canonical_name": "Terminal-Bench 2.1",
+          "source_name": "Terminal-Bench 2.1",
+          "value": 85.8,
+          "raw_value": "85.8%",
+          "version": null,
+          "provenance": "LLMStats public capability leaderboard",
+          "source_url": "https://llm-stats.com/benchmarks/terminal-bench-2.1",
+          "capabilities": [
+            "coding",
+            "reasoning",
+            "tool_calling"
+          ],
+          "source_column_indices": {
+            "coding": 14,
+            "reasoning": 7,
+            "tool_calling": 7
+          },
+          "source_population": 35
         }
       },
       "source_updated_at": null
     },
     {
       "category_rank": 23.0,
+      "category_score": 47.2,
+      "source_name": "Gemini 3.8 Flash",
+      "provider": "Google",
+      "source_model_id": "gemini-3.8-flash",
+      "source_model_url": "https://llm-stats.com/models/gemini-3.8-flash",
+      "license": "Proprietary",
+      "family_id": "google/gemini-3-8-flash",
+      "matched_aa_family_id": "google/gemini-3-8-flash",
+      "match_status": "matched_family",
+      "match_confidence": 0.95,
+      "score_status": "consensus",
+      "score_status_label": "Consensus",
+      "availability_class": "proprietary",
+      "is_sota": false,
+      "is_open_sota": false,
+      "rank_evidence": "source_rendered_table_order",
+      "benchmark_observations": {
+        "llmstats__terminal-bench-2-1": {
+          "benchmark_id": "llmstats__terminal-bench-2-1",
+          "canonical_name": "Terminal-Bench 2.1",
+          "source_name": "Terminal-Bench 2.1",
+          "value": 89.4,
+          "raw_value": "89.4%",
+          "version": null,
+          "provenance": "LLMStats public capability leaderboard",
+          "source_url": "https://llm-stats.com/benchmarks/terminal-bench-2.1",
+          "capabilities": [
+            "coding",
+            "reasoning",
+            "tool_calling"
+          ],
+          "source_column_indices": {
+            "coding": 14,
+            "reasoning": 7,
+            "tool_calling": 7
+          },
+          "source_population": 35
+        }
+      },
+      "source_updated_at": null
+    },
+    {
+      "category_rank": 24.0,
       "category_score": 46.4,
       "source_name": "Qwen3.7 Max",
       "provider": "Qwen",
@@ -1594,8 +1637,8 @@
       "source_updated_at": null
     },
     {
-      "category_rank": 24.0,
-      "category_score": 46.1,
+      "category_rank": 25.0,
+      "category_score": 46.0,
       "source_name": "Claude Opus 4.7",
       "provider": "Anthropic",
       "source_model_id": "claude-opus-4-7",
@@ -1654,8 +1697,8 @@
       "source_updated_at": null
     },
     {
-      "category_rank": 25.0,
-      "category_score": 45.7,
+      "category_rank": 26.0,
+      "category_score": 45.8,
       "source_name": "Claude Opus 4.6",
       "provider": "Anthropic",
       "source_model_id": "claude-opus-4-6",
@@ -1712,8 +1755,8 @@
       "source_updated_at": null
     },
     {
-      "category_rank": 26.0,
-      "category_score": 45.4,
+      "category_rank": 27.0,
+      "category_score": 45.3,
       "source_name": "Gemini 3.1 Pro",
       "provider": "Google",
       "source_model_id": "gemini-3.1-pro-preview",
@@ -1751,8 +1794,8 @@
       "source_updated_at": null
     },
     {
-      "category_rank": 27.0,
-      "category_score": 45.3,
+      "category_rank": 28.0,
+      "category_score": 45.2,
       "source_name": "GLM-5.2",
       "provider": "ZAI",
       "source_model_id": "glm-5.2",
@@ -1819,16 +1862,16 @@
             "reasoning"
           ],
           "source_column_indices": {
-            "coding": 15,
+            "coding": 14,
             "reasoning": 7
           },
-          "source_population": 34
+          "source_population": 35
         }
       },
       "source_updated_at": null
     },
     {
-      "category_rank": 28.0,
+      "category_rank": 29.0,
       "category_score": 45.1,
       "source_name": "GPT-5.5 Pro",
       "provider": "OpenAI",
@@ -1849,8 +1892,8 @@
       "source_updated_at": null
     },
     {
-      "category_rank": 29.0,
-      "category_score": 45.1,
+      "category_rank": 30.0,
+      "category_score": 45.0,
       "source_name": "Qwen3.8-27B",
       "provider": "Qwen",
       "source_model_id": "qwen3.8-27b",
@@ -1899,7 +1942,7 @@
           "source_column_indices": {
             "reasoning": 7
           },
-          "source_population": 34
+          "source_population": 35
         },
         "llmstats__livecodebench-v6": {
           "benchmark_id": "llmstats__livecodebench-v6",
@@ -1917,79 +1960,6 @@
             "reasoning": 12
           },
           "source_population": 62
-        }
-      },
-      "source_updated_at": null
-    },
-    {
-      "category_rank": 30.0,
-      "category_score": 45.0,
-      "source_name": "Seed 2.1 Turbo",
-      "provider": "ByteDance",
-      "source_model_id": "seed-2.1-turbo",
-      "source_model_url": "https://llm-stats.com/models/seed-2.1-turbo",
-      "license": "Proprietary",
-      "family_id": "bytedance/seed-2-1-turbo",
-      "matched_aa_family_id": null,
-      "match_status": "source_missing",
-      "match_confidence": 0.0,
-      "score_status": "llmstats_only",
-      "score_status_label": "LLMStats only",
-      "availability_class": "unknown",
-      "is_sota": false,
-      "is_open_sota": false,
-      "rank_evidence": "source_rendered_table_order",
-      "benchmark_observations": {
-        "llmstats__terminal-bench-2-1": {
-          "benchmark_id": "llmstats__terminal-bench-2-1",
-          "canonical_name": "Terminal-Bench 2.1",
-          "source_name": "Terminal-Bench 2.1",
-          "value": 67.6,
-          "raw_value": "67.6%",
-          "version": null,
-          "provenance": "LLMStats public capability leaderboard",
-          "source_url": "https://llm-stats.com/benchmarks/terminal-bench-2.1",
-          "capabilities": [
-            "reasoning"
-          ],
-          "source_column_indices": {
-            "reasoning": 7
-          },
-          "source_population": 34
-        },
-        "llmstats__swe-bench-pro": {
-          "benchmark_id": "llmstats__swe-bench-pro",
-          "canonical_name": "SWE-Bench Pro",
-          "source_name": "SWE-Bench Pro",
-          "value": 57.0,
-          "raw_value": "57.0%",
-          "version": null,
-          "provenance": "LLMStats public capability leaderboard",
-          "source_url": "https://llm-stats.com/benchmarks/swe-bench-pro",
-          "capabilities": [
-            "reasoning"
-          ],
-          "source_column_indices": {
-            "reasoning": 13
-          },
-          "source_population": 55
-        },
-        "llmstats__toolathlon": {
-          "benchmark_id": "llmstats__toolathlon",
-          "canonical_name": "Toolathlon",
-          "source_name": "Toolathlon",
-          "value": 49.1,
-          "raw_value": "49.1%",
-          "version": null,
-          "provenance": "LLMStats public capability leaderboard",
-          "source_url": "https://llm-stats.com/benchmarks/toolathlon",
-          "capabilities": [
-            "reasoning"
-          ],
-          "source_column_indices": {
-            "reasoning": 16
-          },
-          "source_population": 41
         }
       },
       "source_updated_at": null

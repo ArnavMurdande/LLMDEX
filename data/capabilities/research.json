@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-09-02T18:56:06.474807+00:00",
+  "generated_at": "2026-09-03T14:43:13.212929+00:00",
   "methodology_version": "LLMStats source-native current",
   "source": "LLMStats",
-  "source_updated_at": "2026-09-02T18:56:29.745339+00:00",
+  "source_updated_at": "2026-09-03T14:43:37.920289+00:00",
   "source_health": {
     "source": "LLMStats",
     "rows_scraped": 94,
@@ -12,11 +12,11 @@
     ],
     "status": "healthy",
     "error_message": null,
-    "duration_seconds": 23.264,
-    "timestamp": "2026-09-02T18:56:29.745339+00:00",
+    "duration_seconds": 24.698,
+    "timestamp": "2026-09-03T14:43:37.920289+00:00",
     "parse_warning_count": 0,
     "warnings": [],
-    "last_successful_update": "2026-09-02T18:56:29.745339+00:00",
+    "last_successful_update": "2026-09-03T14:43:37.920289+00:00",
     "schema_changes": []
   },
   "capability": "research",
@@ -43,7 +43,7 @@
       "version": null,
       "source_name": "DeepSearchQA",
       "source_url": "https://llm-stats.com/benchmarks/deepsearchqa",
-      "source_population": 9
+      "source_population": 10
     },
     {
       "benchmark_id": "llmstats__widesearch",
@@ -154,7 +154,7 @@
           "source_column_indices": {
             "research": 9
           },
-          "source_population": 9
+          "source_population": 10
         }
       },
       "source_updated_at": null
@@ -317,7 +317,7 @@
     },
     {
       "category_rank": 6.0,
-      "category_score": 27.1,
+      "category_score": 27.3,
       "source_name": "Claude Opus 4.8",
       "provider": "Anthropic",
       "source_model_id": "claude-opus-4-8",
@@ -366,7 +366,7 @@
           "source_column_indices": {
             "research": 9
           },
-          "source_population": 9
+          "source_population": 10
         }
       },
       "source_updated_at": null
@@ -412,7 +412,7 @@
     },
     {
       "category_rank": 8.0,
-      "category_score": 26.2,
+      "category_score": 25.7,
       "source_name": "Kimi K2.6",
       "provider": "Moonshot AI",
       "source_model_id": "kimi-k2.6",
@@ -461,7 +461,7 @@
           "source_column_indices": {
             "research": 9
           },
-          "source_population": 9
+          "source_population": 10
         },
         "llmstats__widesearch": {
           "benchmark_id": "llmstats__widesearch",
@@ -486,45 +486,6 @@
     {
       "category_rank": 9.0,
       "category_score": 25.3,
-      "source_name": "Seed 2.1 Pro",
-      "provider": "Bytedance",
-      "source_model_id": "seed-2.1-pro",
-      "source_model_url": "https://llm-stats.com/models/seed-2.1-pro",
-      "license": "Proprietary",
-      "family_id": "bytedance/seed-2-1-pro",
-      "matched_aa_family_id": null,
-      "match_status": "source_missing",
-      "match_confidence": 0.0,
-      "score_status": "llmstats_only",
-      "score_status_label": "LLMStats only",
-      "availability_class": "unknown",
-      "is_sota": false,
-      "is_open_sota": false,
-      "rank_evidence": "source_rendered_table_order",
-      "benchmark_observations": {
-        "browsecomp": {
-          "benchmark_id": "browsecomp",
-          "canonical_name": "BrowseComp",
-          "source_name": "BrowseComp",
-          "value": 86.2,
-          "raw_value": "86.2%",
-          "version": "source-reported",
-          "provenance": "Source observation",
-          "source_url": "https://llm-stats.com/benchmarks/browsecomp",
-          "capabilities": [
-            "research"
-          ],
-          "source_column_indices": {
-            "research": 7
-          },
-          "source_population": 62
-        }
-      },
-      "source_updated_at": null
-    },
-    {
-      "category_rank": 10.0,
-      "category_score": 25.2,
       "source_name": "Claude Opus 4.6",
       "provider": "Anthropic",
       "source_model_id": "claude-opus-4-6",
@@ -573,14 +534,53 @@
           "source_column_indices": {
             "research": 9
           },
-          "source_population": 9
+          "source_population": 10
+        }
+      },
+      "source_updated_at": null
+    },
+    {
+      "category_rank": 10.0,
+      "category_score": 25.3,
+      "source_name": "Seed 2.1 Pro",
+      "provider": "Bytedance",
+      "source_model_id": "seed-2.1-pro",
+      "source_model_url": "https://llm-stats.com/models/seed-2.1-pro",
+      "license": "Proprietary",
+      "family_id": "bytedance/seed-2-1-pro",
+      "matched_aa_family_id": null,
+      "match_status": "source_missing",
+      "match_confidence": 0.0,
+      "score_status": "llmstats_only",
+      "score_status_label": "LLMStats only",
+      "availability_class": "unknown",
+      "is_sota": false,
+      "is_open_sota": false,
+      "rank_evidence": "source_rendered_table_order",
+      "benchmark_observations": {
+        "browsecomp": {
+          "benchmark_id": "browsecomp",
+          "canonical_name": "BrowseComp",
+          "source_name": "BrowseComp",
+          "value": 86.2,
+          "raw_value": "86.2%",
+          "version": "source-reported",
+          "provenance": "Source observation",
+          "source_url": "https://llm-stats.com/benchmarks/browsecomp",
+          "capabilities": [
+            "research"
+          ],
+          "source_column_indices": {
+            "research": 7
+          },
+          "source_population": 62
         }
       },
       "source_updated_at": null
     },
     {
       "category_rank": 11.0,
-      "category_score": 24.9,
+      "category_score": 25.1,
       "source_name": "Hy3",
       "provider": "Tencent",
       "source_model_id": "hy3",
@@ -629,7 +629,7 @@
           "source_column_indices": {
             "research": 9
           },
-          "source_population": 9
+          "source_population": 10
         },
         "llmstats__widesearch": {
           "benchmark_id": "llmstats__widesearch",
@@ -866,6 +866,45 @@
     {
       "category_rank": 17.0,
       "category_score": 22.2,
+      "source_name": "Qwen3.8 Max",
+      "provider": "Qwen",
+      "source_model_id": "qwen3.8-max",
+      "source_model_url": "https://llm-stats.com/models/qwen3.8-max",
+      "license": "Open Source",
+      "family_id": "alibaba/qwen3-8",
+      "matched_aa_family_id": "alibaba/qwen3-8",
+      "match_status": "matched_family",
+      "match_confidence": 0.95,
+      "score_status": "consensus",
+      "score_status_label": "Consensus",
+      "availability_class": "proprietary",
+      "is_sota": false,
+      "is_open_sota": false,
+      "rank_evidence": "source_rendered_table_order",
+      "benchmark_observations": {
+        "llmstats__widesearch": {
+          "benchmark_id": "llmstats__widesearch",
+          "canonical_name": "WideSearch",
+          "source_name": "WideSearch",
+          "value": 81.9,
+          "raw_value": "81.9%",
+          "version": null,
+          "provenance": "LLMStats public capability leaderboard",
+          "source_url": "https://llm-stats.com/benchmarks/widesearch",
+          "capabilities": [
+            "research"
+          ],
+          "source_column_indices": {
+            "research": 10
+          },
+          "source_population": 11
+        }
+      },
+      "source_updated_at": null
+    },
+    {
+      "category_rank": 18.0,
+      "category_score": 21.9,
       "source_name": "Kimi K2.5",
       "provider": "Moonshot AI",
       "source_model_id": "kimi-k2.5",
@@ -914,7 +953,7 @@
           "source_column_indices": {
             "research": 9
           },
-          "source_population": 9
+          "source_population": 10
         },
         "llmstats__widesearch": {
           "benchmark_id": "llmstats__widesearch",
@@ -949,45 +988,6 @@
             "research": 12
           },
           "source_population": 6
-        }
-      },
-      "source_updated_at": null
-    },
-    {
-      "category_rank": 18.0,
-      "category_score": 22.2,
-      "source_name": "Qwen3.8 Max",
-      "provider": "Qwen",
-      "source_model_id": "qwen3.8-max",
-      "source_model_url": "https://llm-stats.com/models/qwen3.8-max",
-      "license": "Open Source",
-      "family_id": "alibaba/qwen3-8",
-      "matched_aa_family_id": "alibaba/qwen3-8",
-      "match_status": "matched_family",
-      "match_confidence": 0.95,
-      "score_status": "consensus",
-      "score_status_label": "Consensus",
-      "availability_class": "proprietary",
-      "is_sota": false,
-      "is_open_sota": false,
-      "rank_evidence": "source_rendered_table_order",
-      "benchmark_observations": {
-        "llmstats__widesearch": {
-          "benchmark_id": "llmstats__widesearch",
-          "canonical_name": "WideSearch",
-          "source_name": "WideSearch",
-          "value": 81.9,
-          "raw_value": "81.9%",
-          "version": null,
-          "provenance": "LLMStats public capability leaderboard",
-          "source_url": "https://llm-stats.com/benchmarks/widesearch",
-          "capabilities": [
-            "research"
-          ],
-          "source_column_indices": {
-            "research": 10
-          },
-          "source_population": 11
         }
       },
       "source_updated_at": null
@@ -1335,6 +1335,45 @@
     },
     {
       "category_rank": 26.0,
+      "category_score": 18.0,
+      "source_name": "Muse Spark 1.3",
+      "provider": "Meta",
+      "source_model_id": "muse-spark-1.3",
+      "source_model_url": "https://llm-stats.com/models/muse-spark-1.3",
+      "license": "Proprietary",
+      "family_id": "meta/muse-spark-1-3",
+      "matched_aa_family_id": "meta/muse-spark-1-3",
+      "match_status": "matched_family",
+      "match_confidence": 0.95,
+      "score_status": "consensus",
+      "score_status_label": "Consensus",
+      "availability_class": "proprietary",
+      "is_sota": false,
+      "is_open_sota": false,
+      "rank_evidence": "source_rendered_table_order",
+      "benchmark_observations": {
+        "llmstats__deepsearchqa": {
+          "benchmark_id": "llmstats__deepsearchqa",
+          "canonical_name": "DeepSearchQA",
+          "source_name": "DeepSearchQA",
+          "value": 89.4,
+          "raw_value": "89.4%",
+          "version": null,
+          "provenance": "LLMStats public capability leaderboard",
+          "source_url": "https://llm-stats.com/benchmarks/deepsearchqa",
+          "capabilities": [
+            "research"
+          ],
+          "source_column_indices": {
+            "research": 9
+          },
+          "source_population": 10
+        }
+      },
+      "source_updated_at": null
+    },
+    {
+      "category_rank": 27.0,
       "category_score": 17.7,
       "source_name": "GPT-5.2 Pro",
       "provider": "OpenAI",
@@ -1368,45 +1407,6 @@
             "research": 7
           },
           "source_population": 62
-        }
-      },
-      "source_updated_at": null
-    },
-    {
-      "category_rank": 27.0,
-      "category_score": 17.6,
-      "source_name": "MiMo-V2-Pro",
-      "provider": "Xiaomi",
-      "source_model_id": "mimo-v2-pro",
-      "source_model_url": "https://llm-stats.com/models/mimo-v2-pro",
-      "license": "Proprietary",
-      "family_id": "xiaomi/mimo-v2-pro",
-      "matched_aa_family_id": null,
-      "match_status": "identity_unresolved",
-      "match_confidence": 0.8,
-      "score_status": "identity_review",
-      "score_status_label": "Identity review",
-      "availability_class": "unknown",
-      "is_sota": false,
-      "is_open_sota": false,
-      "rank_evidence": "source_rendered_table_order",
-      "benchmark_observations": {
-        "llmstats__deepsearchqa": {
-          "benchmark_id": "llmstats__deepsearchqa",
-          "canonical_name": "DeepSearchQA",
-          "source_name": "DeepSearchQA",
-          "value": 86.7,
-          "raw_value": "86.7%",
-          "version": null,
-          "provenance": "LLMStats public capability leaderboard",
-          "source_url": "https://llm-stats.com/benchmarks/deepsearchqa",
-          "capabilities": [
-            "research"
-          ],
-          "source_column_indices": {
-            "research": 9
-          },
-          "source_population": 9
         }
       },
       "source_updated_at": null
