@@ -6124,6 +6124,94 @@
       }
     }
   },
+  "openai/gpt-6-astra": {
+    "family_id": "openai/gpt-6-astra",
+    "canonical_family_name": "GPT-6 Astra",
+    "provider": "OpenAI",
+    "version": null,
+    "source_aliases": {
+      "artificial_analysis": [
+        "GPT-6 Astra (Non-reasoning)",
+        "GPT-6 Astra (high)",
+        "GPT-6 Astra (low)",
+        "GPT-6 Astra (max)",
+        "GPT-6 Astra (medium)",
+        "GPT-6 Astra (xhigh)"
+      ],
+      "llmstats": [
+        "GPT-6 Astra"
+      ]
+    },
+    "source_ids": {},
+    "source_urls": {
+      "artificial_analysis": [
+        "https://artificialanalysis.ai/models/gpt-6-astra",
+        "https://artificialanalysis.ai/models/gpt-6-astra-high",
+        "https://artificialanalysis.ai/models/gpt-6-astra-low",
+        "https://artificialanalysis.ai/models/gpt-6-astra-medium",
+        "https://artificialanalysis.ai/models/gpt-6-astra-non-reasoning",
+        "https://artificialanalysis.ai/models/gpt-6-astra-xhigh"
+      ]
+    },
+    "variants": {
+      "openai/gpt-6-astra:max": {
+        "variant_id": "openai/gpt-6-astra:max",
+        "deployment_profile_id": "openai/gpt-6-astra:max:deployment",
+        "source_name": "GPT-6 Astra (max)",
+        "reasoning_effort": "max",
+        "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": null
+      },
+      "openai/gpt-6-astra:xhigh": {
+        "variant_id": "openai/gpt-6-astra:xhigh",
+        "deployment_profile_id": "openai/gpt-6-astra:xhigh:deployment",
+        "source_name": "GPT-6 Astra (xhigh)",
+        "reasoning_effort": "xhigh",
+        "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": null
+      },
+      "openai/gpt-6-astra:high": {
+        "variant_id": "openai/gpt-6-astra:high",
+        "deployment_profile_id": "openai/gpt-6-astra:high:deployment",
+        "source_name": "GPT-6 Astra (high)",
+        "reasoning_effort": "high",
+        "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": null
+      },
+      "openai/gpt-6-astra:medium": {
+        "variant_id": "openai/gpt-6-astra:medium",
+        "deployment_profile_id": "openai/gpt-6-astra:medium:deployment",
+        "source_name": "GPT-6 Astra (medium)",
+        "reasoning_effort": "medium",
+        "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": null
+      },
+      "openai/gpt-6-astra:low": {
+        "variant_id": "openai/gpt-6-astra:low",
+        "deployment_profile_id": "openai/gpt-6-astra:low:deployment",
+        "source_name": "GPT-6 Astra (low)",
+        "reasoning_effort": "low",
+        "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": null
+      },
+      "openai/gpt-6-astra:non-reasoning": {
+        "variant_id": "openai/gpt-6-astra:non-reasoning",
+        "deployment_profile_id": "openai/gpt-6-astra:non-reasoning:deployment",
+        "source_name": "GPT-6 Astra (Non-reasoning)",
+        "reasoning_effort": null,
+        "deployment_profile": [
+          "non-reasoning"
+        ],
+        "fallback_enabled": false,
+        "parameter_count": null
+      }
+    }
+  },
   "openai/gpt-oss-120b": {
     "family_id": "openai/gpt-oss-120b",
     "canonical_family_name": "gpt-oss-120b",
