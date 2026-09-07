@@ -2256,20 +2256,20 @@
       ]
     },
     "variants": {
-      "deepseek/deepseek-v4-pro:max": {
-        "variant_id": "deepseek/deepseek-v4-pro:max",
-        "deployment_profile_id": "deepseek/deepseek-v4-pro:max:deployment",
-        "source_name": "DeepSeek V4 Pro (max)",
-        "reasoning_effort": "max",
-        "deployment_profile": [],
-        "fallback_enabled": false,
-        "parameter_count": null
-      },
       "deepseek/deepseek-v4-pro:high": {
         "variant_id": "deepseek/deepseek-v4-pro:high",
         "deployment_profile_id": "deepseek/deepseek-v4-pro:high:deployment",
         "source_name": "DeepSeek V4 Pro (high)",
         "reasoning_effort": "high",
+        "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": null
+      },
+      "deepseek/deepseek-v4-pro:max": {
+        "variant_id": "deepseek/deepseek-v4-pro:max",
+        "deployment_profile_id": "deepseek/deepseek-v4-pro:max:deployment",
+        "source_name": "DeepSeek V4 Pro (max)",
+        "reasoning_effort": "max",
         "deployment_profile": [],
         "fallback_enabled": false,
         "parameter_count": null
@@ -6399,6 +6399,38 @@
         "fallback_enabled": false,
         "parameter_count": {
           "total_billions": 1.0,
+          "active_billions": null
+        }
+      }
+    }
+  },
+  "openbmb/minicpm5-2b": {
+    "family_id": "openbmb/minicpm5-2b",
+    "canonical_family_name": "MiniCPM5-2B",
+    "provider": "OpenBMB",
+    "version": null,
+    "source_aliases": {
+      "artificial_analysis": [
+        "MiniCPM5-2B"
+      ],
+      "llmstats": []
+    },
+    "source_ids": {},
+    "source_urls": {
+      "artificial_analysis": [
+        "https://artificialanalysis.ai/models/minicpm5-2b"
+      ]
+    },
+    "variants": {
+      "openbmb/minicpm5-2b:default": {
+        "variant_id": "openbmb/minicpm5-2b:default",
+        "deployment_profile_id": "openbmb/minicpm5-2b:default:deployment",
+        "source_name": "MiniCPM5-2B",
+        "reasoning_effort": null,
+        "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": {
+          "total_billions": 2.0,
           "active_billions": null
         }
       }
