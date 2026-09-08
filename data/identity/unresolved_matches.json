@@ -161,6 +161,26 @@
   },
   {
     "source": "llmstats",
+    "source_name": "Claude Mythos 5.1",
+    "source_model_id": "claude-mythos-5-1",
+    "source_model_url": "https://llm-stats.com/models/claude-mythos-5-1",
+    "provider": "Anthropic",
+    "candidate_family_id": "anthropic/claude-opus-5",
+    "candidate_family_name": "Claude Opus 5",
+    "match_status": "identity_unresolved",
+    "match_confidence": 0.7333,
+    "match_method": "fuzzy_review_candidate",
+    "review_reason": "Fuzzy candidates require manual approval and are excluded from scoring.",
+    "competing_candidates": [
+      {
+        "family_id": "anthropic/claude-opus-5",
+        "family_name": "Claude Opus 5",
+        "similarity": 0.7333
+      }
+    ]
+  },
+  {
+    "source": "llmstats",
     "source_name": "Claude Opus 4.7",
     "source_model_id": "claude-opus-4-7",
     "source_model_url": "https://llm-stats.com/models/claude-opus-4-7",

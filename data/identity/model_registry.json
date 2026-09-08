@@ -172,6 +172,18 @@
       ]
     },
     "variants": {
+      "alibaba/qwen3-5-0-8b:default": {
+        "variant_id": "alibaba/qwen3-5-0-8b:default",
+        "deployment_profile_id": "alibaba/qwen3-5-0-8b:default:deployment",
+        "source_name": "Qwen3.5 0.8B",
+        "reasoning_effort": null,
+        "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": {
+          "total_billions": 0.8,
+          "active_billions": null
+        }
+      },
       "alibaba/qwen3-5-0-8b:non-reasoning": {
         "variant_id": "alibaba/qwen3-5-0-8b:non-reasoning",
         "deployment_profile_id": "alibaba/qwen3-5-0-8b:non-reasoning:deployment",
@@ -180,18 +192,6 @@
         "deployment_profile": [
           "non-reasoning"
         ],
-        "fallback_enabled": false,
-        "parameter_count": {
-          "total_billions": 0.8,
-          "active_billions": null
-        }
-      },
-      "alibaba/qwen3-5-0-8b:default": {
-        "variant_id": "alibaba/qwen3-5-0-8b:default",
-        "deployment_profile_id": "alibaba/qwen3-5-0-8b:default:deployment",
-        "source_name": "Qwen3.5 0.8B",
-        "reasoning_effort": null,
-        "deployment_profile": [],
         "fallback_enabled": false,
         "parameter_count": {
           "total_billions": 0.8,
@@ -222,18 +222,6 @@
       ]
     },
     "variants": {
-      "alibaba/qwen3-5-122b-a10b:default": {
-        "variant_id": "alibaba/qwen3-5-122b-a10b:default",
-        "deployment_profile_id": "alibaba/qwen3-5-122b-a10b:default:deployment",
-        "source_name": "Qwen3.5 122B A10B",
-        "reasoning_effort": null,
-        "deployment_profile": [],
-        "fallback_enabled": false,
-        "parameter_count": {
-          "total_billions": 122.0,
-          "active_billions": null
-        }
-      },
       "alibaba/qwen3-5-122b-a10b:non-reasoning": {
         "variant_id": "alibaba/qwen3-5-122b-a10b:non-reasoning",
         "deployment_profile_id": "alibaba/qwen3-5-122b-a10b:non-reasoning:deployment",
@@ -242,6 +230,18 @@
         "deployment_profile": [
           "non-reasoning"
         ],
+        "fallback_enabled": false,
+        "parameter_count": {
+          "total_billions": 122.0,
+          "active_billions": null
+        }
+      },
+      "alibaba/qwen3-5-122b-a10b:default": {
+        "variant_id": "alibaba/qwen3-5-122b-a10b:default",
+        "deployment_profile_id": "alibaba/qwen3-5-122b-a10b:default:deployment",
+        "source_name": "Qwen3.5 122B A10B",
+        "reasoning_effort": null,
+        "deployment_profile": [],
         "fallback_enabled": false,
         "parameter_count": {
           "total_billions": 122.0,
@@ -356,18 +356,6 @@
       ]
     },
     "variants": {
-      "alibaba/qwen3-5-397b-a17b:default": {
-        "variant_id": "alibaba/qwen3-5-397b-a17b:default",
-        "deployment_profile_id": "alibaba/qwen3-5-397b-a17b:default:deployment",
-        "source_name": "Qwen3.5 397B A17B",
-        "reasoning_effort": null,
-        "deployment_profile": [],
-        "fallback_enabled": false,
-        "parameter_count": {
-          "total_billions": 397.0,
-          "active_billions": null
-        }
-      },
       "alibaba/qwen3-5-397b-a17b:non-reasoning": {
         "variant_id": "alibaba/qwen3-5-397b-a17b:non-reasoning",
         "deployment_profile_id": "alibaba/qwen3-5-397b-a17b:non-reasoning:deployment",
@@ -376,6 +364,18 @@
         "deployment_profile": [
           "non-reasoning"
         ],
+        "fallback_enabled": false,
+        "parameter_count": {
+          "total_billions": 397.0,
+          "active_billions": null
+        }
+      },
+      "alibaba/qwen3-5-397b-a17b:default": {
+        "variant_id": "alibaba/qwen3-5-397b-a17b:default",
+        "deployment_profile_id": "alibaba/qwen3-5-397b-a17b:default:deployment",
+        "source_name": "Qwen3.5 397B A17B",
+        "reasoning_effort": null,
+        "deployment_profile": [],
         "fallback_enabled": false,
         "parameter_count": {
           "total_billions": 397.0,
@@ -1706,11 +1706,11 @@
         "fallback_enabled": false,
         "parameter_count": null
       },
-      "anthropic/claude-sonnet-5:high": {
-        "variant_id": "anthropic/claude-sonnet-5:high",
-        "deployment_profile_id": "anthropic/claude-sonnet-5:high:deployment",
-        "source_name": "Claude Sonnet 5 (high)",
-        "reasoning_effort": "high",
+      "anthropic/claude-sonnet-5:medium": {
+        "variant_id": "anthropic/claude-sonnet-5:medium",
+        "deployment_profile_id": "anthropic/claude-sonnet-5:medium:deployment",
+        "source_name": "Claude Sonnet 5 (medium)",
+        "reasoning_effort": "medium",
         "deployment_profile": [],
         "fallback_enabled": false,
         "parameter_count": null
@@ -1724,11 +1724,11 @@
         "fallback_enabled": false,
         "parameter_count": null
       },
-      "anthropic/claude-sonnet-5:medium": {
-        "variant_id": "anthropic/claude-sonnet-5:medium",
-        "deployment_profile_id": "anthropic/claude-sonnet-5:medium:deployment",
-        "source_name": "Claude Sonnet 5 (medium)",
-        "reasoning_effort": "medium",
+      "anthropic/claude-sonnet-5:high": {
+        "variant_id": "anthropic/claude-sonnet-5:high",
+        "deployment_profile_id": "anthropic/claude-sonnet-5:high:deployment",
+        "source_name": "Claude Sonnet 5 (high)",
+        "reasoning_effort": "high",
         "deployment_profile": [],
         "fallback_enabled": false,
         "parameter_count": null
@@ -2181,9 +2181,7 @@
       "artificial_analysis": [
         "DeepSeek V4 Flash 0731 (max)"
       ],
-      "llmstats": [
-        "DeepSeek-V4-Flash-0731"
-      ]
+      "llmstats": []
     },
     "source_ids": {},
     "source_urls": {
@@ -2256,20 +2254,20 @@
       ]
     },
     "variants": {
-      "deepseek/deepseek-v4-pro:high": {
-        "variant_id": "deepseek/deepseek-v4-pro:high",
-        "deployment_profile_id": "deepseek/deepseek-v4-pro:high:deployment",
-        "source_name": "DeepSeek V4 Pro (high)",
-        "reasoning_effort": "high",
-        "deployment_profile": [],
-        "fallback_enabled": false,
-        "parameter_count": null
-      },
       "deepseek/deepseek-v4-pro:max": {
         "variant_id": "deepseek/deepseek-v4-pro:max",
         "deployment_profile_id": "deepseek/deepseek-v4-pro:max:deployment",
         "source_name": "DeepSeek V4 Pro (max)",
         "reasoning_effort": "max",
+        "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": null
+      },
+      "deepseek/deepseek-v4-pro:high": {
+        "variant_id": "deepseek/deepseek-v4-pro:high",
+        "deployment_profile_id": "deepseek/deepseek-v4-pro:high:deployment",
+        "source_name": "DeepSeek V4 Pro (high)",
+        "reasoning_effort": "high",
         "deployment_profile": [],
         "fallback_enabled": false,
         "parameter_count": null
@@ -2507,20 +2505,20 @@
       ]
     },
     "variants": {
-      "google/gemini-3-7-flash:high": {
-        "variant_id": "google/gemini-3-7-flash:high",
-        "deployment_profile_id": "google/gemini-3-7-flash:high:deployment",
-        "source_name": "Gemini 3.7 Flash (high)",
-        "reasoning_effort": "high",
-        "deployment_profile": [],
-        "fallback_enabled": false,
-        "parameter_count": null
-      },
       "google/gemini-3-7-flash:medium": {
         "variant_id": "google/gemini-3-7-flash:medium",
         "deployment_profile_id": "google/gemini-3-7-flash:medium:deployment",
         "source_name": "Gemini 3.7 Flash (medium)",
         "reasoning_effort": "medium",
+        "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": null
+      },
+      "google/gemini-3-7-flash:high": {
+        "variant_id": "google/gemini-3-7-flash:high",
+        "deployment_profile_id": "google/gemini-3-7-flash:high:deployment",
+        "source_name": "Gemini 3.7 Flash (high)",
+        "reasoning_effort": "high",
         "deployment_profile": [],
         "fallback_enabled": false,
         "parameter_count": null
@@ -3573,20 +3571,6 @@
       ]
     },
     "variants": {
-      "lg-ai-research/exaone-4-0-1-2b:non-reasoning": {
-        "variant_id": "lg-ai-research/exaone-4-0-1-2b:non-reasoning",
-        "deployment_profile_id": "lg-ai-research/exaone-4-0-1-2b:non-reasoning:deployment",
-        "source_name": "Exaone 4.0 1.2B (Non-reasoning)",
-        "reasoning_effort": null,
-        "deployment_profile": [
-          "non-reasoning"
-        ],
-        "fallback_enabled": false,
-        "parameter_count": {
-          "total_billions": 1.2,
-          "active_billions": null
-        }
-      },
       "lg-ai-research/exaone-4-0-1-2b:reasoning": {
         "variant_id": "lg-ai-research/exaone-4-0-1-2b:reasoning",
         "deployment_profile_id": "lg-ai-research/exaone-4-0-1-2b:reasoning:deployment",
@@ -3594,6 +3578,20 @@
         "reasoning_effort": null,
         "deployment_profile": [
           "reasoning"
+        ],
+        "fallback_enabled": false,
+        "parameter_count": {
+          "total_billions": 1.2,
+          "active_billions": null
+        }
+      },
+      "lg-ai-research/exaone-4-0-1-2b:non-reasoning": {
+        "variant_id": "lg-ai-research/exaone-4-0-1-2b:non-reasoning",
+        "deployment_profile_id": "lg-ai-research/exaone-4-0-1-2b:non-reasoning:deployment",
+        "source_name": "Exaone 4.0 1.2B (Non-reasoning)",
+        "reasoning_effort": null,
+        "deployment_profile": [
+          "non-reasoning"
         ],
         "fallback_enabled": false,
         "parameter_count": {
@@ -6267,11 +6265,11 @@
       ]
     },
     "variants": {
-      "openai/gpt-oss-20b:high": {
-        "variant_id": "openai/gpt-oss-20b:high",
-        "deployment_profile_id": "openai/gpt-oss-20b:high:deployment",
-        "source_name": "gpt-oss-20b (high)",
-        "reasoning_effort": "high",
+      "openai/gpt-oss-20b:low": {
+        "variant_id": "openai/gpt-oss-20b:low",
+        "deployment_profile_id": "openai/gpt-oss-20b:low:deployment",
+        "source_name": "gpt-oss-20b (low)",
+        "reasoning_effort": "low",
         "deployment_profile": [],
         "fallback_enabled": false,
         "parameter_count": {
@@ -6279,11 +6277,11 @@
           "active_billions": null
         }
       },
-      "openai/gpt-oss-20b:low": {
-        "variant_id": "openai/gpt-oss-20b:low",
-        "deployment_profile_id": "openai/gpt-oss-20b:low:deployment",
-        "source_name": "gpt-oss-20b (low)",
-        "reasoning_effort": "low",
+      "openai/gpt-oss-20b:high": {
+        "variant_id": "openai/gpt-oss-20b:high",
+        "deployment_profile_id": "openai/gpt-oss-20b:high:deployment",
+        "source_name": "gpt-oss-20b (high)",
+        "reasoning_effort": "high",
         "deployment_profile": [],
         "fallback_enabled": false,
         "parameter_count": {
