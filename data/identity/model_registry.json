@@ -2155,7 +2155,7 @@
     "source_ids": {},
     "source_urls": {
       "artificial_analysis": [
-        "https://artificialanalysis.ai/models/deepseek-v4-flash-non-reasoning"
+        "https://artificialanalysis.ai/models/deepseek-v4-flash-0420-non-reasoning"
       ]
     },
     "variants": {
@@ -3298,6 +3298,35 @@
         "variant_id": "inclusionai/ling-3-0-flash:default",
         "deployment_profile_id": "inclusionai/ling-3-0-flash:default:deployment",
         "source_name": "Ling 3.0 Flash",
+        "reasoning_effort": null,
+        "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": null
+      }
+    }
+  },
+  "inclusionai/ling-3-0-flash-vl": {
+    "family_id": "inclusionai/ling-3-0-flash-vl",
+    "canonical_family_name": "Ling-3.0-flash-VL",
+    "provider": "InclusionAI",
+    "version": "3.0",
+    "source_aliases": {
+      "artificial_analysis": [
+        "Ling-3.0-flash-VL"
+      ],
+      "llmstats": []
+    },
+    "source_ids": {},
+    "source_urls": {
+      "artificial_analysis": [
+        "https://artificialanalysis.ai/models/ling-3-0-flash-vl"
+      ]
+    },
+    "variants": {
+      "inclusionai/ling-3-0-flash-vl:default": {
+        "variant_id": "inclusionai/ling-3-0-flash-vl:default",
+        "deployment_profile_id": "inclusionai/ling-3-0-flash-vl:default:deployment",
+        "source_name": "Ling-3.0-flash-VL",
         "reasoning_effort": null,
         "deployment_profile": [],
         "fallback_enabled": false,

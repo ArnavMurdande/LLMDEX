@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-09-09T14:46:50.070787+00:00",
+  "generated_at": "2026-09-10T14:36:21.732580+00:00",
   "methodology_version": "LLMStats source-native current",
   "source": "LLMStats",
-  "source_updated_at": "2026-09-09T14:47:13.956505+00:00",
+  "source_updated_at": "2026-09-09T14:47:13.955425+00:00",
   "source_health": {
     "source": "LLMStats",
     "rows_scraped": 96,
@@ -10,14 +10,18 @@
       20,
       250
     ],
-    "status": "healthy",
-    "error_message": null,
-    "duration_seconds": 23.876,
-    "timestamp": "2026-09-09T14:47:13.956505+00:00",
+    "status": "degraded",
+    "error_message": "No valid public leaderboard rows were extracted.",
+    "duration_seconds": 22.598,
+    "timestamp": "2026-09-10T14:36:44.339066+00:00",
     "parse_warning_count": 0,
-    "warnings": [],
-    "last_successful_update": "2026-09-09T14:47:13.956505+00:00",
-    "schema_changes": []
+    "warnings": [
+      "Live extraction failed; serving the last-known-good LLMStats snapshot."
+    ],
+    "last_successful_update": "2026-09-09T14:47:13.955425+00:00",
+    "schema_changes": [
+      "Missing required columns: Organization"
+    ]
   },
   "capability": "reasoning",
   "benchmark_columns": [
