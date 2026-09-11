@@ -1695,6 +1695,24 @@
         "fallback_enabled": false,
         "parameter_count": null
       },
+      "anthropic/claude-sonnet-5:xhigh": {
+        "variant_id": "anthropic/claude-sonnet-5:xhigh",
+        "deployment_profile_id": "anthropic/claude-sonnet-5:xhigh:deployment",
+        "source_name": "Claude Sonnet 5 (xhigh)",
+        "reasoning_effort": "xhigh",
+        "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": null
+      },
+      "anthropic/claude-sonnet-5:high": {
+        "variant_id": "anthropic/claude-sonnet-5:high",
+        "deployment_profile_id": "anthropic/claude-sonnet-5:high:deployment",
+        "source_name": "Claude Sonnet 5 (high)",
+        "reasoning_effort": "high",
+        "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": null
+      },
       "anthropic/claude-sonnet-5:non-reasoning": {
         "variant_id": "anthropic/claude-sonnet-5:non-reasoning",
         "deployment_profile_id": "anthropic/claude-sonnet-5:non-reasoning:deployment",
@@ -1720,24 +1738,6 @@
         "deployment_profile_id": "anthropic/claude-sonnet-5:low:deployment",
         "source_name": "Claude Sonnet 5 (low)",
         "reasoning_effort": "low",
-        "deployment_profile": [],
-        "fallback_enabled": false,
-        "parameter_count": null
-      },
-      "anthropic/claude-sonnet-5:high": {
-        "variant_id": "anthropic/claude-sonnet-5:high",
-        "deployment_profile_id": "anthropic/claude-sonnet-5:high:deployment",
-        "source_name": "Claude Sonnet 5 (high)",
-        "reasoning_effort": "high",
-        "deployment_profile": [],
-        "fallback_enabled": false,
-        "parameter_count": null
-      },
-      "anthropic/claude-sonnet-5:xhigh": {
-        "variant_id": "anthropic/claude-sonnet-5:xhigh",
-        "deployment_profile_id": "anthropic/claude-sonnet-5:xhigh:deployment",
-        "source_name": "Claude Sonnet 5 (xhigh)",
-        "reasoning_effort": "xhigh",
         "deployment_profile": [],
         "fallback_enabled": false,
         "parameter_count": null
@@ -2134,6 +2134,35 @@
         "deployment_profile": [
           "reasoning"
         ],
+        "fallback_enabled": false,
+        "parameter_count": null
+      }
+    }
+  },
+  "deepseek/deepseek-v4-1-flash": {
+    "family_id": "deepseek/deepseek-v4-1-flash",
+    "canonical_family_name": "DeepSeek V4.1 Flash",
+    "provider": "DeepSeek",
+    "version": "4.1",
+    "source_aliases": {
+      "artificial_analysis": [
+        "DeepSeek V4.1 Flash (max)"
+      ],
+      "llmstats": []
+    },
+    "source_ids": {},
+    "source_urls": {
+      "artificial_analysis": [
+        "https://artificialanalysis.ai/models/deepseek-v4-1-flash"
+      ]
+    },
+    "variants": {
+      "deepseek/deepseek-v4-1-flash:max": {
+        "variant_id": "deepseek/deepseek-v4-1-flash:max",
+        "deployment_profile_id": "deepseek/deepseek-v4-1-flash:max:deployment",
+        "source_name": "DeepSeek V4.1 Flash (max)",
+        "reasoning_effort": "max",
+        "deployment_profile": [],
         "fallback_enabled": false,
         "parameter_count": null
       }
@@ -6601,6 +6630,35 @@
         "variant_id": "sapiens-ai/agnes-2-5-pro-beta:default",
         "deployment_profile_id": "sapiens-ai/agnes-2-5-pro-beta:default:deployment",
         "source_name": "Agnes 2.5 Pro Beta",
+        "reasoning_effort": null,
+        "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": null
+      }
+    }
+  },
+  "sapiens-ai/agnes-3-0-flash": {
+    "family_id": "sapiens-ai/agnes-3-0-flash",
+    "canonical_family_name": "Agnes 3.0 Flash",
+    "provider": "Sapiens AI",
+    "version": "3.0",
+    "source_aliases": {
+      "artificial_analysis": [
+        "Agnes 3.0 Flash"
+      ],
+      "llmstats": []
+    },
+    "source_ids": {},
+    "source_urls": {
+      "artificial_analysis": [
+        "https://artificialanalysis.ai/models/agnes-3-0-flash"
+      ]
+    },
+    "variants": {
+      "sapiens-ai/agnes-3-0-flash:default": {
+        "variant_id": "sapiens-ai/agnes-3-0-flash:default",
+        "deployment_profile_id": "sapiens-ai/agnes-3-0-flash:default:deployment",
+        "source_name": "Agnes 3.0 Flash",
         "reasoning_effort": null,
         "deployment_profile": [],
         "fallback_enabled": false,
