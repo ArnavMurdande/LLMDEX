@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-09-11T14:35:51.357556+00:00",
+  "generated_at": "2026-09-12T13:43:19.621992+00:00",
   "methodology_version": "LLMDEX General Consensus v1",
   "status": "degraded",
   "sources": {
     "artificial_analysis": {
       "source": "Artificial Analysis",
       "status": "healthy",
-      "rows_scraped": 301,
+      "rows_scraped": 300,
       "expected_range": [
         150,
         500
@@ -15,10 +15,10 @@
       "warnings": [
         "Health synthesized from the current validated publication."
       ],
-      "last_successful_update": "2026-09-11T14:35:51.357556+00:00",
+      "last_successful_update": "2026-09-12T13:43:19.621992+00:00",
       "schema_changes": [],
       "error_message": null,
-      "timestamp": "2026-09-11T14:35:51.357556+00:00",
+      "timestamp": "2026-09-12T13:43:19.621992+00:00",
       "snapshot_age_hours": 0.0
     },
     "llmstats": {
@@ -30,8 +30,8 @@
       ],
       "status": "degraded",
       "error_message": "No valid public leaderboard rows were extracted.",
-      "duration_seconds": 29.675,
-      "timestamp": "2026-09-11T14:36:21.042015+00:00",
+      "duration_seconds": 23.538,
+      "timestamp": "2026-09-12T13:43:43.169468+00:00",
       "parse_warning_count": 0,
       "warnings": [
         "Live extraction failed; serving the last-known-good LLMStats snapshot."
@@ -40,7 +40,7 @@
       "schema_changes": [
         "Missing required columns: Organization"
       ],
-      "snapshot_age_hours": 47.81038948083334
+      "snapshot_age_hours": 70.93490737972222
     }
   },
   "counts": {
@@ -58,6 +58,7 @@
     "llmstats_coding": 239
   },
   "warnings": [
-    "LLMStats is degraded."
+    "LLMStats is degraded.",
+    "LLMStats snapshot is 70.9 hours old."
   ]
 }
