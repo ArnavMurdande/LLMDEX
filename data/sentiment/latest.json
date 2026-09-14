@@ -1,70 +1,68 @@
 [
   {
-    "community_sentiment": 0.2764,
+    "community_sentiment": 0.1652,
     "mention_count": 12,
     "controversy_index": 0.0,
     "sentiment_trend": "positive",
+    "confidence_score": 0.4,
+    "sentiment_method": "vader_fallback",
+    "model_name": "Claude Fable 5.1",
+    "scraped_at": "2026-09-14T16:31:46.194224+00:00",
+    "_experimental": true,
+    "source_counts": {
+      "Reddit": 2,
+      "HackerNews": 10
+    },
+    "community_examples": [
+      {
+        "source": "Hacker News",
+        "text": "Ask HN: How to spend $100? (Claude vs. ChatGPT) Hey HN, I have always used the Claude Max 20x plan because my employer paid this for me. Now I left so I need to buy a subscription on my own and currently $200 is too...",
+        "url": "https://news.ycombinator.com/item?id=49608008"
+      },
+      {
+        "source": "Hacker News",
+        "text": "Claude Fable 5.1 and Claude Mythos 5.1 What's new in Claude Fable 5.1 \u2013 Card:",
+        "url": "https://news.ycombinator.com/item?id=49525378"
+      },
+      {
+        "source": "Reddit",
+        "text": "Ignoring cost completely, Fable 5.1 vs GPT-6 for daily production debugging and heavy app reverse engineering? Hey everyone, My team is currently re-evaluating our backend LLM toolchain for our primary dev stack....",
+        "url": "https://www.reddit.com/r/codex/comments/1wdkggm/ignoring_cost_completely_fable_51_vs_gpt6_for/"
+      }
+    ],
+    "top_quotes": [
+      {
+        "source": "Hacker News",
+        "text": "Ask HN: How to spend $100? (Claude vs. ChatGPT) Hey HN, I have always used the Claude Max 20x plan because my employer paid this for me. Now I left so I need to buy a subscription on my own and currently $200 is too...",
+        "url": "https://news.ycombinator.com/item?id=49608008"
+      },
+      {
+        "source": "Hacker News",
+        "text": "Claude Fable 5.1 and Claude Mythos 5.1 What's new in Claude Fable 5.1 \u2013 Card:",
+        "url": "https://news.ycombinator.com/item?id=49525378"
+      },
+      {
+        "source": "Reddit",
+        "text": "Ignoring cost completely, Fable 5.1 vs GPT-6 for daily production debugging and heavy app reverse engineering? Hey everyone, My team is currently re-evaluating our backend LLM toolchain for our primary dev stack....",
+        "url": "https://www.reddit.com/r/codex/comments/1wdkggm/ignoring_cost_completely_fable_51_vs_gpt6_for/"
+      }
+    ]
+  },
+  {
+    "community_sentiment": -0.0321,
+    "mention_count": 15,
+    "controversy_index": 0.3333,
+    "sentiment_trend": "stable",
     "confidence_score": 0.1,
     "sentiment_method": "gemini",
     "valid_posts": 3,
     "strong_praise_count": 0,
-    "strong_criticism_count": 0,
-    "model_name": "Claude Fable 5.1",
-    "scraped_at": "2026-09-13T14:38:47.425155+00:00",
-    "_experimental": true,
-    "source_counts": {
-      "HackerNews": 12
-    },
-    "community_examples": [
-      {
-        "source": "Hacker News",
-        "text": "Claude Fable 5.1 made me a nice animated pelican",
-        "url": "https://news.ycombinator.com/item?id=49530472"
-      },
-      {
-        "source": "Hacker News",
-        "text": "GPT-6 Astra is better at making money, more ethical than Claude Fable 5.1",
-        "url": "https://news.ycombinator.com/item?id=49633566"
-      },
-      {
-        "source": "Hacker News",
-        "text": "Claude Fable 5.1 decoded a centuries-old royalist message hidden in since 1653",
-        "url": "https://news.ycombinator.com/item?id=49555681"
-      }
-    ],
-    "top_quotes": [
-      {
-        "source": "Hacker News",
-        "text": "Claude Fable 5.1 made me a nice animated pelican",
-        "url": "https://news.ycombinator.com/item?id=49530472"
-      },
-      {
-        "source": "Hacker News",
-        "text": "GPT-6 Astra is better at making money, more ethical than Claude Fable 5.1",
-        "url": "https://news.ycombinator.com/item?id=49633566"
-      },
-      {
-        "source": "Hacker News",
-        "text": "Claude Fable 5.1 decoded a centuries-old royalist message hidden in since 1653",
-        "url": "https://news.ycombinator.com/item?id=49555681"
-      }
-    ]
-  },
-  {
-    "community_sentiment": -0.052,
-    "mention_count": 16,
-    "controversy_index": 0.0,
-    "sentiment_trend": "stable",
-    "confidence_score": 0.13,
-    "sentiment_method": "gemini",
-    "valid_posts": 4,
-    "strong_praise_count": 0,
-    "strong_criticism_count": 0,
+    "strong_criticism_count": 1,
     "model_name": "GPT-6 Astra",
-    "scraped_at": "2026-09-13T14:38:51.343016+00:00",
+    "scraped_at": "2026-09-14T16:31:58.140831+00:00",
     "_experimental": true,
     "source_counts": {
-      "HackerNews": 16
+      "HackerNews": 15
     },
     "community_examples": [
       {
@@ -74,13 +72,13 @@
       },
       {
         "source": "Hacker News",
-        "text": "Ask HN: Initial Thoughts on GPT-6 Astra? Personally, I've found it to be a bit too-aligned out of the gate, with some overly-legalistic interpretations and cautiousness that is unwarranted and makes it sounds like it...",
-        "url": "https://news.ycombinator.com/item?id=49571621"
+        "text": "Show HN: Automatically Save 60% on Amazon Findcheap is a search agent that finds the best price in one click.It performs >2x better than the next-best frontier model (GPT-6 Astra), albeit on a very specific task....",
+        "url": "https://news.ycombinator.com/item?id=49586711"
       },
       {
         "source": "Hacker News",
-        "text": "Search agent beats GPT-6 Astra on benchmarks, just days after release",
-        "url": "https://news.ycombinator.com/item?id=49566574"
+        "text": "Ask HN: Initial Thoughts on GPT-6 Astra? Personally, I've found it to be a bit too-aligned out of the gate, with some overly-legalistic interpretations and cautiousness that is unwarranted and makes it sounds like it...",
+        "url": "https://news.ycombinator.com/item?id=49571621"
       }
     ],
     "top_quotes": [
@@ -91,31 +89,30 @@
       },
       {
         "source": "Hacker News",
-        "text": "Ask HN: Initial Thoughts on GPT-6 Astra? Personally, I've found it to be a bit too-aligned out of the gate, with some overly-legalistic interpretations and cautiousness that is unwarranted and makes it sounds like it...",
-        "url": "https://news.ycombinator.com/item?id=49571621"
+        "text": "Show HN: Automatically Save 60% on Amazon Findcheap is a search agent that finds the best price in one click.It performs >2x better than the next-best frontier model (GPT-6 Astra), albeit on a very specific task....",
+        "url": "https://news.ycombinator.com/item?id=49586711"
       },
       {
         "source": "Hacker News",
-        "text": "Search agent beats GPT-6 Astra on benchmarks, just days after release",
-        "url": "https://news.ycombinator.com/item?id=49566574"
+        "text": "Ask HN: Initial Thoughts on GPT-6 Astra? Personally, I've found it to be a bit too-aligned out of the gate, with some overly-legalistic interpretations and cautiousness that is unwarranted and makes it sounds like it...",
+        "url": "https://news.ycombinator.com/item?id=49571621"
       }
     ]
   },
   {
-    "community_sentiment": -0.3809,
-    "mention_count": 26,
-    "controversy_index": 0.625,
+    "community_sentiment": -0.3996,
+    "mention_count": 24,
+    "controversy_index": 0.4,
     "sentiment_trend": "negative",
-    "confidence_score": 0.25,
+    "confidence_score": 0.33,
     "sentiment_method": "gemini",
-    "valid_posts": 8,
+    "valid_posts": 10,
     "strong_praise_count": 1,
-    "strong_criticism_count": 4,
+    "strong_criticism_count": 3,
     "model_name": "Claude Opus 5",
-    "scraped_at": "2026-09-13T14:38:58.264822+00:00",
+    "scraped_at": "2026-09-14T16:32:09.380338+00:00",
     "_experimental": true,
     "source_counts": {
-      "Reddit": 2,
       "HackerNews": 24
     },
     "community_examples": [
@@ -164,7 +161,7 @@
     "strong_praise_count": 0,
     "strong_criticism_count": 0,
     "model_name": "Claude Fable 5",
-    "scraped_at": "2026-09-13T14:39:02.050365+00:00",
+    "scraped_at": "2026-09-14T16:32:17.790151+00:00",
     "_experimental": true,
     "source_counts": {
       "HackerNews": 15
@@ -215,7 +212,7 @@
     "strong_praise_count": 0,
     "strong_criticism_count": 0,
     "model_name": "Muse Spark 1.3",
-    "scraped_at": "2026-09-13T14:39:04.078440+00:00",
+    "scraped_at": "2026-09-14T16:32:21.524611+00:00",
     "_experimental": true,
     "source_counts": {
       "HackerNews": 7,
@@ -247,7 +244,7 @@
     "strong_praise_count": 2,
     "strong_criticism_count": 1,
     "model_name": "GPT-5.6 Sol",
-    "scraped_at": "2026-09-13T14:39:09.333647+00:00",
+    "scraped_at": "2026-09-14T16:32:31.135429+00:00",
     "_experimental": true,
     "source_counts": {
       "HackerNews": 22
@@ -298,7 +295,7 @@
     "strong_praise_count": 2,
     "strong_criticism_count": 0,
     "model_name": "GLM-5.3",
-    "scraped_at": "2026-09-13T14:39:12.747543+00:00",
+    "scraped_at": "2026-09-14T16:32:42.094022+00:00",
     "_experimental": true,
     "source_counts": {
       "HackerNews": 16
@@ -349,7 +346,7 @@
     "strong_praise_count": 0,
     "strong_criticism_count": 0,
     "model_name": "Grok 4.6",
-    "scraped_at": "2026-09-13T14:39:14.892563+00:00",
+    "scraped_at": "2026-09-14T16:32:47.162953+00:00",
     "_experimental": true,
     "source_counts": {
       "HackerNews": 11
@@ -374,13 +371,13 @@
     "mention_count": 26,
     "controversy_index": 0.0,
     "sentiment_trend": "positive",
-    "confidence_score": 0.17,
+    "confidence_score": 0.1,
     "sentiment_method": "gemini",
-    "valid_posts": 5,
+    "valid_posts": 3,
     "strong_praise_count": 0,
     "strong_criticism_count": 0,
     "model_name": "Kimi K3",
-    "scraped_at": "2026-09-13T14:39:21.947929+00:00",
+    "scraped_at": "2026-09-14T16:33:08.440105+00:00",
     "_experimental": true,
     "source_counts": {
       "HackerNews": 26
@@ -393,13 +390,13 @@
       },
       {
         "source": "Hacker News",
-        "text": "Kimi K3 Is Open, Opus 5 Is Good, DeepSeek V4 Flash Is Cheap: LLMs on Baba Is You",
-        "url": "https://news.ycombinator.com/item?id=49146588"
+        "text": "Running Kimi K3 on MI355X at Better Performance per Dollar Than B300",
+        "url": "https://news.ycombinator.com/item?id=49141073"
       },
       {
         "source": "Hacker News",
-        "text": "Running Kimi K3 on MI355X at Better Performance per Dollar Than B300",
-        "url": "https://news.ycombinator.com/item?id=49141073"
+        "text": "Self-hosting Kimi K3: 20% more hardware cost, 20% better task resolution",
+        "url": "https://news.ycombinator.com/item?id=49098130"
       }
     ],
     "top_quotes": [
@@ -410,42 +407,30 @@
       },
       {
         "source": "Hacker News",
-        "text": "Kimi K3 Is Open, Opus 5 Is Good, DeepSeek V4 Flash Is Cheap: LLMs on Baba Is You",
-        "url": "https://news.ycombinator.com/item?id=49146588"
+        "text": "Running Kimi K3 on MI355X at Better Performance per Dollar Than B300",
+        "url": "https://news.ycombinator.com/item?id=49141073"
       },
       {
         "source": "Hacker News",
-        "text": "Running Kimi K3 on MI355X at Better Performance per Dollar Than B300",
-        "url": "https://news.ycombinator.com/item?id=49141073"
+        "text": "Self-hosting Kimi K3: 20% more hardware cost, 20% better task resolution",
+        "url": "https://news.ycombinator.com/item?id=49098130"
       }
     ]
   },
   {
-    "community_sentiment": 0.3382,
+    "community_sentiment": null,
     "mention_count": 2,
-    "controversy_index": 0.0,
-    "sentiment_trend": "positive",
-    "confidence_score": 0.07,
-    "sentiment_method": "vader_fallback",
+    "controversy_index": null,
+    "sentiment_trend": null,
+    "confidence_score": 0,
+    "sentiment_method": "gemini",
     "model_name": "GPT-5.6 Terra",
-    "scraped_at": "2026-09-13T14:39:21.963572+00:00",
+    "scraped_at": "2026-09-14T16:33:16.266368+00:00",
     "_experimental": true,
     "source_counts": {
       "HackerNews": 2
     },
-    "community_examples": [
-      {
-        "source": "Hacker News",
-        "text": "GPT-5.6-terra used 48.5% more context than Mimo-2.5-pro",
-        "url": "https://news.ycombinator.com/item?id=48919754"
-      }
-    ],
-    "top_quotes": [
-      {
-        "source": "Hacker News",
-        "text": "GPT-5.6-terra used 48.5% more context than Mimo-2.5-pro",
-        "url": "https://news.ycombinator.com/item?id=48919754"
-      }
-    ]
+    "community_examples": [],
+    "top_quotes": []
   }
 ]
