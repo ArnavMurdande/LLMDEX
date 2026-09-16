@@ -681,7 +681,7 @@
     "source_ids": {},
     "source_urls": {
       "artificial_analysis": [
-        "https://artificialanalysis.ai/models/qwen3-8-max"
+        "https://artificialanalysis.ai/models/qwen3-8-max-0803"
       ]
     },
     "variants": {
@@ -828,6 +828,35 @@
         "deployment_profile_id": "alibaba/qwen3-8-flash-next:default:deployment",
         "source_name": "Qwen3.8-Flash-Next",
         "reasoning_effort": null,
+        "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": null
+      }
+    }
+  },
+  "alibaba/qwen3-8-max-0902": {
+    "family_id": "alibaba/qwen3-8-max-0902",
+    "canonical_family_name": "Qwen3.8 Max (0902)",
+    "provider": "Alibaba",
+    "version": "3.8",
+    "source_aliases": {
+      "artificial_analysis": [
+        "Qwen3.8 Max (0902)"
+      ],
+      "llmstats": []
+    },
+    "source_ids": {},
+    "source_urls": {
+      "artificial_analysis": [
+        "https://artificialanalysis.ai/models/qwen3-8-max"
+      ]
+    },
+    "variants": {
+      "alibaba/qwen3-8-max-0902:max": {
+        "variant_id": "alibaba/qwen3-8-max-0902:max",
+        "deployment_profile_id": "alibaba/qwen3-8-max-0902:max:deployment",
+        "source_name": "Qwen3.8 Max (0902)",
+        "reasoning_effort": "max",
         "deployment_profile": [],
         "fallback_enabled": false,
         "parameter_count": null
@@ -3327,6 +3356,35 @@
         "variant_id": "inclusionai/ling-3-0-flash:default",
         "deployment_profile_id": "inclusionai/ling-3-0-flash:default:deployment",
         "source_name": "Ling 3.0 Flash",
+        "reasoning_effort": null,
+        "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": null
+      }
+    }
+  },
+  "inclusionai/ling-3-0-flash-fin": {
+    "family_id": "inclusionai/ling-3-0-flash-fin",
+    "canonical_family_name": "Ling-3.0-flash-Fin",
+    "provider": "InclusionAI",
+    "version": "3.0",
+    "source_aliases": {
+      "artificial_analysis": [
+        "Ling-3.0-flash-Fin"
+      ],
+      "llmstats": []
+    },
+    "source_ids": {},
+    "source_urls": {
+      "artificial_analysis": [
+        "https://artificialanalysis.ai/models/ling-3-0-flash-fin"
+      ]
+    },
+    "variants": {
+      "inclusionai/ling-3-0-flash-fin:default": {
+        "variant_id": "inclusionai/ling-3-0-flash-fin:default",
+        "deployment_profile_id": "inclusionai/ling-3-0-flash-fin:default:deployment",
+        "source_name": "Ling-3.0-flash-Fin",
         "reasoning_effort": null,
         "deployment_profile": [],
         "fallback_enabled": false,

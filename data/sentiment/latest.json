@@ -1,110 +1,119 @@
 [
   {
-    "community_sentiment": 0.1965,
-    "mention_count": 13,
-    "controversy_index": 0.0,
+    "community_sentiment": 0.3877,
+    "mention_count": 12,
+    "controversy_index": 0.3333,
     "sentiment_trend": "positive",
-    "confidence_score": 0.43,
-    "sentiment_method": "vader_fallback",
+    "confidence_score": 0.1,
+    "sentiment_method": "gemini",
+    "valid_posts": 3,
+    "strong_praise_count": 1,
+    "strong_criticism_count": 0,
     "model_name": "Claude Fable 5.1",
-    "scraped_at": "2026-09-15T15:14:48.583893+00:00",
+    "scraped_at": "2026-09-16T15:10:46.043315+00:00",
     "_experimental": true,
     "source_counts": {
-      "HackerNews": 12,
+      "HackerNews": 12
+    },
+    "community_examples": [
+      {
+        "source": "Hacker News",
+        "text": "Claude Fable 5.1 cracked a cipher that has survived for 370 years in 40 min.",
+        "url": "https://news.ycombinator.com/item?id=49688595"
+      },
+      {
+        "source": "Hacker News",
+        "text": "GPT-6 Astra is better at making money, more ethical than Claude Fable 5.1",
+        "url": "https://news.ycombinator.com/item?id=49633566"
+      },
+      {
+        "source": "Hacker News",
+        "text": "Claude Fable 5.1 made me a nice animated pelican",
+        "url": "https://news.ycombinator.com/item?id=49530472"
+      }
+    ],
+    "top_quotes": [
+      {
+        "source": "Hacker News",
+        "text": "Claude Fable 5.1 cracked a cipher that has survived for 370 years in 40 min.",
+        "url": "https://news.ycombinator.com/item?id=49688595"
+      },
+      {
+        "source": "Hacker News",
+        "text": "GPT-6 Astra is better at making money, more ethical than Claude Fable 5.1",
+        "url": "https://news.ycombinator.com/item?id=49633566"
+      },
+      {
+        "source": "Hacker News",
+        "text": "Claude Fable 5.1 made me a nice animated pelican",
+        "url": "https://news.ycombinator.com/item?id=49530472"
+      }
+    ]
+  },
+  {
+    "community_sentiment": 0.0752,
+    "mention_count": 18,
+    "controversy_index": 0.0,
+    "sentiment_trend": "stable",
+    "confidence_score": 0.13,
+    "sentiment_method": "gemini",
+    "valid_posts": 4,
+    "strong_praise_count": 0,
+    "strong_criticism_count": 0,
+    "model_name": "GPT-6 Astra",
+    "scraped_at": "2026-09-16T15:10:53.049018+00:00",
+    "_experimental": true,
+    "source_counts": {
+      "HackerNews": 17,
       "Reddit": 1
     },
     "community_examples": [
       {
         "source": "Hacker News",
-        "text": "Ask HN: How to spend $100? (Claude vs. ChatGPT) Hey HN, I have always used the Claude Max 20x plan because my employer paid this for me. Now I left so I need to buy a subscription on my own and currently $200 is too...",
-        "url": "https://news.ycombinator.com/item?id=49608008"
+        "text": "GPT-6 Astra is better at making money, more ethical than Claude Fable 5.1",
+        "url": "https://news.ycombinator.com/item?id=49633566"
       },
       {
         "source": "Hacker News",
-        "text": "Claude Fable 5.1 and Claude Mythos 5.1 What's new in Claude Fable 5.1 \u2013 Card:",
-        "url": "https://news.ycombinator.com/item?id=49525378"
+        "text": "Ask HN: Initial Thoughts on GPT-6 Astra? Personally, I've found it to be a bit too-aligned out of the gate, with some overly-legalistic interpretations and cautiousness that is unwarranted and makes it sounds like it...",
+        "url": "https://news.ycombinator.com/item?id=49571621"
       },
       {
         "source": "Reddit",
-        "text": "\"We independently benchmarked Devin Fusion for its release today - this is the first time a multi-model coding agent has been included on the Artificial Analysis Coding Agent Index, and it effectively retains Claude...",
-        "url": "https://www.reddit.com/r/ProAI/comments/1wel3qb/we_independently_benchmarked_devin_fusion_for_its/"
+        "text": "GPT-6 Astra is only 5.9 points ahead of Sol on Agents\u2019 Last Exam, but uses 65% fewer output tokens The 59.3% number is getting all the attention, but the token count is the part I keep coming back to. OpenAI\u2019s own...",
+        "url": "https://www.reddit.com/r/Artificials/comments/1whll8a/gpt6_astra_is_only_59_points_ahead_of_sol_on/"
       }
     ],
     "top_quotes": [
       {
         "source": "Hacker News",
-        "text": "Ask HN: How to spend $100? (Claude vs. ChatGPT) Hey HN, I have always used the Claude Max 20x plan because my employer paid this for me. Now I left so I need to buy a subscription on my own and currently $200 is too...",
-        "url": "https://news.ycombinator.com/item?id=49608008"
+        "text": "GPT-6 Astra is better at making money, more ethical than Claude Fable 5.1",
+        "url": "https://news.ycombinator.com/item?id=49633566"
       },
       {
         "source": "Hacker News",
-        "text": "Claude Fable 5.1 and Claude Mythos 5.1 What's new in Claude Fable 5.1 \u2013 Card:",
-        "url": "https://news.ycombinator.com/item?id=49525378"
+        "text": "Ask HN: Initial Thoughts on GPT-6 Astra? Personally, I've found it to be a bit too-aligned out of the gate, with some overly-legalistic interpretations and cautiousness that is unwarranted and makes it sounds like it...",
+        "url": "https://news.ycombinator.com/item?id=49571621"
       },
       {
         "source": "Reddit",
-        "text": "\"We independently benchmarked Devin Fusion for its release today - this is the first time a multi-model coding agent has been included on the Artificial Analysis Coding Agent Index, and it effectively retains Claude...",
-        "url": "https://www.reddit.com/r/ProAI/comments/1wel3qb/we_independently_benchmarked_devin_fusion_for_its/"
+        "text": "GPT-6 Astra is only 5.9 points ahead of Sol on Agents\u2019 Last Exam, but uses 65% fewer output tokens The 59.3% number is getting all the attention, but the token count is the part I keep coming back to. OpenAI\u2019s own...",
+        "url": "https://www.reddit.com/r/Artificials/comments/1whll8a/gpt6_astra_is_only_59_points_ahead_of_sol_on/"
       }
     ]
   },
   {
-    "community_sentiment": 0.1732,
-    "mention_count": 17,
-    "controversy_index": 0.0,
-    "sentiment_trend": "positive",
-    "confidence_score": 0.57,
-    "sentiment_method": "vader_fallback",
-    "model_name": "GPT-6 Astra",
-    "scraped_at": "2026-09-15T15:15:15.716428+00:00",
-    "_experimental": true,
-    "source_counts": {
-      "HackerNews": 17
-    },
-    "community_examples": [
-      {
-        "source": "Hacker News",
-        "text": "Show HN: Automatically Save 60% on Amazon Findcheap is a search agent that finds the best price in one click.It performs >2x better than the next-best frontier model (GPT-6 Astra), albeit on a very specific task....",
-        "url": "https://news.ycombinator.com/item?id=49586711"
-      },
-      {
-        "source": "Hacker News",
-        "text": "Codex on GPT6 Astra Low launched a rocket into space in Factorio Space Age 2.1",
-        "url": "https://news.ycombinator.com/item?id=49608875"
-      },
-      {
-        "source": "Hacker News",
-        "text": "GPT-6 Astra, looped transformers, and hidden reasoning",
-        "url": "https://news.ycombinator.com/item?id=49627370"
-      }
-    ],
-    "top_quotes": [
-      {
-        "source": "Hacker News",
-        "text": "Show HN: Automatically Save 60% on Amazon Findcheap is a search agent that finds the best price in one click.It performs >2x better than the next-best frontier model (GPT-6 Astra), albeit on a very specific task....",
-        "url": "https://news.ycombinator.com/item?id=49586711"
-      },
-      {
-        "source": "Hacker News",
-        "text": "Codex on GPT6 Astra Low launched a rocket into space in Factorio Space Age 2.1",
-        "url": "https://news.ycombinator.com/item?id=49608875"
-      },
-      {
-        "source": "Hacker News",
-        "text": "GPT-6 Astra, looped transformers, and hidden reasoning",
-        "url": "https://news.ycombinator.com/item?id=49627370"
-      }
-    ]
-  },
-  {
-    "community_sentiment": 0.076,
+    "community_sentiment": -0.4132,
     "mention_count": 24,
-    "controversy_index": 0.0,
-    "sentiment_trend": "stable",
-    "confidence_score": 0.8,
-    "sentiment_method": "vader_fallback",
+    "controversy_index": 0.4,
+    "sentiment_trend": "negative",
+    "confidence_score": 0.33,
+    "sentiment_method": "gemini",
+    "valid_posts": 10,
+    "strong_praise_count": 1,
+    "strong_criticism_count": 3,
     "model_name": "Claude Opus 5",
-    "scraped_at": "2026-09-15T15:15:26.063346+00:00",
+    "scraped_at": "2026-09-16T15:10:58.141399+00:00",
     "_experimental": true,
     "source_counts": {
       "HackerNews": 24
@@ -112,129 +121,121 @@
     "community_examples": [
       {
         "source": "Hacker News",
-        "text": "Why I prefer Opus 5 to Fable 5 I've been experimenting with both since the moment each came out. 4 games, 3 websites and 2 content creation engines later - I think I'm ready to share a bit of my experience and...",
-        "url": "https://news.ycombinator.com/item?id=49081970"
+        "text": "Show HN: Impressive turn-based RPG prototype built with Opus 5 in 20 min Claude Opus 5 definitely feels a lot closer to the original Fable 5 release. With minimal instructions and about 2 iterations of feedback, I am...",
+        "url": "https://news.ycombinator.com/item?id=49046504"
       },
       {
         "source": "Hacker News",
-        "text": "Claude Opus 5 cheated when tasked with running a vending machine",
-        "url": "https://news.ycombinator.com/item?id=49101543"
+        "text": "Anthropic's Claude Opus 5 needs to be retracted I cant believe they put this as a frontier successor to any other opus. ITS NEITHER A SUCCESSOR NOR A GOOD MODEL! Its stupid as s*t. I never seen something worser than...",
+        "url": "https://news.ycombinator.com/item?id=49658362"
+      },
+      {
+        "source": "Hacker News",
+        "text": "Opus 5.0 drives incoherence into the stratosphere",
+        "url": "https://news.ycombinator.com/item?id=49364658"
       }
     ],
     "top_quotes": [
       {
         "source": "Hacker News",
-        "text": "Why I prefer Opus 5 to Fable 5 I've been experimenting with both since the moment each came out. 4 games, 3 websites and 2 content creation engines later - I think I'm ready to share a bit of my experience and...",
-        "url": "https://news.ycombinator.com/item?id=49081970"
+        "text": "Show HN: Impressive turn-based RPG prototype built with Opus 5 in 20 min Claude Opus 5 definitely feels a lot closer to the original Fable 5 release. With minimal instructions and about 2 iterations of feedback, I am...",
+        "url": "https://news.ycombinator.com/item?id=49046504"
       },
       {
         "source": "Hacker News",
-        "text": "Claude Opus 5 cheated when tasked with running a vending machine",
-        "url": "https://news.ycombinator.com/item?id=49101543"
+        "text": "Anthropic's Claude Opus 5 needs to be retracted I cant believe they put this as a frontier successor to any other opus. ITS NEITHER A SUCCESSOR NOR A GOOD MODEL! Its stupid as s*t. I never seen something worser than...",
+        "url": "https://news.ycombinator.com/item?id=49658362"
+      },
+      {
+        "source": "Hacker News",
+        "text": "Opus 5.0 drives incoherence into the stratosphere",
+        "url": "https://news.ycombinator.com/item?id=49364658"
       }
     ]
   },
   {
-    "community_sentiment": 0.2189,
-    "mention_count": 17,
-    "controversy_index": 0.0,
-    "sentiment_trend": "positive",
-    "confidence_score": 0.57,
-    "sentiment_method": "vader_fallback",
-    "model_name": "Claude Fable 5",
-    "scraped_at": "2026-09-15T15:15:49.923720+00:00",
-    "_experimental": true,
-    "source_counts": {
-      "HackerNews": 17
-    },
-    "community_examples": [
-      {
-        "source": "Hacker News",
-        "text": "\u2026ood reason to switch to ChatGPT but I also really like Claude Fable 5(.1) because I'm sometimes super v",
-        "url": "https://news.ycombinator.com/item?id=49608008"
-      },
-      {
-        "source": "Hacker News",
-        "text": "Degraded performance for Claude Mythos 5, Claude Fable 5, and Claude Opus 5",
-        "url": "https://news.ycombinator.com/item?id=49179554"
-      },
-      {
-        "source": "Hacker News",
-        "text": "Claude Fable 5.1 and Claude Mythos 5.1 What's new in Claude Fable 5.1 \u2013 Card:",
-        "url": "https://news.ycombinator.com/item?id=49525378"
-      }
-    ],
-    "top_quotes": [
-      {
-        "source": "Hacker News",
-        "text": "\u2026ood reason to switch to ChatGPT but I also really like Claude Fable 5(.1) because I'm sometimes super v",
-        "url": "https://news.ycombinator.com/item?id=49608008"
-      },
-      {
-        "source": "Hacker News",
-        "text": "Degraded performance for Claude Mythos 5, Claude Fable 5, and Claude Opus 5",
-        "url": "https://news.ycombinator.com/item?id=49179554"
-      },
-      {
-        "source": "Hacker News",
-        "text": "Claude Fable 5.1 and Claude Mythos 5.1 What's new in Claude Fable 5.1 \u2013 Card:",
-        "url": "https://news.ycombinator.com/item?id=49525378"
-      }
-    ]
-  },
-  {
-    "community_sentiment": 0.3401,
-    "mention_count": 7,
-    "controversy_index": 0.0,
-    "sentiment_trend": "positive",
-    "confidence_score": 0.23,
-    "sentiment_method": "vader_fallback",
-    "model_name": "Muse Spark 1.3",
-    "scraped_at": "2026-09-15T15:16:12.266299+00:00",
-    "_experimental": true,
-    "source_counts": {
-      "HackerNews": 7
-    },
-    "community_examples": [
-      {
-        "source": "Hacker News",
-        "text": "Muse Spark 1.3 Ranks #3 on Artificial Analysis Intelligence Index",
-        "url": "https://news.ycombinator.com/item?id=49562124"
-      },
-      {
-        "source": "Hacker News",
-        "text": "Introducing Muse Spark 1.3 Main thread is here:Muse Spark 1.3 -",
-        "url": "https://news.ycombinator.com/item?id=49541149"
-      }
-    ],
-    "top_quotes": [
-      {
-        "source": "Hacker News",
-        "text": "Muse Spark 1.3 Ranks #3 on Artificial Analysis Intelligence Index",
-        "url": "https://news.ycombinator.com/item?id=49562124"
-      },
-      {
-        "source": "Hacker News",
-        "text": "Introducing Muse Spark 1.3 Main thread is here:Muse Spark 1.3 -",
-        "url": "https://news.ycombinator.com/item?id=49541149"
-      }
-    ]
-  },
-  {
-    "community_sentiment": -0.1485,
-    "mention_count": 22,
-    "controversy_index": 0.1333,
-    "sentiment_trend": "negative",
-    "confidence_score": 0.5,
+    "community_sentiment": 0.0387,
+    "mention_count": 20,
+    "controversy_index": 0.2,
+    "sentiment_trend": "stable",
+    "confidence_score": 0.17,
     "sentiment_method": "gemini",
-    "valid_posts": 15,
+    "valid_posts": 5,
+    "strong_praise_count": 1,
+    "strong_criticism_count": 0,
+    "model_name": "Claude Fable 5",
+    "scraped_at": "2026-09-16T15:11:15.425808+00:00",
+    "_experimental": true,
+    "source_counts": {
+      "HackerNews": 20
+    },
+    "community_examples": [
+      {
+        "source": "Hacker News",
+        "text": "Claude Fable 5.1 cracked a cipher that has survived for 370 years in 40 min.",
+        "url": "https://news.ycombinator.com/item?id=49688595"
+      },
+      {
+        "source": "Hacker News",
+        "text": "Degraded performance for Claude Mythos 5, Claude Fable 5, and Claude Opus 5",
+        "url": "https://news.ycombinator.com/item?id=49179554"
+      },
+      {
+        "source": "Hacker News",
+        "text": "Claude Fable 5.1 made me a nice animated pelican",
+        "url": "https://news.ycombinator.com/item?id=49530472"
+      }
+    ],
+    "top_quotes": [
+      {
+        "source": "Hacker News",
+        "text": "Claude Fable 5.1 cracked a cipher that has survived for 370 years in 40 min.",
+        "url": "https://news.ycombinator.com/item?id=49688595"
+      },
+      {
+        "source": "Hacker News",
+        "text": "Degraded performance for Claude Mythos 5, Claude Fable 5, and Claude Opus 5",
+        "url": "https://news.ycombinator.com/item?id=49179554"
+      },
+      {
+        "source": "Hacker News",
+        "text": "Claude Fable 5.1 made me a nice animated pelican",
+        "url": "https://news.ycombinator.com/item?id=49530472"
+      }
+    ]
+  },
+  {
+    "community_sentiment": null,
+    "mention_count": 12,
+    "controversy_index": null,
+    "sentiment_trend": null,
+    "confidence_score": 0,
+    "sentiment_method": "gemini",
+    "model_name": "Muse Spark 1.3",
+    "scraped_at": "2026-09-16T15:11:23.358342+00:00",
+    "_experimental": true,
+    "source_counts": {
+      "HackerNews": 6,
+      "Reddit": 6
+    },
+    "community_examples": [],
+    "top_quotes": []
+  },
+  {
+    "community_sentiment": -0.152,
+    "mention_count": 21,
+    "controversy_index": 0.2857,
+    "sentiment_trend": "negative",
+    "confidence_score": 0.23,
+    "sentiment_method": "gemini",
+    "valid_posts": 7,
     "strong_praise_count": 1,
     "strong_criticism_count": 1,
     "model_name": "GPT-5.6 Sol",
-    "scraped_at": "2026-09-15T15:16:17.944810+00:00",
+    "scraped_at": "2026-09-16T15:11:29.592621+00:00",
     "_experimental": true,
     "source_counts": {
-      "HackerNews": 22
+      "HackerNews": 21
     },
     "community_examples": [
       {
@@ -249,8 +250,8 @@
       },
       {
         "source": "Hacker News",
-        "text": "Previewing Ultrafast mode: GPT\u20115.6 Sol at up to 14X the speed",
-        "url": "https://news.ycombinator.com/item?id=49288810"
+        "text": "Is GPT-5.6 Sol Max Worth It? I ran some test with gpt- 5.6 sol in max reasoning on both codex cli and my own agent harness: I tested only 1 task and the toekn efficency difference is not as great as in high mode:...",
+        "url": "https://news.ycombinator.com/item?id=48947713"
       }
     ],
     "top_quotes": [
@@ -266,20 +267,42 @@
       },
       {
         "source": "Hacker News",
-        "text": "Previewing Ultrafast mode: GPT\u20115.6 Sol at up to 14X the speed",
-        "url": "https://news.ycombinator.com/item?id=49288810"
+        "text": "Is GPT-5.6 Sol Max Worth It? I ran some test with gpt- 5.6 sol in max reasoning on both codex cli and my own agent harness: I tested only 1 task and the toekn efficency difference is not as great as in high mode:...",
+        "url": "https://news.ycombinator.com/item?id=48947713"
       }
     ]
   },
   {
-    "community_sentiment": 0.0824,
-    "mention_count": 16,
+    "community_sentiment": 0.8,
+    "mention_count": 1,
     "controversy_index": 0.0,
-    "sentiment_trend": "stable",
-    "confidence_score": 0.53,
-    "sentiment_method": "vader_fallback",
+    "sentiment_trend": "positive",
+    "confidence_score": 0.03,
+    "sentiment_method": "gemini",
+    "valid_posts": 1,
+    "strong_praise_count": 0,
+    "strong_criticism_count": 0,
+    "model_name": "Qwen3.8 Max (0902)",
+    "scraped_at": "2026-09-16T15:11:32.195396+00:00",
+    "_experimental": true,
+    "source_counts": {
+      "HackerNews": 1
+    },
+    "community_examples": [],
+    "top_quotes": []
+  },
+  {
+    "community_sentiment": 0.6555,
+    "mention_count": 16,
+    "controversy_index": 0.5,
+    "sentiment_trend": "positive",
+    "confidence_score": 0.13,
+    "sentiment_method": "gemini",
+    "valid_posts": 4,
+    "strong_praise_count": 2,
+    "strong_criticism_count": 0,
     "model_name": "GLM-5.3",
-    "scraped_at": "2026-09-15T15:16:18.458333+00:00",
+    "scraped_at": "2026-09-16T15:11:57.451930+00:00",
     "_experimental": true,
     "source_counts": {
       "HackerNews": 16
@@ -287,8 +310,8 @@
     "community_examples": [
       {
         "source": "Hacker News",
-        "text": "Reasoning prefills on a few open models I wrapped this small followup to stolen-thoughts.com in a gist for easier reading and wanted to share it here.My hunch is that this might not just be reasoning distillation; it...",
-        "url": "https://news.ycombinator.com/item?id=49320387"
+        "text": "I spent $266 and four AI models to own my tablet. GLM-5.3 finished it in a day",
+        "url": "https://news.ycombinator.com/item?id=49409073"
       },
       {
         "source": "Hacker News",
@@ -297,15 +320,15 @@
       },
       {
         "source": "Hacker News",
-        "text": "GLM-5.3: Frontier coding with emergent cyber capabilities",
-        "url": "https://news.ycombinator.com/item?id=49294997"
+        "text": "GLM-5.3 (open-weight) beat Anthropic/OpenAI models \u2013 for 1/5 the cost",
+        "url": "https://news.ycombinator.com/item?id=49410097"
       }
     ],
     "top_quotes": [
       {
         "source": "Hacker News",
-        "text": "Reasoning prefills on a few open models I wrapped this small followup to stolen-thoughts.com in a gist for easier reading and wanted to share it here.My hunch is that this might not just be reasoning distillation; it...",
-        "url": "https://news.ycombinator.com/item?id=49320387"
+        "text": "I spent $266 and four AI models to own my tablet. GLM-5.3 finished it in a day",
+        "url": "https://news.ycombinator.com/item?id=49409073"
       },
       {
         "source": "Hacker News",
@@ -314,59 +337,54 @@
       },
       {
         "source": "Hacker News",
-        "text": "GLM-5.3: Frontier coding with emergent cyber capabilities",
-        "url": "https://news.ycombinator.com/item?id=49294997"
+        "text": "GLM-5.3 (open-weight) beat Anthropic/OpenAI models \u2013 for 1/5 the cost",
+        "url": "https://news.ycombinator.com/item?id=49410097"
       }
     ]
   },
   {
-    "community_sentiment": 0.2027,
-    "mention_count": 12,
+    "community_sentiment": 0.5564,
+    "mention_count": 11,
     "controversy_index": 0.0,
     "sentiment_trend": "positive",
-    "confidence_score": 0.4,
-    "sentiment_method": "vader_fallback",
+    "confidence_score": 0.07,
+    "sentiment_method": "gemini",
+    "valid_posts": 2,
+    "strong_praise_count": 0,
+    "strong_criticism_count": 0,
     "model_name": "Grok 4.6",
-    "scraped_at": "2026-09-15T15:16:18.470224+00:00",
+    "scraped_at": "2026-09-16T15:12:04.674967+00:00",
     "_experimental": true,
     "source_counts": {
-      "HackerNews": 10,
-      "Reddit": 2
+      "HackerNews": 11
     },
     "community_examples": [
       {
-        "source": "Reddit",
-        "text": "Is the frontier AI market splitting into specialists instead of producing one clear \u201cbest model\u201d? The frontier-model discussion is often reduced to a single leaderboard. But that is becoming less useful. GPT-6 Astra,...",
-        "url": "https://www.reddit.com/r/WorkSmarterWithAIs/comments/1wewq2l/is_the_frontier_ai_market_splitting_into/"
-      },
-      {
         "source": "Hacker News",
-        "text": "Grok 4.6 scores 61 on the Artificial Analysis Intelligence Index",
-        "url": "https://news.ycombinator.com/item?id=49275385"
+        "text": "SpaceXAI debuts Grok 4.6, overtaking Kimi K3's and matching GPT-5.6 Sol",
+        "url": "https://news.ycombinator.com/item?id=49289032"
       }
     ],
     "top_quotes": [
       {
-        "source": "Reddit",
-        "text": "Is the frontier AI market splitting into specialists instead of producing one clear \u201cbest model\u201d? The frontier-model discussion is often reduced to a single leaderboard. But that is becoming less useful. GPT-6 Astra,...",
-        "url": "https://www.reddit.com/r/WorkSmarterWithAIs/comments/1wewq2l/is_the_frontier_ai_market_splitting_into/"
-      },
-      {
         "source": "Hacker News",
-        "text": "Grok 4.6 scores 61 on the Artificial Analysis Intelligence Index",
-        "url": "https://news.ycombinator.com/item?id=49275385"
+        "text": "SpaceXAI debuts Grok 4.6, overtaking Kimi K3's and matching GPT-5.6 Sol",
+        "url": "https://news.ycombinator.com/item?id=49289032"
       }
     ]
   },
   {
-    "community_sentiment": 0.146,
+    "community_sentiment": 0.4407,
     "mention_count": 26,
-    "controversy_index": 0.0385,
+    "controversy_index": 0.0,
     "sentiment_trend": "positive",
-    "confidence_score": 0.87,
-    "sentiment_method": "vader_fallback",
+    "confidence_score": 0.1,
+    "sentiment_method": "gemini",
+    "valid_posts": 3,
+    "strong_praise_count": 0,
+    "strong_criticism_count": 0,
     "model_name": "Kimi K3",
-    "scraped_at": "2026-09-15T15:16:19.484637+00:00",
+    "scraped_at": "2026-09-16T15:12:22.977000+00:00",
     "_experimental": true,
     "source_counts": {
       "HackerNews": 26
@@ -379,13 +397,13 @@
       },
       {
         "source": "Hacker News",
-        "text": "\u2026istilled 120B scores 83.61% on FinanceReasoning, above Kimi K3 (81.93%) and Inkling (65.13%). We released the 20B open weights. With V4 as the teacher though, we realized it would be timely to measure if the...",
-        "url": "https://news.ycombinator.com/item?id=49113599"
+        "text": "Running Kimi K3 on MI355X at Better Performance per Dollar Than B300",
+        "url": "https://news.ycombinator.com/item?id=49141073"
       },
       {
         "source": "Hacker News",
-        "text": "Kimi K3 Architecture Overview and Notes",
-        "url": "https://news.ycombinator.com/item?id=49085698"
+        "text": "Self-hosting Kimi K3: 20% more hardware cost, 20% better task resolution",
+        "url": "https://news.ycombinator.com/item?id=49098130"
       }
     ],
     "top_quotes": [
@@ -396,41 +414,13 @@
       },
       {
         "source": "Hacker News",
-        "text": "\u2026istilled 120B scores 83.61% on FinanceReasoning, above Kimi K3 (81.93%) and Inkling (65.13%). We released the 20B open weights. With V4 as the teacher though, we realized it would be timely to measure if the...",
-        "url": "https://news.ycombinator.com/item?id=49113599"
+        "text": "Running Kimi K3 on MI355X at Better Performance per Dollar Than B300",
+        "url": "https://news.ycombinator.com/item?id=49141073"
       },
       {
         "source": "Hacker News",
-        "text": "Kimi K3 Architecture Overview and Notes",
-        "url": "https://news.ycombinator.com/item?id=49085698"
-      }
-    ]
-  },
-  {
-    "community_sentiment": 0.3382,
-    "mention_count": 2,
-    "controversy_index": 0.0,
-    "sentiment_trend": "positive",
-    "confidence_score": 0.07,
-    "sentiment_method": "vader_fallback",
-    "model_name": "GPT-5.6 Terra",
-    "scraped_at": "2026-09-15T15:16:19.496233+00:00",
-    "_experimental": true,
-    "source_counts": {
-      "HackerNews": 2
-    },
-    "community_examples": [
-      {
-        "source": "Hacker News",
-        "text": "GPT-5.6-terra used 48.5% more context than Mimo-2.5-pro",
-        "url": "https://news.ycombinator.com/item?id=48919754"
-      }
-    ],
-    "top_quotes": [
-      {
-        "source": "Hacker News",
-        "text": "GPT-5.6-terra used 48.5% more context than Mimo-2.5-pro",
-        "url": "https://news.ycombinator.com/item?id=48919754"
+        "text": "Self-hosting Kimi K3: 20% more hardware cost, 20% better task resolution",
+        "url": "https://news.ycombinator.com/item?id=49098130"
       }
     ]
   }

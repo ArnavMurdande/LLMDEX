@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-09-15T15:12:46.812901+00:00",
+  "generated_at": "2026-09-16T15:09:01.901315+00:00",
   "methodology_version": "LLMDEX General Consensus v1",
   "status": "degraded",
   "sources": {
     "artificial_analysis": {
       "source": "Artificial Analysis",
       "status": "healthy",
-      "rows_scraped": 304,
+      "rows_scraped": 306,
       "expected_range": [
         150,
         500
@@ -15,10 +15,10 @@
       "warnings": [
         "Health synthesized from the current validated publication."
       ],
-      "last_successful_update": "2026-09-15T15:12:46.812901+00:00",
+      "last_successful_update": "2026-09-16T15:09:01.901315+00:00",
       "schema_changes": [],
       "error_message": null,
-      "timestamp": "2026-09-15T15:12:46.812901+00:00",
+      "timestamp": "2026-09-16T15:09:01.901315+00:00",
       "snapshot_age_hours": 0.0
     },
     "llmstats": {
@@ -30,8 +30,8 @@
       ],
       "status": "degraded",
       "error_message": "No valid public leaderboard rows were extracted.",
-      "duration_seconds": 22.793,
-      "timestamp": "2026-09-15T15:13:09.612289+00:00",
+      "duration_seconds": 25.556,
+      "timestamp": "2026-09-16T15:09:27.466267+00:00",
       "parse_warning_count": 0,
       "warnings": [
         "Live extraction failed; serving the last-known-good LLMStats snapshot."
@@ -40,12 +40,12 @@
       "schema_changes": [
         "Missing required columns: Organization"
       ],
-      "snapshot_age_hours": 144.42579374333332
+      "snapshot_age_hours": 168.36331830277777
     }
   },
   "counts": {
     "matched_families": 16,
-    "aa_only_families": 181,
+    "aa_only_families": 183,
     "llmstats_only_families": 30,
     "identity_review_count": 49,
     "ambiguous_match_count": 5,
@@ -53,12 +53,12 @@
   },
   "missing_benchmark_counts": {
     "aa_intelligence": 65,
-    "llmstats_general": 246,
-    "aa_official_coding_index": 147,
-    "llmstats_coding": 243
+    "llmstats_general": 248,
+    "aa_official_coding_index": 181,
+    "llmstats_coding": 245
   },
   "warnings": [
     "LLMStats is degraded.",
-    "LLMStats snapshot is 144.4 hours old."
+    "LLMStats snapshot is 168.4 hours old."
   ]
 }
