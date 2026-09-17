@@ -1,7 +1,7 @@
 [
   {
     "community_sentiment": 0.3877,
-    "mention_count": 12,
+    "mention_count": 14,
     "controversy_index": 0.3333,
     "sentiment_trend": "positive",
     "confidence_score": 0.1,
@@ -10,10 +10,11 @@
     "strong_praise_count": 1,
     "strong_criticism_count": 0,
     "model_name": "Claude Fable 5.1",
-    "scraped_at": "2026-09-16T15:10:46.043315+00:00",
+    "scraped_at": "2026-09-17T15:15:37.991197+00:00",
     "_experimental": true,
     "source_counts": {
-      "HackerNews": 12
+      "HackerNews": 12,
+      "Reddit": 2
     },
     "community_examples": [
       {
@@ -51,21 +52,20 @@
     ]
   },
   {
-    "community_sentiment": 0.0752,
-    "mention_count": 18,
-    "controversy_index": 0.0,
+    "community_sentiment": -0.0877,
+    "mention_count": 16,
+    "controversy_index": 1.0,
     "sentiment_trend": "stable",
-    "confidence_score": 0.13,
+    "confidence_score": 0.1,
     "sentiment_method": "gemini",
-    "valid_posts": 4,
-    "strong_praise_count": 0,
-    "strong_criticism_count": 0,
+    "valid_posts": 3,
+    "strong_praise_count": 1,
+    "strong_criticism_count": 2,
     "model_name": "GPT-6 Astra",
-    "scraped_at": "2026-09-16T15:10:53.049018+00:00",
+    "scraped_at": "2026-09-17T15:15:54.325632+00:00",
     "_experimental": true,
     "source_counts": {
-      "HackerNews": 17,
-      "Reddit": 1
+      "HackerNews": 16
     },
     "community_examples": [
       {
@@ -79,9 +79,9 @@
         "url": "https://news.ycombinator.com/item?id=49571621"
       },
       {
-        "source": "Reddit",
-        "text": "GPT-6 Astra is only 5.9 points ahead of Sol on Agents\u2019 Last Exam, but uses 65% fewer output tokens The 59.3% number is getting all the attention, but the token count is the part I keep coming back to. OpenAI\u2019s own...",
-        "url": "https://www.reddit.com/r/Artificials/comments/1whll8a/gpt6_astra_is_only_59_points_ahead_of_sol_on/"
+        "source": "Hacker News",
+        "text": "Show HN: Automatically Save 60% on Amazon Findcheap is a search agent that finds the best price in one click.It performs >2x better than the next-best frontier model (GPT-6 Astra), albeit on a very specific task....",
+        "url": "https://news.ycombinator.com/item?id=49586711"
       }
     ],
     "top_quotes": [
@@ -96,14 +96,14 @@
         "url": "https://news.ycombinator.com/item?id=49571621"
       },
       {
-        "source": "Reddit",
-        "text": "GPT-6 Astra is only 5.9 points ahead of Sol on Agents\u2019 Last Exam, but uses 65% fewer output tokens The 59.3% number is getting all the attention, but the token count is the part I keep coming back to. OpenAI\u2019s own...",
-        "url": "https://www.reddit.com/r/Artificials/comments/1whll8a/gpt6_astra_is_only_59_points_ahead_of_sol_on/"
+        "source": "Hacker News",
+        "text": "Show HN: Automatically Save 60% on Amazon Findcheap is a search agent that finds the best price in one click.It performs >2x better than the next-best frontier model (GPT-6 Astra), albeit on a very specific task....",
+        "url": "https://news.ycombinator.com/item?id=49586711"
       }
     ]
   },
   {
-    "community_sentiment": -0.4132,
+    "community_sentiment": -0.3996,
     "mention_count": 24,
     "controversy_index": 0.4,
     "sentiment_trend": "negative",
@@ -113,7 +113,7 @@
     "strong_praise_count": 1,
     "strong_criticism_count": 3,
     "model_name": "Claude Opus 5",
-    "scraped_at": "2026-09-16T15:10:58.141399+00:00",
+    "scraped_at": "2026-09-17T15:16:09.209143+00:00",
     "_experimental": true,
     "source_counts": {
       "HackerNews": 24
@@ -154,75 +154,38 @@
     ]
   },
   {
-    "community_sentiment": 0.0387,
-    "mention_count": 20,
-    "controversy_index": 0.2,
-    "sentiment_trend": "stable",
-    "confidence_score": 0.17,
+    "community_sentiment": 0.6,
+    "mention_count": 7,
+    "controversy_index": 0.0,
+    "sentiment_trend": "positive",
+    "confidence_score": 0.03,
     "sentiment_method": "gemini",
-    "valid_posts": 5,
-    "strong_praise_count": 1,
+    "valid_posts": 1,
+    "strong_praise_count": 0,
     "strong_criticism_count": 0,
-    "model_name": "Claude Fable 5",
-    "scraped_at": "2026-09-16T15:11:15.425808+00:00",
+    "model_name": "Muse Spark 1.3",
+    "scraped_at": "2026-09-17T15:16:19.844199+00:00",
     "_experimental": true,
     "source_counts": {
-      "HackerNews": 20
+      "HackerNews": 7
     },
     "community_examples": [
       {
         "source": "Hacker News",
-        "text": "Claude Fable 5.1 cracked a cipher that has survived for 370 years in 40 min.",
-        "url": "https://news.ycombinator.com/item?id=49688595"
-      },
-      {
-        "source": "Hacker News",
-        "text": "Degraded performance for Claude Mythos 5, Claude Fable 5, and Claude Opus 5",
-        "url": "https://news.ycombinator.com/item?id=49179554"
-      },
-      {
-        "source": "Hacker News",
-        "text": "Claude Fable 5.1 made me a nice animated pelican",
-        "url": "https://news.ycombinator.com/item?id=49530472"
+        "text": "Meta's Muse Spark 1.3 beats Google's frontier model on artificialanalysis",
+        "url": "https://news.ycombinator.com/item?id=49542481"
       }
     ],
     "top_quotes": [
       {
         "source": "Hacker News",
-        "text": "Claude Fable 5.1 cracked a cipher that has survived for 370 years in 40 min.",
-        "url": "https://news.ycombinator.com/item?id=49688595"
-      },
-      {
-        "source": "Hacker News",
-        "text": "Degraded performance for Claude Mythos 5, Claude Fable 5, and Claude Opus 5",
-        "url": "https://news.ycombinator.com/item?id=49179554"
-      },
-      {
-        "source": "Hacker News",
-        "text": "Claude Fable 5.1 made me a nice animated pelican",
-        "url": "https://news.ycombinator.com/item?id=49530472"
+        "text": "Meta's Muse Spark 1.3 beats Google's frontier model on artificialanalysis",
+        "url": "https://news.ycombinator.com/item?id=49542481"
       }
     ]
   },
   {
-    "community_sentiment": null,
-    "mention_count": 12,
-    "controversy_index": null,
-    "sentiment_trend": null,
-    "confidence_score": 0,
-    "sentiment_method": "gemini",
-    "model_name": "Muse Spark 1.3",
-    "scraped_at": "2026-09-16T15:11:23.358342+00:00",
-    "_experimental": true,
-    "source_counts": {
-      "HackerNews": 6,
-      "Reddit": 6
-    },
-    "community_examples": [],
-    "top_quotes": []
-  },
-  {
-    "community_sentiment": -0.152,
+    "community_sentiment": -0.1578,
     "mention_count": 21,
     "controversy_index": 0.2857,
     "sentiment_trend": "negative",
@@ -232,7 +195,7 @@
     "strong_praise_count": 1,
     "strong_criticism_count": 1,
     "model_name": "GPT-5.6 Sol",
-    "scraped_at": "2026-09-16T15:11:29.592621+00:00",
+    "scraped_at": "2026-09-17T15:16:27.124275+00:00",
     "_experimental": true,
     "source_counts": {
       "HackerNews": 21
@@ -283,7 +246,7 @@
     "strong_praise_count": 0,
     "strong_criticism_count": 0,
     "model_name": "Qwen3.8 Max (0902)",
-    "scraped_at": "2026-09-16T15:11:32.195396+00:00",
+    "scraped_at": "2026-09-17T15:16:30.631121+00:00",
     "_experimental": true,
     "source_counts": {
       "HackerNews": 1
@@ -292,53 +255,54 @@
     "top_quotes": []
   },
   {
-    "community_sentiment": 0.6555,
-    "mention_count": 16,
-    "controversy_index": 0.5,
+    "community_sentiment": 0.5554,
+    "mention_count": 18,
+    "controversy_index": 0.0,
     "sentiment_trend": "positive",
-    "confidence_score": 0.13,
+    "confidence_score": 0.17,
     "sentiment_method": "gemini",
-    "valid_posts": 4,
-    "strong_praise_count": 2,
+    "valid_posts": 5,
+    "strong_praise_count": 0,
     "strong_criticism_count": 0,
     "model_name": "GLM-5.3",
-    "scraped_at": "2026-09-16T15:11:57.451930+00:00",
+    "scraped_at": "2026-09-17T15:16:34.667777+00:00",
     "_experimental": true,
     "source_counts": {
-      "HackerNews": 16
+      "HackerNews": 16,
+      "Reddit": 2
     },
     "community_examples": [
       {
         "source": "Hacker News",
-        "text": "I spent $266 and four AI models to own my tablet. GLM-5.3 finished it in a day",
-        "url": "https://news.ycombinator.com/item?id=49409073"
-      },
-      {
-        "source": "Hacker News",
-        "text": "I hate benchmarks: Moving a production workflow from GPT to GLM-5.3 Flash",
-        "url": "https://news.ycombinator.com/item?id=49553022"
-      },
-      {
-        "source": "Hacker News",
         "text": "GLM-5.3 (open-weight) beat Anthropic/OpenAI models \u2013 for 1/5 the cost",
         "url": "https://news.ycombinator.com/item?id=49410097"
+      },
+      {
+        "source": "Reddit",
+        "text": "Models for janitor ai Hello everyone, I've been using deepseek v3.2 and GLM 5.3 Flash and both have been working well but now the quality of ds dropped alot and GLM 5.3 Flash is being too restrictive Does anyone know...",
+        "url": "https://www.reddit.com/r/JanitorAIUnchained/comments/1wi6396/models_for_janitor_ai/"
+      },
+      {
+        "source": "Hacker News",
+        "text": "I spent $266 and four AI models to own my tablet. GLM-5.3 finished it in a day",
+        "url": "https://news.ycombinator.com/item?id=49409073"
       }
     ],
     "top_quotes": [
       {
         "source": "Hacker News",
-        "text": "I spent $266 and four AI models to own my tablet. GLM-5.3 finished it in a day",
-        "url": "https://news.ycombinator.com/item?id=49409073"
-      },
-      {
-        "source": "Hacker News",
-        "text": "I hate benchmarks: Moving a production workflow from GPT to GLM-5.3 Flash",
-        "url": "https://news.ycombinator.com/item?id=49553022"
-      },
-      {
-        "source": "Hacker News",
         "text": "GLM-5.3 (open-weight) beat Anthropic/OpenAI models \u2013 for 1/5 the cost",
         "url": "https://news.ycombinator.com/item?id=49410097"
+      },
+      {
+        "source": "Reddit",
+        "text": "Models for janitor ai Hello everyone, I've been using deepseek v3.2 and GLM 5.3 Flash and both have been working well but now the quality of ds dropped alot and GLM 5.3 Flash is being too restrictive Does anyone know...",
+        "url": "https://www.reddit.com/r/JanitorAIUnchained/comments/1wi6396/models_for_janitor_ai/"
+      },
+      {
+        "source": "Hacker News",
+        "text": "I spent $266 and four AI models to own my tablet. GLM-5.3 finished it in a day",
+        "url": "https://news.ycombinator.com/item?id=49409073"
       }
     ]
   },
@@ -353,7 +317,7 @@
     "strong_praise_count": 0,
     "strong_criticism_count": 0,
     "model_name": "Grok 4.6",
-    "scraped_at": "2026-09-16T15:12:04.674967+00:00",
+    "scraped_at": "2026-09-17T15:16:36.396811+00:00",
     "_experimental": true,
     "source_counts": {
       "HackerNews": 11
@@ -374,26 +338,26 @@
     ]
   },
   {
-    "community_sentiment": 0.4407,
-    "mention_count": 26,
-    "controversy_index": 0.0,
+    "community_sentiment": 0.5945,
+    "mention_count": 25,
+    "controversy_index": 0.2,
     "sentiment_trend": "positive",
-    "confidence_score": 0.1,
+    "confidence_score": 0.17,
     "sentiment_method": "gemini",
-    "valid_posts": 3,
-    "strong_praise_count": 0,
+    "valid_posts": 5,
+    "strong_praise_count": 1,
     "strong_criticism_count": 0,
     "model_name": "Kimi K3",
-    "scraped_at": "2026-09-16T15:12:22.977000+00:00",
+    "scraped_at": "2026-09-17T15:16:44.288489+00:00",
     "_experimental": true,
     "source_counts": {
-      "HackerNews": 26
+      "HackerNews": 25
     },
     "community_examples": [
       {
         "source": "Hacker News",
-        "text": "Kimi K3 and GLM-5.3 are better than Gemini 3.8 Flash Based on artificialanalysis.ai, Kimi K3 and GLM-5.3 are more intelligent than the new Gemini 3.8 Flash[1][2].Gemini 3.8 Flash comes in eighth place with a score of...",
-        "url": "https://news.ycombinator.com/item?id=49539315"
+        "text": "Chinese Model Kimi K3 Breaks UK AI Safety Institute Benchmark Evaluations",
+        "url": "https://news.ycombinator.com/item?id=49212607"
       },
       {
         "source": "Hacker News",
@@ -409,8 +373,8 @@
     "top_quotes": [
       {
         "source": "Hacker News",
-        "text": "Kimi K3 and GLM-5.3 are better than Gemini 3.8 Flash Based on artificialanalysis.ai, Kimi K3 and GLM-5.3 are more intelligent than the new Gemini 3.8 Flash[1][2].Gemini 3.8 Flash comes in eighth place with a score of...",
-        "url": "https://news.ycombinator.com/item?id=49539315"
+        "text": "Chinese Model Kimi K3 Breaks UK AI Safety Institute Benchmark Evaluations",
+        "url": "https://news.ycombinator.com/item?id=49212607"
       },
       {
         "source": "Hacker News",
@@ -423,5 +387,21 @@
         "url": "https://news.ycombinator.com/item?id=49098130"
       }
     ]
+  },
+  {
+    "community_sentiment": null,
+    "mention_count": 2,
+    "controversy_index": null,
+    "sentiment_trend": null,
+    "confidence_score": 0,
+    "sentiment_method": "gemini",
+    "model_name": "GPT-5.6 Terra",
+    "scraped_at": "2026-09-17T15:16:45.009467+00:00",
+    "_experimental": true,
+    "source_counts": {
+      "HackerNews": 2
+    },
+    "community_examples": [],
+    "top_quotes": []
   }
 ]

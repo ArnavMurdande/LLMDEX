@@ -538,54 +538,6 @@
       }
     }
   },
-  "alibaba/qwen3-6-27b": {
-    "family_id": "alibaba/qwen3-6-27b",
-    "canonical_family_name": "Qwen3.6 27B",
-    "provider": "Alibaba",
-    "version": "3.6",
-    "source_aliases": {
-      "artificial_analysis": [
-        "Qwen3.6 27B",
-        "Qwen3.6 27B (Non-reasoning)"
-      ],
-      "llmstats": []
-    },
-    "source_ids": {},
-    "source_urls": {
-      "artificial_analysis": [
-        "https://artificialanalysis.ai/models/qwen3-6-27b",
-        "https://artificialanalysis.ai/models/qwen3-6-27b-non-reasoning"
-      ]
-    },
-    "variants": {
-      "alibaba/qwen3-6-27b:default": {
-        "variant_id": "alibaba/qwen3-6-27b:default",
-        "deployment_profile_id": "alibaba/qwen3-6-27b:default:deployment",
-        "source_name": "Qwen3.6 27B",
-        "reasoning_effort": null,
-        "deployment_profile": [],
-        "fallback_enabled": false,
-        "parameter_count": {
-          "total_billions": 27.0,
-          "active_billions": null
-        }
-      },
-      "alibaba/qwen3-6-27b:non-reasoning": {
-        "variant_id": "alibaba/qwen3-6-27b:non-reasoning",
-        "deployment_profile_id": "alibaba/qwen3-6-27b:non-reasoning:deployment",
-        "source_name": "Qwen3.6 27B (Non-reasoning)",
-        "reasoning_effort": null,
-        "deployment_profile": [
-          "non-reasoning"
-        ],
-        "fallback_enabled": false,
-        "parameter_count": {
-          "total_billions": 27.0,
-          "active_billions": null
-        }
-      }
-    }
-  },
   "alibaba/qwen3-6-35b-a3b": {
     "family_id": "alibaba/qwen3-6-35b-a3b",
     "canonical_family_name": "Qwen3.6 35B A3B",
@@ -659,37 +611,6 @@
         "deployment_profile_id": "alibaba/qwen3-7-plus:default:deployment",
         "source_name": "Qwen3.7 Plus",
         "reasoning_effort": null,
-        "deployment_profile": [],
-        "fallback_enabled": false,
-        "parameter_count": null
-      }
-    }
-  },
-  "alibaba/qwen3-8": {
-    "family_id": "alibaba/qwen3-8",
-    "canonical_family_name": "Qwen3.8",
-    "provider": "Alibaba",
-    "version": "3.8",
-    "source_aliases": {
-      "artificial_analysis": [
-        "Qwen3.8 Max"
-      ],
-      "llmstats": [
-        "Qwen3.8 Max"
-      ]
-    },
-    "source_ids": {},
-    "source_urls": {
-      "artificial_analysis": [
-        "https://artificialanalysis.ai/models/qwen3-8-max-0803"
-      ]
-    },
-    "variants": {
-      "alibaba/qwen3-8:max": {
-        "variant_id": "alibaba/qwen3-8:max",
-        "deployment_profile_id": "alibaba/qwen3-8:max:deployment",
-        "source_name": "Qwen3.8 Max",
-        "reasoning_effort": "max",
         "deployment_profile": [],
         "fallback_enabled": false,
         "parameter_count": null
@@ -1459,39 +1380,6 @@
       }
     }
   },
-  "anthropic/claude-fable-5": {
-    "family_id": "anthropic/claude-fable-5",
-    "canonical_family_name": "Claude Fable 5",
-    "provider": "Anthropic",
-    "version": null,
-    "source_aliases": {
-      "artificial_analysis": [
-        "Claude Fable 5 (with fallback)"
-      ],
-      "llmstats": [
-        "Claude Fable 5"
-      ]
-    },
-    "source_ids": {},
-    "source_urls": {
-      "artificial_analysis": [
-        "https://artificialanalysis.ai/models/claude-fable-5"
-      ]
-    },
-    "variants": {
-      "anthropic/claude-fable-5:fallback": {
-        "variant_id": "anthropic/claude-fable-5:fallback",
-        "deployment_profile_id": "anthropic/claude-fable-5:fallback:deployment",
-        "source_name": "Claude Fable 5 (with fallback)",
-        "reasoning_effort": null,
-        "deployment_profile": [
-          "fallback"
-        ],
-        "fallback_enabled": true,
-        "parameter_count": null
-      }
-    }
-  },
   "anthropic/claude-fable-5-1": {
     "family_id": "anthropic/claude-fable-5-1",
     "canonical_family_name": "Claude Fable 5.1",
@@ -2230,37 +2118,6 @@
       }
     }
   },
-  "deepseek/deepseek-v4-flash-0731": {
-    "family_id": "deepseek/deepseek-v4-flash-0731",
-    "canonical_family_name": "DeepSeek V4 Flash 0731",
-    "provider": "DeepSeek",
-    "version": null,
-    "source_aliases": {
-      "artificial_analysis": [
-        "DeepSeek V4 Flash 0731 (max)"
-      ],
-      "llmstats": [
-        "DeepSeek-V4-Flash-0731"
-      ]
-    },
-    "source_ids": {},
-    "source_urls": {
-      "artificial_analysis": [
-        "https://artificialanalysis.ai/models/deepseek-v4-flash"
-      ]
-    },
-    "variants": {
-      "deepseek/deepseek-v4-flash-0731:max": {
-        "variant_id": "deepseek/deepseek-v4-flash-0731:max",
-        "deployment_profile_id": "deepseek/deepseek-v4-flash-0731:max:deployment",
-        "source_name": "DeepSeek V4 Flash 0731 (max)",
-        "reasoning_effort": "max",
-        "deployment_profile": [],
-        "fallback_enabled": false,
-        "parameter_count": null
-      }
-    }
-  },
   "deepseek/deepseek-v4-flash-vision": {
     "family_id": "deepseek/deepseek-v4-flash-vision",
     "canonical_family_name": "DeepSeek V4 Flash Vision",
@@ -2298,8 +2155,7 @@
     "source_aliases": {
       "artificial_analysis": [
         "DeepSeek V4 Pro (Non-reasoning)",
-        "DeepSeek V4 Pro (high)",
-        "DeepSeek V4 Pro (max)"
+        "DeepSeek V4 Pro (high)"
       ],
       "llmstats": [
         "DeepSeek-V4-Pro-Max"
@@ -2308,21 +2164,11 @@
     "source_ids": {},
     "source_urls": {
       "artificial_analysis": [
-        "https://artificialanalysis.ai/models/deepseek-v4-pro-0424",
         "https://artificialanalysis.ai/models/deepseek-v4-pro-0424-high",
         "https://artificialanalysis.ai/models/deepseek-v4-pro-0424-non-reasoning"
       ]
     },
     "variants": {
-      "deepseek/deepseek-v4-pro:max": {
-        "variant_id": "deepseek/deepseek-v4-pro:max",
-        "deployment_profile_id": "deepseek/deepseek-v4-pro:max:deployment",
-        "source_name": "DeepSeek V4 Pro (max)",
-        "reasoning_effort": "max",
-        "deployment_profile": [],
-        "fallback_enabled": false,
-        "parameter_count": null
-      },
       "deepseek/deepseek-v4-pro:high": {
         "variant_id": "deepseek/deepseek-v4-pro:high",
         "deployment_profile_id": "deepseek/deepseek-v4-pro:high:deployment",
@@ -2441,48 +2287,6 @@
       }
     }
   },
-  "google/gemini-3-5-flash": {
-    "family_id": "google/gemini-3-5-flash",
-    "canonical_family_name": "Gemini 3.5 Flash",
-    "provider": "Google",
-    "version": "3.5",
-    "source_aliases": {
-      "artificial_analysis": [
-        "Gemini 3.5 Flash (medium)",
-        "Gemini 3.5 Flash (minimal)"
-      ],
-      "llmstats": [
-        "Gemini 3.5 Flash"
-      ]
-    },
-    "source_ids": {},
-    "source_urls": {
-      "artificial_analysis": [
-        "https://artificialanalysis.ai/models/gemini-3-5-flash-medium",
-        "https://artificialanalysis.ai/models/gemini-3-5-flash-minimal"
-      ]
-    },
-    "variants": {
-      "google/gemini-3-5-flash:medium": {
-        "variant_id": "google/gemini-3-5-flash:medium",
-        "deployment_profile_id": "google/gemini-3-5-flash:medium:deployment",
-        "source_name": "Gemini 3.5 Flash (medium)",
-        "reasoning_effort": "medium",
-        "deployment_profile": [],
-        "fallback_enabled": false,
-        "parameter_count": null
-      },
-      "google/gemini-3-5-flash:default": {
-        "variant_id": "google/gemini-3-5-flash:default",
-        "deployment_profile_id": "google/gemini-3-5-flash:default:deployment",
-        "source_name": "Gemini 3.5 Flash (minimal)",
-        "reasoning_effort": null,
-        "deployment_profile": [],
-        "fallback_enabled": false,
-        "parameter_count": null
-      }
-    }
-  },
   "google/gemini-3-5-flash-lite": {
     "family_id": "google/gemini-3-5-flash-lite",
     "canonical_family_name": "Gemini 3.5 Flash-Lite",
@@ -2506,88 +2310,6 @@
         "deployment_profile_id": "google/gemini-3-5-flash-lite:default:deployment",
         "source_name": "Gemini 3.5 Flash-Lite",
         "reasoning_effort": null,
-        "deployment_profile": [],
-        "fallback_enabled": false,
-        "parameter_count": null
-      }
-    }
-  },
-  "google/gemini-3-6-flash": {
-    "family_id": "google/gemini-3-6-flash",
-    "canonical_family_name": "Gemini 3.6 Flash",
-    "provider": "Google",
-    "version": "3.6",
-    "source_aliases": {
-      "artificial_analysis": [
-        "Gemini 3.6 Flash"
-      ],
-      "llmstats": []
-    },
-    "source_ids": {},
-    "source_urls": {
-      "artificial_analysis": [
-        "https://artificialanalysis.ai/models/gemini-3-6-flash"
-      ]
-    },
-    "variants": {
-      "google/gemini-3-6-flash:default": {
-        "variant_id": "google/gemini-3-6-flash:default",
-        "deployment_profile_id": "google/gemini-3-6-flash:default:deployment",
-        "source_name": "Gemini 3.6 Flash",
-        "reasoning_effort": null,
-        "deployment_profile": [],
-        "fallback_enabled": false,
-        "parameter_count": null
-      }
-    }
-  },
-  "google/gemini-3-7-flash": {
-    "family_id": "google/gemini-3-7-flash",
-    "canonical_family_name": "Gemini 3.7 Flash",
-    "provider": "Google",
-    "version": "3.7",
-    "source_aliases": {
-      "artificial_analysis": [
-        "Gemini 3.7 Flash (high)",
-        "Gemini 3.7 Flash (low)",
-        "Gemini 3.7 Flash (medium)"
-      ],
-      "llmstats": [
-        "Gemini 3.7 Flash"
-      ]
-    },
-    "source_ids": {},
-    "source_urls": {
-      "artificial_analysis": [
-        "https://artificialanalysis.ai/models/gemini-3-7-flash",
-        "https://artificialanalysis.ai/models/gemini-3-7-flash-low",
-        "https://artificialanalysis.ai/models/gemini-3-7-flash-medium"
-      ]
-    },
-    "variants": {
-      "google/gemini-3-7-flash:medium": {
-        "variant_id": "google/gemini-3-7-flash:medium",
-        "deployment_profile_id": "google/gemini-3-7-flash:medium:deployment",
-        "source_name": "Gemini 3.7 Flash (medium)",
-        "reasoning_effort": "medium",
-        "deployment_profile": [],
-        "fallback_enabled": false,
-        "parameter_count": null
-      },
-      "google/gemini-3-7-flash:high": {
-        "variant_id": "google/gemini-3-7-flash:high",
-        "deployment_profile_id": "google/gemini-3-7-flash:high:deployment",
-        "source_name": "Gemini 3.7 Flash (high)",
-        "reasoning_effort": "high",
-        "deployment_profile": [],
-        "fallback_enabled": false,
-        "parameter_count": null
-      },
-      "google/gemini-3-7-flash:low": {
-        "variant_id": "google/gemini-3-7-flash:low",
-        "deployment_profile_id": "google/gemini-3-7-flash:low:deployment",
-        "source_name": "Gemini 3.7 Flash (low)",
-        "reasoning_effort": "low",
         "deployment_profile": [],
         "fallback_enabled": false,
         "parameter_count": null
@@ -2933,38 +2655,6 @@
       }
     }
   },
-  "ibm/granite-4-0-1b": {
-    "family_id": "ibm/granite-4-0-1b",
-    "canonical_family_name": "Granite 4.0 1B",
-    "provider": "IBM",
-    "version": "4.0",
-    "source_aliases": {
-      "artificial_analysis": [
-        "Granite 4.0 1B"
-      ],
-      "llmstats": []
-    },
-    "source_ids": {},
-    "source_urls": {
-      "artificial_analysis": [
-        "https://artificialanalysis.ai/models/granite-4-0-nano-1b"
-      ]
-    },
-    "variants": {
-      "ibm/granite-4-0-1b:default": {
-        "variant_id": "ibm/granite-4-0-1b:default",
-        "deployment_profile_id": "ibm/granite-4-0-1b:default:deployment",
-        "source_name": "Granite 4.0 1B",
-        "reasoning_effort": null,
-        "deployment_profile": [],
-        "fallback_enabled": false,
-        "parameter_count": {
-          "total_billions": 1.0,
-          "active_billions": null
-        }
-      }
-    }
-  },
   "ibm/granite-4-0-350m": {
     "family_id": "ibm/granite-4-0-350m",
     "canonical_family_name": "Granite 4.0 350M",
@@ -3110,102 +2800,6 @@
         "deployment_profile": [],
         "fallback_enabled": false,
         "parameter_count": null
-      }
-    }
-  },
-  "ibm/granite-4-1-30b": {
-    "family_id": "ibm/granite-4-1-30b",
-    "canonical_family_name": "Granite 4.1 30B",
-    "provider": "IBM",
-    "version": "4.1",
-    "source_aliases": {
-      "artificial_analysis": [
-        "Granite 4.1 30B"
-      ],
-      "llmstats": []
-    },
-    "source_ids": {},
-    "source_urls": {
-      "artificial_analysis": [
-        "https://artificialanalysis.ai/models/granite-4-1-30b"
-      ]
-    },
-    "variants": {
-      "ibm/granite-4-1-30b:default": {
-        "variant_id": "ibm/granite-4-1-30b:default",
-        "deployment_profile_id": "ibm/granite-4-1-30b:default:deployment",
-        "source_name": "Granite 4.1 30B",
-        "reasoning_effort": null,
-        "deployment_profile": [],
-        "fallback_enabled": false,
-        "parameter_count": {
-          "total_billions": 30.0,
-          "active_billions": null
-        }
-      }
-    }
-  },
-  "ibm/granite-4-1-3b": {
-    "family_id": "ibm/granite-4-1-3b",
-    "canonical_family_name": "Granite 4.1 3B",
-    "provider": "IBM",
-    "version": "4.1",
-    "source_aliases": {
-      "artificial_analysis": [
-        "Granite 4.1 3B"
-      ],
-      "llmstats": []
-    },
-    "source_ids": {},
-    "source_urls": {
-      "artificial_analysis": [
-        "https://artificialanalysis.ai/models/granite-4-1-3b"
-      ]
-    },
-    "variants": {
-      "ibm/granite-4-1-3b:default": {
-        "variant_id": "ibm/granite-4-1-3b:default",
-        "deployment_profile_id": "ibm/granite-4-1-3b:default:deployment",
-        "source_name": "Granite 4.1 3B",
-        "reasoning_effort": null,
-        "deployment_profile": [],
-        "fallback_enabled": false,
-        "parameter_count": {
-          "total_billions": 3.0,
-          "active_billions": null
-        }
-      }
-    }
-  },
-  "ibm/granite-4-1-8b": {
-    "family_id": "ibm/granite-4-1-8b",
-    "canonical_family_name": "Granite 4.1 8B",
-    "provider": "IBM",
-    "version": "4.1",
-    "source_aliases": {
-      "artificial_analysis": [
-        "Granite 4.1 8B"
-      ],
-      "llmstats": []
-    },
-    "source_ids": {},
-    "source_urls": {
-      "artificial_analysis": [
-        "https://artificialanalysis.ai/models/granite-4-1-8b"
-      ]
-    },
-    "variants": {
-      "ibm/granite-4-1-8b:default": {
-        "variant_id": "ibm/granite-4-1-8b:default",
-        "deployment_profile_id": "ibm/granite-4-1-8b:default:deployment",
-        "source_name": "Granite 4.1 8B",
-        "reasoning_effort": null,
-        "deployment_profile": [],
-        "fallback_enabled": false,
-        "parameter_count": {
-          "total_billions": 8.0,
-          "active_billions": null
-        }
       }
     }
   },
@@ -3502,6 +3096,246 @@
         "deployment_profile_id": "inclusionai/ring-flash-2-0:default:deployment",
         "source_name": "Ring-flash-2.0",
         "reasoning_effort": null,
+        "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": null
+      }
+    }
+  },
+  "institute-of-foundation-models/k2-horizon-0-9b": {
+    "family_id": "institute-of-foundation-models/k2-horizon-0-9b",
+    "canonical_family_name": "K2 Horizon 0.9B",
+    "provider": "Institute of Foundation Models",
+    "version": "0.9",
+    "source_aliases": {
+      "artificial_analysis": [
+        "K2 Horizon 0.9B"
+      ],
+      "llmstats": []
+    },
+    "source_ids": {},
+    "source_urls": {
+      "artificial_analysis": [
+        "https://artificialanalysis.ai/models/k2-horizon-0-9b"
+      ]
+    },
+    "variants": {
+      "institute-of-foundation-models/k2-horizon-0-9b:default": {
+        "variant_id": "institute-of-foundation-models/k2-horizon-0-9b:default",
+        "deployment_profile_id": "institute-of-foundation-models/k2-horizon-0-9b:default:deployment",
+        "source_name": "K2 Horizon 0.9B",
+        "reasoning_effort": null,
+        "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": {
+          "total_billions": 0.9,
+          "active_billions": null
+        }
+      }
+    }
+  },
+  "institute-of-foundation-models/k2-horizon-3-7b": {
+    "family_id": "institute-of-foundation-models/k2-horizon-3-7b",
+    "canonical_family_name": "K2 Horizon 3.7B",
+    "provider": "Institute of Foundation Models",
+    "version": "3.7",
+    "source_aliases": {
+      "artificial_analysis": [
+        "K2 Horizon 3.7B"
+      ],
+      "llmstats": []
+    },
+    "source_ids": {},
+    "source_urls": {
+      "artificial_analysis": [
+        "https://artificialanalysis.ai/models/k2-horizon-3-7b"
+      ]
+    },
+    "variants": {
+      "institute-of-foundation-models/k2-horizon-3-7b:default": {
+        "variant_id": "institute-of-foundation-models/k2-horizon-3-7b:default",
+        "deployment_profile_id": "institute-of-foundation-models/k2-horizon-3-7b:default:deployment",
+        "source_name": "K2 Horizon 3.7B",
+        "reasoning_effort": null,
+        "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": {
+          "total_billions": 3.7,
+          "active_billions": null
+        }
+      }
+    }
+  },
+  "institute-of-foundation-models/k2-horizon-375b-a23b": {
+    "family_id": "institute-of-foundation-models/k2-horizon-375b-a23b",
+    "canonical_family_name": "K2 Horizon 375B A23B",
+    "provider": "Institute of Foundation Models",
+    "version": null,
+    "source_aliases": {
+      "artificial_analysis": [
+        "K2 Horizon 375B A23B"
+      ],
+      "llmstats": []
+    },
+    "source_ids": {},
+    "source_urls": {
+      "artificial_analysis": [
+        "https://artificialanalysis.ai/models/k2-horizon-375b-a23b"
+      ]
+    },
+    "variants": {
+      "institute-of-foundation-models/k2-horizon-375b-a23b:default": {
+        "variant_id": "institute-of-foundation-models/k2-horizon-375b-a23b:default",
+        "deployment_profile_id": "institute-of-foundation-models/k2-horizon-375b-a23b:default:deployment",
+        "source_name": "K2 Horizon 375B A23B",
+        "reasoning_effort": null,
+        "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": {
+          "total_billions": 375.0,
+          "active_billions": null
+        }
+      }
+    }
+  },
+  "institute-of-foundation-models/k2-horizon-7b": {
+    "family_id": "institute-of-foundation-models/k2-horizon-7b",
+    "canonical_family_name": "K2 Horizon 7B",
+    "provider": "Institute of Foundation Models",
+    "version": null,
+    "source_aliases": {
+      "artificial_analysis": [
+        "K2 Horizon 7B"
+      ],
+      "llmstats": []
+    },
+    "source_ids": {},
+    "source_urls": {
+      "artificial_analysis": [
+        "https://artificialanalysis.ai/models/k2-horizon-7b"
+      ]
+    },
+    "variants": {
+      "institute-of-foundation-models/k2-horizon-7b:default": {
+        "variant_id": "institute-of-foundation-models/k2-horizon-7b:default",
+        "deployment_profile_id": "institute-of-foundation-models/k2-horizon-7b:default:deployment",
+        "source_name": "K2 Horizon 7B",
+        "reasoning_effort": null,
+        "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": {
+          "total_billions": 7.0,
+          "active_billions": null
+        }
+      }
+    }
+  },
+  "institute-of-foundation-models/k2-horizon-mova-36b-a4b": {
+    "family_id": "institute-of-foundation-models/k2-horizon-mova-36b-a4b",
+    "canonical_family_name": "K2 Horizon MoVA 36B A4B",
+    "provider": "Institute of Foundation Models",
+    "version": null,
+    "source_aliases": {
+      "artificial_analysis": [
+        "K2 Horizon MoVA 36B A4B"
+      ],
+      "llmstats": []
+    },
+    "source_ids": {},
+    "source_urls": {
+      "artificial_analysis": [
+        "https://artificialanalysis.ai/models/k2-mova-36b-mid5"
+      ]
+    },
+    "variants": {
+      "institute-of-foundation-models/k2-horizon-mova-36b-a4b:default": {
+        "variant_id": "institute-of-foundation-models/k2-horizon-mova-36b-a4b:default",
+        "deployment_profile_id": "institute-of-foundation-models/k2-horizon-mova-36b-a4b:default:deployment",
+        "source_name": "K2 Horizon MoVA 36B A4B",
+        "reasoning_effort": null,
+        "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": {
+          "total_billions": 36.0,
+          "active_billions": null
+        }
+      }
+    }
+  },
+  "institute-of-foundation-models/k2-think-v2": {
+    "family_id": "institute-of-foundation-models/k2-think-v2",
+    "canonical_family_name": "K2 Think V2",
+    "provider": "Institute of Foundation Models",
+    "version": null,
+    "source_aliases": {
+      "artificial_analysis": [
+        "K2 Think V2"
+      ],
+      "llmstats": []
+    },
+    "source_ids": {},
+    "source_urls": {
+      "artificial_analysis": [
+        "https://artificialanalysis.ai/models/k2-think-v2"
+      ]
+    },
+    "variants": {
+      "institute-of-foundation-models/k2-think-v2:default": {
+        "variant_id": "institute-of-foundation-models/k2-think-v2:default",
+        "deployment_profile_id": "institute-of-foundation-models/k2-think-v2:default:deployment",
+        "source_name": "K2 Think V2",
+        "reasoning_effort": null,
+        "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": null
+      }
+    }
+  },
+  "institute-of-foundation-models/k2-v2": {
+    "family_id": "institute-of-foundation-models/k2-v2",
+    "canonical_family_name": "K2-V2",
+    "provider": "Institute of Foundation Models",
+    "version": null,
+    "source_aliases": {
+      "artificial_analysis": [
+        "K2-V2 (high)",
+        "K2-V2 (low)",
+        "K2-V2 (medium)"
+      ],
+      "llmstats": []
+    },
+    "source_ids": {},
+    "source_urls": {
+      "artificial_analysis": [
+        "https://artificialanalysis.ai/models/k2-v2",
+        "https://artificialanalysis.ai/models/k2-v2-low",
+        "https://artificialanalysis.ai/models/k2-v2-medium"
+      ]
+    },
+    "variants": {
+      "institute-of-foundation-models/k2-v2:high": {
+        "variant_id": "institute-of-foundation-models/k2-v2:high",
+        "deployment_profile_id": "institute-of-foundation-models/k2-v2:high:deployment",
+        "source_name": "K2-V2 (high)",
+        "reasoning_effort": "high",
+        "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": null
+      },
+      "institute-of-foundation-models/k2-v2:medium": {
+        "variant_id": "institute-of-foundation-models/k2-v2:medium",
+        "deployment_profile_id": "institute-of-foundation-models/k2-v2:medium:deployment",
+        "source_name": "K2-V2 (medium)",
+        "reasoning_effort": "medium",
+        "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": null
+      },
+      "institute-of-foundation-models/k2-v2:low": {
+        "variant_id": "institute-of-foundation-models/k2-v2:low",
+        "deployment_profile_id": "institute-of-foundation-models/k2-v2:low:deployment",
+        "source_name": "K2-V2 (low)",
+        "reasoning_effort": "low",
         "deployment_profile": [],
         "fallback_enabled": false,
         "parameter_count": null
@@ -3817,48 +3651,6 @@
       }
     }
   },
-  "lg-ai-research/k-exaone": {
-    "family_id": "lg-ai-research/k-exaone",
-    "canonical_family_name": "K-EXAONE",
-    "provider": "LG AI Research",
-    "version": null,
-    "source_aliases": {
-      "artificial_analysis": [
-        "K-EXAONE",
-        "K-EXAONE (Non-reasoning)"
-      ],
-      "llmstats": []
-    },
-    "source_ids": {},
-    "source_urls": {
-      "artificial_analysis": [
-        "https://artificialanalysis.ai/models/k-exaone",
-        "https://artificialanalysis.ai/models/k-exaone-non-reasoning"
-      ]
-    },
-    "variants": {
-      "lg-ai-research/k-exaone:default": {
-        "variant_id": "lg-ai-research/k-exaone:default",
-        "deployment_profile_id": "lg-ai-research/k-exaone:default:deployment",
-        "source_name": "K-EXAONE",
-        "reasoning_effort": null,
-        "deployment_profile": [],
-        "fallback_enabled": false,
-        "parameter_count": null
-      },
-      "lg-ai-research/k-exaone:non-reasoning": {
-        "variant_id": "lg-ai-research/k-exaone:non-reasoning",
-        "deployment_profile_id": "lg-ai-research/k-exaone:non-reasoning:deployment",
-        "source_name": "K-EXAONE (Non-reasoning)",
-        "reasoning_effort": null,
-        "deployment_profile": [
-          "non-reasoning"
-        ],
-        "fallback_enabled": false,
-        "parameter_count": null
-      }
-    }
-  },
   "lg-ai-research/k-exaone-2-0": {
     "family_id": "lg-ai-research/k-exaone-2-0",
     "canonical_family_name": "K-EXAONE 2.0",
@@ -3885,38 +3677,6 @@
         "deployment_profile": [],
         "fallback_enabled": false,
         "parameter_count": null
-      }
-    }
-  },
-  "liquid-ai/lfm2-2-6b": {
-    "family_id": "liquid-ai/lfm2-2-6b",
-    "canonical_family_name": "LFM2 2.6B",
-    "provider": "Liquid AI",
-    "version": "2.6",
-    "source_aliases": {
-      "artificial_analysis": [
-        "LFM2 2.6B"
-      ],
-      "llmstats": []
-    },
-    "source_ids": {},
-    "source_urls": {
-      "artificial_analysis": [
-        "https://artificialanalysis.ai/models/lfm2-2-6b"
-      ]
-    },
-    "variants": {
-      "liquid-ai/lfm2-2-6b:default": {
-        "variant_id": "liquid-ai/lfm2-2-6b:default",
-        "deployment_profile_id": "liquid-ai/lfm2-2-6b:default:deployment",
-        "source_name": "LFM2 2.6B",
-        "reasoning_effort": null,
-        "deployment_profile": [],
-        "fallback_enabled": false,
-        "parameter_count": {
-          "total_billions": 2.6,
-          "active_billions": null
-        }
       }
     }
   },
@@ -4114,38 +3874,6 @@
       }
     }
   },
-  "liquid-ai/lfm2-8b-a1b": {
-    "family_id": "liquid-ai/lfm2-8b-a1b",
-    "canonical_family_name": "LFM2 8B A1B",
-    "provider": "Liquid AI",
-    "version": null,
-    "source_aliases": {
-      "artificial_analysis": [
-        "LFM2 8B A1B"
-      ],
-      "llmstats": []
-    },
-    "source_ids": {},
-    "source_urls": {
-      "artificial_analysis": [
-        "https://artificialanalysis.ai/models/lfm2-8b-a1b"
-      ]
-    },
-    "variants": {
-      "liquid-ai/lfm2-8b-a1b:default": {
-        "variant_id": "liquid-ai/lfm2-8b-a1b:default",
-        "deployment_profile_id": "liquid-ai/lfm2-8b-a1b:default:deployment",
-        "source_name": "LFM2 8B A1B",
-        "reasoning_effort": null,
-        "deployment_profile": [],
-        "fallback_enabled": false,
-        "parameter_count": {
-          "total_billions": 8.0,
-          "active_billions": null
-        }
-      }
-    }
-  },
   "longcat/longcat-2-0": {
     "family_id": "longcat/longcat-2-0",
     "canonical_family_name": "LongCat 2.0",
@@ -4198,246 +3926,6 @@
         "deployment_profile_id": "longcat/longcat-flash-lite:default:deployment",
         "source_name": "LongCat Flash Lite",
         "reasoning_effort": null,
-        "deployment_profile": [],
-        "fallback_enabled": false,
-        "parameter_count": null
-      }
-    }
-  },
-  "mbzuai-institute-of-foundation-models/k2-horizon-0-9b": {
-    "family_id": "mbzuai-institute-of-foundation-models/k2-horizon-0-9b",
-    "canonical_family_name": "K2 Horizon 0.9B",
-    "provider": "MBZUAI Institute of Foundation Models",
-    "version": "0.9",
-    "source_aliases": {
-      "artificial_analysis": [
-        "K2 Horizon 0.9B"
-      ],
-      "llmstats": []
-    },
-    "source_ids": {},
-    "source_urls": {
-      "artificial_analysis": [
-        "https://artificialanalysis.ai/models/k2-1b-final"
-      ]
-    },
-    "variants": {
-      "mbzuai-institute-of-foundation-models/k2-horizon-0-9b:default": {
-        "variant_id": "mbzuai-institute-of-foundation-models/k2-horizon-0-9b:default",
-        "deployment_profile_id": "mbzuai-institute-of-foundation-models/k2-horizon-0-9b:default:deployment",
-        "source_name": "K2 Horizon 0.9B",
-        "reasoning_effort": null,
-        "deployment_profile": [],
-        "fallback_enabled": false,
-        "parameter_count": {
-          "total_billions": 0.9,
-          "active_billions": null
-        }
-      }
-    }
-  },
-  "mbzuai-institute-of-foundation-models/k2-horizon-3-7b": {
-    "family_id": "mbzuai-institute-of-foundation-models/k2-horizon-3-7b",
-    "canonical_family_name": "K2 Horizon 3.7B",
-    "provider": "MBZUAI Institute of Foundation Models",
-    "version": "3.7",
-    "source_aliases": {
-      "artificial_analysis": [
-        "K2 Horizon 3.7B"
-      ],
-      "llmstats": []
-    },
-    "source_ids": {},
-    "source_urls": {
-      "artificial_analysis": [
-        "https://artificialanalysis.ai/models/k2-4b-ph1"
-      ]
-    },
-    "variants": {
-      "mbzuai-institute-of-foundation-models/k2-horizon-3-7b:default": {
-        "variant_id": "mbzuai-institute-of-foundation-models/k2-horizon-3-7b:default",
-        "deployment_profile_id": "mbzuai-institute-of-foundation-models/k2-horizon-3-7b:default:deployment",
-        "source_name": "K2 Horizon 3.7B",
-        "reasoning_effort": null,
-        "deployment_profile": [],
-        "fallback_enabled": false,
-        "parameter_count": {
-          "total_billions": 3.7,
-          "active_billions": null
-        }
-      }
-    }
-  },
-  "mbzuai-institute-of-foundation-models/k2-horizon-375b-a23b": {
-    "family_id": "mbzuai-institute-of-foundation-models/k2-horizon-375b-a23b",
-    "canonical_family_name": "K2 Horizon 375B A23B",
-    "provider": "MBZUAI Institute of Foundation Models",
-    "version": null,
-    "source_aliases": {
-      "artificial_analysis": [
-        "K2 Horizon 375B A23B"
-      ],
-      "llmstats": []
-    },
-    "source_ids": {},
-    "source_urls": {
-      "artificial_analysis": [
-        "https://artificialanalysis.ai/models/k2-horizon-375b-a23b"
-      ]
-    },
-    "variants": {
-      "mbzuai-institute-of-foundation-models/k2-horizon-375b-a23b:default": {
-        "variant_id": "mbzuai-institute-of-foundation-models/k2-horizon-375b-a23b:default",
-        "deployment_profile_id": "mbzuai-institute-of-foundation-models/k2-horizon-375b-a23b:default:deployment",
-        "source_name": "K2 Horizon 375B A23B",
-        "reasoning_effort": null,
-        "deployment_profile": [],
-        "fallback_enabled": false,
-        "parameter_count": {
-          "total_billions": 375.0,
-          "active_billions": null
-        }
-      }
-    }
-  },
-  "mbzuai-institute-of-foundation-models/k2-horizon-7b": {
-    "family_id": "mbzuai-institute-of-foundation-models/k2-horizon-7b",
-    "canonical_family_name": "K2 Horizon 7B",
-    "provider": "MBZUAI Institute of Foundation Models",
-    "version": null,
-    "source_aliases": {
-      "artificial_analysis": [
-        "K2 Horizon 7B"
-      ],
-      "llmstats": []
-    },
-    "source_ids": {},
-    "source_urls": {
-      "artificial_analysis": [
-        "https://artificialanalysis.ai/models/k2-7b-ph2"
-      ]
-    },
-    "variants": {
-      "mbzuai-institute-of-foundation-models/k2-horizon-7b:default": {
-        "variant_id": "mbzuai-institute-of-foundation-models/k2-horizon-7b:default",
-        "deployment_profile_id": "mbzuai-institute-of-foundation-models/k2-horizon-7b:default:deployment",
-        "source_name": "K2 Horizon 7B",
-        "reasoning_effort": null,
-        "deployment_profile": [],
-        "fallback_enabled": false,
-        "parameter_count": {
-          "total_billions": 7.0,
-          "active_billions": null
-        }
-      }
-    }
-  },
-  "mbzuai-institute-of-foundation-models/k2-horizon-mova-36b-a4b": {
-    "family_id": "mbzuai-institute-of-foundation-models/k2-horizon-mova-36b-a4b",
-    "canonical_family_name": "K2 Horizon MoVA 36B A4B",
-    "provider": "MBZUAI Institute of Foundation Models",
-    "version": null,
-    "source_aliases": {
-      "artificial_analysis": [
-        "K2 Horizon MoVA 36B A4B"
-      ],
-      "llmstats": []
-    },
-    "source_ids": {},
-    "source_urls": {
-      "artificial_analysis": [
-        "https://artificialanalysis.ai/models/k2-mova-36b-mid5"
-      ]
-    },
-    "variants": {
-      "mbzuai-institute-of-foundation-models/k2-horizon-mova-36b-a4b:default": {
-        "variant_id": "mbzuai-institute-of-foundation-models/k2-horizon-mova-36b-a4b:default",
-        "deployment_profile_id": "mbzuai-institute-of-foundation-models/k2-horizon-mova-36b-a4b:default:deployment",
-        "source_name": "K2 Horizon MoVA 36B A4B",
-        "reasoning_effort": null,
-        "deployment_profile": [],
-        "fallback_enabled": false,
-        "parameter_count": {
-          "total_billions": 36.0,
-          "active_billions": null
-        }
-      }
-    }
-  },
-  "mbzuai-institute-of-foundation-models/k2-think-v2": {
-    "family_id": "mbzuai-institute-of-foundation-models/k2-think-v2",
-    "canonical_family_name": "K2 Think V2",
-    "provider": "MBZUAI Institute of Foundation Models",
-    "version": null,
-    "source_aliases": {
-      "artificial_analysis": [
-        "K2 Think V2"
-      ],
-      "llmstats": []
-    },
-    "source_ids": {},
-    "source_urls": {
-      "artificial_analysis": [
-        "https://artificialanalysis.ai/models/k2-think-v2"
-      ]
-    },
-    "variants": {
-      "mbzuai-institute-of-foundation-models/k2-think-v2:default": {
-        "variant_id": "mbzuai-institute-of-foundation-models/k2-think-v2:default",
-        "deployment_profile_id": "mbzuai-institute-of-foundation-models/k2-think-v2:default:deployment",
-        "source_name": "K2 Think V2",
-        "reasoning_effort": null,
-        "deployment_profile": [],
-        "fallback_enabled": false,
-        "parameter_count": null
-      }
-    }
-  },
-  "mbzuai-institute-of-foundation-models/k2-v2": {
-    "family_id": "mbzuai-institute-of-foundation-models/k2-v2",
-    "canonical_family_name": "K2-V2",
-    "provider": "MBZUAI Institute of Foundation Models",
-    "version": null,
-    "source_aliases": {
-      "artificial_analysis": [
-        "K2-V2 (high)",
-        "K2-V2 (low)",
-        "K2-V2 (medium)"
-      ],
-      "llmstats": []
-    },
-    "source_ids": {},
-    "source_urls": {
-      "artificial_analysis": [
-        "https://artificialanalysis.ai/models/k2-v2",
-        "https://artificialanalysis.ai/models/k2-v2-low",
-        "https://artificialanalysis.ai/models/k2-v2-medium"
-      ]
-    },
-    "variants": {
-      "mbzuai-institute-of-foundation-models/k2-v2:high": {
-        "variant_id": "mbzuai-institute-of-foundation-models/k2-v2:high",
-        "deployment_profile_id": "mbzuai-institute-of-foundation-models/k2-v2:high:deployment",
-        "source_name": "K2-V2 (high)",
-        "reasoning_effort": "high",
-        "deployment_profile": [],
-        "fallback_enabled": false,
-        "parameter_count": null
-      },
-      "mbzuai-institute-of-foundation-models/k2-v2:medium": {
-        "variant_id": "mbzuai-institute-of-foundation-models/k2-v2:medium",
-        "deployment_profile_id": "mbzuai-institute-of-foundation-models/k2-v2:medium:deployment",
-        "source_name": "K2-V2 (medium)",
-        "reasoning_effort": "medium",
-        "deployment_profile": [],
-        "fallback_enabled": false,
-        "parameter_count": null
-      },
-      "mbzuai-institute-of-foundation-models/k2-v2:low": {
-        "variant_id": "mbzuai-institute-of-foundation-models/k2-v2:low",
-        "deployment_profile_id": "mbzuai-institute-of-foundation-models/k2-v2:low:deployment",
-        "source_name": "K2-V2 (low)",
-        "reasoning_effort": "low",
         "deployment_profile": [],
         "fallback_enabled": false,
         "parameter_count": null
@@ -4653,35 +4141,6 @@
         "deployment_profile_id": "meta/muse-glimmer:high:deployment",
         "source_name": "Muse Glimmer (high)",
         "reasoning_effort": "high",
-        "deployment_profile": [],
-        "fallback_enabled": false,
-        "parameter_count": null
-      }
-    }
-  },
-  "meta/muse-spark-1-2": {
-    "family_id": "meta/muse-spark-1-2",
-    "canonical_family_name": "Muse Spark 1.2",
-    "provider": "Meta",
-    "version": "1.2",
-    "source_aliases": {
-      "artificial_analysis": [
-        "Muse Spark 1.2 (xhigh)"
-      ],
-      "llmstats": []
-    },
-    "source_ids": {},
-    "source_urls": {
-      "artificial_analysis": [
-        "https://artificialanalysis.ai/models/muse-spark-1-2"
-      ]
-    },
-    "variants": {
-      "meta/muse-spark-1-2:xhigh": {
-        "variant_id": "meta/muse-spark-1-2:xhigh",
-        "deployment_profile_id": "meta/muse-spark-1-2:xhigh:deployment",
-        "source_name": "Muse Spark 1.2 (xhigh)",
-        "reasoning_effort": "xhigh",
         "deployment_profile": [],
         "fallback_enabled": false,
         "parameter_count": null
@@ -6964,88 +6423,6 @@
       }
     }
   },
-  "spacexai/grok-4-3": {
-    "family_id": "spacexai/grok-4-3",
-    "canonical_family_name": "Grok 4.3",
-    "provider": "SpaceXAI",
-    "version": "4.3",
-    "source_aliases": {
-      "artificial_analysis": [
-        "Grok 4.3 (Non-reasoning)",
-        "Grok 4.3 (low)",
-        "Grok 4.3 (medium)"
-      ],
-      "llmstats": []
-    },
-    "source_ids": {},
-    "source_urls": {
-      "artificial_analysis": [
-        "https://artificialanalysis.ai/models/grok-4-3-low",
-        "https://artificialanalysis.ai/models/grok-4-3-medium",
-        "https://artificialanalysis.ai/models/grok-4-3-non-reasoning"
-      ]
-    },
-    "variants": {
-      "spacexai/grok-4-3:medium": {
-        "variant_id": "spacexai/grok-4-3:medium",
-        "deployment_profile_id": "spacexai/grok-4-3:medium:deployment",
-        "source_name": "Grok 4.3 (medium)",
-        "reasoning_effort": "medium",
-        "deployment_profile": [],
-        "fallback_enabled": false,
-        "parameter_count": null
-      },
-      "spacexai/grok-4-3:low": {
-        "variant_id": "spacexai/grok-4-3:low",
-        "deployment_profile_id": "spacexai/grok-4-3:low:deployment",
-        "source_name": "Grok 4.3 (low)",
-        "reasoning_effort": "low",
-        "deployment_profile": [],
-        "fallback_enabled": false,
-        "parameter_count": null
-      },
-      "spacexai/grok-4-3:non-reasoning": {
-        "variant_id": "spacexai/grok-4-3:non-reasoning",
-        "deployment_profile_id": "spacexai/grok-4-3:non-reasoning:deployment",
-        "source_name": "Grok 4.3 (Non-reasoning)",
-        "reasoning_effort": null,
-        "deployment_profile": [
-          "non-reasoning"
-        ],
-        "fallback_enabled": false,
-        "parameter_count": null
-      }
-    }
-  },
-  "spacexai/grok-4-5": {
-    "family_id": "spacexai/grok-4-5",
-    "canonical_family_name": "Grok 4.5",
-    "provider": "SpaceXAI",
-    "version": "4.5",
-    "source_aliases": {
-      "artificial_analysis": [
-        "Grok 4.5 (high)"
-      ],
-      "llmstats": []
-    },
-    "source_ids": {},
-    "source_urls": {
-      "artificial_analysis": [
-        "https://artificialanalysis.ai/models/grok-4-5"
-      ]
-    },
-    "variants": {
-      "spacexai/grok-4-5:high": {
-        "variant_id": "spacexai/grok-4-5:high",
-        "deployment_profile_id": "spacexai/grok-4-5:high:deployment",
-        "source_name": "Grok 4.5 (high)",
-        "reasoning_effort": "high",
-        "deployment_profile": [],
-        "fallback_enabled": false,
-        "parameter_count": null
-      }
-    }
-  },
   "spacexai/grok-4-6": {
     "family_id": "spacexai/grok-4-6",
     "canonical_family_name": "Grok 4.6",
@@ -7454,35 +6831,6 @@
       }
     }
   },
-  "upstage/solar-pro-3": {
-    "family_id": "upstage/solar-pro-3",
-    "canonical_family_name": "Solar Pro 3",
-    "provider": "Upstage",
-    "version": null,
-    "source_aliases": {
-      "artificial_analysis": [
-        "Solar Pro 3"
-      ],
-      "llmstats": []
-    },
-    "source_ids": {},
-    "source_urls": {
-      "artificial_analysis": [
-        "https://artificialanalysis.ai/models/solar-pro-3"
-      ]
-    },
-    "variants": {
-      "upstage/solar-pro-3:default": {
-        "variant_id": "upstage/solar-pro-3:default",
-        "deployment_profile_id": "upstage/solar-pro-3:default:deployment",
-        "source_name": "Solar Pro 3",
-        "reasoning_effort": null,
-        "deployment_profile": [],
-        "fallback_enabled": false,
-        "parameter_count": null
-      }
-    }
-  },
   "upstage/solar-pro-4": {
     "family_id": "upstage/solar-pro-4",
     "canonical_family_name": "Solar Pro 4",
@@ -7585,37 +6933,6 @@
       }
     }
   },
-  "xiaomi/mimo-v2-flash": {
-    "family_id": "xiaomi/mimo-v2-flash",
-    "canonical_family_name": "MiMo-V2-Flash",
-    "provider": "Xiaomi",
-    "version": null,
-    "source_aliases": {
-      "artificial_analysis": [
-        "MiMo-V2-Flash (Non-reasoning)"
-      ],
-      "llmstats": []
-    },
-    "source_ids": {},
-    "source_urls": {
-      "artificial_analysis": [
-        "https://artificialanalysis.ai/models/mimo-v2-flash"
-      ]
-    },
-    "variants": {
-      "xiaomi/mimo-v2-flash:non-reasoning": {
-        "variant_id": "xiaomi/mimo-v2-flash:non-reasoning",
-        "deployment_profile_id": "xiaomi/mimo-v2-flash:non-reasoning:deployment",
-        "source_name": "MiMo-V2-Flash (Non-reasoning)",
-        "reasoning_effort": null,
-        "deployment_profile": [
-          "non-reasoning"
-        ],
-        "fallback_enabled": false,
-        "parameter_count": null
-      }
-    }
-  },
   "xiaomi/mimo-v2-flash-feb-2026": {
     "family_id": "xiaomi/mimo-v2-flash-feb-2026",
     "canonical_family_name": "MiMo-V2-Flash (Feb 2026)",
@@ -7645,64 +6962,6 @@
       }
     }
   },
-  "xiaomi/mimo-v2-omni": {
-    "family_id": "xiaomi/mimo-v2-omni",
-    "canonical_family_name": "MiMo-V2-Omni",
-    "provider": "Xiaomi",
-    "version": null,
-    "source_aliases": {
-      "artificial_analysis": [
-        "MiMo-V2-Omni"
-      ],
-      "llmstats": []
-    },
-    "source_ids": {},
-    "source_urls": {
-      "artificial_analysis": [
-        "https://artificialanalysis.ai/models/mimo-v2-omni"
-      ]
-    },
-    "variants": {
-      "xiaomi/mimo-v2-omni:default": {
-        "variant_id": "xiaomi/mimo-v2-omni:default",
-        "deployment_profile_id": "xiaomi/mimo-v2-omni:default:deployment",
-        "source_name": "MiMo-V2-Omni",
-        "reasoning_effort": null,
-        "deployment_profile": [],
-        "fallback_enabled": false,
-        "parameter_count": null
-      }
-    }
-  },
-  "xiaomi/mimo-v2-omni-0327": {
-    "family_id": "xiaomi/mimo-v2-omni-0327",
-    "canonical_family_name": "MiMo-V2-Omni-0327",
-    "provider": "Xiaomi",
-    "version": null,
-    "source_aliases": {
-      "artificial_analysis": [
-        "MiMo-V2-Omni-0327"
-      ],
-      "llmstats": []
-    },
-    "source_ids": {},
-    "source_urls": {
-      "artificial_analysis": [
-        "https://artificialanalysis.ai/models/mimo-v2-omni-0327"
-      ]
-    },
-    "variants": {
-      "xiaomi/mimo-v2-omni-0327:default": {
-        "variant_id": "xiaomi/mimo-v2-omni-0327:default",
-        "deployment_profile_id": "xiaomi/mimo-v2-omni-0327:default:deployment",
-        "source_name": "MiMo-V2-Omni-0327",
-        "reasoning_effort": null,
-        "deployment_profile": [],
-        "fallback_enabled": false,
-        "parameter_count": null
-      }
-    }
-  },
   "z-ai/glm-5-2": {
     "family_id": "z-ai/glm-5-2",
     "canonical_family_name": "GLM-5.2",
@@ -7710,28 +6969,17 @@
     "version": "5.2",
     "source_aliases": {
       "artificial_analysis": [
-        "GLM-5.2 (Non-reasoning)",
-        "GLM-5.2 (max)"
+        "GLM-5.2 (Non-reasoning)"
       ],
       "llmstats": []
     },
     "source_ids": {},
     "source_urls": {
       "artificial_analysis": [
-        "https://artificialanalysis.ai/models/glm-5-2",
         "https://artificialanalysis.ai/models/glm-5-2-non-reasoning"
       ]
     },
     "variants": {
-      "z-ai/glm-5-2:max": {
-        "variant_id": "z-ai/glm-5-2:max",
-        "deployment_profile_id": "z-ai/glm-5-2:max:deployment",
-        "source_name": "GLM-5.2 (max)",
-        "reasoning_effort": "max",
-        "deployment_profile": [],
-        "fallback_enabled": false,
-        "parameter_count": null
-      },
       "z-ai/glm-5-2:non-reasoning": {
         "variant_id": "z-ai/glm-5-2:non-reasoning",
         "deployment_profile_id": "z-ai/glm-5-2:non-reasoning:deployment",

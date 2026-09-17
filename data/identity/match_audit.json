@@ -89,13 +89,19 @@
     "source_model_id": "claude-fable-5",
     "source_model_url": "https://llm-stats.com/models/claude-fable-5",
     "provider": "Anthropic",
-    "candidate_family_id": "anthropic/claude-fable-5",
-    "candidate_family_name": "Claude Fable 5",
-    "match_status": "matched_manual",
-    "match_confidence": 1.0,
-    "match_method": "approved_alias",
-    "review_reason": null,
-    "competing_candidates": []
+    "candidate_family_id": "anthropic/claude-fable-5-1",
+    "candidate_family_name": "Claude Fable 5.1",
+    "match_status": "identity_unresolved",
+    "match_confidence": 0.8,
+    "match_method": "fuzzy_review_candidate",
+    "review_reason": "Fuzzy candidates require manual approval and are excluded from scoring.",
+    "competing_candidates": [
+      {
+        "family_id": "anthropic/claude-fable-5-1",
+        "family_name": "Claude Fable 5.1",
+        "similarity": 0.9333
+      }
+    ]
   },
   {
     "source": "llmstats",
@@ -145,13 +151,24 @@
     "source_model_id": "qwen3.8-max",
     "source_model_url": "https://llm-stats.com/models/qwen3.8-max",
     "provider": "Alibaba",
-    "candidate_family_id": "alibaba/qwen3-8",
-    "candidate_family_name": "Qwen3.8",
-    "match_status": "matched_family",
-    "match_confidence": 0.95,
-    "match_method": "exact_provider_family_version",
-    "review_reason": null,
-    "competing_candidates": []
+    "candidate_family_id": "alibaba/qwen3-8-27b",
+    "candidate_family_name": "Qwen3.8 27B",
+    "match_status": "identity_unresolved",
+    "match_confidence": 0.7778,
+    "match_method": "fuzzy_review_candidate",
+    "review_reason": "Fuzzy candidates require manual approval and are excluded from scoring.",
+    "competing_candidates": [
+      {
+        "family_id": "alibaba/qwen3-8-27b",
+        "family_name": "Qwen3.8 27B",
+        "similarity": 0.7778
+      },
+      {
+        "family_id": "alibaba/qwen3-5-0-8b",
+        "family_name": "Qwen3.5 0.8B",
+        "similarity": 0.7368
+      }
+    ]
   },
   {
     "source": "llmstats",
@@ -237,7 +254,7 @@
     "provider": "Meta",
     "candidate_family_id": "meta/muse-spark-1-3",
     "candidate_family_name": "Muse Spark 1.3",
-    "match_status": "ambiguous",
+    "match_status": "identity_unresolved",
     "match_confidence": 0.8,
     "match_method": "fuzzy_review_candidate",
     "review_reason": "Fuzzy candidates require manual approval and are excluded from scoring.",
@@ -245,11 +262,6 @@
       {
         "family_id": "meta/muse-spark-1-3",
         "family_name": "Muse Spark 1.3",
-        "similarity": 0.9286
-      },
-      {
-        "family_id": "meta/muse-spark-1-2",
-        "family_name": "Muse Spark 1.2",
         "similarity": 0.9286
       }
     ]
@@ -304,13 +316,24 @@
     "source_model_id": "gemini-3.7-flash",
     "source_model_url": "https://llm-stats.com/models/gemini-3.7-flash",
     "provider": "Google",
-    "candidate_family_id": "google/gemini-3-7-flash",
-    "candidate_family_name": "Gemini 3.7 Flash",
-    "match_status": "matched_family",
-    "match_confidence": 0.95,
-    "match_method": "exact_provider_family_version",
-    "review_reason": null,
-    "competing_candidates": []
+    "candidate_family_id": "google/gemini-3-8-flash",
+    "candidate_family_name": "Gemini 3.8 Flash",
+    "match_status": "identity_unresolved",
+    "match_confidence": 0.8,
+    "match_method": "fuzzy_review_candidate",
+    "review_reason": "Fuzzy candidates require manual approval and are excluded from scoring.",
+    "competing_candidates": [
+      {
+        "family_id": "google/gemini-3-8-flash",
+        "family_name": "Gemini 3.8 Flash",
+        "similarity": 0.9375
+      },
+      {
+        "family_id": "google/gemini-3-5-flash-lite",
+        "family_name": "Gemini 3.5 Flash-Lite",
+        "similarity": 0.8108
+      }
+    ]
   },
   {
     "source": "llmstats",
@@ -387,11 +410,6 @@
         "family_id": "deepseek/deepseek-v4-1-flash",
         "family_name": "DeepSeek V4.1 Flash",
         "similarity": 0.7234
-      },
-      {
-        "family_id": "deepseek/deepseek-v4-flash-0731",
-        "family_name": "DeepSeek V4 Flash 0731",
-        "similarity": 0.72
       }
     ]
   },
@@ -415,26 +433,16 @@
     "source_model_id": "qwen3.7-max",
     "source_model_url": "https://llm-stats.com/models/qwen3.7-max",
     "provider": "Alibaba",
-    "candidate_family_id": "alibaba/qwen3-8",
-    "candidate_family_name": "Qwen3.8",
+    "candidate_family_id": "alibaba/qwen3-8-27b",
+    "candidate_family_name": "Qwen3.8 27B",
     "match_status": "identity_unresolved",
-    "match_confidence": 0.8,
+    "match_confidence": 0.7778,
     "match_method": "fuzzy_review_candidate",
     "review_reason": "Fuzzy candidates require manual approval and are excluded from scoring.",
     "competing_candidates": [
       {
-        "family_id": "alibaba/qwen3-8",
-        "family_name": "Qwen3.8",
-        "similarity": 0.8571
-      },
-      {
         "family_id": "alibaba/qwen3-8-27b",
         "family_name": "Qwen3.8 27B",
-        "similarity": 0.7778
-      },
-      {
-        "family_id": "alibaba/qwen3-6-27b",
-        "family_name": "Qwen3.6 27B",
         "similarity": 0.7778
       },
       {
@@ -1139,11 +1147,6 @@
         "family_id": "xiaomi/mimo-v2-5",
         "family_name": "MiMo-V2.5",
         "similarity": 0.8
-      },
-      {
-        "family_id": "xiaomi/mimo-v2-omni",
-        "family_name": "MiMo-V2-Omni",
-        "similarity": 0.7826
       }
     ]
   },
@@ -1466,11 +1469,6 @@
         "similarity": 0.9091
       },
       {
-        "family_id": "alibaba/qwen3-6-27b",
-        "family_name": "Qwen3.6 27B",
-        "similarity": 0.9091
-      },
-      {
         "family_id": "alibaba/qwen3-5-9b",
         "family_name": "Qwen3.5 9B",
         "similarity": 0.8571
@@ -1479,6 +1477,11 @@
         "family_id": "alibaba/qwen3-5-4b",
         "family_name": "Qwen3.5 4B",
         "similarity": 0.8571
+      },
+      {
+        "family_id": "alibaba/qwen3-5-0-8b",
+        "family_name": "Qwen3.5 0.8B",
+        "similarity": 0.7826
       }
     ]
   },
@@ -1522,19 +1525,13 @@
     "source_model_id": "qwen3-max-thinking",
     "source_model_url": "https://llm-stats.com/models/qwen3-max-thinking",
     "provider": "Alibaba",
-    "candidate_family_id": "alibaba/qwen3-8",
-    "candidate_family_name": "Qwen3.8",
-    "match_status": "identity_unresolved",
-    "match_confidence": 0.8,
-    "match_method": "fuzzy_review_candidate",
-    "review_reason": "Fuzzy candidates require manual approval and are excluded from scoring.",
-    "competing_candidates": [
-      {
-        "family_id": "alibaba/qwen3-8",
-        "family_name": "Qwen3.8",
-        "similarity": 0.8333
-      }
-    ]
+    "candidate_family_id": null,
+    "candidate_family_name": null,
+    "match_status": "source_missing",
+    "match_confidence": 0.0,
+    "match_method": "no_candidate",
+    "review_reason": "No corresponding family exists in the current AA population.",
+    "competing_candidates": []
   },
   {
     "source": "llmstats",
@@ -1624,13 +1621,24 @@
     "source_model_id": "gemini-3.5-flash",
     "source_model_url": "https://llm-stats.com/models/gemini-3.5-flash",
     "provider": "Google",
-    "candidate_family_id": "google/gemini-3-5-flash",
-    "candidate_family_name": "Gemini 3.5 Flash",
-    "match_status": "matched_family",
-    "match_confidence": 0.95,
-    "match_method": "exact_provider_family_version",
-    "review_reason": null,
-    "competing_candidates": []
+    "candidate_family_id": "google/gemini-3-8-flash",
+    "candidate_family_name": "Gemini 3.8 Flash",
+    "match_status": "identity_unresolved",
+    "match_confidence": 0.8,
+    "match_method": "fuzzy_review_candidate",
+    "review_reason": "Fuzzy candidates require manual approval and are excluded from scoring.",
+    "competing_candidates": [
+      {
+        "family_id": "google/gemini-3-8-flash",
+        "family_name": "Gemini 3.8 Flash",
+        "similarity": 0.9375
+      },
+      {
+        "family_id": "google/gemini-3-5-flash-lite",
+        "family_name": "Gemini 3.5 Flash-Lite",
+        "similarity": 0.8649
+      }
+    ]
   },
   {
     "source": "llmstats",
@@ -1672,12 +1680,28 @@
     "source_model_id": "deepseek-v4-flash-0731",
     "source_model_url": "https://llm-stats.com/models/deepseek-v4-flash-0731",
     "provider": "DeepSeek",
-    "candidate_family_id": "deepseek/deepseek-v4-flash-0731",
-    "candidate_family_name": "DeepSeek V4 Flash 0731",
-    "match_status": "matched_family",
-    "match_confidence": 0.95,
-    "match_method": "exact_provider_family_version",
-    "review_reason": null,
-    "competing_candidates": []
+    "candidate_family_id": "deepseek/deepseek-v4-flash",
+    "candidate_family_name": "DeepSeek V4 Flash",
+    "match_status": "identity_unresolved",
+    "match_confidence": 0.8,
+    "match_method": "fuzzy_review_candidate",
+    "review_reason": "Fuzzy candidates require manual approval and are excluded from scoring.",
+    "competing_candidates": [
+      {
+        "family_id": "deepseek/deepseek-v4-flash",
+        "family_name": "DeepSeek V4 Flash",
+        "similarity": 0.8718
+      },
+      {
+        "family_id": "deepseek/deepseek-v4-1-flash",
+        "family_name": "DeepSeek V4.1 Flash",
+        "similarity": 0.8293
+      },
+      {
+        "family_id": "deepseek/deepseek-v4-flash-vision",
+        "family_name": "DeepSeek V4 Flash Vision",
+        "similarity": 0.7826
+      }
+    ]
   }
 ]
