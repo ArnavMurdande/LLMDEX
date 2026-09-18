@@ -298,42 +298,6 @@
       }
     }
   },
-  "alibaba/qwen3-5-35b-a3b": {
-    "family_id": "alibaba/qwen3-5-35b-a3b",
-    "canonical_family_name": "Qwen3.5 35B A3B",
-    "provider": "Alibaba",
-    "version": "3.5",
-    "source_aliases": {
-      "artificial_analysis": [
-        "Qwen3.5 35B A3B (Non-reasoning)"
-      ],
-      "llmstats": [
-        "Qwen3.5-35B-A3B"
-      ]
-    },
-    "source_ids": {},
-    "source_urls": {
-      "artificial_analysis": [
-        "https://artificialanalysis.ai/models/qwen3-5-35b-a3b-non-reasoning"
-      ]
-    },
-    "variants": {
-      "alibaba/qwen3-5-35b-a3b:non-reasoning": {
-        "variant_id": "alibaba/qwen3-5-35b-a3b:non-reasoning",
-        "deployment_profile_id": "alibaba/qwen3-5-35b-a3b:non-reasoning:deployment",
-        "source_name": "Qwen3.5 35B A3B (Non-reasoning)",
-        "reasoning_effort": null,
-        "deployment_profile": [
-          "non-reasoning"
-        ],
-        "fallback_enabled": false,
-        "parameter_count": {
-          "total_billions": 35.0,
-          "active_billions": null
-        }
-      }
-    }
-  },
   "alibaba/qwen3-5-397b-a17b": {
     "family_id": "alibaba/qwen3-5-397b-a17b",
     "canonical_family_name": "Qwen3.5 397B A17B",
@@ -1540,39 +1504,6 @@
       }
     }
   },
-  "anthropic/claude-sonnet-4-6": {
-    "family_id": "anthropic/claude-sonnet-4-6",
-    "canonical_family_name": "Claude Sonnet 4.6",
-    "provider": "Anthropic",
-    "version": "4.6",
-    "source_aliases": {
-      "artificial_analysis": [
-        "Claude Sonnet 4.6 (Non-reasoning, low)"
-      ],
-      "llmstats": [
-        "Claude Sonnet 4.6"
-      ]
-    },
-    "source_ids": {},
-    "source_urls": {
-      "artificial_analysis": [
-        "https://artificialanalysis.ai/models/claude-sonnet-4-6-non-reasoning-low-effort"
-      ]
-    },
-    "variants": {
-      "anthropic/claude-sonnet-4-6:low-non-reasoning": {
-        "variant_id": "anthropic/claude-sonnet-4-6:low-non-reasoning",
-        "deployment_profile_id": "anthropic/claude-sonnet-4-6:low-non-reasoning:deployment",
-        "source_name": "Claude Sonnet 4.6 (Non-reasoning, low)",
-        "reasoning_effort": "low",
-        "deployment_profile": [
-          "non-reasoning"
-        ],
-        "fallback_enabled": false,
-        "parameter_count": null
-      }
-    }
-  },
   "anthropic/claude-sonnet-5": {
     "family_id": "anthropic/claude-sonnet-5",
     "canonical_family_name": "Claude Sonnet 5",
@@ -2085,39 +2016,6 @@
       }
     }
   },
-  "deepseek/deepseek-v4-flash": {
-    "family_id": "deepseek/deepseek-v4-flash",
-    "canonical_family_name": "DeepSeek V4 Flash",
-    "provider": "DeepSeek",
-    "version": null,
-    "source_aliases": {
-      "artificial_analysis": [
-        "DeepSeek V4 Flash (Non-reasoning)"
-      ],
-      "llmstats": [
-        "DeepSeek-V4-Flash-Max"
-      ]
-    },
-    "source_ids": {},
-    "source_urls": {
-      "artificial_analysis": [
-        "https://artificialanalysis.ai/models/deepseek-v4-flash-0420-non-reasoning"
-      ]
-    },
-    "variants": {
-      "deepseek/deepseek-v4-flash:non-reasoning": {
-        "variant_id": "deepseek/deepseek-v4-flash:non-reasoning",
-        "deployment_profile_id": "deepseek/deepseek-v4-flash:non-reasoning:deployment",
-        "source_name": "DeepSeek V4 Flash (Non-reasoning)",
-        "reasoning_effort": null,
-        "deployment_profile": [
-          "non-reasoning"
-        ],
-        "fallback_enabled": false,
-        "parameter_count": null
-      }
-    }
-  },
   "deepseek/deepseek-v4-flash-vision": {
     "family_id": "deepseek/deepseek-v4-flash-vision",
     "canonical_family_name": "DeepSeek V4 Flash Vision",
@@ -2142,50 +2040,6 @@
         "source_name": "DeepSeek V4 Flash Vision (max)",
         "reasoning_effort": "max",
         "deployment_profile": [],
-        "fallback_enabled": false,
-        "parameter_count": null
-      }
-    }
-  },
-  "deepseek/deepseek-v4-pro": {
-    "family_id": "deepseek/deepseek-v4-pro",
-    "canonical_family_name": "DeepSeek V4 Pro",
-    "provider": "DeepSeek",
-    "version": null,
-    "source_aliases": {
-      "artificial_analysis": [
-        "DeepSeek V4 Pro (Non-reasoning)",
-        "DeepSeek V4 Pro (high)"
-      ],
-      "llmstats": [
-        "DeepSeek-V4-Pro-Max"
-      ]
-    },
-    "source_ids": {},
-    "source_urls": {
-      "artificial_analysis": [
-        "https://artificialanalysis.ai/models/deepseek-v4-pro-0424-high",
-        "https://artificialanalysis.ai/models/deepseek-v4-pro-0424-non-reasoning"
-      ]
-    },
-    "variants": {
-      "deepseek/deepseek-v4-pro:high": {
-        "variant_id": "deepseek/deepseek-v4-pro:high",
-        "deployment_profile_id": "deepseek/deepseek-v4-pro:high:deployment",
-        "source_name": "DeepSeek V4 Pro (high)",
-        "reasoning_effort": "high",
-        "deployment_profile": [],
-        "fallback_enabled": false,
-        "parameter_count": null
-      },
-      "deepseek/deepseek-v4-pro:non-reasoning": {
-        "variant_id": "deepseek/deepseek-v4-pro:non-reasoning",
-        "deployment_profile_id": "deepseek/deepseek-v4-pro:non-reasoning:deployment",
-        "source_name": "DeepSeek V4 Pro (Non-reasoning)",
-        "reasoning_effort": null,
-        "deployment_profile": [
-          "non-reasoning"
-        ],
         "fallback_enabled": false,
         "parameter_count": null
       }
@@ -3244,7 +3098,7 @@
     "source_ids": {},
     "source_urls": {
       "artificial_analysis": [
-        "https://artificialanalysis.ai/models/k2-mova-36b-mid5"
+        "https://artificialanalysis.ai/models/k2-horizon-mova-36b-a4b"
       ]
     },
     "variants": {
@@ -6957,37 +6811,6 @@
         "source_name": "MiMo-V2-Flash (Feb 2026)",
         "reasoning_effort": null,
         "deployment_profile": [],
-        "fallback_enabled": false,
-        "parameter_count": null
-      }
-    }
-  },
-  "z-ai/glm-5-2": {
-    "family_id": "z-ai/glm-5-2",
-    "canonical_family_name": "GLM-5.2",
-    "provider": "Z AI",
-    "version": "5.2",
-    "source_aliases": {
-      "artificial_analysis": [
-        "GLM-5.2 (Non-reasoning)"
-      ],
-      "llmstats": []
-    },
-    "source_ids": {},
-    "source_urls": {
-      "artificial_analysis": [
-        "https://artificialanalysis.ai/models/glm-5-2-non-reasoning"
-      ]
-    },
-    "variants": {
-      "z-ai/glm-5-2:non-reasoning": {
-        "variant_id": "z-ai/glm-5-2:non-reasoning",
-        "deployment_profile_id": "z-ai/glm-5-2:non-reasoning:deployment",
-        "source_name": "GLM-5.2 (Non-reasoning)",
-        "reasoning_effort": null,
-        "deployment_profile": [
-          "non-reasoning"
-        ],
         "fallback_enabled": false,
         "parameter_count": null
       }

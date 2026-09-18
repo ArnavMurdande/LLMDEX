@@ -402,11 +402,6 @@
         "similarity": 0.9231
       },
       {
-        "family_id": "deepseek/deepseek-v4-flash",
-        "family_name": "DeepSeek V4 Flash",
-        "similarity": 0.7556
-      },
-      {
         "family_id": "deepseek/deepseek-v4-1-flash",
         "family_name": "DeepSeek V4.1 Flash",
         "similarity": 0.7234
@@ -590,13 +585,19 @@
     "source_model_id": "deepseek-v4-pro-max",
     "source_model_url": "https://llm-stats.com/models/deepseek-v4-pro-max",
     "provider": "DeepSeek",
-    "candidate_family_id": "deepseek/deepseek-v4-pro",
-    "candidate_family_name": "DeepSeek V4 Pro",
-    "match_status": "matched_family",
-    "match_confidence": 0.95,
-    "match_method": "exact_provider_family_version",
-    "review_reason": null,
-    "competing_candidates": []
+    "candidate_family_id": "deepseek/deepseek-v4-pro-0813",
+    "candidate_family_name": "DeepSeek V4 Pro 0813",
+    "match_status": "identity_unresolved",
+    "match_confidence": 0.8,
+    "match_method": "fuzzy_review_candidate",
+    "review_reason": "Fuzzy candidates require manual approval and are excluded from scoring.",
+    "competing_candidates": [
+      {
+        "family_id": "deepseek/deepseek-v4-pro-0813",
+        "family_name": "DeepSeek V4 Pro 0813",
+        "similarity": 0.8571
+      }
+    ]
   },
   {
     "source": "llmstats",
@@ -615,11 +616,6 @@
         "family_id": "anthropic/claude-opus-5",
         "family_name": "Claude Opus 5",
         "similarity": 0.8571
-      },
-      {
-        "family_id": "anthropic/claude-sonnet-4-6",
-        "family_name": "Claude Sonnet 4.6",
-        "similarity": 0.75
       }
     ]
   },
@@ -671,13 +667,24 @@
     "source_model_id": "deepseek-v4-flash-max",
     "source_model_url": "https://llm-stats.com/models/deepseek-v4-flash-max",
     "provider": "DeepSeek",
-    "candidate_family_id": "deepseek/deepseek-v4-flash",
-    "candidate_family_name": "DeepSeek V4 Flash",
-    "match_status": "matched_family",
-    "match_confidence": 0.95,
-    "match_method": "exact_provider_family_version",
-    "review_reason": null,
-    "competing_candidates": []
+    "candidate_family_id": "deepseek/deepseek-v4-1-flash",
+    "candidate_family_name": "DeepSeek V4.1 Flash",
+    "match_status": "identity_unresolved",
+    "match_confidence": 0.8,
+    "match_method": "fuzzy_review_candidate",
+    "review_reason": "Fuzzy candidates require manual approval and are excluded from scoring.",
+    "competing_candidates": [
+      {
+        "family_id": "deepseek/deepseek-v4-1-flash",
+        "family_name": "DeepSeek V4.1 Flash",
+        "similarity": 0.9444
+      },
+      {
+        "family_id": "deepseek/deepseek-v4-flash-vision",
+        "family_name": "DeepSeek V4 Flash Vision",
+        "similarity": 0.8293
+      }
+    ]
   },
   {
     "source": "llmstats",
@@ -825,13 +832,19 @@
     "source_model_id": "claude-sonnet-4-6",
     "source_model_url": "https://llm-stats.com/models/claude-sonnet-4-6",
     "provider": "Anthropic",
-    "candidate_family_id": "anthropic/claude-sonnet-4-6",
-    "candidate_family_name": "Claude Sonnet 4.6",
-    "match_status": "matched_family",
-    "match_confidence": 0.95,
-    "match_method": "exact_provider_family_version",
-    "review_reason": null,
-    "competing_candidates": []
+    "candidate_family_id": "anthropic/claude-sonnet-5",
+    "candidate_family_name": "Claude Sonnet 5",
+    "match_status": "identity_unresolved",
+    "match_confidence": 0.8,
+    "match_method": "fuzzy_review_candidate",
+    "review_reason": "Fuzzy candidates require manual approval and are excluded from scoring.",
+    "competing_candidates": [
+      {
+        "family_id": "anthropic/claude-sonnet-5",
+        "family_name": "Claude Sonnet 5",
+        "similarity": 0.875
+      }
+    ]
   },
   {
     "source": "llmstats",
@@ -839,18 +852,13 @@
     "source_model_id": "claude-sonnet-4-5-20250929",
     "source_model_url": "https://llm-stats.com/models/claude-sonnet-4-5-20250929",
     "provider": "Anthropic",
-    "candidate_family_id": "anthropic/claude-sonnet-4-6",
-    "candidate_family_name": "Claude Sonnet 4.6",
-    "match_status": "ambiguous",
+    "candidate_family_id": "anthropic/claude-sonnet-5",
+    "candidate_family_name": "Claude Sonnet 5",
+    "match_status": "identity_unresolved",
     "match_confidence": 0.8,
     "match_method": "fuzzy_review_candidate",
     "review_reason": "Fuzzy candidates require manual approval and are excluded from scoring.",
     "competing_candidates": [
-      {
-        "family_id": "anthropic/claude-sonnet-4-6",
-        "family_name": "Claude Sonnet 4.6",
-        "similarity": 0.9412
-      },
       {
         "family_id": "anthropic/claude-sonnet-5",
         "family_name": "Claude Sonnet 5",
@@ -1106,18 +1114,13 @@
     "source_model_id": "claude-sonnet-4-20250514",
     "source_model_url": "https://llm-stats.com/models/claude-sonnet-4-20250514",
     "provider": "Anthropic",
-    "candidate_family_id": "anthropic/claude-sonnet-4-6",
-    "candidate_family_name": "Claude Sonnet 4.6",
-    "match_status": "ambiguous",
+    "candidate_family_id": "anthropic/claude-sonnet-5",
+    "candidate_family_name": "Claude Sonnet 5",
+    "match_status": "identity_unresolved",
     "match_confidence": 0.8,
     "match_method": "fuzzy_review_candidate",
     "review_reason": "Fuzzy candidates require manual approval and are excluded from scoring.",
     "competing_candidates": [
-      {
-        "family_id": "anthropic/claude-sonnet-4-6",
-        "family_name": "Claude Sonnet 4.6",
-        "similarity": 0.9375
-      },
       {
         "family_id": "anthropic/claude-sonnet-5",
         "family_name": "Claude Sonnet 5",
@@ -1187,11 +1190,6 @@
         "family_id": "anthropic/claude-sonnet-5",
         "family_name": "Claude Sonnet 5",
         "similarity": 0.8125
-      },
-      {
-        "family_id": "anthropic/claude-sonnet-4-6",
-        "family_name": "Claude Sonnet 4.6",
-        "similarity": 0.7647
       }
     ]
   },
@@ -1217,7 +1215,7 @@
     "provider": "Alibaba",
     "candidate_family_id": "alibaba/qwen3-6-35b-a3b",
     "candidate_family_name": "Qwen3.6 35B A3B",
-    "match_status": "ambiguous",
+    "match_status": "identity_unresolved",
     "match_confidence": 0.7879,
     "match_method": "fuzzy_review_candidate",
     "review_reason": "Fuzzy candidates require manual approval and are excluded from scoring.",
@@ -1225,11 +1223,6 @@
       {
         "family_id": "alibaba/qwen3-6-35b-a3b",
         "family_name": "Qwen3.6 35B A3B",
-        "similarity": 0.7879
-      },
-      {
-        "family_id": "alibaba/qwen3-5-35b-a3b",
-        "family_name": "Qwen3.5 35B A3B",
         "similarity": 0.7879
       }
     ]
@@ -1366,7 +1359,7 @@
     "provider": "Z AI",
     "candidate_family_id": "z-ai/glm-5-3",
     "candidate_family_name": "GLM-5.3",
-    "match_status": "ambiguous",
+    "match_status": "identity_unresolved",
     "match_confidence": 0.8,
     "match_method": "fuzzy_review_candidate",
     "review_reason": "Fuzzy candidates require manual approval and are excluded from scoring.",
@@ -1374,11 +1367,6 @@
       {
         "family_id": "z-ai/glm-5-3",
         "family_name": "GLM-5.3",
-        "similarity": 0.8571
-      },
-      {
-        "family_id": "z-ai/glm-5-2",
-        "family_name": "GLM-5.2",
         "similarity": 0.8571
       }
     ]
@@ -1573,13 +1561,39 @@
     "source_model_id": "qwen3.5-35b-a3b",
     "source_model_url": "https://llm-stats.com/models/qwen3.5-35b-a3b",
     "provider": "Alibaba",
-    "candidate_family_id": "alibaba/qwen3-5-35b-a3b",
-    "candidate_family_name": "Qwen3.5 35B A3B",
-    "match_status": "matched_family",
-    "match_confidence": 0.95,
-    "match_method": "exact_provider_family_version",
-    "review_reason": null,
-    "competing_candidates": []
+    "candidate_family_id": "alibaba/qwen3-6-35b-a3b",
+    "candidate_family_name": "Qwen3.6 35B A3B",
+    "match_status": "identity_unresolved",
+    "match_confidence": 0.8,
+    "match_method": "fuzzy_review_candidate",
+    "review_reason": "Fuzzy candidates require manual approval and are excluded from scoring.",
+    "competing_candidates": [
+      {
+        "family_id": "alibaba/qwen3-6-35b-a3b",
+        "family_name": "Qwen3.6 35B A3B",
+        "similarity": 0.9333
+      },
+      {
+        "family_id": "alibaba/qwen3-5-397b-a17b",
+        "family_name": "Qwen3.5 397B A17B",
+        "similarity": 0.8125
+      },
+      {
+        "family_id": "alibaba/qwen3-omni-30b-a3b",
+        "family_name": "Qwen3 Omni 30B A3B",
+        "similarity": 0.7879
+      },
+      {
+        "family_id": "alibaba/qwen3-5-122b-a10b",
+        "family_name": "Qwen3.5 122B A10B",
+        "similarity": 0.75
+      },
+      {
+        "family_id": "alibaba/qwen3-next-80b-a3b",
+        "family_name": "Qwen3 Next 80B A3B",
+        "similarity": 0.7273
+      }
+    ]
   },
   {
     "source": "llmstats",
@@ -1680,18 +1694,13 @@
     "source_model_id": "deepseek-v4-flash-0731",
     "source_model_url": "https://llm-stats.com/models/deepseek-v4-flash-0731",
     "provider": "DeepSeek",
-    "candidate_family_id": "deepseek/deepseek-v4-flash",
-    "candidate_family_name": "DeepSeek V4 Flash",
+    "candidate_family_id": "deepseek/deepseek-v4-1-flash",
+    "candidate_family_name": "DeepSeek V4.1 Flash",
     "match_status": "identity_unresolved",
     "match_confidence": 0.8,
     "match_method": "fuzzy_review_candidate",
     "review_reason": "Fuzzy candidates require manual approval and are excluded from scoring.",
     "competing_candidates": [
-      {
-        "family_id": "deepseek/deepseek-v4-flash",
-        "family_name": "DeepSeek V4 Flash",
-        "similarity": 0.8718
-      },
       {
         "family_id": "deepseek/deepseek-v4-1-flash",
         "family_name": "DeepSeek V4.1 Flash",
