@@ -5690,6 +5690,7 @@
       "artificial_analysis": [
         "GPT-6 Astra (high)",
         "GPT-6 Astra (low)",
+        "GPT-6 Astra (max)",
         "GPT-6 Astra (medium)",
         "GPT-6 Astra (xhigh)"
       ],
@@ -5700,6 +5701,7 @@
     "source_ids": {},
     "source_urls": {
       "artificial_analysis": [
+        "https://artificialanalysis.ai/models/gpt-6-astra",
         "https://artificialanalysis.ai/models/gpt-6-astra-high",
         "https://artificialanalysis.ai/models/gpt-6-astra-low",
         "https://artificialanalysis.ai/models/gpt-6-astra-medium",
@@ -5707,6 +5709,15 @@
       ]
     },
     "variants": {
+      "openai/gpt-6-astra:max": {
+        "variant_id": "openai/gpt-6-astra:max",
+        "deployment_profile_id": "openai/gpt-6-astra:max:deployment",
+        "source_name": "GPT-6 Astra (max)",
+        "reasoning_effort": "max",
+        "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": null
+      },
       "openai/gpt-6-astra:xhigh": {
         "variant_id": "openai/gpt-6-astra:xhigh",
         "deployment_profile_id": "openai/gpt-6-astra:xhigh:deployment",
@@ -6363,6 +6374,37 @@
         "source_name": "Step 3.7 Flash",
         "reasoning_effort": null,
         "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": null
+      }
+    }
+  },
+  "stepfun/step-5-preview": {
+    "family_id": "stepfun/step-5-preview",
+    "canonical_family_name": "Step 5 Preview",
+    "provider": "StepFun",
+    "version": null,
+    "source_aliases": {
+      "artificial_analysis": [
+        "Step 5 Preview"
+      ],
+      "llmstats": []
+    },
+    "source_ids": {},
+    "source_urls": {
+      "artificial_analysis": [
+        "https://artificialanalysis.ai/models/step-5"
+      ]
+    },
+    "variants": {
+      "stepfun/step-5-preview:preview": {
+        "variant_id": "stepfun/step-5-preview:preview",
+        "deployment_profile_id": "stepfun/step-5-preview:preview:deployment",
+        "source_name": "Step 5 Preview",
+        "reasoning_effort": null,
+        "deployment_profile": [
+          "preview"
+        ],
         "fallback_enabled": false,
         "parameter_count": null
       }

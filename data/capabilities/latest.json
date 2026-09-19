@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-18T14:37:24.401513+00:00",
+  "generated_at": "2026-09-19T13:59:44.301435+00:00",
   "methodology_version": "LLMStats source-native current",
   "source_updated_at": "2026-09-09T14:47:13.955425+00:00",
   "source_health": {
@@ -11,10 +11,12 @@
     ],
     "status": "degraded",
     "error_message": "No valid public leaderboard rows were extracted.",
-    "duration_seconds": 22.005,
-    "timestamp": "2026-09-18T14:37:46.413869+00:00",
+    "duration_seconds": 55.287,
+    "timestamp": "2026-09-19T14:00:39.596990+00:00",
     "parse_warning_count": 0,
     "warnings": [
+      "writing rendered table unavailable: TimeoutException",
+      "Rendered table and supplemental top-model payload were unavailable for: writing. Visible-table category scores remain available.",
       "Live extraction failed; serving the last-known-good LLMStats snapshot."
     ],
     "last_successful_update": "2026-09-09T14:47:13.955425+00:00",
