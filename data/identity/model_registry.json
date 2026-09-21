@@ -6350,6 +6350,46 @@
       }
     }
   },
+  "spacexai/grok-4-7": {
+    "family_id": "spacexai/grok-4-7",
+    "canonical_family_name": "Grok 4.7",
+    "provider": "SpaceXAI",
+    "version": "4.7",
+    "source_aliases": {
+      "artificial_analysis": [
+        "Grok 4.7 (high)",
+        "Grok 4.7 (xhigh)"
+      ],
+      "llmstats": []
+    },
+    "source_ids": {},
+    "source_urls": {
+      "artificial_analysis": [
+        "https://artificialanalysis.ai/models/grok-4-7",
+        "https://artificialanalysis.ai/models/grok-4-7-high"
+      ]
+    },
+    "variants": {
+      "spacexai/grok-4-7:xhigh": {
+        "variant_id": "spacexai/grok-4-7:xhigh",
+        "deployment_profile_id": "spacexai/grok-4-7:xhigh:deployment",
+        "source_name": "Grok 4.7 (xhigh)",
+        "reasoning_effort": "xhigh",
+        "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": null
+      },
+      "spacexai/grok-4-7:high": {
+        "variant_id": "spacexai/grok-4-7:high",
+        "deployment_profile_id": "spacexai/grok-4-7:high:deployment",
+        "source_name": "Grok 4.7 (high)",
+        "reasoning_effort": "high",
+        "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": null
+      }
+    }
+  },
   "stepfun/step-3-7-flash": {
     "family_id": "stepfun/step-3-7-flash",
     "canonical_family_name": "Step 3.7 Flash",
