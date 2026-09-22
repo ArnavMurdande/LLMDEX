@@ -622,9 +622,7 @@
         "Qwen3.8 27B (non-reasoning)",
         "Qwen3.8 27B (xhigh)"
       ],
-      "llmstats": [
-        "Qwen3.8-27B"
-      ]
+      "llmstats": []
     },
     "source_ids": {},
     "source_urls": {
@@ -1996,7 +1994,9 @@
       "artificial_analysis": [
         "DeepSeek V4.1 Flash (max)"
       ],
-      "llmstats": []
+      "llmstats": [
+        "DeepSeek-V4.1-Flash"
+      ]
     },
     "source_ids": {},
     "source_urls": {
@@ -6615,9 +6615,7 @@
       "artificial_analysis": [
         "Inkling Small"
       ],
-      "llmstats": [
-        "Inkling-Small"
-      ]
+      "llmstats": []
     },
     "source_ids": {},
     "source_urls": {
@@ -6864,6 +6862,37 @@
         "deployment_profile": [
           "non-reasoning"
         ],
+        "fallback_enabled": false,
+        "parameter_count": null
+      }
+    }
+  },
+  "xiaomi/mimo-v2-6-pro": {
+    "family_id": "xiaomi/mimo-v2-6-pro",
+    "canonical_family_name": "MiMo-V2.6-Pro",
+    "provider": "Xiaomi",
+    "version": "2.6",
+    "source_aliases": {
+      "artificial_analysis": [
+        "MiMo-V2.6-Pro"
+      ],
+      "llmstats": [
+        "MiMo-V2.6-Pro"
+      ]
+    },
+    "source_ids": {},
+    "source_urls": {
+      "artificial_analysis": [
+        "https://artificialanalysis.ai/models/mimo-v2-6-pro"
+      ]
+    },
+    "variants": {
+      "xiaomi/mimo-v2-6-pro:default": {
+        "variant_id": "xiaomi/mimo-v2-6-pro:default",
+        "deployment_profile_id": "xiaomi/mimo-v2-6-pro:default:deployment",
+        "source_name": "MiMo-V2.6-Pro",
+        "reasoning_effort": null,
+        "deployment_profile": [],
         "fallback_enabled": false,
         "parameter_count": null
       }

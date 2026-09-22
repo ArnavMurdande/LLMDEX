@@ -186,6 +186,26 @@
   },
   {
     "source": "llmstats",
+    "source_name": "Claude Opus 4.7",
+    "source_model_id": "claude-opus-4-7",
+    "source_model_url": "https://llm-stats.com/models/claude-opus-4-7",
+    "provider": "Anthropic",
+    "candidate_family_id": "anthropic/claude-opus-5",
+    "candidate_family_name": "Claude Opus 5",
+    "match_status": "identity_unresolved",
+    "match_confidence": 0.8,
+    "match_method": "fuzzy_review_candidate",
+    "review_reason": "Fuzzy candidates require manual approval and are excluded from scoring.",
+    "competing_candidates": [
+      {
+        "family_id": "anthropic/claude-opus-5",
+        "family_name": "Claude Opus 5",
+        "similarity": 0.8571
+      }
+    ]
+  },
+  {
+    "source": "llmstats",
     "source_name": "Qwen3.7 Max",
     "source_model_id": "qwen3.7-max",
     "source_model_url": "https://llm-stats.com/models/qwen3.7-max",
@@ -211,20 +231,20 @@
   },
   {
     "source": "llmstats",
-    "source_name": "Claude Opus 4.7",
-    "source_model_id": "claude-opus-4-7",
-    "source_model_url": "https://llm-stats.com/models/claude-opus-4-7",
-    "provider": "Anthropic",
-    "candidate_family_id": "anthropic/claude-opus-5",
-    "candidate_family_name": "Claude Opus 5",
+    "source_name": "GLM-5.2",
+    "source_model_id": "glm-5.2",
+    "source_model_url": "https://llm-stats.com/models/glm-5.2",
+    "provider": "Z AI",
+    "candidate_family_id": "z-ai/glm-5-3",
+    "candidate_family_name": "GLM-5.3",
     "match_status": "identity_unresolved",
     "match_confidence": 0.8,
     "match_method": "fuzzy_review_candidate",
     "review_reason": "Fuzzy candidates require manual approval and are excluded from scoring.",
     "competing_candidates": [
       {
-        "family_id": "anthropic/claude-opus-5",
-        "family_name": "Claude Opus 5",
+        "family_id": "z-ai/glm-5-3",
+        "family_name": "GLM-5.3",
         "similarity": 0.8571
       }
     ]
@@ -560,13 +580,18 @@
     "source_model_id": "mimo-v2-pro",
     "source_model_url": "https://llm-stats.com/models/mimo-v2-pro",
     "provider": "Xiaomi",
-    "candidate_family_id": "xiaomi/mimo-v2-5-pro",
-    "candidate_family_name": "MiMo-V2.5-Pro",
-    "match_status": "identity_unresolved",
+    "candidate_family_id": "xiaomi/mimo-v2-6-pro",
+    "candidate_family_name": "MiMo-V2.6-Pro",
+    "match_status": "ambiguous",
     "match_confidence": 0.8,
     "match_method": "fuzzy_review_candidate",
     "review_reason": "Fuzzy candidates require manual approval and are excluded from scoring.",
     "competing_candidates": [
+      {
+        "family_id": "xiaomi/mimo-v2-6-pro",
+        "family_name": "MiMo-V2.6-Pro",
+        "similarity": 0.9167
+      },
       {
         "family_id": "xiaomi/mimo-v2-5-pro",
         "family_name": "MiMo-V2.5-Pro",
@@ -901,31 +926,6 @@
         "family_id": "anthropic/claude-opus-5",
         "family_name": "Claude Opus 5",
         "similarity": 0.7333
-      }
-    ]
-  },
-  {
-    "source": "llmstats",
-    "source_name": "DeepSeek-V4-Flash-0731",
-    "source_model_id": "deepseek-v4-flash-0731",
-    "source_model_url": "https://llm-stats.com/models/deepseek-v4-flash-0731",
-    "provider": "DeepSeek",
-    "candidate_family_id": "deepseek/deepseek-v4-1-flash",
-    "candidate_family_name": "DeepSeek V4.1 Flash",
-    "match_status": "identity_unresolved",
-    "match_confidence": 0.8,
-    "match_method": "fuzzy_review_candidate",
-    "review_reason": "Fuzzy candidates require manual approval and are excluded from scoring.",
-    "competing_candidates": [
-      {
-        "family_id": "deepseek/deepseek-v4-1-flash",
-        "family_name": "DeepSeek V4.1 Flash",
-        "similarity": 0.8293
-      },
-      {
-        "family_id": "deepseek/deepseek-v4-flash-vision",
-        "family_name": "DeepSeek V4 Flash Vision",
-        "similarity": 0.7826
       }
     ]
   }

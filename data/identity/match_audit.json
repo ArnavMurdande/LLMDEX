@@ -43,16 +43,16 @@
   },
   {
     "source": "llmstats",
-    "source_name": "Muse Spark 1.3",
-    "source_model_id": "muse-spark-1.3",
-    "source_model_url": "https://llm-stats.com/models/muse-spark-1.3",
-    "provider": "Meta",
-    "candidate_family_id": "meta/muse-spark-1-3",
-    "candidate_family_name": "Muse Spark 1.3",
-    "match_status": "matched_family",
-    "match_confidence": 0.95,
-    "match_method": "exact_provider_family_version",
-    "review_reason": null,
+    "source_name": "Claude Mythos Preview",
+    "source_model_id": "claude-mythos-preview",
+    "source_model_url": "https://llm-stats.com/models/claude-mythos-preview",
+    "provider": "Anthropic",
+    "candidate_family_id": null,
+    "candidate_family_name": null,
+    "match_status": "source_missing",
+    "match_confidence": 0.0,
+    "match_method": "no_candidate",
+    "review_reason": "No corresponding family exists in the current AA population.",
     "competing_candidates": []
   },
   {
@@ -67,20 +67,6 @@
     "match_confidence": 0.95,
     "match_method": "exact_provider_family_version",
     "review_reason": null,
-    "competing_candidates": []
-  },
-  {
-    "source": "llmstats",
-    "source_name": "Claude Mythos Preview",
-    "source_model_id": "claude-mythos-preview",
-    "source_model_url": "https://llm-stats.com/models/claude-mythos-preview",
-    "provider": "Anthropic",
-    "candidate_family_id": null,
-    "candidate_family_name": null,
-    "match_status": "source_missing",
-    "match_confidence": 0.0,
-    "match_method": "no_candidate",
-    "review_reason": "No corresponding family exists in the current AA population.",
     "competing_candidates": []
   },
   {
@@ -105,16 +91,16 @@
   },
   {
     "source": "llmstats",
-    "source_name": "GLM-5.3",
-    "source_model_id": "glm-5.3",
-    "source_model_url": "https://llm-stats.com/models/glm-5.3",
-    "provider": "ZAI",
-    "candidate_family_id": null,
-    "candidate_family_name": null,
-    "match_status": "source_missing",
-    "match_confidence": 0.0,
-    "match_method": "no_candidate",
-    "review_reason": "No corresponding family exists in the current AA population.",
+    "source_name": "Muse Spark 1.3",
+    "source_model_id": "muse-spark-1.3",
+    "source_model_url": "https://llm-stats.com/models/muse-spark-1.3",
+    "provider": "Meta",
+    "candidate_family_id": "meta/muse-spark-1-3",
+    "candidate_family_name": "Muse Spark 1.3",
+    "match_status": "matched_family",
+    "match_confidence": 0.95,
+    "match_method": "exact_provider_family_version",
+    "review_reason": null,
     "competing_candidates": []
   },
   {
@@ -133,16 +119,30 @@
   },
   {
     "source": "llmstats",
-    "source_name": "DeepSeek-V4-Pro-0813",
-    "source_model_id": "deepseek-v4-pro-0813",
-    "source_model_url": "https://llm-stats.com/models/deepseek-v4-pro-0813",
-    "provider": "DeepSeek",
-    "candidate_family_id": "deepseek/deepseek-v4-pro-0813",
-    "candidate_family_name": "DeepSeek V4 Pro 0813",
-    "match_status": "matched_family",
-    "match_confidence": 0.95,
-    "match_method": "exact_provider_family_version",
-    "review_reason": null,
+    "source_name": "GLM-5.3",
+    "source_model_id": "glm-5.3",
+    "source_model_url": "https://llm-stats.com/models/glm-5.3",
+    "provider": "ZAI",
+    "candidate_family_id": null,
+    "candidate_family_name": null,
+    "match_status": "source_missing",
+    "match_confidence": 0.0,
+    "match_method": "no_candidate",
+    "review_reason": "No corresponding family exists in the current AA population.",
+    "competing_candidates": []
+  },
+  {
+    "source": "llmstats",
+    "source_name": "Atria Dawn Preview",
+    "source_model_id": "atria-dawn-preview",
+    "source_model_url": "https://llm-stats.com/models/atria-dawn-preview",
+    "provider": "Shanghai AI Laboratory",
+    "candidate_family_id": null,
+    "candidate_family_name": null,
+    "match_status": "source_missing",
+    "match_confidence": 0.0,
+    "match_method": "no_candidate",
+    "review_reason": "No corresponding family exists in the current AA population.",
     "competing_candidates": []
   },
   {
@@ -172,15 +172,43 @@
   },
   {
     "source": "llmstats",
-    "source_name": "Gemini 3.8 Flash",
-    "source_model_id": "gemini-3.8-flash",
-    "source_model_url": "https://llm-stats.com/models/gemini-3.8-flash",
-    "provider": "Google",
-    "candidate_family_id": "google/gemini-3-8-flash",
-    "candidate_family_name": "Gemini 3.8 Flash",
+    "source_name": "DeepSeek-V4-Pro-0813",
+    "source_model_id": "deepseek-v4-pro-0813",
+    "source_model_url": "https://llm-stats.com/models/deepseek-v4-pro-0813",
+    "provider": "DeepSeek",
+    "candidate_family_id": "deepseek/deepseek-v4-pro-0813",
+    "candidate_family_name": "DeepSeek V4 Pro 0813",
     "match_status": "matched_family",
     "match_confidence": 0.95,
     "match_method": "exact_provider_family_version",
+    "review_reason": null,
+    "competing_candidates": []
+  },
+  {
+    "source": "llmstats",
+    "source_name": "DeepSeek-V4.1-Flash",
+    "source_model_id": "deepseek-v4.1-flash",
+    "source_model_url": "https://llm-stats.com/models/deepseek-v4.1-flash",
+    "provider": "DeepSeek",
+    "candidate_family_id": "deepseek/deepseek-v4-1-flash",
+    "candidate_family_name": "DeepSeek V4.1 Flash",
+    "match_status": "matched_family",
+    "match_confidence": 0.95,
+    "match_method": "exact_provider_family_version",
+    "review_reason": null,
+    "competing_candidates": []
+  },
+  {
+    "source": "llmstats",
+    "source_name": "GPT-5.6 Terra",
+    "source_model_id": "gpt-5.6-terra",
+    "source_model_url": "https://llm-stats.com/models/gpt-5.6-terra",
+    "provider": "OpenAI",
+    "candidate_family_id": "openai/gpt-5-6-terra",
+    "candidate_family_name": "GPT-5.6 Terra",
+    "match_status": "matched_manual",
+    "match_confidence": 1.0,
+    "match_method": "approved_alias",
     "review_reason": null,
     "competing_candidates": []
   },
@@ -196,20 +224,6 @@
     "match_confidence": 0.0,
     "match_method": "no_candidate",
     "review_reason": "No corresponding family exists in the current AA population.",
-    "competing_candidates": []
-  },
-  {
-    "source": "llmstats",
-    "source_name": "GPT-5.6 Terra",
-    "source_model_id": "gpt-5.6-terra",
-    "source_model_url": "https://llm-stats.com/models/gpt-5.6-terra",
-    "provider": "OpenAI",
-    "candidate_family_id": "openai/gpt-5-6-terra",
-    "candidate_family_name": "GPT-5.6 Terra",
-    "match_status": "matched_manual",
-    "match_confidence": 1.0,
-    "match_method": "approved_alias",
-    "review_reason": null,
     "competing_candidates": []
   },
   {
@@ -234,6 +248,20 @@
   },
   {
     "source": "llmstats",
+    "source_name": "Gemini 3.8 Flash",
+    "source_model_id": "gemini-3.8-flash",
+    "source_model_url": "https://llm-stats.com/models/gemini-3.8-flash",
+    "provider": "Google",
+    "candidate_family_id": "google/gemini-3-8-flash",
+    "candidate_family_name": "Gemini 3.8 Flash",
+    "match_status": "matched_family",
+    "match_confidence": 0.95,
+    "match_method": "exact_provider_family_version",
+    "review_reason": null,
+    "competing_candidates": []
+  },
+  {
+    "source": "llmstats",
     "source_name": "GLM-5.3-Flash",
     "source_model_id": "glm-5.3-flash",
     "source_model_url": "https://llm-stats.com/models/glm-5.3-flash",
@@ -244,6 +272,20 @@
     "match_confidence": 0.0,
     "match_method": "no_candidate",
     "review_reason": "No corresponding family exists in the current AA population.",
+    "competing_candidates": []
+  },
+  {
+    "source": "llmstats",
+    "source_name": "MiMo-V2.6-Pro",
+    "source_model_id": "mimo-v2.6-pro",
+    "source_model_url": "https://llm-stats.com/models/mimo-v2.6-pro",
+    "provider": "Xiaomi",
+    "candidate_family_id": "xiaomi/mimo-v2-6-pro",
+    "candidate_family_name": "MiMo-V2.6-Pro",
+    "match_status": "matched_family",
+    "match_confidence": 0.95,
+    "match_method": "exact_provider_family_version",
+    "review_reason": null,
     "competing_candidates": []
   },
   {
@@ -312,6 +354,20 @@
   },
   {
     "source": "llmstats",
+    "source_name": "Grok 4.7",
+    "source_model_id": "grok-4.7",
+    "source_model_url": "https://llm-stats.com/models/grok-4.7",
+    "provider": "xAI",
+    "candidate_family_id": null,
+    "candidate_family_name": null,
+    "match_status": "source_missing",
+    "match_confidence": 0.0,
+    "match_method": "no_candidate",
+    "review_reason": "No corresponding family exists in the current AA population.",
+    "competing_candidates": []
+  },
+  {
+    "source": "llmstats",
     "source_name": "Gemini 3.7 Flash",
     "source_model_id": "gemini-3.7-flash",
     "source_model_url": "https://llm-stats.com/models/gemini-3.7-flash",
@@ -371,10 +427,38 @@
   },
   {
     "source": "llmstats",
+    "source_name": "Seed 2.1 Pro",
+    "source_model_id": "seed-2.1-pro",
+    "source_model_url": "https://llm-stats.com/models/seed-2.1-pro",
+    "provider": "Bytedance",
+    "candidate_family_id": null,
+    "candidate_family_name": null,
+    "match_status": "source_missing",
+    "match_confidence": 0.0,
+    "match_method": "no_candidate",
+    "review_reason": "No corresponding family exists in the current AA population.",
+    "competing_candidates": []
+  },
+  {
+    "source": "llmstats",
     "source_name": "Grok 4.6",
     "source_model_id": "grok-4.6",
     "source_model_url": "https://llm-stats.com/models/grok-4.6",
     "provider": "xAI",
+    "candidate_family_id": null,
+    "candidate_family_name": null,
+    "match_status": "source_missing",
+    "match_confidence": 0.0,
+    "match_method": "no_candidate",
+    "review_reason": "No corresponding family exists in the current AA population.",
+    "competing_candidates": []
+  },
+  {
+    "source": "llmstats",
+    "source_name": "MiMo-V2.6-Flash",
+    "source_model_id": "mimo-v2.6-flash",
+    "source_model_url": "https://llm-stats.com/models/mimo-v2.6-flash",
+    "provider": "Xiaomi",
     "candidate_family_id": null,
     "candidate_family_name": null,
     "match_status": "source_missing",
@@ -410,17 +494,37 @@
   },
   {
     "source": "llmstats",
-    "source_name": "Seed 2.1 Pro",
-    "source_model_id": "seed-2.1-pro",
-    "source_model_url": "https://llm-stats.com/models/seed-2.1-pro",
-    "provider": "Bytedance",
-    "candidate_family_id": null,
-    "candidate_family_name": null,
-    "match_status": "source_missing",
-    "match_confidence": 0.0,
-    "match_method": "no_candidate",
-    "review_reason": "No corresponding family exists in the current AA population.",
+    "source_name": "GPT-5.6 Luna",
+    "source_model_id": "gpt-5.6-luna",
+    "source_model_url": "https://llm-stats.com/models/gpt-5.6-luna",
+    "provider": "OpenAI",
+    "candidate_family_id": "openai/gpt-5-6-luna",
+    "candidate_family_name": "GPT-5.6 Luna",
+    "match_status": "matched_family",
+    "match_confidence": 0.95,
+    "match_method": "exact_provider_family_version",
+    "review_reason": null,
     "competing_candidates": []
+  },
+  {
+    "source": "llmstats",
+    "source_name": "Claude Opus 4.7",
+    "source_model_id": "claude-opus-4-7",
+    "source_model_url": "https://llm-stats.com/models/claude-opus-4-7",
+    "provider": "Anthropic",
+    "candidate_family_id": "anthropic/claude-opus-5",
+    "candidate_family_name": "Claude Opus 5",
+    "match_status": "identity_unresolved",
+    "match_confidence": 0.8,
+    "match_method": "fuzzy_review_candidate",
+    "review_reason": "Fuzzy candidates require manual approval and are excluded from scoring.",
+    "competing_candidates": [
+      {
+        "family_id": "anthropic/claude-opus-5",
+        "family_name": "Claude Opus 5",
+        "similarity": 0.8571
+      }
+    ]
   },
   {
     "source": "llmstats",
@@ -452,14 +556,20 @@
     "source_name": "GLM-5.2",
     "source_model_id": "glm-5.2",
     "source_model_url": "https://llm-stats.com/models/glm-5.2",
-    "provider": "ZAI",
-    "candidate_family_id": null,
-    "candidate_family_name": null,
-    "match_status": "source_missing",
-    "match_confidence": 0.0,
-    "match_method": "no_candidate",
-    "review_reason": "No corresponding family exists in the current AA population.",
-    "competing_candidates": []
+    "provider": "Z AI",
+    "candidate_family_id": "z-ai/glm-5-3",
+    "candidate_family_name": "GLM-5.3",
+    "match_status": "identity_unresolved",
+    "match_confidence": 0.8,
+    "match_method": "fuzzy_review_candidate",
+    "review_reason": "Fuzzy candidates require manual approval and are excluded from scoring.",
+    "competing_candidates": [
+      {
+        "family_id": "z-ai/glm-5-3",
+        "family_name": "GLM-5.3",
+        "similarity": 0.8571
+      }
+    ]
   },
   {
     "source": "llmstats",
@@ -473,82 +583,6 @@
     "match_confidence": 0.0,
     "match_method": "no_candidate",
     "review_reason": "No corresponding family exists in the current AA population.",
-    "competing_candidates": []
-  },
-  {
-    "source": "llmstats",
-    "source_name": "GPT-5.6 Luna",
-    "source_model_id": "gpt-5.6-luna",
-    "source_model_url": "https://llm-stats.com/models/gpt-5.6-luna",
-    "provider": "OpenAI",
-    "candidate_family_id": "openai/gpt-5-6-luna",
-    "candidate_family_name": "GPT-5.6 Luna",
-    "match_status": "matched_family",
-    "match_confidence": 0.95,
-    "match_method": "exact_provider_family_version",
-    "review_reason": null,
-    "competing_candidates": []
-  },
-  {
-    "source": "llmstats",
-    "source_name": "Qwen3.8-27B",
-    "source_model_id": "qwen3.8-27b",
-    "source_model_url": "https://llm-stats.com/models/qwen3.8-27b",
-    "provider": "Alibaba",
-    "candidate_family_id": "alibaba/qwen3-8-27b",
-    "candidate_family_name": "Qwen3.8 27B",
-    "match_status": "matched_family",
-    "match_confidence": 0.95,
-    "match_method": "exact_provider_family_version",
-    "review_reason": null,
-    "competing_candidates": []
-  },
-  {
-    "source": "llmstats",
-    "source_name": "Claude Opus 4.7",
-    "source_model_id": "claude-opus-4-7",
-    "source_model_url": "https://llm-stats.com/models/claude-opus-4-7",
-    "provider": "Anthropic",
-    "candidate_family_id": "anthropic/claude-opus-5",
-    "candidate_family_name": "Claude Opus 5",
-    "match_status": "identity_unresolved",
-    "match_confidence": 0.8,
-    "match_method": "fuzzy_review_candidate",
-    "review_reason": "Fuzzy candidates require manual approval and are excluded from scoring.",
-    "competing_candidates": [
-      {
-        "family_id": "anthropic/claude-opus-5",
-        "family_name": "Claude Opus 5",
-        "similarity": 0.8571
-      }
-    ]
-  },
-  {
-    "source": "llmstats",
-    "source_name": "Kimi K2.6",
-    "source_model_id": "kimi-k2.6",
-    "source_model_url": "https://llm-stats.com/models/kimi-k2.6",
-    "provider": "Moonshot AI",
-    "candidate_family_id": null,
-    "candidate_family_name": null,
-    "match_status": "source_missing",
-    "match_confidence": 0.0,
-    "match_method": "no_candidate",
-    "review_reason": "No corresponding family exists in the current AA population.",
-    "competing_candidates": []
-  },
-  {
-    "source": "llmstats",
-    "source_name": "Hy3",
-    "source_model_id": "hy3",
-    "source_model_url": "https://llm-stats.com/models/hy3",
-    "provider": "Tencent",
-    "candidate_family_id": "tencent/hy3",
-    "candidate_family_name": "Hy3",
-    "match_status": "matched_family",
-    "match_confidence": 0.95,
-    "match_method": "exact_provider_family_version",
-    "review_reason": null,
     "competing_candidates": []
   },
   {
@@ -780,16 +814,16 @@
   },
   {
     "source": "llmstats",
-    "source_name": "Gemini 3 Pro",
-    "source_model_id": "gemini-3-pro-preview",
-    "source_model_url": "https://llm-stats.com/models/gemini-3-pro-preview",
-    "provider": "Google",
-    "candidate_family_id": null,
-    "candidate_family_name": null,
-    "match_status": "source_missing",
-    "match_confidence": 0.0,
-    "match_method": "no_candidate",
-    "review_reason": "No corresponding family exists in the current AA population.",
+    "source_name": "GPT-5.5 Pro",
+    "source_model_id": "gpt-5.5-pro",
+    "source_model_url": "https://llm-stats.com/models/gpt-5.5-pro",
+    "provider": "OpenAI",
+    "candidate_family_id": "openai/gpt-5-5-pro",
+    "candidate_family_name": "GPT-5.5 Pro",
+    "match_status": "matched_family",
+    "match_confidence": 0.95,
+    "match_method": "exact_provider_family_version",
+    "review_reason": null,
     "competing_candidates": []
   },
   {
@@ -1134,13 +1168,18 @@
     "source_model_id": "mimo-v2-pro",
     "source_model_url": "https://llm-stats.com/models/mimo-v2-pro",
     "provider": "Xiaomi",
-    "candidate_family_id": "xiaomi/mimo-v2-5-pro",
-    "candidate_family_name": "MiMo-V2.5-Pro",
-    "match_status": "identity_unresolved",
+    "candidate_family_id": "xiaomi/mimo-v2-6-pro",
+    "candidate_family_name": "MiMo-V2.6-Pro",
+    "match_status": "ambiguous",
     "match_confidence": 0.8,
     "match_method": "fuzzy_review_candidate",
     "review_reason": "Fuzzy candidates require manual approval and are excluded from scoring.",
     "competing_candidates": [
+      {
+        "family_id": "xiaomi/mimo-v2-6-pro",
+        "family_name": "MiMo-V2.6-Pro",
+        "similarity": 0.9167
+      },
       {
         "family_id": "xiaomi/mimo-v2-5-pro",
         "family_name": "MiMo-V2.5-Pro",
@@ -1297,12 +1336,26 @@
   },
   {
     "source": "llmstats",
-    "source_name": "GPT-5.5 Pro",
-    "source_model_id": "gpt-5.5-pro",
-    "source_model_url": "https://llm-stats.com/models/gpt-5.5-pro",
-    "provider": "OpenAI",
-    "candidate_family_id": "openai/gpt-5-5-pro",
-    "candidate_family_name": "GPT-5.5 Pro",
+    "source_name": "Kimi K2.6",
+    "source_model_id": "kimi-k2.6",
+    "source_model_url": "https://llm-stats.com/models/kimi-k2.6",
+    "provider": "Moonshot AI",
+    "candidate_family_id": null,
+    "candidate_family_name": null,
+    "match_status": "source_missing",
+    "match_confidence": 0.0,
+    "match_method": "no_candidate",
+    "review_reason": "No corresponding family exists in the current AA population.",
+    "competing_candidates": []
+  },
+  {
+    "source": "llmstats",
+    "source_name": "Hy3",
+    "source_model_id": "hy3",
+    "source_model_url": "https://llm-stats.com/models/hy3",
+    "provider": "Tencent",
+    "candidate_family_id": "tencent/hy3",
+    "candidate_family_name": "Hy3",
     "match_status": "matched_family",
     "match_confidence": 0.95,
     "match_method": "exact_provider_family_version",
@@ -1370,20 +1423,6 @@
         "similarity": 0.8571
       }
     ]
-  },
-  {
-    "source": "llmstats",
-    "source_name": "Inkling-Small",
-    "source_model_id": "inkling-small",
-    "source_model_url": "https://llm-stats.com/models/inkling-small",
-    "provider": "Thinking Machines",
-    "candidate_family_id": "thinking-machines/inkling-small",
-    "candidate_family_name": "Inkling Small",
-    "match_status": "matched_family",
-    "match_confidence": 0.95,
-    "match_method": "exact_provider_family_version",
-    "review_reason": null,
-    "competing_candidates": []
   },
   {
     "source": "llmstats",
@@ -1687,30 +1726,5 @@
     "match_method": "exact_provider_family_version",
     "review_reason": null,
     "competing_candidates": []
-  },
-  {
-    "source": "llmstats",
-    "source_name": "DeepSeek-V4-Flash-0731",
-    "source_model_id": "deepseek-v4-flash-0731",
-    "source_model_url": "https://llm-stats.com/models/deepseek-v4-flash-0731",
-    "provider": "DeepSeek",
-    "candidate_family_id": "deepseek/deepseek-v4-1-flash",
-    "candidate_family_name": "DeepSeek V4.1 Flash",
-    "match_status": "identity_unresolved",
-    "match_confidence": 0.8,
-    "match_method": "fuzzy_review_candidate",
-    "review_reason": "Fuzzy candidates require manual approval and are excluded from scoring.",
-    "competing_candidates": [
-      {
-        "family_id": "deepseek/deepseek-v4-1-flash",
-        "family_name": "DeepSeek V4.1 Flash",
-        "similarity": 0.8293
-      },
-      {
-        "family_id": "deepseek/deepseek-v4-flash-vision",
-        "family_name": "DeepSeek V4 Flash Vision",
-        "similarity": 0.7826
-      }
-    ]
   }
 ]

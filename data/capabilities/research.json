@@ -1,27 +1,23 @@
 {
-  "generated_at": "2026-09-21T16:33:54.104058+00:00",
+  "generated_at": "2026-09-22T15:08:42.601689+00:00",
   "methodology_version": "LLMStats source-native current",
   "source": "LLMStats",
-  "source_updated_at": "2026-09-09T14:47:13.955425+00:00",
+  "source_updated_at": "2026-09-22T15:09:06.795284+00:00",
   "source_health": {
     "source": "LLMStats",
-    "rows_scraped": 96,
+    "rows_scraped": 97,
     "expected_range": [
       20,
       250
     ],
-    "status": "degraded",
-    "error_message": "No valid public leaderboard rows were extracted.",
-    "duration_seconds": 23.094,
-    "timestamp": "2026-09-21T16:34:17.203847+00:00",
+    "status": "healthy",
+    "error_message": null,
+    "duration_seconds": 24.185,
+    "timestamp": "2026-09-22T15:09:06.795284+00:00",
     "parse_warning_count": 0,
-    "warnings": [
-      "Live extraction failed; serving the last-known-good LLMStats snapshot."
-    ],
-    "last_successful_update": "2026-09-09T14:47:13.955425+00:00",
-    "schema_changes": [
-      "Missing required columns: Organization"
-    ]
+    "warnings": [],
+    "last_successful_update": "2026-09-22T15:09:06.795284+00:00",
+    "schema_changes": []
   },
   "capability": "research",
   "benchmark_columns": [
@@ -31,7 +27,7 @@
       "version": "source-reported",
       "source_name": "BrowseComp",
       "source_url": "https://llm-stats.com/benchmarks/browsecomp",
-      "source_population": 66
+      "source_population": 67
     },
     {
       "benchmark_id": "llmstats__browsecomp-zh",
@@ -47,7 +43,7 @@
       "version": null,
       "source_name": "WideSearch",
       "source_url": "https://llm-stats.com/benchmarks/widesearch",
-      "source_population": 14
+      "source_population": 15
     },
     {
       "benchmark_id": "llmstats__deepsearchqa",
@@ -55,7 +51,7 @@
       "version": null,
       "source_name": "DeepSearchQA",
       "source_url": "https://llm-stats.com/benchmarks/deepsearchqa",
-      "source_population": 10
+      "source_population": 11
     },
     {
       "benchmark_id": "llmstats__draco",
@@ -109,7 +105,80 @@
   "rows": [
     {
       "category_rank": 1.0,
-      "category_score": 34.4,
+      "category_score": 36.1,
+      "source_name": "Atria Dawn Preview",
+      "provider": "Shanghai AI Laboratory",
+      "source_model_id": "atria-dawn-preview",
+      "source_model_url": "https://llm-stats.com/models/atria-dawn-preview",
+      "license": "Open Source",
+      "family_id": "shanghai-ai-laboratory/atria-dawn-preview",
+      "matched_aa_family_id": null,
+      "match_status": "source_missing",
+      "match_confidence": 0.0,
+      "score_status": "llmstats_only",
+      "score_status_label": "LLMStats only",
+      "availability_class": "unknown",
+      "is_sota": false,
+      "is_open_sota": false,
+      "rank_evidence": "source_rendered_table_order",
+      "benchmark_observations": {
+        "browsecomp": {
+          "benchmark_id": "browsecomp",
+          "canonical_name": "BrowseComp",
+          "source_name": "BrowseComp",
+          "value": 92.5,
+          "raw_value": "92.5%",
+          "version": "source-reported",
+          "provenance": "Source observation",
+          "source_url": "https://llm-stats.com/benchmarks/browsecomp",
+          "capabilities": [
+            "research"
+          ],
+          "source_column_indices": {
+            "research": 7
+          },
+          "source_population": 67
+        },
+        "llmstats__widesearch": {
+          "benchmark_id": "llmstats__widesearch",
+          "canonical_name": "WideSearch",
+          "source_name": "WideSearch",
+          "value": 81.9,
+          "raw_value": "81.9%",
+          "version": null,
+          "provenance": "LLMStats public capability leaderboard",
+          "source_url": "https://llm-stats.com/benchmarks/widesearch",
+          "capabilities": [
+            "research"
+          ],
+          "source_column_indices": {
+            "research": 9
+          },
+          "source_population": 15
+        },
+        "llmstats__deepsearchqa": {
+          "benchmark_id": "llmstats__deepsearchqa",
+          "canonical_name": "DeepSearchQA",
+          "source_name": "DeepSearchQA",
+          "value": 96.0,
+          "raw_value": "96.0%",
+          "version": null,
+          "provenance": "LLMStats public capability leaderboard",
+          "source_url": "https://llm-stats.com/benchmarks/deepsearchqa",
+          "capabilities": [
+            "research"
+          ],
+          "source_column_indices": {
+            "research": 10
+          },
+          "source_population": 11
+        }
+      },
+      "source_updated_at": null
+    },
+    {
+      "category_rank": 2.0,
+      "category_score": 33.0,
       "source_name": "Kimi K3",
       "provider": "MoonshotAI",
       "source_model_id": "kimi-k3",
@@ -141,7 +210,7 @@
           "source_column_indices": {
             "research": 7
           },
-          "source_population": 66
+          "source_population": 67
         },
         "llmstats__deepsearchqa": {
           "benchmark_id": "llmstats__deepsearchqa",
@@ -158,14 +227,14 @@
           "source_column_indices": {
             "research": 10
           },
-          "source_population": 10
+          "source_population": 11
         }
       },
       "source_updated_at": null
     },
     {
-      "category_rank": 2.0,
-      "category_score": 32.6,
+      "category_rank": 3.0,
+      "category_score": 31.5,
       "source_name": "GPT-6 Astra",
       "provider": "OpenAI",
       "source_model_id": "gpt-6-astra",
@@ -197,14 +266,14 @@
           "source_column_indices": {
             "research": 7
           },
-          "source_population": 66
+          "source_population": 67
         }
       },
       "source_updated_at": null
     },
     {
-      "category_rank": 3.0,
-      "category_score": 30.2,
+      "category_rank": 4.0,
+      "category_score": 29.3,
       "source_name": "Claude Opus 5",
       "provider": "Anthropic",
       "source_model_id": "claude-opus-5",
@@ -236,14 +305,14 @@
           "source_column_indices": {
             "research": 7
           },
-          "source_population": 66
+          "source_population": 67
         }
       },
       "source_updated_at": null
     },
     {
-      "category_rank": 4.0,
-      "category_score": 29.2,
+      "category_rank": 5.0,
+      "category_score": 28.5,
       "source_name": "GPT-5.6 Sol",
       "provider": "OpenAI",
       "source_model_id": "gpt-5.6-sol",
@@ -275,148 +344,14 @@
           "source_column_indices": {
             "research": 7
           },
-          "source_population": 66
-        }
-      },
-      "source_updated_at": null
-    },
-    {
-      "category_rank": 5.0,
-      "category_score": 28.3,
-      "source_name": "GPT-5.5 Pro",
-      "provider": "OpenAI",
-      "source_model_id": "gpt-5.5-pro",
-      "source_model_url": "https://llm-stats.com/models/gpt-5.5-pro",
-      "license": "Proprietary",
-      "family_id": "openai/gpt-5-5-pro",
-      "matched_aa_family_id": "openai/gpt-5-5-pro",
-      "match_status": "matched_family",
-      "match_confidence": 0.95,
-      "score_status": "consensus",
-      "score_status_label": "Consensus",
-      "availability_class": "proprietary",
-      "is_sota": false,
-      "is_open_sota": false,
-      "rank_evidence": "source_rendered_table_order",
-      "benchmark_observations": {
-        "browsecomp": {
-          "benchmark_id": "browsecomp",
-          "canonical_name": "BrowseComp",
-          "source_name": "BrowseComp",
-          "value": 90.1,
-          "raw_value": "90.1%",
-          "version": "source-reported",
-          "provenance": "Source observation",
-          "source_url": "https://llm-stats.com/benchmarks/browsecomp",
-          "capabilities": [
-            "research"
-          ],
-          "source_column_indices": {
-            "research": 7
-          },
-          "source_population": 66
+          "source_population": 67
         }
       },
       "source_updated_at": null
     },
     {
       "category_rank": 6.0,
-      "category_score": 27.5,
-      "source_name": "GPT-5.6 Terra",
-      "provider": "OpenAI",
-      "source_model_id": "gpt-5.6-terra",
-      "source_model_url": "https://llm-stats.com/models/gpt-5.6-terra",
-      "license": "Proprietary",
-      "family_id": "openai/gpt-5-6-terra",
-      "matched_aa_family_id": "openai/gpt-5-6-terra",
-      "match_status": "matched_manual",
-      "match_confidence": 1.0,
-      "score_status": "consensus",
-      "score_status_label": "Consensus",
-      "availability_class": "proprietary",
-      "is_sota": false,
-      "is_open_sota": false,
-      "rank_evidence": "source_rendered_table_order",
-      "benchmark_observations": {
-        "browsecomp": {
-          "benchmark_id": "browsecomp",
-          "canonical_name": "BrowseComp",
-          "source_name": "BrowseComp",
-          "value": 87.5,
-          "raw_value": "87.5%",
-          "version": "source-reported",
-          "provenance": "Source observation",
-          "source_url": "https://llm-stats.com/benchmarks/browsecomp",
-          "capabilities": [
-            "research"
-          ],
-          "source_column_indices": {
-            "research": 7
-          },
-          "source_population": 66
-        }
-      },
-      "source_updated_at": null
-    },
-    {
-      "category_rank": 7.0,
-      "category_score": 27.4,
-      "source_name": "Claude Opus 4.8",
-      "provider": "Anthropic",
-      "source_model_id": "claude-opus-4-8",
-      "source_model_url": "https://llm-stats.com/models/claude-opus-4-8",
-      "license": "Proprietary",
-      "family_id": "anthropic/claude-opus-4-8",
-      "matched_aa_family_id": null,
-      "match_status": "identity_unresolved",
-      "match_confidence": 0.8,
-      "score_status": "identity_review",
-      "score_status_label": "Identity review",
-      "availability_class": "unknown",
-      "is_sota": false,
-      "is_open_sota": false,
-      "rank_evidence": "source_rendered_table_order",
-      "benchmark_observations": {
-        "browsecomp": {
-          "benchmark_id": "browsecomp",
-          "canonical_name": "BrowseComp",
-          "source_name": "BrowseComp",
-          "value": 84.3,
-          "raw_value": "84.3%",
-          "version": "source-reported",
-          "provenance": "Source observation",
-          "source_url": "https://llm-stats.com/benchmarks/browsecomp",
-          "capabilities": [
-            "research"
-          ],
-          "source_column_indices": {
-            "research": 7
-          },
-          "source_population": 66
-        },
-        "llmstats__deepsearchqa": {
-          "benchmark_id": "llmstats__deepsearchqa",
-          "canonical_name": "DeepSearchQA",
-          "source_name": "DeepSearchQA",
-          "value": 93.1,
-          "raw_value": "93.1%",
-          "version": null,
-          "provenance": "LLMStats public capability leaderboard",
-          "source_url": "https://llm-stats.com/benchmarks/deepsearchqa",
-          "capabilities": [
-            "research"
-          ],
-          "source_column_indices": {
-            "research": 10
-          },
-          "source_population": 10
-        }
-      },
-      "source_updated_at": null
-    },
-    {
-      "category_rank": 8.0,
-      "category_score": 27.4,
+      "category_score": 28.2,
       "source_name": "Hy4 preview",
       "provider": "Tencent",
       "source_model_id": "hy4-preview",
@@ -448,7 +383,7 @@
           "source_column_indices": {
             "research": 9
           },
-          "source_population": 14
+          "source_population": 15
         },
         "llmstats__draco": {
           "benchmark_id": "llmstats__draco",
@@ -471,20 +406,20 @@
       "source_updated_at": null
     },
     {
-      "category_rank": 9.0,
-      "category_score": 26.7,
-      "source_name": "Claude Mythos Preview",
-      "provider": "Anthropic",
-      "source_model_id": "claude-mythos-preview",
-      "source_model_url": "https://llm-stats.com/models/claude-mythos-preview",
+      "category_rank": 7.0,
+      "category_score": 27.6,
+      "source_name": "GPT-5.5 Pro",
+      "provider": "OpenAI",
+      "source_model_id": "gpt-5.5-pro",
+      "source_model_url": "https://llm-stats.com/models/gpt-5.5-pro",
       "license": "Proprietary",
-      "family_id": "anthropic/claude-mythos-preview",
-      "matched_aa_family_id": null,
-      "match_status": "source_missing",
-      "match_confidence": 0.0,
-      "score_status": "llmstats_only",
-      "score_status_label": "LLMStats only",
-      "availability_class": "unknown",
+      "family_id": "openai/gpt-5-5-pro",
+      "matched_aa_family_id": "openai/gpt-5-5-pro",
+      "match_status": "matched_family",
+      "match_confidence": 0.95,
+      "score_status": "consensus",
+      "score_status_label": "Consensus",
+      "availability_class": "proprietary",
       "is_sota": false,
       "is_open_sota": false,
       "rank_evidence": "source_rendered_table_order",
@@ -493,8 +428,8 @@
           "benchmark_id": "browsecomp",
           "canonical_name": "BrowseComp",
           "source_name": "BrowseComp",
-          "value": 86.9,
-          "raw_value": "86.9%",
+          "value": 90.1,
+          "raw_value": "90.1%",
           "version": "source-reported",
           "provenance": "Source observation",
           "source_url": "https://llm-stats.com/benchmarks/browsecomp",
@@ -504,14 +439,109 @@
           "source_column_indices": {
             "research": 7
           },
-          "source_population": 66
+          "source_population": 67
+        }
+      },
+      "source_updated_at": null
+    },
+    {
+      "category_rank": 8.0,
+      "category_score": 26.9,
+      "source_name": "GPT-5.6 Terra",
+      "provider": "OpenAI",
+      "source_model_id": "gpt-5.6-terra",
+      "source_model_url": "https://llm-stats.com/models/gpt-5.6-terra",
+      "license": "Proprietary",
+      "family_id": "openai/gpt-5-6-terra",
+      "matched_aa_family_id": "openai/gpt-5-6-terra",
+      "match_status": "matched_manual",
+      "match_confidence": 1.0,
+      "score_status": "consensus",
+      "score_status_label": "Consensus",
+      "availability_class": "proprietary",
+      "is_sota": false,
+      "is_open_sota": false,
+      "rank_evidence": "source_rendered_table_order",
+      "benchmark_observations": {
+        "browsecomp": {
+          "benchmark_id": "browsecomp",
+          "canonical_name": "BrowseComp",
+          "source_name": "BrowseComp",
+          "value": 87.5,
+          "raw_value": "87.5%",
+          "version": "source-reported",
+          "provenance": "Source observation",
+          "source_url": "https://llm-stats.com/benchmarks/browsecomp",
+          "capabilities": [
+            "research"
+          ],
+          "source_column_indices": {
+            "research": 7
+          },
+          "source_population": 67
+        }
+      },
+      "source_updated_at": null
+    },
+    {
+      "category_rank": 9.0,
+      "category_score": 26.9,
+      "source_name": "Claude Opus 4.8",
+      "provider": "Anthropic",
+      "source_model_id": "claude-opus-4-8",
+      "source_model_url": "https://llm-stats.com/models/claude-opus-4-8",
+      "license": "Proprietary",
+      "family_id": "anthropic/claude-opus-4-8",
+      "matched_aa_family_id": null,
+      "match_status": "identity_unresolved",
+      "match_confidence": 0.8,
+      "score_status": "identity_review",
+      "score_status_label": "Identity review",
+      "availability_class": "unknown",
+      "is_sota": false,
+      "is_open_sota": false,
+      "rank_evidence": "source_rendered_table_order",
+      "benchmark_observations": {
+        "browsecomp": {
+          "benchmark_id": "browsecomp",
+          "canonical_name": "BrowseComp",
+          "source_name": "BrowseComp",
+          "value": 84.3,
+          "raw_value": "84.3%",
+          "version": "source-reported",
+          "provenance": "Source observation",
+          "source_url": "https://llm-stats.com/benchmarks/browsecomp",
+          "capabilities": [
+            "research"
+          ],
+          "source_column_indices": {
+            "research": 7
+          },
+          "source_population": 67
+        },
+        "llmstats__deepsearchqa": {
+          "benchmark_id": "llmstats__deepsearchqa",
+          "canonical_name": "DeepSearchQA",
+          "source_name": "DeepSearchQA",
+          "value": 93.1,
+          "raw_value": "93.1%",
+          "version": null,
+          "provenance": "LLMStats public capability leaderboard",
+          "source_url": "https://llm-stats.com/benchmarks/deepsearchqa",
+          "capabilities": [
+            "research"
+          ],
+          "source_column_indices": {
+            "research": 10
+          },
+          "source_population": 11
         }
       },
       "source_updated_at": null
     },
     {
       "category_rank": 10.0,
-      "category_score": 26.2,
+      "category_score": 26.3,
       "source_name": "Kimi K2.6",
       "provider": "Moonshot AI",
       "source_model_id": "kimi-k2.6",
@@ -543,7 +573,7 @@
           "source_column_indices": {
             "research": 7
           },
-          "source_population": 66
+          "source_population": 67
         },
         "llmstats__widesearch": {
           "benchmark_id": "llmstats__widesearch",
@@ -560,7 +590,7 @@
           "source_column_indices": {
             "research": 9
           },
-          "source_population": 14
+          "source_population": 15
         },
         "llmstats__deepsearchqa": {
           "benchmark_id": "llmstats__deepsearchqa",
@@ -577,14 +607,53 @@
           "source_column_indices": {
             "research": 10
           },
-          "source_population": 10
+          "source_population": 11
         }
       },
       "source_updated_at": null
     },
     {
       "category_rank": 11.0,
-      "category_score": 25.7,
+      "category_score": 26.2,
+      "source_name": "Claude Mythos Preview",
+      "provider": "Anthropic",
+      "source_model_id": "claude-mythos-preview",
+      "source_model_url": "https://llm-stats.com/models/claude-mythos-preview",
+      "license": "Proprietary",
+      "family_id": "anthropic/claude-mythos-preview",
+      "matched_aa_family_id": null,
+      "match_status": "source_missing",
+      "match_confidence": 0.0,
+      "score_status": "llmstats_only",
+      "score_status_label": "LLMStats only",
+      "availability_class": "unknown",
+      "is_sota": false,
+      "is_open_sota": false,
+      "rank_evidence": "source_rendered_table_order",
+      "benchmark_observations": {
+        "browsecomp": {
+          "benchmark_id": "browsecomp",
+          "canonical_name": "BrowseComp",
+          "source_name": "BrowseComp",
+          "value": 86.9,
+          "raw_value": "86.9%",
+          "version": "source-reported",
+          "provenance": "Source observation",
+          "source_url": "https://llm-stats.com/benchmarks/browsecomp",
+          "capabilities": [
+            "research"
+          ],
+          "source_column_indices": {
+            "research": 7
+          },
+          "source_population": 67
+        }
+      },
+      "source_updated_at": null
+    },
+    {
+      "category_rank": 12.0,
+      "category_score": 25.5,
       "source_name": "Hy3",
       "provider": "Tencent",
       "source_model_id": "hy3",
@@ -616,7 +685,7 @@
           "source_column_indices": {
             "research": 7
           },
-          "source_population": 66
+          "source_population": 67
         },
         "llmstats__widesearch": {
           "benchmark_id": "llmstats__widesearch",
@@ -633,7 +702,7 @@
           "source_column_indices": {
             "research": 9
           },
-          "source_population": 14
+          "source_population": 15
         },
         "llmstats__deepsearchqa": {
           "benchmark_id": "llmstats__deepsearchqa",
@@ -650,14 +719,14 @@
           "source_column_indices": {
             "research": 10
           },
-          "source_population": 10
+          "source_population": 11
         }
       },
       "source_updated_at": null
     },
     {
-      "category_rank": 12.0,
-      "category_score": 25.6,
+      "category_rank": 13.0,
+      "category_score": 25.1,
       "source_name": "Claude Opus 4.6",
       "provider": "Anthropic",
       "source_model_id": "claude-opus-4-6",
@@ -689,7 +758,7 @@
           "source_column_indices": {
             "research": 7
           },
-          "source_population": 66
+          "source_population": 67
         },
         "llmstats__deepsearchqa": {
           "benchmark_id": "llmstats__deepsearchqa",
@@ -706,14 +775,14 @@
           "source_column_indices": {
             "research": 10
           },
-          "source_population": 10
+          "source_population": 11
         }
       },
       "source_updated_at": null
     },
     {
-      "category_rank": 13.0,
-      "category_score": 25.3,
+      "category_rank": 14.0,
+      "category_score": 24.9,
       "source_name": "Seed 2.1 Pro",
       "provider": "Bytedance",
       "source_model_id": "seed-2.1-pro",
@@ -745,131 +814,14 @@
           "source_column_indices": {
             "research": 7
           },
-          "source_population": 66
-        }
-      },
-      "source_updated_at": null
-    },
-    {
-      "category_rank": 14.0,
-      "category_score": 24.7,
-      "source_name": "Gemini 3.1 Pro",
-      "provider": "Google",
-      "source_model_id": "gemini-3.1-pro-preview",
-      "source_model_url": "https://llm-stats.com/models/gemini-3.1-pro-preview",
-      "license": "Proprietary",
-      "family_id": "google/gemini-3-1-pro-preview",
-      "matched_aa_family_id": "google/gemini-3-1-pro-preview",
-      "match_status": "matched_manual",
-      "match_confidence": 1.0,
-      "score_status": "consensus",
-      "score_status_label": "Consensus",
-      "availability_class": "proprietary",
-      "is_sota": false,
-      "is_open_sota": false,
-      "rank_evidence": "source_rendered_table_order",
-      "benchmark_observations": {
-        "browsecomp": {
-          "benchmark_id": "browsecomp",
-          "canonical_name": "BrowseComp",
-          "source_name": "BrowseComp",
-          "value": 85.9,
-          "raw_value": "85.9%",
-          "version": "source-reported",
-          "provenance": "Source observation",
-          "source_url": "https://llm-stats.com/benchmarks/browsecomp",
-          "capabilities": [
-            "research"
-          ],
-          "source_column_indices": {
-            "research": 7
-          },
-          "source_population": 66
+          "source_population": 67
         }
       },
       "source_updated_at": null
     },
     {
       "category_rank": 15.0,
-      "category_score": 24.1,
-      "source_name": "Seed 2.1 Turbo",
-      "provider": "ByteDance",
-      "source_model_id": "seed-2.1-turbo",
-      "source_model_url": "https://llm-stats.com/models/seed-2.1-turbo",
-      "license": "Proprietary",
-      "family_id": "bytedance/seed-2-1-turbo",
-      "matched_aa_family_id": null,
-      "match_status": "source_missing",
-      "match_confidence": 0.0,
-      "score_status": "llmstats_only",
-      "score_status_label": "LLMStats only",
-      "availability_class": "unknown",
-      "is_sota": false,
-      "is_open_sota": false,
-      "rank_evidence": "source_rendered_table_order",
-      "benchmark_observations": {
-        "browsecomp": {
-          "benchmark_id": "browsecomp",
-          "canonical_name": "BrowseComp",
-          "source_name": "BrowseComp",
-          "value": 84.9,
-          "raw_value": "84.9%",
-          "version": "source-reported",
-          "provenance": "Source observation",
-          "source_url": "https://llm-stats.com/benchmarks/browsecomp",
-          "capabilities": [
-            "research"
-          ],
-          "source_column_indices": {
-            "research": 7
-          },
-          "source_population": 66
-        }
-      },
-      "source_updated_at": null
-    },
-    {
-      "category_rank": 16.0,
-      "category_score": 23.4,
-      "source_name": "Claude Sonnet 5",
-      "provider": "Anthropic",
-      "source_model_id": "claude-sonnet-5",
-      "source_model_url": "https://llm-stats.com/models/claude-sonnet-5",
-      "license": "Proprietary",
-      "family_id": "anthropic/claude-sonnet-5",
-      "matched_aa_family_id": "anthropic/claude-sonnet-5",
-      "match_status": "matched_family",
-      "match_confidence": 0.95,
-      "score_status": "consensus",
-      "score_status_label": "Consensus",
-      "availability_class": "proprietary",
-      "is_sota": false,
-      "is_open_sota": false,
-      "rank_evidence": "source_rendered_table_order",
-      "benchmark_observations": {
-        "browsecomp": {
-          "benchmark_id": "browsecomp",
-          "canonical_name": "BrowseComp",
-          "source_name": "BrowseComp",
-          "value": 84.7,
-          "raw_value": "84.7%",
-          "version": "source-reported",
-          "provenance": "Source observation",
-          "source_url": "https://llm-stats.com/benchmarks/browsecomp",
-          "capabilities": [
-            "research"
-          ],
-          "source_column_indices": {
-            "research": 7
-          },
-          "source_population": 66
-        }
-      },
-      "source_updated_at": null
-    },
-    {
-      "category_rank": 17.0,
-      "category_score": 23.0,
+      "category_score": 24.4,
       "source_name": "Qwen3.8 Max",
       "provider": "Qwen",
       "source_model_id": "qwen3.8-max",
@@ -901,14 +853,131 @@
           "source_column_indices": {
             "research": 9
           },
-          "source_population": 14
+          "source_population": 15
+        }
+      },
+      "source_updated_at": null
+    },
+    {
+      "category_rank": 16.0,
+      "category_score": 24.3,
+      "source_name": "Gemini 3.1 Pro",
+      "provider": "Google",
+      "source_model_id": "gemini-3.1-pro-preview",
+      "source_model_url": "https://llm-stats.com/models/gemini-3.1-pro-preview",
+      "license": "Proprietary",
+      "family_id": "google/gemini-3-1-pro-preview",
+      "matched_aa_family_id": "google/gemini-3-1-pro-preview",
+      "match_status": "matched_manual",
+      "match_confidence": 1.0,
+      "score_status": "consensus",
+      "score_status_label": "Consensus",
+      "availability_class": "proprietary",
+      "is_sota": false,
+      "is_open_sota": false,
+      "rank_evidence": "source_rendered_table_order",
+      "benchmark_observations": {
+        "browsecomp": {
+          "benchmark_id": "browsecomp",
+          "canonical_name": "BrowseComp",
+          "source_name": "BrowseComp",
+          "value": 85.9,
+          "raw_value": "85.9%",
+          "version": "source-reported",
+          "provenance": "Source observation",
+          "source_url": "https://llm-stats.com/benchmarks/browsecomp",
+          "capabilities": [
+            "research"
+          ],
+          "source_column_indices": {
+            "research": 7
+          },
+          "source_population": 67
+        }
+      },
+      "source_updated_at": null
+    },
+    {
+      "category_rank": 17.0,
+      "category_score": 23.7,
+      "source_name": "Seed 2.1 Turbo",
+      "provider": "ByteDance",
+      "source_model_id": "seed-2.1-turbo",
+      "source_model_url": "https://llm-stats.com/models/seed-2.1-turbo",
+      "license": "Proprietary",
+      "family_id": "bytedance/seed-2-1-turbo",
+      "matched_aa_family_id": null,
+      "match_status": "source_missing",
+      "match_confidence": 0.0,
+      "score_status": "llmstats_only",
+      "score_status_label": "LLMStats only",
+      "availability_class": "unknown",
+      "is_sota": false,
+      "is_open_sota": false,
+      "rank_evidence": "source_rendered_table_order",
+      "benchmark_observations": {
+        "browsecomp": {
+          "benchmark_id": "browsecomp",
+          "canonical_name": "BrowseComp",
+          "source_name": "BrowseComp",
+          "value": 84.9,
+          "raw_value": "84.9%",
+          "version": "source-reported",
+          "provenance": "Source observation",
+          "source_url": "https://llm-stats.com/benchmarks/browsecomp",
+          "capabilities": [
+            "research"
+          ],
+          "source_column_indices": {
+            "research": 7
+          },
+          "source_population": 67
         }
       },
       "source_updated_at": null
     },
     {
       "category_rank": 18.0,
-      "category_score": 22.9,
+      "category_score": 23.1,
+      "source_name": "Claude Sonnet 5",
+      "provider": "Anthropic",
+      "source_model_id": "claude-sonnet-5",
+      "source_model_url": "https://llm-stats.com/models/claude-sonnet-5",
+      "license": "Proprietary",
+      "family_id": "anthropic/claude-sonnet-5",
+      "matched_aa_family_id": "anthropic/claude-sonnet-5",
+      "match_status": "matched_family",
+      "match_confidence": 0.95,
+      "score_status": "consensus",
+      "score_status_label": "Consensus",
+      "availability_class": "proprietary",
+      "is_sota": false,
+      "is_open_sota": false,
+      "rank_evidence": "source_rendered_table_order",
+      "benchmark_observations": {
+        "browsecomp": {
+          "benchmark_id": "browsecomp",
+          "canonical_name": "BrowseComp",
+          "source_name": "BrowseComp",
+          "value": 84.7,
+          "raw_value": "84.7%",
+          "version": "source-reported",
+          "provenance": "Source observation",
+          "source_url": "https://llm-stats.com/benchmarks/browsecomp",
+          "capabilities": [
+            "research"
+          ],
+          "source_column_indices": {
+            "research": 7
+          },
+          "source_population": 67
+        }
+      },
+      "source_updated_at": null
+    },
+    {
+      "category_rank": 19.0,
+      "category_score": 22.5,
       "source_name": "GPT-5.5",
       "provider": "OpenAI",
       "source_model_id": "gpt-5.5",
@@ -940,13 +1009,13 @@
           "source_column_indices": {
             "research": 7
           },
-          "source_population": 66
+          "source_population": 67
         }
       },
       "source_updated_at": null
     },
     {
-      "category_rank": 19.0,
+      "category_rank": 20.0,
       "category_score": 22.3,
       "source_name": "Kimi K2.5",
       "provider": "Moonshot AI",
@@ -979,7 +1048,7 @@
           "source_column_indices": {
             "research": 7
           },
-          "source_population": 66
+          "source_population": 67
         },
         "llmstats__widesearch": {
           "benchmark_id": "llmstats__widesearch",
@@ -996,7 +1065,7 @@
           "source_column_indices": {
             "research": 9
           },
-          "source_population": 14
+          "source_population": 15
         },
         "llmstats__deepsearchqa": {
           "benchmark_id": "llmstats__deepsearchqa",
@@ -1013,7 +1082,7 @@
           "source_column_indices": {
             "research": 10
           },
-          "source_population": 10
+          "source_population": 11
         },
         "llmstats__seal-0": {
           "benchmark_id": "llmstats__seal-0",
@@ -1036,8 +1105,8 @@
       "source_updated_at": null
     },
     {
-      "category_rank": 20.0,
-      "category_score": 21.9,
+      "category_rank": 21.0,
+      "category_score": 21.7,
       "source_name": "MiniMax M3",
       "provider": "MiniMax",
       "source_model_id": "minimax-m3",
@@ -1069,7 +1138,7 @@
           "source_column_indices": {
             "research": 7
           },
-          "source_population": 66
+          "source_population": 67
         },
         "llmstats__draco": {
           "benchmark_id": "llmstats__draco",
@@ -1092,8 +1161,8 @@
       "source_updated_at": null
     },
     {
-      "category_rank": 21.0,
-      "category_score": 20.1,
+      "category_rank": 22.0,
+      "category_score": 19.8,
       "source_name": "DeepSeek-V4-Pro-Max",
       "provider": "DeepSeek",
       "source_model_id": "deepseek-v4-pro-max",
@@ -1125,14 +1194,14 @@
           "source_column_indices": {
             "research": 7
           },
-          "source_population": 66
+          "source_population": 67
         }
       },
       "source_updated_at": null
     },
     {
-      "category_rank": 22.0,
-      "category_score": 19.6,
+      "category_rank": 23.0,
+      "category_score": 19.3,
       "source_name": "GPT-5.6 Luna",
       "provider": "OpenAI",
       "source_model_id": "gpt-5.6-luna",
@@ -1164,14 +1233,14 @@
           "source_column_indices": {
             "research": 7
           },
-          "source_population": 66
+          "source_population": 67
         }
       },
       "source_updated_at": null
     },
     {
-      "category_rank": 23.0,
-      "category_score": 19.3,
+      "category_rank": 24.0,
+      "category_score": 19.1,
       "source_name": "Seed 1.8",
       "provider": "ByteDance",
       "source_model_id": "seed-1.8",
@@ -1220,14 +1289,14 @@
           "source_column_indices": {
             "research": 9
           },
-          "source_population": 14
+          "source_population": 15
         }
       },
       "source_updated_at": null
     },
     {
-      "category_rank": 24.0,
-      "category_score": 19.2,
+      "category_rank": 25.0,
+      "category_score": 19.1,
       "source_name": "Qwen3.5-397B-A17B",
       "provider": "Alibaba",
       "source_model_id": "qwen3.5-397b-a17b",
@@ -1276,7 +1345,7 @@
           "source_column_indices": {
             "research": 9
           },
-          "source_population": 14
+          "source_population": 15
         },
         "llmstats__seal-0": {
           "benchmark_id": "llmstats__seal-0",
@@ -1299,8 +1368,8 @@
       "source_updated_at": null
     },
     {
-      "category_rank": 25.0,
-      "category_score": 19.0,
+      "category_rank": 26.0,
+      "category_score": 18.7,
       "source_name": "GPT-5.4",
       "provider": "OpenAI",
       "source_model_id": "gpt-5.4",
@@ -1332,14 +1401,14 @@
           "source_column_indices": {
             "research": 7
           },
-          "source_population": 66
+          "source_population": 67
         }
       },
       "source_updated_at": null
     },
     {
-      "category_rank": 26.0,
-      "category_score": 18.6,
+      "category_rank": 27.0,
+      "category_score": 18.3,
       "source_name": "GLM-5.1",
       "provider": "Z AI",
       "source_model_id": "glm-5.1",
@@ -1371,14 +1440,14 @@
           "source_column_indices": {
             "research": 7
           },
-          "source_population": 66
+          "source_population": 67
         }
       },
       "source_updated_at": null
     },
     {
-      "category_rank": 27.0,
-      "category_score": 18.5,
+      "category_rank": 28.0,
+      "category_score": 18.2,
       "source_name": "Claude Opus 4.7",
       "provider": "Anthropic",
       "source_model_id": "claude-opus-4-7",
@@ -1410,14 +1479,14 @@
           "source_column_indices": {
             "research": 7
           },
-          "source_population": 66
+          "source_population": 67
         }
       },
       "source_updated_at": null
     },
     {
-      "category_rank": 28.0,
-      "category_score": 18.3,
+      "category_rank": 29.0,
+      "category_score": 18.1,
       "source_name": "Muse Spark 1.3",
       "provider": "Meta",
       "source_model_id": "muse-spark-1.3",
@@ -1449,14 +1518,14 @@
           "source_column_indices": {
             "research": 10
           },
-          "source_population": 10
+          "source_population": 11
         }
       },
       "source_updated_at": null
     },
     {
-      "category_rank": 29.0,
-      "category_score": 18.1,
+      "category_rank": 30.0,
+      "category_score": 17.8,
       "source_name": "GPT-5.2 Pro",
       "provider": "OpenAI",
       "source_model_id": "gpt-5.2-pro-2025-12-11",
@@ -1488,46 +1557,7 @@
           "source_column_indices": {
             "research": 7
           },
-          "source_population": 66
-        }
-      },
-      "source_updated_at": null
-    },
-    {
-      "category_rank": 30.0,
-      "category_score": 17.6,
-      "source_name": "Inkling-Small",
-      "provider": "Thinking Machines",
-      "source_model_id": "inkling-small",
-      "source_model_url": "https://llm-stats.com/models/inkling-small",
-      "license": "Open Source",
-      "family_id": "thinking-machines/inkling-small",
-      "matched_aa_family_id": "thinking-machines/inkling-small",
-      "match_status": "matched_family",
-      "match_confidence": 0.95,
-      "score_status": "consensus",
-      "score_status_label": "Consensus",
-      "availability_class": "open_weights",
-      "is_sota": false,
-      "is_open_sota": false,
-      "rank_evidence": "source_rendered_table_order",
-      "benchmark_observations": {
-        "browsecomp": {
-          "benchmark_id": "browsecomp",
-          "canonical_name": "BrowseComp",
-          "source_name": "BrowseComp",
-          "value": 77.4,
-          "raw_value": "77.4%",
-          "version": "source-reported",
-          "provenance": "Source observation",
-          "source_url": "https://llm-stats.com/benchmarks/browsecomp",
-          "capabilities": [
-            "research"
-          ],
-          "source_column_indices": {
-            "research": 7
-          },
-          "source_population": 66
+          "source_population": 67
         }
       },
       "source_updated_at": null
