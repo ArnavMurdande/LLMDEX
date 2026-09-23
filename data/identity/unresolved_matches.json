@@ -1,6 +1,51 @@
 [
   {
     "source": "llmstats",
+    "source_name": "Claude Opus 5",
+    "source_model_id": "claude-opus-5",
+    "source_model_url": "https://llm-stats.com/models/claude-opus-5",
+    "provider": "Anthropic",
+    "candidate_family_id": "anthropic/claude-opus-5-5",
+    "candidate_family_name": "Claude Opus 5.5",
+    "match_status": "identity_unresolved",
+    "match_confidence": 0.8,
+    "match_method": "fuzzy_review_candidate",
+    "review_reason": "Fuzzy candidates require manual approval and are excluded from scoring.",
+    "competing_candidates": [
+      {
+        "family_id": "anthropic/claude-opus-5-5",
+        "family_name": "Claude Opus 5.5",
+        "similarity": 0.9286
+      }
+    ]
+  },
+  {
+    "source": "llmstats",
+    "source_name": "GPT-5.6 Sol",
+    "source_model_id": "gpt-5.6-sol",
+    "source_model_url": "https://llm-stats.com/models/gpt-5.6-sol",
+    "provider": "OpenAI",
+    "candidate_family_id": "openai/gpt-6-sol",
+    "candidate_family_name": "GPT-6 Sol",
+    "match_status": "identity_unresolved",
+    "match_confidence": 0.8,
+    "match_method": "fuzzy_review_candidate",
+    "review_reason": "Fuzzy candidates require manual approval and are excluded from scoring.",
+    "competing_candidates": [
+      {
+        "family_id": "openai/gpt-6-sol",
+        "family_name": "GPT-6 Sol",
+        "similarity": 0.9
+      },
+      {
+        "family_id": "openai/gpt-5-5-pro",
+        "family_name": "GPT-5.5 Pro",
+        "similarity": 0.7273
+      }
+    ]
+  },
+  {
+    "source": "llmstats",
     "source_name": "Claude Fable 5",
     "source_model_id": "claude-fable-5",
     "source_model_url": "https://llm-stats.com/models/claude-fable-5",
@@ -50,17 +95,17 @@
     "source_model_id": "claude-opus-4-8",
     "source_model_url": "https://llm-stats.com/models/claude-opus-4-8",
     "provider": "Anthropic",
-    "candidate_family_id": "anthropic/claude-opus-5",
-    "candidate_family_name": "Claude Opus 5",
+    "candidate_family_id": "anthropic/claude-opus-5-5",
+    "candidate_family_name": "Claude Opus 5.5",
     "match_status": "identity_unresolved",
     "match_confidence": 0.8,
     "match_method": "fuzzy_review_candidate",
     "review_reason": "Fuzzy candidates require manual approval and are excluded from scoring.",
     "competing_candidates": [
       {
-        "family_id": "anthropic/claude-opus-5",
-        "family_name": "Claude Opus 5",
-        "similarity": 0.8571
+        "family_id": "anthropic/claude-opus-5-5",
+        "family_name": "Claude Opus 5.5",
+        "similarity": 0.8667
       }
     ]
   },
@@ -116,6 +161,26 @@
   },
   {
     "source": "llmstats",
+    "source_name": "GPT-5.5",
+    "source_model_id": "gpt-5.5",
+    "source_model_url": "https://llm-stats.com/models/gpt-5.5",
+    "provider": "OpenAI",
+    "candidate_family_id": "openai/gpt-5-5-pro",
+    "candidate_family_name": "GPT-5.5 Pro",
+    "match_status": "identity_unresolved",
+    "match_confidence": 0.7778,
+    "match_method": "fuzzy_review_candidate",
+    "review_reason": "Fuzzy candidates require manual approval and are excluded from scoring.",
+    "competing_candidates": [
+      {
+        "family_id": "openai/gpt-5-5-pro",
+        "family_name": "GPT-5.5 Pro",
+        "similarity": 0.7778
+      }
+    ]
+  },
+  {
+    "source": "llmstats",
     "source_name": "Gemini 3.7 Flash",
     "source_model_id": "gemini-3.7-flash",
     "source_model_url": "https://llm-stats.com/models/gemini-3.7-flash",
@@ -141,46 +206,26 @@
   },
   {
     "source": "llmstats",
-    "source_name": "GPT-5.5",
-    "source_model_id": "gpt-5.5",
-    "source_model_url": "https://llm-stats.com/models/gpt-5.5",
+    "source_name": "GPT-5.6 Luna",
+    "source_model_id": "gpt-5.6-luna",
+    "source_model_url": "https://llm-stats.com/models/gpt-5.6-luna",
     "provider": "OpenAI",
-    "candidate_family_id": "openai/gpt-5-5-pro",
-    "candidate_family_name": "GPT-5.5 Pro",
-    "match_status": "identity_unresolved",
-    "match_confidence": 0.7778,
-    "match_method": "fuzzy_review_candidate",
-    "review_reason": "Fuzzy candidates require manual approval and are excluded from scoring.",
-    "competing_candidates": [
-      {
-        "family_id": "openai/gpt-5-5-pro",
-        "family_name": "GPT-5.5 Pro",
-        "similarity": 0.7778
-      }
-    ]
-  },
-  {
-    "source": "llmstats",
-    "source_name": "DeepSeek-V4-Flash-Vision-Exp",
-    "source_model_id": "deepseek-v4-flash-vision-exp",
-    "source_model_url": "https://llm-stats.com/models/deepseek-v4-flash-vision-exp",
-    "provider": "DeepSeek",
-    "candidate_family_id": "deepseek/deepseek-v4-flash-vision",
-    "candidate_family_name": "DeepSeek V4 Flash Vision",
+    "candidate_family_id": "openai/gpt-6-luna",
+    "candidate_family_name": "GPT-6 Luna",
     "match_status": "identity_unresolved",
     "match_confidence": 0.8,
     "match_method": "fuzzy_review_candidate",
     "review_reason": "Fuzzy candidates require manual approval and are excluded from scoring.",
     "competing_candidates": [
       {
-        "family_id": "deepseek/deepseek-v4-flash-vision",
-        "family_name": "DeepSeek V4 Flash Vision",
-        "similarity": 0.9231
+        "family_id": "openai/gpt-6-luna",
+        "family_name": "GPT-6 Luna",
+        "similarity": 0.9091
       },
       {
-        "family_id": "deepseek/deepseek-v4-1-flash",
-        "family_name": "DeepSeek V4.1 Flash",
-        "similarity": 0.7234
+        "family_id": "openai/gpt-5-6-terra",
+        "family_name": "GPT-5.6 Terra",
+        "similarity": 0.72
       }
     ]
   },
@@ -190,17 +235,17 @@
     "source_model_id": "claude-opus-4-7",
     "source_model_url": "https://llm-stats.com/models/claude-opus-4-7",
     "provider": "Anthropic",
-    "candidate_family_id": "anthropic/claude-opus-5",
-    "candidate_family_name": "Claude Opus 5",
+    "candidate_family_id": "anthropic/claude-opus-5-5",
+    "candidate_family_name": "Claude Opus 5.5",
     "match_status": "identity_unresolved",
     "match_confidence": 0.8,
     "match_method": "fuzzy_review_candidate",
     "review_reason": "Fuzzy candidates require manual approval and are excluded from scoring.",
     "competing_candidates": [
       {
-        "family_id": "anthropic/claude-opus-5",
-        "family_name": "Claude Opus 5",
-        "similarity": 0.8571
+        "family_id": "anthropic/claude-opus-5-5",
+        "family_name": "Claude Opus 5.5",
+        "similarity": 0.8667
       }
     ]
   },
@@ -275,17 +320,17 @@
     "source_model_id": "claude-opus-4-6",
     "source_model_url": "https://llm-stats.com/models/claude-opus-4-6",
     "provider": "Anthropic",
-    "candidate_family_id": "anthropic/claude-opus-5",
-    "candidate_family_name": "Claude Opus 5",
+    "candidate_family_id": "anthropic/claude-opus-5-5",
+    "candidate_family_name": "Claude Opus 5.5",
     "match_status": "identity_unresolved",
     "match_confidence": 0.8,
     "match_method": "fuzzy_review_candidate",
     "review_reason": "Fuzzy candidates require manual approval and are excluded from scoring.",
     "competing_candidates": [
       {
-        "family_id": "anthropic/claude-opus-5",
-        "family_name": "Claude Opus 5",
-        "similarity": 0.8571
+        "family_id": "anthropic/claude-opus-5-5",
+        "family_name": "Claude Opus 5.5",
+        "similarity": 0.8667
       }
     ]
   },
@@ -356,11 +401,6 @@
         "family_id": "openai/gpt-5-5-pro",
         "family_name": "GPT-5.5 Pro",
         "similarity": 0.9091
-      },
-      {
-        "family_id": "openai/gpt-5-6-sol",
-        "family_name": "GPT-5.6 Sol",
-        "similarity": 0.7273
       }
     ]
   },
@@ -370,17 +410,17 @@
     "source_model_id": "claude-opus-4-5-20251101",
     "source_model_url": "https://llm-stats.com/models/claude-opus-4-5-20251101",
     "provider": "Anthropic",
-    "candidate_family_id": "anthropic/claude-opus-5",
-    "candidate_family_name": "Claude Opus 5",
+    "candidate_family_id": "anthropic/claude-opus-5-5",
+    "candidate_family_name": "Claude Opus 5.5",
     "match_status": "identity_unresolved",
     "match_confidence": 0.8,
     "match_method": "fuzzy_review_candidate",
     "review_reason": "Fuzzy candidates require manual approval and are excluded from scoring.",
     "competing_candidates": [
       {
-        "family_id": "anthropic/claude-opus-5",
-        "family_name": "Claude Opus 5",
-        "similarity": 0.9286
+        "family_id": "anthropic/claude-opus-5-5",
+        "family_name": "Claude Opus 5.5",
+        "similarity": 0.9333
       }
     ]
   },
@@ -515,17 +555,17 @@
     "source_model_id": "claude-opus-4-20250514",
     "source_model_url": "https://llm-stats.com/models/claude-opus-4-20250514",
     "provider": "Anthropic",
-    "candidate_family_id": "anthropic/claude-opus-5",
-    "candidate_family_name": "Claude Opus 5",
+    "candidate_family_id": "anthropic/claude-opus-5-5",
+    "candidate_family_name": "Claude Opus 5.5",
     "match_status": "identity_unresolved",
     "match_confidence": 0.8,
     "match_method": "fuzzy_review_candidate",
     "review_reason": "Fuzzy candidates require manual approval and are excluded from scoring.",
     "competing_candidates": [
       {
-        "family_id": "anthropic/claude-opus-5",
-        "family_name": "Claude Opus 5",
-        "similarity": 0.9231
+        "family_id": "anthropic/claude-opus-5-5",
+        "family_name": "Claude Opus 5.5",
+        "similarity": 0.8571
       }
     ]
   },
@@ -610,17 +650,17 @@
     "source_model_id": "claude-opus-4-1-20250805",
     "source_model_url": "https://llm-stats.com/models/claude-opus-4-1-20250805",
     "provider": "Anthropic",
-    "candidate_family_id": "anthropic/claude-opus-5",
-    "candidate_family_name": "Claude Opus 5",
+    "candidate_family_id": "anthropic/claude-opus-5-5",
+    "candidate_family_name": "Claude Opus 5.5",
     "match_status": "identity_unresolved",
     "match_confidence": 0.8,
     "match_method": "fuzzy_review_candidate",
     "review_reason": "Fuzzy candidates require manual approval and are excluded from scoring.",
     "competing_candidates": [
       {
-        "family_id": "anthropic/claude-opus-5",
-        "family_name": "Claude Opus 5",
-        "similarity": 0.8571
+        "family_id": "anthropic/claude-opus-5-5",
+        "family_name": "Claude Opus 5.5",
+        "similarity": 0.8667
       }
     ]
   },
@@ -915,17 +955,17 @@
     "source_model_id": "claude-mythos-5-1",
     "source_model_url": "https://llm-stats.com/models/claude-mythos-5-1",
     "provider": "Anthropic",
-    "candidate_family_id": "anthropic/claude-opus-5",
-    "candidate_family_name": "Claude Opus 5",
+    "candidate_family_id": "anthropic/claude-opus-5-5",
+    "candidate_family_name": "Claude Opus 5.5",
     "match_status": "identity_unresolved",
-    "match_confidence": 0.7333,
+    "match_confidence": 0.75,
     "match_method": "fuzzy_review_candidate",
     "review_reason": "Fuzzy candidates require manual approval and are excluded from scoring.",
     "competing_candidates": [
       {
-        "family_id": "anthropic/claude-opus-5",
-        "family_name": "Claude Opus 5",
-        "similarity": 0.7333
+        "family_id": "anthropic/claude-opus-5-5",
+        "family_name": "Claude Opus 5.5",
+        "similarity": 0.75
       }
     ]
   }

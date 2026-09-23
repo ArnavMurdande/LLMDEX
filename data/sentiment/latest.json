@@ -1,319 +1,110 @@
 [
   {
-    "community_sentiment": null,
-    "mention_count": 15,
-    "controversy_index": null,
-    "sentiment_trend": null,
-    "confidence_score": 0,
-    "sentiment_method": "gemini",
-    "model_name": "Claude Fable 5.1",
-    "scraped_at": "2026-09-22T15:10:37.660166+00:00",
+    "community_sentiment": 0.2227,
+    "mention_count": 12,
+    "controversy_index": 0.0,
+    "sentiment_trend": "positive",
+    "confidence_score": 0.4,
+    "sentiment_method": "vader_fallback",
+    "model_name": "Claude Opus 5.5",
+    "scraped_at": "2026-09-23T15:12:22.863713+00:00",
     "_experimental": true,
     "source_counts": {
-      "Reddit": 3,
+      "Reddit": 6,
+      "HackerNews": 6
+    },
+    "community_examples": [
+      {
+        "source": "Reddit",
+        "text": "AI Roundup \u2014 Sep 23: Claude Opus 5.5 & GPT-6 launched, first autonomous AI malware, UN Security Council holds first AI safety session Quick roundup of the biggest AI stories from the last 24 hours. 1. Anthropic...",
+        "url": "https://www.reddit.com/r/AIToolsTipsNews/comments/1wo4ijn/ai_roundup_sep_23_claude_opus_55_gpt6_launched/"
+      },
+      {
+        "source": "Reddit",
+        "text": "currently getting fatigue with AI model release cycle we blinked, and GPT-6 Astra dropped. We blinked again; Claude Opus 5.5 is here. at this point, i think engineers aren't even getting much time to finish...",
+        "url": "https://www.reddit.com/r/artificial/comments/1wo4758/currently_getting_fatigue_with_ai_model_release/"
+      },
+      {
+        "source": "Hacker News",
+        "text": "Claude Opus 5.5",
+        "url": "https://news.ycombinator.com/item?id=49803863"
+      }
+    ],
+    "top_quotes": [
+      {
+        "source": "Reddit",
+        "text": "AI Roundup \u2014 Sep 23: Claude Opus 5.5 & GPT-6 launched, first autonomous AI malware, UN Security Council holds first AI safety session Quick roundup of the biggest AI stories from the last 24 hours. 1. Anthropic...",
+        "url": "https://www.reddit.com/r/AIToolsTipsNews/comments/1wo4ijn/ai_roundup_sep_23_claude_opus_55_gpt6_launched/"
+      },
+      {
+        "source": "Reddit",
+        "text": "currently getting fatigue with AI model release cycle we blinked, and GPT-6 Astra dropped. We blinked again; Claude Opus 5.5 is here. at this point, i think engineers aren't even getting much time to finish...",
+        "url": "https://www.reddit.com/r/artificial/comments/1wo4758/currently_getting_fatigue_with_ai_model_release/"
+      },
+      {
+        "source": "Hacker News",
+        "text": "Claude Opus 5.5",
+        "url": "https://news.ycombinator.com/item?id=49803863"
+      }
+    ]
+  },
+  {
+    "community_sentiment": 0.1854,
+    "mention_count": 12,
+    "controversy_index": 0.0,
+    "sentiment_trend": "positive",
+    "confidence_score": 0.4,
+    "sentiment_method": "vader_fallback",
+    "model_name": "Claude Fable 5.1",
+    "scraped_at": "2026-09-23T15:12:23.999747+00:00",
+    "_experimental": true,
+    "source_counts": {
       "HackerNews": 12
     },
     "community_examples": [
       {
-        "source": "Reddit",
-        "text": "Rate my CLAUDE.md as orchestrator Hey :) Context. I have been working with this setup for around two weeks on 5x and I was able to more work than before. I prefer fable 5.1 logic a lot more than opus 5 (his yadda...",
-        "url": "https://www.reddit.com/r/ClaudeCode/comments/1wm72ye/rate_my_claudemd_as_orchestrator/"
-      },
-      {
-        "source": "Reddit",
-        "text": "I had Claude Fable 5.1 write a 15s prompt and ran it through 6 video models. Prompt below. Wan 3.0, H3 Max Turbo, Seedance 2.0, Seedance 2.0 Mini, Seedance 2.5, Seedance 2.0 Fast Which result is the best? You can...",
-        "url": "https://www.reddit.com/r/Eachlabs/comments/1wmi2jc/i_had_claude_fable_51_write_a_15s_prompt_and_ran/"
-      },
-      {
-        "source": "Reddit",
-        "text": "Five New AI Models in Zide Assist We\u2019ve added five new models to Zide Assist: GPT-6 Astra, Claude Fable 5.1, Gemini 3.8 Flash, Qwen 3.8 Flash, and DeepSeek V4.1 Flash. Here is a quick breakdown: GPT-6 Astra OpenAI\u2019s...",
-        "url": "https://www.reddit.com/r/zidedev/comments/1wmkn93/five_new_ai_models_in_zide_assist/"
-      }
-    ],
-    "top_quotes": [
-      {
-        "source": "Reddit",
-        "text": "Rate my CLAUDE.md as orchestrator Hey :) Context. I have been working with this setup for around two weeks on 5x and I was able to more work than before. I prefer fable 5.1 logic a lot more than opus 5 (his yadda...",
-        "url": "https://www.reddit.com/r/ClaudeCode/comments/1wm72ye/rate_my_claudemd_as_orchestrator/"
-      },
-      {
-        "source": "Reddit",
-        "text": "I had Claude Fable 5.1 write a 15s prompt and ran it through 6 video models. Prompt below. Wan 3.0, H3 Max Turbo, Seedance 2.0, Seedance 2.0 Mini, Seedance 2.5, Seedance 2.0 Fast Which result is the best? You can...",
-        "url": "https://www.reddit.com/r/Eachlabs/comments/1wmi2jc/i_had_claude_fable_51_write_a_15s_prompt_and_ran/"
-      },
-      {
-        "source": "Reddit",
-        "text": "Five New AI Models in Zide Assist We\u2019ve added five new models to Zide Assist: GPT-6 Astra, Claude Fable 5.1, Gemini 3.8 Flash, Qwen 3.8 Flash, and DeepSeek V4.1 Flash. Here is a quick breakdown: GPT-6 Astra OpenAI\u2019s...",
-        "url": "https://www.reddit.com/r/zidedev/comments/1wmkn93/five_new_ai_models_in_zide_assist/"
-      }
-    ]
-  },
-  {
-    "community_sentiment": 0.8,
-    "mention_count": 15,
-    "controversy_index": 0.0769,
-    "sentiment_trend": "positive",
-    "confidence_score": 0.43,
-    "sentiment_method": "gemini",
-    "valid_posts": 13,
-    "strong_praise_count": 1,
-    "strong_criticism_count": 0,
-    "model_name": "GPT-6 Astra",
-    "scraped_at": "2026-09-22T15:11:03.324137+00:00",
-    "_experimental": true,
-    "source_counts": {
-      "HackerNews": 15
-    },
-    "community_examples": [
-      {
         "source": "Hacker News",
-        "text": "Show HN: Automatically Save 60% on Amazon Findcheap is a search agent that finds the best price in one click.It performs >2x better than the next-best frontier model (GPT-6 Astra), albeit on a very specific task....",
-        "url": "https://news.ycombinator.com/item?id=49586711"
+        "text": "Ask HN: How to spend $100? (Claude vs. ChatGPT) Hey HN, I have always used the Claude Max 20x plan because my employer paid this for me. Now I left so I need to buy a subscription on my own and currently $200 is too...",
+        "url": "https://news.ycombinator.com/item?id=49608008"
       },
       {
         "source": "Hacker News",
-        "text": "GPT-6 Astra, looped transformers, and hidden reasoning",
-        "url": "https://news.ycombinator.com/item?id=49627370"
+        "text": "Claude Fable 5.1 and Claude Mythos 5.1 What's new in Claude Fable 5.1 \u2013 Card:",
+        "url": "https://news.ycombinator.com/item?id=49525378"
       },
       {
         "source": "Hacker News",
-        "text": "GPT-6 Astra Solves a WWI German Radio Cipher",
-        "url": "https://news.ycombinator.com/item?id=49763987"
+        "text": "Claude Fable 5.1 and Claude Mythos 5.1",
+        "url": "https://news.ycombinator.com/item?id=49525496"
       }
     ],
     "top_quotes": [
       {
         "source": "Hacker News",
-        "text": "Show HN: Automatically Save 60% on Amazon Findcheap is a search agent that finds the best price in one click.It performs >2x better than the next-best frontier model (GPT-6 Astra), albeit on a very specific task....",
-        "url": "https://news.ycombinator.com/item?id=49586711"
+        "text": "Ask HN: How to spend $100? (Claude vs. ChatGPT) Hey HN, I have always used the Claude Max 20x plan because my employer paid this for me. Now I left so I need to buy a subscription on my own and currently $200 is too...",
+        "url": "https://news.ycombinator.com/item?id=49608008"
       },
       {
         "source": "Hacker News",
-        "text": "GPT-6 Astra, looped transformers, and hidden reasoning",
-        "url": "https://news.ycombinator.com/item?id=49627370"
+        "text": "Claude Fable 5.1 and Claude Mythos 5.1 What's new in Claude Fable 5.1 \u2013 Card:",
+        "url": "https://news.ycombinator.com/item?id=49525378"
       },
       {
         "source": "Hacker News",
-        "text": "GPT-6 Astra Solves a WWI German Radio Cipher",
-        "url": "https://news.ycombinator.com/item?id=49763987"
+        "text": "Claude Fable 5.1 and Claude Mythos 5.1",
+        "url": "https://news.ycombinator.com/item?id=49525496"
       }
     ]
   },
   {
-    "community_sentiment": -0.2649,
-    "mention_count": 26,
-    "controversy_index": 0.0625,
-    "sentiment_trend": "negative",
-    "confidence_score": 0.53,
-    "sentiment_method": "gemini",
-    "valid_posts": 16,
-    "strong_praise_count": 0,
-    "strong_criticism_count": 1,
-    "model_name": "Claude Opus 5",
-    "scraped_at": "2026-09-22T15:11:32.817075+00:00",
-    "_experimental": true,
-    "source_counts": {
-      "HackerNews": 26
-    },
-    "community_examples": [
-      {
-        "source": "Hacker News",
-        "text": "Why I prefer Opus 5 to Fable 5 I've been experimenting with both since the moment each came out. 4 games, 3 websites and 2 content creation engines later - I think I'm ready to share a bit of my experience and...",
-        "url": "https://news.ycombinator.com/item?id=49081970"
-      },
-      {
-        "source": "Hacker News",
-        "text": "Opus 5.0 drives incoherence into the stratosphere",
-        "url": "https://news.ycombinator.com/item?id=49364658"
-      },
-      {
-        "source": "Hacker News",
-        "text": "I sent Claude Opus 5 '\u2013-' and it wrote me 5k tokens about a cartographer",
-        "url": "https://news.ycombinator.com/item?id=49089689"
-      }
-    ],
-    "top_quotes": [
-      {
-        "source": "Hacker News",
-        "text": "Why I prefer Opus 5 to Fable 5 I've been experimenting with both since the moment each came out. 4 games, 3 websites and 2 content creation engines later - I think I'm ready to share a bit of my experience and...",
-        "url": "https://news.ycombinator.com/item?id=49081970"
-      },
-      {
-        "source": "Hacker News",
-        "text": "Opus 5.0 drives incoherence into the stratosphere",
-        "url": "https://news.ycombinator.com/item?id=49364658"
-      },
-      {
-        "source": "Hacker News",
-        "text": "I sent Claude Opus 5 '\u2013-' and it wrote me 5k tokens about a cartographer",
-        "url": "https://news.ycombinator.com/item?id=49089689"
-      }
-    ]
-  },
-  {
-    "community_sentiment": 0.6,
-    "mention_count": 7,
-    "controversy_index": 0.0,
-    "sentiment_trend": "positive",
-    "confidence_score": 0.03,
-    "sentiment_method": "gemini",
-    "valid_posts": 1,
-    "strong_praise_count": 0,
-    "strong_criticism_count": 0,
-    "model_name": "Muse Spark 1.3",
-    "scraped_at": "2026-09-22T15:11:48.206181+00:00",
-    "_experimental": true,
-    "source_counts": {
-      "HackerNews": 7
-    },
-    "community_examples": [
-      {
-        "source": "Hacker News",
-        "text": "Meta's Muse Spark 1.3 beats Google's frontier model on artificialanalysis",
-        "url": "https://news.ycombinator.com/item?id=49542481"
-      }
-    ],
-    "top_quotes": [
-      {
-        "source": "Hacker News",
-        "text": "Meta's Muse Spark 1.3 beats Google's frontier model on artificialanalysis",
-        "url": "https://news.ycombinator.com/item?id=49542481"
-      }
-    ]
-  },
-  {
-    "community_sentiment": -0.152,
-    "mention_count": 21,
-    "controversy_index": 0.2857,
-    "sentiment_trend": "negative",
-    "confidence_score": 0.23,
-    "sentiment_method": "gemini",
-    "valid_posts": 7,
-    "strong_praise_count": 1,
-    "strong_criticism_count": 1,
-    "model_name": "GPT-5.6 Sol",
-    "scraped_at": "2026-09-22T15:12:06.873701+00:00",
-    "_experimental": true,
-    "source_counts": {
-      "HackerNews": 21
-    },
-    "community_examples": [
-      {
-        "source": "Hacker News",
-        "text": "GPT 5.6 Sol is the best \"vision\" model OpenAI ever released",
-        "url": "https://news.ycombinator.com/item?id=49329575"
-      },
-      {
-        "source": "Hacker News",
-        "text": "We Gave GPT 5.6 Sol a Real Business. It Lied, Spammed, and Lost $447",
-        "url": "https://news.ycombinator.com/item?id=49113059"
-      },
-      {
-        "source": "Hacker News",
-        "text": "Is GPT-5.6 Sol Max Worth It? I ran some test with gpt- 5.6 sol in max reasoning on both codex cli and my own agent harness: I tested only 1 task and the toekn efficency difference is not as great as in high mode:...",
-        "url": "https://news.ycombinator.com/item?id=48947713"
-      }
-    ],
-    "top_quotes": [
-      {
-        "source": "Hacker News",
-        "text": "GPT 5.6 Sol is the best \"vision\" model OpenAI ever released",
-        "url": "https://news.ycombinator.com/item?id=49329575"
-      },
-      {
-        "source": "Hacker News",
-        "text": "We Gave GPT 5.6 Sol a Real Business. It Lied, Spammed, and Lost $447",
-        "url": "https://news.ycombinator.com/item?id=49113059"
-      },
-      {
-        "source": "Hacker News",
-        "text": "Is GPT-5.6 Sol Max Worth It? I ran some test with gpt- 5.6 sol in max reasoning on both codex cli and my own agent harness: I tested only 1 task and the toekn efficency difference is not as great as in high mode:...",
-        "url": "https://news.ycombinator.com/item?id=48947713"
-      }
-    ]
-  },
-  {
-    "community_sentiment": 0.8,
-    "mention_count": 3,
-    "controversy_index": 1.0,
-    "sentiment_trend": "positive",
-    "confidence_score": 0.03,
-    "sentiment_method": "gemini",
-    "valid_posts": 1,
-    "strong_praise_count": 1,
-    "strong_criticism_count": 0,
-    "model_name": "Grok 4.7",
-    "scraped_at": "2026-09-22T15:12:09.581596+00:00",
-    "_experimental": true,
-    "source_counts": {
-      "HackerNews": 3
-    },
-    "community_examples": [
-      {
-        "source": "Hacker News",
-        "text": "Grok 4.7 is here with Electrical engineering benchmark which beats fable 5.1 max",
-        "url": "https://news.ycombinator.com/item?id=49789456"
-      }
-    ],
-    "top_quotes": [
-      {
-        "source": "Hacker News",
-        "text": "Grok 4.7 is here with Electrical engineering benchmark which beats fable 5.1 max",
-        "url": "https://news.ycombinator.com/item?id=49789456"
-      }
-    ]
-  },
-  {
-    "community_sentiment": 0.8,
-    "mention_count": 2,
-    "controversy_index": 1.0,
-    "sentiment_trend": "positive",
-    "confidence_score": 0.03,
-    "sentiment_method": "gemini",
-    "valid_posts": 1,
-    "strong_praise_count": 1,
-    "strong_criticism_count": 0,
-    "model_name": "MiMo-V2.6-Pro",
-    "scraped_at": "2026-09-22T15:12:32.916896+00:00",
-    "_experimental": true,
-    "source_counts": {
-      "HackerNews": 2
-    },
-    "community_examples": [],
-    "top_quotes": []
-  },
-  {
-    "community_sentiment": 0.5,
-    "mention_count": 3,
-    "controversy_index": 0.0,
-    "sentiment_trend": "positive",
-    "confidence_score": 0.03,
-    "sentiment_method": "gemini",
-    "valid_posts": 1,
-    "strong_praise_count": 0,
-    "strong_criticism_count": 0,
-    "model_name": "Qwen3.8 Max (0902)",
-    "scraped_at": "2026-09-22T15:12:38.465565+00:00",
-    "_experimental": true,
-    "source_counts": {
-      "Reddit": 2,
-      "HackerNews": 1
-    },
-    "community_examples": [],
-    "top_quotes": []
-  },
-  {
-    "community_sentiment": 0.6555,
+    "community_sentiment": 0.2015,
     "mention_count": 16,
-    "controversy_index": 0.5,
+    "controversy_index": 0.0,
     "sentiment_trend": "positive",
-    "confidence_score": 0.13,
-    "sentiment_method": "gemini",
-    "valid_posts": 4,
-    "strong_praise_count": 2,
-    "strong_criticism_count": 0,
-    "model_name": "GLM-5.3",
-    "scraped_at": "2026-09-22T15:12:52.786792+00:00",
+    "confidence_score": 0.53,
+    "sentiment_method": "vader_fallback",
+    "model_name": "GPT-6 Astra",
+    "scraped_at": "2026-09-23T15:12:26.661250+00:00",
     "_experimental": true,
     "source_counts": {
       "HackerNews": 16
@@ -321,50 +112,85 @@
     "community_examples": [
       {
         "source": "Hacker News",
-        "text": "I spent $266 and four AI models to own my tablet. GLM-5.3 finished it in a day",
-        "url": "https://news.ycombinator.com/item?id=49409073"
+        "text": "Show HN: Automatically Save 60% on Amazon Findcheap is a search agent that finds the best price in one click.It performs >2x better than the next-best frontier model (GPT-6 Astra), albeit on a very specific task....",
+        "url": "https://news.ycombinator.com/item?id=49586711"
       },
       {
         "source": "Hacker News",
-        "text": "I hate benchmarks: Moving a production workflow from GPT to GLM-5.3 Flash",
-        "url": "https://news.ycombinator.com/item?id=49553022"
+        "text": "Codex on GPT6 Astra Low launched a rocket into space in Factorio Space Age 2.1",
+        "url": "https://news.ycombinator.com/item?id=49608875"
       },
       {
         "source": "Hacker News",
-        "text": "GLM-5.3 (open-weight) beat Anthropic/OpenAI models \u2013 for 1/5 the cost",
-        "url": "https://news.ycombinator.com/item?id=49410097"
+        "text": "GPT-6 Astra, looped transformers, and hidden reasoning",
+        "url": "https://news.ycombinator.com/item?id=49627370"
       }
     ],
     "top_quotes": [
       {
         "source": "Hacker News",
-        "text": "I spent $266 and four AI models to own my tablet. GLM-5.3 finished it in a day",
-        "url": "https://news.ycombinator.com/item?id=49409073"
+        "text": "Show HN: Automatically Save 60% on Amazon Findcheap is a search agent that finds the best price in one click.It performs >2x better than the next-best frontier model (GPT-6 Astra), albeit on a very specific task....",
+        "url": "https://news.ycombinator.com/item?id=49586711"
       },
       {
         "source": "Hacker News",
-        "text": "I hate benchmarks: Moving a production workflow from GPT to GLM-5.3 Flash",
-        "url": "https://news.ycombinator.com/item?id=49553022"
+        "text": "Codex on GPT6 Astra Low launched a rocket into space in Factorio Space Age 2.1",
+        "url": "https://news.ycombinator.com/item?id=49608875"
       },
       {
         "source": "Hacker News",
-        "text": "GLM-5.3 (open-weight) beat Anthropic/OpenAI models \u2013 for 1/5 the cost",
-        "url": "https://news.ycombinator.com/item?id=49410097"
+        "text": "GPT-6 Astra, looped transformers, and hidden reasoning",
+        "url": "https://news.ycombinator.com/item?id=49627370"
       }
     ]
   },
   {
-    "community_sentiment": 0.6691,
-    "mention_count": 12,
+    "community_sentiment": 0.3401,
+    "mention_count": 7,
     "controversy_index": 0.0,
     "sentiment_trend": "positive",
-    "confidence_score": 0.07,
-    "sentiment_method": "gemini",
-    "valid_posts": 2,
-    "strong_praise_count": 0,
-    "strong_criticism_count": 0,
-    "model_name": "Grok 4.6",
-    "scraped_at": "2026-09-22T15:12:58.666634+00:00",
+    "confidence_score": 0.23,
+    "sentiment_method": "vader_fallback",
+    "model_name": "Muse Spark 1.3",
+    "scraped_at": "2026-09-23T15:12:28.146241+00:00",
+    "_experimental": true,
+    "source_counts": {
+      "HackerNews": 7
+    },
+    "community_examples": [
+      {
+        "source": "Hacker News",
+        "text": "Muse Spark 1.3 Ranks #3 on Artificial Analysis Intelligence Index",
+        "url": "https://news.ycombinator.com/item?id=49562124"
+      },
+      {
+        "source": "Hacker News",
+        "text": "Introducing Muse Spark 1.3 Main thread is here:Muse Spark 1.3 -",
+        "url": "https://news.ycombinator.com/item?id=49541149"
+      }
+    ],
+    "top_quotes": [
+      {
+        "source": "Hacker News",
+        "text": "Muse Spark 1.3 Ranks #3 on Artificial Analysis Intelligence Index",
+        "url": "https://news.ycombinator.com/item?id=49562124"
+      },
+      {
+        "source": "Hacker News",
+        "text": "Introducing Muse Spark 1.3 Main thread is here:Muse Spark 1.3 -",
+        "url": "https://news.ycombinator.com/item?id=49541149"
+      }
+    ]
+  },
+  {
+    "community_sentiment": 0.0813,
+    "mention_count": 12,
+    "controversy_index": 0.0,
+    "sentiment_trend": "stable",
+    "confidence_score": 0.4,
+    "sentiment_method": "vader_fallback",
+    "model_name": "GPT-6 Sol",
+    "scraped_at": "2026-09-23T15:12:29.254802+00:00",
     "_experimental": true,
     "source_counts": {
       "HackerNews": 12
@@ -372,15 +198,226 @@
     "community_examples": [
       {
         "source": "Hacker News",
-        "text": "SpaceXAI debuts Grok 4.6, overtaking Kimi K3's and matching GPT-5.6 Sol",
-        "url": "https://news.ycombinator.com/item?id=49289032"
+        "text": "Ask HN: Is GPT-6 Astra worth the 2.5x cost increase over GPT-5.6 Sol? Comments on social media (when discounting the ironic posts) are mixed whether Astra is worth the cost increase, similar to the Fable-Opus...",
+        "url": "https://news.ycombinator.com/item?id=49661691"
+      },
+      {
+        "source": "Hacker News",
+        "text": "Show HN: DrivingBench \u2013 Frontier LLMs Driving a Real Toyota Corolla Hi all, wanted to share a cool project me and two buddies have been working on. Essentially we took a Toyota Corolla, installed a Comma 4, hooked it...",
+        "url": "https://news.ycombinator.com/item?id=49801925"
+      },
+      {
+        "source": "Hacker News",
+        "text": "GPT-6-sol appeared on OpenAI API",
+        "url": "https://news.ycombinator.com/item?id=49665088"
       }
     ],
     "top_quotes": [
       {
         "source": "Hacker News",
-        "text": "SpaceXAI debuts Grok 4.6, overtaking Kimi K3's and matching GPT-5.6 Sol",
-        "url": "https://news.ycombinator.com/item?id=49289032"
+        "text": "Ask HN: Is GPT-6 Astra worth the 2.5x cost increase over GPT-5.6 Sol? Comments on social media (when discounting the ironic posts) are mixed whether Astra is worth the cost increase, similar to the Fable-Opus...",
+        "url": "https://news.ycombinator.com/item?id=49661691"
+      },
+      {
+        "source": "Hacker News",
+        "text": "Show HN: DrivingBench \u2013 Frontier LLMs Driving a Real Toyota Corolla Hi all, wanted to share a cool project me and two buddies have been working on. Essentially we took a Toyota Corolla, installed a Comma 4, hooked it...",
+        "url": "https://news.ycombinator.com/item?id=49801925"
+      },
+      {
+        "source": "Hacker News",
+        "text": "GPT-6-sol appeared on OpenAI API",
+        "url": "https://news.ycombinator.com/item?id=49665088"
+      }
+    ]
+  },
+  {
+    "community_sentiment": 0.308,
+    "mention_count": 5,
+    "controversy_index": 0.0,
+    "sentiment_trend": "positive",
+    "confidence_score": 0.17,
+    "sentiment_method": "vader_fallback",
+    "model_name": "Grok 4.7",
+    "scraped_at": "2026-09-23T15:12:29.957509+00:00",
+    "_experimental": true,
+    "source_counts": {
+      "HackerNews": 5
+    },
+    "community_examples": [
+      {
+        "source": "Hacker News",
+        "text": "Grok 4.7 Intelligence, Performance and Price Analysis",
+        "url": "https://news.ycombinator.com/item?id=49789558"
+      },
+      {
+        "source": "Hacker News",
+        "text": "Grok 4.7 is here with Electrical engineering benchmark which beats fable 5.1 max",
+        "url": "https://news.ycombinator.com/item?id=49789456"
+      }
+    ],
+    "top_quotes": [
+      {
+        "source": "Hacker News",
+        "text": "Grok 4.7 Intelligence, Performance and Price Analysis",
+        "url": "https://news.ycombinator.com/item?id=49789558"
+      },
+      {
+        "source": "Hacker News",
+        "text": "Grok 4.7 is here with Electrical engineering benchmark which beats fable 5.1 max",
+        "url": "https://news.ycombinator.com/item?id=49789456"
+      }
+    ]
+  },
+  {
+    "community_sentiment": 0.5111,
+    "mention_count": 2,
+    "controversy_index": 0.0,
+    "sentiment_trend": "positive",
+    "confidence_score": 0.07,
+    "sentiment_method": "vader_fallback",
+    "model_name": "MiMo-V2.6-Pro",
+    "scraped_at": "2026-09-23T15:12:29.971684+00:00",
+    "_experimental": true,
+    "source_counts": {
+      "HackerNews": 2
+    },
+    "community_examples": [
+      {
+        "source": "Hacker News",
+        "text": "MiMo-v2.6-Pro: Intelligence, Performance and Price Analysis",
+        "url": "https://news.ycombinator.com/item?id=49796660"
+      }
+    ],
+    "top_quotes": [
+      {
+        "source": "Hacker News",
+        "text": "MiMo-v2.6-Pro: Intelligence, Performance and Price Analysis",
+        "url": "https://news.ycombinator.com/item?id=49796660"
+      }
+    ]
+  },
+  {
+    "community_sentiment": 0.1724,
+    "mention_count": 3,
+    "controversy_index": 0.0,
+    "sentiment_trend": "positive",
+    "confidence_score": 0.1,
+    "sentiment_method": "vader_fallback",
+    "model_name": "Qwen3.8 Max (0902)",
+    "scraped_at": "2026-09-23T15:12:29.986295+00:00",
+    "_experimental": true,
+    "source_counts": {
+      "Reddit": 2,
+      "HackerNews": 1
+    },
+    "community_examples": [
+      {
+        "source": "Reddit",
+        "text": "Qwen3.8-Max just took #1st in Code Arena. 1st place! Alibaba Cloud shipped a Qwen3.8-Max 0902 refresh today, post-trained for \"stronger performance across complex enterprise tasks, scientific research, and long...",
+        "url": "https://www.reddit.com/r/Qwen_AI/comments/1w57m9b/qwen38max_just_took_1st_in_code_arena_1st_place/"
+      },
+      {
+        "source": "Reddit",
+        "text": "\"Big news: Fable 5.1 (Max) by @AnthropicAI just landed #1 in the Code Arena: WebDev with 1765 pts - breaking away from the pack with a huge +77pt margin. Fable 5.1 (Max) is a significant improvement from Fable 5...",
+        "url": "https://www.reddit.com/r/accelerate/comments/1w5htwn/big_news_fable_51_max_by_anthropicai_just_landed/"
+      }
+    ],
+    "top_quotes": [
+      {
+        "source": "Reddit",
+        "text": "Qwen3.8-Max just took #1st in Code Arena. 1st place! Alibaba Cloud shipped a Qwen3.8-Max 0902 refresh today, post-trained for \"stronger performance across complex enterprise tasks, scientific research, and long...",
+        "url": "https://www.reddit.com/r/Qwen_AI/comments/1w57m9b/qwen38max_just_took_1st_in_code_arena_1st_place/"
+      },
+      {
+        "source": "Reddit",
+        "text": "\"Big news: Fable 5.1 (Max) by @AnthropicAI just landed #1 in the Code Arena: WebDev with 1765 pts - breaking away from the pack with a huge +77pt margin. Fable 5.1 (Max) is a significant improvement from Fable 5...",
+        "url": "https://www.reddit.com/r/accelerate/comments/1w5htwn/big_news_fable_51_max_by_anthropicai_just_landed/"
+      }
+    ]
+  },
+  {
+    "community_sentiment": 0.0824,
+    "mention_count": 16,
+    "controversy_index": 0.0,
+    "sentiment_trend": "stable",
+    "confidence_score": 0.53,
+    "sentiment_method": "vader_fallback",
+    "model_name": "GLM-5.3",
+    "scraped_at": "2026-09-23T15:12:30.503627+00:00",
+    "_experimental": true,
+    "source_counts": {
+      "HackerNews": 16
+    },
+    "community_examples": [
+      {
+        "source": "Hacker News",
+        "text": "Reasoning prefills on a few open models I wrapped this small followup to stolen-thoughts.com in a gist for easier reading and wanted to share it here.My hunch is that this might not just be reasoning distillation; it...",
+        "url": "https://news.ycombinator.com/item?id=49320387"
+      },
+      {
+        "source": "Hacker News",
+        "text": "I hate benchmarks: Moving a production workflow from GPT to GLM-5.3 Flash",
+        "url": "https://news.ycombinator.com/item?id=49553022"
+      },
+      {
+        "source": "Hacker News",
+        "text": "GLM-5.3: Frontier coding with emergent cyber capabilities",
+        "url": "https://news.ycombinator.com/item?id=49294997"
+      }
+    ],
+    "top_quotes": [
+      {
+        "source": "Hacker News",
+        "text": "Reasoning prefills on a few open models I wrapped this small followup to stolen-thoughts.com in a gist for easier reading and wanted to share it here.My hunch is that this might not just be reasoning distillation; it...",
+        "url": "https://news.ycombinator.com/item?id=49320387"
+      },
+      {
+        "source": "Hacker News",
+        "text": "I hate benchmarks: Moving a production workflow from GPT to GLM-5.3 Flash",
+        "url": "https://news.ycombinator.com/item?id=49553022"
+      },
+      {
+        "source": "Hacker News",
+        "text": "GLM-5.3: Frontier coding with emergent cyber capabilities",
+        "url": "https://news.ycombinator.com/item?id=49294997"
+      }
+    ]
+  },
+  {
+    "community_sentiment": 0.1593,
+    "mention_count": 12,
+    "controversy_index": 0.0,
+    "sentiment_trend": "positive",
+    "confidence_score": 0.4,
+    "sentiment_method": "vader_fallback",
+    "model_name": "Grok 4.6",
+    "scraped_at": "2026-09-23T15:12:30.519662+00:00",
+    "_experimental": true,
+    "source_counts": {
+      "HackerNews": 12
+    },
+    "community_examples": [
+      {
+        "source": "Hacker News",
+        "text": "Grok 4.6 scores 61 on the Artificial Analysis Intelligence Index",
+        "url": "https://news.ycombinator.com/item?id=49275385"
+      },
+      {
+        "source": "Hacker News",
+        "text": "Show HN: DrivingBench \u2013 Frontier LLMs Driving a Real Toyota Corolla Hi all, wanted to share a cool project me and two buddies have been working on. Essentially we took a Toyota Corolla, installed a Comma 4, hooked it...",
+        "url": "https://news.ycombinator.com/item?id=49801925"
+      }
+    ],
+    "top_quotes": [
+      {
+        "source": "Hacker News",
+        "text": "Grok 4.6 scores 61 on the Artificial Analysis Intelligence Index",
+        "url": "https://news.ycombinator.com/item?id=49275385"
+      },
+      {
+        "source": "Hacker News",
+        "text": "Show HN: DrivingBench \u2013 Frontier LLMs Driving a Real Toyota Corolla Hi all, wanted to share a cool project me and two buddies have been working on. Essentially we took a Toyota Corolla, installed a Comma 4, hooked it...",
+        "url": "https://news.ycombinator.com/item?id=49801925"
       }
     ]
   }
