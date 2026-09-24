@@ -2763,28 +2763,28 @@
       }
     }
   },
-  "inception/mercury-2": {
-    "family_id": "inception/mercury-2",
-    "canonical_family_name": "Mercury 2",
+  "inception/mercury-2-5": {
+    "family_id": "inception/mercury-2-5",
+    "canonical_family_name": "Mercury 2.5",
     "provider": "Inception",
-    "version": null,
+    "version": "2.5",
     "source_aliases": {
       "artificial_analysis": [
-        "Mercury 2"
+        "Mercury 2.5"
       ],
       "llmstats": []
     },
     "source_ids": {},
     "source_urls": {
       "artificial_analysis": [
-        "https://artificialanalysis.ai/models/mercury-2"
+        "https://artificialanalysis.ai/models/mercury-2-5"
       ]
     },
     "variants": {
-      "inception/mercury-2:default": {
-        "variant_id": "inception/mercury-2:default",
-        "deployment_profile_id": "inception/mercury-2:default:deployment",
-        "source_name": "Mercury 2",
+      "inception/mercury-2-5:default": {
+        "variant_id": "inception/mercury-2-5:default",
+        "deployment_profile_id": "inception/mercury-2-5:default:deployment",
+        "source_name": "Mercury 2.5",
         "reasoning_effort": null,
         "deployment_profile": [],
         "fallback_enabled": false,
@@ -4171,64 +4171,6 @@
       }
     }
   },
-  "mistral-ai/devstral-2": {
-    "family_id": "mistral-ai/devstral-2",
-    "canonical_family_name": "Devstral 2",
-    "provider": "Mistral AI",
-    "version": null,
-    "source_aliases": {
-      "artificial_analysis": [
-        "Devstral 2"
-      ],
-      "llmstats": []
-    },
-    "source_ids": {},
-    "source_urls": {
-      "artificial_analysis": [
-        "https://artificialanalysis.ai/models/devstral-2"
-      ]
-    },
-    "variants": {
-      "mistral-ai/devstral-2:default": {
-        "variant_id": "mistral-ai/devstral-2:default",
-        "deployment_profile_id": "mistral-ai/devstral-2:default:deployment",
-        "source_name": "Devstral 2",
-        "reasoning_effort": null,
-        "deployment_profile": [],
-        "fallback_enabled": false,
-        "parameter_count": null
-      }
-    }
-  },
-  "mistral-ai/devstral-small-2": {
-    "family_id": "mistral-ai/devstral-small-2",
-    "canonical_family_name": "Devstral Small 2",
-    "provider": "Mistral AI",
-    "version": null,
-    "source_aliases": {
-      "artificial_analysis": [
-        "Devstral Small 2"
-      ],
-      "llmstats": []
-    },
-    "source_ids": {},
-    "source_urls": {
-      "artificial_analysis": [
-        "https://artificialanalysis.ai/models/devstral-small-2"
-      ]
-    },
-    "variants": {
-      "mistral-ai/devstral-small-2:default": {
-        "variant_id": "mistral-ai/devstral-small-2:default",
-        "deployment_profile_id": "mistral-ai/devstral-small-2:default:deployment",
-        "source_name": "Devstral Small 2",
-        "reasoning_effort": null,
-        "deployment_profile": [],
-        "fallback_enabled": false,
-        "parameter_count": null
-      }
-    }
-  },
   "mistral-ai/magistral-medium-1-2": {
     "family_id": "mistral-ai/magistral-medium-1-2",
     "canonical_family_name": "Magistral Medium 1.2",
@@ -4891,88 +4833,6 @@
         "fallback_enabled": false,
         "parameter_count": {
           "total_billions": 70.0,
-          "active_billions": null
-        }
-      }
-    }
-  },
-  "nvidia/llama-3-1-nemotron-70b": {
-    "family_id": "nvidia/llama-3-1-nemotron-70b",
-    "canonical_family_name": "Llama 3.1 Nemotron 70B",
-    "provider": "NVIDIA",
-    "version": "3.1",
-    "source_aliases": {
-      "artificial_analysis": [
-        "Llama 3.1 Nemotron 70B"
-      ],
-      "llmstats": []
-    },
-    "source_ids": {},
-    "source_urls": {
-      "artificial_analysis": [
-        "https://artificialanalysis.ai/models/llama-3-1-nemotron-instruct-70b"
-      ]
-    },
-    "variants": {
-      "nvidia/llama-3-1-nemotron-70b:default": {
-        "variant_id": "nvidia/llama-3-1-nemotron-70b:default",
-        "deployment_profile_id": "nvidia/llama-3-1-nemotron-70b:default:deployment",
-        "source_name": "Llama 3.1 Nemotron 70B",
-        "reasoning_effort": null,
-        "deployment_profile": [],
-        "fallback_enabled": false,
-        "parameter_count": {
-          "total_billions": 70.0,
-          "active_billions": null
-        }
-      }
-    }
-  },
-  "nvidia/llama-nemotron-super-49b-v1-5": {
-    "family_id": "nvidia/llama-nemotron-super-49b-v1-5",
-    "canonical_family_name": "Llama Nemotron Super 49B v1.5",
-    "provider": "NVIDIA",
-    "version": "1.5",
-    "source_aliases": {
-      "artificial_analysis": [
-        "Llama Nemotron Super 49B v1.5 (Non-reasoning)",
-        "Llama Nemotron Super 49B v1.5 (reasoning)"
-      ],
-      "llmstats": []
-    },
-    "source_ids": {},
-    "source_urls": {
-      "artificial_analysis": [
-        "https://artificialanalysis.ai/models/llama-nemotron-super-49b-v1-5",
-        "https://artificialanalysis.ai/models/llama-nemotron-super-49b-v1-5-reasoning"
-      ]
-    },
-    "variants": {
-      "nvidia/llama-nemotron-super-49b-v1-5:reasoning": {
-        "variant_id": "nvidia/llama-nemotron-super-49b-v1-5:reasoning",
-        "deployment_profile_id": "nvidia/llama-nemotron-super-49b-v1-5:reasoning:deployment",
-        "source_name": "Llama Nemotron Super 49B v1.5 (reasoning)",
-        "reasoning_effort": null,
-        "deployment_profile": [
-          "reasoning"
-        ],
-        "fallback_enabled": false,
-        "parameter_count": {
-          "total_billions": 49.0,
-          "active_billions": null
-        }
-      },
-      "nvidia/llama-nemotron-super-49b-v1-5:non-reasoning": {
-        "variant_id": "nvidia/llama-nemotron-super-49b-v1-5:non-reasoning",
-        "deployment_profile_id": "nvidia/llama-nemotron-super-49b-v1-5:non-reasoning:deployment",
-        "source_name": "Llama Nemotron Super 49B v1.5 (Non-reasoning)",
-        "reasoning_effort": null,
-        "deployment_profile": [
-          "non-reasoning"
-        ],
-        "fallback_enabled": false,
-        "parameter_count": {
-          "total_billions": 49.0,
           "active_billions": null
         }
       }
@@ -6066,93 +5926,6 @@
         "variant_id": "reka-ai/reka-flash-3:default",
         "deployment_profile_id": "reka-ai/reka-flash-3:default:deployment",
         "source_name": "Reka Flash 3",
-        "reasoning_effort": null,
-        "deployment_profile": [],
-        "fallback_enabled": false,
-        "parameter_count": null
-      }
-    }
-  },
-  "sapiens-ai/agnes-2-5-pro-alpha": {
-    "family_id": "sapiens-ai/agnes-2-5-pro-alpha",
-    "canonical_family_name": "Agnes 2.5 Pro Alpha",
-    "provider": "Sapiens AI",
-    "version": "2.5",
-    "source_aliases": {
-      "artificial_analysis": [
-        "Agnes 2.5 Pro Alpha"
-      ],
-      "llmstats": []
-    },
-    "source_ids": {},
-    "source_urls": {
-      "artificial_analysis": [
-        "https://artificialanalysis.ai/models/agnes-2-5-pro-alpha"
-      ]
-    },
-    "variants": {
-      "sapiens-ai/agnes-2-5-pro-alpha:default": {
-        "variant_id": "sapiens-ai/agnes-2-5-pro-alpha:default",
-        "deployment_profile_id": "sapiens-ai/agnes-2-5-pro-alpha:default:deployment",
-        "source_name": "Agnes 2.5 Pro Alpha",
-        "reasoning_effort": null,
-        "deployment_profile": [],
-        "fallback_enabled": false,
-        "parameter_count": null
-      }
-    }
-  },
-  "sapiens-ai/agnes-2-5-pro-beta": {
-    "family_id": "sapiens-ai/agnes-2-5-pro-beta",
-    "canonical_family_name": "Agnes 2.5 Pro Beta",
-    "provider": "Sapiens AI",
-    "version": "2.5",
-    "source_aliases": {
-      "artificial_analysis": [
-        "Agnes 2.5 Pro Beta"
-      ],
-      "llmstats": []
-    },
-    "source_ids": {},
-    "source_urls": {
-      "artificial_analysis": [
-        "https://artificialanalysis.ai/models/agnes-2-5-pro-beta"
-      ]
-    },
-    "variants": {
-      "sapiens-ai/agnes-2-5-pro-beta:default": {
-        "variant_id": "sapiens-ai/agnes-2-5-pro-beta:default",
-        "deployment_profile_id": "sapiens-ai/agnes-2-5-pro-beta:default:deployment",
-        "source_name": "Agnes 2.5 Pro Beta",
-        "reasoning_effort": null,
-        "deployment_profile": [],
-        "fallback_enabled": false,
-        "parameter_count": null
-      }
-    }
-  },
-  "sapiens-ai/agnes-3-0-flash": {
-    "family_id": "sapiens-ai/agnes-3-0-flash",
-    "canonical_family_name": "Agnes 3.0 Flash",
-    "provider": "Sapiens AI",
-    "version": "3.0",
-    "source_aliases": {
-      "artificial_analysis": [
-        "Agnes 3.0 Flash"
-      ],
-      "llmstats": []
-    },
-    "source_ids": {},
-    "source_urls": {
-      "artificial_analysis": [
-        "https://artificialanalysis.ai/models/agnes-3-0-flash"
-      ]
-    },
-    "variants": {
-      "sapiens-ai/agnes-3-0-flash:default": {
-        "variant_id": "sapiens-ai/agnes-3-0-flash:default",
-        "deployment_profile_id": "sapiens-ai/agnes-3-0-flash:default:deployment",
-        "source_name": "Agnes 3.0 Flash",
         "reasoning_effort": null,
         "deployment_profile": [],
         "fallback_enabled": false,
