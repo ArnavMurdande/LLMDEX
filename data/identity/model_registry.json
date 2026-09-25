@@ -2002,6 +2002,7 @@
     "version": "4.1",
     "source_aliases": {
       "artificial_analysis": [
+        "DeepSeek V4.1 Flash (Non-reasoning)",
         "DeepSeek V4.1 Flash (max)"
       ],
       "llmstats": [
@@ -2011,7 +2012,8 @@
     "source_ids": {},
     "source_urls": {
       "artificial_analysis": [
-        "https://artificialanalysis.ai/models/deepseek-v4-1-flash"
+        "https://artificialanalysis.ai/models/deepseek-v4-1-flash",
+        "https://artificialanalysis.ai/models/deepseek-v4-1-flash-non-reasoning"
       ]
     },
     "variants": {
@@ -2021,6 +2023,17 @@
         "source_name": "DeepSeek V4.1 Flash (max)",
         "reasoning_effort": "max",
         "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": null
+      },
+      "deepseek/deepseek-v4-1-flash:non-reasoning": {
+        "variant_id": "deepseek/deepseek-v4-1-flash:non-reasoning",
+        "deployment_profile_id": "deepseek/deepseek-v4-1-flash:non-reasoning:deployment",
+        "source_name": "DeepSeek V4.1 Flash (Non-reasoning)",
+        "reasoning_effort": null,
+        "deployment_profile": [
+          "non-reasoning"
+        ],
         "fallback_enabled": false,
         "parameter_count": null
       }
@@ -6704,6 +6717,7 @@
     "version": "5.3",
     "source_aliases": {
       "artificial_analysis": [
+        "GLM-5.3 (low)",
         "GLM-5.3 (max)"
       ],
       "llmstats": []
@@ -6711,7 +6725,8 @@
     "source_ids": {},
     "source_urls": {
       "artificial_analysis": [
-        "https://artificialanalysis.ai/models/glm-5-3"
+        "https://artificialanalysis.ai/models/glm-5-3",
+        "https://artificialanalysis.ai/models/glm-5-3-low"
       ]
     },
     "variants": {
@@ -6720,6 +6735,15 @@
         "deployment_profile_id": "z-ai/glm-5-3:max:deployment",
         "source_name": "GLM-5.3 (max)",
         "reasoning_effort": "max",
+        "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": null
+      },
+      "z-ai/glm-5-3:low": {
+        "variant_id": "z-ai/glm-5-3:low",
+        "deployment_profile_id": "z-ai/glm-5-3:low:deployment",
+        "source_name": "GLM-5.3 (low)",
+        "reasoning_effort": "low",
         "deployment_profile": [],
         "fallback_enabled": false,
         "parameter_count": null
