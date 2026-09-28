@@ -1436,7 +1436,6 @@
       "artificial_analysis": [
         "Claude Opus 5.5 (high with fallback)",
         "Claude Opus 5.5 (low with fallback)",
-        "Claude Opus 5.5 (max with fallback)",
         "Claude Opus 5.5 (medium with fallback)",
         "Claude Opus 5.5 (xhigh with fallback)"
       ],
@@ -1447,7 +1446,6 @@
     "source_ids": {},
     "source_urls": {
       "artificial_analysis": [
-        "https://artificialanalysis.ai/models/claude-opus-5-5",
         "https://artificialanalysis.ai/models/claude-opus-5-5-high",
         "https://artificialanalysis.ai/models/claude-opus-5-5-low",
         "https://artificialanalysis.ai/models/claude-opus-5-5-medium",
@@ -1455,17 +1453,6 @@
       ]
     },
     "variants": {
-      "anthropic/claude-opus-5-5:max-fallback": {
-        "variant_id": "anthropic/claude-opus-5-5:max-fallback",
-        "deployment_profile_id": "anthropic/claude-opus-5-5:max-fallback:deployment",
-        "source_name": "Claude Opus 5.5 (max with fallback)",
-        "reasoning_effort": "max",
-        "deployment_profile": [
-          "fallback"
-        ],
-        "fallback_enabled": true,
-        "parameter_count": null
-      },
       "anthropic/claude-opus-5-5:xhigh-fallback": {
         "variant_id": "anthropic/claude-opus-5-5:xhigh-fallback",
         "deployment_profile_id": "anthropic/claude-opus-5-5:xhigh-fallback:deployment",
@@ -5397,6 +5384,7 @@
       "artificial_analysis": [
         "GPT-6 Astra (high)",
         "GPT-6 Astra (low)",
+        "GPT-6 Astra (max)",
         "GPT-6 Astra (medium)",
         "GPT-6 Astra (xhigh)"
       ],
@@ -5407,6 +5395,7 @@
     "source_ids": {},
     "source_urls": {
       "artificial_analysis": [
+        "https://artificialanalysis.ai/models/gpt-6-astra",
         "https://artificialanalysis.ai/models/gpt-6-astra-high",
         "https://artificialanalysis.ai/models/gpt-6-astra-low",
         "https://artificialanalysis.ai/models/gpt-6-astra-medium",
@@ -5414,6 +5403,15 @@
       ]
     },
     "variants": {
+      "openai/gpt-6-astra:max": {
+        "variant_id": "openai/gpt-6-astra:max",
+        "deployment_profile_id": "openai/gpt-6-astra:max:deployment",
+        "source_name": "GPT-6 Astra (max)",
+        "reasoning_effort": "max",
+        "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": null
+      },
       "openai/gpt-6-astra:xhigh": {
         "variant_id": "openai/gpt-6-astra:xhigh",
         "deployment_profile_id": "openai/gpt-6-astra:xhigh:deployment",
