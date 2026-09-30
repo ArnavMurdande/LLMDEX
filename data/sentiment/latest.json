@@ -1,20 +1,55 @@
 [
   {
-    "community_sentiment": null,
-    "mention_count": 12,
-    "controversy_index": null,
-    "sentiment_trend": null,
-    "confidence_score": 0,
+    "community_sentiment": 0.3864,
+    "mention_count": 17,
+    "controversy_index": 0.75,
+    "sentiment_trend": "positive",
+    "confidence_score": 0.13,
     "sentiment_method": "gemini",
+    "valid_posts": 4,
+    "strong_praise_count": 2,
+    "strong_criticism_count": 1,
     "model_name": "Claude Opus 5.5",
-    "scraped_at": "2026-09-29T16:38:59.900192+00:00",
+    "scraped_at": "2026-09-30T16:32:10.004347+00:00",
     "_experimental": true,
     "source_counts": {
-      "Reddit": 6,
-      "HackerNews": 6
+      "Reddit": 10,
+      "HackerNews": 7
     },
-    "community_examples": [],
-    "top_quotes": []
+    "community_examples": [
+      {
+        "source": "Reddit",
+        "text": "Heads-up: AI can finally understand and manage the Cloud Console Good news for everyone who has ever opened the Cloud Console to check one thing and come back 40 minutes later with three new tabs and zero answers....",
+        "url": "https://www.reddit.com/r/googlecloud/comments/1wu0vlp/headsup_ai_can_finally_understand_and_manage_the/"
+      },
+      {
+        "source": "Hacker News",
+        "text": "Show HN: Explainroo, Open Source Framework to Make Explainer Videos with Claude Everyone is making videos with Opus 5.5 right now (Sonnet 5.5 is also good at it), so I built a small open source kit to give you a head...",
+        "url": "https://news.ycombinator.com/item?id=49908484"
+      },
+      {
+        "source": "Reddit",
+        "text": "Claude Opus 5.5 is here! The new frontier model is now available in Devin! Opus 5.5 scores highest on FrontierCode1.1 beating Fable 5 and GPT-6 Astra at fractions of the cost. Read more about it's behavior and...",
+        "url": "https://www.reddit.com/r/DevinAI/comments/1wtytx8/claude_opus_55_is_here/"
+      }
+    ],
+    "top_quotes": [
+      {
+        "source": "Reddit",
+        "text": "Heads-up: AI can finally understand and manage the Cloud Console Good news for everyone who has ever opened the Cloud Console to check one thing and come back 40 minutes later with three new tabs and zero answers....",
+        "url": "https://www.reddit.com/r/googlecloud/comments/1wu0vlp/headsup_ai_can_finally_understand_and_manage_the/"
+      },
+      {
+        "source": "Hacker News",
+        "text": "Show HN: Explainroo, Open Source Framework to Make Explainer Videos with Claude Everyone is making videos with Opus 5.5 right now (Sonnet 5.5 is also good at it), so I built a small open source kit to give you a head...",
+        "url": "https://news.ycombinator.com/item?id=49908484"
+      },
+      {
+        "source": "Reddit",
+        "text": "Claude Opus 5.5 is here! The new frontier model is now available in Devin! Opus 5.5 scores highest on FrontierCode1.1 beating Fable 5 and GPT-6 Astra at fractions of the cost. Read more about it's behavior and...",
+        "url": "https://www.reddit.com/r/DevinAI/comments/1wtytx8/claude_opus_55_is_here/"
+      }
+    ]
   },
   {
     "community_sentiment": 0.3877,
@@ -27,7 +62,7 @@
     "strong_praise_count": 1,
     "strong_criticism_count": 0,
     "model_name": "Claude Fable 5.1",
-    "scraped_at": "2026-09-29T16:39:09.191196+00:00",
+    "scraped_at": "2026-09-30T16:32:14.768054+00:00",
     "_experimental": true,
     "source_counts": {
       "HackerNews": 12
@@ -68,25 +103,25 @@
     ]
   },
   {
-    "community_sentiment": 0.8114,
-    "mention_count": 16,
-    "controversy_index": 0.25,
+    "community_sentiment": 0.7583,
+    "mention_count": 14,
+    "controversy_index": 0.2,
     "sentiment_trend": "positive",
-    "confidence_score": 0.13,
+    "confidence_score": 0.17,
     "sentiment_method": "gemini",
-    "valid_posts": 4,
+    "valid_posts": 5,
     "strong_praise_count": 1,
     "strong_criticism_count": 0,
     "model_name": "GPT-6 Astra",
-    "scraped_at": "2026-09-29T16:39:20.880906+00:00",
+    "scraped_at": "2026-09-30T16:32:24.265504+00:00",
     "_experimental": true,
     "source_counts": {
-      "HackerNews": 16
+      "HackerNews": 14
     },
     "community_examples": [
       {
         "source": "Hacker News",
-        "text": "GPT-6 Astra Is the Best Vision Model We Have Tested",
+        "text": "GPT-6 Astra is the best vision model we have tested",
         "url": "https://news.ycombinator.com/item?id=49886228"
       },
       {
@@ -103,7 +138,7 @@
     "top_quotes": [
       {
         "source": "Hacker News",
-        "text": "GPT-6 Astra Is the Best Vision Model We Have Tested",
+        "text": "GPT-6 Astra is the best vision model we have tested",
         "url": "https://news.ycombinator.com/item?id=49886228"
       },
       {
@@ -119,54 +154,95 @@
     ]
   },
   {
-    "community_sentiment": 0.55,
-    "mention_count": 13,
-    "controversy_index": 0.5,
+    "community_sentiment": 0.7523,
+    "mention_count": 12,
+    "controversy_index": 0.8,
     "sentiment_trend": "positive",
-    "confidence_score": 0.13,
+    "confidence_score": 0.17,
     "sentiment_method": "gemini",
-    "valid_posts": 4,
-    "strong_praise_count": 2,
+    "valid_posts": 5,
+    "strong_praise_count": 4,
     "strong_criticism_count": 0,
     "model_name": "Claude Sonnet 5.5",
-    "scraped_at": "2026-09-29T16:39:29.786903+00:00",
+    "scraped_at": "2026-09-30T16:32:32.048582+00:00",
     "_experimental": true,
     "source_counts": {
-      "Reddit": 11,
-      "HackerNews": 2
+      "Reddit": 6,
+      "HackerNews": 6
     },
     "community_examples": [
       {
         "source": "Reddit",
-        "text": "Sonnet 5.5 ranks #2 on our writing benchmark! Sonnet 5.5 ranks #2 on our writing benchmark! Just behind Opus. It beats Claude Fable 5.1 on max by almost 100 Elo, at less than half the price ($1.32 vs $3.15 per...",
-        "url": "https://www.reddit.com/r/ClaudeAI/comments/1wsw08f/sonnet_55_ranks_2_on_our_writing_benchmark/"
+        "text": "Anthropic Sonnet 5.5 Jumped From 10.3% to 70.6% (I Tested It) What happens when the everyday AI model most people use suddenly beats the top model on a hard test? That's exactly what Anthropic Sonnet 5.5 just did,...",
+        "url": "https://www.reddit.com/r/AISEOInsider/comments/1wu4o9b/anthropic_sonnet_55_jumped_from_103_to_706_i/"
       },
       {
         "source": "Reddit",
-        "text": "Sonnet 5.5 vs Opus 5.5: the Terminal-Bench \"win\" is Max vs Xhigh. Here's the fair comparison. Sonnet 5.5 dropped yesterday and I keep seeing \"Sonnet beats Opus\" on the strength of Terminal-Bench 4.0 (70.6% vs 66.4%)....",
-        "url": "https://www.reddit.com/r/ClaudeAI/comments/1wt3baa/sonnet_55_vs_opus_55_the_terminalbench_win_is_max/"
+        "text": "Claude Sonnet 5.5 Release Date: It Beat Opus 5.5 (I Checked) Are you still paying Opus prices for work a cheaper model can now do just as well? That's the question the Claude Sonnet 5.5 release date forces every...",
+        "url": "https://www.reddit.com/r/AISEOInsider/comments/1wtxsh9/claude_sonnet_55_release_date_it_beat_opus_55_i/"
       },
       {
         "source": "Reddit",
-        "text": "Claude Sonnet 5.5 is 30%+ faster, and Anthropic says it can cost up to 30% less per task. Is AI shifting from \u201csmartest model\u201d to \u201cbest model for the job\u201d? submitted by /u/cn-dev to r/AIDeveloperNews [link] [comments]",
-        "url": "https://www.reddit.com/r/AIDeveloperNews/comments/1wtbmnh/claude_sonnet_55_is_30_faster_and_anthropic_says/"
+        "text": "I really really love Claude sonnet 5.5 so much Sonnet 5.5 is really a very good model, especially in its capabilities or intelligence, although the price is a bit expensive, but really don't care about the price....",
+        "url": "https://www.reddit.com/r/ClaudeAI/comments/1wu6koa/i_really_really_love_claude_sonnet_55_so_much/"
       }
     ],
     "top_quotes": [
       {
         "source": "Reddit",
-        "text": "Sonnet 5.5 ranks #2 on our writing benchmark! Sonnet 5.5 ranks #2 on our writing benchmark! Just behind Opus. It beats Claude Fable 5.1 on max by almost 100 Elo, at less than half the price ($1.32 vs $3.15 per...",
-        "url": "https://www.reddit.com/r/ClaudeAI/comments/1wsw08f/sonnet_55_ranks_2_on_our_writing_benchmark/"
+        "text": "Anthropic Sonnet 5.5 Jumped From 10.3% to 70.6% (I Tested It) What happens when the everyday AI model most people use suddenly beats the top model on a hard test? That's exactly what Anthropic Sonnet 5.5 just did,...",
+        "url": "https://www.reddit.com/r/AISEOInsider/comments/1wu4o9b/anthropic_sonnet_55_jumped_from_103_to_706_i/"
       },
       {
         "source": "Reddit",
-        "text": "Sonnet 5.5 vs Opus 5.5: the Terminal-Bench \"win\" is Max vs Xhigh. Here's the fair comparison. Sonnet 5.5 dropped yesterday and I keep seeing \"Sonnet beats Opus\" on the strength of Terminal-Bench 4.0 (70.6% vs 66.4%)....",
-        "url": "https://www.reddit.com/r/ClaudeAI/comments/1wt3baa/sonnet_55_vs_opus_55_the_terminalbench_win_is_max/"
+        "text": "Claude Sonnet 5.5 Release Date: It Beat Opus 5.5 (I Checked) Are you still paying Opus prices for work a cheaper model can now do just as well? That's the question the Claude Sonnet 5.5 release date forces every...",
+        "url": "https://www.reddit.com/r/AISEOInsider/comments/1wtxsh9/claude_sonnet_55_release_date_it_beat_opus_55_i/"
       },
       {
         "source": "Reddit",
-        "text": "Claude Sonnet 5.5 is 30%+ faster, and Anthropic says it can cost up to 30% less per task. Is AI shifting from \u201csmartest model\u201d to \u201cbest model for the job\u201d? submitted by /u/cn-dev to r/AIDeveloperNews [link] [comments]",
-        "url": "https://www.reddit.com/r/AIDeveloperNews/comments/1wtbmnh/claude_sonnet_55_is_30_faster_and_anthropic_says/"
+        "text": "I really really love Claude sonnet 5.5 so much Sonnet 5.5 is really a very good model, especially in its capabilities or intelligence, although the price is a bit expensive, but really don't care about the price....",
+        "url": "https://www.reddit.com/r/ClaudeAI/comments/1wu6koa/i_really_really_love_claude_sonnet_55_so_much/"
+      }
+    ]
+  },
+  {
+    "community_sentiment": 0.718,
+    "mention_count": 8,
+    "controversy_index": 0.0,
+    "sentiment_trend": "positive",
+    "confidence_score": 0.07,
+    "sentiment_method": "gemini",
+    "valid_posts": 2,
+    "strong_praise_count": 0,
+    "strong_criticism_count": 0,
+    "model_name": "GPT-6.1 Sol",
+    "scraped_at": "2026-09-30T16:32:34.434875+00:00",
+    "_experimental": true,
+    "source_counts": {
+      "HackerNews": 8
+    },
+    "community_examples": [
+      {
+        "source": "Hacker News",
+        "text": "GPT 6.1 Sol: Near-Astra intelligence for a fifth of the price",
+        "url": "https://news.ycombinator.com/item?id=49896586"
+      },
+      {
+        "source": "Hacker News",
+        "text": "GPT6.1 Sol In benchmark tests covering scientific and coding agent scenarios, GPT-6.1-Sol generally performs slightly below GPT-6 Astra and Opus 5.5, though it outperforms both in a few specific tests. Moreover, its...",
+        "url": "https://news.ycombinator.com/item?id=49898290"
+      }
+    ],
+    "top_quotes": [
+      {
+        "source": "Hacker News",
+        "text": "GPT 6.1 Sol: Near-Astra intelligence for a fifth of the price",
+        "url": "https://news.ycombinator.com/item?id=49896586"
+      },
+      {
+        "source": "Hacker News",
+        "text": "GPT6.1 Sol In benchmark tests covering scientific and coding agent scenarios, GPT-6.1-Sol generally performs slightly below GPT-6 Astra and Opus 5.5, though it outperforms both in a few specific tests. Moreover, its...",
+        "url": "https://news.ycombinator.com/item?id=49898290"
       }
     ]
   },
@@ -181,7 +257,7 @@
     "strong_praise_count": 0,
     "strong_criticism_count": 0,
     "model_name": "Muse Spark 1.3",
-    "scraped_at": "2026-09-29T16:39:34.262622+00:00",
+    "scraped_at": "2026-09-30T16:32:37.558150+00:00",
     "_experimental": true,
     "source_counts": {
       "HackerNews": 7
@@ -202,17 +278,17 @@
     ]
   },
   {
-    "community_sentiment": 0.0465,
+    "community_sentiment": 0.359,
     "mention_count": 12,
-    "controversy_index": 0.0,
-    "sentiment_trend": "stable",
+    "controversy_index": 0.75,
+    "sentiment_trend": "positive",
     "confidence_score": 0.13,
     "sentiment_method": "gemini",
     "valid_posts": 4,
-    "strong_praise_count": 0,
-    "strong_criticism_count": 0,
+    "strong_praise_count": 2,
+    "strong_criticism_count": 1,
     "model_name": "GPT-6 Sol",
-    "scraped_at": "2026-09-29T16:39:43.192418+00:00",
+    "scraped_at": "2026-09-30T16:32:41.923953+00:00",
     "_experimental": true,
     "source_counts": {
       "HackerNews": 12
@@ -220,13 +296,13 @@
     "community_examples": [
       {
         "source": "Hacker News",
-        "text": "DeepSeek beats GPT-6 Sol in autonomous drug development",
-        "url": "https://news.ycombinator.com/item?id=49845891"
+        "text": "GPT-6.1 Sol replaces GPT-6 Sol after just 7 days, with near-Astra intelligence",
+        "url": "https://news.ycombinator.com/item?id=49906669"
       },
       {
         "source": "Hacker News",
-        "text": "GPT-6 Sol is like GPT-5.6 Terra, GPT-6 Luna is like GPT-5.6 Asteroid",
-        "url": "https://news.ycombinator.com/item?id=49835237"
+        "text": "DeepSeek beats GPT-6 Sol in autonomous drug development",
+        "url": "https://news.ycombinator.com/item?id=49845891"
       },
       {
         "source": "Hacker News",
@@ -237,13 +313,13 @@
     "top_quotes": [
       {
         "source": "Hacker News",
-        "text": "DeepSeek beats GPT-6 Sol in autonomous drug development",
-        "url": "https://news.ycombinator.com/item?id=49845891"
+        "text": "GPT-6.1 Sol replaces GPT-6 Sol after just 7 days, with near-Astra intelligence",
+        "url": "https://news.ycombinator.com/item?id=49906669"
       },
       {
         "source": "Hacker News",
-        "text": "GPT-6 Sol is like GPT-5.6 Terra, GPT-6 Luna is like GPT-5.6 Asteroid",
-        "url": "https://news.ycombinator.com/item?id=49835237"
+        "text": "DeepSeek beats GPT-6 Sol in autonomous drug development",
+        "url": "https://news.ycombinator.com/item?id=49845891"
       },
       {
         "source": "Hacker News",
@@ -253,14 +329,17 @@
     ]
   },
   {
-    "community_sentiment": 0.308,
+    "community_sentiment": 0.8,
     "mention_count": 5,
-    "controversy_index": 0.0,
+    "controversy_index": 1.0,
     "sentiment_trend": "positive",
-    "confidence_score": 0.17,
-    "sentiment_method": "vader_fallback",
+    "confidence_score": 0.03,
+    "sentiment_method": "gemini",
+    "valid_posts": 1,
+    "strong_praise_count": 1,
+    "strong_criticism_count": 0,
     "model_name": "Grok 4.7",
-    "scraped_at": "2026-09-29T16:41:13.208784+00:00",
+    "scraped_at": "2026-09-30T16:32:47.398578+00:00",
     "_experimental": true,
     "source_counts": {
       "HackerNews": 5
@@ -268,21 +347,11 @@
     "community_examples": [
       {
         "source": "Hacker News",
-        "text": "Grok 4.7 Intelligence, Performance and Price Analysis",
-        "url": "https://news.ycombinator.com/item?id=49789558"
-      },
-      {
-        "source": "Hacker News",
         "text": "Grok 4.7 is here with Electrical engineering benchmark which beats fable 5.1 max",
         "url": "https://news.ycombinator.com/item?id=49789456"
       }
     ],
     "top_quotes": [
-      {
-        "source": "Hacker News",
-        "text": "Grok 4.7 Intelligence, Performance and Price Analysis",
-        "url": "https://news.ycombinator.com/item?id=49789558"
-      },
       {
         "source": "Hacker News",
         "text": "Grok 4.7 is here with Electrical engineering benchmark which beats fable 5.1 max",
@@ -291,32 +360,23 @@
     ]
   },
   {
-    "community_sentiment": 0.5108,
+    "community_sentiment": 0.8,
     "mention_count": 2,
-    "controversy_index": 0.0,
+    "controversy_index": 1.0,
     "sentiment_trend": "positive",
-    "confidence_score": 0.07,
-    "sentiment_method": "vader_fallback",
+    "confidence_score": 0.03,
+    "sentiment_method": "gemini",
+    "valid_posts": 1,
+    "strong_praise_count": 1,
+    "strong_criticism_count": 0,
     "model_name": "MiMo-V2.6-Pro",
-    "scraped_at": "2026-09-29T16:42:43.224228+00:00",
+    "scraped_at": "2026-09-30T16:32:50.354184+00:00",
     "_experimental": true,
     "source_counts": {
       "HackerNews": 2
     },
-    "community_examples": [
-      {
-        "source": "Hacker News",
-        "text": "MiMo-v2.6-Pro: Intelligence, Performance and Price Analysis",
-        "url": "https://news.ycombinator.com/item?id=49796660"
-      }
-    ],
-    "top_quotes": [
-      {
-        "source": "Hacker News",
-        "text": "MiMo-v2.6-Pro: Intelligence, Performance and Price Analysis",
-        "url": "https://news.ycombinator.com/item?id=49796660"
-      }
-    ]
+    "community_examples": [],
+    "top_quotes": []
   },
   {
     "community_sentiment": 0.8,
@@ -329,63 +389,12 @@
     "strong_praise_count": 0,
     "strong_criticism_count": 0,
     "model_name": "Qwen3.8 Max (0902)",
-    "scraped_at": "2026-09-29T16:42:46.333012+00:00",
+    "scraped_at": "2026-09-30T16:32:54.674558+00:00",
     "_experimental": true,
     "source_counts": {
       "HackerNews": 1
     },
     "community_examples": [],
     "top_quotes": []
-  },
-  {
-    "community_sentiment": 0.6555,
-    "mention_count": 17,
-    "controversy_index": 0.5,
-    "sentiment_trend": "positive",
-    "confidence_score": 0.13,
-    "sentiment_method": "gemini",
-    "valid_posts": 4,
-    "strong_praise_count": 2,
-    "strong_criticism_count": 0,
-    "model_name": "GLM-5.3",
-    "scraped_at": "2026-09-29T16:42:52.702546+00:00",
-    "_experimental": true,
-    "source_counts": {
-      "HackerNews": 17
-    },
-    "community_examples": [
-      {
-        "source": "Hacker News",
-        "text": "I spent $266 and four AI models to own my tablet. GLM-5.3 finished it in a day",
-        "url": "https://news.ycombinator.com/item?id=49409073"
-      },
-      {
-        "source": "Hacker News",
-        "text": "I hate benchmarks: Moving a production workflow from GPT to GLM-5.3 Flash",
-        "url": "https://news.ycombinator.com/item?id=49553022"
-      },
-      {
-        "source": "Hacker News",
-        "text": "GLM-5.3 (open-weight) beat Anthropic/OpenAI models \u2013 for 1/5 the cost",
-        "url": "https://news.ycombinator.com/item?id=49410097"
-      }
-    ],
-    "top_quotes": [
-      {
-        "source": "Hacker News",
-        "text": "I spent $266 and four AI models to own my tablet. GLM-5.3 finished it in a day",
-        "url": "https://news.ycombinator.com/item?id=49409073"
-      },
-      {
-        "source": "Hacker News",
-        "text": "I hate benchmarks: Moving a production workflow from GPT to GLM-5.3 Flash",
-        "url": "https://news.ycombinator.com/item?id=49553022"
-      },
-      {
-        "source": "Hacker News",
-        "text": "GLM-5.3 (open-weight) beat Anthropic/OpenAI models \u2013 for 1/5 the cost",
-        "url": "https://news.ycombinator.com/item?id=49410097"
-      }
-    ]
   }
 ]

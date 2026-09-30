@@ -1,22 +1,22 @@
 {
-  "generated_at": "2026-09-29T16:37:20.017830+00:00",
+  "generated_at": "2026-09-30T16:30:14.488368+00:00",
   "methodology_version": "LLMStats source-native current",
   "source": "LLMStats",
-  "source_updated_at": "2026-09-29T16:37:42.339387+00:00",
+  "source_updated_at": "2026-09-30T16:30:36.933634+00:00",
   "source_health": {
     "source": "LLMStats",
-    "rows_scraped": 98,
+    "rows_scraped": 99,
     "expected_range": [
       20,
       250
     ],
     "status": "healthy",
     "error_message": null,
-    "duration_seconds": 22.314,
-    "timestamp": "2026-09-29T16:37:42.339387+00:00",
+    "duration_seconds": 22.438,
+    "timestamp": "2026-09-30T16:30:36.933634+00:00",
     "parse_warning_count": 0,
     "warnings": [],
-    "last_successful_update": "2026-09-29T16:37:42.339387+00:00",
+    "last_successful_update": "2026-09-30T16:30:36.933634+00:00",
     "schema_changes": []
   },
   "capability": "tool_calling",
@@ -105,7 +105,7 @@
   "rows": [
     {
       "category_rank": 1.0,
-      "category_score": 34.7,
+      "category_score": 34.8,
       "source_name": "GPT-6 Astra",
       "provider": "OpenAI",
       "source_model_id": "gpt-6-astra",
@@ -161,7 +161,7 @@
     },
     {
       "category_rank": 2.0,
-      "category_score": 33.9,
+      "category_score": 34.0,
       "source_name": "Claude Sonnet 5.5",
       "provider": "Anthropic",
       "source_model_id": "claude-sonnet-5-5",
@@ -200,7 +200,7 @@
     },
     {
       "category_rank": 3.0,
-      "category_score": 32.0,
+      "category_score": 32.2,
       "source_name": "Claude Opus 5.5",
       "provider": "Anthropic",
       "source_model_id": "claude-opus-5-5",
@@ -1271,12 +1271,10 @@
           "provenance": "LLMStats public capability leaderboard",
           "source_url": "https://llm-stats.com/benchmarks/terminal-bench-2.1",
           "capabilities": [
-            "coding",
             "reasoning",
             "tool_calling"
           ],
           "source_column_indices": {
-            "coding": 14,
             "reasoning": 7,
             "tool_calling": 7
           },
@@ -1865,45 +1863,6 @@
     },
     {
       "category_rank": 26.0,
-      "category_score": 26.4,
-      "source_name": "GPT-6 Sol",
-      "provider": "OpenAI",
-      "source_model_id": "gpt-6-sol",
-      "source_model_url": "https://llm-stats.com/models/gpt-6-sol",
-      "license": "Proprietary",
-      "family_id": "openai/gpt-6-sol",
-      "matched_aa_family_id": "openai/gpt-6-sol",
-      "match_status": "matched_family",
-      "match_confidence": 0.95,
-      "score_status": "consensus",
-      "score_status_label": "Consensus",
-      "availability_class": "proprietary",
-      "is_sota": false,
-      "is_open_sota": false,
-      "rank_evidence": "source_rendered_table_order",
-      "benchmark_observations": {
-        "llmstats__agents-last-exam": {
-          "benchmark_id": "llmstats__agents-last-exam",
-          "canonical_name": "Agents' Last Exam",
-          "source_name": "Agents' Last Exam",
-          "value": 56.4,
-          "raw_value": "56.4%",
-          "version": null,
-          "provenance": "LLMStats public capability leaderboard",
-          "source_url": "https://llm-stats.com/benchmarks/agents-last-exam",
-          "capabilities": [
-            "tool_calling"
-          ],
-          "source_column_indices": {
-            "tool_calling": 16
-          },
-          "source_population": 21
-        }
-      },
-      "source_updated_at": null
-    },
-    {
-      "category_rank": 27.0,
       "category_score": 26.3,
       "source_name": "Qwen3.7 Max",
       "provider": "Alibaba",
@@ -1963,46 +1922,7 @@
       "source_updated_at": null
     },
     {
-      "category_rank": 28.0,
-      "category_score": 26.3,
-      "source_name": "Claude Fable 5.1",
-      "provider": "Anthropic",
-      "source_model_id": "claude-fable-5-1",
-      "source_model_url": "https://llm-stats.com/models/claude-fable-5-1",
-      "license": "Proprietary",
-      "family_id": "anthropic/claude-fable-5-1",
-      "matched_aa_family_id": "anthropic/claude-fable-5-1",
-      "match_status": "matched_family",
-      "match_confidence": 0.95,
-      "score_status": "consensus",
-      "score_status_label": "Consensus",
-      "availability_class": "proprietary",
-      "is_sota": false,
-      "is_open_sota": false,
-      "rank_evidence": "source_rendered_table_order",
-      "benchmark_observations": {
-        "llmstats__automationbench": {
-          "benchmark_id": "llmstats__automationbench",
-          "canonical_name": "AutomationBench",
-          "source_name": "AutomationBench",
-          "value": 31.4,
-          "raw_value": "31.4%",
-          "version": null,
-          "provenance": "LLMStats public capability leaderboard",
-          "source_url": "https://llm-stats.com/benchmarks/automationbench",
-          "capabilities": [
-            "tool_calling"
-          ],
-          "source_column_indices": {
-            "tool_calling": 12
-          },
-          "source_population": 22
-        }
-      },
-      "source_updated_at": null
-    },
-    {
-      "category_rank": 29.0,
+      "category_rank": 27.0,
       "category_score": 26.1,
       "source_name": "Claude Sonnet 4.5",
       "provider": "Anthropic",
@@ -2023,7 +1943,7 @@
       "source_updated_at": null
     },
     {
-      "category_rank": 30.0,
+      "category_rank": 28.0,
       "category_score": 25.6,
       "source_name": "MiMo-V2.6-Flash",
       "provider": "Xiaomi",
@@ -2066,6 +1986,84 @@
           "source_name": "Agents' Last Exam",
           "value": 27.6,
           "raw_value": "27.6%",
+          "version": null,
+          "provenance": "LLMStats public capability leaderboard",
+          "source_url": "https://llm-stats.com/benchmarks/agents-last-exam",
+          "capabilities": [
+            "tool_calling"
+          ],
+          "source_column_indices": {
+            "tool_calling": 16
+          },
+          "source_population": 21
+        }
+      },
+      "source_updated_at": null
+    },
+    {
+      "category_rank": 29.0,
+      "category_score": 25.5,
+      "source_name": "Claude Fable 5.1",
+      "provider": "Anthropic",
+      "source_model_id": "claude-fable-5-1",
+      "source_model_url": "https://llm-stats.com/models/claude-fable-5-1",
+      "license": "Proprietary",
+      "family_id": "anthropic/claude-fable-5-1",
+      "matched_aa_family_id": "anthropic/claude-fable-5-1",
+      "match_status": "matched_family",
+      "match_confidence": 0.95,
+      "score_status": "consensus",
+      "score_status_label": "Consensus",
+      "availability_class": "proprietary",
+      "is_sota": false,
+      "is_open_sota": false,
+      "rank_evidence": "source_rendered_table_order",
+      "benchmark_observations": {
+        "llmstats__automationbench": {
+          "benchmark_id": "llmstats__automationbench",
+          "canonical_name": "AutomationBench",
+          "source_name": "AutomationBench",
+          "value": 31.4,
+          "raw_value": "31.4%",
+          "version": null,
+          "provenance": "LLMStats public capability leaderboard",
+          "source_url": "https://llm-stats.com/benchmarks/automationbench",
+          "capabilities": [
+            "tool_calling"
+          ],
+          "source_column_indices": {
+            "tool_calling": 12
+          },
+          "source_population": 22
+        }
+      },
+      "source_updated_at": null
+    },
+    {
+      "category_rank": 30.0,
+      "category_score": 25.4,
+      "source_name": "GPT-6 Sol",
+      "provider": "OpenAI",
+      "source_model_id": "gpt-6-sol",
+      "source_model_url": "https://llm-stats.com/models/gpt-6-sol",
+      "license": "Proprietary",
+      "family_id": "openai/gpt-6-sol",
+      "matched_aa_family_id": "openai/gpt-6-sol",
+      "match_status": "matched_family",
+      "match_confidence": 0.95,
+      "score_status": "consensus",
+      "score_status_label": "Consensus",
+      "availability_class": "proprietary",
+      "is_sota": false,
+      "is_open_sota": false,
+      "rank_evidence": "source_rendered_table_order",
+      "benchmark_observations": {
+        "llmstats__agents-last-exam": {
+          "benchmark_id": "llmstats__agents-last-exam",
+          "canonical_name": "Agents' Last Exam",
+          "source_name": "Agents' Last Exam",
+          "value": 56.4,
+          "raw_value": "56.4%",
           "version": null,
           "provenance": "LLMStats public capability leaderboard",
           "source_url": "https://llm-stats.com/benchmarks/agents-last-exam",

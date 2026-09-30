@@ -1792,14 +1792,16 @@
     "version": "4.1",
     "source_aliases": {
       "artificial_analysis": [
-        "JT-4.1 Flash 236B A21B"
+        "JT-4.1 Flash 236B A21B",
+        "JT-4.1 Flash 236B A21B (non-reasoning)"
       ],
       "llmstats": []
     },
     "source_ids": {},
     "source_urls": {
       "artificial_analysis": [
-        "https://artificialanalysis.ai/models/jt-4-1-flash-236b-a21b"
+        "https://artificialanalysis.ai/models/jt-4-1-flash-236b-a21b",
+        "https://artificialanalysis.ai/models/jt236b"
       ]
     },
     "variants": {
@@ -1809,6 +1811,20 @@
         "source_name": "JT-4.1 Flash 236B A21B",
         "reasoning_effort": null,
         "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": {
+          "total_billions": 236.0,
+          "active_billions": null
+        }
+      },
+      "china-mobile/jt-4-1-flash-236b-a21b:non-reasoning": {
+        "variant_id": "china-mobile/jt-4-1-flash-236b-a21b:non-reasoning",
+        "deployment_profile_id": "china-mobile/jt-4-1-flash-236b-a21b:non-reasoning:deployment",
+        "source_name": "JT-4.1 Flash 236B A21B (non-reasoning)",
+        "reasoning_effort": null,
+        "deployment_profile": [
+          "non-reasoning"
+        ],
         "fallback_enabled": false,
         "parameter_count": {
           "total_billions": 236.0,
@@ -2046,6 +2062,7 @@
     "version": null,
     "source_aliases": {
       "artificial_analysis": [
+        "DeepSeek V4 Pro 0813 (Non-reasoning)",
         "DeepSeek V4 Pro 0813 (max)"
       ],
       "llmstats": [
@@ -2055,7 +2072,8 @@
     "source_ids": {},
     "source_urls": {
       "artificial_analysis": [
-        "https://artificialanalysis.ai/models/deepseek-v4-pro"
+        "https://artificialanalysis.ai/models/deepseek-v4-pro",
+        "https://artificialanalysis.ai/models/deepseek-v4-pro-non-reasoning"
       ]
     },
     "variants": {
@@ -2065,6 +2083,17 @@
         "source_name": "DeepSeek V4 Pro 0813 (max)",
         "reasoning_effort": "max",
         "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": null
+      },
+      "deepseek/deepseek-v4-pro-0813:non-reasoning": {
+        "variant_id": "deepseek/deepseek-v4-pro-0813:non-reasoning",
+        "deployment_profile_id": "deepseek/deepseek-v4-pro-0813:non-reasoning:deployment",
+        "source_name": "DeepSeek V4 Pro 0813 (Non-reasoning)",
+        "reasoning_effort": null,
+        "deployment_profile": [
+          "non-reasoning"
+        ],
         "fallback_enabled": false,
         "parameter_count": null
       }
@@ -5325,6 +5354,81 @@
         "deployment_profile": [
           "non-reasoning"
         ],
+        "fallback_enabled": false,
+        "parameter_count": null
+      }
+    }
+  },
+  "openai/gpt-6-1-sol": {
+    "family_id": "openai/gpt-6-1-sol",
+    "canonical_family_name": "GPT-6.1 Sol",
+    "provider": "OpenAI",
+    "version": "6.1",
+    "source_aliases": {
+      "artificial_analysis": [
+        "GPT-6.1 Sol (high)",
+        "GPT-6.1 Sol (low)",
+        "GPT-6.1 Sol (max)",
+        "GPT-6.1 Sol (medium)",
+        "GPT-6.1 Sol (xhigh)"
+      ],
+      "llmstats": [
+        "GPT-6.1 Sol"
+      ]
+    },
+    "source_ids": {},
+    "source_urls": {
+      "artificial_analysis": [
+        "https://artificialanalysis.ai/models/gpt-6-1-sol",
+        "https://artificialanalysis.ai/models/gpt-6-1-sol-high",
+        "https://artificialanalysis.ai/models/gpt-6-1-sol-low",
+        "https://artificialanalysis.ai/models/gpt-6-1-sol-medium",
+        "https://artificialanalysis.ai/models/gpt-6-1-sol-xhigh"
+      ]
+    },
+    "variants": {
+      "openai/gpt-6-1-sol:max": {
+        "variant_id": "openai/gpt-6-1-sol:max",
+        "deployment_profile_id": "openai/gpt-6-1-sol:max:deployment",
+        "source_name": "GPT-6.1 Sol (max)",
+        "reasoning_effort": "max",
+        "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": null
+      },
+      "openai/gpt-6-1-sol:xhigh": {
+        "variant_id": "openai/gpt-6-1-sol:xhigh",
+        "deployment_profile_id": "openai/gpt-6-1-sol:xhigh:deployment",
+        "source_name": "GPT-6.1 Sol (xhigh)",
+        "reasoning_effort": "xhigh",
+        "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": null
+      },
+      "openai/gpt-6-1-sol:high": {
+        "variant_id": "openai/gpt-6-1-sol:high",
+        "deployment_profile_id": "openai/gpt-6-1-sol:high:deployment",
+        "source_name": "GPT-6.1 Sol (high)",
+        "reasoning_effort": "high",
+        "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": null
+      },
+      "openai/gpt-6-1-sol:medium": {
+        "variant_id": "openai/gpt-6-1-sol:medium",
+        "deployment_profile_id": "openai/gpt-6-1-sol:medium:deployment",
+        "source_name": "GPT-6.1 Sol (medium)",
+        "reasoning_effort": "medium",
+        "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": null
+      },
+      "openai/gpt-6-1-sol:low": {
+        "variant_id": "openai/gpt-6-1-sol:low",
+        "deployment_profile_id": "openai/gpt-6-1-sol:low:deployment",
+        "source_name": "GPT-6.1 Sol (low)",
+        "reasoning_effort": "low",
+        "deployment_profile": [],
         "fallback_enabled": false,
         "parameter_count": null
       }
