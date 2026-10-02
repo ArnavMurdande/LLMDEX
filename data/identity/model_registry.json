@@ -5617,94 +5617,6 @@
       }
     }
   },
-  "openai/gpt-6-sol": {
-    "family_id": "openai/gpt-6-sol",
-    "canonical_family_name": "GPT-6 Sol",
-    "provider": "OpenAI",
-    "version": null,
-    "source_aliases": {
-      "artificial_analysis": [
-        "GPT-6 Sol (high)",
-        "GPT-6 Sol (low)",
-        "GPT-6 Sol (max)",
-        "GPT-6 Sol (medium)",
-        "GPT-6 Sol (non-reasoning)",
-        "GPT-6 Sol (xhigh)"
-      ],
-      "llmstats": [
-        "GPT-6 Sol"
-      ]
-    },
-    "source_ids": {},
-    "source_urls": {
-      "artificial_analysis": [
-        "https://artificialanalysis.ai/models/gpt-6-sol",
-        "https://artificialanalysis.ai/models/gpt-6-sol-high",
-        "https://artificialanalysis.ai/models/gpt-6-sol-low",
-        "https://artificialanalysis.ai/models/gpt-6-sol-medium",
-        "https://artificialanalysis.ai/models/gpt-6-sol-non-reasoning",
-        "https://artificialanalysis.ai/models/gpt-6-sol-xhigh"
-      ]
-    },
-    "variants": {
-      "openai/gpt-6-sol:max": {
-        "variant_id": "openai/gpt-6-sol:max",
-        "deployment_profile_id": "openai/gpt-6-sol:max:deployment",
-        "source_name": "GPT-6 Sol (max)",
-        "reasoning_effort": "max",
-        "deployment_profile": [],
-        "fallback_enabled": false,
-        "parameter_count": null
-      },
-      "openai/gpt-6-sol:xhigh": {
-        "variant_id": "openai/gpt-6-sol:xhigh",
-        "deployment_profile_id": "openai/gpt-6-sol:xhigh:deployment",
-        "source_name": "GPT-6 Sol (xhigh)",
-        "reasoning_effort": "xhigh",
-        "deployment_profile": [],
-        "fallback_enabled": false,
-        "parameter_count": null
-      },
-      "openai/gpt-6-sol:high": {
-        "variant_id": "openai/gpt-6-sol:high",
-        "deployment_profile_id": "openai/gpt-6-sol:high:deployment",
-        "source_name": "GPT-6 Sol (high)",
-        "reasoning_effort": "high",
-        "deployment_profile": [],
-        "fallback_enabled": false,
-        "parameter_count": null
-      },
-      "openai/gpt-6-sol:medium": {
-        "variant_id": "openai/gpt-6-sol:medium",
-        "deployment_profile_id": "openai/gpt-6-sol:medium:deployment",
-        "source_name": "GPT-6 Sol (medium)",
-        "reasoning_effort": "medium",
-        "deployment_profile": [],
-        "fallback_enabled": false,
-        "parameter_count": null
-      },
-      "openai/gpt-6-sol:low": {
-        "variant_id": "openai/gpt-6-sol:low",
-        "deployment_profile_id": "openai/gpt-6-sol:low:deployment",
-        "source_name": "GPT-6 Sol (low)",
-        "reasoning_effort": "low",
-        "deployment_profile": [],
-        "fallback_enabled": false,
-        "parameter_count": null
-      },
-      "openai/gpt-6-sol:non-reasoning": {
-        "variant_id": "openai/gpt-6-sol:non-reasoning",
-        "deployment_profile_id": "openai/gpt-6-sol:non-reasoning:deployment",
-        "source_name": "GPT-6 Sol (non-reasoning)",
-        "reasoning_effort": null,
-        "deployment_profile": [
-          "non-reasoning"
-        ],
-        "fallback_enabled": false,
-        "parameter_count": null
-      }
-    }
-  },
   "openai/gpt-oss-120b": {
     "family_id": "openai/gpt-oss-120b",
     "canonical_family_name": "gpt-oss-120b",
@@ -6158,6 +6070,7 @@
     "source_aliases": {
       "artificial_analysis": [
         "Grok 4.7 (high)",
+        "Grok 4.7 (low)",
         "Grok 4.7 (xhigh)"
       ],
       "llmstats": []
@@ -6166,7 +6079,8 @@
     "source_urls": {
       "artificial_analysis": [
         "https://artificialanalysis.ai/models/grok-4-7",
-        "https://artificialanalysis.ai/models/grok-4-7-high"
+        "https://artificialanalysis.ai/models/grok-4-7-high",
+        "https://artificialanalysis.ai/models/grok-4-7-low"
       ]
     },
     "variants": {
@@ -6184,6 +6098,15 @@
         "deployment_profile_id": "spacexai/grok-4-7:high:deployment",
         "source_name": "Grok 4.7 (high)",
         "reasoning_effort": "high",
+        "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": null
+      },
+      "spacexai/grok-4-7:low": {
+        "variant_id": "spacexai/grok-4-7:low",
+        "deployment_profile_id": "spacexai/grok-4-7:low:deployment",
+        "source_name": "Grok 4.7 (low)",
+        "reasoning_effort": "low",
         "deployment_profile": [],
         "fallback_enabled": false,
         "parameter_count": null

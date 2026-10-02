@@ -25,18 +25,13 @@
     "source_model_id": "gpt-5.6-sol",
     "source_model_url": "https://llm-stats.com/models/gpt-5.6-sol",
     "provider": "OpenAI",
-    "candidate_family_id": "openai/gpt-6-sol",
-    "candidate_family_name": "GPT-6 Sol",
+    "candidate_family_id": "openai/gpt-6-1-sol",
+    "candidate_family_name": "GPT-6.1 Sol",
     "match_status": "identity_unresolved",
     "match_confidence": 0.8,
     "match_method": "fuzzy_review_candidate",
     "review_reason": "Fuzzy candidates require manual approval and are excluded from scoring.",
     "competing_candidates": [
-      {
-        "family_id": "openai/gpt-6-sol",
-        "family_name": "GPT-6 Sol",
-        "similarity": 0.9
-      },
       {
         "family_id": "openai/gpt-6-1-sol",
         "family_name": "GPT-6.1 Sol",
@@ -131,6 +126,31 @@
         "family_id": "meta/muse-spark-1-3",
         "family_name": "Muse Spark 1.3",
         "similarity": 0.9286
+      }
+    ]
+  },
+  {
+    "source": "llmstats",
+    "source_name": "GPT-6 Sol",
+    "source_model_id": "gpt-6-sol",
+    "source_model_url": "https://llm-stats.com/models/gpt-6-sol",
+    "provider": "OpenAI",
+    "candidate_family_id": "openai/gpt-6-1-sol",
+    "candidate_family_name": "GPT-6.1 Sol",
+    "match_status": "identity_unresolved",
+    "match_confidence": 0.8,
+    "match_method": "fuzzy_review_candidate",
+    "review_reason": "Fuzzy candidates require manual approval and are excluded from scoring.",
+    "competing_candidates": [
+      {
+        "family_id": "openai/gpt-6-1-sol",
+        "family_name": "GPT-6.1 Sol",
+        "similarity": 0.9
+      },
+      {
+        "family_id": "openai/gpt-6-luna",
+        "family_name": "GPT-6 Luna",
+        "similarity": 0.7368
       }
     ]
   },
