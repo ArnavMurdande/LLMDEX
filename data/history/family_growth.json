@@ -507,10 +507,11 @@
       "model_url": "https://artificialanalysis.ai/models/jt236b",
       "release_date": "2026-07-09",
       "variants": [
-        "JT-4.1 Flash 236B A21B",
-        "JT-4.1 Flash 236B A21B (non-reasoning)"
+        "JT-4.1 Flash 236B A21B (non-reasoning)",
+        "JT-4.1 Flash 236B A21B (Non-reasoning)",
+        "JT-4.1 Flash 236B A21B"
       ],
-      "variant_count": 2,
+      "variant_count": 3,
       "improvement_abs": 15.0,
       "improvement_pct": 78.95,
       "predecessor": "JT-35B-Flash"
@@ -572,7 +573,7 @@
       "model_url": "https://artificialanalysis.ai/models/claude-fable-5",
       "release_date": "2026-06-09",
       "variants": [
-        "Claude Fable 5 (Adaptive Reasoning, Max Effort, Opus 4.8 Fallback)"
+        "Claude Fable 5 (Max, Opus 4.8 Fallback)"
       ],
       "variant_count": 1,
       "improvement_abs": 0.0,
@@ -719,8 +720,8 @@
       "model_url": "https://artificialanalysis.ai/models/claude-opus-4-6-adaptive",
       "release_date": "2026-02-05",
       "variants": [
-        "Claude Opus 4.6 (Non-reasoning, High Effort)",
-        "Claude Opus 4.6 (Adaptive Reasoning, Max Effort)"
+        "Claude Opus 4.6 (Non-reasoning, High)",
+        "Claude Opus 4.6 (Max)"
       ],
       "variant_count": 2,
       "improvement_abs": 2.85,
@@ -735,8 +736,8 @@
       "model_url": "https://artificialanalysis.ai/models/claude-opus-4-7",
       "release_date": "2026-04-16",
       "variants": [
-        "Claude Opus 4.7 (Non-reasoning, High Effort)",
-        "Claude Opus 4.7 (Adaptive Reasoning, Max Effort)"
+        "Claude Opus 4.7 (Non-reasoning, High)",
+        "Claude Opus 4.7 (Max)"
       ],
       "variant_count": 2,
       "improvement_abs": 8.74,
@@ -751,7 +752,7 @@
       "model_url": "https://artificialanalysis.ai/models/claude-opus-4-8",
       "release_date": "2026-05-28",
       "variants": [
-        "Claude Opus 4.8 (Adaptive Reasoning, Max Effort)"
+        "Claude Opus 4.8 (Max)"
       ],
       "variant_count": 1,
       "improvement_abs": 1.1,
@@ -766,11 +767,11 @@
       "model_url": "https://artificialanalysis.ai/models/claude-opus-5",
       "release_date": "2026-07-24",
       "variants": [
-        "Claude Opus 5 (Adaptive Reasoning, Xhigh Effort)",
-        "Claude Opus 5 (Adaptive Reasoning, Low Effort)",
-        "Claude Opus 5 (Adaptive Reasoning, High Effort)",
-        "Claude Opus 5 (Adaptive Reasoning, Max Effort)",
-        "Claude Opus 5 (Adaptive Reasoning, Medium Effort)"
+        "Claude Opus 5 (Xhigh)",
+        "Claude Opus 5 (Low)",
+        "Claude Opus 5 (High)",
+        "Claude Opus 5 (Max)",
+        "Claude Opus 5 (Medium)"
       ],
       "variant_count": 5,
       "improvement_abs": 8.99,
@@ -786,7 +787,7 @@
       "release_date": "2026-09-22",
       "variants": [
         "Claude Opus 5.5 (xhigh with fallback)",
-        "Claude Opus 5.5 (Adaptive Reasoning, Max Effort, Default Fallback)",
+        "Claude Opus 5.5 (Max, Default Fallback)",
         "Claude Opus 5.5 (low with fallback)",
         "Claude Opus 5.5 (medium with fallback)",
         "Claude Opus 5.5 (high with fallback)"
@@ -899,9 +900,9 @@
       "model_url": "https://artificialanalysis.ai/models/claude-sonnet-4-6-adaptive",
       "release_date": "2026-02-17",
       "variants": [
-        "Claude Sonnet 4.6 (Non-reasoning, High Effort)",
-        "Claude Sonnet 4.6 (Adaptive Reasoning, Max Effort)",
-        "Claude Sonnet 4.6 (Non-reasoning, Low Effort)"
+        "Claude Sonnet 4.6 (Non-reasoning, High)",
+        "Claude Sonnet 4.6 (Max)",
+        "Claude Sonnet 4.6 (Non-reasoning, Low)"
       ],
       "variant_count": 3,
       "improvement_abs": 9.39,
@@ -916,12 +917,12 @@
       "model_url": "https://artificialanalysis.ai/models/claude-sonnet-5",
       "release_date": "2026-06-30",
       "variants": [
-        "Claude Sonnet 5 (Adaptive Reasoning, Low Effort)",
-        "Claude Sonnet 5 (Adaptive Reasoning, Max Effort)",
-        "Claude Sonnet 5 (Adaptive Reasoning, Xhigh Effort)",
-        "Claude Sonnet 5 (Adaptive Reasoning, High Effort)",
-        "Claude Sonnet 5 (Non-reasoning, High Effort)",
-        "Claude Sonnet 5 (Adaptive Reasoning, Medium Effort)"
+        "Claude Sonnet 5 (Low)",
+        "Claude Sonnet 5 (Max)",
+        "Claude Sonnet 5 (Xhigh)",
+        "Claude Sonnet 5 (High)",
+        "Claude Sonnet 5 (Non-reasoning, High)",
+        "Claude Sonnet 5 (Medium)"
       ],
       "variant_count": 6,
       "improvement_abs": 8.11,
@@ -939,7 +940,7 @@
         "Claude Sonnet 5.5 (medium with fallback)",
         "Claude Sonnet 5.5 (high with fallback)",
         "Claude Sonnet 5.5 (xhigh with fallback)",
-        "Claude Sonnet 5.5 (Adaptive Reasoning, Max Effort, Default Fallback)",
+        "Claude Sonnet 5.5 (Max, Default Fallback)",
         "Claude Sonnet 5.5 (low with fallback)"
       ],
       "variant_count": 5,
@@ -3847,6 +3848,21 @@
       "improvement_abs": -2.0,
       "improvement_pct": -8.0,
       "predecessor": "Ling-3.0-flash-VL"
+    },
+    {
+      "name": "Ling 3.1 Flash",
+      "performance": 41.0906200397391,
+      "rank": null,
+      "provider": "InclusionAI",
+      "model_url": "https://artificialanalysis.ai/models/ling-3-1-flash",
+      "release_date": "2026-10-01",
+      "variants": [
+        "Ling 3.1 Flash"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 18.09,
+      "improvement_pct": 78.65,
+      "predecessor": "Ling-3.0-flash-Fin"
     }
   ],
   "Institute of Foundation Models": [
