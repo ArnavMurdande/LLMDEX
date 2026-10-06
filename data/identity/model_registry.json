@@ -1801,7 +1801,7 @@
     "source_urls": {
       "artificial_analysis": [
         "https://artificialanalysis.ai/models/jt-4-1-flash-236b-a21b",
-        "https://artificialanalysis.ai/models/jt236b"
+        "https://artificialanalysis.ai/models/jt-4-1-flash-236b-a21b-non-reasoning"
       ]
     },
     "variants": {
@@ -2943,6 +2943,35 @@
         "variant_id": "inclusionai/ling-3-0-tiny:default",
         "deployment_profile_id": "inclusionai/ling-3-0-tiny:default:deployment",
         "source_name": "Ling 3.0 Tiny",
+        "reasoning_effort": null,
+        "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": null
+      }
+    }
+  },
+  "inclusionai/ling-3-1-flash": {
+    "family_id": "inclusionai/ling-3-1-flash",
+    "canonical_family_name": "Ling 3.1 Flash",
+    "provider": "InclusionAI",
+    "version": "3.1",
+    "source_aliases": {
+      "artificial_analysis": [
+        "Ling 3.1 Flash"
+      ],
+      "llmstats": []
+    },
+    "source_ids": {},
+    "source_urls": {
+      "artificial_analysis": [
+        "https://artificialanalysis.ai/models/ling-3-1-flash"
+      ]
+    },
+    "variants": {
+      "inclusionai/ling-3-1-flash:default": {
+        "variant_id": "inclusionai/ling-3-1-flash:default",
+        "deployment_profile_id": "inclusionai/ling-3-1-flash:default:deployment",
+        "source_name": "Ling 3.1 Flash",
         "reasoning_effort": null,
         "deployment_profile": [],
         "fallback_enabled": false,
@@ -4391,6 +4420,37 @@
         "source_name": "Mistral Large 3",
         "reasoning_effort": null,
         "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": null
+      }
+    }
+  },
+  "mistral-ai/mistral-large-4-preview": {
+    "family_id": "mistral-ai/mistral-large-4-preview",
+    "canonical_family_name": "Mistral Large 4 Preview",
+    "provider": "Mistral AI",
+    "version": null,
+    "source_aliases": {
+      "artificial_analysis": [
+        "Mistral Large 4 Preview"
+      ],
+      "llmstats": []
+    },
+    "source_ids": {},
+    "source_urls": {
+      "artificial_analysis": [
+        "https://artificialanalysis.ai/models/mistral-large-4"
+      ]
+    },
+    "variants": {
+      "mistral-ai/mistral-large-4-preview:preview": {
+        "variant_id": "mistral-ai/mistral-large-4-preview:preview",
+        "deployment_profile_id": "mistral-ai/mistral-large-4-preview:preview:deployment",
+        "source_name": "Mistral Large 4 Preview",
+        "reasoning_effort": null,
+        "deployment_profile": [
+          "preview"
+        ],
         "fallback_enabled": false,
         "parameter_count": null
       }
