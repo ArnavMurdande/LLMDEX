@@ -1,32 +1,32 @@
 {
   "schema_version": "powerbi-v2-wide",
   "source_snapshot_dates": {
-    "artificial_analysis": "2026-10-06",
-    "llmstats": "2026-10-06"
+    "artificial_analysis": "2026-10-07",
+    "llmstats": "2026-10-07"
   },
-  "earliest_catalog_event_date": "2022-11-30",
+  "earliest_catalog_event_date": "2026-06-09",
   "earliest_observed_snapshot_date": "2026-07-23",
-  "latest_observed_snapshot_date": "2026-10-06",
-  "catalog_event_row_count": 682,
-  "observed_snapshot_row_count": 19868,
+  "latest_observed_snapshot_date": "2026-10-07",
+  "catalog_event_row_count": 25,
+  "observed_snapshot_row_count": 20128,
   "historical_coverage_limitations": "Pre-LLMDEX historical rows represent repository-supported catalogue or release events and must not be interpreted as daily historical benchmark measurements.",
   "row_counts": {
-    "artificial_analysis_benchmarks": 261,
-    "llmstats_benchmarks": 309,
+    "artificial_analysis_benchmarks": 260,
+    "llmstats_benchmarks": 310,
     "combined_latest": 1,
-    "model_family_history": 20550,
-    "provider_metadata": 60,
-    "data_dictionary": 206
+    "model_family_history": 20153,
+    "provider_metadata": 57,
+    "data_dictionary": 205
   },
   "column_counts": {
     "artificial_analysis_benchmarks": 74,
-    "llmstats_benchmarks": 75,
+    "llmstats_benchmarks": 74,
     "model_family_history": 36,
     "provider_metadata": 21
   },
-  "providers_discovered": 60,
-  "providers_fully_enriched": 32,
-  "providers_requiring_metadata": 28,
+  "providers_discovered": 57,
+  "providers_fully_enriched": 30,
+  "providers_requiring_metadata": 27,
   "unresolved_provider_ids": [
     "ai9stars",
     "allen-institute-for-ai",
@@ -47,7 +47,6 @@
     "nex-agi",
     "nous-research",
     "openbmb",
-    "openchat",
     "prime-intellect",
     "reka-ai",
     "shanghai-ai-laboratory",
@@ -57,14 +56,14 @@
     "tii-uae",
     "trillion-labs"
   ],
-  "number_of_benchmark_columns": 58,
-  "llmstats_general_row_count": 99,
-  "llmstats_general_missing_score_count": 69,
-  "llmstats_general_missing_rank_count": 69,
+  "number_of_benchmark_columns": 57,
+  "llmstats_general_row_count": 100,
+  "llmstats_general_missing_score_count": 70,
+  "llmstats_general_missing_rank_count": 70,
   "llmstats_general_missing_provider_count": 0,
-  "llmstats_provider_populated_count": 309,
+  "llmstats_provider_populated_count": 310,
   "llmstats_provider_missing_count": 0,
-  "llmstats_availability_unknown_count": 221,
+  "llmstats_availability_unknown_count": 223,
   "malformed_name_count_detected": 0,
   "malformed_name_count_corrected": 0,
   "unresolved_malformed_name_count": 0,
@@ -81,17 +80,17 @@
   ],
   "corrected_open_weight_inconsistency_count": 173,
   "sha256_hashes": {
-    "artificial_analysis_benchmarks.csv": "1d191b1e64c8658e0d7b21b8babefd5e7ad03658f3056e93476c3139a134a063",
-    "llmstats_benchmarks.csv": "fef3179f6e212c1a619c8fadff78aa43d08a0b5d48c4a90d4792a15f56d046ac",
-    "combined_latest.json": "9a0036a8984ce987b4c38b3fb4e25d1dc60c1b2d0927408f79baa03594210c50",
-    "model_family_history.csv": "d0f608d4fc86764606824bfe4e7bab2d3d62844462687a75a459e231c54a8bf5",
-    "provider_metadata.csv": "bc5a2df04c0ea8264e9d8a6840a9e2e765f5c6557526ddcea5c76cd3b7af91a9",
-    "provider_metadata_validation.json": "e4027d95c3571ebe746f905f062e8591b5a62a9adf2b22a6cbc64d5bae0901e5",
-    "data_dictionary.csv": "905ae951b71cb61e54690a381d25fee375bc866783d1607201408f60c1d4efb1"
+    "artificial_analysis_benchmarks.csv": "3afe4941c0ba7f1a3aaf78eb88521833aa825f8026a289b4d98c0b3c6a0c7999",
+    "llmstats_benchmarks.csv": "f9083271207bf2cbf504cd5e07b927de1006413fd059c8b1313bab7d23b385d7",
+    "combined_latest.json": "bac743339b3b8d9bd04356aa2d23910b522af2430fcf8bca7f6ddb6ccfc357f5",
+    "model_family_history.csv": "9511ed17fcea10e8e95e650937eec7a6d31337f58ef006f0c8ae5f558cebe7b9",
+    "provider_metadata.csv": "70484164490d561b2731bb06c3324165bc0a68dee53f545d4a24590ffd88689a",
+    "provider_metadata_validation.json": "3504c085d599ffee0cd5ba06f290cd5ad67c9f2f5ab9d6f8efea1c371cfdea11",
+    "data_dictionary.csv": "8693f56be3dadce1798a43ee6b2d49403d5de0c917216be6f0d2988f1204f0c8"
   },
   "validation_status": "valid",
   "warnings": [
-    "Provider metadata required: ai9stars, allen-institute-for-ai, apodex, arcee-ai, celeris, china-mobile, deep-cogito, inception, inclusionai, institute-of-foundation-models, korea-telecom, kwaikat, liquid-ai, motif-technologies, multiverse-computing, nanbeige, nex-agi, nous-research, openbmb, openchat, prime-intellect, reka-ai, shanghai-ai-laboratory, sk-telecom, stepfun, swiss-ai-initiative, tii-uae, trillion-labs"
+    "Provider metadata required: ai9stars, allen-institute-for-ai, apodex, arcee-ai, celeris, china-mobile, deep-cogito, inception, inclusionai, institute-of-foundation-models, korea-telecom, kwaikat, liquid-ai, motif-technologies, multiverse-computing, nanbeige, nex-agi, nous-research, openbmb, prime-intellect, reka-ai, shanghai-ai-laboratory, sk-telecom, stepfun, swiss-ai-initiative, tii-uae, trillion-labs"
   ],
-  "generated_from_commit": "d1e8610b999970786b30270159d8dd01b4fc80bb"
+  "generated_from_commit": "cd3ece6c9ce50cf0145916c76b9e2f8d37072860"
 }

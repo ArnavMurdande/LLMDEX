@@ -1,22 +1,22 @@
 {
-  "generated_at": "2026-10-06T16:55:09.793830+00:00",
+  "generated_at": "2026-10-07T17:32:33.660581+00:00",
   "methodology_version": "LLMStats source-native current",
   "source": "LLMStats",
-  "source_updated_at": "2026-10-06T16:55:34.418092+00:00",
+  "source_updated_at": "2026-10-07T17:33:02.817773+00:00",
   "source_health": {
     "source": "LLMStats",
-    "rows_scraped": 99,
+    "rows_scraped": 100,
     "expected_range": [
       20,
       250
     ],
     "status": "healthy",
     "error_message": null,
-    "duration_seconds": 24.616,
-    "timestamp": "2026-10-06T16:55:34.418092+00:00",
+    "duration_seconds": 29.149,
+    "timestamp": "2026-10-07T17:33:02.817773+00:00",
     "parse_warning_count": 0,
     "warnings": [],
-    "last_successful_update": "2026-10-06T16:55:34.418092+00:00",
+    "last_successful_update": "2026-10-07T17:33:02.817773+00:00",
     "schema_changes": []
   },
   "capability": "coding",
@@ -177,7 +177,7 @@
           ],
           "source_column_indices": {
             "coding": 11,
-            "reasoning": 13
+            "reasoning": 14
           },
           "source_population": 60
         },
@@ -269,7 +269,7 @@
           ],
           "source_column_indices": {
             "coding": 11,
-            "reasoning": 13
+            "reasoning": 14
           },
           "source_population": 60
         },
@@ -417,26 +417,9 @@
           ],
           "source_column_indices": {
             "coding": 11,
-            "reasoning": 13
+            "reasoning": 14
           },
           "source_population": 60
-        },
-        "llmstats__arena-avg": {
-          "benchmark_id": "llmstats__arena-avg",
-          "canonical_name": "Arena Avg",
-          "source_name": "Arena Avg",
-          "value": 2135.0,
-          "raw_value": "2135",
-          "version": null,
-          "provenance": "LLMStats public capability leaderboard",
-          "source_url": "https://llm-stats.com/leaderboards/best-ai-for-coding",
-          "capabilities": [
-            "coding"
-          ],
-          "source_column_indices": {
-            "coding": 7
-          },
-          "source_population": null
         },
         "llmstats__terminal-bench-2-1": {
           "benchmark_id": "llmstats__terminal-bench-2-1",
@@ -457,7 +440,7 @@
             "reasoning": 7,
             "tool_calling": 7
           },
-          "source_population": 42
+          "source_population": 43
         },
         "llmstats__deepswe-1-1": {
           "benchmark_id": "llmstats__deepswe-1-1",
@@ -530,9 +513,9 @@
           ],
           "source_column_indices": {
             "coding": 8,
-            "reasoning": 11
+            "reasoning": 9
           },
-          "source_population": 116
+          "source_population": 117
         },
         "llmstats__swe-bench-pro": {
           "benchmark_id": "llmstats__swe-bench-pro",
@@ -549,26 +532,9 @@
           ],
           "source_column_indices": {
             "coding": 11,
-            "reasoning": 13
+            "reasoning": 14
           },
           "source_population": 60
-        },
-        "llmstats__arena-avg": {
-          "benchmark_id": "llmstats__arena-avg",
-          "canonical_name": "Arena Avg",
-          "source_name": "Arena Avg",
-          "value": 2003.0,
-          "raw_value": "2003",
-          "version": null,
-          "provenance": "LLMStats public capability leaderboard",
-          "source_url": "https://llm-stats.com/leaderboards/best-ai-for-coding",
-          "capabilities": [
-            "coding"
-          ],
-          "source_column_indices": {
-            "coding": 7
-          },
-          "source_population": null
         },
         "llmstats__terminal-bench-2-1": {
           "benchmark_id": "llmstats__terminal-bench-2-1",
@@ -587,7 +553,7 @@
             "coding": 14,
             "reasoning": 7
           },
-          "source_population": 42
+          "source_population": 43
         },
         "llmstats__deepswe-1-1": {
           "benchmark_id": "llmstats__deepswe-1-1",
@@ -660,9 +626,9 @@
           ],
           "source_column_indices": {
             "coding": 8,
-            "reasoning": 11
+            "reasoning": 9
           },
-          "source_population": 116
+          "source_population": 117
         },
         "llmstats__swe-bench-pro": {
           "benchmark_id": "llmstats__swe-bench-pro",
@@ -679,7 +645,7 @@
           ],
           "source_column_indices": {
             "coding": 11,
-            "reasoning": 13
+            "reasoning": 14
           },
           "source_population": 60
         },
@@ -698,7 +664,7 @@
           ],
           "source_column_indices": {
             "coding": 12,
-            "tool_calling": 11
+            "tool_calling": 12
           },
           "source_population": 53
         },
@@ -760,7 +726,7 @@
             "reasoning": 7,
             "tool_calling": 7
           },
-          "source_population": 42
+          "source_population": 43
         },
         "llmstats__deepswe-1-1": {
           "benchmark_id": "llmstats__deepswe-1-1",
@@ -837,23 +803,6 @@
           },
           "source_population": 36
         },
-        "llmstats__arena-avg": {
-          "benchmark_id": "llmstats__arena-avg",
-          "canonical_name": "Arena Avg",
-          "source_name": "Arena Avg",
-          "value": 1816.0,
-          "raw_value": "1816",
-          "version": null,
-          "provenance": "LLMStats public capability leaderboard",
-          "source_url": "https://llm-stats.com/leaderboards/best-ai-for-coding",
-          "capabilities": [
-            "coding"
-          ],
-          "source_column_indices": {
-            "coding": 7
-          },
-          "source_population": null
-        },
         "llmstats__terminal-bench-2-1": {
           "benchmark_id": "llmstats__terminal-bench-2-1",
           "canonical_name": "Terminal-Bench 2.1",
@@ -873,7 +822,7 @@
             "reasoning": 7,
             "tool_calling": 7
           },
-          "source_population": 42
+          "source_population": 43
         },
         "llmstats__deepswe-1-1": {
           "benchmark_id": "llmstats__deepswe-1-1",
@@ -933,7 +882,7 @@
             "reasoning": 7,
             "tool_calling": 7
           },
-          "source_population": 42
+          "source_population": 43
         },
         "llmstats__deepswe-1-1": {
           "benchmark_id": "llmstats__deepswe-1-1",
@@ -1010,7 +959,7 @@
             "reasoning": 7,
             "tool_calling": 7
           },
-          "source_population": 42
+          "source_population": 43
         },
         "llmstats__deepswe-1-1": {
           "benchmark_id": "llmstats__deepswe-1-1",
@@ -1066,26 +1015,9 @@
           ],
           "source_column_indices": {
             "coding": 11,
-            "reasoning": 13
+            "reasoning": 14
           },
           "source_population": 60
-        },
-        "llmstats__arena-avg": {
-          "benchmark_id": "llmstats__arena-avg",
-          "canonical_name": "Arena Avg",
-          "source_name": "Arena Avg",
-          "value": 1384.0,
-          "raw_value": "1384",
-          "version": null,
-          "provenance": "LLMStats public capability leaderboard",
-          "source_url": "https://llm-stats.com/leaderboards/best-ai-for-coding",
-          "capabilities": [
-            "coding"
-          ],
-          "source_column_indices": {
-            "coding": 7
-          },
-          "source_population": null
         },
         "llmstats__terminal-bench-2-1": {
           "benchmark_id": "llmstats__terminal-bench-2-1",
@@ -1106,7 +1038,7 @@
             "reasoning": 7,
             "tool_calling": 7
           },
-          "source_population": 42
+          "source_population": 43
         },
         "llmstats__deepswe-1-1": {
           "benchmark_id": "llmstats__deepswe-1-1",
@@ -1183,7 +1115,7 @@
             "reasoning": 7,
             "tool_calling": 7
           },
-          "source_population": 42
+          "source_population": 43
         },
         "llmstats__deepswe-1-1": {
           "benchmark_id": "llmstats__deepswe-1-1",
@@ -1224,23 +1156,6 @@
       "is_open_sota": false,
       "rank_evidence": "source_rendered_table_order",
       "benchmark_observations": {
-        "llmstats__arena-avg": {
-          "benchmark_id": "llmstats__arena-avg",
-          "canonical_name": "Arena Avg",
-          "source_name": "Arena Avg",
-          "value": 2668.0,
-          "raw_value": "2668",
-          "version": null,
-          "provenance": "LLMStats public capability leaderboard",
-          "source_url": "https://llm-stats.com/leaderboards/best-ai-for-coding",
-          "capabilities": [
-            "coding"
-          ],
-          "source_column_indices": {
-            "coding": 7
-          },
-          "source_population": null
-        },
         "llmstats__deepswe-1-1": {
           "benchmark_id": "llmstats__deepswe-1-1",
           "canonical_name": "DeepSWE 1.1",
@@ -1312,9 +1227,9 @@
           ],
           "source_column_indices": {
             "coding": 8,
-            "reasoning": 11
+            "reasoning": 9
           },
-          "source_population": 116
+          "source_population": 117
         },
         "mcp_atlas": {
           "benchmark_id": "mcp_atlas",
@@ -1350,26 +1265,9 @@
           ],
           "source_column_indices": {
             "coding": 11,
-            "reasoning": 13
+            "reasoning": 14
           },
           "source_population": 60
-        },
-        "llmstats__arena-avg": {
-          "benchmark_id": "llmstats__arena-avg",
-          "canonical_name": "Arena Avg",
-          "source_name": "Arena Avg",
-          "value": 1689.0,
-          "raw_value": "1689",
-          "version": null,
-          "provenance": "LLMStats public capability leaderboard",
-          "source_url": "https://llm-stats.com/leaderboards/best-ai-for-coding",
-          "capabilities": [
-            "coding"
-          ],
-          "source_column_indices": {
-            "coding": 7
-          },
-          "source_population": null
         },
         "llmstats__terminal-bench-2-0": {
           "benchmark_id": "llmstats__terminal-bench-2-0",
@@ -1386,7 +1284,7 @@
           ],
           "source_column_indices": {
             "coding": 12,
-            "tool_calling": 11
+            "tool_calling": 12
           },
           "source_population": 53
         },
@@ -1482,7 +1380,7 @@
             "reasoning": 7,
             "tool_calling": 7
           },
-          "source_population": 42
+          "source_population": 43
         },
         "llmstats__nl2repo": {
           "benchmark_id": "llmstats__nl2repo",
@@ -1511,7 +1409,7 @@
       "provider": "xAI",
       "source_model_id": "grok-4.7",
       "source_model_url": "https://llm-stats.com/models/grok-4.7",
-      "license": "Proprietary",
+      "license": "— License unknown",
       "family_id": "xai/grok-4-7",
       "matched_aa_family_id": null,
       "match_status": "source_missing",
@@ -1577,7 +1475,7 @@
           ],
           "source_column_indices": {
             "coding": 11,
-            "reasoning": 13
+            "reasoning": 14
           },
           "source_population": 60
         },
@@ -1600,7 +1498,7 @@
             "reasoning": 7,
             "tool_calling": 7
           },
-          "source_population": 42
+          "source_population": 43
         },
         "llmstats__deepswe-1-1": {
           "benchmark_id": "llmstats__deepswe-1-1",
@@ -1692,7 +1590,7 @@
           ],
           "source_column_indices": {
             "coding": 11,
-            "reasoning": 13
+            "reasoning": 14
           },
           "source_population": 60
         },
@@ -1732,7 +1630,7 @@
             "reasoning": 7,
             "tool_calling": 7
           },
-          "source_population": 42
+          "source_population": 43
         },
         "llmstats__nl2repo": {
           "benchmark_id": "llmstats__nl2repo",
@@ -1761,7 +1659,7 @@
       "provider": "OpenAI",
       "source_model_id": "gpt-6.1-sol",
       "source_model_url": "https://llm-stats.com/models/gpt-6.1-sol",
-      "license": "Proprietary",
+      "license": "— License unknown",
       "family_id": "openai/gpt-6-1-sol",
       "matched_aa_family_id": "openai/gpt-6-1-sol",
       "match_status": "matched_family",
@@ -1822,12 +1720,10 @@
           "provenance": "LLMStats public capability leaderboard",
           "source_url": "https://llm-stats.com/benchmarks/terminal-bench-2.1",
           "capabilities": [
-            "coding",
-            "reasoning"
+            "coding"
           ],
           "source_column_indices": {
-            "coding": 14,
-            "reasoning": 7
+            "coding": 14
           },
           "source_population": 42
         },
@@ -1904,26 +1800,9 @@
           ],
           "source_column_indices": {
             "coding": 11,
-            "reasoning": 13
+            "reasoning": 14
           },
           "source_population": 60
-        },
-        "llmstats__arena-avg": {
-          "benchmark_id": "llmstats__arena-avg",
-          "canonical_name": "Arena Avg",
-          "source_name": "Arena Avg",
-          "value": 2124.0,
-          "raw_value": "2124",
-          "version": null,
-          "provenance": "LLMStats public capability leaderboard",
-          "source_url": "https://llm-stats.com/leaderboards/best-ai-for-coding",
-          "capabilities": [
-            "coding"
-          ],
-          "source_column_indices": {
-            "coding": 7
-          },
-          "source_population": null
         },
         "llmstats__terminal-bench-2-0": {
           "benchmark_id": "llmstats__terminal-bench-2-0",
@@ -1940,7 +1819,7 @@
           ],
           "source_column_indices": {
             "coding": 12,
-            "tool_calling": 11
+            "tool_calling": 12
           },
           "source_population": 53
         },
@@ -2000,23 +1879,6 @@
       "is_open_sota": false,
       "rank_evidence": "source_rendered_table_order",
       "benchmark_observations": {
-        "llmstats__arena-avg": {
-          "benchmark_id": "llmstats__arena-avg",
-          "canonical_name": "Arena Avg",
-          "source_name": "Arena Avg",
-          "value": 1926.0,
-          "raw_value": "1926",
-          "version": null,
-          "provenance": "LLMStats public capability leaderboard",
-          "source_url": "https://llm-stats.com/leaderboards/best-ai-for-coding",
-          "capabilities": [
-            "coding"
-          ],
-          "source_column_indices": {
-            "coding": 7
-          },
-          "source_population": null
-        },
         "swe_bench_verified": {
           "benchmark_id": "swe_bench_verified",
           "canonical_name": "SWE-bench Verified",
@@ -2032,9 +1894,9 @@
           ],
           "source_column_indices": {
             "coding": 8,
-            "reasoning": 11
+            "reasoning": 9
           },
-          "source_population": 116
+          "source_population": 117
         },
         "llmstats__swe-bench-pro": {
           "benchmark_id": "llmstats__swe-bench-pro",
@@ -2051,7 +1913,7 @@
           ],
           "source_column_indices": {
             "coding": 11,
-            "reasoning": 13
+            "reasoning": 14
           },
           "source_population": 60
         },
@@ -2128,23 +1990,6 @@
       "is_open_sota": false,
       "rank_evidence": "source_rendered_table_order",
       "benchmark_observations": {
-        "llmstats__arena-avg": {
-          "benchmark_id": "llmstats__arena-avg",
-          "canonical_name": "Arena Avg",
-          "source_name": "Arena Avg",
-          "value": 1166.0,
-          "raw_value": "1166",
-          "version": null,
-          "provenance": "LLMStats public capability leaderboard",
-          "source_url": "https://llm-stats.com/leaderboards/best-ai-for-coding",
-          "capabilities": [
-            "coding"
-          ],
-          "source_column_indices": {
-            "coding": 7
-          },
-          "source_population": null
-        },
         "llmstats__swe-bench-pro": {
           "benchmark_id": "llmstats__swe-bench-pro",
           "canonical_name": "SWE-Bench Pro",
@@ -2252,7 +2097,7 @@
             "coding": 14,
             "tool_calling": 7
           },
-          "source_population": 42
+          "source_population": 43
         },
         "llmstats__deepswe-1-1": {
           "benchmark_id": "llmstats__deepswe-1-1",
@@ -2308,9 +2153,9 @@
           ],
           "source_column_indices": {
             "coding": 8,
-            "reasoning": 11
+            "reasoning": 9
           },
-          "source_population": 116
+          "source_population": 117
         },
         "llmstats__swe-bench-pro": {
           "benchmark_id": "llmstats__swe-bench-pro",
@@ -2327,26 +2172,9 @@
           ],
           "source_column_indices": {
             "coding": 11,
-            "reasoning": 13
+            "reasoning": 14
           },
           "source_population": 60
-        },
-        "llmstats__arena-avg": {
-          "benchmark_id": "llmstats__arena-avg",
-          "canonical_name": "Arena Avg",
-          "source_name": "Arena Avg",
-          "value": 1588.0,
-          "raw_value": "1588",
-          "version": null,
-          "provenance": "LLMStats public capability leaderboard",
-          "source_url": "https://llm-stats.com/leaderboards/best-ai-for-coding",
-          "capabilities": [
-            "coding"
-          ],
-          "source_column_indices": {
-            "coding": 7
-          },
-          "source_population": null
         },
         "llmstats__terminal-bench-2-0": {
           "benchmark_id": "llmstats__terminal-bench-2-0",
@@ -2438,23 +2266,6 @@
       "is_open_sota": false,
       "rank_evidence": "source_rendered_table_order",
       "benchmark_observations": {
-        "llmstats__arena-avg": {
-          "benchmark_id": "llmstats__arena-avg",
-          "canonical_name": "Arena Avg",
-          "source_name": "Arena Avg",
-          "value": 1701.0,
-          "raw_value": "1701",
-          "version": null,
-          "provenance": "LLMStats public capability leaderboard",
-          "source_url": "https://llm-stats.com/leaderboards/best-ai-for-coding",
-          "capabilities": [
-            "coding"
-          ],
-          "source_column_indices": {
-            "coding": 7
-          },
-          "source_population": null
-        },
         "swe_bench_verified": {
           "benchmark_id": "swe_bench_verified",
           "canonical_name": "SWE-bench Verified",
@@ -2470,9 +2281,9 @@
           ],
           "source_column_indices": {
             "coding": 8,
-            "reasoning": 11
+            "reasoning": 9
           },
-          "source_population": 116
+          "source_population": 117
         },
         "llmstats__swe-bench-pro": {
           "benchmark_id": "llmstats__swe-bench-pro",
@@ -2489,7 +2300,7 @@
           ],
           "source_column_indices": {
             "coding": 11,
-            "reasoning": 13
+            "reasoning": 14
           },
           "source_population": 60
         },
@@ -2508,7 +2319,7 @@
           ],
           "source_column_indices": {
             "coding": 12,
-            "tool_calling": 11
+            "tool_calling": 12
           },
           "source_population": 53
         },
@@ -2559,13 +2370,15 @@
           "source_url": "https://llm-stats.com/benchmarks/scicode",
           "capabilities": [
             "coding",
-            "math"
+            "math",
+            "reasoning"
           ],
           "source_column_indices": {
             "coding": 18,
-            "math": 14
+            "math": 8,
+            "reasoning": 11
           },
-          "source_population": 24
+          "source_population": 26
         },
         "llmstats__nl2repo": {
           "benchmark_id": "llmstats__nl2repo",
@@ -2594,7 +2407,7 @@
       "provider": "OpenAI",
       "source_model_id": "gpt-6-sol",
       "source_model_url": "https://llm-stats.com/models/gpt-6-sol",
-      "license": "Proprietary",
+      "license": "— License unknown",
       "family_id": "openai/gpt-6-sol",
       "matched_aa_family_id": null,
       "match_status": "identity_unresolved",
@@ -2716,7 +2529,7 @@
           ],
           "source_column_indices": {
             "coding": 11,
-            "reasoning": 13
+            "reasoning": 14
           },
           "source_population": 60
         },
@@ -2808,7 +2621,7 @@
           ],
           "source_column_indices": {
             "coding": 11,
-            "reasoning": 13
+            "reasoning": 14
           },
           "source_population": 60
         },

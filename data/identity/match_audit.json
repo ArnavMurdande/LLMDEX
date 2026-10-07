@@ -663,17 +663,23 @@
   },
   {
     "source": "llmstats",
-    "source_name": "Seed 2.1 Pro",
-    "source_model_id": "seed-2.1-pro",
-    "source_model_url": "https://llm-stats.com/models/seed-2.1-pro",
-    "provider": "ByteDance",
-    "candidate_family_id": null,
-    "candidate_family_name": null,
-    "match_status": "source_missing",
-    "match_confidence": 0.0,
-    "match_method": "no_candidate",
-    "review_reason": "No corresponding family exists in the current AA population.",
-    "competing_candidates": []
+    "source_name": "Claude Opus 4.6",
+    "source_model_id": "claude-opus-4-6",
+    "source_model_url": "https://llm-stats.com/models/claude-opus-4-6",
+    "provider": "Anthropic",
+    "candidate_family_id": "anthropic/claude-opus-5-5",
+    "candidate_family_name": "Claude Opus 5.5",
+    "match_status": "identity_unresolved",
+    "match_confidence": 0.8,
+    "match_method": "fuzzy_review_candidate",
+    "review_reason": "Fuzzy candidates require manual approval and are excluded from scoring.",
+    "competing_candidates": [
+      {
+        "family_id": "anthropic/claude-opus-5-5",
+        "family_name": "Claude Opus 5.5",
+        "similarity": 0.8667
+      }
+    ]
   },
   {
     "source": "llmstats",
@@ -697,23 +703,17 @@
   },
   {
     "source": "llmstats",
-    "source_name": "Claude Opus 4.6",
-    "source_model_id": "claude-opus-4-6",
-    "source_model_url": "https://llm-stats.com/models/claude-opus-4-6",
-    "provider": "Anthropic",
-    "candidate_family_id": "anthropic/claude-opus-5-5",
-    "candidate_family_name": "Claude Opus 5.5",
-    "match_status": "identity_unresolved",
-    "match_confidence": 0.8,
-    "match_method": "fuzzy_review_candidate",
-    "review_reason": "Fuzzy candidates require manual approval and are excluded from scoring.",
-    "competing_candidates": [
-      {
-        "family_id": "anthropic/claude-opus-5-5",
-        "family_name": "Claude Opus 5.5",
-        "similarity": 0.8667
-      }
-    ]
+    "source_name": "Seed 2.1 Pro",
+    "source_model_id": "seed-2.1-pro",
+    "source_model_url": "https://llm-stats.com/models/seed-2.1-pro",
+    "provider": "ByteDance",
+    "candidate_family_id": null,
+    "candidate_family_name": null,
+    "match_status": "source_missing",
+    "match_confidence": 0.0,
+    "match_method": "no_candidate",
+    "review_reason": "No corresponding family exists in the current AA population.",
+    "competing_candidates": []
   },
   {
     "source": "llmstats",
@@ -1753,6 +1753,36 @@
     "match_method": "exact_provider_family_version",
     "review_reason": null,
     "competing_candidates": []
+  },
+  {
+    "source": "llmstats",
+    "source_name": "Mistral Large 4",
+    "source_model_id": "mistral-large-4",
+    "source_model_url": "https://llm-stats.com/models/mistral-large-4",
+    "provider": "Mistral AI",
+    "candidate_family_id": "mistral-ai/mistral-large-3",
+    "candidate_family_name": "Mistral Large 3",
+    "match_status": "identity_unresolved",
+    "match_confidence": 0.8,
+    "match_method": "fuzzy_review_candidate",
+    "review_reason": "Fuzzy candidates require manual approval and are excluded from scoring.",
+    "competing_candidates": [
+      {
+        "family_id": "mistral-ai/mistral-large-3",
+        "family_name": "Mistral Large 3",
+        "similarity": 0.9333
+      },
+      {
+        "family_id": "mistral-ai/mistral-large-4-preview",
+        "family_name": "Mistral Large 4 Preview",
+        "similarity": 0.7895
+      },
+      {
+        "family_id": "mistral-ai/mistral-small-4",
+        "family_name": "Mistral Small 4",
+        "similarity": 0.7333
+      }
+    ]
   },
   {
     "source": "llmstats",

@@ -1,22 +1,22 @@
 {
-  "generated_at": "2026-10-06T16:55:09.793830+00:00",
+  "generated_at": "2026-10-07T17:32:33.660581+00:00",
   "methodology_version": "LLMStats source-native current",
   "source": "LLMStats",
-  "source_updated_at": "2026-10-06T16:55:34.418092+00:00",
+  "source_updated_at": "2026-10-07T17:33:02.817773+00:00",
   "source_health": {
     "source": "LLMStats",
-    "rows_scraped": 99,
+    "rows_scraped": 100,
     "expected_range": [
       20,
       250
     ],
     "status": "healthy",
     "error_message": null,
-    "duration_seconds": 24.616,
-    "timestamp": "2026-10-06T16:55:34.418092+00:00",
+    "duration_seconds": 29.149,
+    "timestamp": "2026-10-07T17:33:02.817773+00:00",
     "parse_warning_count": 0,
     "warnings": [],
-    "last_successful_update": "2026-10-06T16:55:34.418092+00:00",
+    "last_successful_update": "2026-10-07T17:33:02.817773+00:00",
     "schema_changes": []
   },
   "capability": "tool_calling",
@@ -27,7 +27,7 @@
       "version": null,
       "source_name": "Terminal-Bench 2.1",
       "source_url": "https://llm-stats.com/benchmarks/terminal-bench-2.1",
-      "source_population": 42
+      "source_population": 43
     },
     {
       "benchmark_id": "llmstats__toolathlon",
@@ -54,6 +54,14 @@
       "source_population": 36
     },
     {
+      "benchmark_id": "llmstats__automationbench",
+      "canonical_name": "AutomationBench",
+      "version": null,
+      "source_name": "AutomationBench",
+      "source_url": "https://llm-stats.com/benchmarks/automationbench",
+      "source_population": 24
+    },
+    {
       "benchmark_id": "llmstats__terminal-bench-2-0",
       "canonical_name": "Terminal-Bench 2.0",
       "version": null,
@@ -62,20 +70,20 @@
       "source_population": 53
     },
     {
-      "benchmark_id": "llmstats__automationbench",
-      "canonical_name": "AutomationBench",
-      "version": null,
-      "source_name": "AutomationBench",
-      "source_url": "https://llm-stats.com/benchmarks/automationbench",
-      "source_population": 22
-    },
-    {
       "benchmark_id": "llmstats__tau2-airline",
       "canonical_name": "Tau2 Airline",
       "version": null,
       "source_name": "Tau2 Airline",
       "source_url": "https://llm-stats.com/benchmarks/tau2-airline",
-      "source_population": 24
+      "source_population": 25
+    },
+    {
+      "benchmark_id": "llmstats__terminal-bench-4-0",
+      "canonical_name": "Terminal-Bench 4.0",
+      "version": null,
+      "source_name": "Terminal-Bench 4.0",
+      "source_url": "https://llm-stats.com/benchmarks/terminal-bench-4.0",
+      "source_population": 23
     },
     {
       "benchmark_id": "llmstats__tau3-banking",
@@ -92,14 +100,6 @@
       "source_name": "Tau2 Retail",
       "source_url": "https://llm-stats.com/benchmarks/tau2-retail",
       "source_population": 27
-    },
-    {
-      "benchmark_id": "llmstats__agents-last-exam",
-      "canonical_name": "Agents' Last Exam",
-      "version": null,
-      "source_name": "Agents' Last Exam",
-      "source_url": "https://llm-stats.com/benchmarks/agents-last-exam",
-      "source_population": 21
     }
   ],
   "rows": [
@@ -135,26 +135,26 @@
             "tool_calling"
           ],
           "source_column_indices": {
-            "tool_calling": 12
+            "tool_calling": 11
           },
-          "source_population": 22
+          "source_population": 24
         },
-        "llmstats__agents-last-exam": {
-          "benchmark_id": "llmstats__agents-last-exam",
-          "canonical_name": "Agents' Last Exam",
-          "source_name": "Agents' Last Exam",
-          "value": 59.3,
-          "raw_value": "59.3%",
+        "llmstats__terminal-bench-4-0": {
+          "benchmark_id": "llmstats__terminal-bench-4-0",
+          "canonical_name": "Terminal-Bench 4.0",
+          "source_name": "Terminal-Bench 4.0",
+          "value": 57.7,
+          "raw_value": "57.7%",
           "version": null,
           "provenance": "LLMStats public capability leaderboard",
-          "source_url": "https://llm-stats.com/benchmarks/agents-last-exam",
+          "source_url": "https://llm-stats.com/benchmarks/terminal-bench-4.0",
           "capabilities": [
             "tool_calling"
           ],
           "source_column_indices": {
-            "tool_calling": 16
+            "tool_calling": 14
           },
-          "source_population": 21
+          "source_population": 23
         }
       },
       "source_updated_at": null
@@ -191,9 +191,26 @@
             "tool_calling"
           ],
           "source_column_indices": {
-            "tool_calling": 12
+            "tool_calling": 11
           },
-          "source_population": 22
+          "source_population": 24
+        },
+        "llmstats__terminal-bench-4-0": {
+          "benchmark_id": "llmstats__terminal-bench-4-0",
+          "canonical_name": "Terminal-Bench 4.0",
+          "source_name": "Terminal-Bench 4.0",
+          "value": 70.6,
+          "raw_value": "70.6%",
+          "version": null,
+          "provenance": "LLMStats public capability leaderboard",
+          "source_url": "https://llm-stats.com/benchmarks/terminal-bench-4.0",
+          "capabilities": [
+            "tool_calling"
+          ],
+          "source_column_indices": {
+            "tool_calling": 14
+          },
+          "source_population": 23
         }
       },
       "source_updated_at": null
@@ -230,16 +247,33 @@
             "tool_calling"
           ],
           "source_column_indices": {
-            "tool_calling": 12
+            "tool_calling": 11
           },
-          "source_population": 22
+          "source_population": 24
+        },
+        "llmstats__terminal-bench-4-0": {
+          "benchmark_id": "llmstats__terminal-bench-4-0",
+          "canonical_name": "Terminal-Bench 4.0",
+          "source_name": "Terminal-Bench 4.0",
+          "value": 66.4,
+          "raw_value": "66.4%",
+          "version": null,
+          "provenance": "LLMStats public capability leaderboard",
+          "source_url": "https://llm-stats.com/benchmarks/terminal-bench-4.0",
+          "capabilities": [
+            "tool_calling"
+          ],
+          "source_column_indices": {
+            "tool_calling": 14
+          },
+          "source_population": 23
         }
       },
       "source_updated_at": null
     },
     {
       "category_rank": 4.0,
-      "category_score": 31.5,
+      "category_score": 31.8,
       "source_name": "DeepSeek-V4.1-Flash",
       "provider": "DeepSeek",
       "source_model_id": "deepseek-v4.1-flash",
@@ -275,7 +309,7 @@
             "reasoning": 7,
             "tool_calling": 7
           },
-          "source_population": 42
+          "source_population": 43
         },
         "llmstats__automationbench": {
           "benchmark_id": "llmstats__automationbench",
@@ -290,26 +324,26 @@
             "tool_calling"
           ],
           "source_column_indices": {
-            "tool_calling": 12
+            "tool_calling": 11
           },
-          "source_population": 22
+          "source_population": 24
         },
-        "llmstats__agents-last-exam": {
-          "benchmark_id": "llmstats__agents-last-exam",
-          "canonical_name": "Agents' Last Exam",
-          "source_name": "Agents' Last Exam",
-          "value": 31.8,
-          "raw_value": "31.8%",
+        "llmstats__terminal-bench-4-0": {
+          "benchmark_id": "llmstats__terminal-bench-4-0",
+          "canonical_name": "Terminal-Bench 4.0",
+          "source_name": "Terminal-Bench 4.0",
+          "value": 31.2,
+          "raw_value": "31.2%",
           "version": null,
           "provenance": "LLMStats public capability leaderboard",
-          "source_url": "https://llm-stats.com/benchmarks/agents-last-exam",
+          "source_url": "https://llm-stats.com/benchmarks/terminal-bench-4.0",
           "capabilities": [
             "tool_calling"
           ],
           "source_column_indices": {
-            "tool_calling": 16
+            "tool_calling": 14
           },
-          "source_population": 21
+          "source_population": 23
         }
       },
       "source_updated_at": null
@@ -337,7 +371,7 @@
     },
     {
       "category_rank": 6.0,
-      "category_score": 30.7,
+      "category_score": 30.6,
       "source_name": "Kimi K3",
       "provider": "MoonshotAI",
       "source_model_id": "kimi-k3",
@@ -383,11 +417,9 @@
           "provenance": "LLMStats public capability leaderboard",
           "source_url": "https://llm-stats.com/benchmarks/toolathlon",
           "capabilities": [
-            "reasoning",
             "tool_calling"
           ],
           "source_column_indices": {
-            "reasoning": 16,
             "tool_calling": 8
           },
           "source_population": 42
@@ -411,7 +443,7 @@
             "reasoning": 7,
             "tool_calling": 7
           },
-          "source_population": 42
+          "source_population": 43
         },
         "llmstats__automationbench": {
           "benchmark_id": "llmstats__automationbench",
@@ -426,16 +458,110 @@
             "tool_calling"
           ],
           "source_column_indices": {
-            "tool_calling": 12
+            "tool_calling": 11
           },
-          "source_population": 22
+          "source_population": 24
         }
       },
       "source_updated_at": null
     },
     {
       "category_rank": 7.0,
-      "category_score": 30.5,
+      "category_score": 30.4,
+      "source_name": "GLM-5.3",
+      "provider": "ZAI",
+      "source_model_id": "glm-5.3",
+      "source_model_url": "https://llm-stats.com/models/glm-5.3",
+      "license": "Open Source",
+      "family_id": "zai/glm-5-3",
+      "matched_aa_family_id": null,
+      "match_status": "source_missing",
+      "match_confidence": 0.0,
+      "score_status": "llmstats_only",
+      "score_status_label": "LLMStats only",
+      "availability_class": "unknown",
+      "is_sota": false,
+      "is_open_sota": false,
+      "rank_evidence": "source_rendered_table_order",
+      "benchmark_observations": {
+        "llmstats__toolathlon": {
+          "benchmark_id": "llmstats__toolathlon",
+          "canonical_name": "Toolathlon",
+          "source_name": "Toolathlon",
+          "value": 73.0,
+          "raw_value": "73.0%",
+          "version": null,
+          "provenance": "LLMStats public capability leaderboard",
+          "source_url": "https://llm-stats.com/benchmarks/toolathlon",
+          "capabilities": [
+            "tool_calling"
+          ],
+          "source_column_indices": {
+            "tool_calling": 8
+          },
+          "source_population": 42
+        },
+        "llmstats__terminal-bench-2-1": {
+          "benchmark_id": "llmstats__terminal-bench-2-1",
+          "canonical_name": "Terminal-Bench 2.1",
+          "source_name": "Terminal-Bench 2.1",
+          "value": 88.2,
+          "raw_value": "88.2%",
+          "version": null,
+          "provenance": "LLMStats public capability leaderboard",
+          "source_url": "https://llm-stats.com/benchmarks/terminal-bench-2.1",
+          "capabilities": [
+            "coding",
+            "reasoning",
+            "tool_calling"
+          ],
+          "source_column_indices": {
+            "coding": 14,
+            "reasoning": 7,
+            "tool_calling": 7
+          },
+          "source_population": 43
+        },
+        "llmstats__automationbench": {
+          "benchmark_id": "llmstats__automationbench",
+          "canonical_name": "AutomationBench",
+          "source_name": "AutomationBench",
+          "value": 48.2,
+          "raw_value": "48.2%",
+          "version": null,
+          "provenance": "LLMStats public capability leaderboard",
+          "source_url": "https://llm-stats.com/benchmarks/automationbench",
+          "capabilities": [
+            "tool_calling"
+          ],
+          "source_column_indices": {
+            "tool_calling": 11
+          },
+          "source_population": 24
+        },
+        "llmstats__terminal-bench-4-0": {
+          "benchmark_id": "llmstats__terminal-bench-4-0",
+          "canonical_name": "Terminal-Bench 4.0",
+          "source_name": "Terminal-Bench 4.0",
+          "value": 41.8,
+          "raw_value": "41.8%",
+          "version": null,
+          "provenance": "LLMStats public capability leaderboard",
+          "source_url": "https://llm-stats.com/benchmarks/terminal-bench-4.0",
+          "capabilities": [
+            "tool_calling"
+          ],
+          "source_column_indices": {
+            "tool_calling": 14
+          },
+          "source_population": 23
+        }
+      },
+      "source_updated_at": null
+    },
+    {
+      "category_rank": 8.0,
+      "category_score": 30.1,
       "source_name": "Muse Spark 1.3",
       "provider": "Meta",
       "source_model_id": "muse-spark-1.3",
@@ -471,7 +597,7 @@
             "reasoning": 7,
             "tool_calling": 7
           },
-          "source_population": 42
+          "source_population": 43
         },
         "llmstats__automationbench": {
           "benchmark_id": "llmstats__automationbench",
@@ -486,153 +612,16 @@
             "tool_calling"
           ],
           "source_column_indices": {
-            "tool_calling": 12
+            "tool_calling": 11
           },
-          "source_population": 22
-        }
-      },
-      "source_updated_at": null
-    },
-    {
-      "category_rank": 8.0,
-      "category_score": 30.4,
-      "source_name": "GLM-5.3",
-      "provider": "ZAI",
-      "source_model_id": "glm-5.3",
-      "source_model_url": "https://llm-stats.com/models/glm-5.3",
-      "license": "Open Source",
-      "family_id": "zai/glm-5-3",
-      "matched_aa_family_id": null,
-      "match_status": "source_missing",
-      "match_confidence": 0.0,
-      "score_status": "llmstats_only",
-      "score_status_label": "LLMStats only",
-      "availability_class": "unknown",
-      "is_sota": false,
-      "is_open_sota": false,
-      "rank_evidence": "source_rendered_table_order",
-      "benchmark_observations": {
-        "llmstats__toolathlon": {
-          "benchmark_id": "llmstats__toolathlon",
-          "canonical_name": "Toolathlon",
-          "source_name": "Toolathlon",
-          "value": 73.0,
-          "raw_value": "73.0%",
-          "version": null,
-          "provenance": "LLMStats public capability leaderboard",
-          "source_url": "https://llm-stats.com/benchmarks/toolathlon",
-          "capabilities": [
-            "reasoning",
-            "tool_calling"
-          ],
-          "source_column_indices": {
-            "reasoning": 16,
-            "tool_calling": 8
-          },
-          "source_population": 42
-        },
-        "llmstats__terminal-bench-2-1": {
-          "benchmark_id": "llmstats__terminal-bench-2-1",
-          "canonical_name": "Terminal-Bench 2.1",
-          "source_name": "Terminal-Bench 2.1",
-          "value": 88.2,
-          "raw_value": "88.2%",
-          "version": null,
-          "provenance": "LLMStats public capability leaderboard",
-          "source_url": "https://llm-stats.com/benchmarks/terminal-bench-2.1",
-          "capabilities": [
-            "coding",
-            "reasoning",
-            "tool_calling"
-          ],
-          "source_column_indices": {
-            "coding": 14,
-            "reasoning": 7,
-            "tool_calling": 7
-          },
-          "source_population": 42
-        },
-        "llmstats__automationbench": {
-          "benchmark_id": "llmstats__automationbench",
-          "canonical_name": "AutomationBench",
-          "source_name": "AutomationBench",
-          "value": 48.2,
-          "raw_value": "48.2%",
-          "version": null,
-          "provenance": "LLMStats public capability leaderboard",
-          "source_url": "https://llm-stats.com/benchmarks/automationbench",
-          "capabilities": [
-            "tool_calling"
-          ],
-          "source_column_indices": {
-            "tool_calling": 12
-          },
-          "source_population": 22
-        },
-        "llmstats__agents-last-exam": {
-          "benchmark_id": "llmstats__agents-last-exam",
-          "canonical_name": "Agents' Last Exam",
-          "source_name": "Agents' Last Exam",
-          "value": 28.5,
-          "raw_value": "28.5%",
-          "version": null,
-          "provenance": "LLMStats public capability leaderboard",
-          "source_url": "https://llm-stats.com/benchmarks/agents-last-exam",
-          "capabilities": [
-            "tool_calling"
-          ],
-          "source_column_indices": {
-            "tool_calling": 16
-          },
-          "source_population": 21
+          "source_population": 24
         }
       },
       "source_updated_at": null
     },
     {
       "category_rank": 9.0,
-      "category_score": 29.7,
-      "source_name": "Claude Mythos Preview",
-      "provider": "Anthropic",
-      "source_model_id": "claude-mythos-preview",
-      "source_model_url": "https://llm-stats.com/models/claude-mythos-preview",
-      "license": "Proprietary",
-      "family_id": "anthropic/claude-mythos-preview",
-      "matched_aa_family_id": null,
-      "match_status": "source_missing",
-      "match_confidence": 0.0,
-      "score_status": "llmstats_only",
-      "score_status_label": "LLMStats only",
-      "availability_class": "unknown",
-      "is_sota": false,
-      "is_open_sota": false,
-      "rank_evidence": "source_rendered_table_order",
-      "benchmark_observations": {
-        "llmstats__terminal-bench-2-0": {
-          "benchmark_id": "llmstats__terminal-bench-2-0",
-          "canonical_name": "Terminal-Bench 2.0",
-          "source_name": "Terminal-Bench 2.0",
-          "value": 82.0,
-          "raw_value": "82.0%",
-          "version": null,
-          "provenance": "LLMStats public capability leaderboard",
-          "source_url": "https://llm-stats.com/benchmarks/terminal-bench-2",
-          "capabilities": [
-            "coding",
-            "tool_calling"
-          ],
-          "source_column_indices": {
-            "coding": 12,
-            "tool_calling": 11
-          },
-          "source_population": 53
-        }
-      },
-      "source_updated_at": null
-    },
-    {
-      "category_rank": 10.0,
-      "category_score": 29.6,
+      "category_score": 29.8,
       "source_name": "MiMo-V2.6-Pro",
       "provider": "Xiaomi",
       "source_model_id": "mimo-v2.6-pro",
@@ -668,24 +657,65 @@
             "reasoning": 7,
             "tool_calling": 7
           },
-          "source_population": 42
+          "source_population": 43
         },
-        "llmstats__agents-last-exam": {
-          "benchmark_id": "llmstats__agents-last-exam",
-          "canonical_name": "Agents' Last Exam",
-          "source_name": "Agents' Last Exam",
-          "value": 31.6,
-          "raw_value": "31.6%",
+        "llmstats__terminal-bench-4-0": {
+          "benchmark_id": "llmstats__terminal-bench-4-0",
+          "canonical_name": "Terminal-Bench 4.0",
+          "source_name": "Terminal-Bench 4.0",
+          "value": 34.9,
+          "raw_value": "34.9%",
           "version": null,
           "provenance": "LLMStats public capability leaderboard",
-          "source_url": "https://llm-stats.com/benchmarks/agents-last-exam",
+          "source_url": "https://llm-stats.com/benchmarks/terminal-bench-4.0",
           "capabilities": [
             "tool_calling"
           ],
           "source_column_indices": {
-            "tool_calling": 16
+            "tool_calling": 14
           },
-          "source_population": 21
+          "source_population": 23
+        }
+      },
+      "source_updated_at": null
+    },
+    {
+      "category_rank": 10.0,
+      "category_score": 29.7,
+      "source_name": "Claude Mythos Preview",
+      "provider": "Anthropic",
+      "source_model_id": "claude-mythos-preview",
+      "source_model_url": "https://llm-stats.com/models/claude-mythos-preview",
+      "license": "Proprietary",
+      "family_id": "anthropic/claude-mythos-preview",
+      "matched_aa_family_id": null,
+      "match_status": "source_missing",
+      "match_confidence": 0.0,
+      "score_status": "llmstats_only",
+      "score_status_label": "LLMStats only",
+      "availability_class": "unknown",
+      "is_sota": false,
+      "is_open_sota": false,
+      "rank_evidence": "source_rendered_table_order",
+      "benchmark_observations": {
+        "llmstats__terminal-bench-2-0": {
+          "benchmark_id": "llmstats__terminal-bench-2-0",
+          "canonical_name": "Terminal-Bench 2.0",
+          "source_name": "Terminal-Bench 2.0",
+          "value": 82.0,
+          "raw_value": "82.0%",
+          "version": null,
+          "provenance": "LLMStats public capability leaderboard",
+          "source_url": "https://llm-stats.com/benchmarks/terminal-bench-2",
+          "capabilities": [
+            "coding",
+            "tool_calling"
+          ],
+          "source_column_indices": {
+            "coding": 12,
+            "tool_calling": 12
+          },
+          "source_population": 53
         }
       },
       "source_updated_at": null
@@ -756,7 +786,7 @@
             "tool_calling"
           ],
           "source_column_indices": {
-            "tool_calling": 11
+            "tool_calling": 12
           },
           "source_population": 53
         }
@@ -809,11 +839,9 @@
           "provenance": "LLMStats public capability leaderboard",
           "source_url": "https://llm-stats.com/benchmarks/toolathlon",
           "capabilities": [
-            "reasoning",
             "tool_calling"
           ],
           "source_column_indices": {
-            "reasoning": 16,
             "tool_calling": 8
           },
           "source_population": 42
@@ -835,7 +863,7 @@
             "reasoning": 7,
             "tool_calling": 7
           },
-          "source_population": 42
+          "source_population": 43
         }
       },
       "source_updated_at": null
@@ -843,6 +871,100 @@
     {
       "category_rank": 13.0,
       "category_score": 29.0,
+      "source_name": "GPT-5.6 Sol",
+      "provider": "OpenAI",
+      "source_model_id": "gpt-5.6-sol",
+      "source_model_url": "https://llm-stats.com/models/gpt-5.6-sol",
+      "license": "Proprietary",
+      "family_id": "openai/gpt-5-6-sol",
+      "matched_aa_family_id": null,
+      "match_status": "identity_unresolved",
+      "match_confidence": 0.8,
+      "score_status": "identity_review",
+      "score_status_label": "Identity review",
+      "availability_class": "unknown",
+      "is_sota": false,
+      "is_open_sota": false,
+      "rank_evidence": "source_rendered_table_order",
+      "benchmark_observations": {
+        "llmstats__toolathlon": {
+          "benchmark_id": "llmstats__toolathlon",
+          "canonical_name": "Toolathlon",
+          "source_name": "Toolathlon",
+          "value": 58.0,
+          "raw_value": "58.0%",
+          "version": null,
+          "provenance": "LLMStats public capability leaderboard",
+          "source_url": "https://llm-stats.com/benchmarks/toolathlon",
+          "capabilities": [
+            "tool_calling"
+          ],
+          "source_column_indices": {
+            "tool_calling": 8
+          },
+          "source_population": 42
+        },
+        "llmstats__terminal-bench-2-1": {
+          "benchmark_id": "llmstats__terminal-bench-2-1",
+          "canonical_name": "Terminal-Bench 2.1",
+          "source_name": "Terminal-Bench 2.1",
+          "value": 88.8,
+          "raw_value": "88.8%",
+          "version": null,
+          "provenance": "LLMStats public capability leaderboard",
+          "source_url": "https://llm-stats.com/benchmarks/terminal-bench-2.1",
+          "capabilities": [
+            "coding",
+            "reasoning",
+            "tool_calling"
+          ],
+          "source_column_indices": {
+            "coding": 14,
+            "reasoning": 7,
+            "tool_calling": 7
+          },
+          "source_population": 43
+        },
+        "llmstats__automationbench": {
+          "benchmark_id": "llmstats__automationbench",
+          "canonical_name": "AutomationBench",
+          "source_name": "AutomationBench",
+          "value": 18.1,
+          "raw_value": "18.1%",
+          "version": null,
+          "provenance": "LLMStats public capability leaderboard",
+          "source_url": "https://llm-stats.com/benchmarks/automationbench",
+          "capabilities": [
+            "tool_calling"
+          ],
+          "source_column_indices": {
+            "tool_calling": 11
+          },
+          "source_population": 24
+        },
+        "llmstats__terminal-bench-4-0": {
+          "benchmark_id": "llmstats__terminal-bench-4-0",
+          "canonical_name": "Terminal-Bench 4.0",
+          "source_name": "Terminal-Bench 4.0",
+          "value": 37.3,
+          "raw_value": "37.3%",
+          "version": null,
+          "provenance": "LLMStats public capability leaderboard",
+          "source_url": "https://llm-stats.com/benchmarks/terminal-bench-4.0",
+          "capabilities": [
+            "tool_calling"
+          ],
+          "source_column_indices": {
+            "tool_calling": 14
+          },
+          "source_population": 23
+        }
+      },
+      "source_updated_at": null
+    },
+    {
+      "category_rank": 14.0,
+      "category_score": 28.9,
       "source_name": "Qwen3.8-Flash-Next",
       "provider": "Qwen",
       "source_model_id": "qwen3.8-flash-next",
@@ -869,37 +991,18 @@
           "provenance": "LLMStats public capability leaderboard",
           "source_url": "https://llm-stats.com/benchmarks/toolathlon",
           "capabilities": [
-            "reasoning",
             "tool_calling"
           ],
           "source_column_indices": {
-            "reasoning": 16,
             "tool_calling": 8
           },
           "source_population": 42
-        },
-        "llmstats__agents-last-exam": {
-          "benchmark_id": "llmstats__agents-last-exam",
-          "canonical_name": "Agents' Last Exam",
-          "source_name": "Agents' Last Exam",
-          "value": 51.2,
-          "raw_value": "51.2%",
-          "version": null,
-          "provenance": "LLMStats public capability leaderboard",
-          "source_url": "https://llm-stats.com/benchmarks/agents-last-exam",
-          "capabilities": [
-            "tool_calling"
-          ],
-          "source_column_indices": {
-            "tool_calling": 16
-          },
-          "source_population": 21
         }
       },
       "source_updated_at": null
     },
     {
-      "category_rank": 14.0,
+      "category_rank": 15.0,
       "category_score": 28.9,
       "source_name": "Qwen3.8 Flash",
       "provider": "Qwen",
@@ -927,134 +1030,19 @@
           "provenance": "LLMStats public capability leaderboard",
           "source_url": "https://llm-stats.com/benchmarks/toolathlon",
           "capabilities": [
-            "reasoning",
             "tool_calling"
           ],
           "source_column_indices": {
-            "reasoning": 16,
             "tool_calling": 8
           },
           "source_population": 42
-        },
-        "llmstats__agents-last-exam": {
-          "benchmark_id": "llmstats__agents-last-exam",
-          "canonical_name": "Agents' Last Exam",
-          "source_name": "Agents' Last Exam",
-          "value": 51.2,
-          "raw_value": "51.2%",
-          "version": null,
-          "provenance": "LLMStats public capability leaderboard",
-          "source_url": "https://llm-stats.com/benchmarks/agents-last-exam",
-          "capabilities": [
-            "tool_calling"
-          ],
-          "source_column_indices": {
-            "tool_calling": 16
-          },
-          "source_population": 21
-        }
-      },
-      "source_updated_at": null
-    },
-    {
-      "category_rank": 15.0,
-      "category_score": 28.9,
-      "source_name": "GPT-5.6 Sol",
-      "provider": "OpenAI",
-      "source_model_id": "gpt-5.6-sol",
-      "source_model_url": "https://llm-stats.com/models/gpt-5.6-sol",
-      "license": "Proprietary",
-      "family_id": "openai/gpt-5-6-sol",
-      "matched_aa_family_id": null,
-      "match_status": "identity_unresolved",
-      "match_confidence": 0.8,
-      "score_status": "identity_review",
-      "score_status_label": "Identity review",
-      "availability_class": "unknown",
-      "is_sota": false,
-      "is_open_sota": false,
-      "rank_evidence": "source_rendered_table_order",
-      "benchmark_observations": {
-        "llmstats__toolathlon": {
-          "benchmark_id": "llmstats__toolathlon",
-          "canonical_name": "Toolathlon",
-          "source_name": "Toolathlon",
-          "value": 58.0,
-          "raw_value": "58.0%",
-          "version": null,
-          "provenance": "LLMStats public capability leaderboard",
-          "source_url": "https://llm-stats.com/benchmarks/toolathlon",
-          "capabilities": [
-            "reasoning",
-            "tool_calling"
-          ],
-          "source_column_indices": {
-            "reasoning": 16,
-            "tool_calling": 8
-          },
-          "source_population": 42
-        },
-        "llmstats__terminal-bench-2-1": {
-          "benchmark_id": "llmstats__terminal-bench-2-1",
-          "canonical_name": "Terminal-Bench 2.1",
-          "source_name": "Terminal-Bench 2.1",
-          "value": 88.8,
-          "raw_value": "88.8%",
-          "version": null,
-          "provenance": "LLMStats public capability leaderboard",
-          "source_url": "https://llm-stats.com/benchmarks/terminal-bench-2.1",
-          "capabilities": [
-            "coding",
-            "reasoning",
-            "tool_calling"
-          ],
-          "source_column_indices": {
-            "coding": 14,
-            "reasoning": 7,
-            "tool_calling": 7
-          },
-          "source_population": 42
-        },
-        "llmstats__automationbench": {
-          "benchmark_id": "llmstats__automationbench",
-          "canonical_name": "AutomationBench",
-          "source_name": "AutomationBench",
-          "value": 18.1,
-          "raw_value": "18.1%",
-          "version": null,
-          "provenance": "LLMStats public capability leaderboard",
-          "source_url": "https://llm-stats.com/benchmarks/automationbench",
-          "capabilities": [
-            "tool_calling"
-          ],
-          "source_column_indices": {
-            "tool_calling": 12
-          },
-          "source_population": 22
-        },
-        "llmstats__agents-last-exam": {
-          "benchmark_id": "llmstats__agents-last-exam",
-          "canonical_name": "Agents' Last Exam",
-          "source_name": "Agents' Last Exam",
-          "value": 52.7,
-          "raw_value": "52.7%",
-          "version": null,
-          "provenance": "LLMStats public capability leaderboard",
-          "source_url": "https://llm-stats.com/benchmarks/agents-last-exam",
-          "capabilities": [
-            "tool_calling"
-          ],
-          "source_column_indices": {
-            "tool_calling": 16
-          },
-          "source_population": 21
         }
       },
       "source_updated_at": null
     },
     {
       "category_rank": 16.0,
-      "category_score": 28.8,
+      "category_score": 28.6,
       "source_name": "GLM-5.3-Flash",
       "provider": "ZAI",
       "source_model_id": "glm-5.3-flash",
@@ -1081,11 +1069,9 @@
           "provenance": "LLMStats public capability leaderboard",
           "source_url": "https://llm-stats.com/benchmarks/toolathlon",
           "capabilities": [
-            "reasoning",
             "tool_calling"
           ],
           "source_column_indices": {
-            "reasoning": 16,
             "tool_calling": 8
           },
           "source_population": 42
@@ -1107,7 +1093,7 @@
             "reasoning": 7,
             "tool_calling": 7
           },
-          "source_population": 42
+          "source_population": 43
         },
         "llmstats__automationbench": {
           "benchmark_id": "llmstats__automationbench",
@@ -1122,33 +1108,16 @@
             "tool_calling"
           ],
           "source_column_indices": {
-            "tool_calling": 12
+            "tool_calling": 11
           },
-          "source_population": 22
-        },
-        "llmstats__agents-last-exam": {
-          "benchmark_id": "llmstats__agents-last-exam",
-          "canonical_name": "Agents' Last Exam",
-          "source_name": "Agents' Last Exam",
-          "value": 26.3,
-          "raw_value": "26.3%",
-          "version": null,
-          "provenance": "LLMStats public capability leaderboard",
-          "source_url": "https://llm-stats.com/benchmarks/agents-last-exam",
-          "capabilities": [
-            "tool_calling"
-          ],
-          "source_column_indices": {
-            "tool_calling": 16
-          },
-          "source_population": 21
+          "source_population": 24
         }
       },
       "source_updated_at": null
     },
     {
       "category_rank": 17.0,
-      "category_score": 28.5,
+      "category_score": 28.4,
       "source_name": "Qwen3.8 Max",
       "provider": "Qwen",
       "source_model_id": "qwen3.8-max",
@@ -1175,11 +1144,9 @@
           "provenance": "LLMStats public capability leaderboard",
           "source_url": "https://llm-stats.com/benchmarks/toolathlon",
           "capabilities": [
-            "reasoning",
             "tool_calling"
           ],
           "source_column_indices": {
-            "reasoning": 16,
             "tool_calling": 8
           },
           "source_population": 42
@@ -1203,7 +1170,7 @@
             "reasoning": 7,
             "tool_calling": 7
           },
-          "source_population": 42
+          "source_population": 43
         },
         "llmstats__automationbench": {
           "benchmark_id": "llmstats__automationbench",
@@ -1218,107 +1185,15 @@
             "tool_calling"
           ],
           "source_column_indices": {
-            "tool_calling": 12
+            "tool_calling": 11
           },
-          "source_population": 22
-        },
-        "llmstats__agents-last-exam": {
-          "benchmark_id": "llmstats__agents-last-exam",
-          "canonical_name": "Agents' Last Exam",
-          "source_name": "Agents' Last Exam",
-          "value": 52.4,
-          "raw_value": "52.4%",
-          "version": null,
-          "provenance": "LLMStats public capability leaderboard",
-          "source_url": "https://llm-stats.com/benchmarks/agents-last-exam",
-          "capabilities": [
-            "tool_calling"
-          ],
-          "source_column_indices": {
-            "tool_calling": 16
-          },
-          "source_population": 21
+          "source_population": 24
         }
       },
       "source_updated_at": null
     },
     {
       "category_rank": 18.0,
-      "category_score": 28.4,
-      "source_name": "Atria Dawn Preview",
-      "provider": "Shanghai AI Laboratory",
-      "source_model_id": "atria-dawn-preview",
-      "source_model_url": "https://llm-stats.com/models/atria-dawn-preview",
-      "license": "Open Source",
-      "family_id": "shanghai-ai-laboratory/atria-dawn-preview",
-      "matched_aa_family_id": null,
-      "match_status": "source_missing",
-      "match_confidence": 0.0,
-      "score_status": "llmstats_only",
-      "score_status_label": "LLMStats only",
-      "availability_class": "unknown",
-      "is_sota": false,
-      "is_open_sota": false,
-      "rank_evidence": "source_rendered_table_order",
-      "benchmark_observations": {
-        "llmstats__terminal-bench-2-1": {
-          "benchmark_id": "llmstats__terminal-bench-2-1",
-          "canonical_name": "Terminal-Bench 2.1",
-          "source_name": "Terminal-Bench 2.1",
-          "value": 78.3,
-          "raw_value": "78.3%",
-          "version": null,
-          "provenance": "LLMStats public capability leaderboard",
-          "source_url": "https://llm-stats.com/benchmarks/terminal-bench-2.1",
-          "capabilities": [
-            "reasoning",
-            "tool_calling"
-          ],
-          "source_column_indices": {
-            "reasoning": 7,
-            "tool_calling": 7
-          },
-          "source_population": 42
-        },
-        "llmstats__automationbench": {
-          "benchmark_id": "llmstats__automationbench",
-          "canonical_name": "AutomationBench",
-          "source_name": "AutomationBench",
-          "value": 53.8,
-          "raw_value": "53.8%",
-          "version": null,
-          "provenance": "LLMStats public capability leaderboard",
-          "source_url": "https://llm-stats.com/benchmarks/automationbench",
-          "capabilities": [
-            "tool_calling"
-          ],
-          "source_column_indices": {
-            "tool_calling": 12
-          },
-          "source_population": 22
-        },
-        "llmstats__tau3-banking": {
-          "benchmark_id": "llmstats__tau3-banking",
-          "canonical_name": "Tau3 Banking",
-          "source_name": "Tau3 Banking",
-          "value": 41.2,
-          "raw_value": "41.2%",
-          "version": null,
-          "provenance": "LLMStats public capability leaderboard",
-          "source_url": "https://llm-stats.com/benchmarks/tau3-banking",
-          "capabilities": [
-            "tool_calling"
-          ],
-          "source_column_indices": {
-            "tool_calling": 14
-          },
-          "source_population": 12
-        }
-      },
-      "source_updated_at": null
-    },
-    {
-      "category_rank": 19.0,
       "category_score": 28.3,
       "source_name": "Claude Opus 4.8",
       "provider": "Anthropic",
@@ -1365,11 +1240,9 @@
           "provenance": "LLMStats public capability leaderboard",
           "source_url": "https://llm-stats.com/benchmarks/toolathlon",
           "capabilities": [
-            "reasoning",
             "tool_calling"
           ],
           "source_column_indices": {
-            "reasoning": 16,
             "tool_calling": 8
           },
           "source_population": 42
@@ -1389,78 +1262,74 @@
           ],
           "source_column_indices": {
             "coding": 12,
-            "tool_calling": 11
+            "tool_calling": 12
           },
           "source_population": 53
+        },
+        "llmstats__terminal-bench-4-0": {
+          "benchmark_id": "llmstats__terminal-bench-4-0",
+          "canonical_name": "Terminal-Bench 4.0",
+          "source_name": "Terminal-Bench 4.0",
+          "value": 23.6,
+          "raw_value": "23.6%",
+          "version": null,
+          "provenance": "LLMStats public capability leaderboard",
+          "source_url": "https://llm-stats.com/benchmarks/terminal-bench-4.0",
+          "capabilities": [
+            "tool_calling"
+          ],
+          "source_column_indices": {
+            "tool_calling": 14
+          },
+          "source_population": 23
         }
       },
       "source_updated_at": null
     },
     {
-      "category_rank": 20.0,
-      "category_score": 27.6,
-      "source_name": "DeepSeek-V4-Pro-0813",
-      "provider": "DeepSeek",
-      "source_model_id": "deepseek-v4-pro-0813",
-      "source_model_url": "https://llm-stats.com/models/deepseek-v4-pro-0813",
+      "category_rank": 19.0,
+      "category_score": 28.1,
+      "source_name": "Atria Dawn Preview",
+      "provider": "Shanghai AI Laboratory",
+      "source_model_id": "atria-dawn-preview",
+      "source_model_url": "https://llm-stats.com/models/atria-dawn-preview",
       "license": "Open Source",
-      "family_id": "deepseek/deepseek-v4-pro-0813",
-      "matched_aa_family_id": "deepseek/deepseek-v4-pro-0813",
-      "match_status": "matched_family",
-      "match_confidence": 0.95,
-      "score_status": "consensus",
-      "score_status_label": "Consensus",
-      "availability_class": "open_weights",
+      "family_id": "shanghai-ai-laboratory/atria-dawn-preview",
+      "matched_aa_family_id": null,
+      "match_status": "source_missing",
+      "match_confidence": 0.0,
+      "score_status": "llmstats_only",
+      "score_status_label": "LLMStats only",
+      "availability_class": "unknown",
       "is_sota": false,
       "is_open_sota": false,
       "rank_evidence": "source_rendered_table_order",
       "benchmark_observations": {
-        "llmstats__toolathlon": {
-          "benchmark_id": "llmstats__toolathlon",
-          "canonical_name": "Toolathlon",
-          "source_name": "Toolathlon",
-          "value": 74.1,
-          "raw_value": "74.1%",
-          "version": null,
-          "provenance": "LLMStats public capability leaderboard",
-          "source_url": "https://llm-stats.com/benchmarks/toolathlon",
-          "capabilities": [
-            "reasoning",
-            "tool_calling"
-          ],
-          "source_column_indices": {
-            "reasoning": 16,
-            "tool_calling": 8
-          },
-          "source_population": 42
-        },
         "llmstats__terminal-bench-2-1": {
           "benchmark_id": "llmstats__terminal-bench-2-1",
           "canonical_name": "Terminal-Bench 2.1",
           "source_name": "Terminal-Bench 2.1",
-          "value": 87.9,
-          "raw_value": "87.9%",
+          "value": 78.3,
+          "raw_value": "78.3%",
           "version": null,
           "provenance": "LLMStats public capability leaderboard",
           "source_url": "https://llm-stats.com/benchmarks/terminal-bench-2.1",
           "capabilities": [
-            "coding",
             "reasoning",
             "tool_calling"
           ],
           "source_column_indices": {
-            "coding": 14,
             "reasoning": 7,
             "tool_calling": 7
           },
-          "source_population": 42
+          "source_population": 43
         },
         "llmstats__automationbench": {
           "benchmark_id": "llmstats__automationbench",
           "canonical_name": "AutomationBench",
           "source_name": "AutomationBench",
-          "value": 31.8,
-          "raw_value": "31.8%",
+          "value": 53.8,
+          "raw_value": "53.8%",
           "version": null,
           "provenance": "LLMStats public capability leaderboard",
           "source_url": "https://llm-stats.com/benchmarks/automationbench",
@@ -1468,33 +1337,33 @@
             "tool_calling"
           ],
           "source_column_indices": {
-            "tool_calling": 12
+            "tool_calling": 11
           },
-          "source_population": 22
+          "source_population": 24
         },
-        "llmstats__agents-last-exam": {
-          "benchmark_id": "llmstats__agents-last-exam",
-          "canonical_name": "Agents' Last Exam",
-          "source_name": "Agents' Last Exam",
-          "value": 25.7,
-          "raw_value": "25.7%",
+        "llmstats__tau3-banking": {
+          "benchmark_id": "llmstats__tau3-banking",
+          "canonical_name": "Tau3 Banking",
+          "source_name": "Tau3 Banking",
+          "value": 41.2,
+          "raw_value": "41.2%",
           "version": null,
           "provenance": "LLMStats public capability leaderboard",
-          "source_url": "https://llm-stats.com/benchmarks/agents-last-exam",
+          "source_url": "https://llm-stats.com/benchmarks/tau3-banking",
           "capabilities": [
             "tool_calling"
           ],
           "source_column_indices": {
-            "tool_calling": 16
+            "tool_calling": 15
           },
-          "source_population": 21
+          "source_population": 12
         }
       },
       "source_updated_at": null
     },
     {
-      "category_rank": 21.0,
-      "category_score": 27.6,
+      "category_rank": 20.0,
+      "category_score": 27.5,
       "source_name": "Hy4 preview",
       "provider": "Tencent",
       "source_model_id": "hy4-preview",
@@ -1540,11 +1409,9 @@
           "provenance": "LLMStats public capability leaderboard",
           "source_url": "https://llm-stats.com/benchmarks/toolathlon",
           "capabilities": [
-            "reasoning",
             "tool_calling"
           ],
           "source_column_indices": {
-            "reasoning": 16,
             "tool_calling": 8
           },
           "source_population": 42
@@ -1568,7 +1435,7 @@
             "reasoning": 7,
             "tool_calling": 7
           },
-          "source_population": 42
+          "source_population": 43
         },
         "llmstats__automationbench": {
           "benchmark_id": "llmstats__automationbench",
@@ -1583,26 +1450,86 @@
             "tool_calling"
           ],
           "source_column_indices": {
-            "tool_calling": 12
+            "tool_calling": 11
           },
-          "source_population": 22
-        },
-        "llmstats__agents-last-exam": {
-          "benchmark_id": "llmstats__agents-last-exam",
-          "canonical_name": "Agents' Last Exam",
-          "source_name": "Agents' Last Exam",
-          "value": 22.8,
-          "raw_value": "22.8%",
+          "source_population": 24
+        }
+      },
+      "source_updated_at": null
+    },
+    {
+      "category_rank": 21.0,
+      "category_score": 27.5,
+      "source_name": "DeepSeek-V4-Pro-0813",
+      "provider": "DeepSeek",
+      "source_model_id": "deepseek-v4-pro-0813",
+      "source_model_url": "https://llm-stats.com/models/deepseek-v4-pro-0813",
+      "license": "Open Source",
+      "family_id": "deepseek/deepseek-v4-pro-0813",
+      "matched_aa_family_id": "deepseek/deepseek-v4-pro-0813",
+      "match_status": "matched_family",
+      "match_confidence": 0.95,
+      "score_status": "consensus",
+      "score_status_label": "Consensus",
+      "availability_class": "open_weights",
+      "is_sota": false,
+      "is_open_sota": false,
+      "rank_evidence": "source_rendered_table_order",
+      "benchmark_observations": {
+        "llmstats__toolathlon": {
+          "benchmark_id": "llmstats__toolathlon",
+          "canonical_name": "Toolathlon",
+          "source_name": "Toolathlon",
+          "value": 74.1,
+          "raw_value": "74.1%",
           "version": null,
           "provenance": "LLMStats public capability leaderboard",
-          "source_url": "https://llm-stats.com/benchmarks/agents-last-exam",
+          "source_url": "https://llm-stats.com/benchmarks/toolathlon",
           "capabilities": [
             "tool_calling"
           ],
           "source_column_indices": {
-            "tool_calling": 16
+            "tool_calling": 8
           },
-          "source_population": 21
+          "source_population": 42
+        },
+        "llmstats__terminal-bench-2-1": {
+          "benchmark_id": "llmstats__terminal-bench-2-1",
+          "canonical_name": "Terminal-Bench 2.1",
+          "source_name": "Terminal-Bench 2.1",
+          "value": 87.9,
+          "raw_value": "87.9%",
+          "version": null,
+          "provenance": "LLMStats public capability leaderboard",
+          "source_url": "https://llm-stats.com/benchmarks/terminal-bench-2.1",
+          "capabilities": [
+            "coding",
+            "reasoning",
+            "tool_calling"
+          ],
+          "source_column_indices": {
+            "coding": 14,
+            "reasoning": 7,
+            "tool_calling": 7
+          },
+          "source_population": 43
+        },
+        "llmstats__automationbench": {
+          "benchmark_id": "llmstats__automationbench",
+          "canonical_name": "AutomationBench",
+          "source_name": "AutomationBench",
+          "value": 31.8,
+          "raw_value": "31.8%",
+          "version": null,
+          "provenance": "LLMStats public capability leaderboard",
+          "source_url": "https://llm-stats.com/benchmarks/automationbench",
+          "capabilities": [
+            "tool_calling"
+          ],
+          "source_column_indices": {
+            "tool_calling": 11
+          },
+          "source_population": 24
         }
       },
       "source_updated_at": null
@@ -1639,7 +1566,7 @@
             "tool_calling"
           ],
           "source_column_indices": {
-            "tool_calling": 11
+            "tool_calling": 12
           },
           "source_population": 53
         }
@@ -1648,6 +1575,101 @@
     },
     {
       "category_rank": 23.0,
+      "category_score": 27.3,
+      "source_name": "Mistral Large 4",
+      "provider": "Mistral AI",
+      "source_model_id": "mistral-large-4",
+      "source_model_url": "https://llm-stats.com/models/mistral-large-4",
+      "license": "Proprietary",
+      "family_id": "mistral-ai/mistral-large-4",
+      "matched_aa_family_id": null,
+      "match_status": "identity_unresolved",
+      "match_confidence": 0.8,
+      "score_status": "identity_review",
+      "score_status_label": "Identity review",
+      "availability_class": "unknown",
+      "is_sota": false,
+      "is_open_sota": false,
+      "rank_evidence": "source_rendered_table_order",
+      "benchmark_observations": {
+        "llmstats__automationbench": {
+          "benchmark_id": "llmstats__automationbench",
+          "canonical_name": "AutomationBench",
+          "source_name": "AutomationBench",
+          "value": 59.9,
+          "raw_value": "59.9%",
+          "version": null,
+          "provenance": "LLMStats public capability leaderboard",
+          "source_url": "https://llm-stats.com/benchmarks/automationbench",
+          "capabilities": [
+            "tool_calling"
+          ],
+          "source_column_indices": {
+            "tool_calling": 11
+          },
+          "source_population": 24
+        },
+        "llmstats__terminal-bench-4-0": {
+          "benchmark_id": "llmstats__terminal-bench-4-0",
+          "canonical_name": "Terminal-Bench 4.0",
+          "source_name": "Terminal-Bench 4.0",
+          "value": 28.3,
+          "raw_value": "28.3%",
+          "version": null,
+          "provenance": "LLMStats public capability leaderboard",
+          "source_url": "https://llm-stats.com/benchmarks/terminal-bench-4.0",
+          "capabilities": [
+            "tool_calling"
+          ],
+          "source_column_indices": {
+            "tool_calling": 14
+          },
+          "source_population": 23
+        }
+      },
+      "source_updated_at": null
+    },
+    {
+      "category_rank": 24.0,
+      "category_score": 27.1,
+      "source_name": "Claude Mythos 5.1",
+      "provider": "Anthropic",
+      "source_model_id": "claude-mythos-5-1",
+      "source_model_url": "https://llm-stats.com/models/claude-mythos-5-1",
+      "license": "Proprietary",
+      "family_id": "anthropic/claude-mythos-5-1",
+      "matched_aa_family_id": null,
+      "match_status": "identity_unresolved",
+      "match_confidence": 0.75,
+      "score_status": "identity_review",
+      "score_status_label": "Identity review",
+      "availability_class": "unknown",
+      "is_sota": false,
+      "is_open_sota": false,
+      "rank_evidence": "source_rendered_table_order",
+      "benchmark_observations": {
+        "llmstats__terminal-bench-4-0": {
+          "benchmark_id": "llmstats__terminal-bench-4-0",
+          "canonical_name": "Terminal-Bench 4.0",
+          "source_name": "Terminal-Bench 4.0",
+          "value": 60.9,
+          "raw_value": "60.9%",
+          "version": null,
+          "provenance": "LLMStats public capability leaderboard",
+          "source_url": "https://llm-stats.com/benchmarks/terminal-bench-4.0",
+          "capabilities": [
+            "tool_calling"
+          ],
+          "source_column_indices": {
+            "tool_calling": 14
+          },
+          "source_population": 23
+        }
+      },
+      "source_updated_at": null
+    },
+    {
+      "category_rank": 25.0,
       "category_score": 26.9,
       "source_name": "GPT-5.5",
       "provider": "OpenAI",
@@ -1694,11 +1716,9 @@
           "provenance": "LLMStats public capability leaderboard",
           "source_url": "https://llm-stats.com/benchmarks/toolathlon",
           "capabilities": [
-            "reasoning",
             "tool_calling"
           ],
           "source_column_indices": {
-            "reasoning": 16,
             "tool_calling": 8
           },
           "source_population": 42
@@ -1718,7 +1738,7 @@
           ],
           "source_column_indices": {
             "coding": 12,
-            "tool_calling": 11
+            "tool_calling": 12
           },
           "source_population": 53
         },
@@ -1745,28 +1765,7 @@
       "source_updated_at": null
     },
     {
-      "category_rank": 24.0,
-      "category_score": 26.7,
-      "source_name": "Claude Mythos 5.1",
-      "provider": "Anthropic",
-      "source_model_id": "claude-mythos-5-1",
-      "source_model_url": "https://llm-stats.com/models/claude-mythos-5-1",
-      "license": "Proprietary",
-      "family_id": "anthropic/claude-mythos-5-1",
-      "matched_aa_family_id": null,
-      "match_status": "identity_unresolved",
-      "match_confidence": 0.75,
-      "score_status": "identity_review",
-      "score_status_label": "Identity review",
-      "availability_class": "unknown",
-      "is_sota": false,
-      "is_open_sota": false,
-      "rank_evidence": "source_rendered_table_order",
-      "benchmark_observations": {},
-      "source_updated_at": null
-    },
-    {
-      "category_rank": 25.0,
+      "category_rank": 26.0,
       "category_score": 26.4,
       "source_name": "GPT-5.6 Terra",
       "provider": "OpenAI",
@@ -1794,11 +1793,9 @@
           "provenance": "LLMStats public capability leaderboard",
           "source_url": "https://llm-stats.com/benchmarks/toolathlon",
           "capabilities": [
-            "reasoning",
             "tool_calling"
           ],
           "source_column_indices": {
-            "reasoning": 16,
             "tool_calling": 8
           },
           "source_population": 42
@@ -1822,7 +1819,7 @@
             "reasoning": 7,
             "tool_calling": 7
           },
-          "source_population": 42
+          "source_population": 43
         },
         "llmstats__automationbench": {
           "benchmark_id": "llmstats__automationbench",
@@ -1837,32 +1834,32 @@
             "tool_calling"
           ],
           "source_column_indices": {
-            "tool_calling": 12
+            "tool_calling": 11
           },
-          "source_population": 22
+          "source_population": 24
         },
-        "llmstats__agents-last-exam": {
-          "benchmark_id": "llmstats__agents-last-exam",
-          "canonical_name": "Agents' Last Exam",
-          "source_name": "Agents' Last Exam",
-          "value": 50.4,
-          "raw_value": "50.4%",
+        "llmstats__terminal-bench-4-0": {
+          "benchmark_id": "llmstats__terminal-bench-4-0",
+          "canonical_name": "Terminal-Bench 4.0",
+          "source_name": "Terminal-Bench 4.0",
+          "value": 21.5,
+          "raw_value": "21.5%",
           "version": null,
           "provenance": "LLMStats public capability leaderboard",
-          "source_url": "https://llm-stats.com/benchmarks/agents-last-exam",
+          "source_url": "https://llm-stats.com/benchmarks/terminal-bench-4.0",
           "capabilities": [
             "tool_calling"
           ],
           "source_column_indices": {
-            "tool_calling": 16
+            "tool_calling": 14
           },
-          "source_population": 21
+          "source_population": 23
         }
       },
       "source_updated_at": null
     },
     {
-      "category_rank": 26.0,
+      "category_rank": 27.0,
       "category_score": 26.3,
       "source_name": "Qwen3.7 Max",
       "provider": "Alibaba",
@@ -1895,7 +1892,7 @@
           ],
           "source_column_indices": {
             "coding": 12,
-            "tool_calling": 11
+            "tool_calling": 12
           },
           "source_population": 53
         },
@@ -1922,7 +1919,7 @@
       "source_updated_at": null
     },
     {
-      "category_rank": 27.0,
+      "category_rank": 28.0,
       "category_score": 26.1,
       "source_name": "Claude Sonnet 4.5",
       "provider": "Anthropic",
@@ -1943,8 +1940,8 @@
       "source_updated_at": null
     },
     {
-      "category_rank": 28.0,
-      "category_score": 25.6,
+      "category_rank": 29.0,
+      "category_score": 25.9,
       "source_name": "MiMo-V2.6-Flash",
       "provider": "Xiaomi",
       "source_model_id": "mimo-v2.6-flash",
@@ -1978,31 +1975,31 @@
             "coding": 14,
             "tool_calling": 7
           },
-          "source_population": 42
+          "source_population": 43
         },
-        "llmstats__agents-last-exam": {
-          "benchmark_id": "llmstats__agents-last-exam",
-          "canonical_name": "Agents' Last Exam",
-          "source_name": "Agents' Last Exam",
-          "value": 27.6,
-          "raw_value": "27.6%",
+        "llmstats__terminal-bench-4-0": {
+          "benchmark_id": "llmstats__terminal-bench-4-0",
+          "canonical_name": "Terminal-Bench 4.0",
+          "source_name": "Terminal-Bench 4.0",
+          "value": 28.8,
+          "raw_value": "28.8%",
           "version": null,
           "provenance": "LLMStats public capability leaderboard",
-          "source_url": "https://llm-stats.com/benchmarks/agents-last-exam",
+          "source_url": "https://llm-stats.com/benchmarks/terminal-bench-4.0",
           "capabilities": [
             "tool_calling"
           ],
           "source_column_indices": {
-            "tool_calling": 16
+            "tool_calling": 14
           },
-          "source_population": 21
+          "source_population": 23
         }
       },
       "source_updated_at": null
     },
     {
-      "category_rank": 29.0,
-      "category_score": 25.5,
+      "category_rank": 30.0,
+      "category_score": 25.7,
       "source_name": "Claude Fable 5.1",
       "provider": "Anthropic",
       "source_model_id": "claude-fable-5-1",
@@ -2032,48 +2029,26 @@
             "tool_calling"
           ],
           "source_column_indices": {
-            "tool_calling": 12
+            "tool_calling": 11
           },
-          "source_population": 22
-        }
-      },
-      "source_updated_at": null
-    },
-    {
-      "category_rank": 30.0,
-      "category_score": 25.4,
-      "source_name": "GPT-6 Sol",
-      "provider": "OpenAI",
-      "source_model_id": "gpt-6-sol",
-      "source_model_url": "https://llm-stats.com/models/gpt-6-sol",
-      "license": "Proprietary",
-      "family_id": "openai/gpt-6-sol",
-      "matched_aa_family_id": null,
-      "match_status": "identity_unresolved",
-      "match_confidence": 0.8,
-      "score_status": "identity_review",
-      "score_status_label": "Identity review",
-      "availability_class": "unknown",
-      "is_sota": false,
-      "is_open_sota": false,
-      "rank_evidence": "source_rendered_table_order",
-      "benchmark_observations": {
-        "llmstats__agents-last-exam": {
-          "benchmark_id": "llmstats__agents-last-exam",
-          "canonical_name": "Agents' Last Exam",
-          "source_name": "Agents' Last Exam",
-          "value": 56.4,
-          "raw_value": "56.4%",
+          "source_population": 24
+        },
+        "llmstats__terminal-bench-4-0": {
+          "benchmark_id": "llmstats__terminal-bench-4-0",
+          "canonical_name": "Terminal-Bench 4.0",
+          "source_name": "Terminal-Bench 4.0",
+          "value": 55.8,
+          "raw_value": "55.8%",
           "version": null,
           "provenance": "LLMStats public capability leaderboard",
-          "source_url": "https://llm-stats.com/benchmarks/agents-last-exam",
+          "source_url": "https://llm-stats.com/benchmarks/terminal-bench-4.0",
           "capabilities": [
             "tool_calling"
           ],
           "source_column_indices": {
-            "tool_calling": 16
+            "tool_calling": 14
           },
-          "source_population": 21
+          "source_population": 23
         }
       },
       "source_updated_at": null

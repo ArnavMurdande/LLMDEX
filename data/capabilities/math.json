@@ -1,22 +1,22 @@
 {
-  "generated_at": "2026-10-06T16:55:09.793830+00:00",
+  "generated_at": "2026-10-07T17:32:33.660581+00:00",
   "methodology_version": "LLMStats source-native current",
   "source": "LLMStats",
-  "source_updated_at": "2026-10-06T16:55:34.418092+00:00",
+  "source_updated_at": "2026-10-07T17:33:02.817773+00:00",
   "source_health": {
     "source": "LLMStats",
-    "rows_scraped": 99,
+    "rows_scraped": 100,
     "expected_range": [
       20,
       250
     ],
     "status": "healthy",
     "error_message": null,
-    "duration_seconds": 24.616,
-    "timestamp": "2026-10-06T16:55:34.418092+00:00",
+    "duration_seconds": 29.149,
+    "timestamp": "2026-10-07T17:33:02.817773+00:00",
     "parse_warning_count": 0,
     "warnings": [],
-    "last_successful_update": "2026-10-06T16:55:34.418092+00:00",
+    "last_successful_update": "2026-10-07T17:33:02.817773+00:00",
     "schema_changes": []
   },
   "capability": "math",
@@ -28,6 +28,14 @@
       "source_name": "AIME 2025",
       "source_url": "https://llm-stats.com/benchmarks/aime-2025",
       "source_population": 122
+    },
+    {
+      "benchmark_id": "scicode",
+      "canonical_name": "SciCode",
+      "version": "source-reported",
+      "source_name": "SciCode",
+      "source_url": "https://llm-stats.com/benchmarks/scicode",
+      "source_population": 26
     },
     {
       "benchmark_id": "llmstats__mmlu-pro",
@@ -76,14 +84,6 @@
       "source_name": "AIME 2026",
       "source_url": "https://llm-stats.com/benchmarks/aime-2026",
       "source_population": 26
-    },
-    {
-      "benchmark_id": "scicode",
-      "canonical_name": "SciCode",
-      "version": "source-reported",
-      "source_name": "SciCode",
-      "source_url": "https://llm-stats.com/benchmarks/scicode",
-      "source_population": 24
     },
     {
       "benchmark_id": "llmstats__mmlu",
@@ -175,13 +175,15 @@
           "source_url": "https://llm-stats.com/benchmarks/scicode",
           "capabilities": [
             "coding",
-            "math"
+            "math",
+            "reasoning"
           ],
           "source_column_indices": {
             "coding": 18,
-            "math": 14
+            "math": 8,
+            "reasoning": 11
           },
-          "source_population": 24
+          "source_population": 26
         },
         "llmstats__mmlu-pro": {
           "benchmark_id": "llmstats__mmlu-pro",
@@ -197,8 +199,8 @@
             "reasoning"
           ],
           "source_column_indices": {
-            "math": 8,
-            "reasoning": 10
+            "math": 9,
+            "reasoning": 12
           },
           "source_population": 142
         }
@@ -249,7 +251,7 @@
     },
     {
       "category_rank": 6.0,
-      "category_score": 42.4,
+      "category_score": 42.1,
       "source_name": "Gemini 3.1 Pro",
       "provider": "Google",
       "source_model_id": "gemini-3.1-pro-preview",
@@ -279,9 +281,9 @@
             "math"
           ],
           "source_column_indices": {
-            "math": 14
+            "math": 8
           },
-          "source_population": 24
+          "source_population": 26
         }
       },
       "source_updated_at": null
@@ -348,7 +350,7 @@
     },
     {
       "category_rank": 9.0,
-      "category_score": 41.4,
+      "category_score": 41.3,
       "source_name": "GLM-5.2",
       "provider": "Z AI",
       "source_model_id": "glm-5.2",
@@ -378,7 +380,7 @@
             "math"
           ],
           "source_column_indices": {
-            "math": 13
+            "math": 14
           },
           "source_population": 26
         }
@@ -450,101 +452,6 @@
     },
     {
       "category_rank": 13.0,
-      "category_score": 40.3,
-      "source_name": "Seed 2.1 Pro",
-      "provider": "ByteDance",
-      "source_model_id": "seed-2.1-pro",
-      "source_model_url": "https://llm-stats.com/models/seed-2.1-pro",
-      "license": "Proprietary",
-      "family_id": "bytedance/seed-2-1-pro",
-      "matched_aa_family_id": null,
-      "match_status": "source_missing",
-      "match_confidence": 0.0,
-      "score_status": "llmstats_only",
-      "score_status_label": "LLMStats only",
-      "availability_class": "unknown",
-      "is_sota": false,
-      "is_open_sota": false,
-      "rank_evidence": "source_rendered_table_order",
-      "benchmark_observations": {
-        "llmstats__mathvista": {
-          "benchmark_id": "llmstats__mathvista",
-          "canonical_name": "MathVista",
-          "source_name": "MathVista",
-          "value": 90.7,
-          "raw_value": "90.7%",
-          "version": null,
-          "provenance": "LLMStats public capability leaderboard",
-          "source_url": "https://llm-stats.com/benchmarks/mathvista",
-          "capabilities": [
-            "math"
-          ],
-          "source_column_indices": {
-            "math": 11
-          },
-          "source_population": 40
-        },
-        "scicode": {
-          "benchmark_id": "scicode",
-          "canonical_name": "SciCode",
-          "source_name": "SciCode",
-          "value": 59.8,
-          "raw_value": "59.8%",
-          "version": "source-reported",
-          "provenance": "Separate source observations; never averaged",
-          "source_url": "https://llm-stats.com/benchmarks/scicode",
-          "capabilities": [
-            "math"
-          ],
-          "source_column_indices": {
-            "math": 14
-          },
-          "source_population": 24
-        }
-      },
-      "source_updated_at": null
-    },
-    {
-      "category_rank": 14.0,
-      "category_score": 40.1,
-      "source_name": "DeepSeek-V4-Pro-Max",
-      "provider": "DeepSeek",
-      "source_model_id": "deepseek-v4-pro-max",
-      "source_model_url": "https://llm-stats.com/models/deepseek-v4-pro-max",
-      "license": "Open Source",
-      "family_id": "deepseek/deepseek-v4-pro",
-      "matched_aa_family_id": null,
-      "match_status": "identity_unresolved",
-      "match_confidence": 0.8,
-      "score_status": "identity_review",
-      "score_status_label": "Identity review",
-      "availability_class": "unknown",
-      "is_sota": false,
-      "is_open_sota": false,
-      "rank_evidence": "source_rendered_table_order",
-      "benchmark_observations": {
-        "llmstats__mmlu-pro": {
-          "benchmark_id": "llmstats__mmlu-pro",
-          "canonical_name": "MMLU-Pro",
-          "source_name": "MMLU-Pro",
-          "value": 87.5,
-          "raw_value": "87.5%",
-          "version": null,
-          "provenance": "LLMStats public capability leaderboard",
-          "source_url": "https://llm-stats.com/benchmarks/mmlu-pro",
-          "capabilities": [
-            "math"
-          ],
-          "source_column_indices": {
-            "math": 8
-          },
-          "source_population": 142
-        }
-      },
-      "source_updated_at": null
-    },
-    {
-      "category_rank": 15.0,
       "category_score": 40.1,
       "source_name": "Claude Opus 4.6",
       "provider": "Anthropic",
@@ -583,6 +490,103 @@
       "source_updated_at": null
     },
     {
+      "category_rank": 14.0,
+      "category_score": 40.1,
+      "source_name": "DeepSeek-V4-Pro-Max",
+      "provider": "DeepSeek",
+      "source_model_id": "deepseek-v4-pro-max",
+      "source_model_url": "https://llm-stats.com/models/deepseek-v4-pro-max",
+      "license": "Open Source",
+      "family_id": "deepseek/deepseek-v4-pro",
+      "matched_aa_family_id": null,
+      "match_status": "identity_unresolved",
+      "match_confidence": 0.8,
+      "score_status": "identity_review",
+      "score_status_label": "Identity review",
+      "availability_class": "unknown",
+      "is_sota": false,
+      "is_open_sota": false,
+      "rank_evidence": "source_rendered_table_order",
+      "benchmark_observations": {
+        "llmstats__mmlu-pro": {
+          "benchmark_id": "llmstats__mmlu-pro",
+          "canonical_name": "MMLU-Pro",
+          "source_name": "MMLU-Pro",
+          "value": 87.5,
+          "raw_value": "87.5%",
+          "version": null,
+          "provenance": "LLMStats public capability leaderboard",
+          "source_url": "https://llm-stats.com/benchmarks/mmlu-pro",
+          "capabilities": [
+            "math"
+          ],
+          "source_column_indices": {
+            "math": 9
+          },
+          "source_population": 142
+        }
+      },
+      "source_updated_at": null
+    },
+    {
+      "category_rank": 15.0,
+      "category_score": 40.1,
+      "source_name": "Seed 2.1 Pro",
+      "provider": "ByteDance",
+      "source_model_id": "seed-2.1-pro",
+      "source_model_url": "https://llm-stats.com/models/seed-2.1-pro",
+      "license": "Proprietary",
+      "family_id": "bytedance/seed-2-1-pro",
+      "matched_aa_family_id": null,
+      "match_status": "source_missing",
+      "match_confidence": 0.0,
+      "score_status": "llmstats_only",
+      "score_status_label": "LLMStats only",
+      "availability_class": "unknown",
+      "is_sota": false,
+      "is_open_sota": false,
+      "rank_evidence": "source_rendered_table_order",
+      "benchmark_observations": {
+        "scicode": {
+          "benchmark_id": "scicode",
+          "canonical_name": "SciCode",
+          "source_name": "SciCode",
+          "value": 59.8,
+          "raw_value": "59.8%",
+          "version": "source-reported",
+          "provenance": "Separate source observations; never averaged",
+          "source_url": "https://llm-stats.com/benchmarks/scicode",
+          "capabilities": [
+            "math",
+            "reasoning"
+          ],
+          "source_column_indices": {
+            "math": 8,
+            "reasoning": 11
+          },
+          "source_population": 26
+        },
+        "llmstats__mathvista": {
+          "benchmark_id": "llmstats__mathvista",
+          "canonical_name": "MathVista",
+          "source_name": "MathVista",
+          "value": 90.7,
+          "raw_value": "90.7%",
+          "version": null,
+          "provenance": "LLMStats public capability leaderboard",
+          "source_url": "https://llm-stats.com/benchmarks/mathvista",
+          "capabilities": [
+            "math"
+          ],
+          "source_column_indices": {
+            "math": 12
+          },
+          "source_population": 40
+        }
+      },
+      "source_updated_at": null
+    },
+    {
       "category_rank": 16.0,
       "category_score": 39.7,
       "source_name": "Qwen3.7-Plus",
@@ -601,23 +605,6 @@
       "is_open_sota": false,
       "rank_evidence": "source_rendered_table_order",
       "benchmark_observations": {
-        "llmstats__mmlu-pro": {
-          "benchmark_id": "llmstats__mmlu-pro",
-          "canonical_name": "MMLU-Pro",
-          "source_name": "MMLU-Pro",
-          "value": 88.5,
-          "raw_value": "88.5%",
-          "version": null,
-          "provenance": "LLMStats public capability leaderboard",
-          "source_url": "https://llm-stats.com/benchmarks/mmlu-pro",
-          "capabilities": [
-            "math"
-          ],
-          "source_column_indices": {
-            "math": 8
-          },
-          "source_population": 142
-        },
         "scicode": {
           "benchmark_id": "scicode",
           "canonical_name": "SciCode",
@@ -631,9 +618,26 @@
             "math"
           ],
           "source_column_indices": {
-            "math": 14
+            "math": 8
           },
-          "source_population": 24
+          "source_population": 26
+        },
+        "llmstats__mmlu-pro": {
+          "benchmark_id": "llmstats__mmlu-pro",
+          "canonical_name": "MMLU-Pro",
+          "source_name": "MMLU-Pro",
+          "value": 88.5,
+          "raw_value": "88.5%",
+          "version": null,
+          "provenance": "LLMStats public capability leaderboard",
+          "source_url": "https://llm-stats.com/benchmarks/mmlu-pro",
+          "capabilities": [
+            "math"
+          ],
+          "source_column_indices": {
+            "math": 9
+          },
+          "source_population": 142
         }
       },
       "source_updated_at": null
@@ -641,6 +645,27 @@
     {
       "category_rank": 17.0,
       "category_score": 39.6,
+      "source_name": "DeepSeek-V4-Pro-0813",
+      "provider": "DeepSeek",
+      "source_model_id": "deepseek-v4-pro-0813",
+      "source_model_url": "https://llm-stats.com/models/deepseek-v4-pro-0813",
+      "license": "Open Source",
+      "family_id": "deepseek/deepseek-v4-pro-0813",
+      "matched_aa_family_id": "deepseek/deepseek-v4-pro-0813",
+      "match_status": "matched_family",
+      "match_confidence": 0.95,
+      "score_status": "consensus",
+      "score_status_label": "Consensus",
+      "availability_class": "open_weights",
+      "is_sota": false,
+      "is_open_sota": false,
+      "rank_evidence": "source_rendered_table_order",
+      "benchmark_observations": {},
+      "source_updated_at": null
+    },
+    {
+      "category_rank": 18.0,
+      "category_score": 39.5,
       "source_name": "Hy4 preview",
       "provider": "Tencent",
       "source_model_id": "hy4-preview",
@@ -660,8 +685,8 @@
       "source_updated_at": null
     },
     {
-      "category_rank": 18.0,
-      "category_score": 39.6,
+      "category_rank": 19.0,
+      "category_score": 39.4,
       "source_name": "Seed 2.1 Turbo",
       "provider": "ByteDance",
       "source_model_id": "seed-2.1-turbo",
@@ -678,23 +703,6 @@
       "is_open_sota": false,
       "rank_evidence": "source_rendered_table_order",
       "benchmark_observations": {
-        "llmstats__mathvista": {
-          "benchmark_id": "llmstats__mathvista",
-          "canonical_name": "MathVista",
-          "source_name": "MathVista",
-          "value": 90.5,
-          "raw_value": "90.5%",
-          "version": null,
-          "provenance": "LLMStats public capability leaderboard",
-          "source_url": "https://llm-stats.com/benchmarks/mathvista",
-          "capabilities": [
-            "math"
-          ],
-          "source_column_indices": {
-            "math": 11
-          },
-          "source_population": 40
-        },
         "scicode": {
           "benchmark_id": "scicode",
           "canonical_name": "SciCode",
@@ -708,32 +716,28 @@
             "math"
           ],
           "source_column_indices": {
-            "math": 14
+            "math": 8
           },
-          "source_population": 24
+          "source_population": 26
+        },
+        "llmstats__mathvista": {
+          "benchmark_id": "llmstats__mathvista",
+          "canonical_name": "MathVista",
+          "source_name": "MathVista",
+          "value": 90.5,
+          "raw_value": "90.5%",
+          "version": null,
+          "provenance": "LLMStats public capability leaderboard",
+          "source_url": "https://llm-stats.com/benchmarks/mathvista",
+          "capabilities": [
+            "math"
+          ],
+          "source_column_indices": {
+            "math": 12
+          },
+          "source_population": 40
         }
       },
-      "source_updated_at": null
-    },
-    {
-      "category_rank": 19.0,
-      "category_score": 39.6,
-      "source_name": "DeepSeek-V4-Pro-0813",
-      "provider": "DeepSeek",
-      "source_model_id": "deepseek-v4-pro-0813",
-      "source_model_url": "https://llm-stats.com/models/deepseek-v4-pro-0813",
-      "license": "Open Source",
-      "family_id": "deepseek/deepseek-v4-pro-0813",
-      "matched_aa_family_id": "deepseek/deepseek-v4-pro-0813",
-      "match_status": "matched_family",
-      "match_confidence": 0.95,
-      "score_status": "consensus",
-      "score_status_label": "Consensus",
-      "availability_class": "open_weights",
-      "is_sota": false,
-      "is_open_sota": false,
-      "rank_evidence": "source_rendered_table_order",
-      "benchmark_observations": {},
       "source_updated_at": null
     },
     {
@@ -780,7 +784,7 @@
     },
     {
       "category_rank": 22.0,
-      "category_score": 39.2,
+      "category_score": 39.1,
       "source_name": "DeepSeek-V4-Flash-Max",
       "provider": "DeepSeek",
       "source_model_id": "deepseek-v4-flash-max",
@@ -810,7 +814,7 @@
             "math"
           ],
           "source_column_indices": {
-            "math": 8
+            "math": 9
           },
           "source_population": 142
         }
@@ -849,7 +853,7 @@
             "math"
           ],
           "source_column_indices": {
-            "math": 8
+            "math": 9
           },
           "source_population": 142
         },
@@ -866,7 +870,7 @@
             "math"
           ],
           "source_column_indices": {
-            "math": 13
+            "math": 14
           },
           "source_population": 26
         }
@@ -965,7 +969,7 @@
             "math"
           ],
           "source_column_indices": {
-            "math": 8
+            "math": 9
           },
           "source_population": 142
         },
@@ -982,7 +986,7 @@
             "math"
           ],
           "source_column_indices": {
-            "math": 13
+            "math": 14
           },
           "source_population": 26
         }
@@ -991,6 +995,27 @@
     },
     {
       "category_rank": 27.0,
+      "category_score": 38.0,
+      "source_name": "GPT-5.5",
+      "provider": "OpenAI",
+      "source_model_id": "gpt-5.5",
+      "source_model_url": "https://llm-stats.com/models/gpt-5.5",
+      "license": "Proprietary",
+      "family_id": "openai/gpt-5-5",
+      "matched_aa_family_id": null,
+      "match_status": "identity_unresolved",
+      "match_confidence": 0.7778,
+      "score_status": "identity_review",
+      "score_status_label": "Identity review",
+      "availability_class": "unknown",
+      "is_sota": false,
+      "is_open_sota": false,
+      "rank_evidence": "source_rendered_table_order",
+      "benchmark_observations": {},
+      "source_updated_at": null
+    },
+    {
+      "category_rank": 28.0,
       "category_score": 38.0,
       "source_name": "Kimi K2-Thinking-0905",
       "provider": "Moonshot AI",
@@ -1025,23 +1050,6 @@
           },
           "source_population": 122
         },
-        "llmstats__mmlu-pro": {
-          "benchmark_id": "llmstats__mmlu-pro",
-          "canonical_name": "MMLU-Pro",
-          "source_name": "MMLU-Pro",
-          "value": 84.6,
-          "raw_value": "84.6%",
-          "version": null,
-          "provenance": "LLMStats public capability leaderboard",
-          "source_url": "https://llm-stats.com/benchmarks/mmlu-pro",
-          "capabilities": [
-            "math"
-          ],
-          "source_column_indices": {
-            "math": 8
-          },
-          "source_population": 142
-        },
         "scicode": {
           "benchmark_id": "scicode",
           "canonical_name": "SciCode",
@@ -1055,32 +1063,28 @@
             "math"
           ],
           "source_column_indices": {
-            "math": 14
+            "math": 8
           },
-          "source_population": 24
+          "source_population": 26
+        },
+        "llmstats__mmlu-pro": {
+          "benchmark_id": "llmstats__mmlu-pro",
+          "canonical_name": "MMLU-Pro",
+          "source_name": "MMLU-Pro",
+          "value": 84.6,
+          "raw_value": "84.6%",
+          "version": null,
+          "provenance": "LLMStats public capability leaderboard",
+          "source_url": "https://llm-stats.com/benchmarks/mmlu-pro",
+          "capabilities": [
+            "math"
+          ],
+          "source_column_indices": {
+            "math": 9
+          },
+          "source_population": 142
         }
       },
-      "source_updated_at": null
-    },
-    {
-      "category_rank": 28.0,
-      "category_score": 38.0,
-      "source_name": "GPT-5.5",
-      "provider": "OpenAI",
-      "source_model_id": "gpt-5.5",
-      "source_model_url": "https://llm-stats.com/models/gpt-5.5",
-      "license": "Proprietary",
-      "family_id": "openai/gpt-5-5",
-      "matched_aa_family_id": null,
-      "match_status": "identity_unresolved",
-      "match_confidence": 0.7778,
-      "score_status": "identity_review",
-      "score_status_label": "Identity review",
-      "availability_class": "unknown",
-      "is_sota": false,
-      "is_open_sota": false,
-      "rank_evidence": "source_rendered_table_order",
-      "benchmark_observations": {},
       "source_updated_at": null
     },
     {
