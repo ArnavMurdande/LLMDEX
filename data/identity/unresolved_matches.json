@@ -25,13 +25,18 @@
     "source_model_id": "gpt-5.6-sol",
     "source_model_url": "https://llm-stats.com/models/gpt-5.6-sol",
     "provider": "OpenAI",
-    "candidate_family_id": "openai/gpt-6-1-sol",
-    "candidate_family_name": "GPT-6.1 Sol",
+    "candidate_family_id": "openai/gpt-6-sol",
+    "candidate_family_name": "GPT-6 Sol",
     "match_status": "identity_unresolved",
     "match_confidence": 0.8,
     "match_method": "fuzzy_review_candidate",
     "review_reason": "Fuzzy candidates require manual approval and are excluded from scoring.",
     "competing_candidates": [
+      {
+        "family_id": "openai/gpt-6-sol",
+        "family_name": "GPT-6 Sol",
+        "similarity": 0.9
+      },
       {
         "family_id": "openai/gpt-6-1-sol",
         "family_name": "GPT-6.1 Sol",
@@ -126,31 +131,6 @@
         "family_id": "meta/muse-spark-1-3",
         "family_name": "Muse Spark 1.3",
         "similarity": 0.9286
-      }
-    ]
-  },
-  {
-    "source": "llmstats",
-    "source_name": "GPT-6 Sol",
-    "source_model_id": "gpt-6-sol",
-    "source_model_url": "https://llm-stats.com/models/gpt-6-sol",
-    "provider": "OpenAI",
-    "candidate_family_id": "openai/gpt-6-1-sol",
-    "candidate_family_name": "GPT-6.1 Sol",
-    "match_status": "identity_unresolved",
-    "match_confidence": 0.8,
-    "match_method": "fuzzy_review_candidate",
-    "review_reason": "Fuzzy candidates require manual approval and are excluded from scoring.",
-    "competing_candidates": [
-      {
-        "family_id": "openai/gpt-6-1-sol",
-        "family_name": "GPT-6.1 Sol",
-        "similarity": 0.9
-      },
-      {
-        "family_id": "openai/gpt-6-luna",
-        "family_name": "GPT-6 Luna",
-        "similarity": 0.7368
       }
     ]
   },
@@ -566,11 +546,6 @@
         "family_id": "anthropic/claude-haiku-5-5",
         "family_name": "Claude Haiku 5.5",
         "similarity": 0.9375
-      },
-      {
-        "family_id": "anthropic/claude-4-5-haiku",
-        "family_name": "Claude 4.5 Haiku",
-        "similarity": 0.75
       }
     ]
   },
@@ -724,7 +699,7 @@
     "source_name": "Ling 3.0 Flash",
     "source_model_id": "ling-3.0-flash",
     "source_model_url": "https://llm-stats.com/models/ling-3.0-flash",
-    "provider": null,
+    "provider": "InclusionAI",
     "candidate_family_id": "inclusionai/ling-3-1-flash",
     "candidate_family_name": "Ling 3.1 Flash",
     "match_status": "ambiguous",
@@ -746,11 +721,6 @@
         "family_id": "inclusionai/ling-3-0-flash-fin",
         "family_name": "Ling-3.0-flash-Fin",
         "similarity": 0.875
-      },
-      {
-        "family_id": "google/gemini-3-8-flash",
-        "family_name": "Gemini 3.8 Flash",
-        "similarity": 0.7333
       }
     ]
   },
