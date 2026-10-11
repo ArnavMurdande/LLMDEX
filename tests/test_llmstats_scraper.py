@@ -20,6 +20,14 @@ class LLMStatsFixtureTests(unittest.TestCase):
             _infer_provider("DeepSeek-V4-Pro-Max", "deepseek-v4-pro-max"),
             "DeepSeek",
         )
+        self.assertEqual(
+            _infer_provider("Ember-1", "ember-1"),
+            "Fireworks AI",
+        )
+        self.assertEqual(
+            _infer_provider("Ling 3.0 Flash", "ling-3.0-flash"),
+            "InclusionAI",
+        )
 
     def test_table_schema_and_source_native_names(self):
         general = (FIXTURES / "llmstats_general.html").read_text(encoding="utf-8")

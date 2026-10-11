@@ -70,6 +70,8 @@ KNOWN_MODEL_PROVIDERS = {
     "hy3": "Tencent",
     "inkling": "Thinking Machines",
     "solar": "Upstage",
+    "ember": "Fireworks AI",
+    "ling": "InclusionAI",
 }
 
 

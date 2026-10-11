@@ -86,6 +86,11 @@ KNOWN_MODEL_PROVIDERS = {
     "deepseek": "DeepSeek",
     "grok": "xAI",
     "sakana": "Sakana AI",
+    "hy3": "Tencent",
+    "inkling": "Thinking Machines",
+    "solar": "Upstage",
+    "ember": "Fireworks AI",
+    "ling": "InclusionAI",
 }
 
 
