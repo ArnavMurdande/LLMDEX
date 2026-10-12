@@ -1,22 +1,22 @@
 {
-  "generated_at": "2026-10-11T16:25:22.905187+00:00",
+  "generated_at": "2026-10-12T19:59:02.125154+00:00",
   "methodology_version": "LLMStats source-native current",
   "source": "LLMStats",
-  "source_updated_at": "2026-10-11T16:25:45.640248+00:00",
+  "source_updated_at": "2026-10-12T19:59:33.079075+00:00",
   "source_health": {
     "source": "LLMStats",
-    "rows_scraped": 101,
+    "rows_scraped": 102,
     "expected_range": [
       20,
       250
     ],
     "status": "healthy",
     "error_message": null,
-    "duration_seconds": 22.727,
-    "timestamp": "2026-10-11T16:25:45.640248+00:00",
+    "duration_seconds": 30.945,
+    "timestamp": "2026-10-12T19:59:33.079075+00:00",
     "parse_warning_count": 0,
     "warnings": [],
-    "last_successful_update": "2026-10-11T16:25:45.640248+00:00",
+    "last_successful_update": "2026-10-12T19:59:33.079075+00:00",
     "schema_changes": []
   },
   "capability": "reasoning",
@@ -231,6 +231,27 @@
     {
       "category_rank": 6.0,
       "category_score": 52.6,
+      "source_name": "Gemini 4 Argon",
+      "provider": "Google",
+      "source_model_id": "gemini-4-argon",
+      "source_model_url": "https://llm-stats.com/models/gemini-4-argon",
+      "license": "Proprietary",
+      "family_id": "google/gemini-4-argon",
+      "matched_aa_family_id": "google/gemini-4-argon",
+      "match_status": "matched_family",
+      "match_confidence": 0.95,
+      "score_status": "consensus",
+      "score_status_label": "Consensus",
+      "availability_class": "proprietary",
+      "is_sota": false,
+      "is_open_sota": false,
+      "rank_evidence": "source_rendered_table_order",
+      "benchmark_observations": {},
+      "source_updated_at": null
+    },
+    {
+      "category_rank": 7.0,
+      "category_score": 52.5,
       "source_name": "GPT-5.6 Sol",
       "provider": "OpenAI",
       "source_model_id": "gpt-5.6-sol",
@@ -291,29 +312,8 @@
       "source_updated_at": null
     },
     {
-      "category_rank": 7.0,
-      "category_score": 52.4,
-      "source_name": "Gemini 4 Argon",
-      "provider": "Google",
-      "source_model_id": "gemini-4-argon",
-      "source_model_url": "https://llm-stats.com/models/gemini-4-argon",
-      "license": "Proprietary",
-      "family_id": "google/gemini-4-argon",
-      "matched_aa_family_id": "google/gemini-4-argon",
-      "match_status": "matched_family",
-      "match_confidence": 0.95,
-      "score_status": "consensus",
-      "score_status_label": "Consensus",
-      "availability_class": "proprietary",
-      "is_sota": false,
-      "is_open_sota": false,
-      "rank_evidence": "source_rendered_table_order",
-      "benchmark_observations": {},
-      "source_updated_at": null
-    },
-    {
       "category_rank": 8.0,
-      "category_score": 51.7,
+      "category_score": 51.4,
       "source_name": "GPT-6.1 Sol",
       "provider": "OpenAI",
       "source_model_id": "gpt-6.1-sol",
@@ -334,66 +334,6 @@
     },
     {
       "category_rank": 9.0,
-      "category_score": 51.1,
-      "source_name": "Claude Fable 5",
-      "provider": "Anthropic",
-      "source_model_id": "claude-fable-5",
-      "source_model_url": "https://llm-stats.com/models/claude-fable-5",
-      "license": "Proprietary",
-      "family_id": "anthropic/claude-fable-5",
-      "matched_aa_family_id": null,
-      "match_status": "identity_unresolved",
-      "match_confidence": 0.8,
-      "score_status": "identity_review",
-      "score_status_label": "Identity review",
-      "availability_class": "unknown",
-      "is_sota": false,
-      "is_open_sota": false,
-      "rank_evidence": "source_rendered_table_order",
-      "benchmark_observations": {
-        "swe_bench_verified": {
-          "benchmark_id": "swe_bench_verified",
-          "canonical_name": "SWE-bench Verified",
-          "source_name": "SWE-Bench Verified",
-          "value": 95.0,
-          "raw_value": "95.0%",
-          "version": "Verified",
-          "provenance": "Source observation",
-          "source_url": "https://llm-stats.com/benchmarks/swe-bench-verified",
-          "capabilities": [
-            "coding",
-            "reasoning"
-          ],
-          "source_column_indices": {
-            "coding": 8,
-            "reasoning": 9
-          },
-          "source_population": 117
-        },
-        "llmstats__terminal-bench-2-1": {
-          "benchmark_id": "llmstats__terminal-bench-2-1",
-          "canonical_name": "Terminal-Bench 2.1",
-          "source_name": "Terminal-Bench 2.1",
-          "value": 84.3,
-          "raw_value": "84.3%",
-          "version": null,
-          "provenance": "LLMStats public capability leaderboard",
-          "source_url": "https://llm-stats.com/benchmarks/terminal-bench-2.1",
-          "capabilities": [
-            "coding",
-            "reasoning"
-          ],
-          "source_column_indices": {
-            "coding": 15,
-            "reasoning": 7
-          },
-          "source_population": 43
-        }
-      },
-      "source_updated_at": null
-    },
-    {
-      "category_rank": 10.0,
       "category_score": 51.0,
       "source_name": "Kimi K3",
       "provider": "MoonshotAI",
@@ -448,6 +388,66 @@
             "coding": 15,
             "reasoning": 7,
             "tool_calling": 7
+          },
+          "source_population": 43
+        }
+      },
+      "source_updated_at": null
+    },
+    {
+      "category_rank": 10.0,
+      "category_score": 50.9,
+      "source_name": "Claude Fable 5",
+      "provider": "Anthropic",
+      "source_model_id": "claude-fable-5",
+      "source_model_url": "https://llm-stats.com/models/claude-fable-5",
+      "license": "Proprietary",
+      "family_id": "anthropic/claude-fable-5",
+      "matched_aa_family_id": null,
+      "match_status": "identity_unresolved",
+      "match_confidence": 0.8,
+      "score_status": "identity_review",
+      "score_status_label": "Identity review",
+      "availability_class": "unknown",
+      "is_sota": false,
+      "is_open_sota": false,
+      "rank_evidence": "source_rendered_table_order",
+      "benchmark_observations": {
+        "swe_bench_verified": {
+          "benchmark_id": "swe_bench_verified",
+          "canonical_name": "SWE-bench Verified",
+          "source_name": "SWE-Bench Verified",
+          "value": 95.0,
+          "raw_value": "95.0%",
+          "version": "Verified",
+          "provenance": "Source observation",
+          "source_url": "https://llm-stats.com/benchmarks/swe-bench-verified",
+          "capabilities": [
+            "coding",
+            "reasoning"
+          ],
+          "source_column_indices": {
+            "coding": 8,
+            "reasoning": 9
+          },
+          "source_population": 117
+        },
+        "llmstats__terminal-bench-2-1": {
+          "benchmark_id": "llmstats__terminal-bench-2-1",
+          "canonical_name": "Terminal-Bench 2.1",
+          "source_name": "Terminal-Bench 2.1",
+          "value": 84.3,
+          "raw_value": "84.3%",
+          "version": null,
+          "provenance": "LLMStats public capability leaderboard",
+          "source_url": "https://llm-stats.com/benchmarks/terminal-bench-2.1",
+          "capabilities": [
+            "coding",
+            "reasoning"
+          ],
+          "source_column_indices": {
+            "coding": 15,
+            "reasoning": 7
           },
           "source_population": 43
         }
@@ -1148,7 +1148,7 @@
     },
     {
       "category_rank": 24.0,
-      "category_score": 47.7,
+      "category_score": 47.6,
       "source_name": "GPT-5.6 Terra",
       "provider": "OpenAI",
       "source_model_id": "gpt-5.6-terra",
@@ -1210,7 +1210,7 @@
     },
     {
       "category_rank": 25.0,
-      "category_score": 47.6,
+      "category_score": 47.5,
       "source_name": "MiMo-V2.6-Pro",
       "provider": "Xiaomi",
       "source_model_id": "mimo-v2.6-pro",
@@ -1274,7 +1274,7 @@
     },
     {
       "category_rank": 27.0,
-      "category_score": 47.2,
+      "category_score": 47.1,
       "source_name": "Claude Haiku 5.5",
       "provider": "Anthropic",
       "source_model_id": "claude-haiku-5-5",
@@ -1321,7 +1321,7 @@
       "provider": "ByteDance",
       "source_model_id": "seed-2.1-pro",
       "source_model_url": "https://llm-stats.com/models/seed-2.1-pro",
-      "license": "Proprietary",
+      "license": "— License unknown",
       "family_id": "bytedance/seed-2-1-pro",
       "matched_aa_family_id": null,
       "match_status": "source_missing",

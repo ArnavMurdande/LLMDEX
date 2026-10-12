@@ -1,20 +1,20 @@
 {
   "schema_version": "powerbi-v2-wide",
   "source_snapshot_dates": {
-    "artificial_analysis": "2026-10-11",
-    "llmstats": "2026-10-11"
+    "artificial_analysis": "2026-10-12",
+    "llmstats": "2026-10-12"
   },
   "earliest_catalog_event_date": "2026-06-01",
   "earliest_observed_snapshot_date": "2026-07-23",
-  "latest_observed_snapshot_date": "2026-10-11",
-  "catalog_event_row_count": 26,
-  "observed_snapshot_row_count": 20641,
+  "latest_observed_snapshot_date": "2026-10-12",
+  "catalog_event_row_count": 28,
+  "observed_snapshot_row_count": 20899,
   "historical_coverage_limitations": "Pre-LLMDEX historical rows represent repository-supported catalogue or release events and must not be interpreted as daily historical benchmark measurements.",
   "row_counts": {
-    "artificial_analysis_benchmarks": 262,
-    "llmstats_benchmarks": 311,
+    "artificial_analysis_benchmarks": 263,
+    "llmstats_benchmarks": 312,
     "combined_latest": 1,
-    "model_family_history": 20667,
+    "model_family_history": 20927,
     "provider_metadata": 58,
     "data_dictionary": 206
   },
@@ -58,17 +58,17 @@
     "trillion-labs"
   ],
   "number_of_benchmark_columns": 58,
-  "llmstats_general_row_count": 101,
-  "llmstats_general_missing_score_count": 71,
-  "llmstats_general_missing_rank_count": 71,
+  "llmstats_general_row_count": 102,
+  "llmstats_general_missing_score_count": 72,
+  "llmstats_general_missing_rank_count": 72,
   "llmstats_general_missing_provider_count": 0,
-  "llmstats_provider_populated_count": 311,
+  "llmstats_provider_populated_count": 312,
   "llmstats_provider_missing_count": 0,
   "llmstats_availability_unknown_count": 208,
   "malformed_name_count_detected": 0,
   "malformed_name_count_corrected": 0,
   "unresolved_malformed_name_count": 0,
-  "consensus_family_count": 16,
+  "consensus_family_count": 17,
   "empty_reserved_columns": [
     "aa_aime25",
     "aa_livecodebench",
@@ -81,17 +81,17 @@
   ],
   "corrected_open_weight_inconsistency_count": 171,
   "sha256_hashes": {
-    "artificial_analysis_benchmarks.csv": "d183ff135eecf3bee6bacb85f718cf6e8bb683047ccf228b53e06beaeeb90abf",
-    "llmstats_benchmarks.csv": "77304a68f3fbbbd12be7cad00424631e048843defcedbca76c70b2e14a558ee6",
-    "combined_latest.json": "2db28d3f200f96d33a7035ea41ada5df3671ee74658c2e4cc79bede0cd88f083",
-    "model_family_history.csv": "7619b57fa5622c2255b95faf2b1d08b2a87724e703208e9ca2e51449cc8036cc",
-    "provider_metadata.csv": "ec3d76187ddd0f4d8a937a77009e4d874f39d0cbd9723d5fb7fc189d811fa03f",
-    "provider_metadata_validation.json": "96ee6c5a62301695c5414186c3d6b1b7e9c123e435b154d4fb0b02a50836cd2f",
-    "data_dictionary.csv": "8fab847191d2f8eb26d25227de52a005c293348b96466b50cf0b238c98344c7e"
+    "artificial_analysis_benchmarks.csv": "6b8d82f1fecb4b95df0a1f901ac61e2e6d33a2dd1e6f62db577455e65e43dff1",
+    "llmstats_benchmarks.csv": "b2a2cb1422d62d602440ebe14d8acbf6a35f4001f017450574614a6c2c24491b",
+    "combined_latest.json": "a69cc6d1497e479e611b391d014b9ccc160342d0af9017dfffb14ff0527ff8cd",
+    "model_family_history.csv": "4d135ef157acc5788fc0a16ea04117cddd7e47af0b4e035a739de8837a5bad8a",
+    "provider_metadata.csv": "aa9badfac7ef3f872e4cfe8f342addaba97a6df28aa80033d0624bb2ae53fbaf",
+    "provider_metadata_validation.json": "74ce35d82f55acca7f52d2af1f81c5b25349157e33cbf6d17bb881875eb13ed1",
+    "data_dictionary.csv": "3addd2698e30c3a076ad24c4214835bb736aad2f2ac6e99e8c6b0de8efdd7b88"
   },
   "validation_status": "valid",
   "warnings": [
     "Provider metadata required: ai9stars, allen-institute-for-ai, apodex, arcee-ai, celeris, china-mobile, deep-cogito, fireworks-ai, inception, inclusionai, institute-of-foundation-models, korea-telecom, kwaikat, liquid-ai, motif-technologies, multiverse-computing, nanbeige, nex-agi, nous-research, openbmb, prime-intellect, reka-ai, shanghai-ai-laboratory, sk-telecom, stepfun, swiss-ai-initiative, tii-uae, trillion-labs"
   ],
-  "generated_from_commit": "e0c26bfaf2f30a80983e053437ff1d5583510790"
+  "generated_from_commit": "b89ffdf26e8db3c8741b12e2910b2a6a0e524d29"
 }

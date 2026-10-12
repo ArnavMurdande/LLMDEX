@@ -1392,7 +1392,6 @@
       "artificial_analysis": [
         "Claude Haiku 5.5 (high)",
         "Claude Haiku 5.5 (low)",
-        "Claude Haiku 5.5 (max)",
         "Claude Haiku 5.5 (medium)",
         "Claude Haiku 5.5 (xhigh)"
       ],
@@ -1403,7 +1402,6 @@
     "source_ids": {},
     "source_urls": {
       "artificial_analysis": [
-        "https://artificialanalysis.ai/models/claude-haiku-5-5",
         "https://artificialanalysis.ai/models/claude-haiku-5-5-high",
         "https://artificialanalysis.ai/models/claude-haiku-5-5-low",
         "https://artificialanalysis.ai/models/claude-haiku-5-5-medium",
@@ -1411,15 +1409,6 @@
       ]
     },
     "variants": {
-      "anthropic/claude-haiku-5-5:max": {
-        "variant_id": "anthropic/claude-haiku-5-5:max",
-        "deployment_profile_id": "anthropic/claude-haiku-5-5:max:deployment",
-        "source_name": "Claude Haiku 5.5 (max)",
-        "reasoning_effort": "max",
-        "deployment_profile": [],
-        "fallback_enabled": false,
-        "parameter_count": null
-      },
       "anthropic/claude-haiku-5-5:xhigh": {
         "variant_id": "anthropic/claude-haiku-5-5:xhigh",
         "deployment_profile_id": "anthropic/claude-haiku-5-5:xhigh:deployment",
@@ -4124,6 +4113,66 @@
         "deployment_profile_id": "meta/muse-spark-1-3:xhigh:deployment",
         "source_name": "Muse Spark 1.3 (xhigh)",
         "reasoning_effort": "xhigh",
+        "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": null
+      }
+    }
+  },
+  "meta/muse-wonder": {
+    "family_id": "meta/muse-wonder",
+    "canonical_family_name": "Muse Wonder",
+    "provider": "Meta",
+    "version": null,
+    "source_aliases": {
+      "artificial_analysis": [
+        "Muse Wonder (max)"
+      ],
+      "llmstats": []
+    },
+    "source_ids": {},
+    "source_urls": {
+      "artificial_analysis": [
+        "https://artificialanalysis.ai/models/muse-wonder"
+      ]
+    },
+    "variants": {
+      "meta/muse-wonder:max": {
+        "variant_id": "meta/muse-wonder:max",
+        "deployment_profile_id": "meta/muse-wonder:max:deployment",
+        "source_name": "Muse Wonder (max)",
+        "reasoning_effort": "max",
+        "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": null
+      }
+    }
+  },
+  "meta/muse-wonder-full": {
+    "family_id": "meta/muse-wonder-full",
+    "canonical_family_name": "Muse Wonder Full",
+    "provider": "Meta",
+    "version": null,
+    "source_aliases": {
+      "artificial_analysis": [
+        "Muse Wonder Full (max)"
+      ],
+      "llmstats": [
+        "Muse Wonder Full"
+      ]
+    },
+    "source_ids": {},
+    "source_urls": {
+      "artificial_analysis": [
+        "https://artificialanalysis.ai/models/muse-wonder-full"
+      ]
+    },
+    "variants": {
+      "meta/muse-wonder-full:max": {
+        "variant_id": "meta/muse-wonder-full:max",
+        "deployment_profile_id": "meta/muse-wonder-full:max:deployment",
+        "source_name": "Muse Wonder Full (max)",
+        "reasoning_effort": "max",
         "deployment_profile": [],
         "fallback_enabled": false,
         "parameter_count": null
