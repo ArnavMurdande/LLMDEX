@@ -4128,7 +4128,9 @@
       "artificial_analysis": [
         "Muse Wonder (max)"
       ],
-      "llmstats": []
+      "llmstats": [
+        "Muse Wonder"
+      ]
     },
     "source_ids": {},
     "source_urls": {
@@ -4157,7 +4159,9 @@
       "artificial_analysis": [
         "Muse Wonder Full (max)"
       ],
-      "llmstats": []
+      "llmstats": [
+        "Muse Wonder Full"
+      ]
     },
     "source_ids": {},
     "source_urls": {
@@ -5485,6 +5489,7 @@
       "artificial_analysis": [
         "GPT-6.1 Sol (high)",
         "GPT-6.1 Sol (low)",
+        "GPT-6.1 Sol (max)",
         "GPT-6.1 Sol (medium)",
         "GPT-6.1 Sol (xhigh)"
       ],
@@ -5495,6 +5500,7 @@
     "source_ids": {},
     "source_urls": {
       "artificial_analysis": [
+        "https://artificialanalysis.ai/models/gpt-6-1-sol",
         "https://artificialanalysis.ai/models/gpt-6-1-sol-high",
         "https://artificialanalysis.ai/models/gpt-6-1-sol-low",
         "https://artificialanalysis.ai/models/gpt-6-1-sol-medium",
@@ -5502,6 +5508,15 @@
       ]
     },
     "variants": {
+      "openai/gpt-6-1-sol:max": {
+        "variant_id": "openai/gpt-6-1-sol:max",
+        "deployment_profile_id": "openai/gpt-6-1-sol:max:deployment",
+        "source_name": "GPT-6.1 Sol (max)",
+        "reasoning_effort": "max",
+        "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": null
+      },
       "openai/gpt-6-1-sol:xhigh": {
         "variant_id": "openai/gpt-6-1-sol:xhigh",
         "deployment_profile_id": "openai/gpt-6-1-sol:xhigh:deployment",
@@ -5549,6 +5564,7 @@
       "artificial_analysis": [
         "GPT-6 Astra (high)",
         "GPT-6 Astra (low)",
+        "GPT-6 Astra (max)",
         "GPT-6 Astra (medium)",
         "GPT-6 Astra (xhigh)"
       ],
@@ -5559,6 +5575,7 @@
     "source_ids": {},
     "source_urls": {
       "artificial_analysis": [
+        "https://artificialanalysis.ai/models/gpt-6-astra",
         "https://artificialanalysis.ai/models/gpt-6-astra-high",
         "https://artificialanalysis.ai/models/gpt-6-astra-low",
         "https://artificialanalysis.ai/models/gpt-6-astra-medium",
@@ -5566,6 +5583,15 @@
       ]
     },
     "variants": {
+      "openai/gpt-6-astra:max": {
+        "variant_id": "openai/gpt-6-astra:max",
+        "deployment_profile_id": "openai/gpt-6-astra:max:deployment",
+        "source_name": "GPT-6 Astra (max)",
+        "reasoning_effort": "max",
+        "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": null
+      },
       "openai/gpt-6-astra:xhigh": {
         "variant_id": "openai/gpt-6-astra:xhigh",
         "deployment_profile_id": "openai/gpt-6-astra:xhigh:deployment",
@@ -6034,6 +6060,35 @@
         "variant_id": "reka-ai/reka-flash-3:default",
         "deployment_profile_id": "reka-ai/reka-flash-3:default:deployment",
         "source_name": "Reka Flash 3",
+        "reasoning_effort": null,
+        "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": null
+      }
+    }
+  },
+  "sapiens-ai/agnes-2-5-pro-beta": {
+    "family_id": "sapiens-ai/agnes-2-5-pro-beta",
+    "canonical_family_name": "Agnes 2.5 Pro Beta",
+    "provider": "Sapiens AI",
+    "version": "2.5",
+    "source_aliases": {
+      "artificial_analysis": [
+        "Agnes 2.5 Pro Beta"
+      ],
+      "llmstats": []
+    },
+    "source_ids": {},
+    "source_urls": {
+      "artificial_analysis": [
+        "https://artificialanalysis.ai/models/agnes-2-5-pro-beta"
+      ]
+    },
+    "variants": {
+      "sapiens-ai/agnes-2-5-pro-beta:default": {
+        "variant_id": "sapiens-ai/agnes-2-5-pro-beta:default",
+        "deployment_profile_id": "sapiens-ai/agnes-2-5-pro-beta:default:deployment",
+        "source_name": "Agnes 2.5 Pro Beta",
         "reasoning_effort": null,
         "deployment_profile": [],
         "fallback_enabled": false,
