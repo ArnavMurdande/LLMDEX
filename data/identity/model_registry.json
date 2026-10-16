@@ -2952,9 +2952,7 @@
       "artificial_analysis": [
         "Ling 3.1 Flash"
       ],
-      "llmstats": [
-        "Ling 3.1 Flash"
-      ]
+      "llmstats": []
     },
     "source_ids": {},
     "source_urls": {
@@ -4119,6 +4117,35 @@
       }
     }
   },
+  "meta/muse-spark-open": {
+    "family_id": "meta/muse-spark-open",
+    "canonical_family_name": "Muse Spark Open",
+    "provider": "Meta",
+    "version": null,
+    "source_aliases": {
+      "artificial_analysis": [
+        "Muse Spark Open (xhigh)"
+      ],
+      "llmstats": []
+    },
+    "source_ids": {},
+    "source_urls": {
+      "artificial_analysis": [
+        "https://artificialanalysis.ai/models/muse-spark-open"
+      ]
+    },
+    "variants": {
+      "meta/muse-spark-open:xhigh": {
+        "variant_id": "meta/muse-spark-open:xhigh",
+        "deployment_profile_id": "meta/muse-spark-open:xhigh:deployment",
+        "source_name": "Muse Spark Open (xhigh)",
+        "reasoning_effort": "xhigh",
+        "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": null
+      }
+    }
+  },
   "meta/muse-wonder": {
     "family_id": "meta/muse-wonder",
     "canonical_family_name": "Muse Wonder",
@@ -4974,6 +5001,38 @@
       }
     }
   },
+  "nvidia/nemotron-3-5-bolt-74b-a9b": {
+    "family_id": "nvidia/nemotron-3-5-bolt-74b-a9b",
+    "canonical_family_name": "Nemotron 3.5 Bolt 74B-A9B",
+    "provider": "NVIDIA",
+    "version": "3.5",
+    "source_aliases": {
+      "artificial_analysis": [
+        "Nemotron 3.5 Bolt 74B-A9B"
+      ],
+      "llmstats": []
+    },
+    "source_ids": {},
+    "source_urls": {
+      "artificial_analysis": [
+        "https://artificialanalysis.ai/models/nemotron-3-5-bolt-74b-a9b"
+      ]
+    },
+    "variants": {
+      "nvidia/nemotron-3-5-bolt-74b-a9b:default": {
+        "variant_id": "nvidia/nemotron-3-5-bolt-74b-a9b:default",
+        "deployment_profile_id": "nvidia/nemotron-3-5-bolt-74b-a9b:default:deployment",
+        "source_name": "Nemotron 3.5 Bolt 74B-A9B",
+        "reasoning_effort": null,
+        "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": {
+          "total_billions": 74.0,
+          "active_billions": 9.0
+        }
+      }
+    }
+  },
   "nvidia/nemotron-3-5-lightning": {
     "family_id": "nvidia/nemotron-3-5-lightning",
     "canonical_family_name": "Nemotron 3.5 Lightning",
@@ -4996,6 +5055,35 @@
         "variant_id": "nvidia/nemotron-3-5-lightning:default",
         "deployment_profile_id": "nvidia/nemotron-3-5-lightning:default:deployment",
         "source_name": "Nemotron 3.5 Lightning",
+        "reasoning_effort": null,
+        "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": null
+      }
+    }
+  },
+  "nvidia/nemotron-3-5-super-vl": {
+    "family_id": "nvidia/nemotron-3-5-super-vl",
+    "canonical_family_name": "Nemotron 3.5 Super VL",
+    "provider": "NVIDIA",
+    "version": "3.5",
+    "source_aliases": {
+      "artificial_analysis": [
+        "Nemotron 3.5 Super VL"
+      ],
+      "llmstats": []
+    },
+    "source_ids": {},
+    "source_urls": {
+      "artificial_analysis": [
+        "https://artificialanalysis.ai/models/nemotron-3-5-super-vl"
+      ]
+    },
+    "variants": {
+      "nvidia/nemotron-3-5-super-vl:default": {
+        "variant_id": "nvidia/nemotron-3-5-super-vl:default",
+        "deployment_profile_id": "nvidia/nemotron-3-5-super-vl:default:deployment",
+        "source_name": "Nemotron 3.5 Super VL",
         "reasoning_effort": null,
         "deployment_profile": [],
         "fallback_enabled": false,
@@ -5108,35 +5196,6 @@
           "total_billions": 30.0,
           "active_billions": null
         }
-      }
-    }
-  },
-  "nvidia/nemotron-3-super": {
-    "family_id": "nvidia/nemotron-3-super",
-    "canonical_family_name": "Nemotron 3 Super",
-    "provider": "NVIDIA",
-    "version": null,
-    "source_aliases": {
-      "artificial_analysis": [
-        "Nemotron 3 Super"
-      ],
-      "llmstats": []
-    },
-    "source_ids": {},
-    "source_urls": {
-      "artificial_analysis": [
-        "https://artificialanalysis.ai/models/nvidia-nemotron-3-super-120b-a12b"
-      ]
-    },
-    "variants": {
-      "nvidia/nemotron-3-super:default": {
-        "variant_id": "nvidia/nemotron-3-super:default",
-        "deployment_profile_id": "nvidia/nemotron-3-super:default:deployment",
-        "source_name": "Nemotron 3 Super",
-        "reasoning_effort": null,
-        "deployment_profile": [],
-        "fallback_enabled": false,
-        "parameter_count": null
       }
     }
   },
@@ -5489,6 +5548,7 @@
       "artificial_analysis": [
         "GPT-6.1 Sol (high)",
         "GPT-6.1 Sol (low)",
+        "GPT-6.1 Sol (max)",
         "GPT-6.1 Sol (medium)",
         "GPT-6.1 Sol (xhigh)"
       ],
@@ -5499,6 +5559,7 @@
     "source_ids": {},
     "source_urls": {
       "artificial_analysis": [
+        "https://artificialanalysis.ai/models/gpt-6-1-sol",
         "https://artificialanalysis.ai/models/gpt-6-1-sol-high",
         "https://artificialanalysis.ai/models/gpt-6-1-sol-low",
         "https://artificialanalysis.ai/models/gpt-6-1-sol-medium",
@@ -5506,6 +5567,15 @@
       ]
     },
     "variants": {
+      "openai/gpt-6-1-sol:max": {
+        "variant_id": "openai/gpt-6-1-sol:max",
+        "deployment_profile_id": "openai/gpt-6-1-sol:max:deployment",
+        "source_name": "GPT-6.1 Sol (max)",
+        "reasoning_effort": "max",
+        "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": null
+      },
       "openai/gpt-6-1-sol:xhigh": {
         "variant_id": "openai/gpt-6-1-sol:xhigh",
         "deployment_profile_id": "openai/gpt-6-1-sol:xhigh:deployment",
@@ -6020,6 +6090,35 @@
         "variant_id": "prime-intellect/intellect-3:default",
         "deployment_profile_id": "prime-intellect/intellect-3:default:deployment",
         "source_name": "INTELLECT-3",
+        "reasoning_effort": null,
+        "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": null
+      }
+    }
+  },
+  "reflection/beam-1-0": {
+    "family_id": "reflection/beam-1-0",
+    "canonical_family_name": "Beam 1.0",
+    "provider": "Reflection",
+    "version": "1.0",
+    "source_aliases": {
+      "artificial_analysis": [
+        "Beam 1.0"
+      ],
+      "llmstats": []
+    },
+    "source_ids": {},
+    "source_urls": {
+      "artificial_analysis": [
+        "https://artificialanalysis.ai/models/reflection-beam"
+      ]
+    },
+    "variants": {
+      "reflection/beam-1-0:default": {
+        "variant_id": "reflection/beam-1-0:default",
+        "deployment_profile_id": "reflection/beam-1-0:default:deployment",
+        "source_name": "Beam 1.0",
         "reasoning_effort": null,
         "deployment_profile": [],
         "fallback_enabled": false,

@@ -1,28 +1,23 @@
 {
-  "generated_at": "2026-10-15T15:16:42.926280+00:00",
+  "generated_at": "2026-10-16T14:59:54.200084+00:00",
   "methodology_version": "LLMStats source-native current",
   "source": "LLMStats",
-  "source_updated_at": "2026-10-14T15:24:21.303001+00:00",
+  "source_updated_at": "2026-10-16T15:00:19.502520+00:00",
   "source_health": {
     "source": "LLMStats",
-    "rows_scraped": 104,
+    "rows_scraped": 103,
     "expected_range": [
       20,
       250
     ],
-    "status": "degraded",
-    "error_message": "No valid public leaderboard rows were extracted.",
-    "duration_seconds": 54.118,
-    "timestamp": "2026-10-15T15:17:37.052560+00:00",
+    "status": "healthy",
+    "error_message": null,
+    "duration_seconds": 25.294,
+    "timestamp": "2026-10-16T15:00:19.502520+00:00",
     "parse_warning_count": 0,
-    "warnings": [
-      "general rendered table unavailable: TimeoutException",
-      "Live extraction failed; serving the last-known-good LLMStats snapshot."
-    ],
-    "last_successful_update": "2026-10-14T15:24:21.303001+00:00",
-    "schema_changes": [
-      "Missing required columns: LLM Stats, Model, Organization"
-    ]
+    "warnings": [],
+    "last_successful_update": "2026-10-16T15:00:19.502520+00:00",
+    "schema_changes": []
   },
   "capability": "tool_calling",
   "benchmark_columns": [
@@ -1921,25 +1916,6 @@
       "is_open_sota": false,
       "rank_evidence": "source_rendered_table_order",
       "benchmark_observations": {
-        "llmstats__terminal-bench-4-0": {
-          "benchmark_id": "llmstats__terminal-bench-4-0",
-          "canonical_name": "Terminal-Bench 4.0",
-          "source_name": "Terminal-Bench 4.0",
-          "value": 55.8,
-          "raw_value": "55.8%",
-          "version": null,
-          "provenance": "LLMStats public capability leaderboard",
-          "source_url": "https://llm-stats.com/benchmarks/terminal-bench-4.0",
-          "capabilities": [
-            "coding",
-            "tool_calling"
-          ],
-          "source_column_indices": {
-            "coding": 19,
-            "tool_calling": 14
-          },
-          "source_population": 24
-        },
         "llmstats__automationbench": {
           "benchmark_id": "llmstats__automationbench",
           "canonical_name": "AutomationBench",
@@ -1956,6 +1932,23 @@
             "tool_calling": 13
           },
           "source_population": 23
+        },
+        "llmstats__terminal-bench-4-0": {
+          "benchmark_id": "llmstats__terminal-bench-4-0",
+          "canonical_name": "Terminal-Bench 4.0",
+          "source_name": "Terminal-Bench 4.0",
+          "value": 55.8,
+          "raw_value": "55.8%",
+          "version": null,
+          "provenance": "LLMStats public capability leaderboard",
+          "source_url": "https://llm-stats.com/benchmarks/terminal-bench-4.0",
+          "capabilities": [
+            "tool_calling"
+          ],
+          "source_column_indices": {
+            "tool_calling": 14
+          },
+          "source_population": 24
         }
       },
       "source_updated_at": null
