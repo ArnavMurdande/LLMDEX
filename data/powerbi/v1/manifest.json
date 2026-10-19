@@ -1,26 +1,26 @@
 {
   "schema_version": "powerbi-v2-wide",
   "source_snapshot_dates": {
-    "artificial_analysis": "2026-10-18",
-    "llmstats": "2026-10-18"
+    "artificial_analysis": "2026-10-19",
+    "llmstats": "2026-10-19"
   },
-  "earliest_catalog_event_date": "2026-06-01",
+  "earliest_catalog_event_date": "2026-07-15",
   "earliest_observed_snapshot_date": "2026-07-23",
-  "latest_observed_snapshot_date": "2026-10-18",
+  "latest_observed_snapshot_date": "2026-10-19",
   "catalog_event_row_count": 28,
-  "observed_snapshot_row_count": 22464,
+  "observed_snapshot_row_count": 22728,
   "historical_coverage_limitations": "Pre-LLMDEX historical rows represent repository-supported catalogue or release events and must not be interpreted as daily historical benchmark measurements.",
   "row_counts": {
-    "artificial_analysis_benchmarks": 269,
-    "llmstats_benchmarks": 313,
+    "artificial_analysis_benchmarks": 271,
+    "llmstats_benchmarks": 312,
     "combined_latest": 1,
-    "model_family_history": 22492,
+    "model_family_history": 22756,
     "provider_metadata": 59,
-    "data_dictionary": 206
+    "data_dictionary": 205
   },
   "column_counts": {
     "artificial_analysis_benchmarks": 74,
-    "llmstats_benchmarks": 75,
+    "llmstats_benchmarks": 74,
     "model_family_history": 36,
     "provider_metadata": 21
   },
@@ -58,18 +58,18 @@
     "tii-uae",
     "trillion-labs"
   ],
-  "number_of_benchmark_columns": 58,
-  "llmstats_general_row_count": 103,
-  "llmstats_general_missing_score_count": 73,
-  "llmstats_general_missing_rank_count": 73,
+  "number_of_benchmark_columns": 57,
+  "llmstats_general_row_count": 104,
+  "llmstats_general_missing_score_count": 74,
+  "llmstats_general_missing_rank_count": 74,
   "llmstats_general_missing_provider_count": 0,
-  "llmstats_provider_populated_count": 313,
+  "llmstats_provider_populated_count": 312,
   "llmstats_provider_missing_count": 0,
-  "llmstats_availability_unknown_count": 209,
+  "llmstats_availability_unknown_count": 206,
   "malformed_name_count_detected": 0,
   "malformed_name_count_corrected": 0,
   "unresolved_malformed_name_count": 0,
-  "consensus_family_count": 17,
+  "consensus_family_count": 18,
   "empty_reserved_columns": [
     "aa_aime25",
     "aa_livecodebench",
@@ -80,19 +80,19 @@
     "aa_cache_read_cost_usd_per_1m",
     "aa_cache_write_cost_usd_per_1m"
   ],
-  "corrected_open_weight_inconsistency_count": 176,
+  "corrected_open_weight_inconsistency_count": 177,
   "sha256_hashes": {
-    "artificial_analysis_benchmarks.csv": "5d2ff72ac4fb3936b7c29640f5db10b414ae2332aeabe3823fae707631532392",
-    "llmstats_benchmarks.csv": "cc981153451388fd0eff1b925031650e94661b0e3daf8391b98f0890102d2176",
-    "combined_latest.json": "9976510b51ecd67109a037eb95a537013e182e2ac1f7cc26a52972a5cd5d4068",
-    "model_family_history.csv": "cfc687ec4a4a8c059028c79309b50776b53aebebe557fde74c8b4fff1a57984f",
-    "provider_metadata.csv": "54772d8d96f59bbd7ac0fd94822d03a1840b14d7fd6d4decbe703258d90a5315",
-    "provider_metadata_validation.json": "d482c5ef86a32bed692d9657a864a5dccc7d1bc595c61ee053ddc243d96a0d0a",
-    "data_dictionary.csv": "2c9f30d5226ef9a6de5969dd31793f75759ddce62110cdfed26f41072560c1d4"
+    "artificial_analysis_benchmarks.csv": "00d9552f1c43facfa5d3f83871879bafa73236be4bb17b467cfcd2a98ba6f5e7",
+    "llmstats_benchmarks.csv": "2f979a2e7c44b3073cffca389e543b58010a4df72201f918d22f8cba299b944c",
+    "combined_latest.json": "7d9afade3da10b698cd350409e79b037b9eca76a0eae3095c7d8cddf7d8cfca8",
+    "model_family_history.csv": "87674099b9a360ddc280a101435d9c812045254e0bce665fd2e4d59a363fba07",
+    "provider_metadata.csv": "dd92d338affb1051de4ccfc231f5cf4a3fe8f3a012c50c7f935801cb3ad5b4b9",
+    "provider_metadata_validation.json": "aa732295c394a0d8781e4b71da3d3bb91dd1f3e1ab6a532afa04889ead768309",
+    "data_dictionary.csv": "ee911fcda9b331bf5567cc87805fffdbbddd6d5ab77812303c18a885f107725a"
   },
   "validation_status": "valid",
   "warnings": [
     "Provider metadata required: ai9stars, allen-institute-for-ai, apodex, arcee-ai, celeris, china-mobile, deep-cogito, fireworks-ai, inception, inclusionai, institute-of-foundation-models, korea-telecom, kwaikat, liquid-ai, motif-technologies, multiverse-computing, nanbeige, nex-agi, nous-research, openbmb, prime-intellect, reflection, reka-ai, sapiens-ai, sk-telecom, stepfun, swiss-ai-initiative, tii-uae, trillion-labs"
   ],
-  "generated_from_commit": "35958e3adc78db7405c18a57cf72129d1420fbb3"
+  "generated_from_commit": "67ac8cc1d9bf2650c32be9b1cdcef77f8a6d7c56"
 }

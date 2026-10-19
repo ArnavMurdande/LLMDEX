@@ -141,81 +141,6 @@
   },
   {
     "source": "llmstats",
-    "source_name": "Qwen3.8 Flash",
-    "source_model_id": "qwen3.8-flash",
-    "source_model_url": "https://llm-stats.com/models/qwen3.8-flash",
-    "provider": "Alibaba",
-    "candidate_family_id": "alibaba/qwen3-8-flash-next",
-    "candidate_family_name": "Qwen3.8-Flash-Next",
-    "match_status": "identity_unresolved",
-    "match_confidence": 0.8,
-    "match_method": "fuzzy_review_candidate",
-    "review_reason": "Fuzzy candidates require manual approval and are excluded from scoring.",
-    "competing_candidates": [
-      {
-        "family_id": "alibaba/qwen3-8-flash-next",
-        "family_name": "Qwen3.8-Flash-Next",
-        "similarity": 0.8387
-      },
-      {
-        "family_id": "alibaba/qwen3-5-omni-flash",
-        "family_name": "Qwen3.5 Omni Flash",
-        "similarity": 0.7742
-      },
-      {
-        "family_id": "alibaba/qwen3-7-plus",
-        "family_name": "Qwen3.7 Plus",
-        "similarity": 0.72
-      }
-    ]
-  },
-  {
-    "source": "llmstats",
-    "source_name": "Gemini 3.7 Flash",
-    "source_model_id": "gemini-3.7-flash",
-    "source_model_url": "https://llm-stats.com/models/gemini-3.7-flash",
-    "provider": "Google",
-    "candidate_family_id": "google/gemini-3-8-flash",
-    "candidate_family_name": "Gemini 3.8 Flash",
-    "match_status": "identity_unresolved",
-    "match_confidence": 0.8,
-    "match_method": "fuzzy_review_candidate",
-    "review_reason": "Fuzzy candidates require manual approval and are excluded from scoring.",
-    "competing_candidates": [
-      {
-        "family_id": "google/gemini-3-8-flash",
-        "family_name": "Gemini 3.8 Flash",
-        "similarity": 0.9375
-      },
-      {
-        "family_id": "google/gemini-3-5-flash-lite",
-        "family_name": "Gemini 3.5 Flash-Lite",
-        "similarity": 0.8108
-      }
-    ]
-  },
-  {
-    "source": "llmstats",
-    "source_name": "GPT-5.5",
-    "source_model_id": "gpt-5.5",
-    "source_model_url": "https://llm-stats.com/models/gpt-5.5",
-    "provider": "OpenAI",
-    "candidate_family_id": "openai/gpt-5-5-pro",
-    "candidate_family_name": "GPT-5.5 Pro",
-    "match_status": "identity_unresolved",
-    "match_confidence": 0.7778,
-    "match_method": "fuzzy_review_candidate",
-    "review_reason": "Fuzzy candidates require manual approval and are excluded from scoring.",
-    "competing_candidates": [
-      {
-        "family_id": "openai/gpt-5-5-pro",
-        "family_name": "GPT-5.5 Pro",
-        "similarity": 0.7778
-      }
-    ]
-  },
-  {
-    "source": "llmstats",
     "source_name": "Claude Mythos 5.1",
     "source_model_id": "claude-mythos-5-1",
     "source_model_url": "https://llm-stats.com/models/claude-mythos-5-1",
@@ -236,26 +161,21 @@
   },
   {
     "source": "llmstats",
-    "source_name": "Mistral Large 4",
-    "source_model_id": "mistral-large-4",
-    "source_model_url": "https://llm-stats.com/models/mistral-large-4",
-    "provider": "Mistral AI",
-    "candidate_family_id": "mistral-ai/mistral-large-4-preview",
-    "candidate_family_name": "Mistral Large 4 Preview",
+    "source_name": "GPT-5.5",
+    "source_model_id": "gpt-5.5",
+    "source_model_url": "https://llm-stats.com/models/gpt-5.5",
+    "provider": "OpenAI",
+    "candidate_family_id": "openai/gpt-5-5-pro",
+    "candidate_family_name": "GPT-5.5 Pro",
     "match_status": "identity_unresolved",
-    "match_confidence": 0.7895,
+    "match_confidence": 0.7778,
     "match_method": "fuzzy_review_candidate",
     "review_reason": "Fuzzy candidates require manual approval and are excluded from scoring.",
     "competing_candidates": [
       {
-        "family_id": "mistral-ai/mistral-large-4-preview",
-        "family_name": "Mistral Large 4 Preview",
-        "similarity": 0.7895
-      },
-      {
-        "family_id": "mistral-ai/mistral-small-4",
-        "family_name": "Mistral Small 4",
-        "similarity": 0.7333
+        "family_id": "openai/gpt-5-5-pro",
+        "family_name": "GPT-5.5 Pro",
+        "similarity": 0.7778
       }
     ]
   },
@@ -386,6 +306,11 @@
         "family_id": "deepseek/deepseek-v4-flash-vision",
         "family_name": "DeepSeek V4 Flash Vision",
         "similarity": 0.8293
+      },
+      {
+        "family_id": "deepseek/deepseek-v4-1-flash-1017",
+        "family_name": "DeepSeek V4.1 Flash 1017",
+        "similarity": 0.8293
       }
     ]
   },
@@ -431,6 +356,36 @@
         "family_id": "openai/gpt-5-5-pro",
         "family_name": "GPT-5.5 Pro",
         "similarity": 0.9091
+      }
+    ]
+  },
+  {
+    "source": "llmstats",
+    "source_name": "Qwen3.8 Flash",
+    "source_model_id": "qwen3.8-flash",
+    "source_model_url": "https://llm-stats.com/models/qwen3.8-flash",
+    "provider": "Alibaba",
+    "candidate_family_id": "alibaba/qwen3-8-flash-next",
+    "candidate_family_name": "Qwen3.8-Flash-Next",
+    "match_status": "identity_unresolved",
+    "match_confidence": 0.8,
+    "match_method": "fuzzy_review_candidate",
+    "review_reason": "Fuzzy candidates require manual approval and are excluded from scoring.",
+    "competing_candidates": [
+      {
+        "family_id": "alibaba/qwen3-8-flash-next",
+        "family_name": "Qwen3.8-Flash-Next",
+        "similarity": 0.8387
+      },
+      {
+        "family_id": "alibaba/qwen3-5-omni-flash",
+        "family_name": "Qwen3.5 Omni Flash",
+        "similarity": 0.7742
+      },
+      {
+        "family_id": "alibaba/qwen3-7-plus",
+        "family_name": "Qwen3.7 Plus",
+        "similarity": 0.72
       }
     ]
   },
@@ -821,6 +776,51 @@
   },
   {
     "source": "llmstats",
+    "source_name": "Nemotron 3.5 Super VL (120B A12B)",
+    "source_model_id": "nemotron-3.5-super-vl-120b-a12b",
+    "source_model_url": "https://llm-stats.com/models/nemotron-3.5-super-vl-120b-a12b",
+    "provider": "NVIDIA",
+    "candidate_family_id": "nvidia/nemotron-3-5-super-vl",
+    "candidate_family_name": "Nemotron 3.5 Super VL",
+    "match_status": "identity_unresolved",
+    "match_confidence": 0.8,
+    "match_method": "fuzzy_review_candidate",
+    "review_reason": "Fuzzy candidates require manual approval and are excluded from scoring.",
+    "competing_candidates": [
+      {
+        "family_id": "nvidia/nemotron-3-5-super-vl",
+        "family_name": "Nemotron 3.5 Super VL",
+        "similarity": 0.8077
+      }
+    ]
+  },
+  {
+    "source": "llmstats",
+    "source_name": "Gemini 3.7 Flash",
+    "source_model_id": "gemini-3.7-flash",
+    "source_model_url": "https://llm-stats.com/models/gemini-3.7-flash",
+    "provider": "Google",
+    "candidate_family_id": "google/gemini-3-8-flash",
+    "candidate_family_name": "Gemini 3.8 Flash",
+    "match_status": "identity_unresolved",
+    "match_confidence": 0.8,
+    "match_method": "fuzzy_review_candidate",
+    "review_reason": "Fuzzy candidates require manual approval and are excluded from scoring.",
+    "competing_candidates": [
+      {
+        "family_id": "google/gemini-3-8-flash",
+        "family_name": "Gemini 3.8 Flash",
+        "similarity": 0.9375
+      },
+      {
+        "family_id": "google/gemini-3-5-flash-lite",
+        "family_name": "Gemini 3.5 Flash-Lite",
+        "similarity": 0.8108
+      }
+    ]
+  },
+  {
+    "source": "llmstats",
     "source_name": "MiniMax M1 40K",
     "source_model_id": "minimax-m1-40k",
     "source_model_url": "https://llm-stats.com/models/minimax-m1-40k",
@@ -961,6 +961,31 @@
         "family_id": "google/gemini-3-5-flash-lite",
         "family_name": "Gemini 3.5 Flash-Lite",
         "similarity": 0.8649
+      }
+    ]
+  },
+  {
+    "source": "llmstats",
+    "source_name": "Mistral Large 4",
+    "source_model_id": "mistral-large-4",
+    "source_model_url": "https://llm-stats.com/models/mistral-large-4",
+    "provider": "Mistral AI",
+    "candidate_family_id": "mistral-ai/mistral-large-4-preview",
+    "candidate_family_name": "Mistral Large 4 Preview",
+    "match_status": "identity_unresolved",
+    "match_confidence": 0.7895,
+    "match_method": "fuzzy_review_candidate",
+    "review_reason": "Fuzzy candidates require manual approval and are excluded from scoring.",
+    "competing_candidates": [
+      {
+        "family_id": "mistral-ai/mistral-large-4-preview",
+        "family_name": "Mistral Large 4 Preview",
+        "similarity": 0.7895
+      },
+      {
+        "family_id": "mistral-ai/mistral-small-4",
+        "family_name": "Mistral Small 4",
+        "similarity": 0.7333
       }
     ]
   }
