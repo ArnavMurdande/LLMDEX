@@ -1,26 +1,26 @@
 {
   "schema_version": "powerbi-v2-wide",
   "source_snapshot_dates": {
-    "artificial_analysis": "2026-10-19",
-    "llmstats": "2026-10-19"
+    "artificial_analysis": "2026-10-20",
+    "llmstats": "2026-10-20"
   },
   "earliest_catalog_event_date": "2026-07-15",
   "earliest_observed_snapshot_date": "2026-07-23",
-  "latest_observed_snapshot_date": "2026-10-19",
+  "latest_observed_snapshot_date": "2026-10-20",
   "catalog_event_row_count": 28,
-  "observed_snapshot_row_count": 22728,
+  "observed_snapshot_row_count": 22992,
   "historical_coverage_limitations": "Pre-LLMDEX historical rows represent repository-supported catalogue or release events and must not be interpreted as daily historical benchmark measurements.",
   "row_counts": {
-    "artificial_analysis_benchmarks": 271,
+    "artificial_analysis_benchmarks": 270,
     "llmstats_benchmarks": 312,
     "combined_latest": 1,
-    "model_family_history": 22756,
+    "model_family_history": 23020,
     "provider_metadata": 59,
-    "data_dictionary": 205
+    "data_dictionary": 206
   },
   "column_counts": {
     "artificial_analysis_benchmarks": 74,
-    "llmstats_benchmarks": 74,
+    "llmstats_benchmarks": 75,
     "model_family_history": 36,
     "provider_metadata": 21
   },
@@ -58,18 +58,18 @@
     "tii-uae",
     "trillion-labs"
   ],
-  "number_of_benchmark_columns": 57,
+  "number_of_benchmark_columns": 58,
   "llmstats_general_row_count": 104,
   "llmstats_general_missing_score_count": 74,
   "llmstats_general_missing_rank_count": 74,
   "llmstats_general_missing_provider_count": 0,
   "llmstats_provider_populated_count": 312,
   "llmstats_provider_missing_count": 0,
-  "llmstats_availability_unknown_count": 206,
+  "llmstats_availability_unknown_count": 210,
   "malformed_name_count_detected": 0,
   "malformed_name_count_corrected": 0,
   "unresolved_malformed_name_count": 0,
-  "consensus_family_count": 18,
+  "consensus_family_count": 17,
   "empty_reserved_columns": [
     "aa_aime25",
     "aa_livecodebench",
@@ -80,19 +80,19 @@
     "aa_cache_read_cost_usd_per_1m",
     "aa_cache_write_cost_usd_per_1m"
   ],
-  "corrected_open_weight_inconsistency_count": 177,
+  "corrected_open_weight_inconsistency_count": 175,
   "sha256_hashes": {
-    "artificial_analysis_benchmarks.csv": "00d9552f1c43facfa5d3f83871879bafa73236be4bb17b467cfcd2a98ba6f5e7",
-    "llmstats_benchmarks.csv": "2f979a2e7c44b3073cffca389e543b58010a4df72201f918d22f8cba299b944c",
-    "combined_latest.json": "7d9afade3da10b698cd350409e79b037b9eca76a0eae3095c7d8cddf7d8cfca8",
-    "model_family_history.csv": "87674099b9a360ddc280a101435d9c812045254e0bce665fd2e4d59a363fba07",
-    "provider_metadata.csv": "dd92d338affb1051de4ccfc231f5cf4a3fe8f3a012c50c7f935801cb3ad5b4b9",
-    "provider_metadata_validation.json": "aa732295c394a0d8781e4b71da3d3bb91dd1f3e1ab6a532afa04889ead768309",
-    "data_dictionary.csv": "ee911fcda9b331bf5567cc87805fffdbbddd6d5ab77812303c18a885f107725a"
+    "artificial_analysis_benchmarks.csv": "ee7e94b36f05fb0e16f778c3621ee675ac175a614c98f031dd4cc2212cbb31f2",
+    "llmstats_benchmarks.csv": "cce454e5ba2a7e90fe285d6e390615baec08bd82ced976e2ec1763a61d815768",
+    "combined_latest.json": "65b03d036b06f19ab2ecc4597cecfd68d25a0957f1cf2ae85d6f4c4ad22691c0",
+    "model_family_history.csv": "7c3e71278f67ddab7b7ad9d1d70ce45bf5be293a30943e5c27f461f991f4e6ea",
+    "provider_metadata.csv": "3b9cbb2e6dc0cf78376686406c551c859e63fedf66ab2ecce9bb8a2abe4b3334",
+    "provider_metadata_validation.json": "b002637a79b2135d064a7d0a1d058c7ef8463bb9d3ab44080849a962656e1712",
+    "data_dictionary.csv": "d1bcd27c93271d8a151489d08888c641ac36657125a85e4a711cd6335175726e"
   },
   "validation_status": "valid",
   "warnings": [
     "Provider metadata required: ai9stars, allen-institute-for-ai, apodex, arcee-ai, celeris, china-mobile, deep-cogito, fireworks-ai, inception, inclusionai, institute-of-foundation-models, korea-telecom, kwaikat, liquid-ai, motif-technologies, multiverse-computing, nanbeige, nex-agi, nous-research, openbmb, prime-intellect, reflection, reka-ai, sapiens-ai, sk-telecom, stepfun, swiss-ai-initiative, tii-uae, trillion-labs"
   ],
-  "generated_from_commit": "67ac8cc1d9bf2650c32be9b1cdcef77f8a6d7c56"
+  "generated_from_commit": "c1bdafe3e6364d1ea81b9f0d1b4f14d4855e7e98"
 }

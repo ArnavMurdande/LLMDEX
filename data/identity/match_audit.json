@@ -310,13 +310,24 @@
     "source_model_id": "deepseek-v4.1-flash",
     "source_model_url": "https://llm-stats.com/models/deepseek-v4.1-flash",
     "provider": "DeepSeek",
-    "candidate_family_id": "deepseek/deepseek-v4-1-flash",
-    "candidate_family_name": "DeepSeek V4.1 Flash",
-    "match_status": "matched_family",
-    "match_confidence": 0.95,
-    "match_method": "exact_provider_family_version",
-    "review_reason": null,
-    "competing_candidates": []
+    "candidate_family_id": "deepseek/deepseek-v4-1-flash-1017",
+    "candidate_family_name": "DeepSeek V4.1 Flash 1017",
+    "match_status": "identity_unresolved",
+    "match_confidence": 0.8,
+    "match_method": "fuzzy_review_candidate",
+    "review_reason": "Fuzzy candidates require manual approval and are excluded from scoring.",
+    "competing_candidates": [
+      {
+        "family_id": "deepseek/deepseek-v4-1-flash-1017",
+        "family_name": "DeepSeek V4.1 Flash 1017",
+        "similarity": 0.8837
+      },
+      {
+        "family_id": "deepseek/deepseek-v4-flash-vision",
+        "family_name": "DeepSeek V4 Flash Vision",
+        "similarity": 0.7907
+      }
+    ]
   },
   {
     "source": "llmstats",
@@ -724,18 +735,13 @@
     "source_model_id": "deepseek-v4-flash-max",
     "source_model_url": "https://llm-stats.com/models/deepseek-v4-flash-max",
     "provider": "DeepSeek",
-    "candidate_family_id": "deepseek/deepseek-v4-1-flash",
-    "candidate_family_name": "DeepSeek V4.1 Flash",
-    "match_status": "identity_unresolved",
+    "candidate_family_id": "deepseek/deepseek-v4-flash-vision",
+    "candidate_family_name": "DeepSeek V4 Flash Vision",
+    "match_status": "ambiguous",
     "match_confidence": 0.8,
     "match_method": "fuzzy_review_candidate",
     "review_reason": "Fuzzy candidates require manual approval and are excluded from scoring.",
     "competing_candidates": [
-      {
-        "family_id": "deepseek/deepseek-v4-1-flash",
-        "family_name": "DeepSeek V4.1 Flash",
-        "similarity": 0.9444
-      },
       {
         "family_id": "deepseek/deepseek-v4-flash-vision",
         "family_name": "DeepSeek V4 Flash Vision",

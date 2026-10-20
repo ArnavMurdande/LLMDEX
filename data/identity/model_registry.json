@@ -2013,50 +2013,6 @@
       }
     }
   },
-  "deepseek/deepseek-v4-1-flash": {
-    "family_id": "deepseek/deepseek-v4-1-flash",
-    "canonical_family_name": "DeepSeek V4.1 Flash",
-    "provider": "DeepSeek",
-    "version": "4.1",
-    "source_aliases": {
-      "artificial_analysis": [
-        "DeepSeek V4.1 Flash (max)",
-        "DeepSeek V4.1 Flash (non-reasoning)"
-      ],
-      "llmstats": [
-        "DeepSeek-V4.1-Flash"
-      ]
-    },
-    "source_ids": {},
-    "source_urls": {
-      "artificial_analysis": [
-        "https://artificialanalysis.ai/models/deepseek-v4-1-flash",
-        "https://artificialanalysis.ai/models/deepseek-v4-1-flash-non-reasoning"
-      ]
-    },
-    "variants": {
-      "deepseek/deepseek-v4-1-flash:max": {
-        "variant_id": "deepseek/deepseek-v4-1-flash:max",
-        "deployment_profile_id": "deepseek/deepseek-v4-1-flash:max:deployment",
-        "source_name": "DeepSeek V4.1 Flash (max)",
-        "reasoning_effort": "max",
-        "deployment_profile": [],
-        "fallback_enabled": false,
-        "parameter_count": null
-      },
-      "deepseek/deepseek-v4-1-flash:non-reasoning": {
-        "variant_id": "deepseek/deepseek-v4-1-flash:non-reasoning",
-        "deployment_profile_id": "deepseek/deepseek-v4-1-flash:non-reasoning:deployment",
-        "source_name": "DeepSeek V4.1 Flash (non-reasoning)",
-        "reasoning_effort": null,
-        "deployment_profile": [
-          "non-reasoning"
-        ],
-        "fallback_enabled": false,
-        "parameter_count": null
-      }
-    }
-  },
   "deepseek/deepseek-v4-1-flash-1017": {
     "family_id": "deepseek/deepseek-v4-1-flash-1017",
     "canonical_family_name": "DeepSeek V4.1 Flash 1017",
@@ -5696,6 +5652,7 @@
       "artificial_analysis": [
         "GPT-6 Astra (high)",
         "GPT-6 Astra (low)",
+        "GPT-6 Astra (max)",
         "GPT-6 Astra (medium)",
         "GPT-6 Astra (xhigh)"
       ],
@@ -5706,6 +5663,7 @@
     "source_ids": {},
     "source_urls": {
       "artificial_analysis": [
+        "https://artificialanalysis.ai/models/gpt-6-astra",
         "https://artificialanalysis.ai/models/gpt-6-astra-high",
         "https://artificialanalysis.ai/models/gpt-6-astra-low",
         "https://artificialanalysis.ai/models/gpt-6-astra-medium",
@@ -5713,6 +5671,15 @@
       ]
     },
     "variants": {
+      "openai/gpt-6-astra:max": {
+        "variant_id": "openai/gpt-6-astra:max",
+        "deployment_profile_id": "openai/gpt-6-astra:max:deployment",
+        "source_name": "GPT-6 Astra (max)",
+        "reasoning_effort": "max",
+        "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": null
+      },
       "openai/gpt-6-astra:xhigh": {
         "variant_id": "openai/gpt-6-astra:xhigh",
         "deployment_profile_id": "openai/gpt-6-astra:xhigh:deployment",

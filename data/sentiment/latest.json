@@ -1,23 +1,23 @@
 [
   {
-    "community_sentiment": 0.2751,
+    "community_sentiment": 0.2518,
     "mention_count": 15,
     "controversy_index": 0.0667,
     "sentiment_trend": "positive",
     "confidence_score": 0.5,
     "sentiment_method": "vader_fallback",
     "model_name": "Claude Opus 5.5",
-    "scraped_at": "2026-10-19T17:09:15.241126+00:00",
+    "scraped_at": "2026-10-20T15:22:14.737516+00:00",
     "_experimental": true,
     "source_counts": {
-      "HackerNews": 11,
-      "Reddit": 4
+      "Reddit": 4,
+      "HackerNews": 11
     },
     "community_examples": [
       {
-        "source": "Reddit",
-        "text": "Affordable AI 3D Character Generation for Beginners? (RTX 3080) Hey everyone! I'm new to 3D modeling and currently trying to create a game with the help of AI. I'm using Claude Opus 5.5, and while it generally does a...",
-        "url": "https://www.reddit.com/r/TopologyAI/comments/1x9pcp5/affordable_ai_3d_character_generation_for/"
+        "source": "Hacker News",
+        "text": "Show HN: 500 clocks in one 6.3 MB HTML file by Opus 5.5 Lately I've been testing frontier models by having them create self-contained web pages that display clocks--sort of my personal version of Simon Willison\u2019s...",
+        "url": "https://news.ycombinator.com/item?id=50137820"
       },
       {
         "source": "Hacker News",
@@ -32,9 +32,9 @@
     ],
     "top_quotes": [
       {
-        "source": "Reddit",
-        "text": "Affordable AI 3D Character Generation for Beginners? (RTX 3080) Hey everyone! I'm new to 3D modeling and currently trying to create a game with the help of AI. I'm using Claude Opus 5.5, and while it generally does a...",
-        "url": "https://www.reddit.com/r/TopologyAI/comments/1x9pcp5/affordable_ai_3d_character_generation_for/"
+        "source": "Hacker News",
+        "text": "Show HN: 500 clocks in one 6.3 MB HTML file by Opus 5.5 Lately I've been testing frontier models by having them create self-contained web pages that display clocks--sort of my personal version of Simon Willison\u2019s...",
+        "url": "https://news.ycombinator.com/item?id=50137820"
       },
       {
         "source": "Hacker News",
@@ -49,20 +49,42 @@
     ]
   },
   {
-    "community_sentiment": null,
+    "community_sentiment": 0.1934,
     "mention_count": 2,
-    "controversy_index": null,
-    "sentiment_trend": null,
-    "confidence_score": 0,
-    "sentiment_method": "gemini",
+    "controversy_index": 0.0,
+    "sentiment_trend": "positive",
+    "confidence_score": 0.07,
+    "sentiment_method": "vader_fallback",
     "model_name": "Muse Wonder Full",
-    "scraped_at": "2026-10-19T17:09:17.548312+00:00",
+    "scraped_at": "2026-10-20T15:23:44.759047+00:00",
     "_experimental": true,
     "source_counts": {
       "HackerNews": 2
     },
-    "community_examples": [],
-    "top_quotes": []
+    "community_examples": [
+      {
+        "source": "Hacker News",
+        "text": "Muse Wonder Full (Max): Intelligence, Performance and Price Analysis",
+        "url": "https://news.ycombinator.com/item?id=50067184"
+      },
+      {
+        "source": "Hacker News",
+        "text": "Muse Wonder Full: A new Fable level model on artificial analysis",
+        "url": "https://news.ycombinator.com/item?id=50061127"
+      }
+    ],
+    "top_quotes": [
+      {
+        "source": "Hacker News",
+        "text": "Muse Wonder Full (Max): Intelligence, Performance and Price Analysis",
+        "url": "https://news.ycombinator.com/item?id=50067184"
+      },
+      {
+        "source": "Hacker News",
+        "text": "Muse Wonder Full: A new Fable level model on artificial analysis",
+        "url": "https://news.ycombinator.com/item?id=50061127"
+      }
+    ]
   },
   {
     "community_sentiment": 0.3877,
@@ -75,7 +97,7 @@
     "strong_praise_count": 1,
     "strong_criticism_count": 0,
     "model_name": "Claude Fable 5.1",
-    "scraped_at": "2026-10-19T17:09:33.411338+00:00",
+    "scraped_at": "2026-10-20T15:23:53.105513+00:00",
     "_experimental": true,
     "source_counts": {
       "HackerNews": 12
@@ -116,117 +138,17 @@
     ]
   },
   {
-    "community_sentiment": 0.3504,
-    "mention_count": 12,
-    "controversy_index": 0.0,
-    "sentiment_trend": "positive",
-    "confidence_score": 0.1,
-    "sentiment_method": "gemini",
-    "valid_posts": 3,
-    "strong_praise_count": 0,
-    "strong_criticism_count": 0,
-    "model_name": "Gemini 4 Argon",
-    "scraped_at": "2026-10-19T17:09:59.845362+00:00",
-    "_experimental": true,
-    "source_counts": {
-      "HackerNews": 10,
-      "Reddit": 2
-    },
-    "community_examples": [
-      {
-        "source": "Hacker News",
-        "text": "Gemini 4 Argon: Google is back among the top three labs in intelligence achieved",
-        "url": "https://news.ycombinator.com/item?id=49916067"
-      },
-      {
-        "source": "Reddit",
-        "text": "Gemini 4 Argon beats Opus on Google\u2019s chart, but not on Artificial Analysis Went through the Argon launch and a couple of things the launch post kind of skips over. Per token it\u2019s currently half of what Opus is, but...",
-        "url": "https://www.reddit.com/r/GeminiAI/comments/1x9c3lq/gemini_4_argon_beats_opus_on_googles_chart_but/"
-      },
-      {
-        "source": "Reddit",
-        "text": "Gemini 4 Argon vs Opus 5.5: The Viral Test That Got Challenged A viral Gemini 4 Argon vs Claude Opus 5.5 comparison made one gummy bear simulation look dramatically better. Then other developers posted different...",
-        "url": "https://www.reddit.com/r/reAPIOfficial/comments/1x9xc5u/gemini_4_argon_vs_opus_55_the_viral_test_that_got/"
-      }
-    ],
-    "top_quotes": [
-      {
-        "source": "Hacker News",
-        "text": "Gemini 4 Argon: Google is back among the top three labs in intelligence achieved",
-        "url": "https://news.ycombinator.com/item?id=49916067"
-      },
-      {
-        "source": "Reddit",
-        "text": "Gemini 4 Argon beats Opus on Google\u2019s chart, but not on Artificial Analysis Went through the Argon launch and a couple of things the launch post kind of skips over. Per token it\u2019s currently half of what Opus is, but...",
-        "url": "https://www.reddit.com/r/GeminiAI/comments/1x9c3lq/gemini_4_argon_beats_opus_on_googles_chart_but/"
-      },
-      {
-        "source": "Reddit",
-        "text": "Gemini 4 Argon vs Opus 5.5: The Viral Test That Got Challenged A viral Gemini 4 Argon vs Claude Opus 5.5 comparison made one gummy bear simulation look dramatically better. Then other developers posted different...",
-        "url": "https://www.reddit.com/r/reAPIOfficial/comments/1x9xc5u/gemini_4_argon_vs_opus_55_the_viral_test_that_got/"
-      }
-    ]
-  },
-  {
-    "community_sentiment": 0.1487,
-    "mention_count": 5,
-    "controversy_index": 0.0,
-    "sentiment_trend": "positive",
-    "confidence_score": 0.17,
-    "sentiment_method": "vader_fallback",
-    "model_name": "Muse Wonder",
-    "scraped_at": "2026-10-19T17:10:00.880904+00:00",
-    "_experimental": true,
-    "source_counts": {
-      "HackerNews": 5
-    },
-    "community_examples": [
-      {
-        "source": "Hacker News",
-        "text": "Muse Wonder Full (Max): Intelligence, Performance and Price Analysis",
-        "url": "https://news.ycombinator.com/item?id=50067184"
-      },
-      {
-        "source": "Hacker News",
-        "text": "Muse Wonder Full: A new Fable level model on artificial analysis",
-        "url": "https://news.ycombinator.com/item?id=50061127"
-      },
-      {
-        "source": "Hacker News",
-        "text": "Muse Wonder(Non-Full) Max Is Below Muse Spark 1.3 Max on Code Arena: WebDev",
-        "url": "https://news.ycombinator.com/item?id=50079730"
-      }
-    ],
-    "top_quotes": [
-      {
-        "source": "Hacker News",
-        "text": "Muse Wonder Full (Max): Intelligence, Performance and Price Analysis",
-        "url": "https://news.ycombinator.com/item?id=50067184"
-      },
-      {
-        "source": "Hacker News",
-        "text": "Muse Wonder Full: A new Fable level model on artificial analysis",
-        "url": "https://news.ycombinator.com/item?id=50061127"
-      },
-      {
-        "source": "Hacker News",
-        "text": "Muse Wonder(Non-Full) Max Is Below Muse Spark 1.3 Max on Code Arena: WebDev",
-        "url": "https://news.ycombinator.com/item?id=50079730"
-      }
-    ]
-  },
-  {
-    "community_sentiment": -0.2,
+    "community_sentiment": 0.8353,
     "mention_count": 17,
-    "controversy_index": 0.0,
-    "sentiment_trend": "negative",
-    "confidence_score": 0.43,
+    "controversy_index": 0.1429,
+    "sentiment_trend": "positive",
+    "confidence_score": 0.23,
     "sentiment_method": "gemini",
-    "valid_posts": 13,
-    "strong_praise_count": 0,
+    "valid_posts": 7,
+    "strong_praise_count": 1,
     "strong_criticism_count": 0,
     "model_name": "GPT-6 Astra",
-    "scraped_at": "2026-10-19T17:10:06.026647+00:00",
+    "scraped_at": "2026-10-20T15:24:17.916610+00:00",
     "_experimental": true,
     "source_counts": {
       "HackerNews": 17
@@ -234,35 +156,108 @@
     "community_examples": [
       {
         "source": "Hacker News",
-        "text": "GPT6.1 Sol In benchmark tests covering scientific and coding agent scenarios, GPT-6.1-Sol generally performs slightly below GPT-6 Astra and Opus 5.5, though it outperforms both in a few specific tests. Moreover, its...",
-        "url": "https://news.ycombinator.com/item?id=49898290"
+        "text": "GPT-6 Astra is the best vision model we have tested",
+        "url": "https://news.ycombinator.com/item?id=49886228"
+      },
+      {
+        "source": "Hacker News",
+        "text": "Claude Fable 5.1 and GPT 6 Astra controlled my Robot Arm. Who painted better?",
+        "url": "https://news.ycombinator.com/item?id=49709175"
       },
       {
         "source": "Hacker News",
         "text": "OpenAI GPT\u20136 Astra breaks Enigma message that has resisted solution since 2005",
         "url": "https://news.ycombinator.com/item?id=49801324"
-      },
-      {
-        "source": "Hacker News",
-        "text": "GPT-6 Astra Solves a WWI German Radio Cipher",
-        "url": "https://news.ycombinator.com/item?id=49763987"
       }
     ],
     "top_quotes": [
       {
         "source": "Hacker News",
-        "text": "GPT6.1 Sol In benchmark tests covering scientific and coding agent scenarios, GPT-6.1-Sol generally performs slightly below GPT-6 Astra and Opus 5.5, though it outperforms both in a few specific tests. Moreover, its...",
-        "url": "https://news.ycombinator.com/item?id=49898290"
+        "text": "GPT-6 Astra is the best vision model we have tested",
+        "url": "https://news.ycombinator.com/item?id=49886228"
+      },
+      {
+        "source": "Hacker News",
+        "text": "Claude Fable 5.1 and GPT 6 Astra controlled my Robot Arm. Who painted better?",
+        "url": "https://news.ycombinator.com/item?id=49709175"
       },
       {
         "source": "Hacker News",
         "text": "OpenAI GPT\u20136 Astra breaks Enigma message that has resisted solution since 2005",
         "url": "https://news.ycombinator.com/item?id=49801324"
+      }
+    ]
+  },
+  {
+    "community_sentiment": 0.6,
+    "mention_count": 12,
+    "controversy_index": 0.0,
+    "sentiment_trend": "positive",
+    "confidence_score": 0.03,
+    "sentiment_method": "gemini",
+    "valid_posts": 1,
+    "strong_praise_count": 0,
+    "strong_criticism_count": 0,
+    "model_name": "Gemini 4 Argon",
+    "scraped_at": "2026-10-20T15:25:29.010659+00:00",
+    "_experimental": true,
+    "source_counts": {
+      "HackerNews": 9,
+      "Reddit": 3
+    },
+    "community_examples": [
+      {
+        "source": "Hacker News",
+        "text": "Gemini 4 Argon: Google is back among the top three labs in intelligence achieved",
+        "url": "https://news.ycombinator.com/item?id=49916067"
+      }
+    ],
+    "top_quotes": [
+      {
+        "source": "Hacker News",
+        "text": "Gemini 4 Argon: Google is back among the top three labs in intelligence achieved",
+        "url": "https://news.ycombinator.com/item?id=49916067"
+      }
+    ]
+  },
+  {
+    "community_sentiment": 0.0029,
+    "mention_count": 5,
+    "controversy_index": 0.5,
+    "sentiment_trend": "stable",
+    "confidence_score": 0.07,
+    "sentiment_method": "gemini",
+    "valid_posts": 2,
+    "strong_praise_count": 1,
+    "strong_criticism_count": 0,
+    "model_name": "Muse Wonder",
+    "scraped_at": "2026-10-20T15:25:30.233714+00:00",
+    "_experimental": true,
+    "source_counts": {
+      "HackerNews": 5
+    },
+    "community_examples": [
+      {
+        "source": "Hacker News",
+        "text": "Muse Wonder Ranks 2nd only to Astra at bug fixing",
+        "url": "https://news.ycombinator.com/item?id=50077972"
       },
       {
         "source": "Hacker News",
-        "text": "GPT-6 Astra Solves a WWI German Radio Cipher",
-        "url": "https://news.ycombinator.com/item?id=49763987"
+        "text": "Muse Wonder(Non-Full) Max Is Below Muse Spark 1.3 Max on Code Arena: WebDev",
+        "url": "https://news.ycombinator.com/item?id=50079730"
+      }
+    ],
+    "top_quotes": [
+      {
+        "source": "Hacker News",
+        "text": "Muse Wonder Ranks 2nd only to Astra at bug fixing",
+        "url": "https://news.ycombinator.com/item?id=50077972"
+      },
+      {
+        "source": "Hacker News",
+        "text": "Muse Wonder(Non-Full) Max Is Below Muse Spark 1.3 Max on Code Arena: WebDev",
+        "url": "https://news.ycombinator.com/item?id=50079730"
       }
     ]
   },
@@ -277,7 +272,7 @@
     "strong_praise_count": 1,
     "strong_criticism_count": 0,
     "model_name": "Claude Sonnet 5.5",
-    "scraped_at": "2026-10-19T17:10:09.368663+00:00",
+    "scraped_at": "2026-10-20T15:25:33.445238+00:00",
     "_experimental": true,
     "source_counts": {
       "HackerNews": 7
@@ -308,8 +303,8 @@
     ]
   },
   {
-    "community_sentiment": 0.7042,
-    "mention_count": 10,
+    "community_sentiment": 0.5401,
+    "mention_count": 11,
     "controversy_index": 0.0,
     "sentiment_trend": "positive",
     "confidence_score": 0.1,
@@ -318,10 +313,10 @@
     "strong_praise_count": 0,
     "strong_criticism_count": 0,
     "model_name": "GPT-6.1 Sol",
-    "scraped_at": "2026-10-19T17:10:18.751829+00:00",
+    "scraped_at": "2026-10-20T15:25:43.612527+00:00",
     "_experimental": true,
     "source_counts": {
-      "HackerNews": 10
+      "HackerNews": 11
     },
     "community_examples": [
       {
@@ -359,7 +354,7 @@
     "strong_praise_count": 0,
     "strong_criticism_count": 0,
     "model_name": "Muse Spark 1.3",
-    "scraped_at": "2026-10-19T17:10:21.589096+00:00",
+    "scraped_at": "2026-10-20T15:25:51.886342+00:00",
     "_experimental": true,
     "source_counts": {
       "HackerNews": 8
@@ -390,17 +385,14 @@
     ]
   },
   {
-    "community_sentiment": 0.8,
+    "community_sentiment": 0.3466,
     "mention_count": 4,
-    "controversy_index": 1.0,
+    "controversy_index": 0.0,
     "sentiment_trend": "positive",
-    "confidence_score": 0.03,
-    "sentiment_method": "gemini",
-    "valid_posts": 1,
-    "strong_praise_count": 1,
-    "strong_criticism_count": 0,
+    "confidence_score": 0.13,
+    "sentiment_method": "vader_fallback",
     "model_name": "Grok 4.7",
-    "scraped_at": "2026-10-19T17:10:50.975168+00:00",
+    "scraped_at": "2026-10-20T15:25:53.210404+00:00",
     "_experimental": true,
     "source_counts": {
       "HackerNews": 4
@@ -408,11 +400,21 @@
     "community_examples": [
       {
         "source": "Hacker News",
+        "text": "Grok 4.7 Intelligence, Performance and Price Analysis",
+        "url": "https://news.ycombinator.com/item?id=49789558"
+      },
+      {
+        "source": "Hacker News",
         "text": "Grok 4.7 is here with Electrical engineering benchmark which beats fable 5.1 max",
         "url": "https://news.ycombinator.com/item?id=49789456"
       }
     ],
     "top_quotes": [
+      {
+        "source": "Hacker News",
+        "text": "Grok 4.7 Intelligence, Performance and Price Analysis",
+        "url": "https://news.ycombinator.com/item?id=49789558"
+      },
       {
         "source": "Hacker News",
         "text": "Grok 4.7 is here with Electrical engineering benchmark which beats fable 5.1 max",
