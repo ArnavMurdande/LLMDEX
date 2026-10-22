@@ -1392,7 +1392,6 @@
       "artificial_analysis": [
         "Claude Haiku 5.5 (high)",
         "Claude Haiku 5.5 (low)",
-        "Claude Haiku 5.5 (max)",
         "Claude Haiku 5.5 (medium)",
         "Claude Haiku 5.5 (xhigh)"
       ],
@@ -1403,7 +1402,6 @@
     "source_ids": {},
     "source_urls": {
       "artificial_analysis": [
-        "https://artificialanalysis.ai/models/claude-haiku-5-5",
         "https://artificialanalysis.ai/models/claude-haiku-5-5-high",
         "https://artificialanalysis.ai/models/claude-haiku-5-5-low",
         "https://artificialanalysis.ai/models/claude-haiku-5-5-medium",
@@ -1411,15 +1409,6 @@
       ]
     },
     "variants": {
-      "anthropic/claude-haiku-5-5:max": {
-        "variant_id": "anthropic/claude-haiku-5-5:max",
-        "deployment_profile_id": "anthropic/claude-haiku-5-5:max:deployment",
-        "source_name": "Claude Haiku 5.5 (max)",
-        "reasoning_effort": "max",
-        "deployment_profile": [],
-        "fallback_enabled": false,
-        "parameter_count": null
-      },
       "anthropic/claude-haiku-5-5:xhigh": {
         "variant_id": "anthropic/claude-haiku-5-5:xhigh",
         "deployment_profile_id": "anthropic/claude-haiku-5-5:xhigh:deployment",
@@ -2950,9 +2939,7 @@
       "artificial_analysis": [
         "Ling 3.1 Flash"
       ],
-      "llmstats": [
-        "Ling 3.1 Flash"
-      ]
+      "llmstats": []
     },
     "source_ids": {},
     "source_urls": {
@@ -2965,6 +2952,35 @@
         "variant_id": "inclusionai/ling-3-1-flash:default",
         "deployment_profile_id": "inclusionai/ling-3-1-flash:default:deployment",
         "source_name": "Ling 3.1 Flash",
+        "reasoning_effort": null,
+        "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": null
+      }
+    }
+  },
+  "inclusionai/ling-3-1-flash-1019": {
+    "family_id": "inclusionai/ling-3-1-flash-1019",
+    "canonical_family_name": "Ling 3.1 Flash 1019",
+    "provider": "InclusionAI",
+    "version": "3.1",
+    "source_aliases": {
+      "artificial_analysis": [
+        "Ling 3.1 Flash 1019"
+      ],
+      "llmstats": []
+    },
+    "source_ids": {},
+    "source_urls": {
+      "artificial_analysis": [
+        "https://artificialanalysis.ai/models/ling-3-1-flash-1019"
+      ]
+    },
+    "variants": {
+      "inclusionai/ling-3-1-flash-1019:default": {
+        "variant_id": "inclusionai/ling-3-1-flash-1019:default",
+        "deployment_profile_id": "inclusionai/ling-3-1-flash-1019:default:deployment",
+        "source_name": "Ling 3.1 Flash 1019",
         "reasoning_effort": null,
         "deployment_profile": [],
         "fallback_enabled": false,
@@ -4075,48 +4091,6 @@
       }
     }
   },
-  "meta/muse-spark-1-3": {
-    "family_id": "meta/muse-spark-1-3",
-    "canonical_family_name": "Muse Spark 1.3",
-    "provider": "Meta",
-    "version": "1.3",
-    "source_aliases": {
-      "artificial_analysis": [
-        "Muse Spark 1.3 (max)",
-        "Muse Spark 1.3 (xhigh)"
-      ],
-      "llmstats": [
-        "Muse Spark 1.3"
-      ]
-    },
-    "source_ids": {},
-    "source_urls": {
-      "artificial_analysis": [
-        "https://artificialanalysis.ai/models/muse-spark-1-3",
-        "https://artificialanalysis.ai/models/muse-spark-1-3-xhigh"
-      ]
-    },
-    "variants": {
-      "meta/muse-spark-1-3:max": {
-        "variant_id": "meta/muse-spark-1-3:max",
-        "deployment_profile_id": "meta/muse-spark-1-3:max:deployment",
-        "source_name": "Muse Spark 1.3 (max)",
-        "reasoning_effort": "max",
-        "deployment_profile": [],
-        "fallback_enabled": false,
-        "parameter_count": null
-      },
-      "meta/muse-spark-1-3:xhigh": {
-        "variant_id": "meta/muse-spark-1-3:xhigh",
-        "deployment_profile_id": "meta/muse-spark-1-3:xhigh:deployment",
-        "source_name": "Muse Spark 1.3 (xhigh)",
-        "reasoning_effort": "xhigh",
-        "deployment_profile": [],
-        "fallback_enabled": false,
-        "parameter_count": null
-      }
-    }
-  },
   "meta/muse-spark-open": {
     "family_id": "meta/muse-spark-open",
     "canonical_family_name": "Muse Spark Open",
@@ -4581,9 +4555,7 @@
         "Mistral Small 4",
         "Mistral Small 4 (non-reasoning)"
       ],
-      "llmstats": [
-        "Mistral Small 4"
-      ]
+      "llmstats": []
     },
     "source_ids": {},
     "source_urls": {
