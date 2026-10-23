@@ -31,7 +31,13 @@ def normalize_release_name(name: str) -> str:
 def infer_model_family(name: str, provider: str | None = None) -> str:
     """Return a stable product family from a current model display name."""
     lower = (name or "").lower()
-    provider_lower = (provider or "").lower()
+    if provider is not None and not (
+        isinstance(provider, float) and provider != provider
+    ):
+        provider_str = str(provider).strip()
+    else:
+        provider_str = ""
+    provider_lower = provider_str.lower()
 
     if "claude" in lower or "anthropic" in provider_lower:
         if "fable" in lower:
@@ -90,8 +96,8 @@ def infer_model_family(name: str, provider: str | None = None) -> str:
         if token in lower:
             return family
 
-    if provider and provider_lower not in {"", "unknown", "other"}:
-        return provider.strip()
+    if provider_str and provider_lower not in {"", "unknown", "other", "nan", "none"}:
+        return provider_str
     return (name or "Unknown").split()[0]
 
 

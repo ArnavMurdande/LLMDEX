@@ -1,6 +1,36 @@
 {
   "AI21 Labs": [
     {
+      "name": "Jamba 1.5 Large",
+      "performance": 13.99,
+      "rank": 84,
+      "provider": "AI21 Labs",
+      "model_url": "https://artificialanalysis.ai/models/jamba-1-5-large",
+      "release_date": "2024-08-22",
+      "variants": [
+        "Jamba 1.5 Large"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 0.0,
+      "improvement_pct": 0.0,
+      "predecessor": null
+    },
+    {
+      "name": "Jamba 1.5 Mini",
+      "performance": 9.3,
+      "rank": 90,
+      "provider": "AI21 Labs",
+      "model_url": "https://artificialanalysis.ai/models/jamba-1-5-mini",
+      "release_date": "2024-08-22",
+      "variants": [
+        "Jamba 1.5 Mini"
+      ],
+      "variant_count": 1,
+      "improvement_abs": -4.69,
+      "improvement_pct": -33.52,
+      "predecessor": "Jamba 1.5 Large"
+    },
+    {
       "name": "Jamba 1.7 Large",
       "performance": 6.0,
       "rank": 227.0,
@@ -11,9 +41,9 @@
         "Jamba 1.7 Large"
       ],
       "variant_count": 1,
-      "improvement_abs": 0.0,
-      "improvement_pct": 0.0,
-      "predecessor": null
+      "improvement_abs": -3.3,
+      "improvement_pct": -35.48,
+      "predecessor": "Jamba 1.5 Mini"
     },
     {
       "name": "Jamba 1.7 Mini",
@@ -76,6 +106,55 @@
       "improvement_abs": 11.0,
       "improvement_pct": 100.0,
       "predecessor": "G9v3-3B"
+    }
+  ],
+  "Alibaba": [
+    {
+      "name": "QwQ 32B-Preview",
+      "performance": 14.63,
+      "rank": 83,
+      "provider": "Alibaba",
+      "model_url": "https://artificialanalysis.ai/models/QwQ-32B-Preview",
+      "release_date": "2024-11-27",
+      "variants": [
+        "QwQ 32B-Preview"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 0.0,
+      "improvement_pct": 0.0,
+      "predecessor": null
+    },
+    {
+      "name": "QwQ 32B",
+      "performance": 18.78,
+      "rank": 71,
+      "provider": "Alibaba",
+      "model_url": "https://artificialanalysis.ai/models/qwq-32b",
+      "release_date": "2025-03-05",
+      "variants": [
+        "QwQ 32B"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 4.15,
+      "improvement_pct": 28.37,
+      "predecessor": "QwQ 32B-Preview"
+    }
+  ],
+  "Allen AI": [
+    {
+      "name": "Olmo 3 32B Think",
+      "performance": 19.2,
+      "rank": 69,
+      "provider": "Allen AI",
+      "model_url": "https://artificialanalysis.ai/models/olmo-3-32b-think",
+      "release_date": "2025-11-20",
+      "variants": [
+        "Olmo 3 32B Think"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 0.0,
+      "improvement_pct": 0.0,
+      "predecessor": null
     }
   ],
   "Allen Institute for AI": [
@@ -172,6 +251,21 @@
   ],
   "Amazon Nova": [
     {
+      "name": "Nova Lite",
+      "performance": 13.27,
+      "rank": 85,
+      "provider": "Amazon",
+      "model_url": "https://artificialanalysis.ai/models/nova-lite",
+      "release_date": "2024-12-03",
+      "variants": [
+        "Nova Lite"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 0.0,
+      "improvement_pct": 0.0,
+      "predecessor": null
+    },
+    {
       "name": "Nova Micro",
       "performance": 6.0,
       "rank": 233.0,
@@ -182,9 +276,24 @@
         "Nova Micro"
       ],
       "variant_count": 1,
-      "improvement_abs": 0.0,
-      "improvement_pct": 0.0,
-      "predecessor": null
+      "improvement_abs": -7.27,
+      "improvement_pct": -54.79,
+      "predecessor": "Nova Lite"
+    },
+    {
+      "name": "Nova Pro",
+      "performance": 16.73,
+      "rank": 79,
+      "provider": "Amazon",
+      "model_url": "https://artificialanalysis.ai/models/nova-pro",
+      "release_date": "2024-12-03",
+      "variants": [
+        "Nova Pro"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 10.73,
+      "improvement_pct": 178.83,
+      "predecessor": "Nova Micro"
     },
     {
       "name": "Nova Premier",
@@ -197,9 +306,9 @@
         "Nova Premier"
       ],
       "variant_count": 1,
-      "improvement_abs": 3.0,
-      "improvement_pct": 50.0,
-      "predecessor": "Nova Micro"
+      "improvement_abs": -7.73,
+      "improvement_pct": -46.2,
+      "predecessor": "Nova Pro"
     },
     {
       "name": "Nova 2.0 Lite",
@@ -209,12 +318,14 @@
       "model_url": "https://artificialanalysis.ai/models/nova-2-0-lite-reasoning",
       "release_date": "2025-10-29",
       "variants": [
-        "Nova 2.0 Lite (high) (reasoning)",
+        "Nova 2.0 Lite (Non-reasoning)",
         "Nova 2.0 Lite (medium)",
+        "Nova 2.0 Lite (high) (reasoning)",
         "Nova 2.0 Lite (low)",
+        "Nova 2.0 Lite",
         "Nova 2.0 Lite (non-reasoning)"
       ],
-      "variant_count": 4,
+      "variant_count": 6,
       "improvement_abs": 4.0,
       "improvement_pct": 44.44,
       "predecessor": "Nova Premier"
@@ -269,6 +380,38 @@
       "predecessor": "Nova 2.0 Pro Preview"
     }
   ],
+  "Arcee AI": [
+    {
+      "name": "Trinity Large Thinking",
+      "performance": 11.0,
+      "rank": 158.0,
+      "provider": "Arcee AI",
+      "model_url": "https://artificialanalysis.ai/models/trinity-large-thinking",
+      "release_date": "2026-04-01",
+      "variants": [
+        "Trinity Large Thinking"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 0.0,
+      "improvement_pct": 0.0,
+      "predecessor": null
+    },
+    {
+      "name": "trinity-large",
+      "performance": 9.87,
+      "rank": 330,
+      "provider": "Arcee AI",
+      "model_url": "https://artificialanalysis.ai/models/trinity-large-thinking",
+      "release_date": "2026-04-01",
+      "variants": [
+        "trinity-large"
+      ],
+      "variant_count": 1,
+      "improvement_abs": -1.13,
+      "improvement_pct": -10.27,
+      "predecessor": "Trinity Large Thinking"
+    }
+  ],
   "China Mobile": [
     {
       "name": "JT-MINI",
@@ -317,11 +460,73 @@
       "predecessor": "JT-35B-Flash"
     }
   ],
+  "Claude": [
+    {
+      "name": "Claude Instant",
+      "performance": 3.36,
+      "rank": 236,
+      "provider": "Anthropic",
+      "model_url": "https://artificialanalysis.ai/models/claude-instant",
+      "release_date": "2023-03-14",
+      "variants": [
+        "Claude Instant"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 0.0,
+      "improvement_pct": 0.0,
+      "predecessor": null
+    },
+    {
+      "name": "Claude 2.0",
+      "performance": 4.84,
+      "rank": 217,
+      "provider": "Anthropic",
+      "model_url": "https://artificialanalysis.ai/models/claude-2",
+      "release_date": "2023-07-11",
+      "variants": [
+        "Claude 2.0"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 1.48,
+      "improvement_pct": 44.05,
+      "predecessor": "Claude Instant"
+    },
+    {
+      "name": "Claude 2.1",
+      "performance": 4.64,
+      "rank": 221,
+      "provider": "Anthropic",
+      "model_url": "https://artificialanalysis.ai/models/claude-21",
+      "release_date": "2023-11-21",
+      "variants": [
+        "Claude 2.1"
+      ],
+      "variant_count": 1,
+      "improvement_abs": -0.2,
+      "improvement_pct": -4.13,
+      "predecessor": "Claude 2.0"
+    }
+  ],
   "Claude Fable": [
     {
+      "name": "Claude Fable 5",
+      "performance": 62.0,
+      "rank": 3,
+      "provider": "Anthropic",
+      "model_url": "https://artificialanalysis.ai/models/claude-fable-5",
+      "release_date": "2026-06-09",
+      "variants": [
+        "Claude Fable 5 (with fallback)"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 0.0,
+      "improvement_pct": 0.0,
+      "predecessor": null
+    },
+    {
       "name": "Claude Fable 5.1",
-      "performance": 53.0,
-      "rank": 5.0,
+      "performance": 53.3549259623252,
+      "rank": null,
       "provider": "Anthropic",
       "model_url": "https://artificialanalysis.ai/models/claude-fable-5-1",
       "release_date": "2026-09-01",
@@ -330,15 +535,64 @@
         "Claude Fable 5.1 (xhigh with fallback)",
         "Claude Fable 5.1 (high with fallback)",
         "Claude Fable 5.1 (medium with fallback)",
-        "Claude Fable 5.1 (low with fallback)"
+        "Claude Fable 5.1 (low with fallback)",
+        "Claude Fable 5.1 (Max, Default Fallback)"
       ],
-      "variant_count": 5,
-      "improvement_abs": 0.0,
-      "improvement_pct": 0.0,
-      "predecessor": null
+      "variant_count": 6,
+      "improvement_abs": -8.65,
+      "improvement_pct": -13.94,
+      "predecessor": "Claude Fable 5"
     }
   ],
   "Claude Haiku": [
+    {
+      "name": "Claude 3 Haiku",
+      "performance": 3.95,
+      "rank": 229,
+      "provider": "Anthropic",
+      "model_url": "https://artificialanalysis.ai/models/claude-3-haiku",
+      "release_date": "2024-03-04",
+      "variants": [
+        "Claude 3 Haiku"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 0.0,
+      "improvement_pct": 0.0,
+      "predecessor": null
+    },
+    {
+      "name": "Claude 3.5 Haiku",
+      "performance": 15.6,
+      "rank": 81,
+      "provider": "Anthropic",
+      "model_url": "https://artificialanalysis.ai/models/claude-3-5-haiku",
+      "release_date": "2024-10-22",
+      "variants": [
+        "Claude 3.5 Haiku"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 11.65,
+      "improvement_pct": 294.94,
+      "predecessor": "Claude 3 Haiku"
+    },
+    {
+      "name": "Claude 4.5 Haiku",
+      "performance": 31.74,
+      "rank": 26,
+      "provider": "Anthropic",
+      "model_url": "https://artificialanalysis.ai/models/claude-4-5-haiku-reasoning",
+      "release_date": "2025-10-15",
+      "variants": [
+        "Claude 4.5 Haiku (Non-reasoning)",
+        "Claude 4.5 Haiku (reasoning)",
+        "Claude 4.5 Haiku",
+        "Claude 4.5 Haiku (non-reasoning)"
+      ],
+      "variant_count": 4,
+      "improvement_abs": 16.14,
+      "improvement_pct": 103.46,
+      "predecessor": "Claude 3.5 Haiku"
+    },
     {
       "name": "Claude Haiku 5.5",
       "performance": 43.3950199670746,
@@ -347,40 +601,280 @@
       "model_url": "https://artificialanalysis.ai/models/claude-haiku-5-5",
       "release_date": "2026-10-07",
       "variants": [
-        "Claude Haiku 5.5 (Max)",
         "Claude Haiku 5.5 (xhigh)",
         "Claude Haiku 5.5 (high)",
         "Claude Haiku 5.5 (medium)",
-        "Claude Haiku 5.5 (low)"
+        "Claude Haiku 5.5 (low)",
+        "Claude Haiku 5.5 (max)",
+        "Claude Haiku 5.5 (Max)"
       ],
-      "variant_count": 5,
-      "improvement_abs": 0.0,
-      "improvement_pct": 0.0,
-      "predecessor": null
+      "variant_count": 6,
+      "improvement_abs": 11.66,
+      "improvement_pct": 36.72,
+      "predecessor": "Claude 4.5 Haiku"
     }
   ],
   "Claude Opus": [
     {
+      "name": "Claude 3 Opus",
+      "performance": 19.41,
+      "rank": 68,
+      "provider": "Anthropic",
+      "model_url": "https://artificialanalysis.ai/models/claude-3-opus",
+      "release_date": "2024-03-04",
+      "variants": [
+        "Claude 3 Opus"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 0.0,
+      "improvement_pct": 0.0,
+      "predecessor": null
+    },
+    {
+      "name": "Claude 4 Opus",
+      "performance": 28.95,
+      "rank": 32,
+      "provider": "Anthropic",
+      "model_url": "https://artificialanalysis.ai/models/claude-4-opus-thinking",
+      "release_date": "2025-05-22",
+      "variants": [
+        "Claude 4 Opus (Non-reasoning)"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 9.54,
+      "improvement_pct": 49.15,
+      "predecessor": "Claude 3 Opus"
+    },
+    {
+      "name": "Claude 4.1 Opus",
+      "performance": 33.69,
+      "rank": 23,
+      "provider": "Anthropic",
+      "model_url": "https://artificialanalysis.ai/models/claude-4-1-opus-thinking",
+      "release_date": "2025-08-05",
+      "variants": [
+        "Claude 4.1 Opus (Reasoning)"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 4.74,
+      "improvement_pct": 16.37,
+      "predecessor": "Claude 4 Opus"
+    },
+    {
+      "name": "Claude Opus 4.5",
+      "performance": 47.48,
+      "rank": 6,
+      "provider": "Anthropic",
+      "model_url": "https://artificialanalysis.ai/models/claude-opus-4-5-thinking",
+      "release_date": "2025-11-24",
+      "variants": [
+        "Claude Opus 4.5 (Non-reasoning)"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 13.79,
+      "improvement_pct": 40.93,
+      "predecessor": "Claude 4.1 Opus"
+    },
+    {
+      "name": "Claude Opus 4.6",
+      "performance": 51.43,
+      "rank": 2,
+      "provider": "Anthropic",
+      "model_url": "https://artificialanalysis.ai/models/claude-opus-4-6-adaptive",
+      "release_date": "2026-02-05",
+      "variants": [
+        "Claude Opus 4.6 (Non-reasoning, High Effort)"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 3.95,
+      "improvement_pct": 8.32,
+      "predecessor": "Claude Opus 4.5"
+    },
+    {
+      "name": "Claude Opus 4.7",
+      "performance": 54.0,
+      "rank": 11,
+      "provider": "Anthropic",
+      "model_url": "https://artificialanalysis.ai/models/claude-opus-4-7",
+      "release_date": "2026-04-16",
+      "variants": [
+        "Claude Opus 4.7 (max)",
+        "Claude Opus 4.7 (Non-reasoning, high)"
+      ],
+      "variant_count": 2,
+      "improvement_abs": 2.57,
+      "improvement_pct": 5.0,
+      "predecessor": "Claude Opus 4.6"
+    },
+    {
+      "name": "Claude Opus 4.8",
+      "performance": 56.0,
+      "rank": 6,
+      "provider": "Anthropic",
+      "model_url": "https://artificialanalysis.ai/models/claude-opus-4-8",
+      "release_date": "2026-05-28",
+      "variants": [
+        "Claude Opus 4.8 (max)"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 2.0,
+      "improvement_pct": 3.7,
+      "predecessor": "Claude Opus 4.7"
+    },
+    {
+      "name": "Claude Opus 5",
+      "performance": 63.0,
+      "rank": 1,
+      "provider": "Anthropic",
+      "model_url": "https://artificialanalysis.ai/models/claude-opus-5",
+      "release_date": "2026-07-24",
+      "variants": [
+        "Claude Opus 5 (max)",
+        "Claude Opus 5 (xhigh)",
+        "Claude Opus 5 (high)",
+        "Claude Opus 5 (medium)",
+        "Claude Opus 5 (low)"
+      ],
+      "variant_count": 5,
+      "improvement_abs": 7.0,
+      "improvement_pct": 12.5,
+      "predecessor": "Claude Opus 4.8"
+    },
+    {
       "name": "Claude Opus 5.5",
-      "performance": 57.6223698102963,
-      "rank": null,
+      "performance": 58.0,
+      "rank": 1,
       "provider": "Anthropic",
       "model_url": "https://artificialanalysis.ai/models/claude-opus-5-5",
       "release_date": "2026-09-22",
       "variants": [
+        "Claude Opus 5.5 (max with fallback)",
         "Claude Opus 5.5 (xhigh with fallback)",
-        "Claude Opus 5.5 (Max, Default Fallback)",
         "Claude Opus 5.5 (high with fallback)",
         "Claude Opus 5.5 (medium with fallback)",
-        "Claude Opus 5.5 (low with fallback)"
+        "Claude Opus 5.5 (low with fallback)",
+        "Claude Opus 5.5 (Xhigh, Default Fallback)",
+        "Claude Opus 5.5 (Max, Default Fallback)"
       ],
-      "variant_count": 5,
-      "improvement_abs": 0.0,
-      "improvement_pct": 0.0,
-      "predecessor": null
+      "variant_count": 7,
+      "improvement_abs": -5.0,
+      "improvement_pct": -7.94,
+      "predecessor": "Claude Opus 5"
     }
   ],
   "Claude Sonnet": [
+    {
+      "name": "Claude 3 Sonnet",
+      "performance": 4.04,
+      "rank": 227,
+      "provider": "Anthropic",
+      "model_url": "https://artificialanalysis.ai/models/claude-3-sonnet",
+      "release_date": "2024-03-04",
+      "variants": [
+        "Claude 3 Sonnet"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 0.0,
+      "improvement_pct": 0.0,
+      "predecessor": null
+    },
+    {
+      "name": "Claude 3.5 Sonnet (Oct '24)",
+      "performance": 23.34,
+      "rank": 50,
+      "provider": "Anthropic",
+      "model_url": "https://artificialanalysis.ai/models/claude-35-sonnet",
+      "release_date": "2024-10-22",
+      "variants": [
+        "Claude 3.5 Sonnet (Oct '24)"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 19.3,
+      "improvement_pct": 477.72,
+      "predecessor": "Claude 3 Sonnet"
+    },
+    {
+      "name": "Claude 3.7 Sonnet",
+      "performance": 30.29,
+      "rank": 31,
+      "provider": "Anthropic",
+      "model_url": "https://artificialanalysis.ai/models/claude-3-7-sonnet-thinking",
+      "release_date": "2025-02-24",
+      "variants": [
+        "Claude 3.7 Sonnet (Non-reasoning)"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 6.95,
+      "improvement_pct": 29.78,
+      "predecessor": "Claude 3.5 Sonnet (Oct '24)"
+    },
+    {
+      "name": "Claude 4 Sonnet",
+      "performance": 22.14,
+      "rank": 110,
+      "provider": "Anthropic",
+      "model_url": "https://artificialanalysis.ai/models/claude-4-sonnet-thinking",
+      "release_date": "2025-05-22",
+      "variants": [
+        "Claude 4 Sonnet (Non-reasoning)"
+      ],
+      "variant_count": 1,
+      "improvement_abs": -8.15,
+      "improvement_pct": -26.91,
+      "predecessor": "Claude 3.7 Sonnet"
+    },
+    {
+      "name": "Claude 4.5 Sonnet",
+      "performance": 26.33,
+      "rank": 106,
+      "provider": "Anthropic",
+      "model_url": "https://artificialanalysis.ai/models/claude-4-5-sonnet-thinking",
+      "release_date": "2025-09-29",
+      "variants": [
+        "Claude 4.5 Sonnet (Non-reasoning)"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 4.19,
+      "improvement_pct": 18.93,
+      "predecessor": "Claude 4 Sonnet"
+    },
+    {
+      "name": "Claude Sonnet 4.6",
+      "performance": 49.18,
+      "rank": 4,
+      "provider": "Anthropic",
+      "model_url": "https://artificialanalysis.ai/models/claude-sonnet-4-6-adaptive",
+      "release_date": "2026-02-17",
+      "variants": [
+        "Claude Sonnet 4.6 (Adaptive Reasoning, Max Effort)",
+        "Claude Sonnet 4.6 (Non-reasoning, Low Effort)",
+        "Claude Sonnet 4.6 (Non-reasoning, low)"
+      ],
+      "variant_count": 3,
+      "improvement_abs": 22.85,
+      "improvement_pct": 86.78,
+      "predecessor": "Claude 4.5 Sonnet"
+    },
+    {
+      "name": "Claude Sonnet 5",
+      "performance": 55.0,
+      "rank": 15,
+      "provider": "Anthropic",
+      "model_url": "https://artificialanalysis.ai/models/claude-sonnet-5",
+      "release_date": "2026-06-30",
+      "variants": [
+        "Claude Sonnet 5 (max)",
+        "Claude Sonnet 5 (Non-reasoning)",
+        "Claude Sonnet 5 (medium)",
+        "Claude Sonnet 5 (low)",
+        "Claude Sonnet 5 (xhigh)",
+        "Claude Sonnet 5 (high)"
+      ],
+      "variant_count": 6,
+      "improvement_abs": 5.82,
+      "improvement_pct": 11.83,
+      "predecessor": "Claude Sonnet 4.6"
+    },
     {
       "name": "Claude Sonnet 5.5",
       "performance": 56.0001286580794,
@@ -389,16 +883,16 @@
       "model_url": "https://artificialanalysis.ai/models/claude-sonnet-5-5",
       "release_date": "2026-09-28",
       "variants": [
-        "Claude Sonnet 5.5 (Max, Default Fallback)",
         "Claude Sonnet 5.5 (xhigh with fallback)",
         "Claude Sonnet 5.5 (high with fallback)",
         "Claude Sonnet 5.5 (medium with fallback)",
-        "Claude Sonnet 5.5 (low with fallback)"
+        "Claude Sonnet 5.5 (low with fallback)",
+        "Claude Sonnet 5.5 (Max, Default Fallback)"
       ],
       "variant_count": 5,
-      "improvement_abs": 0.0,
-      "improvement_pct": 0.0,
-      "predecessor": null
+      "improvement_abs": 1.0,
+      "improvement_pct": 1.82,
+      "predecessor": "Claude Sonnet 5"
     }
   ],
   "Cohere": [
@@ -467,6 +961,237 @@
   ],
   "DeepSeek": [
     {
+      "name": "DeepSeek LLM 67B Chat (V1)",
+      "performance": 6.24,
+      "rank": 94,
+      "provider": "DeepSeek",
+      "model_url": "https://artificialanalysis.ai/models/deepseek-llm-67b-chat",
+      "release_date": "2023-11-29",
+      "variants": [
+        "DeepSeek LLM 67B Chat (V1)"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 0.0,
+      "improvement_pct": 0.0,
+      "predecessor": null
+    },
+    {
+      "name": "DeepSeek-Coder-V2",
+      "performance": 8.41,
+      "rank": 92,
+      "provider": "DeepSeek",
+      "model_url": "https://artificialanalysis.ai/models/deepseek-coder-v2",
+      "release_date": "2024-06-17",
+      "variants": [
+        "DeepSeek-Coder-V2"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 2.17,
+      "improvement_pct": 34.78,
+      "predecessor": "DeepSeek LLM 67B Chat (V1)"
+    },
+    {
+      "name": "DeepSeek-V2.5 (Dec '24)",
+      "performance": 9.39,
+      "rank": 89,
+      "provider": "DeepSeek",
+      "model_url": "https://artificialanalysis.ai/models/deepseek-v2-5",
+      "release_date": "2024-12-10",
+      "variants": [
+        "DeepSeek-V2.5 (Dec '24)"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 0.98,
+      "improvement_pct": 11.65,
+      "predecessor": "DeepSeek-Coder-V2"
+    },
+    {
+      "name": "DeepSeek V3 (Dec '24)",
+      "performance": 19.77,
+      "rank": 66,
+      "provider": "DeepSeek",
+      "model_url": "https://artificialanalysis.ai/models/deepseek-v3",
+      "release_date": "2024-12-26",
+      "variants": [
+        "DeepSeek V3 (Dec '24)"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 10.38,
+      "improvement_pct": 110.54,
+      "predecessor": "DeepSeek-V2.5 (Dec '24)"
+    },
+    {
+      "name": "DeepSeek R1 Distill Qwen 1.5B",
+      "performance": 0.0,
+      "rank": 292,
+      "provider": "Alibaba",
+      "model_url": "https://artificialanalysis.ai/models/deepseek-r1-distill-qwen-1-5b",
+      "release_date": "2025-01-20",
+      "variants": [
+        "DeepSeek R1 Distill Qwen 1.5B"
+      ],
+      "variant_count": 1,
+      "improvement_abs": -19.77,
+      "improvement_pct": -100.0,
+      "predecessor": "DeepSeek V3 (Dec '24)"
+    },
+    {
+      "name": "DeepSeek R1 Distill Llama 8B",
+      "performance": 1.4,
+      "rank": 266,
+      "provider": "Meta",
+      "model_url": "https://artificialanalysis.ai/models/deepseek-r1-distill-llama-8b",
+      "release_date": "2025-01-20",
+      "variants": [
+        "DeepSeek R1 Distill Llama 8B"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 1.4,
+      "improvement_pct": 0.0,
+      "predecessor": "DeepSeek R1 Distill Qwen 1.5B"
+    },
+    {
+      "name": "DeepSeek R1 Distill Qwen 14B",
+      "performance": 6.3,
+      "rank": 204,
+      "provider": "Alibaba",
+      "model_url": "https://artificialanalysis.ai/models/deepseek-r1-distill-qwen-14b",
+      "release_date": "2025-01-20",
+      "variants": [
+        "DeepSeek R1 Distill Qwen 14B"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 4.9,
+      "improvement_pct": 350.0,
+      "predecessor": "DeepSeek R1 Distill Llama 8B"
+    },
+    {
+      "name": "DeepSeek R1 Distill Qwen 32B",
+      "performance": 9.82,
+      "rank": 162,
+      "provider": "Alibaba",
+      "model_url": "https://artificialanalysis.ai/models/deepseek-r1-distill-qwen-32b",
+      "release_date": "2025-01-20",
+      "variants": [
+        "DeepSeek R1 Distill Qwen 32B"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 3.52,
+      "improvement_pct": 55.87,
+      "predecessor": "DeepSeek R1 Distill Qwen 14B"
+    },
+    {
+      "name": "DeepSeek R1 Distill Llama 70B",
+      "performance": 5.61,
+      "rank": 211,
+      "provider": "Meta",
+      "model_url": "https://artificialanalysis.ai/models/deepseek-r1-distill-llama-70b",
+      "release_date": "2025-01-20",
+      "variants": [
+        "DeepSeek R1 Distill Llama 70B"
+      ],
+      "variant_count": 1,
+      "improvement_abs": -4.21,
+      "improvement_pct": -42.87,
+      "predecessor": "DeepSeek R1 Distill Qwen 32B"
+    },
+    {
+      "name": "DeepSeek V3 0324",
+      "performance": 25.01,
+      "rank": 45,
+      "provider": "DeepSeek",
+      "model_url": "https://artificialanalysis.ai/models/deepseek-v3-0324",
+      "release_date": "2025-03-25",
+      "variants": [
+        "DeepSeek V3 0324"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 19.4,
+      "improvement_pct": 345.81,
+      "predecessor": "DeepSeek R1 Distill Llama 70B"
+    },
+    {
+      "name": "DeepSeek V3.1",
+      "performance": 31.16,
+      "rank": 27,
+      "provider": "DeepSeek",
+      "model_url": "https://artificialanalysis.ai/models/deepseek-v3-1",
+      "release_date": "2025-08-21",
+      "variants": [
+        "DeepSeek V3.1 (Non-reasoning)"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 6.15,
+      "improvement_pct": 24.59,
+      "predecessor": "DeepSeek V3 0324"
+    },
+    {
+      "name": "DeepSeek V3.2",
+      "performance": 37.46,
+      "rank": 16,
+      "provider": "DeepSeek",
+      "model_url": "https://artificialanalysis.ai/models/deepseek-v3-2-reasoning",
+      "release_date": "2025-12-01",
+      "variants": [
+        "DeepSeek V3.2 (Non-reasoning)"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 6.3,
+      "improvement_pct": 20.22,
+      "predecessor": "DeepSeek V3.1"
+    },
+    {
+      "name": "DeepSeek V3.2 Speciale",
+      "performance": 36.22,
+      "rank": 18,
+      "provider": "DeepSeek",
+      "model_url": "https://artificialanalysis.ai/models/deepseek-v3-2-speciale",
+      "release_date": "2025-12-01",
+      "variants": [
+        "DeepSeek V3.2 Speciale"
+      ],
+      "variant_count": 1,
+      "improvement_abs": -1.24,
+      "improvement_pct": -3.31,
+      "predecessor": "DeepSeek V3.2"
+    },
+    {
+      "name": "DeepSeek V4 Flash",
+      "performance": 40.0,
+      "rank": 44,
+      "provider": "DeepSeek",
+      "model_url": "https://artificialanalysis.ai/models/deepseek-v4-flash",
+      "release_date": "2026-04-24",
+      "variants": [
+        "DeepSeek V4 Flash (max)",
+        "DeepSeek V4 Flash (high)",
+        "DeepSeek V4 Flash (non-reasoning)",
+        "DeepSeek V4 Flash (Non-reasoning)"
+      ],
+      "variant_count": 4,
+      "improvement_abs": 3.78,
+      "improvement_pct": 10.44,
+      "predecessor": "DeepSeek V3.2 Speciale"
+    },
+    {
+      "name": "DeepSeek V4 Pro",
+      "performance": 45.0,
+      "rank": 35,
+      "provider": "DeepSeek",
+      "model_url": "https://artificialanalysis.ai/models/deepseek-v4-pro",
+      "release_date": "2026-04-24",
+      "variants": [
+        "DeepSeek V4 Pro (max)",
+        "DeepSeek V4 Pro (high)",
+        "DeepSeek V4 Pro (non-reasoning)",
+        "DeepSeek V4 Pro (Non-reasoning)"
+      ],
+      "variant_count": 4,
+      "improvement_abs": 5.0,
+      "improvement_pct": 12.5,
+      "predecessor": "DeepSeek V4 Flash"
+    },
+    {
       "name": "DeepSeek V4 Pro 0813",
       "performance": 36.0,
       "rank": 51.0,
@@ -478,9 +1203,9 @@
         "DeepSeek V4 Pro 0813 (non-reasoning)"
       ],
       "variant_count": 2,
-      "improvement_abs": 0.0,
-      "improvement_pct": 0.0,
-      "predecessor": null
+      "improvement_abs": -9.0,
+      "improvement_pct": -20.0,
+      "predecessor": "DeepSeek V4 Pro"
     },
     {
       "name": "DeepSeek V4 Flash Vision",
@@ -498,19 +1223,69 @@
       "predecessor": "DeepSeek V4 Pro 0813"
     },
     {
+      "name": "DeepSeek V4.1 Flash",
+      "performance": 40.0,
+      "rank": 36,
+      "provider": "DeepSeek",
+      "model_url": "https://artificialanalysis.ai/models/deepseek-v4-1-flash",
+      "release_date": "2026-09-10",
+      "variants": [
+        "DeepSeek V4.1 Flash (max)",
+        "DeepSeek V4.1 Flash (Non-reasoning)",
+        "DeepSeek V4.1 Flash (non-reasoning)"
+      ],
+      "variant_count": 3,
+      "improvement_abs": 5.0,
+      "improvement_pct": 14.29,
+      "predecessor": "DeepSeek V4 Flash Vision"
+    },
+    {
       "name": "DeepSeek V4.1 Flash 1017",
-      "performance": 45.0,
-      "rank": 28.0,
+      "performance": 45.0965048681912,
+      "rank": null,
       "provider": "DeepSeek",
       "model_url": "https://artificialanalysis.ai/models/deepseek-v4-1-flash-1017",
       "release_date": "2026-10-17",
       "variants": [
-        "DeepSeek V4.1 Flash 1017 (max)"
+        "DeepSeek V4.1 Flash 1017 (max)",
+        "DeepSeek V4.1 Flash 1017 (Max)"
+      ],
+      "variant_count": 2,
+      "improvement_abs": 5.1,
+      "improvement_pct": 12.74,
+      "predecessor": "DeepSeek V4.1 Flash"
+    }
+  ],
+  "Devstral": [
+    {
+      "name": "Devstral Medium",
+      "performance": 8.37,
+      "rank": 176,
+      "provider": "",
+      "model_url": "https://artificialanalysis.ai/models/devstral-medium",
+      "release_date": "2025-07-10",
+      "variants": [
+        "Devstral Medium"
       ],
       "variant_count": 1,
-      "improvement_abs": 10.0,
-      "improvement_pct": 28.57,
-      "predecessor": "DeepSeek V4 Flash Vision"
+      "improvement_abs": 0.0,
+      "improvement_pct": 0.0,
+      "predecessor": null
+    },
+    {
+      "name": "Devstral Small (Jul '25)",
+      "performance": 5.87,
+      "rank": 208,
+      "provider": "",
+      "model_url": "https://artificialanalysis.ai/models/devstral-small",
+      "release_date": "2025-07-10",
+      "variants": [
+        "Devstral Small (Jul '25)"
+      ],
+      "variant_count": 1,
+      "improvement_abs": -2.5,
+      "improvement_pct": -29.87,
+      "predecessor": "Devstral Medium"
     }
   ],
   "ERNIE": [
@@ -547,6 +1322,174 @@
   ],
   "GLM": [
     {
+      "name": "GLM-4.5-Air",
+      "performance": 26.5,
+      "rank": 37,
+      "provider": "Z.ai",
+      "model_url": "https://artificialanalysis.ai/models/glm-4-5-air",
+      "release_date": "2025-07-28",
+      "variants": [
+        "GLM-4.5-Air"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 0.0,
+      "improvement_pct": 0.0,
+      "predecessor": null
+    },
+    {
+      "name": "GLM-4.5V",
+      "performance": 19.7,
+      "rank": 67,
+      "provider": "Z.ai",
+      "model_url": "https://artificialanalysis.ai/models/glm-4-5v-reasoning",
+      "release_date": "2025-08-11",
+      "variants": [
+        "GLM-4.5V (Reasoning)"
+      ],
+      "variant_count": 1,
+      "improvement_abs": -6.8,
+      "improvement_pct": -25.66,
+      "predecessor": "GLM-4.5-Air"
+    },
+    {
+      "name": "GLM-4.6",
+      "performance": 31.13,
+      "rank": 28,
+      "provider": "Z.ai",
+      "model_url": "https://artificialanalysis.ai/models/glm-4-6-reasoning",
+      "release_date": "2025-09-30",
+      "variants": [
+        "GLM-4.6 (Non-reasoning)"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 11.43,
+      "improvement_pct": 58.02,
+      "predecessor": "GLM-4.5V"
+    },
+    {
+      "name": "GLM-4.6V",
+      "performance": 21.59,
+      "rank": 60,
+      "provider": "Z.ai",
+      "model_url": "https://artificialanalysis.ai/models/glm-4-6v-reasoning",
+      "release_date": "2025-12-08",
+      "variants": [
+        "GLM-4.6V (Reasoning)"
+      ],
+      "variant_count": 1,
+      "improvement_abs": -9.54,
+      "improvement_pct": -30.65,
+      "predecessor": "GLM-4.6"
+    },
+    {
+      "name": "GLM-4.7",
+      "performance": 37.67,
+      "rank": 15,
+      "provider": "Z.ai",
+      "model_url": "https://artificialanalysis.ai/models/glm-4-7",
+      "release_date": "2025-12-22",
+      "variants": [
+        "GLM-4.7 (Non-reasoning)"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 16.08,
+      "improvement_pct": 74.48,
+      "predecessor": "GLM-4.6V"
+    },
+    {
+      "name": "GLM-4.7-Flash",
+      "performance": 20.11,
+      "rank": 63,
+      "provider": "Z.ai",
+      "model_url": "https://artificialanalysis.ai/models/glm-4-7-flash",
+      "release_date": "2026-01-19",
+      "variants": [
+        "GLM-4.7-Flash (Non-reasoning)"
+      ],
+      "variant_count": 1,
+      "improvement_abs": -17.56,
+      "improvement_pct": -46.62,
+      "predecessor": "GLM-4.7"
+    },
+    {
+      "name": "GLM-5",
+      "performance": 43.62,
+      "rank": 10,
+      "provider": "Z.ai",
+      "model_url": "https://artificialanalysis.ai/models/glm-5",
+      "release_date": "2026-02-11",
+      "variants": [
+        "GLM-5 (Reasoning)"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 23.51,
+      "improvement_pct": 116.91,
+      "predecessor": "GLM-4.7-Flash"
+    },
+    {
+      "name": "GLM-5-Turbo",
+      "performance": 38.0,
+      "rank": 53,
+      "provider": "Z AI",
+      "model_url": "https://artificialanalysis.ai/models/glm-5-turbo",
+      "release_date": "2026-03-15",
+      "variants": [
+        "GLM-5-Turbo"
+      ],
+      "variant_count": 1,
+      "improvement_abs": -5.62,
+      "improvement_pct": -12.88,
+      "predecessor": "GLM-5"
+    },
+    {
+      "name": "GLM 5V Turbo",
+      "performance": 34.0,
+      "rank": 68,
+      "provider": "Z AI",
+      "model_url": "https://artificialanalysis.ai/models/glm-5v-turbo",
+      "release_date": "2026-04-01",
+      "variants": [
+        "GLM 5V Turbo"
+      ],
+      "variant_count": 1,
+      "improvement_abs": -4.0,
+      "improvement_pct": -10.53,
+      "predecessor": "GLM-5-Turbo"
+    },
+    {
+      "name": "GLM-5.1",
+      "performance": 40.0,
+      "rank": 45,
+      "provider": "Z AI",
+      "model_url": "https://artificialanalysis.ai/models/glm-5-1",
+      "release_date": "2026-04-07",
+      "variants": [
+        "GLM-5.1",
+        "GLM-5.1 (non-reasoning)"
+      ],
+      "variant_count": 2,
+      "improvement_abs": 6.0,
+      "improvement_pct": 17.65,
+      "predecessor": "GLM 5V Turbo"
+    },
+    {
+      "name": "GLM-5.2",
+      "performance": 53.0,
+      "rank": 18,
+      "provider": "Z AI",
+      "model_url": "https://artificialanalysis.ai/models/glm-5-2",
+      "release_date": "2026-06-16",
+      "variants": [
+        "GLM-5.2 (max)",
+        "GLM-5.2 (non-reasoning)",
+        "GLM-5.2 (Non-reasoning)"
+      ],
+      "variant_count": 3,
+      "improvement_abs": 13.0,
+      "improvement_pct": 32.5,
+      "predecessor": "GLM-5.1"
+    },
+    {
       "name": "GLM-5.3",
       "performance": 45.0,
       "rank": 29.0,
@@ -555,12 +1498,13 @@
       "release_date": "2026-08-18",
       "variants": [
         "GLM-5.3 (max)",
-        "GLM-5.3 (low)"
+        "GLM-5.3 (low)",
+        "GLM-5.3 (Max)"
       ],
-      "variant_count": 2,
-      "improvement_abs": 0.0,
-      "improvement_pct": 0.0,
-      "predecessor": null
+      "variant_count": 3,
+      "improvement_abs": -8.0,
+      "improvement_pct": -15.09,
+      "predecessor": "GLM-5.2"
     },
     {
       "name": "GLM-5.3-Flash",
@@ -580,6 +1524,126 @@
   ],
   "GPT": [
     {
+      "name": "GPT-3.5 Turbo",
+      "performance": 3.42,
+      "rank": 234,
+      "provider": "OpenAI",
+      "model_url": "https://artificialanalysis.ai/models/gpt-35-turbo",
+      "release_date": "2022-11-30",
+      "variants": [
+        "GPT-3.5 Turbo"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 0.0,
+      "improvement_pct": 0.0,
+      "predecessor": null
+    },
+    {
+      "name": "GPT-4",
+      "performance": 3.79,
+      "rank": 231,
+      "provider": "OpenAI",
+      "model_url": "https://artificialanalysis.ai/models/gpt-4",
+      "release_date": "2023-03-14",
+      "variants": [
+        "GPT-4"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 0.37,
+      "improvement_pct": 10.82,
+      "predecessor": "GPT-3.5 Turbo"
+    },
+    {
+      "name": "GPT-4 Turbo",
+      "performance": 16.32,
+      "rank": 80,
+      "provider": "OpenAI",
+      "model_url": "https://artificialanalysis.ai/models/gpt-4-turbo",
+      "release_date": "2023-11-06",
+      "variants": [
+        "GPT-4 Turbo"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 12.53,
+      "improvement_pct": 330.61,
+      "predecessor": "GPT-4"
+    },
+    {
+      "name": "GPT-4o (Aug '24)",
+      "performance": 22.18,
+      "rank": 52,
+      "provider": "OpenAI",
+      "model_url": "https://artificialanalysis.ai/models/gpt-4o",
+      "release_date": "2024-11-20",
+      "variants": [
+        "GPT-4o (Aug '24)"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 5.86,
+      "improvement_pct": 35.91,
+      "predecessor": "GPT-4 Turbo"
+    },
+    {
+      "name": "GPT-4.5 (Preview)",
+      "performance": 0.0,
+      "rank": 294,
+      "provider": "OpenAI",
+      "model_url": "https://artificialanalysis.ai/models/gpt-4-5",
+      "release_date": "2025-02-27",
+      "variants": [
+        "GPT-4.5 (Preview)"
+      ],
+      "variant_count": 1,
+      "improvement_abs": -22.18,
+      "improvement_pct": -100.0,
+      "predecessor": "GPT-4o (Aug '24)"
+    },
+    {
+      "name": "GPT-4.1",
+      "performance": 26.0,
+      "rank": 39,
+      "provider": "OpenAI",
+      "model_url": "https://artificialanalysis.ai/models/gpt-4-1",
+      "release_date": "2025-04-14",
+      "variants": [
+        "GPT-4.1"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 26.0,
+      "improvement_pct": 0.0,
+      "predecessor": "GPT-4.5 (Preview)"
+    },
+    {
+      "name": "GPT-4.1 nano",
+      "performance": 17.77,
+      "rank": 76,
+      "provider": "OpenAI",
+      "model_url": "https://artificialanalysis.ai/models/gpt-4-1-nano",
+      "release_date": "2025-04-14",
+      "variants": [
+        "GPT-4.1 nano"
+      ],
+      "variant_count": 1,
+      "improvement_abs": -8.23,
+      "improvement_pct": -31.65,
+      "predecessor": "GPT-4.1"
+    },
+    {
+      "name": "gpt-oss-20B",
+      "performance": 21.73,
+      "rank": 57,
+      "provider": "OpenAI",
+      "model_url": "https://artificialanalysis.ai/models/gpt-oss-20b",
+      "release_date": "2025-08-05",
+      "variants": [
+        "gpt-oss-20B (high)"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 3.96,
+      "improvement_pct": 22.28,
+      "predecessor": "GPT-4.1 nano"
+    },
+    {
       "name": "gpt-oss-20b",
       "performance": 10.0,
       "rank": 165.0,
@@ -587,13 +1651,28 @@
       "model_url": "https://artificialanalysis.ai/models/gpt-oss-20b-low",
       "release_date": "2025-08-05",
       "variants": [
-        "gpt-oss-20b (low)",
-        "gpt-oss-20b (high)"
+        "gpt-oss-20b (high)",
+        "gpt-oss-20b (low)"
       ],
       "variant_count": 2,
-      "improvement_abs": 0.0,
-      "improvement_pct": 0.0,
-      "predecessor": null
+      "improvement_abs": -11.73,
+      "improvement_pct": -53.98,
+      "predecessor": "gpt-oss-20B"
+    },
+    {
+      "name": "gpt-oss-120B",
+      "performance": 27.82,
+      "rank": 36,
+      "provider": "OpenAI",
+      "model_url": "https://artificialanalysis.ai/models/gpt-oss-120b",
+      "release_date": "2025-08-05",
+      "variants": [
+        "gpt-oss-120B (high)"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 17.82,
+      "improvement_pct": 178.2,
+      "predecessor": "gpt-oss-20b"
     },
     {
       "name": "gpt-oss-120b",
@@ -607,9 +1686,105 @@
         "gpt-oss-120b (low)"
       ],
       "variant_count": 2,
-      "improvement_abs": 2.0,
-      "improvement_pct": 20.0,
-      "predecessor": "gpt-oss-20b"
+      "improvement_abs": -15.82,
+      "improvement_pct": -56.87,
+      "predecessor": "gpt-oss-120B"
+    },
+    {
+      "name": "GPT-5",
+      "performance": 36.2,
+      "rank": 19,
+      "provider": "OpenAI",
+      "model_url": "https://artificialanalysis.ai/models/gpt-5",
+      "release_date": "2025-08-07",
+      "variants": [
+        "GPT-5 (high)"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 24.2,
+      "improvement_pct": 201.67,
+      "predecessor": "gpt-oss-120b"
+    },
+    {
+      "name": "GPT-5 nano",
+      "performance": 21.72,
+      "rank": 58,
+      "provider": "OpenAI",
+      "model_url": "https://artificialanalysis.ai/models/gpt-5-nano",
+      "release_date": "2025-08-07",
+      "variants": [
+        "GPT-5 nano (high)"
+      ],
+      "variant_count": 1,
+      "improvement_abs": -14.48,
+      "improvement_pct": -40.0,
+      "predecessor": "GPT-5"
+    },
+    {
+      "name": "GPT-5.1",
+      "performance": 41.11,
+      "rank": 13,
+      "provider": "OpenAI",
+      "model_url": "https://artificialanalysis.ai/models/gpt-5-1",
+      "release_date": "2025-11-13",
+      "variants": [
+        "GPT-5.1 (high)"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 19.39,
+      "improvement_pct": 89.27,
+      "predecessor": "GPT-5 nano"
+    },
+    {
+      "name": "GPT-5.2",
+      "performance": 47.79,
+      "rank": 5,
+      "provider": "OpenAI",
+      "model_url": "https://artificialanalysis.ai/models/gpt-5-2",
+      "release_date": "2025-12-11",
+      "variants": [
+        "GPT-5.2 (xhigh)"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 6.68,
+      "improvement_pct": 16.25,
+      "predecessor": "GPT-5.1"
+    },
+    {
+      "name": "GPT-5.4 nano",
+      "performance": 38.0,
+      "rank": 51,
+      "provider": "OpenAI",
+      "model_url": "https://artificialanalysis.ai/models/gpt-5-4-nano",
+      "release_date": "2026-03-17",
+      "variants": [
+        "GPT-5.4 nano (xhigh)",
+        "GPT-5.4 nano",
+        "GPT-5.4 nano (non-reasoning)"
+      ],
+      "variant_count": 3,
+      "improvement_abs": -9.79,
+      "improvement_pct": -20.49,
+      "predecessor": "GPT-5.2"
+    },
+    {
+      "name": "GPT-5.5",
+      "performance": 55.0,
+      "rank": 8,
+      "provider": "OpenAI",
+      "model_url": "https://artificialanalysis.ai/models/gpt-5-5",
+      "release_date": "2026-04-23",
+      "variants": [
+        "GPT-5.5 (xhigh)",
+        "GPT-5.5 (high)",
+        "GPT-5.5 (medium)",
+        "GPT-5.5 (low)",
+        "GPT-5.5 (Non-reasoning)"
+      ],
+      "variant_count": 5,
+      "improvement_abs": 17.0,
+      "improvement_pct": 44.74,
+      "predecessor": "GPT-5.4 nano"
     },
     {
       "name": "GPT-5.5 Instant (June 2026)",
@@ -622,14 +1797,14 @@
         "GPT-5.5 Instant (June 2026)"
       ],
       "variant_count": 1,
-      "improvement_abs": 14.0,
-      "improvement_pct": 116.67,
-      "predecessor": "gpt-oss-120b"
+      "improvement_abs": -29.0,
+      "improvement_pct": -52.73,
+      "predecessor": "GPT-5.5"
     },
     {
       "name": "GPT-6 Astra",
-      "performance": 53.0,
-      "rank": 7.0,
+      "performance": 55.0,
+      "rank": 37,
       "provider": "OpenAI",
       "model_url": "https://artificialanalysis.ai/models/gpt-6-astra",
       "release_date": "2026-09-03",
@@ -638,15 +1813,77 @@
         "GPT-6 Astra (xhigh)",
         "GPT-6 Astra (high)",
         "GPT-6 Astra (medium)",
-        "GPT-6 Astra (low)"
+        "GPT-6 Astra (low)",
+        "GPT-6 Astra (Non-reasoning)",
+        "GPT-6 Astra (Max)"
       ],
-      "variant_count": 5,
-      "improvement_abs": 27.0,
-      "improvement_pct": 103.85,
+      "variant_count": 7,
+      "improvement_abs": 29.0,
+      "improvement_pct": 111.54,
       "predecessor": "GPT-5.5 Instant (June 2026)"
     }
   ],
   "GPT Codex": [
+    {
+      "name": "GPT-5 Codex",
+      "performance": 32.31,
+      "rank": 98,
+      "provider": "OpenAI",
+      "model_url": "https://artificialanalysis.ai/models/gpt-5-codex",
+      "release_date": "2025-09-23",
+      "variants": [
+        "GPT-5 Codex (high)"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 0.0,
+      "improvement_pct": 0.0,
+      "predecessor": null
+    },
+    {
+      "name": "GPT-5.1 Codex",
+      "performance": 30.79,
+      "rank": 100,
+      "provider": "OpenAI",
+      "model_url": "https://artificialanalysis.ai/models/gpt-5-1-codex",
+      "release_date": "2025-11-13",
+      "variants": [
+        "GPT-5.1 Codex (high)"
+      ],
+      "variant_count": 1,
+      "improvement_abs": -1.52,
+      "improvement_pct": -4.7,
+      "predecessor": "GPT-5 Codex"
+    },
+    {
+      "name": "GPT-5.1 Codex mini",
+      "performance": 27.62,
+      "rank": 105,
+      "provider": "OpenAI",
+      "model_url": "https://artificialanalysis.ai/models/gpt-5-1-codex-mini",
+      "release_date": "2025-11-13",
+      "variants": [
+        "GPT-5.1 Codex mini (high)"
+      ],
+      "variant_count": 1,
+      "improvement_abs": -3.17,
+      "improvement_pct": -10.3,
+      "predecessor": "GPT-5.1 Codex"
+    },
+    {
+      "name": "GPT-5.2 Codex",
+      "performance": 37.18,
+      "rank": 97,
+      "provider": "OpenAI",
+      "model_url": "https://artificialanalysis.ai/models/gpt-5-2-codex",
+      "release_date": "2025-12-11",
+      "variants": [
+        "GPT-5.2 Codex (xhigh)"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 9.56,
+      "improvement_pct": 34.61,
+      "predecessor": "GPT-5.1 Codex mini"
+    },
     {
       "name": "GPT-5.3 Codex",
       "performance": 33.0,
@@ -658,16 +1895,36 @@
         "GPT-5.3 Codex (xhigh)"
       ],
       "variant_count": 1,
-      "improvement_abs": 0.0,
-      "improvement_pct": 0.0,
-      "predecessor": null
+      "improvement_abs": -4.18,
+      "improvement_pct": -11.24,
+      "predecessor": "GPT-5.2 Codex"
     }
   ],
   "GPT Luna": [
     {
+      "name": "GPT-5.6 Luna",
+      "performance": 52.0,
+      "rank": 20,
+      "provider": "OpenAI",
+      "model_url": "https://artificialanalysis.ai/models/gpt-5-6-luna",
+      "release_date": "2026-07-09",
+      "variants": [
+        "GPT-5.6 Luna (max)",
+        "GPT-5.6 Luna (xhigh)",
+        "GPT-5.6 Luna (high)",
+        "GPT-5.6 Luna (medium)",
+        "GPT-5.6 Luna (low)",
+        "GPT-5.6 Luna (Non-reasoning)"
+      ],
+      "variant_count": 6,
+      "improvement_abs": 0.0,
+      "improvement_pct": 0.0,
+      "predecessor": null
+    },
+    {
       "name": "GPT-6 Luna",
-      "performance": 38.0,
-      "rank": 47.0,
+      "performance": 38.1245186869738,
+      "rank": null,
       "provider": "OpenAI",
       "model_url": "https://artificialanalysis.ai/models/gpt-6-luna",
       "release_date": "2026-09-22",
@@ -677,15 +1934,152 @@
         "GPT-6 Luna (high)",
         "GPT-6 Luna (medium)",
         "GPT-6 Luna (low)",
-        "GPT-6 Luna (non-reasoning)"
+        "GPT-6 Luna (Non-reasoning)",
+        "GPT-6 Luna (non-reasoning)",
+        "GPT-6 Luna (Max)"
+      ],
+      "variant_count": 8,
+      "improvement_abs": -13.88,
+      "improvement_pct": -26.68,
+      "predecessor": "GPT-5.6 Luna"
+    }
+  ],
+  "GPT Mini": [
+    {
+      "name": "GPT-4o mini",
+      "performance": 14.63,
+      "rank": 82,
+      "provider": "OpenAI",
+      "model_url": "https://artificialanalysis.ai/models/gpt-4o-mini",
+      "release_date": "2024-07-18",
+      "variants": [
+        "GPT-4o mini"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 0.0,
+      "improvement_pct": 0.0,
+      "predecessor": null
+    },
+    {
+      "name": "o1-mini",
+      "performance": 20.08,
+      "rank": 64,
+      "provider": "OpenAI",
+      "model_url": "https://artificialanalysis.ai/models/o1-mini",
+      "release_date": "2024-09-12",
+      "variants": [
+        "o1-mini"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 5.45,
+      "improvement_pct": 37.25,
+      "predecessor": "GPT-4o mini"
+    },
+    {
+      "name": "o3-mini",
+      "performance": 25.24,
+      "rank": 43,
+      "provider": "OpenAI",
+      "model_url": "https://artificialanalysis.ai/models/o3-mini",
+      "release_date": "2025-01-31",
+      "variants": [
+        "o3-mini (high)"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 5.16,
+      "improvement_pct": 25.7,
+      "predecessor": "o1-mini"
+    },
+    {
+      "name": "GPT-4.1 mini",
+      "performance": 24.03,
+      "rank": 46,
+      "provider": "OpenAI",
+      "model_url": "https://artificialanalysis.ai/models/gpt-4-1-mini",
+      "release_date": "2025-04-14",
+      "variants": [
+        "GPT-4.1 mini"
+      ],
+      "variant_count": 1,
+      "improvement_abs": -1.21,
+      "improvement_pct": -4.79,
+      "predecessor": "o3-mini"
+    },
+    {
+      "name": "o4-mini",
+      "performance": 33.59,
+      "rank": 24,
+      "provider": "OpenAI",
+      "model_url": "https://artificialanalysis.ai/models/o4-mini",
+      "release_date": "2025-04-16",
+      "variants": [
+        "o4-mini (high)"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 9.56,
+      "improvement_pct": 39.78,
+      "predecessor": "GPT-4.1 mini"
+    },
+    {
+      "name": "GPT-5.4 mini",
+      "performance": 40.0,
+      "rank": 46,
+      "provider": "OpenAI",
+      "model_url": "https://artificialanalysis.ai/models/gpt-5-4-mini",
+      "release_date": "2026-03-17",
+      "variants": [
+        "GPT-5.4 mini (xhigh)",
+        "GPT-5.4 mini (medium)",
+        "GPT-5.4 mini (non-reasoning)"
+      ],
+      "variant_count": 3,
+      "improvement_abs": 6.41,
+      "improvement_pct": 19.08,
+      "predecessor": "o4-mini"
+    }
+  ],
+  "GPT Sol": [
+    {
+      "name": "GPT-5.6 Sol",
+      "performance": 61.0,
+      "rank": 5,
+      "provider": "OpenAI",
+      "model_url": "https://artificialanalysis.ai/models/gpt-5-6-sol",
+      "release_date": "2026-07-09",
+      "variants": [
+        "GPT-5.6 Sol (max)",
+        "GPT-5.6 Sol (xhigh)",
+        "GPT-5.6 Sol (high)",
+        "GPT-5.6 Sol (medium)",
+        "GPT-5.6 Sol (low)",
+        "GPT-5.6 Sol (Non-reasoning)"
       ],
       "variant_count": 6,
       "improvement_abs": 0.0,
       "improvement_pct": 0.0,
       "predecessor": null
-    }
-  ],
-  "GPT Sol": [
+    },
+    {
+      "name": "GPT-6 Sol",
+      "performance": 48.0,
+      "rank": 13,
+      "provider": "OpenAI",
+      "model_url": "https://artificialanalysis.ai/models/gpt-6-sol",
+      "release_date": "2026-09-22",
+      "variants": [
+        "GPT-6 Sol (max)",
+        "GPT-6 Sol (xhigh)",
+        "GPT-6 Sol (high)",
+        "GPT-6 Sol (medium)",
+        "GPT-6 Sol (low)",
+        "GPT-6 Sol (Non-reasoning)",
+        "GPT-6 Sol (non-reasoning)"
+      ],
+      "variant_count": 7,
+      "improvement_abs": -13.0,
+      "improvement_pct": -21.31,
+      "predecessor": "GPT-5.6 Sol"
+    },
     {
       "name": "GPT-6.1 Sol",
       "performance": 52.0,
@@ -698,12 +2092,13 @@
         "GPT-6.1 Sol (xhigh)",
         "GPT-6.1 Sol (high)",
         "GPT-6.1 Sol (medium)",
-        "GPT-6.1 Sol (low)"
+        "GPT-6.1 Sol (low)",
+        "GPT-6.1 Sol (Max)"
       ],
-      "variant_count": 5,
-      "improvement_abs": 0.0,
-      "improvement_pct": 0.0,
-      "predecessor": null
+      "variant_count": 6,
+      "improvement_abs": 4.0,
+      "improvement_pct": 8.33,
+      "predecessor": "GPT-6 Sol"
     }
   ],
   "GPT Terra": [
@@ -720,15 +2115,31 @@
         "GPT-5.6 Terra (high)",
         "GPT-5.6 Terra (medium)",
         "GPT-5.6 Terra (low)",
+        "GPT-5.6 Terra (Non-reasoning)",
         "GPT-5.6 Terra (non-reasoning)"
       ],
-      "variant_count": 6,
+      "variant_count": 7,
       "improvement_abs": 0.0,
       "improvement_pct": 0.0,
       "predecessor": null
     }
   ],
   "Gemini": [
+    {
+      "name": "PALM-2",
+      "performance": 6.86,
+      "rank": 93,
+      "provider": "Google",
+      "model_url": "https://artificialanalysis.ai/models/palm-2",
+      "release_date": "2023-05-10",
+      "variants": [
+        "PALM-2"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 0.0,
+      "improvement_pct": 0.0,
+      "predecessor": null
+    },
     {
       "name": "Gemma 3 270M",
       "performance": 5.0,
@@ -740,9 +2151,9 @@
         "Gemma 3 270M"
       ],
       "variant_count": 1,
-      "improvement_abs": 0.0,
-      "improvement_pct": 0.0,
-      "predecessor": null
+      "improvement_abs": -1.86,
+      "improvement_pct": -27.11,
+      "predecessor": "PALM-2"
     },
     {
       "name": "Gemma 4 E2B",
@@ -753,43 +2164,46 @@
       "release_date": "2026-04-02",
       "variants": [
         "Gemma 4 E2B",
-        "Gemma 4 E2B (non-reasoning)"
+        "Gemma 4 E2B (non-reasoning)",
+        "Gemma 4 E2B (Non-reasoning)"
       ],
-      "variant_count": 2,
+      "variant_count": 3,
       "improvement_abs": 3.0,
       "improvement_pct": 60.0,
       "predecessor": "Gemma 3 270M"
     },
     {
       "name": "Gemma 4 26B A4B",
-      "performance": 17.0,
-      "rank": 115.0,
+      "performance": 20.0,
+      "rank": 135,
       "provider": "Google",
       "model_url": "https://artificialanalysis.ai/models/gemma-4-26b-a4b",
       "release_date": "2026-04-02",
       "variants": [
         "Gemma 4 26B A4B",
-        "Gemma 4 26B A4B (non-reasoning)"
+        "Gemma 4 26B A4B (non-reasoning)",
+        "Gemma 4 26B A4B (Non-reasoning)"
       ],
-      "variant_count": 2,
-      "improvement_abs": 9.0,
-      "improvement_pct": 112.5,
+      "variant_count": 3,
+      "improvement_abs": 12.0,
+      "improvement_pct": 150.0,
       "predecessor": "Gemma 4 E2B"
     },
     {
       "name": "Gemma 4 31B",
-      "performance": 15.0,
-      "rank": 120.0,
+      "performance": 22.0,
+      "rank": 124,
       "provider": "Google",
       "model_url": "https://artificialanalysis.ai/models/gemma-4-31b",
       "release_date": "2026-04-02",
       "variants": [
         "Gemma 4 31B",
-        "Gemma 4 31B (non-reasoning)"
+        "Gemma 4 31B (non-reasoning)",
+        "Gemma 4 31B (Non-reasoning)"
       ],
-      "variant_count": 2,
-      "improvement_abs": -2.0,
-      "improvement_pct": -11.76,
+      "variant_count": 3,
+      "improvement_abs": 2.0,
+      "improvement_pct": 10.0,
       "predecessor": "Gemma 4 26B A4B"
     },
     {
@@ -801,11 +2215,12 @@
       "release_date": "2026-04-03",
       "variants": [
         "Gemma 4 E4B",
-        "Gemma 4 E4B (non-reasoning)"
+        "Gemma 4 E4B (non-reasoning)",
+        "Gemma 4 E4B (Non-reasoning)"
       ],
-      "variant_count": 2,
-      "improvement_abs": -6.0,
-      "improvement_pct": -40.0,
+      "variant_count": 3,
+      "improvement_abs": -13.0,
+      "improvement_pct": -59.09,
       "predecessor": "Gemma 4 31B"
     },
     {
@@ -817,9 +2232,10 @@
       "release_date": "2026-06-03",
       "variants": [
         "Gemma 4 12B",
+        "Gemma 4 12B (Non-reasoning)",
         "Gemma 4 12B (non-reasoning)"
       ],
-      "variant_count": 2,
+      "variant_count": 3,
       "improvement_abs": 5.0,
       "improvement_pct": 55.56,
       "predecessor": "Gemma 4 E4B"
@@ -847,15 +2263,108 @@
       "model_url": "https://artificialanalysis.ai/models/gemini-4-argon",
       "release_date": "2026-09-30",
       "variants": [
-        "Gemini 4 Argon (high)"
+        "Gemini 4 Argon (high)",
+        "Gemini 4 Argon (High)"
       ],
-      "variant_count": 1,
+      "variant_count": 2,
       "improvement_abs": 43.0,
       "improvement_pct": 430.0,
       "predecessor": "DiffusionGemma 26B A4B"
     }
   ],
   "Gemini Flash": [
+    {
+      "name": "Gemini 1.5 Flash (Sep '24)",
+      "performance": 12.58,
+      "rank": 86,
+      "provider": "Google",
+      "model_url": "https://artificialanalysis.ai/models/gemini-1-5-flash",
+      "release_date": "2024-09-24",
+      "variants": [
+        "Gemini 1.5 Flash (Sep '24)"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 0.0,
+      "improvement_pct": 0.0,
+      "predecessor": null
+    },
+    {
+      "name": "Gemini 1.5 Flash-8B",
+      "performance": 2.94,
+      "rank": 241,
+      "provider": "Google",
+      "model_url": "https://artificialanalysis.ai/models/gemini-1-5-flash-8b",
+      "release_date": "2024-10-03",
+      "variants": [
+        "Gemini 1.5 Flash-8B"
+      ],
+      "variant_count": 1,
+      "improvement_abs": -9.64,
+      "improvement_pct": -76.63,
+      "predecessor": "Gemini 1.5 Flash (Sep '24)"
+    },
+    {
+      "name": "Gemini 2.0 Flash (experimental)",
+      "performance": 20.54,
+      "rank": 61,
+      "provider": "Google",
+      "model_url": "https://artificialanalysis.ai/models/gemini-2-0-flash",
+      "release_date": "2025-02-05",
+      "variants": [
+        "Gemini 2.0 Flash (experimental)"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 17.6,
+      "improvement_pct": 598.64,
+      "predecessor": "Gemini 1.5 Flash-8B"
+    },
+    {
+      "name": "Gemini 2.5 Flash",
+      "performance": 25.12,
+      "rank": 44,
+      "provider": "Google",
+      "model_url": "https://artificialanalysis.ai/models/gemini-2-5-flash-reasoning",
+      "release_date": "2025-05-20",
+      "variants": [
+        "Gemini 2.5 Flash (Non-reasoning)"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 4.58,
+      "improvement_pct": 22.3,
+      "predecessor": "Gemini 2.0 Flash (experimental)"
+    },
+    {
+      "name": "Gemini 2.5 Flash-Lite",
+      "performance": 7.29,
+      "rank": 187,
+      "provider": "Google",
+      "model_url": "https://artificialanalysis.ai/models/gemini-2-5-flash-lite-reasoning",
+      "release_date": "2025-06-17",
+      "variants": [
+        "Gemini 2.5 Flash-Lite (Non-reasoning)"
+      ],
+      "variant_count": 1,
+      "improvement_abs": -17.83,
+      "improvement_pct": -70.98,
+      "predecessor": "Gemini 2.5 Flash"
+    },
+    {
+      "name": "Gemini 3.5 Flash",
+      "performance": 52.0,
+      "rank": 21,
+      "provider": "Google",
+      "model_url": "https://artificialanalysis.ai/models/gemini-3-5-flash",
+      "release_date": "2026-05-19",
+      "variants": [
+        "Gemini 3.5 Flash",
+        "Gemini 3.5 Flash (medium)",
+        "Gemini 3.5 Flash (minimal)"
+      ],
+      "variant_count": 3,
+      "improvement_abs": 44.71,
+      "improvement_pct": 613.31,
+      "predecessor": "Gemini 2.5 Flash-Lite"
+    },
     {
       "name": "Gemini 3.5 Flash-Lite",
       "performance": 22.0,
@@ -867,9 +2376,41 @@
         "Gemini 3.5 Flash-Lite"
       ],
       "variant_count": 1,
-      "improvement_abs": 0.0,
-      "improvement_pct": 0.0,
-      "predecessor": null
+      "improvement_abs": -30.0,
+      "improvement_pct": -57.69,
+      "predecessor": "Gemini 3.5 Flash"
+    },
+    {
+      "name": "Gemini 3.6 Flash",
+      "performance": 52.0,
+      "rank": 23,
+      "provider": "Google",
+      "model_url": "https://artificialanalysis.ai/models/gemini-3-6-flash",
+      "release_date": "2026-07-21",
+      "variants": [
+        "Gemini 3.6 Flash"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 30.0,
+      "improvement_pct": 136.36,
+      "predecessor": "Gemini 3.5 Flash-Lite"
+    },
+    {
+      "name": "Gemini 3.7 Flash",
+      "performance": 56.0,
+      "rank": 15,
+      "provider": "Google",
+      "model_url": "https://artificialanalysis.ai/models/gemini-3-7-flash",
+      "release_date": "2026-08-13",
+      "variants": [
+        "Gemini 3.7 Flash (high)",
+        "Gemini 3.7 Flash (medium)",
+        "Gemini 3.7 Flash (low)"
+      ],
+      "variant_count": 3,
+      "improvement_abs": 4.0,
+      "improvement_pct": 7.69,
+      "predecessor": "Gemini 3.6 Flash"
     },
     {
       "name": "Gemini 3.8 Flash",
@@ -881,15 +2422,61 @@
       "variants": [
         "Gemini 3.8 Flash (high)",
         "Gemini 3.8 Flash (medium)",
-        "Gemini 3.8 Flash (low)"
+        "Gemini 3.8 Flash (low)",
+        "Gemini 3.8 Flash (High)"
       ],
-      "variant_count": 3,
-      "improvement_abs": 19.0,
-      "improvement_pct": 86.36,
-      "predecessor": "Gemini 3.5 Flash-Lite"
+      "variant_count": 4,
+      "improvement_abs": -15.0,
+      "improvement_pct": -26.79,
+      "predecessor": "Gemini 3.7 Flash"
     }
   ],
   "Gemini Pro": [
+    {
+      "name": "Gemini 1.0 Pro",
+      "performance": 0.73,
+      "rank": 279,
+      "provider": "Google",
+      "model_url": "https://artificialanalysis.ai/models/gemini-1-0-pro",
+      "release_date": "2023-12-06",
+      "variants": [
+        "Gemini 1.0 Pro"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 0.0,
+      "improvement_pct": 0.0,
+      "predecessor": null
+    },
+    {
+      "name": "Gemini 1.5 Pro (Sep '24)",
+      "performance": 19.11,
+      "rank": 70,
+      "provider": "Google",
+      "model_url": "https://artificialanalysis.ai/models/gemini-1-5-pro",
+      "release_date": "2024-09-24",
+      "variants": [
+        "Gemini 1.5 Pro (Sep '24)"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 18.38,
+      "improvement_pct": 2517.81,
+      "predecessor": "Gemini 1.0 Pro"
+    },
+    {
+      "name": "Gemini 2.5 Pro",
+      "performance": 38.62,
+      "rank": 14,
+      "provider": "Google",
+      "model_url": "https://artificialanalysis.ai/models/gemini-2-5-pro",
+      "release_date": "2025-06-05",
+      "variants": [
+        "Gemini 2.5 Pro"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 19.51,
+      "improvement_pct": 102.09,
+      "predecessor": "Gemini 1.5 Pro (Sep '24)"
+    },
     {
       "name": "Gemini 3.1 Pro Preview",
       "performance": 30.0,
@@ -901,9 +2488,217 @@
         "Gemini 3.1 Pro Preview"
       ],
       "variant_count": 1,
+      "improvement_abs": -8.62,
+      "improvement_pct": -22.32,
+      "predecessor": "Gemini 2.5 Pro"
+    }
+  ],
+  "Gemini Ultra": [
+    {
+      "name": "Gemini 1.0 Ultra",
+      "performance": 5.09,
+      "rank": 216,
+      "provider": "Google",
+      "model_url": "https://artificialanalysis.ai/models/gemini-1-0-ultra",
+      "release_date": "2023-12-06",
+      "variants": [
+        "Gemini 1.0 Ultra"
+      ],
+      "variant_count": 1,
       "improvement_abs": 0.0,
       "improvement_pct": 0.0,
       "predecessor": null
+    }
+  ],
+  "Grok": [
+    {
+      "name": "Grok-1",
+      "performance": 0.0,
+      "rank": 297,
+      "provider": "xAI",
+      "model_url": "https://artificialanalysis.ai/models/grok-1",
+      "release_date": "2024-03-17",
+      "variants": [
+        "Grok-1"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 0.0,
+      "improvement_pct": 0.0,
+      "predecessor": null
+    },
+    {
+      "name": "Grok Beta",
+      "performance": 5.95,
+      "rank": 205,
+      "provider": "xAI",
+      "model_url": "https://artificialanalysis.ai/models/grok-beta",
+      "release_date": "2024-08-13",
+      "variants": [
+        "Grok Beta"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 5.95,
+      "improvement_pct": 0.0,
+      "predecessor": "Grok-1"
+    },
+    {
+      "name": "Grok 3",
+      "performance": 25.62,
+      "rank": 40,
+      "provider": "xAI",
+      "model_url": "https://artificialanalysis.ai/models/grok-3",
+      "release_date": "2025-02-19",
+      "variants": [
+        "Grok 3"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 19.67,
+      "improvement_pct": 330.59,
+      "predecessor": "Grok Beta"
+    },
+    {
+      "name": "Grok 3 mini Reasoning",
+      "performance": 32.3,
+      "rank": 25,
+      "provider": "xAI",
+      "model_url": "https://artificialanalysis.ai/models/grok-3-mini-reasoning",
+      "release_date": "2025-02-19",
+      "variants": [
+        "Grok 3 mini Reasoning (high)"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 6.68,
+      "improvement_pct": 26.07,
+      "predecessor": "Grok 3"
+    },
+    {
+      "name": "Grok 4",
+      "performance": 44.98,
+      "rank": 7,
+      "provider": "xAI",
+      "model_url": "https://artificialanalysis.ai/models/grok-4",
+      "release_date": "2025-07-10",
+      "variants": [
+        "Grok 4"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 12.68,
+      "improvement_pct": 39.26,
+      "predecessor": "Grok 3 mini Reasoning"
+    },
+    {
+      "name": "Grok Code Fast 1",
+      "performance": 16.93,
+      "rank": 118,
+      "provider": "xAI",
+      "model_url": "https://artificialanalysis.ai/models/grok-code-fast-1",
+      "release_date": "2025-08-28",
+      "variants": [
+        "Grok Code Fast 1"
+      ],
+      "variant_count": 1,
+      "improvement_abs": -28.05,
+      "improvement_pct": -62.36,
+      "predecessor": "Grok 4"
+    },
+    {
+      "name": "Grok 4 Fast",
+      "performance": 28.12,
+      "rank": 35,
+      "provider": "xAI",
+      "model_url": "https://artificialanalysis.ai/models/grok-4-fast-reasoning",
+      "release_date": "2025-09-19",
+      "variants": [
+        "Grok 4 Fast (Reasoning)"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 11.19,
+      "improvement_pct": 66.1,
+      "predecessor": "Grok Code Fast 1"
+    },
+    {
+      "name": "Grok 4.1 Fast",
+      "performance": 30.71,
+      "rank": 29,
+      "provider": "xAI",
+      "model_url": "https://artificialanalysis.ai/models/grok-4-1-fast-reasoning",
+      "release_date": "2025-11-19",
+      "variants": [
+        "Grok 4.1 Fast (Reasoning)"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 2.59,
+      "improvement_pct": 9.21,
+      "predecessor": "Grok 4 Fast"
+    },
+    {
+      "name": "Grok 4.3",
+      "performance": 38.0,
+      "rank": 56,
+      "provider": "SpaceXAI",
+      "model_url": "https://artificialanalysis.ai/models/grok-4-3",
+      "release_date": "2026-04-30",
+      "variants": [
+        "Grok 4.3 (high)",
+        "Grok 4.3 (medium)",
+        "Grok 4.3 (low)",
+        "Grok 4.3 (Non-reasoning)"
+      ],
+      "variant_count": 4,
+      "improvement_abs": 7.29,
+      "improvement_pct": 23.74,
+      "predecessor": "Grok 4.1 Fast"
+    },
+    {
+      "name": "Grok 4.5",
+      "performance": 56.0,
+      "rank": 13,
+      "provider": "SpaceXAI",
+      "model_url": "https://artificialanalysis.ai/models/grok-4-5",
+      "release_date": "2026-07-08",
+      "variants": [
+        "Grok 4.5 (high)"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 18.0,
+      "improvement_pct": 47.37,
+      "predecessor": "Grok 4.3"
+    },
+    {
+      "name": "Grok 4.6",
+      "performance": 61.0,
+      "rank": 6,
+      "provider": "SpaceXAI",
+      "model_url": "https://artificialanalysis.ai/models/grok-4-6",
+      "release_date": "2026-08-12",
+      "variants": [
+        "Grok 4.6 (high)",
+        "Grok 4.6 (xhigh)",
+        "Grok 4.6 (medium)",
+        "Grok 4.6 (low)"
+      ],
+      "variant_count": 4,
+      "improvement_abs": 5.0,
+      "improvement_pct": 8.93,
+      "predecessor": "Grok 4.5"
+    },
+    {
+      "name": "Grok 4.7",
+      "performance": 46.4465506302286,
+      "rank": null,
+      "provider": "SpaceXAI",
+      "model_url": "https://artificialanalysis.ai/models/grok-4-7",
+      "release_date": "2026-09-21",
+      "variants": [
+        "Grok 4.7 (xhigh)",
+        "Grok 4.7 (high)",
+        "Grok 4.7 (low)",
+        "Grok 4.7 (Xhigh)"
+      ],
+      "variant_count": 4,
+      "improvement_abs": -14.55,
+      "improvement_pct": -23.86,
+      "predecessor": "Grok 4.6"
     }
   ],
   "IBM": [
@@ -983,6 +2778,51 @@
       "predecessor": "Granite 4.0 350M"
     },
     {
+      "name": "Granite 4.1 3B",
+      "performance": 6.0,
+      "rank": 261,
+      "provider": "IBM",
+      "model_url": "https://artificialanalysis.ai/models/granite-4-1-3b",
+      "release_date": "2026-04-29",
+      "variants": [
+        "Granite 4.1 3B"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 1.0,
+      "improvement_pct": 20.0,
+      "predecessor": "Granite 4.0 H 350M"
+    },
+    {
+      "name": "Granite 4.1 8B",
+      "performance": 7.0,
+      "rank": 218,
+      "provider": "IBM",
+      "model_url": "https://artificialanalysis.ai/models/granite-4-1-8b",
+      "release_date": "2026-04-29",
+      "variants": [
+        "Granite 4.1 8B"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 1.0,
+      "improvement_pct": 16.67,
+      "predecessor": "Granite 4.1 3B"
+    },
+    {
+      "name": "Granite 4.1 30B",
+      "performance": 9.0,
+      "rank": 199,
+      "provider": "IBM",
+      "model_url": "https://artificialanalysis.ai/models/granite-4-1-30b",
+      "release_date": "2026-04-29",
+      "variants": [
+        "Granite 4.1 30B"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 2.0,
+      "improvement_pct": 28.57,
+      "predecessor": "Granite 4.1 8B"
+    },
+    {
       "name": "Granite 4.2 3B",
       "performance": 9.0,
       "rank": 175.0,
@@ -993,9 +2833,9 @@
         "Granite 4.2 3B"
       ],
       "variant_count": 1,
-      "improvement_abs": 4.0,
-      "improvement_pct": 80.0,
-      "predecessor": "Granite 4.0 H 350M"
+      "improvement_abs": 0.0,
+      "improvement_pct": 0.0,
+      "predecessor": "Granite 4.1 30B"
     },
     {
       "name": "Granite 4.2 8B",
@@ -1028,6 +2868,38 @@
       "predecessor": "Granite 4.2 8B"
     }
   ],
+  "Inception": [
+    {
+      "name": "Mercury 2",
+      "performance": 25.0,
+      "rank": 106,
+      "provider": "Inception",
+      "model_url": "https://artificialanalysis.ai/models/mercury-2",
+      "release_date": "2026-02-20",
+      "variants": [
+        "Mercury 2"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 0.0,
+      "improvement_pct": 0.0,
+      "predecessor": null
+    },
+    {
+      "name": "Mercury 2.5",
+      "performance": 12.0,
+      "rank": 140.0,
+      "provider": "Inception",
+      "model_url": "https://artificialanalysis.ai/models/mercury-2-5",
+      "release_date": "2026-09-08",
+      "variants": [
+        "Mercury 2.5"
+      ],
+      "variant_count": 1,
+      "improvement_abs": -13.0,
+      "improvement_pct": -52.0,
+      "predecessor": "Mercury 2"
+    }
+  ],
   "InclusionAI": [
     {
       "name": "Ring-flash-2.0",
@@ -1045,6 +2917,36 @@
       "predecessor": null
     },
     {
+      "name": "Ling 2.6 Flash",
+      "performance": 14.0,
+      "rank": 164,
+      "provider": "InclusionAI",
+      "model_url": "https://artificialanalysis.ai/models/ling-2-6-flash",
+      "release_date": "2026-04-21",
+      "variants": [
+        "Ling 2.6 Flash"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 7.0,
+      "improvement_pct": 100.0,
+      "predecessor": "Ring-flash-2.0"
+    },
+    {
+      "name": "Ling-2.6-1T",
+      "performance": 27.0,
+      "rank": 94,
+      "provider": "InclusionAI",
+      "model_url": "https://artificialanalysis.ai/models/ling-2-6-1t",
+      "release_date": "2026-04-23",
+      "variants": [
+        "Ling-2.6-1T"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 13.0,
+      "improvement_pct": 92.86,
+      "predecessor": "Ling 2.6 Flash"
+    },
+    {
       "name": "Ring-2.6-1T",
       "performance": 17.0,
       "rank": 116.0,
@@ -1055,9 +2957,39 @@
         "Ring-2.6-1T"
       ],
       "variant_count": 1,
-      "improvement_abs": 10.0,
-      "improvement_pct": 142.86,
-      "predecessor": "Ring-flash-2.0"
+      "improvement_abs": -10.0,
+      "improvement_pct": -37.04,
+      "predecessor": "Ling-2.6-1T"
+    },
+    {
+      "name": "Ling 3.0 Flash",
+      "performance": 38.0,
+      "rank": 50,
+      "provider": "InclusionAI",
+      "model_url": "https://artificialanalysis.ai/models/ling-3-0-flash",
+      "release_date": "2026-08-04",
+      "variants": [
+        "Ling 3.0 Flash"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 21.0,
+      "improvement_pct": 123.53,
+      "predecessor": "Ring-2.6-1T"
+    },
+    {
+      "name": "Ling-3.0-flash",
+      "performance": 38.0,
+      "rank": 55,
+      "provider": "InclusionAI",
+      "model_url": "https://artificialanalysis.ai/models/ling-3-0-flash",
+      "release_date": "2026-08-04",
+      "variants": [
+        "Ling-3.0-flash"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 0.0,
+      "improvement_pct": 0.0,
+      "predecessor": "Ling 3.0 Flash"
     },
     {
       "name": "Ling 3.0 Tiny",
@@ -1070,9 +3002,9 @@
         "Ling 3.0 Tiny"
       ],
       "variant_count": 1,
-      "improvement_abs": -6.0,
-      "improvement_pct": -35.29,
-      "predecessor": "Ring-2.6-1T"
+      "improvement_abs": -27.0,
+      "improvement_pct": -71.05,
+      "predecessor": "Ling-3.0-flash"
     },
     {
       "name": "Ling-3.0-flash-VL",
@@ -1144,8 +3076,8 @@
       "model_url": "https://artificialanalysis.ai/models/k2-v2",
       "release_date": "2025-12-05",
       "variants": [
-        "K2-V2 (high)",
         "K2-V2 (medium)",
+        "K2-V2 (high)",
         "K2-V2 (low)"
       ],
       "variant_count": 3,
@@ -1244,7 +3176,69 @@
       "predecessor": "K2 Horizon MoVA 36B A4B"
     }
   ],
+  "Jamba": [
+    {
+      "name": "Jamba 1.6 Large",
+      "performance": 3.69,
+      "rank": 232,
+      "provider": "",
+      "model_url": "https://artificialanalysis.ai/models/jamba-1-6-large",
+      "release_date": "2025-03-06",
+      "variants": [
+        "Jamba 1.6 Large"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 0.0,
+      "improvement_pct": 0.0,
+      "predecessor": null
+    },
+    {
+      "name": "Jamba 1.6 Mini",
+      "performance": 1.35,
+      "rank": 268,
+      "provider": "",
+      "model_url": "https://artificialanalysis.ai/models/jamba-1-6-mini",
+      "release_date": "2025-03-06",
+      "variants": [
+        "Jamba 1.6 Mini"
+      ],
+      "variant_count": 1,
+      "improvement_abs": -2.34,
+      "improvement_pct": -63.41,
+      "predecessor": "Jamba 1.6 Large"
+    }
+  ],
   "Kimi": [
+    {
+      "name": "Kimi K2",
+      "performance": 28.55,
+      "rank": 33,
+      "provider": "Moonshot",
+      "model_url": "https://artificialanalysis.ai/models/kimi-k2",
+      "release_date": "2025-07-11",
+      "variants": [
+        "Kimi K2"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 0.0,
+      "improvement_pct": 0.0,
+      "predecessor": null
+    },
+    {
+      "name": "Kimi K2 0905",
+      "performance": 19.51,
+      "rank": 113,
+      "provider": "Moonshot",
+      "model_url": "https://artificialanalysis.ai/models/kimi-k2-0905",
+      "release_date": "2025-09-05",
+      "variants": [
+        "Kimi K2 0905"
+      ],
+      "variant_count": 1,
+      "improvement_abs": -9.04,
+      "improvement_pct": -31.66,
+      "predecessor": "Kimi K2"
+    },
     {
       "name": "Kimi Linear 48B A3B Instruct",
       "performance": 7.0,
@@ -1256,9 +3250,55 @@
         "Kimi Linear 48B A3B Instruct"
       ],
       "variant_count": 1,
-      "improvement_abs": 0.0,
-      "improvement_pct": 0.0,
-      "predecessor": null
+      "improvement_abs": -12.51,
+      "improvement_pct": -64.12,
+      "predecessor": "Kimi K2 0905"
+    },
+    {
+      "name": "Kimi K2 Thinking",
+      "performance": 29.03,
+      "rank": 103,
+      "provider": "Moonshot",
+      "model_url": "https://artificialanalysis.ai/models/kimi-k2-thinking",
+      "release_date": "2025-11-06",
+      "variants": [
+        "Kimi K2 Thinking"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 22.03,
+      "improvement_pct": 314.71,
+      "predecessor": "Kimi Linear 48B A3B Instruct"
+    },
+    {
+      "name": "Kimi K2.5",
+      "performance": 41.31,
+      "rank": 12,
+      "provider": "Moonshot",
+      "model_url": "https://artificialanalysis.ai/models/kimi-k2-5",
+      "release_date": "2026-01-27",
+      "variants": [
+        "Kimi K2.5 (Reasoning)"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 12.28,
+      "improvement_pct": 42.3,
+      "predecessor": "Kimi K2 Thinking"
+    },
+    {
+      "name": "Kimi K2.6",
+      "performance": 44.0,
+      "rank": 31,
+      "provider": "Kimi",
+      "model_url": "https://artificialanalysis.ai/models/kimi-k2-6",
+      "release_date": "2026-04-20",
+      "variants": [
+        "Kimi K2.6",
+        "Kimi K2.6 (non-reasoning)"
+      ],
+      "variant_count": 2,
+      "improvement_abs": 2.69,
+      "improvement_pct": 6.51,
+      "predecessor": "Kimi K2.5"
     },
     {
       "name": "Kimi K2.7 Code",
@@ -1271,9 +3311,26 @@
         "Kimi K2.7 Code"
       ],
       "variant_count": 1,
-      "improvement_abs": 19.0,
-      "improvement_pct": 271.43,
-      "predecessor": "Kimi Linear 48B A3B Instruct"
+      "improvement_abs": -18.0,
+      "improvement_pct": -40.91,
+      "predecessor": "Kimi K2.6"
+    },
+    {
+      "name": "Kimi K3",
+      "performance": 60.0,
+      "rank": 6,
+      "provider": "Kimi",
+      "model_url": "https://artificialanalysis.ai/models/kimi-k3",
+      "release_date": "2026-07-16",
+      "variants": [
+        "Kimi K3",
+        "Kimi K3 (max)",
+        "Kimi K3 (low)"
+      ],
+      "variant_count": 3,
+      "improvement_abs": 34.0,
+      "improvement_pct": 130.77,
+      "predecessor": "Kimi K2.7 Code"
     },
     {
       "name": "Kimi K3.1 Pro",
@@ -1286,24 +3343,58 @@
         "Kimi K3.1 Pro"
       ],
       "variant_count": 1,
-      "improvement_abs": 29.0,
-      "improvement_pct": 111.54,
-      "predecessor": "Kimi K2.7 Code"
+      "improvement_abs": -5.0,
+      "improvement_pct": -8.33,
+      "predecessor": "Kimi K3"
+    }
+  ],
+  "KwaiKAT": [
+    {
+      "name": "KAT-Coder-Pro V1",
+      "performance": 29.0,
+      "rank": 89,
+      "provider": "KwaiKAT",
+      "model_url": "https://artificialanalysis.ai/models/kat-coder-pro-v1",
+      "release_date": "2025-11-11",
+      "variants": [
+        "KAT-Coder-Pro V1"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 0.0,
+      "improvement_pct": 0.0,
+      "predecessor": null
+    },
+    {
+      "name": "KAT-Coder-Pro V2",
+      "performance": 22.0,
+      "rank": 95.0,
+      "provider": "KwaiKAT",
+      "model_url": "https://artificialanalysis.ai/models/kat-coder-pro-v2",
+      "release_date": "2026-03-27",
+      "variants": [
+        "KAT-Coder-Pro V2"
+      ],
+      "variant_count": 1,
+      "improvement_abs": -7.0,
+      "improvement_pct": -24.14,
+      "predecessor": "KAT-Coder-Pro V1"
     }
   ],
   "LG AI Research": [
     {
       "name": "Exaone 4.0 1.2B",
       "performance": 5.0,
-      "rank": 244.0,
+      "rank": 274,
       "provider": "LG AI Research",
-      "model_url": "https://artificialanalysis.ai/models/exaone-4-0-1-2b-reasoning",
+      "model_url": "https://artificialanalysis.ai/models/exaone-4-0-1-2b",
       "release_date": "2025-07-15",
       "variants": [
+        "Exaone 4.0 1.2B (Non-reasoning)",
         "Exaone 4.0 1.2B (reasoning)",
+        "Exaone 4.0 1.2B",
         "Exaone 4.0 1.2B (non-reasoning)"
       ],
-      "variant_count": 2,
+      "variant_count": 4,
       "improvement_abs": 0.0,
       "improvement_pct": 0.0,
       "predecessor": null
@@ -1317,12 +3408,31 @@
       "release_date": "2025-07-15",
       "variants": [
         "EXAONE 4.0 32B (reasoning)",
+        "EXAONE 4.0 32B",
+        "EXAONE 4.0 32B (Non-reasoning)",
         "EXAONE 4.0 32B (non-reasoning)"
       ],
-      "variant_count": 2,
+      "variant_count": 4,
       "improvement_abs": 3.0,
       "improvement_pct": 60.0,
       "predecessor": "Exaone 4.0 1.2B"
+    },
+    {
+      "name": "K-EXAONE",
+      "performance": 25.0,
+      "rank": 109,
+      "provider": "LG AI Research",
+      "model_url": "https://artificialanalysis.ai/models/k-exaone",
+      "release_date": "2025-12-31",
+      "variants": [
+        "K-EXAONE (Non-reasoning)",
+        "K-EXAONE",
+        "K-EXAONE (non-reasoning)"
+      ],
+      "variant_count": 3,
+      "improvement_abs": 17.0,
+      "improvement_pct": 212.5,
+      "predecessor": "EXAONE 4.0 32B"
     },
     {
       "name": "EXAONE 4.5 33B",
@@ -1335,9 +3445,9 @@
         "EXAONE 4.5 33B"
       ],
       "variant_count": 1,
-      "improvement_abs": 5.0,
-      "improvement_pct": 62.5,
-      "predecessor": "EXAONE 4.0 32B"
+      "improvement_abs": -12.0,
+      "improvement_pct": -48.0,
+      "predecessor": "K-EXAONE"
     },
     {
       "name": "K-EXAONE 2.0",
@@ -1353,9 +3463,54 @@
       "improvement_abs": 7.0,
       "improvement_pct": 53.85,
       "predecessor": "EXAONE 4.5 33B"
+    },
+    {
+      "name": "K-EXAONE 2.0 0803",
+      "performance": 31.0,
+      "rank": 82,
+      "provider": "LG AI Research",
+      "model_url": "https://artificialanalysis.ai/models/k-exaone-2-0-0803",
+      "release_date": "2026-08-12",
+      "variants": [
+        "K-EXAONE 2.0 0803"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 11.0,
+      "improvement_pct": 55.0,
+      "predecessor": "K-EXAONE 2.0"
     }
   ],
   "Liquid AI": [
+    {
+      "name": "LFM2 2.6B",
+      "performance": 5.0,
+      "rank": 277,
+      "provider": "Liquid AI",
+      "model_url": "https://artificialanalysis.ai/models/lfm2-2-6b",
+      "release_date": "2025-09-23",
+      "variants": [
+        "LFM2 2.6B"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 0.0,
+      "improvement_pct": 0.0,
+      "predecessor": null
+    },
+    {
+      "name": "LFM2 8B A1B",
+      "performance": 5.0,
+      "rank": 286,
+      "provider": "Liquid AI",
+      "model_url": "https://artificialanalysis.ai/models/lfm2-8b-a1b",
+      "release_date": "2025-10-07",
+      "variants": [
+        "LFM2 8B A1B"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 0.0,
+      "improvement_pct": 0.0,
+      "predecessor": "LFM2 2.6B"
+    },
     {
       "name": "LFM2.5-1.2B-Instruct",
       "performance": 5.0,
@@ -1369,7 +3524,7 @@
       "variant_count": 1,
       "improvement_abs": 0.0,
       "improvement_pct": 0.0,
-      "predecessor": null
+      "predecessor": "LFM2 8B A1B"
     },
     {
       "name": "LFM2.5-VL-1.6B",
@@ -1449,6 +3604,126 @@
   ],
   "Llama": [
     {
+      "name": "Llama 65B",
+      "performance": 0.0,
+      "rank": 299,
+      "provider": "Meta",
+      "model_url": "https://artificialanalysis.ai/models/llama-65b",
+      "release_date": "2023-02-24",
+      "variants": [
+        "Llama 65B"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 0.0,
+      "improvement_pct": 0.0,
+      "predecessor": null
+    },
+    {
+      "name": "Llama 2 Chat 7B",
+      "performance": 0.0,
+      "rank": 298,
+      "provider": "Meta",
+      "model_url": "https://artificialanalysis.ai/models/llama-2-chat-7b",
+      "release_date": "2023-07-18",
+      "variants": [
+        "Llama 2 Chat 7B"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 0.0,
+      "improvement_pct": 0.0,
+      "predecessor": "Llama 65B"
+    },
+    {
+      "name": "Llama 2 Chat 13B",
+      "performance": 1.91,
+      "rank": 258,
+      "provider": "Meta",
+      "model_url": "https://artificialanalysis.ai/models/llama-2-chat-13b",
+      "release_date": "2023-07-18",
+      "variants": [
+        "Llama 2 Chat 13B"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 1.91,
+      "improvement_pct": 0.0,
+      "predecessor": "Llama 2 Chat 7B"
+    },
+    {
+      "name": "Llama 2 Chat 70B",
+      "performance": 2.07,
+      "rank": 254,
+      "provider": "Meta",
+      "model_url": "https://artificialanalysis.ai/models/llama-2-chat-70b",
+      "release_date": "2023-07-18",
+      "variants": [
+        "Llama 2 Chat 70B"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 0.16,
+      "improvement_pct": 8.38,
+      "predecessor": "Llama 2 Chat 13B"
+    },
+    {
+      "name": "Llama 3 Instruct 8B",
+      "performance": 1.72,
+      "rank": 261,
+      "provider": "Meta",
+      "model_url": "https://artificialanalysis.ai/models/llama-3-instruct-8b",
+      "release_date": "2024-04-18",
+      "variants": [
+        "Llama 3 Instruct 8B"
+      ],
+      "variant_count": 1,
+      "improvement_abs": -0.35,
+      "improvement_pct": -16.91,
+      "predecessor": "Llama 2 Chat 70B"
+    },
+    {
+      "name": "Llama 3 Instruct 70B",
+      "performance": 3.85,
+      "rank": 230,
+      "provider": "Meta",
+      "model_url": "https://artificialanalysis.ai/models/llama-3-instruct-70b",
+      "release_date": "2024-04-18",
+      "variants": [
+        "Llama 3 Instruct 70B"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 2.13,
+      "improvement_pct": 123.84,
+      "predecessor": "Llama 3 Instruct 8B"
+    },
+    {
+      "name": "Llama 3.1 Instruct 8B",
+      "performance": 1.27,
+      "rank": 270,
+      "provider": "Meta",
+      "model_url": "https://artificialanalysis.ai/models/llama-3-1-instruct-8b",
+      "release_date": "2024-07-23",
+      "variants": [
+        "Llama 3.1 Instruct 8B"
+      ],
+      "variant_count": 1,
+      "improvement_abs": -2.58,
+      "improvement_pct": -67.01,
+      "predecessor": "Llama 3 Instruct 70B"
+    },
+    {
+      "name": "Llama 3.1 Instruct 70B",
+      "performance": 5.32,
+      "rank": 214,
+      "provider": "Meta",
+      "model_url": "https://artificialanalysis.ai/models/llama-3-1-instruct-70b",
+      "release_date": "2024-07-23",
+      "variants": [
+        "Llama 3.1 Instruct 70B"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 4.05,
+      "improvement_pct": 318.9,
+      "predecessor": "Llama 3.1 Instruct 8B"
+    },
+    {
       "name": "Llama 3.1 405B",
       "performance": 7.0,
       "rank": 206.0,
@@ -1459,9 +3734,54 @@
         "Llama 3.1 405B"
       ],
       "variant_count": 1,
+      "improvement_abs": 1.68,
+      "improvement_pct": 31.58,
+      "predecessor": "Llama 3.1 Instruct 70B"
+    },
+    {
+      "name": "Llama 3.1 Instruct 405B",
+      "performance": 8.03,
+      "rank": 180,
+      "provider": "Meta",
+      "model_url": "https://artificialanalysis.ai/models/llama-3-1-instruct-405b",
+      "release_date": "2024-07-23",
+      "variants": [
+        "Llama 3.1 Instruct 405B"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 1.03,
+      "improvement_pct": 14.71,
+      "predecessor": "Llama 3.1 405B"
+    },
+    {
+      "name": "Llama 3.2 Instruct 1B",
+      "performance": 0.13,
+      "rank": 288,
+      "provider": "Meta",
+      "model_url": "https://artificialanalysis.ai/models/llama-3-2-instruct-1b",
+      "release_date": "2024-09-25",
+      "variants": [
+        "Llama 3.2 Instruct 1B"
+      ],
+      "variant_count": 1,
+      "improvement_abs": -7.9,
+      "improvement_pct": -98.38,
+      "predecessor": "Llama 3.1 Instruct 405B"
+    },
+    {
+      "name": "Llama 3.2 Instruct 3B",
+      "performance": 0.13,
+      "rank": 289,
+      "provider": "Meta",
+      "model_url": "https://artificialanalysis.ai/models/llama-3-2-instruct-3b",
+      "release_date": "2024-09-25",
+      "variants": [
+        "Llama 3.2 Instruct 3B"
+      ],
+      "variant_count": 1,
       "improvement_abs": 0.0,
       "improvement_pct": 0.0,
-      "predecessor": null
+      "predecessor": "Llama 3.2 Instruct 1B"
     },
     {
       "name": "Llama 3.2 11B (Vision)",
@@ -1474,9 +3794,9 @@
         "Llama 3.2 11B (Vision)"
       ],
       "variant_count": 1,
-      "improvement_abs": -2.0,
-      "improvement_pct": -28.57,
-      "predecessor": "Llama 3.1 405B"
+      "improvement_abs": 4.87,
+      "improvement_pct": 3746.15,
+      "predecessor": "Llama 3.2 Instruct 3B"
     },
     {
       "name": "Llama 3.2 90B (Vision)",
@@ -1494,6 +3814,21 @@
       "predecessor": "Llama 3.2 11B (Vision)"
     },
     {
+      "name": "Llama 3.1 Nemotron Instruct 70B",
+      "performance": 6.3,
+      "rank": 203,
+      "provider": "Meta",
+      "model_url": "https://artificialanalysis.ai/models/llama-3-1-nemotron-instruct-70b",
+      "release_date": "2024-10-15",
+      "variants": [
+        "Llama 3.1 Nemotron Instruct 70B"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 0.3,
+      "improvement_pct": 5.0,
+      "predecessor": "Llama 3.2 90B (Vision)"
+    },
+    {
       "name": "Llama 3.3 70B",
       "performance": 8.0,
       "rank": 196.0,
@@ -1504,9 +3839,24 @@
         "Llama 3.3 70B"
       ],
       "variant_count": 1,
-      "improvement_abs": 2.0,
-      "improvement_pct": 33.33,
-      "predecessor": "Llama 3.2 90B (Vision)"
+      "improvement_abs": 1.7,
+      "improvement_pct": 26.98,
+      "predecessor": "Llama 3.1 Nemotron Instruct 70B"
+    },
+    {
+      "name": "Llama 3.3 Instruct 70B",
+      "performance": 6.88,
+      "rank": 193,
+      "provider": "Meta",
+      "model_url": "https://artificialanalysis.ai/models/llama-3-3-instruct-70b",
+      "release_date": "2024-12-06",
+      "variants": [
+        "Llama 3.3 Instruct 70B"
+      ],
+      "variant_count": 1,
+      "improvement_abs": -1.12,
+      "improvement_pct": -14.0,
+      "predecessor": "Llama 3.3 70B"
     },
     {
       "name": "DeepHermes 3 - Llama-3.1 8B",
@@ -1519,9 +3869,9 @@
         "DeepHermes 3 - Llama-3.1 8B (non-reasoning)"
       ],
       "variant_count": 1,
-      "improvement_abs": -3.0,
-      "improvement_pct": -37.5,
-      "predecessor": "Llama 3.3 70B"
+      "improvement_abs": -1.88,
+      "improvement_pct": -27.33,
+      "predecessor": "Llama 3.3 Instruct 70B"
     },
     {
       "name": "Llama 4 Maverick",
@@ -1567,6 +3917,38 @@
       "improvement_abs": 2.0,
       "improvement_pct": 33.33,
       "predecessor": "Llama 4 Scout"
+    },
+    {
+      "name": "Llama 3.1 Nemotron Ultra 253B v1",
+      "performance": 21.99,
+      "rank": 54,
+      "provider": "Nvidia",
+      "model_url": "https://artificialanalysis.ai/models/llama-3-1-nemotron-ultra-253b-v1-reasoning",
+      "release_date": "2025-04-07",
+      "variants": [
+        "Llama 3.1 Nemotron Ultra 253B v1 (Reasoning)"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 13.99,
+      "improvement_pct": 174.87,
+      "predecessor": "Llama Nemotron Ultra"
+    },
+    {
+      "name": "Llama Nemotron Super 49B v1.5",
+      "performance": 12.0,
+      "rank": 173,
+      "provider": "NVIDIA",
+      "model_url": "https://artificialanalysis.ai/models/llama-nemotron-super-49b-v1-5-reasoning",
+      "release_date": "2025-07-25",
+      "variants": [
+        "Llama Nemotron Super 49B v1.5 (Non-reasoning)",
+        "Llama Nemotron Super 49B v1.5 (reasoning)",
+        "Llama Nemotron Super 49B v1.5"
+      ],
+      "variant_count": 3,
+      "improvement_abs": -9.99,
+      "improvement_pct": -45.43,
+      "predecessor": "Llama 3.1 Nemotron Ultra 253B v1"
     }
   ],
   "LongCat": [
@@ -1603,6 +3985,51 @@
   ],
   "Meta": [
     {
+      "name": "Muse Spark",
+      "performance": 44.0,
+      "rank": 38,
+      "provider": "Meta",
+      "model_url": "https://artificialanalysis.ai/models/muse-spark",
+      "release_date": "2026-04-08",
+      "variants": [
+        "Muse Spark"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 0.0,
+      "improvement_pct": 0.0,
+      "predecessor": null
+    },
+    {
+      "name": "Muse Spark 1.1",
+      "performance": 53.0,
+      "rank": 16,
+      "provider": "Meta",
+      "model_url": "https://artificialanalysis.ai/models/muse-spark-1-1",
+      "release_date": "2026-07-09",
+      "variants": [
+        "Muse Spark 1.1 (xhigh)"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 9.0,
+      "improvement_pct": 20.45,
+      "predecessor": "Muse Spark"
+    },
+    {
+      "name": "Muse Spark 1.2",
+      "performance": 57.0,
+      "rank": 11,
+      "provider": "Meta",
+      "model_url": "https://artificialanalysis.ai/models/muse-spark-1-2",
+      "release_date": "2026-08-05",
+      "variants": [
+        "Muse Spark 1.2 (xhigh)"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 4.0,
+      "improvement_pct": 7.55,
+      "predecessor": "Muse Spark 1.1"
+    },
+    {
       "name": "Muse Glimmer",
       "performance": 17.0,
       "rank": 113.0,
@@ -1613,24 +4040,41 @@
         "Muse Glimmer (high)"
       ],
       "variant_count": 1,
-      "improvement_abs": 0.0,
-      "improvement_pct": 0.0,
-      "predecessor": null
+      "improvement_abs": -40.0,
+      "improvement_pct": -70.18,
+      "predecessor": "Muse Spark 1.2"
+    },
+    {
+      "name": "Muse Spark 1.3",
+      "performance": 62.0,
+      "rank": 6,
+      "provider": "Meta",
+      "model_url": "https://artificialanalysis.ai/models/muse-spark-1-3",
+      "release_date": "2026-09-02",
+      "variants": [
+        "Muse Spark 1.3 (max)",
+        "Muse Spark 1.3 (xhigh)"
+      ],
+      "variant_count": 2,
+      "improvement_abs": 45.0,
+      "improvement_pct": 264.71,
+      "predecessor": "Muse Glimmer"
     },
     {
       "name": "Muse Wonder",
-      "performance": 52.0,
-      "rank": 9.0,
+      "performance": 52.393894697293,
+      "rank": null,
       "provider": "Meta",
       "model_url": "https://artificialanalysis.ai/models/muse-wonder",
       "release_date": "2026-10-12",
       "variants": [
-        "Muse Wonder (max)"
+        "Muse Wonder (max)",
+        "Muse Wonder (Max)"
       ],
-      "variant_count": 1,
-      "improvement_abs": 35.0,
-      "improvement_pct": 205.88,
-      "predecessor": "Muse Glimmer"
+      "variant_count": 2,
+      "improvement_abs": -9.61,
+      "improvement_pct": -15.49,
+      "predecessor": "Muse Spark 1.3"
     },
     {
       "name": "Muse Wonder Full",
@@ -1640,11 +4084,12 @@
       "model_url": "https://artificialanalysis.ai/models/muse-wonder-full",
       "release_date": "2026-10-12",
       "variants": [
-        "Muse Wonder Full (max)"
+        "Muse Wonder Full (max)",
+        "Muse Wonder Full (Max)"
       ],
-      "variant_count": 1,
-      "improvement_abs": 4.0,
-      "improvement_pct": 7.69,
+      "variant_count": 2,
+      "improvement_abs": 3.61,
+      "improvement_pct": 6.88,
       "predecessor": "Muse Wonder"
     },
     {
@@ -1655,9 +4100,10 @@
       "model_url": "https://artificialanalysis.ai/models/muse-spark-open",
       "release_date": "2026-10-15",
       "variants": [
-        "Muse Spark Open (xhigh)"
+        "Muse Spark Open (xhigh)",
+        "Muse Spark Open (Xhigh)"
       ],
-      "variant_count": 1,
+      "variant_count": 2,
       "improvement_abs": -17.0,
       "improvement_pct": -30.36,
       "predecessor": "Muse Wonder Full"
@@ -1712,6 +4158,96 @@
   ],
   "MiniMax": [
     {
+      "name": "MiniMax M1 40k",
+      "performance": 11.56,
+      "rank": 142,
+      "provider": "MiniMax",
+      "model_url": "https://artificialanalysis.ai/models/minimax-m1-40k",
+      "release_date": "2025-06-17",
+      "variants": [
+        "MiniMax M1 40k"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 0.0,
+      "improvement_pct": 0.0,
+      "predecessor": null
+    },
+    {
+      "name": "MiniMax M1 80k",
+      "performance": 11.93,
+      "rank": 139,
+      "provider": "MiniMax",
+      "model_url": "https://artificialanalysis.ai/models/minimax-m1-80k",
+      "release_date": "2025-06-17",
+      "variants": [
+        "MiniMax M1 80k"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 0.37,
+      "improvement_pct": 3.2,
+      "predecessor": "MiniMax M1 40k"
+    },
+    {
+      "name": "MiniMax-M2",
+      "performance": 35.22,
+      "rank": 20,
+      "provider": "MiniMax",
+      "model_url": "https://artificialanalysis.ai/models/minimax-m2",
+      "release_date": "2025-10-26",
+      "variants": [
+        "MiniMax-M2"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 23.29,
+      "improvement_pct": 195.22,
+      "predecessor": "MiniMax M1 80k"
+    },
+    {
+      "name": "MiniMax-M2.1",
+      "performance": 27.69,
+      "rank": 104,
+      "provider": "MiniMax",
+      "model_url": "https://artificialanalysis.ai/models/minimax-m2-1",
+      "release_date": "2025-12-23",
+      "variants": [
+        "MiniMax-M2.1"
+      ],
+      "variant_count": 1,
+      "improvement_abs": -7.53,
+      "improvement_pct": -21.38,
+      "predecessor": "MiniMax-M2"
+    },
+    {
+      "name": "MiniMax-M2.5",
+      "performance": 43.71,
+      "rank": 9,
+      "provider": "MiniMax",
+      "model_url": "https://artificialanalysis.ai/models/minimax-m2-5",
+      "release_date": "2026-02-12",
+      "variants": [
+        "MiniMax-M2.5"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 16.02,
+      "improvement_pct": 57.85,
+      "predecessor": "MiniMax-M2.1"
+    },
+    {
+      "name": "MiniMax-M2.7",
+      "performance": 38.0,
+      "rank": 52,
+      "provider": "MiniMax",
+      "model_url": "https://artificialanalysis.ai/models/minimax-m2-7",
+      "release_date": "2026-03-18",
+      "variants": [
+        "MiniMax-M2.7"
+      ],
+      "variant_count": 1,
+      "improvement_abs": -5.71,
+      "improvement_pct": -13.06,
+      "predecessor": "MiniMax-M2.5"
+    },
+    {
       "name": "MiniMax-M3",
       "performance": 29.0,
       "rank": 71.0,
@@ -1722,9 +4258,9 @@
         "MiniMax-M3"
       ],
       "variant_count": 1,
-      "improvement_abs": 0.0,
-      "improvement_pct": 0.0,
-      "predecessor": null
+      "improvement_abs": -9.0,
+      "improvement_pct": -23.68,
+      "predecessor": "MiniMax-M2.7"
     },
     {
       "name": "MiniMax-M3.1-Flash",
@@ -1744,6 +4280,141 @@
   ],
   "Mistral": [
     {
+      "name": "Mistral 7B Instruct",
+      "performance": 4.6,
+      "rank": 96,
+      "provider": "Mistral",
+      "model_url": "https://artificialanalysis.ai/models/mistral-7b-instruct",
+      "release_date": "2023-09-27",
+      "variants": [
+        "Mistral 7B Instruct"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 0.0,
+      "improvement_pct": 0.0,
+      "predecessor": null
+    },
+    {
+      "name": "Mistral Medium",
+      "performance": 12.43,
+      "rank": 87,
+      "provider": "Mistral",
+      "model_url": "https://artificialanalysis.ai/models/mistral-medium",
+      "release_date": "2023-12-11",
+      "variants": [
+        "Mistral Medium"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 7.83,
+      "improvement_pct": 170.22,
+      "predecessor": "Mistral 7B Instruct"
+    },
+    {
+      "name": "Mixtral 8x7B Instruct",
+      "performance": 1.07,
+      "rank": 272,
+      "provider": "Mistral AI",
+      "model_url": "https://artificialanalysis.ai/models/mixtral-8x7b-instruct",
+      "release_date": "2023-12-11",
+      "variants": [
+        "Mixtral 8x7B Instruct"
+      ],
+      "variant_count": 1,
+      "improvement_abs": -11.36,
+      "improvement_pct": -91.39,
+      "predecessor": "Mistral Medium"
+    },
+    {
+      "name": "Mistral Large (Feb '24)",
+      "performance": 2.57,
+      "rank": 243,
+      "provider": "Mistral AI",
+      "model_url": "https://artificialanalysis.ai/models/mistral-large",
+      "release_date": "2024-02-26",
+      "variants": [
+        "Mistral Large (Feb '24)"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 1.5,
+      "improvement_pct": 140.19,
+      "predecessor": "Mixtral 8x7B Instruct"
+    },
+    {
+      "name": "mistral-large-2407",
+      "performance": 8.6,
+      "rank": 370,
+      "provider": "Mistral",
+      "model_url": "https://artificialanalysis.ai/models/mistral-large-2407",
+      "release_date": "2024-07-24",
+      "variants": [
+        "mistral-large-2407"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 6.03,
+      "improvement_pct": 234.63,
+      "predecessor": "Mistral Large (Feb '24)"
+    },
+    {
+      "name": "Mistral Small (Sep '24)",
+      "performance": 2.33,
+      "rank": 245,
+      "provider": "Mistral AI",
+      "model_url": "https://artificialanalysis.ai/models/mistral-small",
+      "release_date": "2024-09-17",
+      "variants": [
+        "Mistral Small (Sep '24)"
+      ],
+      "variant_count": 1,
+      "improvement_abs": -6.27,
+      "improvement_pct": -72.91,
+      "predecessor": "mistral-large-2407"
+    },
+    {
+      "name": "Mistral Large 2 (Nov '24)",
+      "performance": 7.23,
+      "rank": 189,
+      "provider": "Mistral AI",
+      "model_url": "https://artificialanalysis.ai/models/mistral-large-2",
+      "release_date": "2024-11-18",
+      "variants": [
+        "Mistral Large 2 (Nov '24)"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 4.9,
+      "improvement_pct": 210.3,
+      "predecessor": "Mistral Small (Sep '24)"
+    },
+    {
+      "name": "Mistral Small 3",
+      "performance": 5.71,
+      "rank": 210,
+      "provider": "Mistral AI",
+      "model_url": "https://artificialanalysis.ai/models/mistral-small-3",
+      "release_date": "2025-01-30",
+      "variants": [
+        "Mistral Small 3"
+      ],
+      "variant_count": 1,
+      "improvement_abs": -1.52,
+      "improvement_pct": -21.02,
+      "predecessor": "Mistral Large 2 (Nov '24)"
+    },
+    {
+      "name": "Mistral Saba",
+      "performance": 4.68,
+      "rank": 219,
+      "provider": "Mistral AI",
+      "model_url": "https://artificialanalysis.ai/models/mistral-saba",
+      "release_date": "2025-02-17",
+      "variants": [
+        "Mistral Saba"
+      ],
+      "variant_count": 1,
+      "improvement_abs": -1.03,
+      "improvement_pct": -18.04,
+      "predecessor": "Mistral Small 3"
+    },
+    {
       "name": "DeepHermes 3 - Mistral 24B",
       "performance": 6.0,
       "rank": 226.0,
@@ -1754,25 +4425,131 @@
         "DeepHermes 3 - Mistral 24B (non-reasoning)"
       ],
       "variant_count": 1,
-      "improvement_abs": 0.0,
-      "improvement_pct": 0.0,
-      "predecessor": null
+      "improvement_abs": 1.32,
+      "improvement_pct": 28.21,
+      "predecessor": "Mistral Saba"
+    },
+    {
+      "name": "Mistral Small 3.1",
+      "performance": 7.17,
+      "rank": 190,
+      "provider": "Mistral AI",
+      "model_url": "https://artificialanalysis.ai/models/mistral-small-3-1",
+      "release_date": "2025-03-17",
+      "variants": [
+        "Mistral Small 3.1"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 1.17,
+      "improvement_pct": 19.5,
+      "predecessor": "DeepHermes 3 - Mistral 24B"
+    },
+    {
+      "name": "Mistral Medium 3",
+      "performance": 9.45,
+      "rank": 166,
+      "provider": "Mistral AI",
+      "model_url": "https://artificialanalysis.ai/models/mistral-medium-3",
+      "release_date": "2025-05-07",
+      "variants": [
+        "Mistral Medium 3"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 2.28,
+      "improvement_pct": 31.8,
+      "predecessor": "Mistral Small 3.1"
+    },
+    {
+      "name": "Mistral Small 3.2",
+      "performance": 8.01,
+      "rank": 182,
+      "provider": "Mistral AI",
+      "model_url": "https://artificialanalysis.ai/models/mistral-small-3-2",
+      "release_date": "2025-06-20",
+      "variants": [
+        "Mistral Small 3.2"
+      ],
+      "variant_count": 1,
+      "improvement_abs": -1.44,
+      "improvement_pct": -15.24,
+      "predecessor": "Mistral Medium 3"
+    },
+    {
+      "name": "Mistral Medium 3.1",
+      "performance": 10.78,
+      "rank": 152,
+      "provider": "Mistral AI",
+      "model_url": "https://artificialanalysis.ai/models/mistral-medium-3-1",
+      "release_date": "2025-08-12",
+      "variants": [
+        "Mistral Medium 3.1"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 2.77,
+      "improvement_pct": 34.58,
+      "predecessor": "Mistral Small 3.2"
+    },
+    {
+      "name": "Mistral Large 3",
+      "performance": 26.14,
+      "rank": 38,
+      "provider": "Mistral",
+      "model_url": "https://artificialanalysis.ai/models/mistral-large-3",
+      "release_date": "2025-12-02",
+      "variants": [
+        "Mistral Large 3"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 15.36,
+      "improvement_pct": 142.49,
+      "predecessor": "Mistral Medium 3.1"
+    },
+    {
+      "name": "Devstral 2",
+      "performance": 19.0,
+      "rank": 133,
+      "provider": "Mistral",
+      "model_url": "https://artificialanalysis.ai/models/devstral-2",
+      "release_date": "2025-12-09",
+      "variants": [
+        "Devstral 2"
+      ],
+      "variant_count": 1,
+      "improvement_abs": -7.14,
+      "improvement_pct": -27.31,
+      "predecessor": "Mistral Large 3"
+    },
+    {
+      "name": "Devstral Small 2",
+      "performance": 18.0,
+      "rank": 135,
+      "provider": "Mistral",
+      "model_url": "https://artificialanalysis.ai/models/devstral-small-2",
+      "release_date": "2025-12-09",
+      "variants": [
+        "Devstral Small 2"
+      ],
+      "variant_count": 1,
+      "improvement_abs": -1.0,
+      "improvement_pct": -5.26,
+      "predecessor": "Devstral 2"
     },
     {
       "name": "Mistral Small 4",
-      "performance": 11.0,
-      "rank": 150.0,
-      "provider": "Mistral AI",
+      "performance": 12.0,
+      "rank": 181,
+      "provider": "Mistral",
       "model_url": "https://artificialanalysis.ai/models/mistral-small-4",
       "release_date": "2026-03-16",
       "variants": [
         "Mistral Small 4",
-        "Mistral Small 4 (non-reasoning)"
+        "Mistral Small 4 (non-reasoning)",
+        "Mistral Small 4 (Non-reasoning)"
       ],
-      "variant_count": 2,
-      "improvement_abs": 5.0,
-      "improvement_pct": 83.33,
-      "predecessor": "DeepHermes 3 - Mistral 24B"
+      "variant_count": 3,
+      "improvement_abs": -6.0,
+      "improvement_pct": -33.33,
+      "predecessor": "Devstral Small 2"
     },
     {
       "name": "Mistral Medium 3.5",
@@ -1785,8 +4562,8 @@
         "Mistral Medium 3.5"
       ],
       "variant_count": 1,
-      "improvement_abs": 3.0,
-      "improvement_pct": 27.27,
+      "improvement_abs": 2.0,
+      "improvement_pct": 16.67,
       "predecessor": "Mistral Small 4"
     },
     {
@@ -1912,21 +4689,39 @@
       "improvement_abs": 25.0,
       "improvement_pct": 277.78,
       "predecessor": "Motif-2-12.7B"
+    },
+    {
+      "name": "Motif 3 (Beta)",
+      "performance": 45.0,
+      "rank": 36,
+      "provider": "Motif Technologies",
+      "model_url": "https://artificialanalysis.ai/models/motif-3",
+      "release_date": "2026-08-12",
+      "variants": [
+        "Motif 3 (Beta)"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 11.0,
+      "improvement_pct": 32.35,
+      "predecessor": "Motif 3"
     }
   ],
   "NVIDIA": [
     {
       "name": "NVIDIA Nemotron Nano 9B V2",
-      "performance": 7.0,
-      "rank": 202.0,
-      "provider": "NVIDIA",
-      "model_url": "https://artificialanalysis.ai/models/nvidia-nemotron-nano-9b-v2-reasoning",
+      "performance": 7.42,
+      "rank": 185,
+      "provider": "",
+      "model_url": "https://artificialanalysis.ai/models/nvidia-nemotron-nano-9b-v2",
       "release_date": "2025-08-18",
       "variants": [
+        "NVIDIA Nemotron Nano 9B V2 (Reasoning)",
         "NVIDIA Nemotron Nano 9B V2 (reasoning)",
+        "NVIDIA Nemotron Nano 9B V2",
+        "NVIDIA Nemotron Nano 9B V2 (Non-reasoning)",
         "NVIDIA Nemotron Nano 9B V2 (non-reasoning)"
       ],
-      "variant_count": 2,
+      "variant_count": 5,
       "improvement_abs": 0.0,
       "improvement_pct": 0.0,
       "predecessor": null
@@ -1939,12 +4734,14 @@
       "model_url": "https://artificialanalysis.ai/models/nvidia-nemotron-nano-12b-v2-vl-reasoning",
       "release_date": "2025-10-28",
       "variants": [
+        "NVIDIA Nemotron Nano 12B v2 VL (Non-reasoning)",
         "NVIDIA Nemotron Nano 12B v2 VL (reasoning)",
+        "NVIDIA Nemotron Nano 12B v2 VL",
         "NVIDIA Nemotron Nano 12B v2 VL (non-reasoning)"
       ],
-      "variant_count": 2,
-      "improvement_abs": 0.0,
-      "improvement_pct": 0.0,
+      "variant_count": 4,
+      "improvement_abs": -0.42,
+      "improvement_pct": -5.66,
       "predecessor": "NVIDIA Nemotron Nano 9B V2"
     },
     {
@@ -1964,6 +4761,21 @@
       "predecessor": "NVIDIA Nemotron Nano 12B v2 VL"
     },
     {
+      "name": "NVIDIA Nemotron 3 Nano 30B A3B",
+      "performance": 9.81,
+      "rank": 163,
+      "provider": "",
+      "model_url": "https://artificialanalysis.ai/models/nvidia-nemotron-3-nano-30b-a3b-reasoning",
+      "release_date": "2025-12-15",
+      "variants": [
+        "NVIDIA Nemotron 3 Nano 30B A3B (Reasoning)"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 0.81,
+      "improvement_pct": 9.0,
+      "predecessor": "Nemotron 3 Nano"
+    },
+    {
       "name": "Nemotron 3 Nano 4B",
       "performance": 5.0,
       "rank": 262.0,
@@ -1974,9 +4786,24 @@
         "Nemotron 3 Nano 4B"
       ],
       "variant_count": 1,
-      "improvement_abs": -4.0,
-      "improvement_pct": -44.44,
-      "predecessor": "Nemotron 3 Nano"
+      "improvement_abs": -4.81,
+      "improvement_pct": -49.03,
+      "predecessor": "NVIDIA Nemotron 3 Nano 30B A3B"
+    },
+    {
+      "name": "NVIDIA Nemotron 3 Nano 4B",
+      "performance": 9.0,
+      "rank": 202,
+      "provider": "NVIDIA",
+      "model_url": "https://artificialanalysis.ai/models/nvidia-nemotron-3-nano-4b",
+      "release_date": "2026-03-16",
+      "variants": [
+        "NVIDIA Nemotron 3 Nano 4B"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 4.0,
+      "improvement_pct": 80.0,
+      "predecessor": "Nemotron 3 Nano 4B"
     },
     {
       "name": "Nemotron Cascade 2 30B A3B",
@@ -1989,9 +4816,9 @@
         "Nemotron Cascade 2 30B A3B"
       ],
       "variant_count": 1,
-      "improvement_abs": 7.0,
-      "improvement_pct": 140.0,
-      "predecessor": "Nemotron 3 Nano 4B"
+      "improvement_abs": 3.0,
+      "improvement_pct": 33.33,
+      "predecessor": "NVIDIA Nemotron 3 Nano 4B"
     },
     {
       "name": "Nemotron 3 Nano Omni 30B A3B",
@@ -2103,7 +4930,84 @@
       "predecessor": "Hermes 4 70B"
     }
   ],
+  "OLMo": [
+    {
+      "name": "OLMo 2 7B",
+      "performance": 1.02,
+      "rank": 274,
+      "provider": "",
+      "model_url": "https://artificialanalysis.ai/models/olmo-2-7b",
+      "release_date": "2024-11-26",
+      "variants": [
+        "OLMo 2 7B"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 0.0,
+      "improvement_pct": 0.0,
+      "predecessor": null
+    },
+    {
+      "name": "OLMo 2 32B",
+      "performance": 2.12,
+      "rank": 250,
+      "provider": "",
+      "model_url": "https://artificialanalysis.ai/models/olmo-2-32b",
+      "release_date": "2025-03-13",
+      "variants": [
+        "OLMo 2 32B"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 1.1,
+      "improvement_pct": 107.84,
+      "predecessor": "OLMo 2 7B"
+    }
+  ],
   "OpenAI o-series": [
+    {
+      "name": "o1-preview",
+      "performance": 21.6,
+      "rank": 59,
+      "provider": "OpenAI",
+      "model_url": "https://artificialanalysis.ai/models/o1-preview",
+      "release_date": "2024-09-12",
+      "variants": [
+        "o1-preview"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 0.0,
+      "improvement_pct": 0.0,
+      "predecessor": null
+    },
+    {
+      "name": "o1",
+      "performance": 30.31,
+      "rank": 30,
+      "provider": "OpenAI",
+      "model_url": "https://artificialanalysis.ai/models/o1",
+      "release_date": "2024-12-05",
+      "variants": [
+        "o1"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 8.71,
+      "improvement_pct": 40.32,
+      "predecessor": "o1-preview"
+    },
+    {
+      "name": "o1-pro",
+      "performance": 0.88,
+      "rank": 278,
+      "provider": "OpenAI",
+      "model_url": "https://artificialanalysis.ai/models/o1-pro",
+      "release_date": "2025-03-19",
+      "variants": [
+        "o1-pro"
+      ],
+      "variant_count": 1,
+      "improvement_abs": -29.43,
+      "improvement_pct": -97.1,
+      "predecessor": "o1"
+    },
     {
       "name": "o3",
       "performance": 20.0,
@@ -2115,9 +5019,24 @@
         "o3"
       ],
       "variant_count": 1,
-      "improvement_abs": 0.0,
-      "improvement_pct": 0.0,
-      "predecessor": null
+      "improvement_abs": 19.12,
+      "improvement_pct": 2172.73,
+      "predecessor": "o1-pro"
+    },
+    {
+      "name": "o3-pro",
+      "performance": 29.58,
+      "rank": 101,
+      "provider": "OpenAI",
+      "model_url": "https://artificialanalysis.ai/models/o3-pro",
+      "release_date": "2025-06-10",
+      "variants": [
+        "o3-pro"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 9.58,
+      "improvement_pct": 47.9,
+      "predecessor": "o3"
     }
   ],
   "OpenBMB": [
@@ -2138,18 +5057,19 @@
     },
     {
       "name": "MiniCPM5-1B",
-      "performance": 9.0,
-      "rank": 182.0,
+      "performance": 12.0,
+      "rank": 187,
       "provider": "OpenBMB",
       "model_url": "https://artificialanalysis.ai/models/minicpm5-1b",
       "release_date": "2026-05-25",
       "variants": [
         "MiniCPM5-1B",
-        "MiniCPM5-1B (non-reasoning)"
+        "MiniCPM5-1B (non-reasoning)",
+        "MiniCPM5-1B (Non-reasoning)"
       ],
-      "variant_count": 2,
-      "improvement_abs": 3.0,
-      "improvement_pct": 50.0,
+      "variant_count": 3,
+      "improvement_abs": 6.0,
+      "improvement_pct": 100.0,
       "predecessor": "MiniCPM-V 4.6 1.3B"
     },
     {
@@ -2163,43 +5083,360 @@
         "MiniCPM5-2B"
       ],
       "variant_count": 1,
-      "improvement_abs": 3.0,
-      "improvement_pct": 33.33,
+      "improvement_abs": 0.0,
+      "improvement_pct": 0.0,
       "predecessor": "MiniCPM5-1B"
     }
   ],
   "Qwen": [
     {
-      "name": "Qwen3 Next 80B A3B",
-      "performance": 11.0,
-      "rank": 151.0,
+      "name": "Qwen Chat 14B",
+      "performance": 0.0,
+      "rank": 300,
       "provider": "Alibaba",
-      "model_url": "https://artificialanalysis.ai/models/qwen3-next-80b-a3b-reasoning",
-      "release_date": "2025-09-11",
+      "model_url": "https://artificialanalysis.ai/models/qwen-chat-14b",
+      "release_date": "2023-09-25",
       "variants": [
-        "Qwen3 Next 80B A3B (reasoning)",
-        "Qwen3 Next 80B A3B"
+        "Qwen Chat 14B"
       ],
-      "variant_count": 2,
+      "variant_count": 1,
       "improvement_abs": 0.0,
       "improvement_pct": 0.0,
       "predecessor": null
     },
     {
+      "name": "Qwen Chat 72B",
+      "performance": 0.0,
+      "rank": 301,
+      "provider": "Alibaba",
+      "model_url": "https://artificialanalysis.ai/models/qwen-chat-72b",
+      "release_date": "2023-11-30",
+      "variants": [
+        "Qwen Chat 72B"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 0.0,
+      "improvement_pct": 0.0,
+      "predecessor": "Qwen Chat 14B"
+    },
+    {
+      "name": "qwen2-72b-instruct",
+      "performance": 7.52,
+      "rank": 404,
+      "provider": "Alibaba",
+      "model_url": "https://artificialanalysis.ai/models/qwen2-72b-instruct",
+      "release_date": "2024-06-07",
+      "variants": [
+        "qwen2-72b-instruct"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 7.52,
+      "improvement_pct": 0.0,
+      "predecessor": "Qwen Chat 72B"
+    },
+    {
+      "name": "qwen2.5-72b-instruct",
+      "performance": 8.36,
+      "rank": 381,
+      "provider": "Alibaba",
+      "model_url": "https://artificialanalysis.ai/models/qwen2-5-72b-instruct",
+      "release_date": "2024-09-19",
+      "variants": [
+        "qwen2.5-72b-instruct"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 0.84,
+      "improvement_pct": 11.17,
+      "predecessor": "qwen2-72b-instruct"
+    },
+    {
+      "name": "qwen2.5-coder-32b-instruct",
+      "performance": 7.7,
+      "rank": 400,
+      "provider": "Alibaba",
+      "model_url": "https://artificialanalysis.ai/models/qwen2-5-coder-32b-instruct",
+      "release_date": "2024-11-11",
+      "variants": [
+        "qwen2.5-coder-32b-instruct"
+      ],
+      "variant_count": 1,
+      "improvement_abs": -0.66,
+      "improvement_pct": -7.89,
+      "predecessor": "qwen2.5-72b-instruct"
+    },
+    {
+      "name": "qwen3-235b-a22b-instruct-2507",
+      "performance": 10.64,
+      "rank": 315,
+      "provider": "Alibaba",
+      "model_url": "https://artificialanalysis.ai/models/qwen3-235b-a22b-instruct-2507",
+      "release_date": "2025-07-21",
+      "variants": [
+        "qwen3-235b-a22b-instruct-2507"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 2.94,
+      "improvement_pct": 38.18,
+      "predecessor": "qwen2.5-coder-32b-instruct"
+    },
+    {
+      "name": "Qwen3 Coder 480B A35B Instruct",
+      "performance": 23.5,
+      "rank": 49,
+      "provider": "Alibaba",
+      "model_url": "https://artificialanalysis.ai/models/qwen3-coder-480b-a35b-instruct",
+      "release_date": "2025-07-22",
+      "variants": [
+        "Qwen3 Coder 480B A35B Instruct"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 12.86,
+      "improvement_pct": 120.86,
+      "predecessor": "qwen3-235b-a22b-instruct-2507"
+    },
+    {
+      "name": "Qwen3 30B A3B 2507",
+      "performance": 11.52,
+      "rank": 144,
+      "provider": "Alibaba",
+      "model_url": "https://artificialanalysis.ai/models/qwen3-30b-a3b-2507",
+      "release_date": "2025-07-29",
+      "variants": [
+        "Qwen3 30B A3B 2507 (Reasoning)"
+      ],
+      "variant_count": 1,
+      "improvement_abs": -11.98,
+      "improvement_pct": -50.98,
+      "predecessor": "Qwen3 Coder 480B A35B Instruct"
+    },
+    {
+      "name": "Qwen3 Coder 30B A3B Instruct",
+      "performance": 9.14,
+      "rank": 170,
+      "provider": "Alibaba",
+      "model_url": "https://artificialanalysis.ai/models/qwen3-coder-30b-a3b-instruct",
+      "release_date": "2025-07-31",
+      "variants": [
+        "Qwen3 Coder 30B A3B Instruct"
+      ],
+      "variant_count": 1,
+      "improvement_abs": -2.38,
+      "improvement_pct": -20.66,
+      "predecessor": "Qwen3 30B A3B 2507"
+    },
+    {
+      "name": "Qwen3 4B 2507 Instruct",
+      "performance": 6.84,
+      "rank": 196,
+      "provider": "Alibaba",
+      "model_url": "https://artificialanalysis.ai/models/qwen3-4b-2507-instruct",
+      "release_date": "2025-08-06",
+      "variants": [
+        "Qwen3 4B 2507 Instruct"
+      ],
+      "variant_count": 1,
+      "improvement_abs": -2.3,
+      "improvement_pct": -25.16,
+      "predecessor": "Qwen3 Coder 30B A3B Instruct"
+    },
+    {
+      "name": "Qwen3 Next 80B A3B",
+      "performance": 17.0,
+      "rank": 155,
+      "provider": "Alibaba",
+      "model_url": "https://artificialanalysis.ai/models/qwen3-next-80b-a3b-reasoning",
+      "release_date": "2025-09-11",
+      "variants": [
+        "Qwen3 Next 80B A3B (Reasoning)",
+        "Qwen3 Next 80B A3B (reasoning)",
+        "Qwen3 Next 80B A3B"
+      ],
+      "variant_count": 3,
+      "improvement_abs": 10.16,
+      "improvement_pct": 148.54,
+      "predecessor": "Qwen3 4B 2507 Instruct"
+    },
+    {
       "name": "Qwen3 Omni 30B A3B",
-      "performance": 8.0,
-      "rank": 194.0,
+      "performance": 11.43,
+      "rank": 145,
       "provider": "Alibaba",
       "model_url": "https://artificialanalysis.ai/models/qwen3-omni-30b-a3b-reasoning",
       "release_date": "2025-09-22",
       "variants": [
+        "Qwen3 Omni 30B A3B (Reasoning)",
         "Qwen3 Omni 30B A3B (reasoning)",
         "Qwen3 Omni 30B A3B"
       ],
-      "variant_count": 2,
-      "improvement_abs": -3.0,
-      "improvement_pct": -27.27,
+      "variant_count": 3,
+      "improvement_abs": -5.57,
+      "improvement_pct": -32.76,
       "predecessor": "Qwen3 Next 80B A3B"
+    },
+    {
+      "name": "Qwen3 VL 235B A22B",
+      "performance": 15.55,
+      "rank": 122,
+      "provider": "Alibaba",
+      "model_url": "https://artificialanalysis.ai/models/qwen3-vl-235b-a22b-reasoning",
+      "release_date": "2025-09-23",
+      "variants": [
+        "Qwen3 VL 235B A22B (Reasoning)"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 4.12,
+      "improvement_pct": 36.05,
+      "predecessor": "Qwen3 Omni 30B A3B"
+    },
+    {
+      "name": "Qwen3 VL 235B A22B Instruct",
+      "performance": 23.77,
+      "rank": 48,
+      "provider": "Alibaba",
+      "model_url": "https://artificialanalysis.ai/models/qwen3-vl-235b-a22b-instruct",
+      "release_date": "2025-09-23",
+      "variants": [
+        "Qwen3 VL 235B A22B Instruct"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 8.22,
+      "improvement_pct": 52.86,
+      "predecessor": "Qwen3 VL 235B A22B"
+    },
+    {
+      "name": "Qwen3 VL 30B A3B",
+      "performance": 11.42,
+      "rank": 146,
+      "provider": "Alibaba",
+      "model_url": "https://artificialanalysis.ai/models/qwen3-vl-30b-a3b-reasoning",
+      "release_date": "2025-10-03",
+      "variants": [
+        "Qwen3 VL 30B A3B (Reasoning)"
+      ],
+      "variant_count": 1,
+      "improvement_abs": -12.35,
+      "improvement_pct": -51.96,
+      "predecessor": "Qwen3 VL 235B A22B Instruct"
+    },
+    {
+      "name": "Qwen3 VL 30B A3B Instruct",
+      "performance": 11.22,
+      "rank": 149,
+      "provider": "Alibaba",
+      "model_url": "https://artificialanalysis.ai/models/qwen3-vl-30b-a3b-instruct",
+      "release_date": "2025-10-03",
+      "variants": [
+        "Qwen3 VL 30B A3B Instruct"
+      ],
+      "variant_count": 1,
+      "improvement_abs": -0.2,
+      "improvement_pct": -1.75,
+      "predecessor": "Qwen3 VL 30B A3B"
+    },
+    {
+      "name": "Qwen3 VL 4B",
+      "performance": 5.9,
+      "rank": 207,
+      "provider": "Alibaba",
+      "model_url": "https://artificialanalysis.ai/models/qwen3-vl-4b-reasoning",
+      "release_date": "2025-10-14",
+      "variants": [
+        "Qwen3 VL 4B (Reasoning)"
+      ],
+      "variant_count": 1,
+      "improvement_abs": -5.32,
+      "improvement_pct": -47.42,
+      "predecessor": "Qwen3 VL 30B A3B Instruct"
+    },
+    {
+      "name": "Qwen3 VL 4B Instruct",
+      "performance": 3.2,
+      "rank": 237,
+      "provider": "Alibaba",
+      "model_url": "https://artificialanalysis.ai/models/qwen3-vl-4b-instruct",
+      "release_date": "2025-10-14",
+      "variants": [
+        "Qwen3 VL 4B Instruct"
+      ],
+      "variant_count": 1,
+      "improvement_abs": -2.7,
+      "improvement_pct": -45.76,
+      "predecessor": "Qwen3 VL 4B"
+    },
+    {
+      "name": "Qwen3 VL 8B",
+      "performance": 8.14,
+      "rank": 179,
+      "provider": "Alibaba",
+      "model_url": "https://artificialanalysis.ai/models/qwen3-vl-8b-reasoning",
+      "release_date": "2025-10-14",
+      "variants": [
+        "Qwen3 VL 8B (Reasoning)"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 4.94,
+      "improvement_pct": 154.38,
+      "predecessor": "Qwen3 VL 4B Instruct"
+    },
+    {
+      "name": "Qwen3 VL 8B Instruct",
+      "performance": 4.83,
+      "rank": 218,
+      "provider": "Alibaba",
+      "model_url": "https://artificialanalysis.ai/models/qwen3-vl-8b-instruct",
+      "release_date": "2025-10-14",
+      "variants": [
+        "Qwen3 VL 8B Instruct"
+      ],
+      "variant_count": 1,
+      "improvement_abs": -3.31,
+      "improvement_pct": -40.66,
+      "predecessor": "Qwen3 VL 8B"
+    },
+    {
+      "name": "Qwen3 VL 32B",
+      "performance": 11.97,
+      "rank": 137,
+      "provider": "Alibaba",
+      "model_url": "https://artificialanalysis.ai/models/qwen3-vl-32b-reasoning",
+      "release_date": "2025-10-21",
+      "variants": [
+        "Qwen3 VL 32B (Reasoning)"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 7.14,
+      "improvement_pct": 147.83,
+      "predecessor": "Qwen3 VL 8B Instruct"
+    },
+    {
+      "name": "Qwen3 VL 32B Instruct",
+      "performance": 11.09,
+      "rank": 151,
+      "provider": "Alibaba",
+      "model_url": "https://artificialanalysis.ai/models/qwen3-vl-32b-instruct",
+      "release_date": "2025-10-21",
+      "variants": [
+        "Qwen3 VL 32B Instruct"
+      ],
+      "variant_count": 1,
+      "improvement_abs": -0.88,
+      "improvement_pct": -7.35,
+      "predecessor": "Qwen3 VL 32B"
+    },
+    {
+      "name": "Qwen3 Max Thinking (Preview)",
+      "performance": 34.19,
+      "rank": 22,
+      "provider": "Alibaba",
+      "model_url": "https://artificialanalysis.ai/models/qwen3-max-thinking",
+      "release_date": "2026-01-26",
+      "variants": [
+        "Qwen3 Max Thinking (Preview)"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 23.1,
+      "improvement_pct": 208.3,
+      "predecessor": "Qwen3 VL 32B Instruct"
     },
     {
       "name": "Qwen3 Coder Next",
@@ -2212,41 +5449,59 @@
         "Qwen3 Coder Next"
       ],
       "variant_count": 1,
-      "improvement_abs": 1.0,
-      "improvement_pct": 12.5,
-      "predecessor": "Qwen3 Omni 30B A3B"
+      "improvement_abs": -25.19,
+      "improvement_pct": -73.68,
+      "predecessor": "Qwen3 Max Thinking (Preview)"
     },
     {
       "name": "Qwen3.5 397B A17B",
-      "performance": 21.0,
-      "rank": 98.0,
+      "performance": 43.98,
+      "rank": 8,
       "provider": "Alibaba",
-      "model_url": "https://artificialanalysis.ai/models/qwen3-5-397b-a17b-non-reasoning",
+      "model_url": "https://artificialanalysis.ai/models/qwen3-5-397b-a17b",
       "release_date": "2026-02-16",
       "variants": [
-        "Qwen3.5 397B A17B (non-reasoning)",
-        "Qwen3.5 397B A17B"
+        "Qwen3.5 397B A17B (Non-reasoning)",
+        "Qwen3.5 397B A17B",
+        "Qwen3.5 397B A17B (non-reasoning)"
       ],
-      "variant_count": 2,
-      "improvement_abs": 12.0,
-      "improvement_pct": 133.33,
+      "variant_count": 3,
+      "improvement_abs": 34.98,
+      "improvement_pct": 388.67,
       "predecessor": "Qwen3 Coder Next"
     },
     {
-      "name": "Qwen3.5 122B A10B",
-      "performance": 18.0,
-      "rank": 112.0,
+      "name": "Qwen3.5 35B A3B",
+      "performance": 24.0,
+      "rank": 113,
       "provider": "Alibaba",
-      "model_url": "https://artificialanalysis.ai/models/qwen3-5-122b-a10b-non-reasoning",
+      "model_url": "https://artificialanalysis.ai/models/qwen3-5-35b-a3b",
       "release_date": "2026-02-24",
       "variants": [
-        "Qwen3.5 122B A10B (non-reasoning)",
-        "Qwen3.5 122B A10B"
+        "Qwen3.5 35B A3B (non-reasoning)",
+        "Qwen3.5 35B A3B (Non-reasoning)"
       ],
       "variant_count": 2,
-      "improvement_abs": -3.0,
-      "improvement_pct": -14.29,
+      "improvement_abs": -19.98,
+      "improvement_pct": -45.43,
       "predecessor": "Qwen3.5 397B A17B"
+    },
+    {
+      "name": "Qwen3.5 122B A10B",
+      "performance": 28.0,
+      "rank": 107,
+      "provider": "Alibaba",
+      "model_url": "https://artificialanalysis.ai/models/qwen3-5-122b-a10b",
+      "release_date": "2026-02-24",
+      "variants": [
+        "Qwen3.5 122B A10B",
+        "Qwen3.5 122B A10B (non-reasoning)",
+        "Qwen3.5 122B A10B (Non-reasoning)"
+      ],
+      "variant_count": 3,
+      "improvement_abs": 4.0,
+      "improvement_pct": 16.67,
+      "predecessor": "Qwen3.5 35B A3B"
     },
     {
       "name": "Qwen3.5 0.8B",
@@ -2257,11 +5512,12 @@
       "release_date": "2026-03-02",
       "variants": [
         "Qwen3.5 0.8B",
-        "Qwen3.5 0.8B (non-reasoning)"
+        "Qwen3.5 0.8B (non-reasoning)",
+        "Qwen3.5 0.8B (Non-reasoning)"
       ],
-      "variant_count": 2,
-      "improvement_abs": -12.0,
-      "improvement_pct": -66.67,
+      "variant_count": 3,
+      "improvement_abs": -22.0,
+      "improvement_pct": -78.57,
       "predecessor": "Qwen3.5 122B A10B"
     },
     {
@@ -2273,43 +5529,46 @@
       "release_date": "2026-03-02",
       "variants": [
         "Qwen3.5 2B",
-        "Qwen3.5 2B (non-reasoning)"
+        "Qwen3.5 2B (non-reasoning)",
+        "Qwen3.5 2B (Non-reasoning)"
       ],
-      "variant_count": 2,
+      "variant_count": 3,
       "improvement_abs": 1.0,
       "improvement_pct": 16.67,
       "predecessor": "Qwen3.5 0.8B"
     },
     {
       "name": "Qwen3.5 4B",
-      "performance": 13.0,
-      "rank": 133.0,
+      "performance": 16.0,
+      "rank": 159,
       "provider": "Alibaba",
       "model_url": "https://artificialanalysis.ai/models/qwen3-5-4b",
       "release_date": "2026-03-02",
       "variants": [
         "Qwen3.5 4B",
-        "Qwen3.5 4B (non-reasoning)"
+        "Qwen3.5 4B (non-reasoning)",
+        "Qwen3.5 4B (Non-reasoning)"
       ],
-      "variant_count": 2,
-      "improvement_abs": 6.0,
-      "improvement_pct": 85.71,
+      "variant_count": 3,
+      "improvement_abs": 9.0,
+      "improvement_pct": 128.57,
       "predecessor": "Qwen3.5 2B"
     },
     {
       "name": "Qwen3.5 9B",
-      "performance": 13.0,
-      "rank": 129.0,
+      "performance": 21.0,
+      "rank": 133,
       "provider": "Alibaba",
-      "model_url": "https://artificialanalysis.ai/models/qwen3-5-9b-non-reasoning",
+      "model_url": "https://artificialanalysis.ai/models/qwen3-5-9b",
       "release_date": "2026-03-02",
       "variants": [
+        "Qwen3.5 9B",
         "Qwen3.5 9B (non-reasoning)",
-        "Qwen3.5 9B"
+        "Qwen3.5 9B (Non-reasoning)"
       ],
-      "variant_count": 2,
-      "improvement_abs": 0.0,
-      "improvement_pct": 0.0,
+      "variant_count": 3,
+      "improvement_abs": 5.0,
+      "improvement_pct": 31.25,
       "predecessor": "Qwen3.5 4B"
     },
     {
@@ -2323,8 +5582,8 @@
         "Qwen3.5 Omni Flash"
       ],
       "variant_count": 1,
-      "improvement_abs": -1.0,
-      "improvement_pct": -7.69,
+      "improvement_abs": -9.0,
+      "improvement_pct": -42.86,
       "predecessor": "Qwen3.5 9B"
     },
     {
@@ -2343,20 +5602,68 @@
       "predecessor": "Qwen3.5 Omni Flash"
     },
     {
+      "name": "Qwen3.6 Plus",
+      "performance": 40.0,
+      "rank": 48,
+      "provider": "Alibaba",
+      "model_url": "https://artificialanalysis.ai/models/qwen3-6-plus",
+      "release_date": "2026-04-02",
+      "variants": [
+        "Qwen3.6 Plus"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 20.0,
+      "improvement_pct": 100.0,
+      "predecessor": "Qwen3.5 Omni Plus"
+    },
+    {
       "name": "Qwen3.6 35B A3B",
-      "performance": 18.0,
-      "rank": 111.0,
+      "performance": 25.0,
+      "rank": 114,
       "provider": "Alibaba",
       "model_url": "https://artificialanalysis.ai/models/qwen3-6-35b-a3b",
       "release_date": "2026-04-16",
       "variants": [
         "Qwen3.6 35B A3B",
-        "Qwen3.6 35B A3B (non-reasoning)"
+        "Qwen3.6 35B A3B (non-reasoning)",
+        "Qwen3.6 35B A3B (Non-reasoning)"
       ],
-      "variant_count": 2,
-      "improvement_abs": -2.0,
-      "improvement_pct": -10.0,
-      "predecessor": "Qwen3.5 Omni Plus"
+      "variant_count": 3,
+      "improvement_abs": -15.0,
+      "improvement_pct": -37.5,
+      "predecessor": "Qwen3.6 Plus"
+    },
+    {
+      "name": "Qwen3.6 27B",
+      "performance": 38.0,
+      "rank": 56,
+      "provider": "Alibaba",
+      "model_url": "https://artificialanalysis.ai/models/qwen3-6-27b",
+      "release_date": "2026-04-22",
+      "variants": [
+        "Qwen3.6 27B",
+        "Qwen3.6 27B (non-reasoning)",
+        "Qwen3.6 27B (Non-reasoning)"
+      ],
+      "variant_count": 3,
+      "improvement_abs": 13.0,
+      "improvement_pct": 52.0,
+      "predecessor": "Qwen3.6 35B A3B"
+    },
+    {
+      "name": "Qwen3.7 Max",
+      "performance": 47.0,
+      "rank": 31,
+      "provider": "Alibaba",
+      "model_url": "https://artificialanalysis.ai/models/qwen3-7-max",
+      "release_date": "2026-05-19",
+      "variants": [
+        "Qwen3.7 Max"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 9.0,
+      "improvement_pct": 23.68,
+      "predecessor": "Qwen3.6 27B"
     },
     {
       "name": "Qwen3.7 Plus",
@@ -2369,9 +5676,24 @@
         "Qwen3.7 Plus"
       ],
       "variant_count": 1,
-      "improvement_abs": 7.0,
-      "improvement_pct": 38.89,
-      "predecessor": "Qwen3.6 35B A3B"
+      "improvement_abs": -22.0,
+      "improvement_pct": -46.81,
+      "predecessor": "Qwen3.7 Max"
+    },
+    {
+      "name": "Qwen3.8 Max",
+      "performance": 58.0,
+      "rank": 9,
+      "provider": "Alibaba",
+      "model_url": "https://artificialanalysis.ai/models/qwen3-8-max",
+      "release_date": "2026-08-03",
+      "variants": [
+        "Qwen3.8 Max"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 33.0,
+      "improvement_pct": 132.0,
+      "predecessor": "Qwen3.7 Plus"
     },
     {
       "name": "Qwen3.8 Max (0902)",
@@ -2384,9 +5706,9 @@
         "Qwen3.8 Max (0902)"
       ],
       "variant_count": 1,
-      "improvement_abs": 20.0,
-      "improvement_pct": 80.0,
-      "predecessor": "Qwen3.7 Plus"
+      "improvement_abs": -13.0,
+      "improvement_pct": -22.41,
+      "predecessor": "Qwen3.8 Max"
     },
     {
       "name": "Qwen3.8 2.4T A95B",
@@ -2405,20 +5727,22 @@
     },
     {
       "name": "Qwen3.8 27B",
-      "performance": 34.0,
-      "rank": 60.0,
+      "performance": 52.0,
+      "rank": 25,
       "provider": "Alibaba",
       "model_url": "https://artificialanalysis.ai/models/qwen3-8-27b",
       "release_date": "2026-08-14",
       "variants": [
+        "Qwen3.8 27B",
         "Qwen3.8 27B (xhigh)",
         "Qwen3.8 27B (medium)",
         "Qwen3.8 27B (low)",
-        "Qwen3.8 27B (non-reasoning)"
+        "Qwen3.8 27B (non-reasoning)",
+        "Qwen3.8 27B (Xhigh)"
       ],
-      "variant_count": 4,
-      "improvement_abs": -6.0,
-      "improvement_pct": -15.0,
+      "variant_count": 6,
+      "improvement_abs": 12.0,
+      "improvement_pct": 30.0,
       "predecessor": "Qwen3.8 2.4T A95B"
     },
     {
@@ -2432,9 +5756,90 @@
         "Qwen3.8-Flash-Next"
       ],
       "variant_count": 1,
-      "improvement_abs": 6.0,
-      "improvement_pct": 17.65,
+      "improvement_abs": -12.0,
+      "improvement_pct": -23.08,
       "predecessor": "Qwen3.8 27B"
+    }
+  ],
+  "Reka": [
+    {
+      "name": "Reka Flash (Sep '24)",
+      "performance": 0.0,
+      "rank": 303,
+      "provider": "",
+      "model_url": "https://artificialanalysis.ai/models/reka-flash",
+      "release_date": "2024-10-04",
+      "variants": [
+        "Reka Flash (Sep '24)"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 0.0,
+      "improvement_pct": 0.0,
+      "predecessor": null
+    }
+  ],
+  "Reka AI": [
+    {
+      "name": "Reka Flash 3",
+      "performance": 6.0,
+      "rank": 238.0,
+      "provider": "Reka AI",
+      "model_url": "https://artificialanalysis.ai/models/reka-flash-3",
+      "release_date": "2025-03-10",
+      "variants": [
+        "Reka Flash 3"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 0.0,
+      "improvement_pct": 0.0,
+      "predecessor": null
+    }
+  ],
+  "Sapiens AI": [
+    {
+      "name": "Agnes 2.5 Pro Alpha",
+      "performance": 40.0,
+      "rank": 50,
+      "provider": "Sapiens AI",
+      "model_url": "https://artificialanalysis.ai/models/agnes-2-5-pro-alpha",
+      "release_date": "2026-07-24",
+      "variants": [
+        "Agnes 2.5 Pro Alpha"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 0.0,
+      "improvement_pct": 0.0,
+      "predecessor": null
+    },
+    {
+      "name": "Agnes 2.5 Pro Beta",
+      "performance": 35.0,
+      "rank": 53.0,
+      "provider": "Sapiens AI",
+      "model_url": "https://artificialanalysis.ai/models/agnes-2-5-pro-beta",
+      "release_date": "2026-08-26",
+      "variants": [
+        "Agnes 2.5 Pro Beta"
+      ],
+      "variant_count": 1,
+      "improvement_abs": -5.0,
+      "improvement_pct": -12.5,
+      "predecessor": "Agnes 2.5 Pro Alpha"
+    },
+    {
+      "name": "Agnes 3.0 Flash",
+      "performance": 36.0,
+      "rank": 46,
+      "provider": "Sapiens AI",
+      "model_url": "https://artificialanalysis.ai/models/agnes-3-0-flash",
+      "release_date": "2026-09-11",
+      "variants": [
+        "Agnes 3.0 Flash"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 1.0,
+      "improvement_pct": 2.86,
+      "predecessor": "Agnes 2.5 Pro Beta"
     }
   ],
   "Sarvam": [
@@ -2469,6 +5874,115 @@
       "predecessor": "Sarvam 30B"
     }
   ],
+  "Solar": [
+    {
+      "name": "Solar Mini",
+      "performance": 0.0,
+      "rank": 304,
+      "provider": "",
+      "model_url": "https://artificialanalysis.ai/models/solar-mini",
+      "release_date": "2024-01-25",
+      "variants": [
+        "Solar Mini"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 0.0,
+      "improvement_pct": 0.0,
+      "predecessor": null
+    },
+    {
+      "name": "Solar Pro 2",
+      "performance": 8.85,
+      "rank": 172,
+      "provider": "",
+      "model_url": "https://artificialanalysis.ai/models/solar-pro-2-reasoning",
+      "release_date": "2025-07-09",
+      "variants": [
+        "Solar Pro 2 (Reasoning)"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 8.85,
+      "improvement_pct": 0.0,
+      "predecessor": "Solar Mini"
+    },
+    {
+      "name": "Solar Open 100B",
+      "performance": 9.68,
+      "rank": 164,
+      "provider": "",
+      "model_url": "https://artificialanalysis.ai/models/solar-open-100b-reasoning",
+      "release_date": "2025-12-17",
+      "variants": [
+        "Solar Open 100B (Reasoning)"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 0.83,
+      "improvement_pct": 9.38,
+      "predecessor": "Solar Pro 2"
+    }
+  ],
+  "Sonar": [
+    {
+      "name": "Sonar",
+      "performance": 5.95,
+      "rank": 206,
+      "provider": "",
+      "model_url": "https://artificialanalysis.ai/models/sonar",
+      "release_date": "2025-01-21",
+      "variants": [
+        "Sonar"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 0.0,
+      "improvement_pct": 0.0,
+      "predecessor": null
+    },
+    {
+      "name": "Sonar Pro",
+      "performance": 8.83,
+      "rank": 173,
+      "provider": "",
+      "model_url": "https://artificialanalysis.ai/models/sonar-pro",
+      "release_date": "2025-01-21",
+      "variants": [
+        "Sonar Pro"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 2.88,
+      "improvement_pct": 48.4,
+      "predecessor": "Sonar"
+    },
+    {
+      "name": "Sonar Reasoning",
+      "performance": 10.04,
+      "rank": 160,
+      "provider": "",
+      "model_url": "https://artificialanalysis.ai/models/sonar-reasoning",
+      "release_date": "2025-01-28",
+      "variants": [
+        "Sonar Reasoning"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 1.21,
+      "improvement_pct": 13.7,
+      "predecessor": "Sonar Pro"
+    },
+    {
+      "name": "Sonar Reasoning Pro",
+      "performance": 0.0,
+      "rank": 305,
+      "provider": "",
+      "model_url": "https://artificialanalysis.ai/models/sonar-reasoning-pro",
+      "release_date": "2025-01-28",
+      "variants": [
+        "Sonar Reasoning Pro"
+      ],
+      "variant_count": 1,
+      "improvement_abs": -10.04,
+      "improvement_pct": -100.0,
+      "predecessor": "Sonar Reasoning"
+    }
+  ],
   "StepFun": [
     {
       "name": "Step3 VL 10B",
@@ -2486,6 +6000,21 @@
       "predecessor": null
     },
     {
+      "name": "Step 3.7 Flash",
+      "performance": 31.0,
+      "rank": 82,
+      "provider": "StepFun",
+      "model_url": "https://artificialanalysis.ai/models/step-3-7-flash",
+      "release_date": "2026-05-29",
+      "variants": [
+        "Step 3.7 Flash"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 23.0,
+      "improvement_pct": 287.5,
+      "predecessor": "Step3 VL 10B"
+    },
+    {
       "name": "Step 5 Preview",
       "performance": 44.0,
       "rank": 31.0,
@@ -2496,9 +6025,9 @@
         "Step 5 Preview"
       ],
       "variant_count": 1,
-      "improvement_abs": 36.0,
-      "improvement_pct": 450.0,
-      "predecessor": "Step3 VL 10B"
+      "improvement_abs": 13.0,
+      "improvement_pct": 41.94,
+      "predecessor": "Step 3.7 Flash"
     }
   ],
   "Swiss AI Initiative": [
@@ -2533,18 +6062,53 @@
       "predecessor": "Apertus 8B Instruct"
     }
   ],
+  "Tencent": [
+    {
+      "name": "Hy3-preview",
+      "performance": 34.0,
+      "rank": 74,
+      "provider": "Tencent",
+      "model_url": "https://artificialanalysis.ai/models/hy3-preview",
+      "release_date": "2026-04-23",
+      "variants": [
+        "Hy3-preview",
+        "Hy3-preview (non-reasoning)"
+      ],
+      "variant_count": 2,
+      "improvement_abs": 0.0,
+      "improvement_pct": 0.0,
+      "predecessor": null
+    },
+    {
+      "name": "Hy3",
+      "performance": 25.0,
+      "rank": 85.0,
+      "provider": "Tencent",
+      "model_url": "https://artificialanalysis.ai/models/hy3",
+      "release_date": "2026-07-06",
+      "variants": [
+        "Hy3"
+      ],
+      "variant_count": 1,
+      "improvement_abs": -9.0,
+      "improvement_pct": -26.47,
+      "predecessor": "Hy3-preview"
+    }
+  ],
   "Thinking Machines": [
     {
       "name": "Inkling",
-      "performance": 25.0,
-      "rank": 87.0,
+      "performance": 42.0,
+      "rank": 42,
       "provider": "Thinking Machines",
       "model_url": "https://artificialanalysis.ai/models/inkling",
       "release_date": "2026-07-15",
       "variants": [
-        "Inkling (xhigh)"
+        "Inkling",
+        "Inkling (xhigh)",
+        "Inkling (Xhigh)"
       ],
-      "variant_count": 1,
+      "variant_count": 3,
       "improvement_abs": 0.0,
       "improvement_pct": 0.0,
       "predecessor": null
@@ -2560,12 +6124,60 @@
         "Inkling Small"
       ],
       "variant_count": 1,
-      "improvement_abs": 1.0,
-      "improvement_pct": 4.0,
+      "improvement_abs": -16.0,
+      "improvement_pct": -38.1,
       "predecessor": "Inkling"
     }
   ],
+  "Trillion Labs": [
+    {
+      "name": "Tri-21B-Think",
+      "performance": 9.0,
+      "rank": 178.0,
+      "provider": "Trillion Labs",
+      "model_url": "https://artificialanalysis.ai/models/tri-21b-think-v0-5",
+      "release_date": "2026-02-10",
+      "variants": [
+        "Tri-21B-Think"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 0.0,
+      "improvement_pct": 0.0,
+      "predecessor": null
+    },
+    {
+      "name": "Tri-21B-think Preview",
+      "performance": 14.0,
+      "rank": 166,
+      "provider": "Trillion Labs",
+      "model_url": "https://artificialanalysis.ai/models/tri-21b-think-preview",
+      "release_date": "2026-02-10",
+      "variants": [
+        "Tri-21B-think Preview"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 5.0,
+      "improvement_pct": 55.56,
+      "predecessor": "Tri-21B-Think"
+    }
+  ],
   "Upstage": [
+    {
+      "name": "Solar Pro 2",
+      "performance": 9.0,
+      "rank": 195,
+      "provider": "Upstage",
+      "model_url": "https://artificialanalysis.ai/models/solar-pro-2-reasoning",
+      "release_date": "2025-07-09",
+      "variants": [
+        "Solar Pro 2 (reasoning)",
+        "Solar Pro 2"
+      ],
+      "variant_count": 2,
+      "improvement_abs": 0.0,
+      "improvement_pct": 0.0,
+      "predecessor": null
+    },
     {
       "name": "Solar Open 100B",
       "performance": 10.0,
@@ -2577,9 +6189,24 @@
         "Solar Open 100B (reasoning)"
       ],
       "variant_count": 1,
-      "improvement_abs": 0.0,
-      "improvement_pct": 0.0,
-      "predecessor": null
+      "improvement_abs": 1.0,
+      "improvement_pct": 11.11,
+      "predecessor": "Solar Pro 2"
+    },
+    {
+      "name": "Solar Pro 3",
+      "performance": 14.0,
+      "rank": 163,
+      "provider": "Upstage",
+      "model_url": "https://artificialanalysis.ai/models/solar-pro-3",
+      "release_date": "2026-04-06",
+      "variants": [
+        "Solar Pro 3"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 4.0,
+      "improvement_pct": 40.0,
+      "predecessor": "Solar Open 100B"
     },
     {
       "name": "Solar Pro 4",
@@ -2592,9 +6219,9 @@
         "Solar Pro 4"
       ],
       "variant_count": 1,
-      "improvement_abs": 17.0,
-      "improvement_pct": 170.0,
-      "predecessor": "Solar Open 100B"
+      "improvement_abs": 13.0,
+      "improvement_pct": 92.86,
+      "predecessor": "Solar Pro 3"
     },
     {
       "name": "Solar Open2 250B",
@@ -2629,6 +6256,84 @@
   ],
   "Xiaomi": [
     {
+      "name": "MiMo-V2-Flash",
+      "performance": 37.33,
+      "rank": 17,
+      "provider": "Xiaomi",
+      "model_url": "https://artificialanalysis.ai/models/mimo-v2-flash",
+      "release_date": "2025-12-16",
+      "variants": [
+        "MiMo-V2-Flash (Non-reasoning)",
+        "MiMo-V2-Flash"
+      ],
+      "variant_count": 2,
+      "improvement_abs": 0.0,
+      "improvement_pct": 0.0,
+      "predecessor": null
+    },
+    {
+      "name": "MiMo-V2-Flash (Feb 2026)",
+      "performance": 34.0,
+      "rank": 69,
+      "provider": "Xiaomi",
+      "model_url": "https://artificialanalysis.ai/models/mimo-v2-flash",
+      "release_date": "2025-12-16",
+      "variants": [
+        "MiMo-V2-Flash (Feb 2026)"
+      ],
+      "variant_count": 1,
+      "improvement_abs": -3.33,
+      "improvement_pct": -8.92,
+      "predecessor": "MiMo-V2-Flash"
+    },
+    {
+      "name": "MiMo-V2-Omni",
+      "performance": 36.0,
+      "rank": 61,
+      "provider": "Xiaomi",
+      "model_url": "https://artificialanalysis.ai/models/mimo-v2-omni",
+      "release_date": "2026-03-19",
+      "variants": [
+        "MiMo-V2-Omni"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 2.0,
+      "improvement_pct": 5.88,
+      "predecessor": "MiMo-V2-Flash (Feb 2026)"
+    },
+    {
+      "name": "MiMo-V2-Omni-0327",
+      "performance": 37.0,
+      "rank": 58,
+      "provider": "Xiaomi",
+      "model_url": "https://artificialanalysis.ai/models/mimo-v2-omni-0327",
+      "release_date": "2026-03-27",
+      "variants": [
+        "MiMo-V2-Omni-0327"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 1.0,
+      "improvement_pct": 2.78,
+      "predecessor": "MiMo-V2-Omni"
+    },
+    {
+      "name": "MiMo-V2.5-Pro",
+      "performance": 43.0,
+      "rank": 40,
+      "provider": "Xiaomi",
+      "model_url": "https://artificialanalysis.ai/models/mimo-v2-5-pro",
+      "release_date": "2026-04-22",
+      "variants": [
+        "MiMo-V2.5-Pro",
+        "MiMo-V2.5-Pro (non-reasoning)",
+        "MiMo-V2.5-Pro (Non-reasoning)"
+      ],
+      "variant_count": 3,
+      "improvement_abs": 6.0,
+      "improvement_pct": 16.22,
+      "predecessor": "MiMo-V2-Omni-0327"
+    },
+    {
       "name": "MiMo-V2.6-Flash",
       "performance": 38.0,
       "rank": 49.0,
@@ -2639,9 +6344,9 @@
         "MiMo-V2.6-Flash"
       ],
       "variant_count": 1,
-      "improvement_abs": 0.0,
-      "improvement_pct": 0.0,
-      "predecessor": null
+      "improvement_abs": -5.0,
+      "improvement_pct": -11.63,
+      "predecessor": "MiMo-V2.5-Pro"
     },
     {
       "name": "MiMo-V2.6-Pro",

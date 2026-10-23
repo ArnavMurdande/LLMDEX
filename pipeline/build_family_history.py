@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import concurrent.futures
+import glob
 import json
 import os
 import re
@@ -110,8 +111,71 @@ def extract_embedded_model_catalog(page_text: str) -> List[dict]:
     return rows
 
 
+def resolve_model_meta(
+    name: str,
+    existing_url: str | None = None,
+    release_dates: Dict[str, str] | None = None,
+) -> tuple[str | None, str | None]:
+    """Resolve canonical model URL and published release date from known release mapping."""
+    if not release_dates:
+        return existing_url, None
+
+    if existing_url and existing_url in release_dates:
+        return existing_url, release_dates[existing_url]
+
+    slug_map = {
+        url.split("/")[-1].lower(): (url, date)
+        for url, date in release_dates.items()
+    }
+
+    if existing_url:
+        slug = existing_url.split("/")[-1].lower()
+        if slug in slug_map:
+            return slug_map[slug]
+
+    clean = (name or "").lower().strip()
+    clean = re.sub(r"\s*\([^)]*\)", "", clean).strip()
+
+    s1 = re.sub(r"[\s_]+", "-", clean)
+    s1 = re.sub(r"\.", "-", s1)
+    s1 = re.sub(r"[^a-z0-9\-]", "", s1)
+
+    s2 = re.sub(r"[\s_]+", "-", clean)
+    s2 = re.sub(r"\.", "", s2)
+    s2 = re.sub(r"[^a-z0-9\-]", "", s2)
+
+    s3 = re.sub(r"-0$", "", s1)
+
+    candidates = [s1, s2, s3]
+    for c in list(candidates):
+        candidates.append(c + "-thinking")
+        candidates.append(c + "-reasoning")
+        candidates.append(c + "-adaptive")
+
+    for c in candidates:
+        if c in slug_map:
+            return slug_map[c]
+
+    return existing_url, None
+
+
 def load_historical_catalog(seed_url: str | None, cache_path: Path) -> List[dict]:
     """Refresh the historical catalog from one model page, with disk fallback."""
+    existing: List[dict] = []
+    if cache_path.exists():
+        try:
+            existing = json.loads(cache_path.read_text(encoding="utf-8"))
+        except Exception:
+            existing = []
+
+    existing_by_key = {
+        row.get("model_url")
+        or row.get("canonical_name")
+        or row.get("model_name"): row
+        for row in existing
+        if row
+    }
+
     catalog: List[dict] = []
     if requests is not None and seed_url:
         try:
@@ -130,15 +194,20 @@ def load_historical_catalog(seed_url: str | None, cache_path: Path) -> List[dict
         except Exception as exc:
             print(f"Historical catalog refresh failed: {exc}")
 
-    if catalog:
-        cache_path.parent.mkdir(parents=True, exist_ok=True)
-        cache_path.write_text(json.dumps(catalog, indent=2), encoding="utf-8")
-        return catalog
+    for row in catalog:
+        key = (
+            row.get("model_url")
+            or row.get("canonical_name")
+            or row.get("model_name")
+        )
+        if key:
+            existing_by_key[key] = row
 
-    try:
-        return json.loads(cache_path.read_text(encoding="utf-8"))
-    except (FileNotFoundError, json.JSONDecodeError):
-        return []
+    merged = list(existing_by_key.values())
+    if merged:
+        cache_path.parent.mkdir(parents=True, exist_ok=True)
+        cache_path.write_text(json.dumps(merged, indent=2), encoding="utf-8")
+    return merged
 
 
 def _fetch_release_date(url: str) -> tuple[str, str | None]:
@@ -193,8 +262,18 @@ def enrich_release_dates(
 
     for members in history.values():
         for member in members:
+            cached_url = member.get("model_url")
+            resolved_url, resolved_date = resolve_model_meta(
+                member.get("name", ""),
+                cached_url,
+                cache,
+            )
+            if resolved_url and not member.get("model_url"):
+                member["model_url"] = resolved_url
+
             member["release_date"] = (
                 cache.get(member.get("model_url"))
+                or resolved_date
                 or member.get("release_date")
                 or infer_release_date(member.get("name", ""))
             )
@@ -300,35 +379,99 @@ def build_history() -> None:
 
     history_dir = os.path.join(base_dir, "history")
     os.makedirs(history_dir, exist_ok=True)
+    release_dates_path = Path(history_dir) / "release_dates.json"
+    try:
+        release_dates = json.loads(release_dates_path.read_text(encoding="utf-8"))
+    except Exception:
+        release_dates = {}
+
     catalog_path = Path(history_dir) / "historical_models.json"
     seed_url = next((row.get("model_url") for row in data if row.get("model_url")), None)
     historical = load_historical_catalog(seed_url, catalog_path)
 
-    historical_by_url = {
-        row.get("model_url"): row
-        for row in historical
-        if row.get("model_url")
-    }
-    combined = {
-        row.get("model_url") or row.get("canonical_name") or row.get("model_name"): row
-        for row in historical
-    }
-    for row in data:
-        enriched = dict(row)
-        catalog_row = historical_by_url.get(row.get("model_url"))
-        if catalog_row and not enriched.get("release_date"):
-            enriched["release_date"] = catalog_row.get("release_date")
-        key = (
-            enriched.get("model_url")
-            or enriched.get("canonical_name")
-            or enriched.get("model_name")
+    combined: Dict[str, dict] = {}
+
+    # 1. Ingest historical snapshots chronologically to recover archived models
+    snapshot_files = sorted(
+        p
+        for p in glob.glob(os.path.join(history_dir, "2026-*.json"))
+        if not p.endswith(
+            (
+                "family_growth.json",
+                "historical_models.json",
+                "release_dates.json",
+                "family_snapshots.json",
+            )
         )
-        combined[key] = enriched
+    )
+    for snapshot_file in snapshot_files:
+        try:
+            with open(snapshot_file, "r", encoding="utf-8") as file:
+                snapshot_rows = json.load(file)
+            for row in snapshot_rows:
+                name = row.get("canonical_name") or row.get("model_name")
+                if not name or re.search(r"-\d{8}", name) or re.match(r"^[a-z]+-[0-9]", name):
+                    continue
+                perf = row.get("adjusted_performance")
+                if perf is None:
+                    perf = row.get("performance_index")
+                if perf is None:
+                    continue
+                url, date = resolve_model_meta(name, row.get("model_url"), release_dates)
+                if not date and not url:
+                    continue
+                row_copy = dict(row)
+                row_copy["adjusted_performance"] = float(perf)
+                provider = row.get("provider")
+                row_copy["provider"] = (
+                    str(provider)
+                    if provider is not None and str(provider).lower() != "nan"
+                    else ""
+                )
+                if url:
+                    row_copy["model_url"] = url
+                if date:
+                    row_copy["release_date"] = date
+                key = name
+                if key not in combined or row_copy["adjusted_performance"] > (
+                    combined[key].get("adjusted_performance") or 0
+                ):
+                    combined[key] = row_copy
+        except Exception as exc:
+            print(f"Warning: could not process snapshot {snapshot_file}: {exc}")
+
+    # 2. Ingest historical SSR catalog
+    for row in historical:
+        name = row.get("canonical_name") or row.get("model_name")
+        if not name:
+            continue
+        row_copy = dict(row)
+        url, date = resolve_model_meta(name, row.get("model_url"), release_dates)
+        if url:
+            row_copy["model_url"] = url
+        if date:
+            row_copy["release_date"] = date
+        key = name
+        combined[key] = row_copy
+
+    # 3. Ingest latest active index
+    for row in data:
+        name = row.get("canonical_name") or row.get("model_name")
+        if not name:
+            continue
+        row_copy = dict(row)
+        url, date = resolve_model_meta(name, row.get("model_url"), release_dates)
+        if url:
+            row_copy["model_url"] = url
+        if date:
+            row_copy["release_date"] = date
+        key = name
+        combined[key] = row_copy
 
     history = build_family_history(list(combined.values()))
     history = enrich_release_dates(
         history,
-        Path(history_dir) / "release_dates.json",
+        release_dates_path,
     )
     output_path = os.path.join(history_dir, "family_growth.json")
     with open(output_path, "w", encoding="utf-8") as file:

@@ -206,6 +206,54 @@ class FamilyGrowthRegressionTests(unittest.TestCase):
         self.assertEqual(rows[0]["canonical_name"], "Claude 3 Opus")
         self.assertEqual(rows[0]["release_date"], "2024-03-04")
 
+    def test_claude_historical_progression_across_product_lines(self):
+        rows = [
+            {
+                "canonical_name": "Claude Instant",
+                "provider": "Anthropic",
+                "adjusted_performance": 3.36,
+                "model_url": "https://artificialanalysis.ai/models/claude-instant",
+                "release_date": "2023-03-14",
+            },
+            {
+                "canonical_name": "Claude 2.0",
+                "provider": "Anthropic",
+                "adjusted_performance": 4.84,
+                "model_url": "https://artificialanalysis.ai/models/claude-2",
+                "release_date": "2023-07-11",
+            },
+            {
+                "canonical_name": "Claude 3 Opus",
+                "provider": "Anthropic",
+                "adjusted_performance": 19.41,
+                "model_url": "https://artificialanalysis.ai/models/claude-3-opus",
+                "release_date": "2024-03-04",
+            },
+            {
+                "canonical_name": "Claude Opus 5.5 (max with fallback)",
+                "provider": "Anthropic",
+                "adjusted_performance": 58.0,
+                "model_url": "https://artificialanalysis.ai/models/claude-opus-5-5",
+                "release_date": "2026-09-22",
+            },
+            {
+                "canonical_name": "Claude Sonnet 5.5 (max with fallback)",
+                "provider": "Anthropic",
+                "adjusted_performance": 56.0,
+                "model_url": "https://artificialanalysis.ai/models/claude-sonnet-5-5",
+                "release_date": "2026-09-28",
+            },
+        ]
+        history = build_family_history(rows)
+        self.assertIn("Claude", history)
+        self.assertIn("Claude Opus", history)
+        self.assertIn("Claude Sonnet", history)
+        self.assertEqual(history["Claude"][0]["name"], "Claude Instant")
+        self.assertEqual(history["Claude"][1]["name"], "Claude 2.0")
+        self.assertEqual(len(history["Claude Opus"]), 2)
+        self.assertEqual(history["Claude Opus"][0]["name"], "Claude 3 Opus")
+        self.assertEqual(history["Claude Opus"][1]["name"], "Claude Opus 5.5")
+
 
 class RankingRegressionTests(unittest.TestCase):
     def test_blended_cost_is_published_from_input_and_output_prices(self):
