@@ -91,6 +91,8 @@ KNOWN_MODEL_PROVIDERS = {
     "solar": "Upstage",
     "ember": "Fireworks AI",
     "ling": "InclusionAI",
+    "mercury": "Inception",
+    "beam": "Reflection",
 }
 
 

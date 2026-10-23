@@ -28,6 +28,14 @@ class LLMStatsFixtureTests(unittest.TestCase):
             _infer_provider("Ling 3.0 Flash", "ling-3.0-flash"),
             "InclusionAI",
         )
+        self.assertEqual(
+            _infer_provider("Mercury 3", "mercury-3"),
+            "Inception",
+        )
+        self.assertEqual(
+            _infer_provider("Beam 1.0", "beam-1.0-501b-a23b"),
+            "Reflection",
+        )
 
     def test_table_schema_and_source_native_names(self):
         general = (FIXTURES / "llmstats_general.html").read_text(encoding="utf-8")
