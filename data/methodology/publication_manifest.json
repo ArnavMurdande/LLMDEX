@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-10-22T15:31:08.064291+00:00",
+  "generated_at": "2026-10-23T15:46:42.508727+00:00",
   "methodology_version": "LLMDEX General Consensus v1",
   "source_updated_at": {
-    "artificial_analysis": "2026-10-22T15:31:08.064291+00:00",
-    "llmstats": "2026-10-22T15:31:32.244532+00:00"
+    "artificial_analysis": "2026-10-23T15:46:42.508727+00:00",
+    "llmstats": "2026-10-22T15:31:32.243732+00:00"
   },
   "source_health": {
     "artificial_analysis": {
@@ -18,10 +18,10 @@
       "warnings": [
         "Health synthesized from the current validated publication."
       ],
-      "last_successful_update": "2026-10-22T15:31:08.064291+00:00",
+      "last_successful_update": "2026-10-23T15:46:42.508727+00:00",
       "schema_changes": [],
       "error_message": null,
-      "timestamp": "2026-10-22T15:31:08.064291+00:00"
+      "timestamp": "2026-10-23T15:46:42.508727+00:00"
     },
     "llmstats": {
       "source": "LLMStats",
@@ -30,13 +30,15 @@
         20,
         250
       ],
-      "status": "healthy",
-      "error_message": null,
-      "duration_seconds": 24.175,
-      "timestamp": "2026-10-22T15:31:32.244532+00:00",
+      "status": "degraded",
+      "error_message": "HTTPError: 522 Server Error: <none> for url: https://llm-stats.com/leaderboards/llm-leaderboard",
+      "duration_seconds": 38.905,
+      "timestamp": "2026-10-23T15:47:21.420170+00:00",
       "parse_warning_count": 0,
-      "warnings": [],
-      "last_successful_update": "2026-10-22T15:31:32.244532+00:00",
+      "warnings": [
+        "Live extraction failed; serving the last-known-good LLMStats snapshot."
+      ],
+      "last_successful_update": "2026-10-22T15:31:32.243732+00:00",
       "schema_changes": []
     }
   },
