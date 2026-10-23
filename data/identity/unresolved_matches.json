@@ -781,26 +781,6 @@
   },
   {
     "source": "llmstats",
-    "source_name": "Beam 1.0",
-    "source_model_id": "beam-1.0-501b-a23b",
-    "source_model_url": "https://llm-stats.com/models/beam-1.0-501b-a23b",
-    "provider": null,
-    "candidate_family_id": "reflection/beam-1-0",
-    "candidate_family_name": "Beam 1.0",
-    "match_status": "identity_unresolved",
-    "match_confidence": 0.8,
-    "match_method": "fuzzy_review_candidate",
-    "review_reason": "Fuzzy candidates require manual approval and are excluded from scoring.",
-    "competing_candidates": [
-      {
-        "family_id": "reflection/beam-1-0",
-        "family_name": "Beam 1.0",
-        "similarity": 1.0
-      }
-    ]
-  },
-  {
-    "source": "llmstats",
     "source_name": "Nemotron 3.5 Super VL (120B A12B)",
     "source_model_id": "nemotron-3.5-super-vl-120b-a12b",
     "source_model_url": "https://llm-stats.com/models/nemotron-3.5-super-vl-120b-a12b",
@@ -849,7 +829,7 @@
     "source_name": "Mercury 3",
     "source_model_id": "mercury-3",
     "source_model_url": "https://llm-stats.com/models/mercury-3",
-    "provider": null,
+    "provider": "Inception",
     "candidate_family_id": "inception/mercury-2-5",
     "candidate_family_name": "Mercury 2.5",
     "match_status": "identity_unresolved",

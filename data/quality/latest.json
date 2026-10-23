@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-10-23T15:46:42.508727+00:00",
+  "generated_at": "2026-10-23T16:22:44.819992+00:00",
   "methodology_version": "LLMDEX General Consensus v1",
-  "status": "degraded",
+  "status": "healthy",
   "sources": {
     "artificial_analysis": {
       "source": "Artificial Analysis",
       "status": "healthy",
-      "rows_scraped": 269,
+      "rows_scraped": 270,
       "expected_range": [
         150,
         500
@@ -15,10 +15,10 @@
       "warnings": [
         "Health synthesized from the current validated publication."
       ],
-      "last_successful_update": "2026-10-23T15:46:42.508727+00:00",
+      "last_successful_update": "2026-10-23T16:22:44.819992+00:00",
       "schema_changes": [],
       "error_message": null,
-      "timestamp": "2026-10-23T15:46:42.508727+00:00",
+      "timestamp": "2026-10-23T16:22:44.819992+00:00",
       "snapshot_age_hours": 0.0
     },
     "llmstats": {
@@ -28,24 +28,22 @@
         20,
         250
       ],
-      "status": "degraded",
-      "error_message": "HTTPError: 522 Server Error: <none> for url: https://llm-stats.com/leaderboards/llm-leaderboard",
-      "duration_seconds": 38.905,
-      "timestamp": "2026-10-23T15:47:21.420170+00:00",
+      "status": "healthy",
+      "error_message": null,
+      "duration_seconds": 26.111,
+      "timestamp": "2026-10-23T16:23:10.939290+00:00",
       "parse_warning_count": 0,
-      "warnings": [
-        "Live extraction failed; serving the last-known-good LLMStats snapshot."
-      ],
-      "last_successful_update": "2026-10-22T15:31:32.243732+00:00",
+      "warnings": [],
+      "last_successful_update": "2026-10-23T16:23:10.939290+00:00",
       "schema_changes": [],
-      "snapshot_age_hours": 24.2528513875
+      "snapshot_age_hours": 0.0
     }
   },
   "counts": {
     "matched_families": 16,
-    "aa_only_families": 153,
+    "aa_only_families": 155,
     "llmstats_only_families": 28,
-    "identity_review_count": 69,
+    "identity_review_count": 67,
     "ambiguous_match_count": 1,
     "consensus_scored_families": 16
   },
@@ -55,7 +53,5 @@
     "aa_official_coding_index": 173,
     "llmstats_coding": 234
   },
-  "warnings": [
-    "LLMStats is degraded."
-  ]
+  "warnings": []
 }
