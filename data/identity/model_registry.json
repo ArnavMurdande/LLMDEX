@@ -3315,42 +3315,29 @@
       }
     }
   },
-  "kimi/kimi-k3": {
-    "family_id": "kimi/kimi-k3",
-    "canonical_family_name": "Kimi K3",
+  "kimi/kimi-k3-1-pro": {
+    "family_id": "kimi/kimi-k3-1-pro",
+    "canonical_family_name": "Kimi K3.1 Pro",
     "provider": "Kimi",
-    "version": null,
+    "version": "3.1",
     "source_aliases": {
       "artificial_analysis": [
-        "Kimi K3 (low)",
-        "Kimi K3 (max)"
+        "Kimi K3.1 Pro"
       ],
-      "llmstats": [
-        "Kimi K3"
-      ]
+      "llmstats": []
     },
     "source_ids": {},
     "source_urls": {
       "artificial_analysis": [
-        "https://artificialanalysis.ai/models/kimi-k3",
-        "https://artificialanalysis.ai/models/kimi-k3-low"
+        "https://artificialanalysis.ai/models/kimi-k3-1-pro"
       ]
     },
     "variants": {
-      "kimi/kimi-k3:max": {
-        "variant_id": "kimi/kimi-k3:max",
-        "deployment_profile_id": "kimi/kimi-k3:max:deployment",
-        "source_name": "Kimi K3 (max)",
-        "reasoning_effort": "max",
-        "deployment_profile": [],
-        "fallback_enabled": false,
-        "parameter_count": null
-      },
-      "kimi/kimi-k3:low": {
-        "variant_id": "kimi/kimi-k3:low",
-        "deployment_profile_id": "kimi/kimi-k3:low:deployment",
-        "source_name": "Kimi K3 (low)",
-        "reasoning_effort": "low",
+      "kimi/kimi-k3-1-pro:default": {
+        "variant_id": "kimi/kimi-k3-1-pro:default",
+        "deployment_profile_id": "kimi/kimi-k3-1-pro:default:deployment",
+        "source_name": "Kimi K3.1 Pro",
+        "reasoning_effort": null,
         "deployment_profile": [],
         "fallback_enabled": false,
         "parameter_count": null

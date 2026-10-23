@@ -8,13 +8,13 @@
   "earliest_observed_snapshot_date": "2026-07-23",
   "latest_observed_snapshot_date": "2026-10-23",
   "catalog_event_row_count": 28,
-  "observed_snapshot_row_count": 23791,
+  "observed_snapshot_row_count": 23793,
   "historical_coverage_limitations": "Pre-LLMDEX historical rows represent repository-supported catalogue or release events and must not be interpreted as daily historical benchmark measurements.",
   "row_counts": {
-    "artificial_analysis_benchmarks": 269,
+    "artificial_analysis_benchmarks": 268,
     "llmstats_benchmarks": 312,
     "combined_latest": 1,
-    "model_family_history": 23819,
+    "model_family_history": 23821,
     "provider_metadata": 59,
     "data_dictionary": 205
   },
@@ -65,11 +65,11 @@
   "llmstats_general_missing_provider_count": 0,
   "llmstats_provider_populated_count": 312,
   "llmstats_provider_missing_count": 0,
-  "llmstats_availability_unknown_count": 215,
+  "llmstats_availability_unknown_count": 221,
   "malformed_name_count_detected": 0,
   "malformed_name_count_corrected": 0,
   "unresolved_malformed_name_count": 0,
-  "consensus_family_count": 16,
+  "consensus_family_count": 15,
   "empty_reserved_columns": [
     "aa_aime25",
     "aa_livecodebench",
@@ -80,19 +80,19 @@
     "aa_cache_read_cost_usd_per_1m",
     "aa_cache_write_cost_usd_per_1m"
   ],
-  "corrected_open_weight_inconsistency_count": 175,
+  "corrected_open_weight_inconsistency_count": 173,
   "sha256_hashes": {
-    "artificial_analysis_benchmarks.csv": "39ab10ec981862fbfab7f72ff476c7e0d7190e7a8842d6b824f36720b47c3d9c",
-    "llmstats_benchmarks.csv": "5214309b020d20630c7e781f7057add3d15bbc9d2dcfa5244cc4da21744745d6",
-    "combined_latest.json": "be0aa7ee178ebd75ad501841673dad4df3f5f80926db968a043d798802e83ca0",
-    "model_family_history.csv": "ba8d346d7d71cdd3532adbd2b5ca9fcb57022d9e9027a26ecb23d0098be716e9",
+    "artificial_analysis_benchmarks.csv": "4dcfcb183619508f5f2b4137ea7bc4c0ce2edb961559e6235c9ae00bc096cc23",
+    "llmstats_benchmarks.csv": "faf20a0db758063eed4650d58ae7ce4df2c536c0cc5497c633ad1fc775a2eddd",
+    "combined_latest.json": "42b7e54941edce5caa33a72e23191c970b34d8a6be981a2c8a2aca575d3a9afe",
+    "model_family_history.csv": "893f1f9d1c9fb03a7239071f8974575a534bdc358a6368c8475d66d8002d06be",
     "provider_metadata.csv": "7ff3ea4a6b86745b6542fb517701e4ddca978bb40a69aca219dc5b638d37963a",
     "provider_metadata_validation.json": "7e9ffaadbeab4225b6a97eaf577ee7e8a3261d082e9b642b7009fa615933dfe2",
-    "data_dictionary.csv": "3cdf2384d862dab4af76f5041e811627cbcf38db0030436897438dc893fcdded"
+    "data_dictionary.csv": "99cd59b1e3e724906641d8b46fc26beb7cdcee0294bc191c2c742f963f6aaa54"
   },
   "validation_status": "valid",
   "warnings": [
     "Provider metadata required: ai9stars, allen-institute-for-ai, apodex, arcee-ai, celeris, china-mobile, deep-cogito, fireworks-ai, inception, inclusionai, institute-of-foundation-models, korea-telecom, kwaikat, liquid-ai, motif-technologies, multiverse-computing, nanbeige, nex-agi, nous-research, openbmb, prime-intellect, reflection, reka-ai, sapiens-ai, sk-telecom, stepfun, swiss-ai-initiative, tii-uae, trillion-labs"
   ],
-  "generated_from_commit": "c99afe6da2d96c4bd8f10207941470cb338f6ab5"
+  "generated_from_commit": "3f548cf04015759699a88bf0773eea14b5fafdd7"
 }
