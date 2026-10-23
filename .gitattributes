@@ -1,0 +1,6 @@
+# Set default line endings
+* text=auto
+
+# Enforce LF on frontend effects bundles to match Linux CI build
+website/*.bundle.js text eol=lf
+website/*.bundle.css text eol=lf
