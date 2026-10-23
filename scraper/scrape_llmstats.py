@@ -431,8 +431,8 @@ def _extract_rendered_capability_tables(
                     navigate_with_retry(
                         driver,
                         url,
-                        retries=2,
-                        wait_after_load_sec=0.5,
+                        retries=3,
+                        wait_after_load_sec=1.0,
                     )
                     table = driver.execute_async_script(
                         """

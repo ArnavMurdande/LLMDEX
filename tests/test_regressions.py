@@ -478,6 +478,17 @@ class AdvisorRegressionTests(unittest.TestCase):
         self.assertIn("Model 1", names)
         self.assertLessEqual(len(snapshot), 50)
 
+    def test_capability_contract_falls_back_when_live_columns_are_insufficient(self):
+        from pipeline.multisource import _capability_contract
+
+        health = {}
+        contract = _capability_contract("coding", [], "2026-10-23T00:00:00Z", health)
+        self.assertGreaterEqual(len(contract.get("benchmark_columns") or []), 10)
+        self.assertTrue(contract.get("rows"))
+        self.assertTrue(
+            any("preserving last-known-good" in w for w in health.get("warnings", []))
+        )
+
 
 if __name__ == "__main__":
     unittest.main()

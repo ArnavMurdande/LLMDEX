@@ -276,6 +276,23 @@ def _capability_contract(
             ).casefold(),
         ),
     )
+    if len(benchmark_columns) < 10 or not rows:
+        existing_path = DATA_DIR / "capabilities" / f"{capability}.json"
+        if existing_path.exists():
+            existing_contract = _load_json(existing_path, {})
+            if (
+                len(existing_contract.get("benchmark_columns") or []) >= 10
+                and existing_contract.get("rows")
+            ):
+                source_health.setdefault("warnings", []).append(
+                    f"Live extraction for {capability} had insufficient benchmark data; "
+                    f"preserving last-known-good {capability} contract."
+                )
+                contract_copy = dict(existing_contract)
+                contract_copy["generated_at"] = generated_at
+                contract_copy["source_health"] = source_health
+                return contract_copy
+
     return {
         "generated_at": generated_at,
         "methodology_version": "LLMStats source-native current",
