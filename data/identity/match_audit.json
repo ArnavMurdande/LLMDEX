@@ -403,13 +403,24 @@
     "source_model_id": "gpt-5.6-terra",
     "source_model_url": "https://llm-stats.com/models/gpt-5.6-terra",
     "provider": "OpenAI",
-    "candidate_family_id": "openai/gpt-5-6-terra",
-    "candidate_family_name": "GPT-5.6 Terra",
-    "match_status": "matched_manual",
-    "match_confidence": 1.0,
-    "match_method": "approved_alias",
-    "review_reason": null,
-    "competing_candidates": []
+    "candidate_family_id": "openai/gpt-6-1-terra",
+    "candidate_family_name": "GPT-6.1 Terra",
+    "match_status": "identity_unresolved",
+    "match_confidence": 0.8,
+    "match_method": "fuzzy_review_candidate",
+    "review_reason": "Fuzzy candidates require manual approval and are excluded from scoring.",
+    "competing_candidates": [
+      {
+        "family_id": "openai/gpt-6-1-terra",
+        "family_name": "GPT-6.1 Terra",
+        "similarity": 0.8462
+      },
+      {
+        "family_id": "openai/gpt-6-astra",
+        "family_name": "GPT-6 Astra",
+        "similarity": 0.75
+      }
+    ]
   },
   {
     "source": "llmstats",
@@ -489,48 +500,6 @@
   },
   {
     "source": "llmstats",
-    "source_name": "Ling 3.1 Flash",
-    "source_model_id": "ling-3.1-flash",
-    "source_model_url": "https://llm-stats.com/models/ling-3.1-flash",
-    "provider": "InclusionAI",
-    "candidate_family_id": "inclusionai/ling-3-1-flash",
-    "candidate_family_name": "Ling 3.1 Flash",
-    "match_status": "matched_family",
-    "match_confidence": 0.95,
-    "match_method": "exact_provider_family_version",
-    "review_reason": null,
-    "competing_candidates": []
-  },
-  {
-    "source": "llmstats",
-    "source_name": "Ember-1",
-    "source_model_id": "ember-1",
-    "source_model_url": "https://llm-stats.com/models/ember-1",
-    "provider": "Fireworks AI",
-    "candidate_family_id": null,
-    "candidate_family_name": null,
-    "match_status": "source_missing",
-    "match_confidence": 0.0,
-    "match_method": "no_candidate",
-    "review_reason": "No corresponding family exists in the current AA population.",
-    "competing_candidates": []
-  },
-  {
-    "source": "llmstats",
-    "source_name": "Grok 4.7",
-    "source_model_id": "grok-4.7",
-    "source_model_url": "https://llm-stats.com/models/grok-4.7",
-    "provider": "xAI",
-    "candidate_family_id": null,
-    "candidate_family_name": null,
-    "match_status": "source_missing",
-    "match_confidence": 0.0,
-    "match_method": "no_candidate",
-    "review_reason": "No corresponding family exists in the current AA population.",
-    "competing_candidates": []
-  },
-  {
-    "source": "llmstats",
     "source_name": "Claude Mythos 5.1",
     "source_model_id": "claude-mythos-5-1",
     "source_model_url": "https://llm-stats.com/models/claude-mythos-5-1",
@@ -548,6 +517,20 @@
         "similarity": 0.75
       }
     ]
+  },
+  {
+    "source": "llmstats",
+    "source_name": "Ember-1",
+    "source_model_id": "ember-1",
+    "source_model_url": "https://llm-stats.com/models/ember-1",
+    "provider": "Fireworks AI",
+    "candidate_family_id": null,
+    "candidate_family_name": null,
+    "match_status": "source_missing",
+    "match_confidence": 0.0,
+    "match_method": "no_candidate",
+    "review_reason": "No corresponding family exists in the current AA population.",
+    "competing_candidates": []
   },
   {
     "source": "llmstats",
@@ -571,48 +554,17 @@
   },
   {
     "source": "llmstats",
-    "source_name": "Mistral Large 4",
-    "source_model_id": "mistral-large-4",
-    "source_model_url": "https://llm-stats.com/models/mistral-large-4",
-    "provider": "Mistral AI",
-    "candidate_family_id": "mistral-ai/mistral-large-4-preview",
-    "candidate_family_name": "Mistral Large 4 Preview",
-    "match_status": "identity_unresolved",
-    "match_confidence": 0.7895,
-    "match_method": "fuzzy_review_candidate",
-    "review_reason": "Fuzzy candidates require manual approval and are excluded from scoring.",
-    "competing_candidates": [
-      {
-        "family_id": "mistral-ai/mistral-large-4-preview",
-        "family_name": "Mistral Large 4 Preview",
-        "similarity": 0.7895
-      },
-      {
-        "family_id": "mistral-ai/mistral-small-4",
-        "family_name": "Mistral Small 4",
-        "similarity": 0.7333
-      }
-    ]
-  },
-  {
-    "source": "llmstats",
-    "source_name": "Claude Opus 4.7",
-    "source_model_id": "claude-opus-4-7",
-    "source_model_url": "https://llm-stats.com/models/claude-opus-4-7",
-    "provider": "Anthropic",
-    "candidate_family_id": "anthropic/claude-opus-5-5",
-    "candidate_family_name": "Claude Opus 5.5",
-    "match_status": "identity_unresolved",
-    "match_confidence": 0.8,
-    "match_method": "fuzzy_review_candidate",
-    "review_reason": "Fuzzy candidates require manual approval and are excluded from scoring.",
-    "competing_candidates": [
-      {
-        "family_id": "anthropic/claude-opus-5-5",
-        "family_name": "Claude Opus 5.5",
-        "similarity": 0.8667
-      }
-    ]
+    "source_name": "Grok 4.7",
+    "source_model_id": "grok-4.7",
+    "source_model_url": "https://llm-stats.com/models/grok-4.7",
+    "provider": "xAI",
+    "candidate_family_id": null,
+    "candidate_family_name": null,
+    "match_status": "source_missing",
+    "match_confidence": 0.0,
+    "match_method": "no_candidate",
+    "review_reason": "No corresponding family exists in the current AA population.",
+    "competing_candidates": []
   },
   {
     "source": "llmstats",
@@ -782,6 +734,26 @@
     "match_method": "no_candidate",
     "review_reason": "No corresponding family exists in the current AA population.",
     "competing_candidates": []
+  },
+  {
+    "source": "llmstats",
+    "source_name": "Claude Opus 4.7",
+    "source_model_id": "claude-opus-4-7",
+    "source_model_url": "https://llm-stats.com/models/claude-opus-4-7",
+    "provider": "Anthropic",
+    "candidate_family_id": "anthropic/claude-opus-5-5",
+    "candidate_family_name": "Claude Opus 5.5",
+    "match_status": "identity_unresolved",
+    "match_confidence": 0.8,
+    "match_method": "fuzzy_review_candidate",
+    "review_reason": "Fuzzy candidates require manual approval and are excluded from scoring.",
+    "competing_candidates": [
+      {
+        "family_id": "anthropic/claude-opus-5-5",
+        "family_name": "Claude Opus 5.5",
+        "similarity": 0.8667
+      }
+    ]
   },
   {
     "source": "llmstats",
@@ -1532,11 +1504,6 @@
         "family_id": "openai/gpt-6-luna",
         "family_name": "GPT-6 Luna",
         "similarity": 0.9091
-      },
-      {
-        "family_id": "openai/gpt-5-6-terra",
-        "family_name": "GPT-5.6 Terra",
-        "similarity": 0.72
       }
     ]
   },
@@ -1823,6 +1790,31 @@
         "family_id": "google/gemini-3-5-flash-lite",
         "family_name": "Gemini 3.5 Flash-Lite",
         "similarity": 0.8649
+      }
+    ]
+  },
+  {
+    "source": "llmstats",
+    "source_name": "Mistral Large 4",
+    "source_model_id": "mistral-large-4",
+    "source_model_url": "https://llm-stats.com/models/mistral-large-4",
+    "provider": "Mistral AI",
+    "candidate_family_id": "mistral-ai/mistral-large-4-preview",
+    "candidate_family_name": "Mistral Large 4 Preview",
+    "match_status": "identity_unresolved",
+    "match_confidence": 0.7895,
+    "match_method": "fuzzy_review_candidate",
+    "review_reason": "Fuzzy candidates require manual approval and are excluded from scoring.",
+    "competing_candidates": [
+      {
+        "family_id": "mistral-ai/mistral-large-4-preview",
+        "family_name": "Mistral Large 4 Preview",
+        "similarity": 0.7895
+      },
+      {
+        "family_id": "mistral-ai/mistral-small-4",
+        "family_name": "Mistral Small 4",
+        "similarity": 0.7333
       }
     ]
   },

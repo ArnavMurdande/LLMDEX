@@ -2939,9 +2939,7 @@
       "artificial_analysis": [
         "Ling 3.1 Flash"
       ],
-      "llmstats": [
-        "Ling 3.1 Flash"
-      ]
+      "llmstats": []
     },
     "source_ids": {},
     "source_urls": {
@@ -5472,94 +5470,6 @@
       }
     }
   },
-  "openai/gpt-5-6-terra": {
-    "family_id": "openai/gpt-5-6-terra",
-    "canonical_family_name": "GPT-5.6 Terra",
-    "provider": "OpenAI",
-    "version": "5.6",
-    "source_aliases": {
-      "artificial_analysis": [
-        "GPT-5.6 Terra (high)",
-        "GPT-5.6 Terra (low)",
-        "GPT-5.6 Terra (max)",
-        "GPT-5.6 Terra (medium)",
-        "GPT-5.6 Terra (non-reasoning)",
-        "GPT-5.6 Terra (xhigh)"
-      ],
-      "llmstats": [
-        "GPT-5.6 Terra"
-      ]
-    },
-    "source_ids": {},
-    "source_urls": {
-      "artificial_analysis": [
-        "https://artificialanalysis.ai/models/gpt-5-6-terra",
-        "https://artificialanalysis.ai/models/gpt-5-6-terra-high",
-        "https://artificialanalysis.ai/models/gpt-5-6-terra-low",
-        "https://artificialanalysis.ai/models/gpt-5-6-terra-medium",
-        "https://artificialanalysis.ai/models/gpt-5-6-terra-non-reasoning",
-        "https://artificialanalysis.ai/models/gpt-5-6-terra-xhigh"
-      ]
-    },
-    "variants": {
-      "openai/gpt-5-6-terra:max": {
-        "variant_id": "openai/gpt-5-6-terra:max",
-        "deployment_profile_id": "openai/gpt-5-6-terra:max:deployment",
-        "source_name": "GPT-5.6 Terra (max)",
-        "reasoning_effort": "max",
-        "deployment_profile": [],
-        "fallback_enabled": false,
-        "parameter_count": null
-      },
-      "openai/gpt-5-6-terra:xhigh": {
-        "variant_id": "openai/gpt-5-6-terra:xhigh",
-        "deployment_profile_id": "openai/gpt-5-6-terra:xhigh:deployment",
-        "source_name": "GPT-5.6 Terra (xhigh)",
-        "reasoning_effort": "xhigh",
-        "deployment_profile": [],
-        "fallback_enabled": false,
-        "parameter_count": null
-      },
-      "openai/gpt-5-6-terra:high": {
-        "variant_id": "openai/gpt-5-6-terra:high",
-        "deployment_profile_id": "openai/gpt-5-6-terra:high:deployment",
-        "source_name": "GPT-5.6 Terra (high)",
-        "reasoning_effort": "high",
-        "deployment_profile": [],
-        "fallback_enabled": false,
-        "parameter_count": null
-      },
-      "openai/gpt-5-6-terra:medium": {
-        "variant_id": "openai/gpt-5-6-terra:medium",
-        "deployment_profile_id": "openai/gpt-5-6-terra:medium:deployment",
-        "source_name": "GPT-5.6 Terra (medium)",
-        "reasoning_effort": "medium",
-        "deployment_profile": [],
-        "fallback_enabled": false,
-        "parameter_count": null
-      },
-      "openai/gpt-5-6-terra:low": {
-        "variant_id": "openai/gpt-5-6-terra:low",
-        "deployment_profile_id": "openai/gpt-5-6-terra:low:deployment",
-        "source_name": "GPT-5.6 Terra (low)",
-        "reasoning_effort": "low",
-        "deployment_profile": [],
-        "fallback_enabled": false,
-        "parameter_count": null
-      },
-      "openai/gpt-5-6-terra:non-reasoning": {
-        "variant_id": "openai/gpt-5-6-terra:non-reasoning",
-        "deployment_profile_id": "openai/gpt-5-6-terra:non-reasoning:deployment",
-        "source_name": "GPT-5.6 Terra (non-reasoning)",
-        "reasoning_effort": null,
-        "deployment_profile": [
-          "non-reasoning"
-        ],
-        "fallback_enabled": false,
-        "parameter_count": null
-      }
-    }
-  },
   "openai/gpt-6-1-sol": {
     "family_id": "openai/gpt-6-1-sol",
     "canonical_family_name": "GPT-6.1 Sol",
@@ -5569,6 +5479,7 @@
       "artificial_analysis": [
         "GPT-6.1 Sol (high)",
         "GPT-6.1 Sol (low)",
+        "GPT-6.1 Sol (max)",
         "GPT-6.1 Sol (medium)",
         "GPT-6.1 Sol (xhigh)"
       ],
@@ -5579,6 +5490,7 @@
     "source_ids": {},
     "source_urls": {
       "artificial_analysis": [
+        "https://artificialanalysis.ai/models/gpt-6-1-sol",
         "https://artificialanalysis.ai/models/gpt-6-1-sol-high",
         "https://artificialanalysis.ai/models/gpt-6-1-sol-low",
         "https://artificialanalysis.ai/models/gpt-6-1-sol-medium",
@@ -5586,6 +5498,15 @@
       ]
     },
     "variants": {
+      "openai/gpt-6-1-sol:max": {
+        "variant_id": "openai/gpt-6-1-sol:max",
+        "deployment_profile_id": "openai/gpt-6-1-sol:max:deployment",
+        "source_name": "GPT-6.1 Sol (max)",
+        "reasoning_effort": "max",
+        "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": null
+      },
       "openai/gpt-6-1-sol:xhigh": {
         "variant_id": "openai/gpt-6-1-sol:xhigh",
         "deployment_profile_id": "openai/gpt-6-1-sol:xhigh:deployment",
@@ -5619,6 +5540,92 @@
         "source_name": "GPT-6.1 Sol (low)",
         "reasoning_effort": "low",
         "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": null
+      }
+    }
+  },
+  "openai/gpt-6-1-terra": {
+    "family_id": "openai/gpt-6-1-terra",
+    "canonical_family_name": "GPT-6.1 Terra",
+    "provider": "OpenAI",
+    "version": "6.1",
+    "source_aliases": {
+      "artificial_analysis": [
+        "GPT-6.1 Terra (high)",
+        "GPT-6.1 Terra (low)",
+        "GPT-6.1 Terra (max)",
+        "GPT-6.1 Terra (medium)",
+        "GPT-6.1 Terra (non-reasoning)",
+        "GPT-6.1 Terra (xhigh)"
+      ],
+      "llmstats": []
+    },
+    "source_ids": {},
+    "source_urls": {
+      "artificial_analysis": [
+        "https://artificialanalysis.ai/models/gpt-6-1-terra",
+        "https://artificialanalysis.ai/models/gpt-6-1-terra-high",
+        "https://artificialanalysis.ai/models/gpt-6-1-terra-low",
+        "https://artificialanalysis.ai/models/gpt-6-1-terra-medium",
+        "https://artificialanalysis.ai/models/gpt-6-1-terra-non-reasoning",
+        "https://artificialanalysis.ai/models/gpt-6-1-terra-xhigh"
+      ]
+    },
+    "variants": {
+      "openai/gpt-6-1-terra:max": {
+        "variant_id": "openai/gpt-6-1-terra:max",
+        "deployment_profile_id": "openai/gpt-6-1-terra:max:deployment",
+        "source_name": "GPT-6.1 Terra (max)",
+        "reasoning_effort": "max",
+        "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": null
+      },
+      "openai/gpt-6-1-terra:xhigh": {
+        "variant_id": "openai/gpt-6-1-terra:xhigh",
+        "deployment_profile_id": "openai/gpt-6-1-terra:xhigh:deployment",
+        "source_name": "GPT-6.1 Terra (xhigh)",
+        "reasoning_effort": "xhigh",
+        "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": null
+      },
+      "openai/gpt-6-1-terra:high": {
+        "variant_id": "openai/gpt-6-1-terra:high",
+        "deployment_profile_id": "openai/gpt-6-1-terra:high:deployment",
+        "source_name": "GPT-6.1 Terra (high)",
+        "reasoning_effort": "high",
+        "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": null
+      },
+      "openai/gpt-6-1-terra:medium": {
+        "variant_id": "openai/gpt-6-1-terra:medium",
+        "deployment_profile_id": "openai/gpt-6-1-terra:medium:deployment",
+        "source_name": "GPT-6.1 Terra (medium)",
+        "reasoning_effort": "medium",
+        "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": null
+      },
+      "openai/gpt-6-1-terra:low": {
+        "variant_id": "openai/gpt-6-1-terra:low",
+        "deployment_profile_id": "openai/gpt-6-1-terra:low:deployment",
+        "source_name": "GPT-6.1 Terra (low)",
+        "reasoning_effort": "low",
+        "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": null
+      },
+      "openai/gpt-6-1-terra:non-reasoning": {
+        "variant_id": "openai/gpt-6-1-terra:non-reasoning",
+        "deployment_profile_id": "openai/gpt-6-1-terra:non-reasoning:deployment",
+        "source_name": "GPT-6.1 Terra (non-reasoning)",
+        "reasoning_effort": null,
+        "deployment_profile": [
+          "non-reasoning"
+        ],
         "fallback_enabled": false,
         "parameter_count": null
       }
