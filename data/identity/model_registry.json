@@ -2313,6 +2313,35 @@
       }
     }
   },
+  "google/gemini-4-carbon": {
+    "family_id": "google/gemini-4-carbon",
+    "canonical_family_name": "Gemini 4 Carbon",
+    "provider": "Google",
+    "version": null,
+    "source_aliases": {
+      "artificial_analysis": [
+        "Gemini 4 Carbon (high)"
+      ],
+      "llmstats": []
+    },
+    "source_ids": {},
+    "source_urls": {
+      "artificial_analysis": [
+        "https://artificialanalysis.ai/models/gemini-4-carbon"
+      ]
+    },
+    "variants": {
+      "google/gemini-4-carbon:high": {
+        "variant_id": "google/gemini-4-carbon:high",
+        "deployment_profile_id": "google/gemini-4-carbon:high:deployment",
+        "source_name": "Gemini 4 Carbon (high)",
+        "reasoning_effort": "high",
+        "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": null
+      }
+    }
+  },
   "google/gemma-3-270m": {
     "family_id": "google/gemma-3-270m",
     "canonical_family_name": "Gemma 3 270M",
@@ -4472,32 +4501,43 @@
       }
     }
   },
-  "mistral-ai/mistral-large-4-preview": {
-    "family_id": "mistral-ai/mistral-large-4-preview",
-    "canonical_family_name": "Mistral Large 4 Preview",
+  "mistral-ai/mistral-large-4": {
+    "family_id": "mistral-ai/mistral-large-4",
+    "canonical_family_name": "Mistral Large 4",
     "provider": "Mistral AI",
     "version": null,
     "source_aliases": {
       "artificial_analysis": [
-        "Mistral Large 4 Preview"
+        "Mistral Large 4 (high)",
+        "Mistral Large 4 (medium)"
       ],
-      "llmstats": []
+      "llmstats": [
+        "Mistral Large 4"
+      ]
     },
     "source_ids": {},
     "source_urls": {
       "artificial_analysis": [
-        "https://artificialanalysis.ai/models/mistral-large-4"
+        "https://artificialanalysis.ai/models/mistral-large-4",
+        "https://artificialanalysis.ai/models/mistral-large-4-medium"
       ]
     },
     "variants": {
-      "mistral-ai/mistral-large-4-preview:preview": {
-        "variant_id": "mistral-ai/mistral-large-4-preview:preview",
-        "deployment_profile_id": "mistral-ai/mistral-large-4-preview:preview:deployment",
-        "source_name": "Mistral Large 4 Preview",
-        "reasoning_effort": null,
-        "deployment_profile": [
-          "preview"
-        ],
+      "mistral-ai/mistral-large-4:high": {
+        "variant_id": "mistral-ai/mistral-large-4:high",
+        "deployment_profile_id": "mistral-ai/mistral-large-4:high:deployment",
+        "source_name": "Mistral Large 4 (high)",
+        "reasoning_effort": "high",
+        "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": null
+      },
+      "mistral-ai/mistral-large-4:medium": {
+        "variant_id": "mistral-ai/mistral-large-4:medium",
+        "deployment_profile_id": "mistral-ai/mistral-large-4:medium:deployment",
+        "source_name": "Mistral Large 4 (medium)",
+        "reasoning_effort": "medium",
+        "deployment_profile": [],
         "fallback_enabled": false,
         "parameter_count": null
       }
