@@ -646,11 +646,11 @@
           "active_billions": null
         }
       },
-      "alibaba/qwen3-8-27b:low": {
-        "variant_id": "alibaba/qwen3-8-27b:low",
-        "deployment_profile_id": "alibaba/qwen3-8-27b:low:deployment",
-        "source_name": "Qwen3.8 27B (low)",
-        "reasoning_effort": "low",
+      "alibaba/qwen3-8-27b:medium": {
+        "variant_id": "alibaba/qwen3-8-27b:medium",
+        "deployment_profile_id": "alibaba/qwen3-8-27b:medium:deployment",
+        "source_name": "Qwen3.8 27B (medium)",
+        "reasoning_effort": "medium",
         "deployment_profile": [],
         "fallback_enabled": false,
         "parameter_count": {
@@ -658,11 +658,11 @@
           "active_billions": null
         }
       },
-      "alibaba/qwen3-8-27b:medium": {
-        "variant_id": "alibaba/qwen3-8-27b:medium",
-        "deployment_profile_id": "alibaba/qwen3-8-27b:medium:deployment",
-        "source_name": "Qwen3.8 27B (medium)",
-        "reasoning_effort": "medium",
+      "alibaba/qwen3-8-27b:low": {
+        "variant_id": "alibaba/qwen3-8-27b:low",
+        "deployment_profile_id": "alibaba/qwen3-8-27b:low:deployment",
+        "source_name": "Qwen3.8 27B (low)",
+        "reasoning_effort": "low",
         "deployment_profile": [],
         "fallback_enabled": false,
         "parameter_count": {
@@ -2322,7 +2322,9 @@
       "artificial_analysis": [
         "Gemini 4 Carbon (high)"
       ],
-      "llmstats": []
+      "llmstats": [
+        "Gemini 4 Carbon"
+      ]
     },
     "source_ids": {},
     "source_urls": {
@@ -5599,7 +5601,9 @@
         "GPT-6.1 Terra (non-reasoning)",
         "GPT-6.1 Terra (xhigh)"
       ],
-      "llmstats": []
+      "llmstats": [
+        "GPT-6.1 Terra"
+      ]
     },
     "source_ids": {},
     "source_urls": {
