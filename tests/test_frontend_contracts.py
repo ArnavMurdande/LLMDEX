@@ -268,6 +268,11 @@ class FrontendContractTests(unittest.TestCase):
         self.assertIn(".pagination-select-shell", self.css)
         self.assertIn(".pagination-mobile-indicator", self.css)
         self.assertIn("@media (max-width: 520px)", self.css)
+        self.assertIn(".custom-select-shell.open-up", self.css)
+        self.assertIn(".custom-select-shell.open-down", self.css)
+        self.assertIn(':root[data-theme="light"] .leaderboard-pagination', self.css)
+        self.assertIn(':root[data-theme="light"] .pagination-select-shell', self.css)
+        self.assertIn("updatePlacement", self.js)
 
 
 if __name__ == "__main__":

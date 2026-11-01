@@ -440,38 +440,60 @@ function enhanceCustomSelect(select, variant = "") {
     ".table-controls, .chart-card, .history-controls, .leaderboard-pagination",
   );
 
+  const updatePlacement = () => {
+    if (menu.hidden) return;
+    const triggerRect = trigger.getBoundingClientRect();
+    const menuHeight = menu.offsetHeight || 140;
+    const spaceBelow = window.innerHeight - triggerRect.bottom;
+    const spaceAbove = triggerRect.top;
+    const openUp = spaceBelow < (menuHeight + 16) && spaceAbove > spaceBelow;
+    shell.classList.toggle("open-up", openUp);
+    shell.classList.toggle("open-down", !openUp);
+  };
+
   const close = () => {
     menu.hidden = true;
-    shell.classList.remove("is-open");
+    shell.classList.remove("is-open", "open-up", "open-down");
     selectContext?.classList.remove("custom-select-context-open");
     if (variant === "provider") {
       shell.closest(".table-controls")?.classList.remove("provider-menu-open");
     }
     trigger.setAttribute("aria-expanded", "false");
+    window.removeEventListener("scroll", updatePlacement);
+    window.removeEventListener("resize", updatePlacement);
   };
   const open = () => {
     document
       .querySelectorAll(".custom-select-shell.is-open")
       .forEach((other) => {
         if (other !== shell) {
-          other.classList.remove("is-open");
-          other
-            .closest(".table-controls, .chart-card, .history-controls, .leaderboard-pagination")
-            ?.classList.remove("custom-select-context-open");
-          if (other.classList.contains("provider-select-shell")) {
+          const otherSelect = other.querySelector("select");
+          const otherState = customSelectStates.get(otherSelect);
+          if (otherState) {
+            otherState.close();
+          } else {
+            other.classList.remove("is-open", "open-up", "open-down");
             other
-              .closest(".table-controls")
-              ?.classList.remove("provider-menu-open");
+              .closest(".table-controls, .chart-card, .history-controls, .leaderboard-pagination")
+              ?.classList.remove("custom-select-context-open");
+            if (other.classList.contains("provider-select-shell")) {
+              other
+                .closest(".table-controls")
+                ?.classList.remove("provider-menu-open");
+            }
+            const otherMenu = other.querySelector(".custom-select-menu");
+            const otherTrigger = other.querySelector(".custom-select-trigger");
+            if (otherMenu) otherMenu.hidden = true;
+            otherTrigger?.setAttribute("aria-expanded", "false");
           }
-          const otherMenu = other.querySelector(".custom-select-menu");
-          const otherTrigger = other.querySelector(".custom-select-trigger");
-          if (otherMenu) otherMenu.hidden = true;
-          otherTrigger?.setAttribute("aria-expanded", "false");
         }
       });
     menu.hidden = false;
     shell.classList.add("is-open");
     selectContext?.classList.add("custom-select-context-open");
+    updatePlacement();
+    window.addEventListener("scroll", updatePlacement, { passive: true });
+    window.addEventListener("resize", updatePlacement, { passive: true });
     if (variant === "provider") {
       shell.closest(".table-controls")?.classList.add("provider-menu-open");
     }

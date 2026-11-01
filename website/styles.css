@@ -1998,50 +1998,6 @@ footer {
 
 /* ═══════════ Responsive ═══════════ */
 
-/* Custom select styling for pagination dropdown */
-.pagination-select-shell {
-  min-width: 86px;
-  position: relative;
-  isolation: isolate;
-}
-
-.pagination-select-shell .custom-select-trigger {
-  min-height: 36px;
-  padding: 0.35rem 0.65rem 0.35rem 0.85rem;
-  border-radius: 999px;
-  font: 600 0.85rem/1.2 var(--font-body);
-  gap: 0.5rem;
-  border: 1px solid var(--border-glass);
-  background: var(--surface-solid);
-}
-
-.pagination-select-shell .custom-select-chevron {
-  width: 14px;
-  height: 14px;
-  flex: 0 0 14px;
-}
-
-.pagination-select-shell .custom-select-menu {
-  bottom: calc(100% + 0.4rem);
-  top: auto;
-  left: auto;
-  right: 0;
-  width: 104px;
-  min-width: 90px;
-  max-height: 220px;
-  padding: 0.35rem;
-  border-radius: 14px;
-  background: var(--surface-solid);
-  border: 1px solid var(--border-glass);
-  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.45);
-}
-
-.pagination-select-shell .custom-select-option {
-  min-height: 34px;
-  padding: 0.4rem 0.75rem;
-  font-size: 0.85rem;
-  border-radius: 8px;
-}
 
 @media (max-width: 768px) {
   .hero h1 {
@@ -5368,7 +5324,9 @@ select option,
   font-family: var(--font-body);
   font-size: 0.875rem;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
-  transition: border-color 0.2s ease;
+  transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+  isolation: isolate;
 }
 
 .leaderboard-pagination:hover {
@@ -5480,22 +5438,182 @@ select option,
   font-size: 0.85rem;
 }
 
-.pagination-select {
-  background: rgba(12, 24, 22, 0.85);
-  border: 1px solid var(--border-glass);
-  border-radius: 8px;
-  color: var(--text-primary);
-  font-family: var(--font-body);
-  font-size: 0.85rem;
-  padding: 0.35rem 0.65rem;
-  cursor: pointer;
-  outline: none;
-  transition: border-color 0.15s ease;
+/* ── Pagination Dropdown Custom Select ── */
+.custom-select-shell.pagination-select-shell,
+.pagination-select-shell {
+  min-width: 0 !important;
+  width: 90px !important;
+  max-width: 90px !important;
+  position: relative;
+  isolation: isolate;
+  flex: 0 0 90px !important;
+  box-sizing: border-box !important;
 }
 
-.pagination-select:focus {
-  border-color: var(--accent-glow);
+.pagination-select-shell .custom-select-trigger {
+  width: 100% !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+  min-height: 36px !important;
+  max-height: 36px !important;
+  padding: 0 0.65rem 0 0.85rem !important;
+  border-radius: 999px !important;
+  font: 600 0.85rem/1.2 var(--font-body) !important;
+  gap: 0.35rem;
+  border: 1px solid var(--border-glass);
+  background: var(--surface-solid);
+  color: var(--text-primary);
+  box-sizing: border-box !important;
 }
+
+.pagination-select-shell .custom-select-chevron {
+  width: 14px;
+  height: 14px;
+  flex: 0 0 14px;
+}
+
+.pagination-select-shell .custom-select-menu {
+  width: 100% !important;
+  min-width: 100% !important;
+  max-width: 100% !important;
+  left: 0 !important;
+  right: 0 !important;
+  transform: none !important;
+  box-sizing: border-box !important;
+  padding: 0.25rem !important;
+  border-radius: 12px;
+  background: var(--surface-solid);
+  border: 1px solid var(--border-glass);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.45);
+  z-index: 5000 !important;
+}
+
+.pagination-select-shell .custom-select-option {
+  min-height: 32px;
+  padding: 0.35rem 0.5rem;
+  font-size: 0.85rem;
+  border-radius: 8px;
+  justify-content: center;
+  text-align: center;
+}
+
+/* Dynamic open directions for custom select */
+.custom-select-shell.open-up .custom-select-menu {
+  bottom: calc(100% + 0.4rem) !important;
+  top: auto !important;
+}
+
+.custom-select-shell.open-down .custom-select-menu {
+  top: calc(100% + 0.4rem) !important;
+  bottom: auto !important;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   LIGHT MODE: LEADERBOARD PAGINATION & SELECTOR
+   ══════════════════════════════════════════════════════════════ */
+
+:root[data-theme="light"] .leaderboard-pagination {
+  background: #ffffff !important;
+  border: 1px solid rgba(0, 0, 0, 0.12) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06) !important;
+  color: #475569 !important;
+}
+
+:root[data-theme="light"] .leaderboard-pagination:hover {
+  border-color: rgba(0, 0, 0, 0.22) !important;
+}
+
+:root[data-theme="light"] .pagination-info {
+  color: #475569 !important;
+}
+
+:root[data-theme="light"] .pagination-info strong {
+  color: #0f172a !important;
+}
+
+:root[data-theme="light"] .pagination-btn {
+  background: #ffffff !important;
+  border: 1px solid rgba(0, 0, 0, 0.16) !important;
+  color: #0f172a !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05) !important;
+}
+
+:root[data-theme="light"] .pagination-btn:hover:not(:disabled) {
+  background: #f1f5f9 !important;
+  border-color: rgba(0, 0, 0, 0.35) !important;
+  color: #000000 !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08) !important;
+}
+
+:root[data-theme="light"] .pagination-page-btn.active {
+  background: #0f172a !important;
+  border-color: #0f172a !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  box-shadow: 0 2px 10px rgba(15, 23, 42, 0.25) !important;
+}
+
+:root[data-theme="light"] .pagination-btn:disabled {
+  opacity: 0.35 !important;
+  background: #f8fafc !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
+  color: #94a3b8 !important;
+  box-shadow: none !important;
+}
+
+:root[data-theme="light"] .pagination-size label {
+  color: #475569 !important;
+}
+
+:root[data-theme="light"] .pagination-select-shell .custom-select-trigger {
+  background: #ffffff !important;
+  border: 1px solid rgba(0, 0, 0, 0.16) !important;
+  color: #0f172a !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05) !important;
+}
+
+:root[data-theme="light"] .pagination-select-shell .custom-select-trigger:hover,
+:root[data-theme="light"] .pagination-select-shell.is-open .custom-select-trigger {
+  border-color: rgba(0, 0, 0, 0.4) !important;
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.06) !important;
+  background: #ffffff !important;
+  color: #0f172a !important;
+}
+
+:root[data-theme="light"] .pagination-select-shell .custom-select-menu {
+  background: #ffffff !important;
+  border: 1px solid rgba(0, 0, 0, 0.14) !important;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.12) !important;
+}
+
+:root[data-theme="light"] .pagination-select-shell .custom-select-option {
+  color: #334155 !important;
+  background: #ffffff !important;
+}
+
+:root[data-theme="light"] .pagination-select-shell .custom-select-option:hover,
+:root[data-theme="light"] .pagination-select-shell .custom-select-option:focus-visible {
+  background: #f1f5f9 !important;
+  color: #0f172a !important;
+}
+
+:root[data-theme="light"] .pagination-select-shell .custom-select-option[aria-selected="true"] {
+  background: #0f172a !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+}
+
+:root[data-theme="light"] .pagination-mobile-indicator {
+  color: #475569 !important;
+}
+
+:root[data-theme="light"] .pagination-mobile-indicator strong {
+  color: #0f172a !important;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   MOBILE / RESPONSIVE PAGINATION BREAKPOINTS
+   ══════════════════════════════════════════════════════════════ */
 
 @media (max-width: 768px) {
   .leaderboard-pagination {
@@ -5523,10 +5641,8 @@ select option,
     border-top: 1px solid rgba(180, 255, 226, 0.06);
   }
 
-  .pagination-select-shell .custom-select-menu {
-    left: 50%;
-    right: auto;
-    transform: translateX(-50%);
+  :root[data-theme="light"] .pagination-size {
+    border-top-color: rgba(0, 0, 0, 0.08);
   }
 
   .pagination-btn {
