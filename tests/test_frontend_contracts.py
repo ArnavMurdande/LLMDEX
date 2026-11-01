@@ -263,7 +263,9 @@ class FrontendContractTests(unittest.TestCase):
         self.assertIn("leaderboardPagination", self.js)
         self.assertIn("renderLeaderboardPagination", self.js)
         self.assertIn("pageSize: 25", self.js)
+        self.assertIn('enhanceCustomSelect(pageSizeSelect, "pagination")', self.js)
         self.assertIn(".leaderboard-pagination", self.css)
+        self.assertIn(".pagination-select-shell", self.css)
         self.assertIn(".pagination-mobile-indicator", self.css)
         self.assertIn("@media (max-width: 520px)", self.css)
 

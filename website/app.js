@@ -437,7 +437,7 @@ function enhanceCustomSelect(select, variant = "") {
   menu.hidden = true;
   shell.append(trigger, menu);
   const selectContext = shell.closest(
-    ".table-controls, .chart-card, .history-controls",
+    ".table-controls, .chart-card, .history-controls, .leaderboard-pagination",
   );
 
   const close = () => {
@@ -456,7 +456,7 @@ function enhanceCustomSelect(select, variant = "") {
         if (other !== shell) {
           other.classList.remove("is-open");
           other
-            .closest(".table-controls, .chart-card, .history-controls")
+            .closest(".table-controls, .chart-card, .history-controls, .leaderboard-pagination")
             ?.classList.remove("custom-select-context-open");
           if (other.classList.contains("provider-select-shell")) {
             other
@@ -1140,7 +1140,6 @@ function renderLeaderboardPagination(totalRows, startIndex, endIndex, totalPages
   if (!container) return;
 
   if (totalRows === 0) {
-    container.innerHTML = "";
     container.style.display = "none";
     return;
   }
@@ -1150,95 +1149,72 @@ function renderLeaderboardPagination(totalRows, startIndex, endIndex, totalPages
   const fromNum = startIndex + 1;
   const toNum = endIndex;
 
-  const pageRange = getPaginationRange(current, totalPages);
-  let pagesHtml = "";
-  pageRange.forEach((item) => {
-    if (item === "...") {
-      pagesHtml += `<span class="pagination-ellipsis" aria-hidden="true">&hellip;</span>`;
-    } else {
-      const isCurrent = item === current;
-      pagesHtml += `
-        <button
-          type="button"
-          class="pagination-btn pagination-page-btn ${isCurrent ? "active" : ""}"
-          data-page="${item}"
-          aria-label="Go to page ${item}"
-          ${isCurrent ? 'aria-current="page"' : ""}
-        >
-          ${item}
-        </button>
-      `;
-    }
-  });
+  const fromEl = document.getElementById("pagination-from");
+  const toEl = document.getElementById("pagination-to");
+  const totalEl = document.getElementById("pagination-total");
+  if (fromEl) fromEl.textContent = fromNum;
+  if (toEl) toEl.textContent = toNum;
+  if (totalEl) totalEl.textContent = totalRows;
 
   const isFirst = current <= 1;
   const isLast = current >= totalPages;
 
-  container.innerHTML = `
-    <div class="pagination-info" id="pagination-info">
-      Showing <strong>${fromNum}&ndash;${toNum}</strong> of <strong>${totalRows}</strong> models
-    </div>
-    <div class="pagination-controls" id="pagination-controls">
-      <button
-        type="button"
-        class="pagination-btn pagination-nav-btn pagination-first"
-        data-page="1"
-        aria-label="First page"
-        ${isFirst ? "disabled" : ""}
-      >
-        <i class="fas fa-angle-double-left" aria-hidden="true"></i>
-      </button>
-      <button
-        type="button"
-        class="pagination-btn pagination-nav-btn pagination-prev"
-        data-page="${current - 1}"
-        aria-label="Previous page"
-        ${isFirst ? "disabled" : ""}
-      >
-        <i class="fas fa-chevron-left" aria-hidden="true"></i>
-        <span>Prev</span>
-      </button>
-      <div class="pagination-pages" id="pagination-pages">
-        ${pagesHtml}
-      </div>
-      <span class="pagination-mobile-indicator" aria-hidden="true">
-        Page <strong>${current}</strong> of <strong>${totalPages}</strong>
-      </span>
-      <button
-        type="button"
-        class="pagination-btn pagination-nav-btn pagination-next"
-        data-page="${current + 1}"
-        aria-label="Next page"
-        ${isLast ? "disabled" : ""}
-      >
-        <span>Next</span>
-        <i class="fas fa-chevron-right" aria-hidden="true"></i>
-      </button>
-      <button
-        type="button"
-        class="pagination-btn pagination-nav-btn pagination-last"
-        data-page="${totalPages}"
-        aria-label="Last page"
-        ${isLast ? "disabled" : ""}
-      >
-        <i class="fas fa-angle-double-right" aria-hidden="true"></i>
-      </button>
-    </div>
-    <div class="pagination-size">
-      <label for="pagination-page-size">Per page:</label>
-      <select id="pagination-page-size" class="pagination-select" aria-label="Models per page">
-        <option value="25" ${leaderboardPagination.pageSize === 25 ? "selected" : ""}>25</option>
-        <option value="50" ${leaderboardPagination.pageSize === 50 ? "selected" : ""}>50</option>
-        <option value="100" ${leaderboardPagination.pageSize === 100 ? "selected" : ""}>100</option>
-      </select>
-    </div>
-  `;
+  const firstBtn = document.getElementById("pagination-first-btn");
+  const prevBtn = document.getElementById("pagination-prev-btn");
+  const nextBtn = document.getElementById("pagination-next-btn");
+  const lastBtn = document.getElementById("pagination-last-btn");
 
-  const pageSizeSelect = container.querySelector("#pagination-page-size");
-  if (pageSizeSelect) {
-    pageSizeSelect.addEventListener("change", (e) => {
-      setLeaderboardPageSize(e.target.value);
+  if (firstBtn) {
+    firstBtn.disabled = isFirst;
+    firstBtn.dataset.page = "1";
+  }
+  if (prevBtn) {
+    prevBtn.disabled = isFirst;
+    prevBtn.dataset.page = String(current - 1);
+  }
+  if (nextBtn) {
+    nextBtn.disabled = isLast;
+    nextBtn.dataset.page = String(current + 1);
+  }
+  if (lastBtn) {
+    lastBtn.disabled = isLast;
+    lastBtn.dataset.page = String(totalPages);
+  }
+
+  const mobCur = document.getElementById("pagination-mobile-current");
+  const mobTot = document.getElementById("pagination-mobile-total");
+  if (mobCur) mobCur.textContent = current;
+  if (mobTot) mobTot.textContent = totalPages;
+
+  const pagesContainer = document.getElementById("pagination-pages");
+  if (pagesContainer) {
+    const pageRange = getPaginationRange(current, totalPages);
+    let pagesHtml = "";
+    pageRange.forEach((item) => {
+      if (item === "...") {
+        pagesHtml += `<span class="pagination-ellipsis" aria-hidden="true">&hellip;</span>`;
+      } else {
+        const isCurrent = item === current;
+        pagesHtml += `
+          <button
+            type="button"
+            class="pagination-btn pagination-page-btn ${isCurrent ? "active" : ""}"
+            data-page="${item}"
+            aria-label="Go to page ${item}"
+            ${isCurrent ? 'aria-current="page"' : ""}
+          >
+            ${item}
+          </button>
+        `;
+      }
     });
+    pagesContainer.innerHTML = pagesHtml;
+  }
+
+  const pageSizeSelect = document.getElementById("pagination-page-size");
+  if (pageSizeSelect && pageSizeSelect.value !== String(leaderboardPagination.pageSize)) {
+    pageSizeSelect.value = String(leaderboardPagination.pageSize);
+    customSelectStates.get(pageSizeSelect)?.sync();
   }
 }
 
@@ -1246,14 +1222,25 @@ function setupLeaderboardPagination() {
   const container = document.getElementById("leaderboard-pagination");
   if (!container) return;
 
-  container.addEventListener("click", (e) => {
-    const btn = closestElement(e.target, ".pagination-btn");
-    if (!btn || btn.disabled) return;
-    const page = parseInt(btn.dataset.page, 10);
-    if (page && !isNaN(page)) {
-      goToLeaderboardPage(page);
-    }
-  });
+  const controls = document.getElementById("pagination-controls");
+  if (controls) {
+    controls.addEventListener("click", (e) => {
+      const btn = closestElement(e.target, ".pagination-btn");
+      if (!btn || btn.disabled) return;
+      const page = parseInt(btn.dataset.page, 10);
+      if (page && !isNaN(page)) {
+        goToLeaderboardPage(page);
+      }
+    });
+  }
+
+  const pageSizeSelect = document.getElementById("pagination-page-size");
+  if (pageSizeSelect) {
+    enhanceCustomSelect(pageSizeSelect, "pagination");
+    pageSizeSelect.addEventListener("change", (e) => {
+      setLeaderboardPageSize(e.target.value);
+    });
+  }
 }
 
 function renderCurrentLeaderboard() {

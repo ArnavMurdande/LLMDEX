@@ -1997,6 +1997,52 @@ footer {
 }
 
 /* ═══════════ Responsive ═══════════ */
+
+/* Custom select styling for pagination dropdown */
+.pagination-select-shell {
+  min-width: 86px;
+  position: relative;
+  isolation: isolate;
+}
+
+.pagination-select-shell .custom-select-trigger {
+  min-height: 36px;
+  padding: 0.35rem 0.65rem 0.35rem 0.85rem;
+  border-radius: 999px;
+  font: 600 0.85rem/1.2 var(--font-body);
+  gap: 0.5rem;
+  border: 1px solid var(--border-glass);
+  background: var(--surface-solid);
+}
+
+.pagination-select-shell .custom-select-chevron {
+  width: 14px;
+  height: 14px;
+  flex: 0 0 14px;
+}
+
+.pagination-select-shell .custom-select-menu {
+  bottom: calc(100% + 0.4rem);
+  top: auto;
+  left: auto;
+  right: 0;
+  width: 104px;
+  min-width: 90px;
+  max-height: 220px;
+  padding: 0.35rem;
+  border-radius: 14px;
+  background: var(--surface-solid);
+  border: 1px solid var(--border-glass);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.45);
+}
+
+.pagination-select-shell .custom-select-option {
+  min-height: 34px;
+  padding: 0.4rem 0.75rem;
+  font-size: 0.85rem;
+  border-radius: 8px;
+}
+
 @media (max-width: 768px) {
   .hero h1 {
     font-size: 2.2rem;
@@ -5475,6 +5521,12 @@ select option,
     order: 3;
     padding-top: 0.25rem;
     border-top: 1px solid rgba(180, 255, 226, 0.06);
+  }
+
+  .pagination-select-shell .custom-select-menu {
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
   }
 
   .pagination-btn {

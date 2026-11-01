@@ -506,7 +506,64 @@
           class="leaderboard-pagination"
           id="leaderboard-pagination"
           aria-label="Leaderboard pagination"
-        ></div>
+        >
+          <div class="pagination-info" id="pagination-info">
+            Showing <strong id="pagination-from">1</strong>&ndash;<strong id="pagination-to">25</strong> of <strong id="pagination-total">271</strong> models
+          </div>
+          <div class="pagination-controls" id="pagination-controls">
+            <button
+              type="button"
+              class="pagination-btn pagination-nav-btn pagination-first"
+              id="pagination-first-btn"
+              data-page="1"
+              aria-label="First page"
+              disabled
+            >
+              <i class="fas fa-angle-double-left" aria-hidden="true"></i>
+            </button>
+            <button
+              type="button"
+              class="pagination-btn pagination-nav-btn pagination-prev"
+              id="pagination-prev-btn"
+              aria-label="Previous page"
+              disabled
+            >
+              <i class="fas fa-chevron-left" aria-hidden="true"></i>
+              <span>Prev</span>
+            </button>
+            <div class="pagination-pages" id="pagination-pages"></div>
+            <span class="pagination-mobile-indicator" id="pagination-mobile-indicator" aria-hidden="true">
+              Page <strong id="pagination-mobile-current">1</strong> of <strong id="pagination-mobile-total">1</strong>
+            </span>
+            <button
+              type="button"
+              class="pagination-btn pagination-nav-btn pagination-next"
+              id="pagination-next-btn"
+              aria-label="Next page"
+              disabled
+            >
+              <span>Next</span>
+              <i class="fas fa-chevron-right" aria-hidden="true"></i>
+            </button>
+            <button
+              type="button"
+              class="pagination-btn pagination-nav-btn pagination-last"
+              id="pagination-last-btn"
+              aria-label="Last page"
+              disabled
+            >
+              <i class="fas fa-angle-double-right" aria-hidden="true"></i>
+            </button>
+          </div>
+          <div class="pagination-size">
+            <label for="pagination-page-size">Per page:</label>
+            <select id="pagination-page-size" class="pagination-select" aria-label="Models per page">
+              <option value="25" selected>25</option>
+              <option value="50">50</option>
+              <option value="100">100</option>
+            </select>
+          </div>
+        </div>
         <p class="leaderboard-attribution" id="leaderboard-attribution">
           General intelligence, pricing and API performance data from
           <a href="https://artificialanalysis.ai/leaderboards/models" target="_blank" rel="noopener">Artificial Analysis</a>.
