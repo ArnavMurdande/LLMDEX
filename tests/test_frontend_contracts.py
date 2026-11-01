@@ -258,6 +258,15 @@ class FrontendContractTests(unittest.TestCase):
         self.assertIn("cap_cat_", self.js)
         self.assertIn("cap_bm_", self.js)
 
+    def test_leaderboard_pagination_contract(self):
+        self.assertIn('id="leaderboard-pagination"', self.html)
+        self.assertIn("leaderboardPagination", self.js)
+        self.assertIn("renderLeaderboardPagination", self.js)
+        self.assertIn("pageSize: 25", self.js)
+        self.assertIn(".leaderboard-pagination", self.css)
+        self.assertIn(".pagination-mobile-indicator", self.css)
+        self.assertIn("@media (max-width: 520px)", self.css)
+
 
 if __name__ == "__main__":
     unittest.main()

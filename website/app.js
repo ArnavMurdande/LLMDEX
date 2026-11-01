@@ -24,6 +24,12 @@ let familiesContractRef = { rows: [] };
 let llmstatsRowsRef = [];
 let qualityContractRef = null;
 let currentSort = { field: null, direction: null };
+
+// ── Leaderboard Pagination State ──
+const leaderboardPagination = {
+  currentPage: 1,
+  pageSize: 25,
+};
 const selectedModelIds = new Set();
 
 const METRIC_HELP = {
@@ -671,6 +677,7 @@ async function initializeApp() {
   safeInit("Sorting", () => setupSorting(allData));
   safeInit("Comparison", () => setupComparison(allData));
   safeInit("Model details drawer", () => setupModelDetailsDrawer());
+  safeInit("Leaderboard pagination", () => setupLeaderboardPagination());
   safeInit("Capability leaderboards", () => setupCapabilityLeaderboards());
   safeInit("Priority advisor", () => setupAdvisor(allData));
   safeInit("Family explorer", () => setupFamilyExplorerModern(allData));
@@ -694,6 +701,7 @@ async function initializeApp() {
 
   let pendingFilterFrame = 0;
   const filterData = () => {
+    leaderboardPagination.currentPage = 1;
     window.cancelAnimationFrame(pendingFilterFrame);
     pendingFilterFrame = window.requestAnimationFrame(renderCurrentLeaderboard);
   };
@@ -709,6 +717,7 @@ async function initializeApp() {
       customSelectStates.get(select)?.sync();
     });
     currentSort = { field: null, direction: null };
+    leaderboardPagination.currentPage = 1;
     renderCurrentLeaderboard();
   });
 
@@ -993,6 +1002,7 @@ function setupLeaderboardTabs(data) {
       const tabId = tab.dataset.tab;
       currentTab = tabId;
       currentCapability = "general";
+      leaderboardPagination.currentPage = 1;
 
       // Reset column sort when switching tabs
       currentSort = { field: null, direction: null };
@@ -1057,6 +1067,7 @@ function syncLeaderboardSourceViewer(capability = currentCapability) {
 async function switchCapability(capability) {
   currentCapability = capability || "general";
   currentSort = { field: null, direction: null };
+  leaderboardPagination.currentPage = 1;
   syncLeaderboardSourceViewer(currentCapability);
   const selector = document.getElementById("capability-selector");
   if (selector && selector.value !== currentCapability) {
@@ -1090,6 +1101,159 @@ async function switchCapability(capability) {
     tbody.innerHTML =
       '<tr><td class="table-error-state">This capability snapshot is unavailable. The last healthy General view remains unchanged.</td></tr>';
   }
+}
+
+
+function getPaginationRange(current, total) {
+  if (total <= 7) {
+    return Array.from({ length: total }, (_, i) => i + 1);
+  }
+  if (current <= 4) {
+    return [1, 2, 3, 4, 5, "...", total];
+  }
+  if (current >= total - 3) {
+    return [1, "...", total - 4, total - 3, total - 2, total - 1, total];
+  }
+  return [1, "...", current - 1, current, current + 1, "...", total];
+}
+
+function goToLeaderboardPage(page) {
+  if (page < 1 || page === leaderboardPagination.currentPage) return;
+  leaderboardPagination.currentPage = page;
+  renderCurrentLeaderboard();
+  const wrapper = document.getElementById("table-wrapper");
+  if (wrapper) {
+    wrapper.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  }
+}
+
+function setLeaderboardPageSize(newSize) {
+  const size = parseInt(newSize, 10);
+  if (!size || size === leaderboardPagination.pageSize) return;
+  leaderboardPagination.pageSize = size;
+  leaderboardPagination.currentPage = 1;
+  renderCurrentLeaderboard();
+}
+
+function renderLeaderboardPagination(totalRows, startIndex, endIndex, totalPages) {
+  const container = document.getElementById("leaderboard-pagination");
+  if (!container) return;
+
+  if (totalRows === 0) {
+    container.innerHTML = "";
+    container.style.display = "none";
+    return;
+  }
+  container.style.display = "flex";
+
+  const current = leaderboardPagination.currentPage;
+  const fromNum = startIndex + 1;
+  const toNum = endIndex;
+
+  const pageRange = getPaginationRange(current, totalPages);
+  let pagesHtml = "";
+  pageRange.forEach((item) => {
+    if (item === "...") {
+      pagesHtml += `<span class="pagination-ellipsis" aria-hidden="true">&hellip;</span>`;
+    } else {
+      const isCurrent = item === current;
+      pagesHtml += `
+        <button
+          type="button"
+          class="pagination-btn pagination-page-btn ${isCurrent ? "active" : ""}"
+          data-page="${item}"
+          aria-label="Go to page ${item}"
+          ${isCurrent ? 'aria-current="page"' : ""}
+        >
+          ${item}
+        </button>
+      `;
+    }
+  });
+
+  const isFirst = current <= 1;
+  const isLast = current >= totalPages;
+
+  container.innerHTML = `
+    <div class="pagination-info" id="pagination-info">
+      Showing <strong>${fromNum}&ndash;${toNum}</strong> of <strong>${totalRows}</strong> models
+    </div>
+    <div class="pagination-controls" id="pagination-controls">
+      <button
+        type="button"
+        class="pagination-btn pagination-nav-btn pagination-first"
+        data-page="1"
+        aria-label="First page"
+        ${isFirst ? "disabled" : ""}
+      >
+        <i class="fas fa-angle-double-left" aria-hidden="true"></i>
+      </button>
+      <button
+        type="button"
+        class="pagination-btn pagination-nav-btn pagination-prev"
+        data-page="${current - 1}"
+        aria-label="Previous page"
+        ${isFirst ? "disabled" : ""}
+      >
+        <i class="fas fa-chevron-left" aria-hidden="true"></i>
+        <span>Prev</span>
+      </button>
+      <div class="pagination-pages" id="pagination-pages">
+        ${pagesHtml}
+      </div>
+      <span class="pagination-mobile-indicator" aria-hidden="true">
+        Page <strong>${current}</strong> of <strong>${totalPages}</strong>
+      </span>
+      <button
+        type="button"
+        class="pagination-btn pagination-nav-btn pagination-next"
+        data-page="${current + 1}"
+        aria-label="Next page"
+        ${isLast ? "disabled" : ""}
+      >
+        <span>Next</span>
+        <i class="fas fa-chevron-right" aria-hidden="true"></i>
+      </button>
+      <button
+        type="button"
+        class="pagination-btn pagination-nav-btn pagination-last"
+        data-page="${totalPages}"
+        aria-label="Last page"
+        ${isLast ? "disabled" : ""}
+      >
+        <i class="fas fa-angle-double-right" aria-hidden="true"></i>
+      </button>
+    </div>
+    <div class="pagination-size">
+      <label for="pagination-page-size">Per page:</label>
+      <select id="pagination-page-size" class="pagination-select" aria-label="Models per page">
+        <option value="25" ${leaderboardPagination.pageSize === 25 ? "selected" : ""}>25</option>
+        <option value="50" ${leaderboardPagination.pageSize === 50 ? "selected" : ""}>50</option>
+        <option value="100" ${leaderboardPagination.pageSize === 100 ? "selected" : ""}>100</option>
+      </select>
+    </div>
+  `;
+
+  const pageSizeSelect = container.querySelector("#pagination-page-size");
+  if (pageSizeSelect) {
+    pageSizeSelect.addEventListener("change", (e) => {
+      setLeaderboardPageSize(e.target.value);
+    });
+  }
+}
+
+function setupLeaderboardPagination() {
+  const container = document.getElementById("leaderboard-pagination");
+  if (!container) return;
+
+  container.addEventListener("click", (e) => {
+    const btn = closestElement(e.target, ".pagination-btn");
+    if (!btn || btn.disabled) return;
+    const page = parseInt(btn.dataset.page, 10);
+    if (page && !isNaN(page)) {
+      goToLeaderboardPage(page);
+    }
+  });
 }
 
 function renderCurrentLeaderboard() {
@@ -1227,10 +1391,24 @@ function populateCapabilityTable(rows, contract) {
   tbody.innerHTML = "";
   if (!tableRows.length) {
     tbody.innerHTML = `<tr><td colspan="${columns.length}" class="table-empty-state">No source rows match the current filters.</td></tr>`;
+    renderLeaderboardPagination(0, 0, 0, 0);
     return;
   }
+
+  const totalRows = tableRows.length;
+  const totalPages = Math.max(1, Math.ceil(totalRows / leaderboardPagination.pageSize));
+  if (leaderboardPagination.currentPage > totalPages) {
+    leaderboardPagination.currentPage = totalPages;
+  }
+  if (leaderboardPagination.currentPage < 1) {
+    leaderboardPagination.currentPage = 1;
+  }
+  const startIndex = (leaderboardPagination.currentPage - 1) * leaderboardPagination.pageSize;
+  const endIndex = Math.min(startIndex + leaderboardPagination.pageSize, totalRows);
+  const pagedRows = tableRows.slice(startIndex, endIndex);
+
   const capabilityFragment = document.createDocumentFragment();
-  tableRows.forEach((row) => {
+  pagedRows.forEach((row) => {
     const tr = document.createElement("tr");
     tr.dataset.sourceModelId = row.source_model_id || "";
     tr.style.setProperty("--row-color", colorForModel(row.source_name));
@@ -1275,6 +1453,7 @@ function populateCapabilityTable(rows, contract) {
   });
   tbody.appendChild(capabilityFragment);
   window.requestAnimationFrame(syncTableScrollWidth);
+  renderLeaderboardPagination(totalRows, startIndex, endIndex, totalPages);
 }
 
 // ══════════════════════════════════════════════════════════════
@@ -1862,13 +2041,26 @@ function populateTable(data, fullData, tabId) {
   tbody.innerHTML = "";
   if (tableData.length === 0) {
     tbody.innerHTML = `<tr><td colspan="${config.columns.length}" style="text-align:center; padding: 2rem;">No models found matching criteria.</td></tr>`;
+    renderLeaderboardPagination(0, 0, 0, 0);
     return;
   }
+
+  const totalRows = tableData.length;
+  const totalPages = Math.max(1, Math.ceil(totalRows / leaderboardPagination.pageSize));
+  if (leaderboardPagination.currentPage > totalPages) {
+    leaderboardPagination.currentPage = totalPages;
+  }
+  if (leaderboardPagination.currentPage < 1) {
+    leaderboardPagination.currentPage = 1;
+  }
+  const startIndex = (leaderboardPagination.currentPage - 1) * leaderboardPagination.pageSize;
+  const endIndex = Math.min(startIndex + leaderboardPagination.pageSize, totalRows);
+  const pagedData = tableData.slice(startIndex, endIndex);
 
   const bests = computeBests(fullData, config.columns);
 
   const tableFragment = document.createDocumentFragment();
-  tableData.forEach((row) => {
+  pagedData.forEach((row) => {
     const tr = document.createElement("tr");
     const modelId =
       row.model_slug || row.canonical_name || row.model_name || "";
@@ -2013,6 +2205,7 @@ function populateTable(data, fullData, tabId) {
     }
   }
   window.requestAnimationFrame(syncTableScrollWidth);
+  renderLeaderboardPagination(totalRows, startIndex, endIndex, totalPages);
 }
 
 function syncTableScrollWidth() {
@@ -4332,6 +4525,7 @@ function setupSorting(allData) {
       currentSort.direction === "asc" ? "sort-asc" : "sort-desc",
     );
 
+    leaderboardPagination.currentPage = 1;
     renderCurrentLeaderboard();
   });
 }
