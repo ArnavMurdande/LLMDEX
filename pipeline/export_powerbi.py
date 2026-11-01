@@ -23,6 +23,7 @@ from pathlib import Path
 from typing import Any, Dict, List, Optional, Set, Tuple
 
 from pipeline.provider_metadata import PROVIDER_COLUMNS, build_provider_metadata
+from utils.model_families import infer_family_brand, infer_model_family
 
 ROOT = Path(__file__).resolve().parents[1]
 POWERBI_DIR = ROOT / "data" / "powerbi" / "v1"
@@ -87,12 +88,56 @@ KNOWN_MODEL_PROVIDERS = {
     "grok": "xAI",
     "sakana": "Sakana AI",
     "hy3": "Tencent",
+    "hunyuan": "Tencent",
     "inkling": "Thinking Machines",
     "solar": "Upstage",
     "ember": "Fireworks AI",
     "ling": "InclusionAI",
     "mercury": "Inception",
     "beam": "Reflection",
+    "swe": "Cognition",
+    "devin": "Cognition",
+    "cognition": "Cognition",
+    "phi": "Microsoft",
+    "jamba": "AI21 Labs",
+    "dbrx": "Databricks",
+    "command": "Cohere",
+    "aya": "Cohere",
+    "cohere": "Cohere",
+    "ernie": "Baidu",
+    "granite": "IBM",
+    "minicpm": "OpenBMB",
+    "step": "StepFun",
+    "falcon": "TII",
+    "doubao": "ByteDance",
+    "sensechat": "SenseTime",
+    "internlm": "Shanghai AI Laboratory",
+    "skywork": "Skywork AI",
+    "baichuan": "Baichuan AI",
+    "chatglm": "Z AI",
+    "yi": "01.AI",
+    "lfm": "Liquid AI",
+    "liquid": "Liquid AI",
+    "molmo": "Allen Institute for AI",
+    "olmo": "Allen Institute for AI",
+    "allenai": "Allen Institute for AI",
+    "sarvam": "Sarvam AI",
+    "hyperclova": "Naver",
+    "clova": "Naver",
+    "exaone": "LG AI Research",
+    "kwaikat": "Kuaishou",
+    "kat": "Kuaishou",
+    "deepinfra": "DeepInfra",
+    "reka": "Reka AI",
+    "cerebras": "Cerebras",
+    "sambanova": "SambaNova",
+    "groq": "Groq",
+    "together": "Together AI",
+    "anyscale": "Anyscale",
+    "lepton": "Lepton AI",
+    "writer": "Writer",
+    "palmyra": "Writer",
+    "arctic": "Snowflake",
 }
 
 
@@ -614,8 +659,31 @@ def build_llmstats_wide_csv(
         # 3. Known series prefix matching
         norm_text = f"{smid} {cname}".lower()
         for prefix, prov in KNOWN_MODEL_PROVIDERS.items():
-            if norm_text.startswith(prefix) or f" {prefix}" in norm_text or f"/{prefix}" in norm_text:
+            if norm_text.startswith(prefix) or f" {prefix}" in norm_text or f"/{prefix}" in norm_text or f"-{prefix}" in norm_text:
                 return prov
+
+        # 4. Check if fid contains author prefix e.g. "meta-llama/..." or "google/..."
+        if "/" in fid and not fid.startswith("unknown/"):
+            author = fid.split("/")[0].strip().lower()
+            if author in KNOWN_MODEL_PROVIDERS:
+                return KNOWN_MODEL_PROVIDERS[author]
+            for prefix, prov in KNOWN_MODEL_PROVIDERS.items():
+                if author.startswith(prefix) or author == prefix:
+                    return prov
+
+        # 5. Heuristic fallback via infer_model_family and infer_family_brand
+        try:
+            inferred_fam = infer_model_family(cname or smid)
+            if inferred_fam and inferred_fam not in {"Unknown", "Unknown model"}:
+                inferred_brand = infer_family_brand(inferred_fam)
+                if inferred_brand and inferred_brand not in {"Other", "Unknown"}:
+                    brand_lower = inferred_brand.lower()
+                    for prefix, prov in KNOWN_MODEL_PROVIDERS.items():
+                        if brand_lower.startswith(prefix) or brand_lower == prefix:
+                            return prov
+                    return inferred_brand
+        except Exception:
+            pass
 
         return ""
 
@@ -707,10 +775,11 @@ def build_llmstats_wide_csv(
             if not provider:
                 provider = resolve_provider_from_approved_sources(source_model_id, cleaned_sname, fid, source_model_url)
 
-            if provider:
+            if provider and provider != "Unknown":
                 provider_populated_count += 1
             else:
                 provider_missing_count += 1
+                provider = provider or "Unknown"
 
             # Availability Resolution
             fam_match = family_map.get(fid, {})
@@ -732,7 +801,7 @@ def build_llmstats_wide_csv(
                     gen_missing_score_count += 1
                 if not cat_rank:
                     gen_missing_rank_count += 1
-                if not provider:
+                if not provider or provider == "Unknown":
                     gen_missing_provider_count += 1
 
             row: Dict[str, str] = {
