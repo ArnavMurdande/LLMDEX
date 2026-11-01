@@ -177,7 +177,7 @@
     {
       "name": "Claude Fable 5.1",
       "performance": 50.0,
-      "rank": 14.0,
+      "rank": 13.0,
       "provider": "Anthropic",
       "model_url": "https://artificialanalysis.ai/models/claude-fable-5-1",
       "release_date": "2026-09-01",
@@ -835,9 +835,11 @@
       "release_date": "2026-10-17",
       "variants": [
         "DeepSeek V4.1 Flash 1017 (max)",
-        "DeepSeek V4.1 Flash 1017 (Max)"
+        "DeepSeek V4.1 Flash 1017 (non-reasoning)",
+        "DeepSeek V4.1 Flash 1017 (Max)",
+        "DeepSeek V4.1 Flash 1017 (Non-reasoning)"
       ],
-      "variant_count": 2,
+      "variant_count": 4,
       "improvement_abs": -7.51,
       "improvement_pct": -18.78,
       "predecessor": "DeepSeek V4.1 Flash"
@@ -1047,7 +1049,7 @@
     {
       "name": "GLM-5.3",
       "performance": 32.0,
-      "rank": 36.0,
+      "rank": 35.0,
       "provider": "Z AI",
       "model_url": "https://artificialanalysis.ai/models/glm-5-3",
       "release_date": "2026-08-18",
@@ -1065,7 +1067,7 @@
     {
       "name": "GLM-5.3-Flash",
       "performance": 28.0,
-      "rank": 49.0,
+      "rank": 48.0,
       "provider": "Z AI",
       "model_url": "https://artificialanalysis.ai/models/glm-5-3-flash",
       "release_date": "2026-08-26",
@@ -1422,7 +1424,7 @@
     {
       "name": "GPT-6 Luna",
       "performance": 28.0,
-      "rank": 48.0,
+      "rank": 47.0,
       "provider": "OpenAI",
       "model_url": "https://artificialanalysis.ai/models/gpt-6-luna",
       "release_date": "2026-09-22",
@@ -1585,7 +1587,7 @@
     {
       "name": "GPT-6.1 Sol",
       "performance": 55.0,
-      "rank": 6.0,
+      "rank": 5,
       "provider": "OpenAI",
       "model_url": "https://artificialanalysis.ai/models/gpt-6-1-sol",
       "release_date": "2026-09-29",
@@ -1632,7 +1634,7 @@
     {
       "name": "GPT-6.1 Terra",
       "performance": 51.0,
-      "rank": 10.0,
+      "rank": 9.0,
       "provider": "OpenAI",
       "model_url": "https://artificialanalysis.ai/models/gpt-6-1-terra",
       "release_date": "2026-10-26",
@@ -1923,7 +1925,7 @@
     {
       "name": "Gemini 3.8 Flash",
       "performance": 31.0,
-      "rank": 38.0,
+      "rank": 37.0,
       "provider": "Google",
       "model_url": "https://artificialanalysis.ai/models/gemini-3-8-flash",
       "release_date": "2026-09-02",
@@ -2243,6 +2245,21 @@
       "improvement_abs": 2.0,
       "improvement_pct": 28.57,
       "predecessor": "Granite 4.1 8B"
+    },
+    {
+      "name": "Granite 4.2 3B",
+      "performance": 5.0,
+      "rank": 80.0,
+      "provider": "IBM",
+      "model_url": "https://artificialanalysis.ai/models/granite-4-2-3b",
+      "release_date": "2026-08-25",
+      "variants": [
+        "Granite 4.2 3B"
+      ],
+      "variant_count": 1,
+      "improvement_abs": -4.0,
+      "improvement_pct": -44.44,
+      "predecessor": "Granite 4.1 30B"
     }
   ],
   "InclusionAI": [
@@ -2309,7 +2326,7 @@
     {
       "name": "Ling 3.1 Flash 1019",
       "performance": 29.0,
-      "rank": 44.0,
+      "rank": 43.0,
       "provider": "InclusionAI",
       "model_url": "https://artificialanalysis.ai/models/ling-3-1-flash-1019",
       "release_date": "2026-10-22",
@@ -2452,7 +2469,7 @@
     {
       "name": "Kimi K3.1 Pro",
       "performance": 46.0,
-      "rank": 20.0,
+      "rank": 19.0,
       "provider": "Kimi",
       "model_url": "https://artificialanalysis.ai/models/kimi-k3-1-pro",
       "release_date": "2026-10-23",
@@ -2890,7 +2907,7 @@
     {
       "name": "Muse Wonder Full",
       "performance": 50.0,
-      "rank": 13.0,
+      "rank": 12.0,
       "provider": "Meta",
       "model_url": "https://artificialanalysis.ai/models/muse-wonder-full",
       "release_date": "2026-10-12",
@@ -2906,7 +2923,7 @@
     {
       "name": "Muse Spark Open",
       "performance": 25.0,
-      "rank": 53.0,
+      "rank": 52.0,
       "provider": "Meta",
       "model_url": "https://artificialanalysis.ai/models/muse-spark-open",
       "release_date": "2026-10-15",
@@ -3014,7 +3031,7 @@
     {
       "name": "MiniMax-M3",
       "performance": 19.0,
-      "rank": 62.0,
+      "rank": 61.0,
       "provider": "MiniMax",
       "model_url": "https://artificialanalysis.ai/models/minimax-m3",
       "release_date": "2026-06-01",
@@ -3029,7 +3046,7 @@
     {
       "name": "MiniMax-M3.1-Flash",
       "performance": 29.0,
-      "rank": 46.0,
+      "rank": 45.0,
       "provider": "MiniMax",
       "model_url": "https://artificialanalysis.ai/models/minimax-m3-1-flash",
       "release_date": "2026-10-19",
@@ -3386,7 +3403,7 @@
     {
       "name": "Nemotron 3 Nano 4B",
       "performance": 2.0,
-      "rank": 80.0,
+      "rank": 82.0,
       "provider": "NVIDIA",
       "model_url": "https://artificialanalysis.ai/models/nvidia-nemotron-3-nano-4b",
       "release_date": "2026-03-16",
@@ -3446,7 +3463,7 @@
     {
       "name": "Nemotron 3.5 Lightning",
       "performance": 6.0,
-      "rank": 78.0,
+      "rank": 79.0,
       "provider": "NVIDIA",
       "model_url": "https://artificialanalysis.ai/models/nemotron-3-5-lightning",
       "release_date": "2026-08-11",
@@ -4100,7 +4117,7 @@
     {
       "name": "Qwen3.8 Max (0902)",
       "performance": 34.0,
-      "rank": 34.0,
+      "rank": 33.0,
       "provider": "Alibaba",
       "model_url": "https://artificialanalysis.ai/models/qwen3-8-max",
       "release_date": "2026-08-03",
@@ -4124,11 +4141,13 @@
         "Qwen3.8 27B (xhigh)",
         "Qwen3.8 27B (medium)",
         "Qwen3.8 27B (low)",
+        "Qwen3.8 27B (non-reasoning)",
         "Qwen3.8 27B (Xhigh)",
         "Qwen3.8 27B (Medium)",
-        "Qwen3.8 27B (Low)"
+        "Qwen3.8 27B (Low)",
+        "Qwen3.8 27B (Non-reasoning)"
       ],
-      "variant_count": 7,
+      "variant_count": 9,
       "improvement_abs": 18.0,
       "improvement_pct": 52.94,
       "predecessor": "Qwen3.8 Max (0902)"
@@ -4294,7 +4313,7 @@
     {
       "name": "Step 5 Preview",
       "performance": 29.0,
-      "rank": 47.0,
+      "rank": 46.0,
       "provider": "StepFun",
       "model_url": "https://artificialanalysis.ai/models/step-5",
       "release_date": "2026-09-18",
@@ -4456,7 +4475,7 @@
     {
       "name": "MiMo-V2.6-Flash",
       "performance": 27.0,
-      "rank": 50.0,
+      "rank": 49.0,
       "provider": "Xiaomi",
       "model_url": "https://artificialanalysis.ai/models/mimo-v2-6-flash",
       "release_date": "2026-09-21",
@@ -4471,7 +4490,7 @@
     {
       "name": "MiMo-V2.6-Pro",
       "performance": 30.0,
-      "rank": 42.0,
+      "rank": 41.0,
       "provider": "Xiaomi",
       "model_url": "https://artificialanalysis.ai/models/mimo-v2-6-pro",
       "release_date": "2026-09-21",

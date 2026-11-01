@@ -2009,7 +2009,8 @@
     "version": "4.1",
     "source_aliases": {
       "artificial_analysis": [
-        "DeepSeek V4.1 Flash 1017 (max)"
+        "DeepSeek V4.1 Flash 1017 (max)",
+        "DeepSeek V4.1 Flash 1017 (non-reasoning)"
       ],
       "llmstats": [
         "DeepSeek-V4.1-Flash-1017"
@@ -2018,7 +2019,8 @@
     "source_ids": {},
     "source_urls": {
       "artificial_analysis": [
-        "https://artificialanalysis.ai/models/deepseek-v4-1-flash-1017"
+        "https://artificialanalysis.ai/models/deepseek-v4-1-flash-1017",
+        "https://artificialanalysis.ai/models/deepseek-v4-1-flash-1017-non-reasoning"
       ]
     },
     "variants": {
@@ -2028,6 +2030,17 @@
         "source_name": "DeepSeek V4.1 Flash 1017 (max)",
         "reasoning_effort": "max",
         "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": null
+      },
+      "deepseek/deepseek-v4-1-flash-1017:non-reasoning": {
+        "variant_id": "deepseek/deepseek-v4-1-flash-1017:non-reasoning",
+        "deployment_profile_id": "deepseek/deepseek-v4-1-flash-1017:non-reasoning:deployment",
+        "source_name": "DeepSeek V4.1 Flash 1017 (non-reasoning)",
+        "reasoning_effort": null,
+        "deployment_profile": [
+          "non-reasoning"
+        ],
         "fallback_enabled": false,
         "parameter_count": null
       }
@@ -5521,7 +5534,6 @@
       "artificial_analysis": [
         "GPT-6.1 Sol (high)",
         "GPT-6.1 Sol (low)",
-        "GPT-6.1 Sol (max)",
         "GPT-6.1 Sol (medium)",
         "GPT-6.1 Sol (xhigh)"
       ],
@@ -5532,7 +5544,6 @@
     "source_ids": {},
     "source_urls": {
       "artificial_analysis": [
-        "https://artificialanalysis.ai/models/gpt-6-1-sol",
         "https://artificialanalysis.ai/models/gpt-6-1-sol-high",
         "https://artificialanalysis.ai/models/gpt-6-1-sol-low",
         "https://artificialanalysis.ai/models/gpt-6-1-sol-medium",
@@ -5540,15 +5551,6 @@
       ]
     },
     "variants": {
-      "openai/gpt-6-1-sol:max": {
-        "variant_id": "openai/gpt-6-1-sol:max",
-        "deployment_profile_id": "openai/gpt-6-1-sol:max:deployment",
-        "source_name": "GPT-6.1 Sol (max)",
-        "reasoning_effort": "max",
-        "deployment_profile": [],
-        "fallback_enabled": false,
-        "parameter_count": null
-      },
       "openai/gpt-6-1-sol:xhigh": {
         "variant_id": "openai/gpt-6-1-sol:xhigh",
         "deployment_profile_id": "openai/gpt-6-1-sol:xhigh:deployment",
