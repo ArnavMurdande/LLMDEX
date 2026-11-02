@@ -2009,6 +2009,7 @@
     "version": "4.1",
     "source_aliases": {
       "artificial_analysis": [
+        "DeepSeek V4.1 Flash 1017 (high)",
         "DeepSeek V4.1 Flash 1017 (max)",
         "DeepSeek V4.1 Flash 1017 (non-reasoning)"
       ],
@@ -2020,6 +2021,7 @@
     "source_urls": {
       "artificial_analysis": [
         "https://artificialanalysis.ai/models/deepseek-v4-1-flash-1017",
+        "https://artificialanalysis.ai/models/deepseek-v4-1-flash-1017-high",
         "https://artificialanalysis.ai/models/deepseek-v4-1-flash-1017-non-reasoning"
       ]
     },
@@ -2029,6 +2031,15 @@
         "deployment_profile_id": "deepseek/deepseek-v4-1-flash-1017:max:deployment",
         "source_name": "DeepSeek V4.1 Flash 1017 (max)",
         "reasoning_effort": "max",
+        "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": null
+      },
+      "deepseek/deepseek-v4-1-flash-1017:high": {
+        "variant_id": "deepseek/deepseek-v4-1-flash-1017:high",
+        "deployment_profile_id": "deepseek/deepseek-v4-1-flash-1017:high:deployment",
+        "source_name": "DeepSeek V4.1 Flash 1017 (high)",
+        "reasoning_effort": "high",
         "deployment_profile": [],
         "fallback_enabled": false,
         "parameter_count": null
@@ -2333,7 +2344,8 @@
     "version": null,
     "source_aliases": {
       "artificial_analysis": [
-        "Gemini 4 Carbon (high)"
+        "Gemini 4 Carbon (high)",
+        "Gemini 4 Carbon (medium)"
       ],
       "llmstats": [
         "Gemini 4 Carbon"
@@ -2342,7 +2354,8 @@
     "source_ids": {},
     "source_urls": {
       "artificial_analysis": [
-        "https://artificialanalysis.ai/models/gemini-4-carbon"
+        "https://artificialanalysis.ai/models/gemini-4-carbon",
+        "https://artificialanalysis.ai/models/gemini-4-carbon-medium"
       ]
     },
     "variants": {
@@ -2351,6 +2364,15 @@
         "deployment_profile_id": "google/gemini-4-carbon:high:deployment",
         "source_name": "Gemini 4 Carbon (high)",
         "reasoning_effort": "high",
+        "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": null
+      },
+      "google/gemini-4-carbon:medium": {
+        "variant_id": "google/gemini-4-carbon:medium",
+        "deployment_profile_id": "google/gemini-4-carbon:medium:deployment",
+        "source_name": "Gemini 4 Carbon (medium)",
+        "reasoning_effort": "medium",
         "deployment_profile": [],
         "fallback_enabled": false,
         "parameter_count": null
@@ -2983,7 +3005,9 @@
       "artificial_analysis": [
         "Ling 3.1 Flash"
       ],
-      "llmstats": []
+      "llmstats": [
+        "Ling 3.1 Flash"
+      ]
     },
     "source_ids": {},
     "source_urls": {
@@ -4340,9 +4364,7 @@
       "artificial_analysis": [
         "MiniMax-M3.1-Flash"
       ],
-      "llmstats": [
-        "MiniMax M3.1 Flash"
-      ]
+      "llmstats": []
     },
     "source_ids": {},
     "source_urls": {
@@ -4781,6 +4803,38 @@
         "fallback_enabled": false,
         "parameter_count": {
           "total_billions": 3.0,
+          "active_billions": null
+        }
+      }
+    }
+  },
+  "nanbeige/nanbeige4-3-33b": {
+    "family_id": "nanbeige/nanbeige4-3-33b",
+    "canonical_family_name": "Nanbeige4.3-33B",
+    "provider": "Nanbeige",
+    "version": "4.3",
+    "source_aliases": {
+      "artificial_analysis": [
+        "Nanbeige4.3-33B"
+      ],
+      "llmstats": []
+    },
+    "source_ids": {},
+    "source_urls": {
+      "artificial_analysis": [
+        "https://artificialanalysis.ai/models/nanbeige4-3-33b"
+      ]
+    },
+    "variants": {
+      "nanbeige/nanbeige4-3-33b:default": {
+        "variant_id": "nanbeige/nanbeige4-3-33b:default",
+        "deployment_profile_id": "nanbeige/nanbeige4-3-33b:default:deployment",
+        "source_name": "Nanbeige4.3-33B",
+        "reasoning_effort": null,
+        "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": {
+          "total_billions": 33.0,
           "active_billions": null
         }
       }
@@ -5686,7 +5740,6 @@
       "artificial_analysis": [
         "GPT-6 Astra (high)",
         "GPT-6 Astra (low)",
-        "GPT-6 Astra (max)",
         "GPT-6 Astra (medium)",
         "GPT-6 Astra (xhigh)"
       ],
@@ -5697,7 +5750,6 @@
     "source_ids": {},
     "source_urls": {
       "artificial_analysis": [
-        "https://artificialanalysis.ai/models/gpt-6-astra",
         "https://artificialanalysis.ai/models/gpt-6-astra-high",
         "https://artificialanalysis.ai/models/gpt-6-astra-low",
         "https://artificialanalysis.ai/models/gpt-6-astra-medium",
@@ -5705,15 +5757,6 @@
       ]
     },
     "variants": {
-      "openai/gpt-6-astra:max": {
-        "variant_id": "openai/gpt-6-astra:max",
-        "deployment_profile_id": "openai/gpt-6-astra:max:deployment",
-        "source_name": "GPT-6 Astra (max)",
-        "reasoning_effort": "max",
-        "deployment_profile": [],
-        "fallback_enabled": false,
-        "parameter_count": null
-      },
       "openai/gpt-6-astra:xhigh": {
         "variant_id": "openai/gpt-6-astra:xhigh",
         "deployment_profile_id": "openai/gpt-6-astra:xhigh:deployment",
@@ -6938,7 +6981,9 @@
       "artificial_analysis": [
         "GLM-5.3-Flash"
       ],
-      "llmstats": []
+      "llmstats": [
+        "GLM-5.3-Flash"
+      ]
     },
     "source_ids": {},
     "source_urls": {

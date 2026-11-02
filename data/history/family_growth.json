@@ -836,10 +836,11 @@
       "variants": [
         "DeepSeek V4.1 Flash 1017 (max)",
         "DeepSeek V4.1 Flash 1017 (non-reasoning)",
+        "DeepSeek V4.1 Flash 1017 (high)",
         "DeepSeek V4.1 Flash 1017 (Max)",
         "DeepSeek V4.1 Flash 1017 (Non-reasoning)"
       ],
-      "variant_count": 4,
+      "variant_count": 5,
       "improvement_abs": -7.51,
       "improvement_pct": -18.78,
       "predecessor": "DeepSeek V4.1 Flash"
@@ -1067,7 +1068,7 @@
     {
       "name": "GLM-5.3-Flash",
       "performance": 28.0,
-      "rank": 48.0,
+      "rank": 49.0,
       "provider": "Z AI",
       "model_url": "https://artificialanalysis.ai/models/glm-5-3-flash",
       "release_date": "2026-08-26",
@@ -1314,8 +1315,8 @@
     },
     {
       "name": "GPT-6 Astra",
-      "performance": 57.0,
-      "rank": 3.0,
+      "performance": 61.0,
+      "rank": 9,
       "provider": "OpenAI",
       "model_url": "https://artificialanalysis.ai/models/gpt-6-astra",
       "release_date": "2026-09-03",
@@ -1333,8 +1334,8 @@
         "GPT-6 Astra (Medium)"
       ],
       "variant_count": 11,
-      "improvement_abs": 2.0,
-      "improvement_pct": 3.64,
+      "improvement_abs": 6.0,
+      "improvement_pct": 10.91,
       "predecessor": "GPT-5.5"
     }
   ],
@@ -1424,7 +1425,7 @@
     {
       "name": "GPT-6 Luna",
       "performance": 28.0,
-      "rank": 47.0,
+      "rank": 48.0,
       "provider": "OpenAI",
       "model_url": "https://artificialanalysis.ai/models/gpt-6-luna",
       "release_date": "2026-09-22",
@@ -1774,9 +1775,10 @@
       "release_date": "2026-10-28",
       "variants": [
         "Gemini 4 Carbon (high)",
+        "Gemini 4 Carbon (medium)",
         "Gemini 4 Carbon (High)"
       ],
-      "variant_count": 2,
+      "variant_count": 3,
       "improvement_abs": 9.01,
       "improvement_pct": 17.88,
       "predecessor": "Gemini 4 Argon"
@@ -1878,7 +1880,7 @@
     {
       "name": "Gemini 3.5 Flash-Lite",
       "performance": 12.0,
-      "rank": 73.0,
+      "rank": 75.0,
       "provider": "Google",
       "model_url": "https://artificialanalysis.ai/models/gemini-3-5-flash-lite",
       "release_date": "2026-07-21",
@@ -2249,7 +2251,7 @@
     {
       "name": "Granite 4.2 3B",
       "performance": 5.0,
-      "rank": 80.0,
+      "rank": 83.0,
       "provider": "IBM",
       "model_url": "https://artificialanalysis.ai/models/granite-4-2-3b",
       "release_date": "2026-08-25",
@@ -2260,6 +2262,21 @@
       "improvement_abs": -4.0,
       "improvement_pct": -44.44,
       "predecessor": "Granite 4.1 30B"
+    },
+    {
+      "name": "Granite 4.2 8B",
+      "performance": 5.0,
+      "rank": 82.0,
+      "provider": "IBM",
+      "model_url": "https://artificialanalysis.ai/models/granite-4-2-8b",
+      "release_date": "2026-08-25",
+      "variants": [
+        "Granite 4.2 8B"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 0.0,
+      "improvement_pct": 0.0,
+      "predecessor": "Granite 4.2 3B"
     }
   ],
   "InclusionAI": [
@@ -2923,7 +2940,7 @@
     {
       "name": "Muse Spark Open",
       "performance": 25.0,
-      "rank": 52.0,
+      "rank": 53.0,
       "provider": "Meta",
       "model_url": "https://artificialanalysis.ai/models/muse-spark-open",
       "release_date": "2026-10-15",
@@ -3031,7 +3048,7 @@
     {
       "name": "MiniMax-M3",
       "performance": 19.0,
-      "rank": 61.0,
+      "rank": 63.0,
       "provider": "MiniMax",
       "model_url": "https://artificialanalysis.ai/models/minimax-m3",
       "release_date": "2026-06-01",
@@ -3403,7 +3420,7 @@
     {
       "name": "Nemotron 3 Nano 4B",
       "performance": 2.0,
-      "rank": 82.0,
+      "rank": 85.0,
       "provider": "NVIDIA",
       "model_url": "https://artificialanalysis.ai/models/nvidia-nemotron-3-nano-4b",
       "release_date": "2026-03-16",
@@ -3433,7 +3450,7 @@
     {
       "name": "Nemotron 3 Ultra",
       "performance": 12.0,
-      "rank": 72.0,
+      "rank": 74.0,
       "provider": "NVIDIA",
       "model_url": "https://artificialanalysis.ai/models/nvidia-nemotron-3-ultra-550b-a55b",
       "release_date": "2026-06-04",
@@ -3463,7 +3480,7 @@
     {
       "name": "Nemotron 3.5 Lightning",
       "performance": 6.0,
-      "rank": 79.0,
+      "rank": 81.0,
       "provider": "NVIDIA",
       "model_url": "https://artificialanalysis.ai/models/nemotron-3-5-lightning",
       "release_date": "2026-08-11",
@@ -3478,7 +3495,7 @@
     {
       "name": "Nemotron 3.5 Super VL",
       "performance": 14.0,
-      "rank": 69.0,
+      "rank": 71.0,
       "provider": "NVIDIA",
       "model_url": "https://artificialanalysis.ai/models/nemotron-3-5-super-vl",
       "release_date": "2026-10-15",
@@ -4313,7 +4330,7 @@
     {
       "name": "Step 5 Preview",
       "performance": 29.0,
-      "rank": 46.0,
+      "rank": 47.0,
       "provider": "StepFun",
       "model_url": "https://artificialanalysis.ai/models/step-5",
       "release_date": "2026-09-18",
@@ -4347,7 +4364,7 @@
     {
       "name": "Inkling Small",
       "performance": 13.0,
-      "rank": 70.0,
+      "rank": 72.0,
       "provider": "Thinking Machines",
       "model_url": "https://artificialanalysis.ai/models/inkling-small",
       "release_date": "2026-07-30",
@@ -4475,7 +4492,7 @@
     {
       "name": "MiMo-V2.6-Flash",
       "performance": 27.0,
-      "rank": 49.0,
+      "rank": 50.0,
       "provider": "Xiaomi",
       "model_url": "https://artificialanalysis.ai/models/mimo-v2-6-flash",
       "release_date": "2026-09-21",
