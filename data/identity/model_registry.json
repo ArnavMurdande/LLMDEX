@@ -2345,6 +2345,7 @@
     "source_aliases": {
       "artificial_analysis": [
         "Gemini 4 Carbon (high)",
+        "Gemini 4 Carbon (low)",
         "Gemini 4 Carbon (medium)"
       ],
       "llmstats": [
@@ -2355,6 +2356,7 @@
     "source_urls": {
       "artificial_analysis": [
         "https://artificialanalysis.ai/models/gemini-4-carbon",
+        "https://artificialanalysis.ai/models/gemini-4-carbon-low",
         "https://artificialanalysis.ai/models/gemini-4-carbon-medium"
       ]
     },
@@ -2373,6 +2375,15 @@
         "deployment_profile_id": "google/gemini-4-carbon:medium:deployment",
         "source_name": "Gemini 4 Carbon (medium)",
         "reasoning_effort": "medium",
+        "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": null
+      },
+      "google/gemini-4-carbon:low": {
+        "variant_id": "google/gemini-4-carbon:low",
+        "deployment_profile_id": "google/gemini-4-carbon:low:deployment",
+        "source_name": "Gemini 4 Carbon (low)",
+        "reasoning_effort": "low",
         "deployment_profile": [],
         "fallback_enabled": false,
         "parameter_count": null
@@ -3005,9 +3016,7 @@
       "artificial_analysis": [
         "Ling 3.1 Flash"
       ],
-      "llmstats": [
-        "Ling 3.1 Flash"
-      ]
+      "llmstats": []
     },
     "source_ids": {},
     "source_urls": {
@@ -4364,7 +4373,9 @@
       "artificial_analysis": [
         "MiniMax-M3.1-Flash"
       ],
-      "llmstats": []
+      "llmstats": [
+        "MiniMax M3.1 Flash"
+      ]
     },
     "source_ids": {},
     "source_urls": {
@@ -6437,20 +6448,20 @@
       ]
     },
     "variants": {
-      "spacexai/grok-4-7:high": {
-        "variant_id": "spacexai/grok-4-7:high",
-        "deployment_profile_id": "spacexai/grok-4-7:high:deployment",
-        "source_name": "Grok 4.7 (high)",
-        "reasoning_effort": "high",
-        "deployment_profile": [],
-        "fallback_enabled": false,
-        "parameter_count": null
-      },
       "spacexai/grok-4-7:xhigh": {
         "variant_id": "spacexai/grok-4-7:xhigh",
         "deployment_profile_id": "spacexai/grok-4-7:xhigh:deployment",
         "source_name": "Grok 4.7 (xhigh)",
         "reasoning_effort": "xhigh",
+        "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": null
+      },
+      "spacexai/grok-4-7:high": {
+        "variant_id": "spacexai/grok-4-7:high",
+        "deployment_profile_id": "spacexai/grok-4-7:high:deployment",
+        "source_name": "Grok 4.7 (high)",
+        "reasoning_effort": "high",
         "deployment_profile": [],
         "fallback_enabled": false,
         "parameter_count": null
