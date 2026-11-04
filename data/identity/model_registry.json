@@ -1392,6 +1392,7 @@
       "artificial_analysis": [
         "Claude Haiku 5.5 (high)",
         "Claude Haiku 5.5 (low)",
+        "Claude Haiku 5.5 (max)",
         "Claude Haiku 5.5 (medium)",
         "Claude Haiku 5.5 (xhigh)"
       ],
@@ -1402,6 +1403,7 @@
     "source_ids": {},
     "source_urls": {
       "artificial_analysis": [
+        "https://artificialanalysis.ai/models/claude-haiku-5-5",
         "https://artificialanalysis.ai/models/claude-haiku-5-5-high",
         "https://artificialanalysis.ai/models/claude-haiku-5-5-low",
         "https://artificialanalysis.ai/models/claude-haiku-5-5-medium",
@@ -1409,6 +1411,15 @@
       ]
     },
     "variants": {
+      "anthropic/claude-haiku-5-5:max": {
+        "variant_id": "anthropic/claude-haiku-5-5:max",
+        "deployment_profile_id": "anthropic/claude-haiku-5-5:max:deployment",
+        "source_name": "Claude Haiku 5.5 (max)",
+        "reasoning_effort": "max",
+        "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": null
+      },
       "anthropic/claude-haiku-5-5:xhigh": {
         "variant_id": "anthropic/claude-haiku-5-5:xhigh",
         "deployment_profile_id": "anthropic/claude-haiku-5-5:xhigh:deployment",
@@ -1456,6 +1467,7 @@
       "artificial_analysis": [
         "Claude Opus 5.5 (high with fallback)",
         "Claude Opus 5.5 (low with fallback)",
+        "Claude Opus 5.5 (max with fallback)",
         "Claude Opus 5.5 (medium with fallback)",
         "Claude Opus 5.5 (xhigh with fallback)"
       ],
@@ -1466,6 +1478,7 @@
     "source_ids": {},
     "source_urls": {
       "artificial_analysis": [
+        "https://artificialanalysis.ai/models/claude-opus-5-5",
         "https://artificialanalysis.ai/models/claude-opus-5-5-high",
         "https://artificialanalysis.ai/models/claude-opus-5-5-low",
         "https://artificialanalysis.ai/models/claude-opus-5-5-medium",
@@ -1473,6 +1486,17 @@
       ]
     },
     "variants": {
+      "anthropic/claude-opus-5-5:max-fallback": {
+        "variant_id": "anthropic/claude-opus-5-5:max-fallback",
+        "deployment_profile_id": "anthropic/claude-opus-5-5:max-fallback:deployment",
+        "source_name": "Claude Opus 5.5 (max with fallback)",
+        "reasoning_effort": "max",
+        "deployment_profile": [
+          "fallback"
+        ],
+        "fallback_enabled": true,
+        "parameter_count": null
+      },
       "anthropic/claude-opus-5-5:xhigh-fallback": {
         "variant_id": "anthropic/claude-opus-5-5:xhigh-fallback",
         "deployment_profile_id": "anthropic/claude-opus-5-5:xhigh-fallback:deployment",
@@ -1528,6 +1552,7 @@
       "artificial_analysis": [
         "Claude Sonnet 5.5 (high with fallback)",
         "Claude Sonnet 5.5 (low with fallback)",
+        "Claude Sonnet 5.5 (max with fallback)",
         "Claude Sonnet 5.5 (medium with fallback)",
         "Claude Sonnet 5.5 (xhigh with fallback)"
       ],
@@ -1538,6 +1563,7 @@
     "source_ids": {},
     "source_urls": {
       "artificial_analysis": [
+        "https://artificialanalysis.ai/models/claude-sonnet-5-5",
         "https://artificialanalysis.ai/models/claude-sonnet-5-5-high",
         "https://artificialanalysis.ai/models/claude-sonnet-5-5-low",
         "https://artificialanalysis.ai/models/claude-sonnet-5-5-medium",
@@ -1545,6 +1571,17 @@
       ]
     },
     "variants": {
+      "anthropic/claude-sonnet-5-5:max-fallback": {
+        "variant_id": "anthropic/claude-sonnet-5-5:max-fallback",
+        "deployment_profile_id": "anthropic/claude-sonnet-5-5:max-fallback:deployment",
+        "source_name": "Claude Sonnet 5.5 (max with fallback)",
+        "reasoning_effort": "max",
+        "deployment_profile": [
+          "fallback"
+        ],
+        "fallback_enabled": true,
+        "parameter_count": null
+      },
       "anthropic/claude-sonnet-5-5:xhigh-fallback": {
         "variant_id": "anthropic/claude-sonnet-5-5:xhigh-fallback",
         "deployment_profile_id": "anthropic/claude-sonnet-5-5:xhigh-fallback:deployment",
@@ -5599,6 +5636,7 @@
       "artificial_analysis": [
         "GPT-6.1 Sol (high)",
         "GPT-6.1 Sol (low)",
+        "GPT-6.1 Sol (max)",
         "GPT-6.1 Sol (medium)",
         "GPT-6.1 Sol (xhigh)"
       ],
@@ -5609,6 +5647,7 @@
     "source_ids": {},
     "source_urls": {
       "artificial_analysis": [
+        "https://artificialanalysis.ai/models/gpt-6-1-sol",
         "https://artificialanalysis.ai/models/gpt-6-1-sol-high",
         "https://artificialanalysis.ai/models/gpt-6-1-sol-low",
         "https://artificialanalysis.ai/models/gpt-6-1-sol-medium",
@@ -5616,6 +5655,15 @@
       ]
     },
     "variants": {
+      "openai/gpt-6-1-sol:max": {
+        "variant_id": "openai/gpt-6-1-sol:max",
+        "deployment_profile_id": "openai/gpt-6-1-sol:max:deployment",
+        "source_name": "GPT-6.1 Sol (max)",
+        "reasoning_effort": "max",
+        "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": null
+      },
       "openai/gpt-6-1-sol:xhigh": {
         "variant_id": "openai/gpt-6-1-sol:xhigh",
         "deployment_profile_id": "openai/gpt-6-1-sol:xhigh:deployment",
@@ -5751,6 +5799,7 @@
       "artificial_analysis": [
         "GPT-6 Astra (high)",
         "GPT-6 Astra (low)",
+        "GPT-6 Astra (max)",
         "GPT-6 Astra (medium)",
         "GPT-6 Astra (xhigh)"
       ],
@@ -5761,6 +5810,7 @@
     "source_ids": {},
     "source_urls": {
       "artificial_analysis": [
+        "https://artificialanalysis.ai/models/gpt-6-astra",
         "https://artificialanalysis.ai/models/gpt-6-astra-high",
         "https://artificialanalysis.ai/models/gpt-6-astra-low",
         "https://artificialanalysis.ai/models/gpt-6-astra-medium",
@@ -5768,6 +5818,15 @@
       ]
     },
     "variants": {
+      "openai/gpt-6-astra:max": {
+        "variant_id": "openai/gpt-6-astra:max",
+        "deployment_profile_id": "openai/gpt-6-astra:max:deployment",
+        "source_name": "GPT-6 Astra (max)",
+        "reasoning_effort": "max",
+        "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": null
+      },
       "openai/gpt-6-astra:xhigh": {
         "variant_id": "openai/gpt-6-astra:xhigh",
         "deployment_profile_id": "openai/gpt-6-astra:xhigh:deployment",
