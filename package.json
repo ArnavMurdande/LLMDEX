@@ -5,10 +5,10 @@
     "build:effects": "esbuild ./frontend-effects/index.jsx --bundle --minify --outdir=./website --entry-names=pixelblast.bundle --target=es2020 --jsx=automatic"
   },
   "dependencies": {
-    "postprocessing": "6.39.5",
+    "postprocessing": "6.39.6",
     "react": "19.3.1",
     "react-dom": "19.3.1",
-    "three": "0.186.1"
+    "three": "0.187.0"
   },
   "devDependencies": {
     "esbuild": "0.28.2"
