@@ -211,12 +211,12 @@
       "model_url": "https://artificialanalysis.ai/models/claude-fable-5-2",
       "release_date": "2026-11-09",
       "variants": [
-        "Claude Fable 5.2 (Max, Default Fallback)",
         "Claude Fable 5.2 (max)",
         "Claude Fable 5.2 (xhigh)",
         "Claude Fable 5.2 (high)",
         "Claude Fable 5.2 (medium)",
-        "Claude Fable 5.2 (low)"
+        "Claude Fable 5.2 (low)",
+        "Claude Fable 5.2 (Max, Default Fallback)"
       ],
       "variant_count": 6,
       "improvement_abs": -1.0,
@@ -601,7 +601,7 @@
     {
       "name": "North Mini Code",
       "performance": 3.0,
-      "rank": 101.0,
+      "rank": 102.0,
       "provider": "Cohere",
       "model_url": "https://artificialanalysis.ai/models/north-mini-code",
       "release_date": "2026-06-09",
@@ -1289,6 +1289,21 @@
       "predecessor": "gpt-oss-20B"
     },
     {
+      "name": "gpt-oss-120b",
+      "performance": 4.0,
+      "rank": 101.0,
+      "provider": "OpenAI",
+      "model_url": "https://artificialanalysis.ai/models/gpt-oss-120b",
+      "release_date": "2025-08-05",
+      "variants": [
+        "gpt-oss-120b (high)"
+      ],
+      "variant_count": 1,
+      "improvement_abs": -23.82,
+      "improvement_pct": -85.62,
+      "predecessor": "gpt-oss-120B"
+    },
+    {
       "name": "GPT-5",
       "performance": 36.2,
       "rank": 19,
@@ -1299,9 +1314,9 @@
         "GPT-5 (high)"
       ],
       "variant_count": 1,
-      "improvement_abs": 8.38,
-      "improvement_pct": 30.12,
-      "predecessor": "gpt-oss-120B"
+      "improvement_abs": 32.2,
+      "improvement_pct": 805.0,
+      "predecessor": "gpt-oss-120b"
     },
     {
       "name": "GPT-5 nano",
@@ -3050,9 +3065,9 @@
       "model_url": "https://artificialanalysis.ai/models/muse-ember",
       "release_date": "2026-11-09",
       "variants": [
-        "Muse Ember (Max)",
         "Muse Ember (max)",
-        "Muse Ember (xhigh)"
+        "Muse Ember (xhigh)",
+        "Muse Ember (Max)"
       ],
       "variant_count": 3,
       "improvement_abs": 11.02,
@@ -3541,7 +3556,7 @@
     {
       "name": "Nemotron 3 Nano 4B",
       "performance": 2.0,
-      "rank": 102.0,
+      "rank": 103.0,
       "provider": "NVIDIA",
       "model_url": "https://artificialanalysis.ai/models/nvidia-nemotron-3-nano-4b",
       "release_date": "2026-03-16",

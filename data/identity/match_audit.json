@@ -500,6 +500,26 @@
   },
   {
     "source": "llmstats",
+    "source_name": "Claude Mythos 5.2",
+    "source_model_id": "claude-mythos-5-2",
+    "source_model_url": "https://llm-stats.com/models/claude-mythos-5-2",
+    "provider": "Anthropic",
+    "candidate_family_id": "anthropic/claude-opus-5-5",
+    "candidate_family_name": "Claude Opus 5.5",
+    "match_status": "identity_unresolved",
+    "match_confidence": 0.75,
+    "match_method": "fuzzy_review_candidate",
+    "review_reason": "Fuzzy candidates require manual approval and are excluded from scoring.",
+    "competing_candidates": [
+      {
+        "family_id": "anthropic/claude-opus-5-5",
+        "family_name": "Claude Opus 5.5",
+        "similarity": 0.75
+      }
+    ]
+  },
+  {
+    "source": "llmstats",
     "source_name": "MiMo-V2.6-Pro",
     "source_model_id": "mimo-v2.6-pro",
     "source_model_url": "https://llm-stats.com/models/mimo-v2.6-pro",
@@ -532,20 +552,6 @@
     "source_model_id": "swe-2",
     "source_model_url": "https://llm-stats.com/models/swe-2",
     "provider": "Cognition",
-    "candidate_family_id": null,
-    "candidate_family_name": null,
-    "match_status": "source_missing",
-    "match_confidence": 0.0,
-    "match_method": "no_candidate",
-    "review_reason": "No corresponding family exists in the current AA population.",
-    "competing_candidates": []
-  },
-  {
-    "source": "llmstats",
-    "source_name": "Ember-1",
-    "source_model_id": "ember-1",
-    "source_model_url": "https://llm-stats.com/models/ember-1",
-    "provider": "Fireworks AI",
     "candidate_family_id": null,
     "candidate_family_name": null,
     "match_status": "source_missing",
@@ -860,26 +866,6 @@
     "match_method": "no_candidate",
     "review_reason": "No corresponding family exists in the current AA population.",
     "competing_candidates": []
-  },
-  {
-    "source": "llmstats",
-    "source_name": "Claude Mythos 5.2",
-    "source_model_id": "claude-mythos-5-2",
-    "source_model_url": "https://llm-stats.com/models/claude-mythos-5-2",
-    "provider": "Anthropic",
-    "candidate_family_id": "anthropic/claude-opus-5-5",
-    "candidate_family_name": "Claude Opus 5.5",
-    "match_status": "identity_unresolved",
-    "match_confidence": 0.75,
-    "match_method": "fuzzy_review_candidate",
-    "review_reason": "Fuzzy candidates require manual approval and are excluded from scoring.",
-    "competing_candidates": [
-      {
-        "family_id": "anthropic/claude-opus-5-5",
-        "family_name": "Claude Opus 5.5",
-        "similarity": 0.75
-      }
-    ]
   },
   {
     "source": "llmstats",
