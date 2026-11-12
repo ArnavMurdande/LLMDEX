@@ -1,6 +1,26 @@
 [
   {
     "source": "llmstats",
+    "source_name": "Claude Mythos 5.2",
+    "source_model_id": "claude-mythos-5-2",
+    "source_model_url": "https://llm-stats.com/models/claude-mythos-5-2",
+    "provider": "Anthropic",
+    "candidate_family_id": "anthropic/claude-opus-5-5",
+    "candidate_family_name": "Claude Opus 5.5",
+    "match_status": "identity_unresolved",
+    "match_confidence": 0.75,
+    "match_method": "fuzzy_review_candidate",
+    "review_reason": "Fuzzy candidates require manual approval and are excluded from scoring.",
+    "competing_candidates": [
+      {
+        "family_id": "anthropic/claude-opus-5-5",
+        "family_name": "Claude Opus 5.5",
+        "similarity": 0.75
+      }
+    ]
+  },
+  {
+    "source": "llmstats",
     "source_name": "Claude Opus 5",
     "source_model_id": "claude-opus-5",
     "source_model_url": "https://llm-stats.com/models/claude-opus-5",
@@ -206,21 +226,21 @@
   },
   {
     "source": "llmstats",
-    "source_name": "Claude Mythos 5.2",
-    "source_model_id": "claude-mythos-5-2",
-    "source_model_url": "https://llm-stats.com/models/claude-mythos-5-2",
-    "provider": "Anthropic",
-    "candidate_family_id": "anthropic/claude-opus-5-5",
-    "candidate_family_name": "Claude Opus 5.5",
+    "source_name": "ERNIE 5.5 Flash Preview",
+    "source_model_id": "ernie-5.5-flash-preview",
+    "source_model_url": "https://llm-stats.com/models/ernie-5.5-flash-preview",
+    "provider": "Baidu",
+    "candidate_family_id": "baidu/ernie-5-0-thinking-preview",
+    "candidate_family_name": "ERNIE 5.0 Thinking Preview",
     "match_status": "identity_unresolved",
-    "match_confidence": 0.75,
+    "match_confidence": 0.7347,
     "match_method": "fuzzy_review_candidate",
     "review_reason": "Fuzzy candidates require manual approval and are excluded from scoring.",
     "competing_candidates": [
       {
-        "family_id": "anthropic/claude-opus-5-5",
-        "family_name": "Claude Opus 5.5",
-        "similarity": 0.75
+        "family_id": "baidu/ernie-5-0-thinking-preview",
+        "family_name": "ERNIE 5.0 Thinking Preview",
+        "similarity": 0.7347
       }
     ]
   },

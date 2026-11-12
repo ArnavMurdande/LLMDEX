@@ -1819,16 +1819,14 @@
     "version": "4.1",
     "source_aliases": {
       "artificial_analysis": [
-        "JT-4.1 Flash 236B A21B",
-        "JT-4.1 Flash 236B A21B (non-reasoning)"
+        "JT-4.1 Flash 236B A21B"
       ],
       "llmstats": []
     },
     "source_ids": {},
     "source_urls": {
       "artificial_analysis": [
-        "https://artificialanalysis.ai/models/jt-4-1-flash-236b-a21b",
-        "https://artificialanalysis.ai/models/jt-4-1-flash-236b-a21b-non-reasoning"
+        "https://artificialanalysis.ai/models/jt-4-1-flash-236b-a21b"
       ]
     },
     "variants": {
@@ -1838,20 +1836,6 @@
         "source_name": "JT-4.1 Flash 236B A21B",
         "reasoning_effort": null,
         "deployment_profile": [],
-        "fallback_enabled": false,
-        "parameter_count": {
-          "total_billions": 236.0,
-          "active_billions": null
-        }
-      },
-      "china-mobile/jt-4-1-flash-236b-a21b:non-reasoning": {
-        "variant_id": "china-mobile/jt-4-1-flash-236b-a21b:non-reasoning",
-        "deployment_profile_id": "china-mobile/jt-4-1-flash-236b-a21b:non-reasoning:deployment",
-        "source_name": "JT-4.1 Flash 236B A21B (non-reasoning)",
-        "reasoning_effort": null,
-        "deployment_profile": [
-          "non-reasoning"
-        ],
         "fallback_enabled": false,
         "parameter_count": {
           "total_billions": 236.0,
@@ -2390,6 +2374,68 @@
         "variant_id": "google/gemini-4-carbon:low",
         "deployment_profile_id": "google/gemini-4-carbon:low:deployment",
         "source_name": "Gemini 4 Carbon (low)",
+        "reasoning_effort": "low",
+        "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": null
+      }
+    }
+  },
+  "google/gemini-4-hydrogen": {
+    "family_id": "google/gemini-4-hydrogen",
+    "canonical_family_name": "Gemini 4 Hydrogen",
+    "provider": "Google",
+    "version": null,
+    "source_aliases": {
+      "artificial_analysis": [
+        "Gemini 4 Hydrogen (high)",
+        "Gemini 4 Hydrogen (low)",
+        "Gemini 4 Hydrogen (medium)",
+        "Gemini 4 Hydrogen (xhigh)"
+      ],
+      "llmstats": []
+    },
+    "source_ids": {},
+    "source_urls": {
+      "artificial_analysis": [
+        "https://artificialanalysis.ai/models/gemini-4-hydrogen",
+        "https://artificialanalysis.ai/models/gemini-4-hydrogen-high",
+        "https://artificialanalysis.ai/models/gemini-4-hydrogen-low",
+        "https://artificialanalysis.ai/models/gemini-4-hydrogen-medium"
+      ]
+    },
+    "variants": {
+      "google/gemini-4-hydrogen:xhigh": {
+        "variant_id": "google/gemini-4-hydrogen:xhigh",
+        "deployment_profile_id": "google/gemini-4-hydrogen:xhigh:deployment",
+        "source_name": "Gemini 4 Hydrogen (xhigh)",
+        "reasoning_effort": "xhigh",
+        "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": null
+      },
+      "google/gemini-4-hydrogen:high": {
+        "variant_id": "google/gemini-4-hydrogen:high",
+        "deployment_profile_id": "google/gemini-4-hydrogen:high:deployment",
+        "source_name": "Gemini 4 Hydrogen (high)",
+        "reasoning_effort": "high",
+        "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": null
+      },
+      "google/gemini-4-hydrogen:medium": {
+        "variant_id": "google/gemini-4-hydrogen:medium",
+        "deployment_profile_id": "google/gemini-4-hydrogen:medium:deployment",
+        "source_name": "Gemini 4 Hydrogen (medium)",
+        "reasoning_effort": "medium",
+        "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": null
+      },
+      "google/gemini-4-hydrogen:low": {
+        "variant_id": "google/gemini-4-hydrogen:low",
+        "deployment_profile_id": "google/gemini-4-hydrogen:low:deployment",
+        "source_name": "Gemini 4 Hydrogen (low)",
         "reasoning_effort": "low",
         "deployment_profile": [],
         "fallback_enabled": false,
