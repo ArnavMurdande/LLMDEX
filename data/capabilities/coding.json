@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-11-12T18:31:55.682318+00:00",
+  "generated_at": "2026-11-13T17:59:20.758064+00:00",
   "methodology_version": "LLMStats source-native current",
   "source": "LLMStats",
-  "source_updated_at": "2026-11-12T18:32:26.237006+00:00",
+  "source_updated_at": "2026-11-13T17:59:47.689242+00:00",
   "source_health": {
     "source": "LLMStats",
     "rows_scraped": 109,
@@ -12,11 +12,11 @@
     ],
     "status": "healthy",
     "error_message": null,
-    "duration_seconds": 30.548,
-    "timestamp": "2026-11-12T18:32:26.237006+00:00",
+    "duration_seconds": 26.926,
+    "timestamp": "2026-11-13T17:59:47.689242+00:00",
     "parse_warning_count": 0,
     "warnings": [],
-    "last_successful_update": "2026-11-12T18:32:26.237006+00:00",
+    "last_successful_update": "2026-11-13T17:59:47.689242+00:00",
     "schema_changes": []
   },
   "capability": "coding",
@@ -1511,23 +1511,6 @@
       "is_open_sota": false,
       "rank_evidence": "source_rendered_table_order",
       "benchmark_observations": {
-        "llmstats__deepswe-1-1": {
-          "benchmark_id": "llmstats__deepswe-1-1",
-          "canonical_name": "DeepSWE 1.1",
-          "source_name": "DeepSWE 1.1",
-          "value": 71.2,
-          "raw_value": "71.2%",
-          "version": null,
-          "provenance": "LLMStats public capability leaderboard",
-          "source_url": "https://llm-stats.com/benchmarks/deepswe-1.1",
-          "capabilities": [
-            "coding"
-          ],
-          "source_column_indices": {
-            "coding": 12
-          },
-          "source_population": 56
-        },
         "mcp_atlas": {
           "benchmark_id": "mcp_atlas",
           "canonical_name": "MCP Atlas",
@@ -1548,6 +1531,23 @@
             "tool_calling": 8
           },
           "source_population": 43
+        },
+        "llmstats__deepswe-1-1": {
+          "benchmark_id": "llmstats__deepswe-1-1",
+          "canonical_name": "DeepSWE 1.1",
+          "source_name": "DeepSWE 1.1",
+          "value": 71.2,
+          "raw_value": "71.2%",
+          "version": null,
+          "provenance": "LLMStats public capability leaderboard",
+          "source_url": "https://llm-stats.com/benchmarks/deepswe-1.1",
+          "capabilities": [
+            "coding"
+          ],
+          "source_column_indices": {
+            "coding": 12
+          },
+          "source_population": 56
         },
         "llmstats__terminal-bench-4-0": {
           "benchmark_id": "llmstats__terminal-bench-4-0",
@@ -2190,23 +2190,6 @@
       "is_open_sota": false,
       "rank_evidence": "source_rendered_table_order",
       "benchmark_observations": {
-        "llmstats__swe-bench-pro": {
-          "benchmark_id": "llmstats__swe-bench-pro",
-          "canonical_name": "SWE-Bench Pro",
-          "source_name": "SWE-Bench Pro",
-          "value": 63.4,
-          "raw_value": "63.4%",
-          "version": null,
-          "provenance": "LLMStats public capability leaderboard",
-          "source_url": "https://llm-stats.com/benchmarks/swe-bench-pro",
-          "capabilities": [
-            "coding"
-          ],
-          "source_column_indices": {
-            "coding": 11
-          },
-          "source_population": 64
-        },
         "llmstats__arena-avg": {
           "benchmark_id": "llmstats__arena-avg",
           "canonical_name": "Arena Avg",
@@ -2223,6 +2206,23 @@
             "coding": 7
           },
           "source_population": null
+        },
+        "llmstats__swe-bench-pro": {
+          "benchmark_id": "llmstats__swe-bench-pro",
+          "canonical_name": "SWE-Bench Pro",
+          "source_name": "SWE-Bench Pro",
+          "value": 63.4,
+          "raw_value": "63.4%",
+          "version": null,
+          "provenance": "LLMStats public capability leaderboard",
+          "source_url": "https://llm-stats.com/benchmarks/swe-bench-pro",
+          "capabilities": [
+            "coding"
+          ],
+          "source_column_indices": {
+            "coding": 11
+          },
+          "source_population": 64
         },
         "llmstats__deepswe-1-1": {
           "benchmark_id": "llmstats__deepswe-1-1",

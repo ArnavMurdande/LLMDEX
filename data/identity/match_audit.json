@@ -105,20 +105,6 @@
   },
   {
     "source": "llmstats",
-    "source_name": "Gemini 4 Argon",
-    "source_model_id": "gemini-4-argon",
-    "source_model_url": "https://llm-stats.com/models/gemini-4-argon",
-    "provider": "Google",
-    "candidate_family_id": "google/gemini-4-argon",
-    "candidate_family_name": "Gemini 4 Argon",
-    "match_status": "matched_family",
-    "match_confidence": 0.95,
-    "match_method": "exact_provider_family_version",
-    "review_reason": null,
-    "competing_candidates": []
-  },
-  {
-    "source": "llmstats",
     "source_name": "Claude Mythos Preview",
     "source_model_id": "claude-mythos-preview",
     "source_model_url": "https://llm-stats.com/models/claude-mythos-preview",
@@ -129,6 +115,20 @@
     "match_confidence": 0.0,
     "match_method": "no_candidate",
     "review_reason": "No corresponding family exists in the current AA population.",
+    "competing_candidates": []
+  },
+  {
+    "source": "llmstats",
+    "source_name": "Gemini 4 Argon",
+    "source_model_id": "gemini-4-argon",
+    "source_model_url": "https://llm-stats.com/models/gemini-4-argon",
+    "provider": "Google",
+    "candidate_family_id": "google/gemini-4-argon",
+    "candidate_family_name": "Gemini 4 Argon",
+    "match_status": "matched_family",
+    "match_confidence": 0.95,
+    "match_method": "exact_provider_family_version",
+    "review_reason": null,
     "competing_candidates": []
   },
   {
@@ -181,6 +181,26 @@
   },
   {
     "source": "llmstats",
+    "source_name": "ERNIE 5.5 Flash Preview",
+    "source_model_id": "ernie-5.5-flash-preview",
+    "source_model_url": "https://llm-stats.com/models/ernie-5.5-flash-preview",
+    "provider": "Baidu",
+    "candidate_family_id": "baidu/ernie-5-0-thinking-preview",
+    "candidate_family_name": "ERNIE 5.0 Thinking Preview",
+    "match_status": "identity_unresolved",
+    "match_confidence": 0.7347,
+    "match_method": "fuzzy_review_candidate",
+    "review_reason": "Fuzzy candidates require manual approval and are excluded from scoring.",
+    "competing_candidates": [
+      {
+        "family_id": "baidu/ernie-5-0-thinking-preview",
+        "family_name": "ERNIE 5.0 Thinking Preview",
+        "similarity": 0.7347
+      }
+    ]
+  },
+  {
+    "source": "llmstats",
     "source_name": "Claude Fable 5",
     "source_model_id": "claude-fable-5",
     "source_model_url": "https://llm-stats.com/models/claude-fable-5",
@@ -196,6 +216,26 @@
         "family_id": "anthropic/claude-fable-5-2",
         "family_name": "Claude Fable 5.2",
         "similarity": 0.9333
+      }
+    ]
+  },
+  {
+    "source": "llmstats",
+    "source_name": "Claude Fable 5.1",
+    "source_model_id": "claude-fable-5-1",
+    "source_model_url": "https://llm-stats.com/models/claude-fable-5-1",
+    "provider": "Anthropic",
+    "candidate_family_id": "anthropic/claude-fable-5-2",
+    "candidate_family_name": "Claude Fable 5.2",
+    "match_status": "identity_unresolved",
+    "match_confidence": 0.8,
+    "match_method": "fuzzy_review_candidate",
+    "review_reason": "Fuzzy candidates require manual approval and are excluded from scoring.",
+    "competing_candidates": [
+      {
+        "family_id": "anthropic/claude-fable-5-2",
+        "family_name": "Claude Fable 5.2",
+        "similarity": 0.9375
       }
     ]
   },
@@ -242,26 +282,6 @@
     "match_method": "exact_approved_registry_alias",
     "review_reason": null,
     "competing_candidates": []
-  },
-  {
-    "source": "llmstats",
-    "source_name": "Claude Fable 5.1",
-    "source_model_id": "claude-fable-5-1",
-    "source_model_url": "https://llm-stats.com/models/claude-fable-5-1",
-    "provider": "Anthropic",
-    "candidate_family_id": "anthropic/claude-fable-5-2",
-    "candidate_family_name": "Claude Fable 5.2",
-    "match_status": "identity_unresolved",
-    "match_confidence": 0.8,
-    "match_method": "fuzzy_review_candidate",
-    "review_reason": "Fuzzy candidates require manual approval and are excluded from scoring.",
-    "competing_candidates": [
-      {
-        "family_id": "anthropic/claude-fable-5-2",
-        "family_name": "Claude Fable 5.2",
-        "similarity": 0.9375
-      }
-    ]
   },
   {
     "source": "llmstats",
@@ -313,20 +333,6 @@
   },
   {
     "source": "llmstats",
-    "source_name": "GLM-5.3",
-    "source_model_id": "glm-5.3",
-    "source_model_url": "https://llm-stats.com/models/glm-5.3",
-    "provider": "ZAI",
-    "candidate_family_id": null,
-    "candidate_family_name": null,
-    "match_status": "source_missing",
-    "match_confidence": 0.0,
-    "match_method": "no_candidate",
-    "review_reason": "No corresponding family exists in the current AA population.",
-    "competing_candidates": []
-  },
-  {
-    "source": "llmstats",
     "source_name": "Qwen3.8 Max",
     "source_model_id": "qwen3.8-max",
     "source_model_url": "https://llm-stats.com/models/qwen3.8-max",
@@ -352,10 +358,10 @@
   },
   {
     "source": "llmstats",
-    "source_name": "LongCat-2.5",
-    "source_model_id": "longcat-2.5",
-    "source_model_url": "https://llm-stats.com/models/longcat-2.5",
-    "provider": "Meituan",
+    "source_name": "GLM-5.3",
+    "source_model_id": "glm-5.3",
+    "source_model_url": "https://llm-stats.com/models/glm-5.3",
+    "provider": "ZAI",
     "candidate_family_id": null,
     "candidate_family_name": null,
     "match_status": "source_missing",
@@ -380,6 +386,34 @@
   },
   {
     "source": "llmstats",
+    "source_name": "LongCat-2.5",
+    "source_model_id": "longcat-2.5",
+    "source_model_url": "https://llm-stats.com/models/longcat-2.5",
+    "provider": "Meituan",
+    "candidate_family_id": null,
+    "candidate_family_name": null,
+    "match_status": "source_missing",
+    "match_confidence": 0.0,
+    "match_method": "no_candidate",
+    "review_reason": "No corresponding family exists in the current AA population.",
+    "competing_candidates": []
+  },
+  {
+    "source": "llmstats",
+    "source_name": "Muse Wonder",
+    "source_model_id": "muse-wonder",
+    "source_model_url": "https://llm-stats.com/models/muse-wonder",
+    "provider": "Meta",
+    "candidate_family_id": "meta/muse-wonder",
+    "candidate_family_name": "Muse Wonder",
+    "match_status": "matched_exact",
+    "match_confidence": 1.0,
+    "match_method": "exact_approved_registry_alias",
+    "review_reason": null,
+    "competing_candidates": []
+  },
+  {
+    "source": "llmstats",
     "source_name": "Claude Opus 4.8",
     "source_model_id": "claude-opus-4-8",
     "source_model_url": "https://llm-stats.com/models/claude-opus-4-8",
@@ -397,6 +431,34 @@
         "similarity": 0.8667
       }
     ]
+  },
+  {
+    "source": "llmstats",
+    "source_name": "Claude Haiku 5.5",
+    "source_model_id": "claude-haiku-5-5",
+    "source_model_url": "https://llm-stats.com/models/claude-haiku-5-5",
+    "provider": "Anthropic",
+    "candidate_family_id": "anthropic/claude-haiku-5-5",
+    "candidate_family_name": "Claude Haiku 5.5",
+    "match_status": "matched_family",
+    "match_confidence": 0.95,
+    "match_method": "exact_provider_family_version",
+    "review_reason": null,
+    "competing_candidates": []
+  },
+  {
+    "source": "llmstats",
+    "source_name": "DeepSeek-V4-Pro-0813",
+    "source_model_id": "deepseek-v4-pro-0813",
+    "source_model_url": "https://llm-stats.com/models/deepseek-v4-pro-0813",
+    "provider": "DeepSeek",
+    "candidate_family_id": "deepseek/deepseek-v4-pro-0813",
+    "candidate_family_name": "DeepSeek V4 Pro 0813",
+    "match_status": "matched_family",
+    "match_confidence": 0.95,
+    "match_method": "exact_provider_family_version",
+    "review_reason": null,
+    "competing_candidates": []
   },
   {
     "source": "llmstats",
@@ -425,48 +487,6 @@
   },
   {
     "source": "llmstats",
-    "source_name": "DeepSeek-V4-Pro-0813",
-    "source_model_id": "deepseek-v4-pro-0813",
-    "source_model_url": "https://llm-stats.com/models/deepseek-v4-pro-0813",
-    "provider": "DeepSeek",
-    "candidate_family_id": "deepseek/deepseek-v4-pro-0813",
-    "candidate_family_name": "DeepSeek V4 Pro 0813",
-    "match_status": "matched_family",
-    "match_confidence": 0.95,
-    "match_method": "exact_provider_family_version",
-    "review_reason": null,
-    "competing_candidates": []
-  },
-  {
-    "source": "llmstats",
-    "source_name": "Claude Haiku 5.5",
-    "source_model_id": "claude-haiku-5-5",
-    "source_model_url": "https://llm-stats.com/models/claude-haiku-5-5",
-    "provider": "Anthropic",
-    "candidate_family_id": "anthropic/claude-haiku-5-5",
-    "candidate_family_name": "Claude Haiku 5.5",
-    "match_status": "matched_family",
-    "match_confidence": 0.95,
-    "match_method": "exact_provider_family_version",
-    "review_reason": null,
-    "competing_candidates": []
-  },
-  {
-    "source": "llmstats",
-    "source_name": "Muse Wonder",
-    "source_model_id": "muse-wonder",
-    "source_model_url": "https://llm-stats.com/models/muse-wonder",
-    "provider": "Meta",
-    "candidate_family_id": "meta/muse-wonder",
-    "candidate_family_name": "Muse Wonder",
-    "match_status": "matched_exact",
-    "match_confidence": 1.0,
-    "match_method": "exact_approved_registry_alias",
-    "review_reason": null,
-    "competing_candidates": []
-  },
-  {
-    "source": "llmstats",
     "source_name": "Hy4 preview",
     "source_model_id": "hy4-preview",
     "source_model_url": "https://llm-stats.com/models/hy4-preview",
@@ -477,6 +497,20 @@
     "match_confidence": 0.0,
     "match_method": "no_candidate",
     "review_reason": "No corresponding family exists in the current AA population.",
+    "competing_candidates": []
+  },
+  {
+    "source": "llmstats",
+    "source_name": "MiMo-V2.6-Pro",
+    "source_model_id": "mimo-v2.6-pro",
+    "source_model_url": "https://llm-stats.com/models/mimo-v2.6-pro",
+    "provider": "Xiaomi",
+    "candidate_family_id": "xiaomi/mimo-v2-6-pro",
+    "candidate_family_name": "MiMo-V2.6-Pro",
+    "match_status": "matched_family",
+    "match_confidence": 0.95,
+    "match_method": "exact_provider_family_version",
+    "review_reason": null,
     "competing_candidates": []
   },
   {
@@ -503,40 +537,6 @@
         "similarity": 0.75
       }
     ]
-  },
-  {
-    "source": "llmstats",
-    "source_name": "ERNIE 5.5 Flash Preview",
-    "source_model_id": "ernie-5.5-flash-preview",
-    "source_model_url": "https://llm-stats.com/models/ernie-5.5-flash-preview",
-    "provider": "Baidu",
-    "candidate_family_id": "baidu/ernie-5-0-thinking-preview",
-    "candidate_family_name": "ERNIE 5.0 Thinking Preview",
-    "match_status": "identity_unresolved",
-    "match_confidence": 0.7347,
-    "match_method": "fuzzy_review_candidate",
-    "review_reason": "Fuzzy candidates require manual approval and are excluded from scoring.",
-    "competing_candidates": [
-      {
-        "family_id": "baidu/ernie-5-0-thinking-preview",
-        "family_name": "ERNIE 5.0 Thinking Preview",
-        "similarity": 0.7347
-      }
-    ]
-  },
-  {
-    "source": "llmstats",
-    "source_name": "MiMo-V2.6-Pro",
-    "source_model_id": "mimo-v2.6-pro",
-    "source_model_url": "https://llm-stats.com/models/mimo-v2.6-pro",
-    "provider": "Xiaomi",
-    "candidate_family_id": "xiaomi/mimo-v2-6-pro",
-    "candidate_family_name": "MiMo-V2.6-Pro",
-    "match_status": "matched_family",
-    "match_confidence": 0.95,
-    "match_method": "exact_provider_family_version",
-    "review_reason": null,
-    "competing_candidates": []
   },
   {
     "source": "llmstats",
