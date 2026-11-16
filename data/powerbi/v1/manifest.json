@@ -1,33 +1,34 @@
 {
   "schema_version": "powerbi-v2-wide",
   "source_snapshot_dates": {
-    "artificial_analysis": "2026-11-15",
-    "llmstats": "2026-11-15"
+    "artificial_analysis": "2026-11-16",
+    "llmstats": "2026-11-16"
   },
   "earliest_catalog_event_date": "2026-03-16",
   "earliest_observed_snapshot_date": "2026-07-23",
-  "latest_observed_snapshot_date": "2026-11-15",
+  "latest_observed_snapshot_date": "2026-11-16",
   "catalog_event_row_count": 102,
-  "observed_snapshot_row_count": 29754,
+  "observed_snapshot_row_count": 30041,
   "historical_coverage_limitations": "Pre-LLMDEX historical rows represent repository-supported catalogue or release events and must not be interpreted as daily historical benchmark measurements.",
   "row_counts": {
     "artificial_analysis_benchmarks": 201,
     "llmstats_benchmarks": 317,
     "combined_latest": 1,
-    "model_family_history": 29856,
+    "model_family_history": 30143,
     "provider_metadata": 34,
-    "data_dictionary": 206
+    "data_dictionary": 205
   },
   "column_counts": {
     "artificial_analysis_benchmarks": 74,
-    "llmstats_benchmarks": 75,
+    "llmstats_benchmarks": 74,
     "model_family_history": 36,
     "provider_metadata": 21
   },
   "providers_discovered": 34,
-  "providers_fully_enriched": 25,
-  "providers_requiring_metadata": 9,
+  "providers_fully_enriched": 24,
+  "providers_requiring_metadata": 10,
   "unresolved_provider_ids": [
+    "hy4",
     "inception",
     "inclusionai",
     "institute-of-foundation-models",
@@ -38,18 +39,18 @@
     "reflection",
     "stepfun"
   ],
-  "number_of_benchmark_columns": 58,
+  "number_of_benchmark_columns": 57,
   "llmstats_general_row_count": 109,
   "llmstats_general_missing_score_count": 79,
   "llmstats_general_missing_rank_count": 79,
   "llmstats_general_missing_provider_count": 0,
   "llmstats_provider_populated_count": 317,
   "llmstats_provider_missing_count": 0,
-  "llmstats_availability_unknown_count": 257,
+  "llmstats_availability_unknown_count": 253,
   "malformed_name_count_detected": 0,
   "malformed_name_count_corrected": 0,
   "unresolved_malformed_name_count": 0,
-  "consensus_family_count": 8,
+  "consensus_family_count": 9,
   "empty_reserved_columns": [
     "aa_aime25",
     "aa_livecodebench",
@@ -62,17 +63,17 @@
   ],
   "corrected_open_weight_inconsistency_count": 149,
   "sha256_hashes": {
-    "artificial_analysis_benchmarks.csv": "7a8b36759624ba295df1250e28e04fadba1cad882cf7ec4012733d972561817f",
-    "llmstats_benchmarks.csv": "876e1b083577f5a54e776615badb7be78ec7dd7b8d263fac6254b4100308f05a",
-    "combined_latest.json": "de69840375508ad413ff5064bf770c978573ae6a7bd054cf6bb028f39ea06573",
-    "model_family_history.csv": "633ca45633ebd43e2c7d6e05e52d7b994b7b30a8428cc09dd5da3b6750cf3219",
-    "provider_metadata.csv": "2f6aa256b3fb79892e14cfa7b1eded1e05ef956cff7f3f982edaaa323570382e",
-    "provider_metadata_validation.json": "a601516cc4b8d20c26688ec8269b634b87dac08975d01a76faa9938eccd3f248",
-    "data_dictionary.csv": "a97d658e2b5f2d929f3e38e17be15df857b6de75efbe4f5d85af2cc87998f5f7"
+    "artificial_analysis_benchmarks.csv": "c81955619ccfd34db8a407e1e1741ae5c5669617c12d92fc5e092d575a24ab31",
+    "llmstats_benchmarks.csv": "3633f84cf9fe69477c287d810a768a2cca78c6be54739dff0d417a2732a6eccd",
+    "combined_latest.json": "707becfbef1ed66162e8b1b0cb9b4a7eef4eb3276f94dd2f62311659d5bd6326",
+    "model_family_history.csv": "708e39375c9ec54e61d695793fb77d2394664b16fb98aa9a820be421d5a943bc",
+    "provider_metadata.csv": "bfe93cbcd7fcecd8d9b6ee8db2f39de0900777845a8d64343afb042a58e4fe4f",
+    "provider_metadata_validation.json": "939ea0d6b3e7dd6c67e1e23e0988e7b778e09d1aaf8251b81d906cf107cca2b6",
+    "data_dictionary.csv": "e0e4c146284841215c36a18ceeaa74eea1c8e097d499285a743c62cf89091265"
   },
   "validation_status": "valid",
   "warnings": [
-    "Provider metadata required: inception, inclusionai, institute-of-foundation-models, k2, liquid-ai, nous-research, openbmb, reflection, stepfun"
+    "Provider metadata required: hy4, inception, inclusionai, institute-of-foundation-models, k2, liquid-ai, nous-research, openbmb, reflection, stepfun"
   ],
-  "generated_from_commit": "09aec834bdb326f07bdf589dbfd8a4e43e4961a4"
+  "generated_from_commit": "9006a9383a500496a55c28c7f788780732882646"
 }

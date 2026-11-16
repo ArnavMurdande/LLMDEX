@@ -452,35 +452,6 @@
       }
     }
   },
-  "alibaba/qwen3-8-max-0902": {
-    "family_id": "alibaba/qwen3-8-max-0902",
-    "canonical_family_name": "Qwen3.8 Max (0902)",
-    "provider": "Alibaba",
-    "version": "3.8",
-    "source_aliases": {
-      "artificial_analysis": [
-        "Qwen3.8 Max (0902)"
-      ],
-      "llmstats": []
-    },
-    "source_ids": {},
-    "source_urls": {
-      "artificial_analysis": [
-        "https://artificialanalysis.ai/models/qwen3-8-max"
-      ]
-    },
-    "variants": {
-      "alibaba/qwen3-8-max-0902:max": {
-        "variant_id": "alibaba/qwen3-8-max-0902:max",
-        "deployment_profile_id": "alibaba/qwen3-8-max-0902:max:deployment",
-        "source_name": "Qwen3.8 Max (0902)",
-        "reasoning_effort": "max",
-        "deployment_profile": [],
-        "fallback_enabled": false,
-        "parameter_count": null
-      }
-    }
-  },
   "alibaba/qwen3-coder-next": {
     "family_id": "alibaba/qwen3-coder-next",
     "canonical_family_name": "Qwen3 Coder Next",
@@ -639,6 +610,37 @@
           "total_billions": 30.0,
           "active_billions": null
         }
+      }
+    }
+  },
+  "alibaba/qwen4": {
+    "family_id": "alibaba/qwen4",
+    "canonical_family_name": "Qwen4",
+    "provider": "Alibaba",
+    "version": null,
+    "source_aliases": {
+      "artificial_analysis": [
+        "Qwen4 Max"
+      ],
+      "llmstats": [
+        "Qwen4-Max"
+      ]
+    },
+    "source_ids": {},
+    "source_urls": {
+      "artificial_analysis": [
+        "https://artificialanalysis.ai/models/qwen4-max"
+      ]
+    },
+    "variants": {
+      "alibaba/qwen4:max": {
+        "variant_id": "alibaba/qwen4:max",
+        "deployment_profile_id": "alibaba/qwen4:max:deployment",
+        "source_name": "Qwen4 Max",
+        "reasoning_effort": "max",
+        "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": null
       }
     }
   },
@@ -1289,7 +1291,9 @@
       "artificial_analysis": [
         "Gemini 4 Hydrogen Xhigh"
       ],
-      "llmstats": []
+      "llmstats": [
+        "Gemini 4 Hydrogen"
+      ]
     },
     "source_ids": {},
     "source_urls": {
@@ -1952,9 +1956,7 @@
       "artificial_analysis": [
         "MiniMax-M3.1-Flash"
       ],
-      "llmstats": [
-        "MiniMax M3.1 Flash"
-      ]
+      "llmstats": []
     },
     "source_ids": {},
     "source_urls": {
