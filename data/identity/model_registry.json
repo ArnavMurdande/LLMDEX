@@ -922,7 +922,6 @@
     "version": null,
     "source_aliases": {
       "artificial_analysis": [
-        "Command A",
         "Command A+"
       ],
       "llmstats": []
@@ -930,7 +929,6 @@
     "source_ids": {},
     "source_urls": {
       "artificial_analysis": [
-        "https://artificialanalysis.ai/models/command-a",
         "https://artificialanalysis.ai/models/command-a-plus"
       ]
     },
@@ -938,7 +936,7 @@
       "cohere/command-a:default": {
         "variant_id": "cohere/command-a:default",
         "deployment_profile_id": "cohere/command-a:default:deployment",
-        "source_name": "Command A",
+        "source_name": "Command A+",
         "reasoning_effort": null,
         "deployment_profile": [],
         "fallback_enabled": false,
@@ -1154,37 +1152,6 @@
         "deployment_profile_id": "google/gemini-3-5-flash-lite:default:deployment",
         "source_name": "Gemini 3.5 Flash-Lite",
         "reasoning_effort": null,
-        "deployment_profile": [],
-        "fallback_enabled": false,
-        "parameter_count": null
-      }
-    }
-  },
-  "google/gemini-3-8-flash": {
-    "family_id": "google/gemini-3-8-flash",
-    "canonical_family_name": "Gemini 3.8 Flash",
-    "provider": "Google",
-    "version": "3.8",
-    "source_aliases": {
-      "artificial_analysis": [
-        "Gemini 3.8 Flash High"
-      ],
-      "llmstats": [
-        "Gemini 3.8 Flash"
-      ]
-    },
-    "source_ids": {},
-    "source_urls": {
-      "artificial_analysis": [
-        "https://artificialanalysis.ai/models/gemini-3-8-flash"
-      ]
-    },
-    "variants": {
-      "google/gemini-3-8-flash:high": {
-        "variant_id": "google/gemini-3-8-flash:high",
-        "deployment_profile_id": "google/gemini-3-8-flash:high:deployment",
-        "source_name": "Gemini 3.8 Flash High",
-        "reasoning_effort": "high",
         "deployment_profile": [],
         "fallback_enabled": false,
         "parameter_count": null
@@ -1475,14 +1442,14 @@
       }
     }
   },
-  "google/gemma-4-e4b": {
-    "family_id": "google/gemma-4-e4b",
-    "canonical_family_name": "Gemma 4 E4B",
+  "google/gemma-4-e4b-reasoning": {
+    "family_id": "google/gemma-4-e4b-reasoning",
+    "canonical_family_name": "Gemma 4 E4B Reasoning",
     "provider": "Google",
     "version": null,
     "source_aliases": {
       "artificial_analysis": [
-        "Gemma 4 E4B Non-reasoning"
+        "Gemma 4 E4B Reasoning"
       ],
       "llmstats": []
     },
@@ -1493,13 +1460,13 @@
       ]
     },
     "variants": {
-      "google/gemma-4-e4b:non-reasoning": {
-        "variant_id": "google/gemma-4-e4b:non-reasoning",
-        "deployment_profile_id": "google/gemma-4-e4b:non-reasoning:deployment",
-        "source_name": "Gemma 4 E4B Non-reasoning",
+      "google/gemma-4-e4b-reasoning:reasoning": {
+        "variant_id": "google/gemma-4-e4b-reasoning:reasoning",
+        "deployment_profile_id": "google/gemma-4-e4b-reasoning:reasoning:deployment",
+        "source_name": "Gemma 4 E4B Reasoning",
         "reasoning_effort": null,
         "deployment_profile": [
-          "non-reasoning"
+          "reasoning"
         ],
         "fallback_enabled": false,
         "parameter_count": null
@@ -2283,37 +2250,6 @@
       }
     }
   },
-  "openai/gpt-6-1-sol": {
-    "family_id": "openai/gpt-6-1-sol",
-    "canonical_family_name": "GPT-6.1 Sol",
-    "provider": "OpenAI",
-    "version": "6.1",
-    "source_aliases": {
-      "artificial_analysis": [
-        "GPT-6.1 Sol Max"
-      ],
-      "llmstats": [
-        "GPT-6.1 Sol"
-      ]
-    },
-    "source_ids": {},
-    "source_urls": {
-      "artificial_analysis": [
-        "https://artificialanalysis.ai/models/gpt-6-1-sol"
-      ]
-    },
-    "variants": {
-      "openai/gpt-6-1-sol:max": {
-        "variant_id": "openai/gpt-6-1-sol:max",
-        "deployment_profile_id": "openai/gpt-6-1-sol:max:deployment",
-        "source_name": "GPT-6.1 Sol Max",
-        "reasoning_effort": "max",
-        "deployment_profile": [],
-        "fallback_enabled": false,
-        "parameter_count": null
-      }
-    }
-  },
   "openai/gpt-6-1-terra": {
     "family_id": "openai/gpt-6-1-terra",
     "canonical_family_name": "GPT-6.1 Terra",
@@ -2345,30 +2281,57 @@
       }
     }
   },
-  "openai/gpt-6-astra": {
-    "family_id": "openai/gpt-6-astra",
-    "canonical_family_name": "GPT-6 Astra",
+  "openai/gpt-6-2-astra": {
+    "family_id": "openai/gpt-6-2-astra",
+    "canonical_family_name": "GPT-6.2 Astra",
     "provider": "OpenAI",
-    "version": null,
+    "version": "6.2",
     "source_aliases": {
       "artificial_analysis": [
-        "GPT-6 Astra Max"
+        "GPT-6.2 Astra Max"
       ],
-      "llmstats": [
-        "GPT-6 Astra"
-      ]
+      "llmstats": []
     },
     "source_ids": {},
     "source_urls": {
       "artificial_analysis": [
-        "https://artificialanalysis.ai/models/gpt-6-astra"
+        "https://artificialanalysis.ai/models/gpt-6-2-astra"
       ]
     },
     "variants": {
-      "openai/gpt-6-astra:max": {
-        "variant_id": "openai/gpt-6-astra:max",
-        "deployment_profile_id": "openai/gpt-6-astra:max:deployment",
-        "source_name": "GPT-6 Astra Max",
+      "openai/gpt-6-2-astra:max": {
+        "variant_id": "openai/gpt-6-2-astra:max",
+        "deployment_profile_id": "openai/gpt-6-2-astra:max:deployment",
+        "source_name": "GPT-6.2 Astra Max",
+        "reasoning_effort": "max",
+        "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": null
+      }
+    }
+  },
+  "openai/gpt-6-2-sol": {
+    "family_id": "openai/gpt-6-2-sol",
+    "canonical_family_name": "GPT-6.2 Sol",
+    "provider": "OpenAI",
+    "version": "6.2",
+    "source_aliases": {
+      "artificial_analysis": [
+        "GPT-6.2 Sol Max"
+      ],
+      "llmstats": []
+    },
+    "source_ids": {},
+    "source_urls": {
+      "artificial_analysis": [
+        "https://artificialanalysis.ai/models/gpt-6-2-sol"
+      ]
+    },
+    "variants": {
+      "openai/gpt-6-2-sol:max": {
+        "variant_id": "openai/gpt-6-2-sol:max",
+        "deployment_profile_id": "openai/gpt-6-2-sol:max:deployment",
+        "source_name": "GPT-6.2 Sol Max",
         "reasoning_effort": "max",
         "deployment_profile": [],
         "fallback_enabled": false,
@@ -2742,6 +2705,35 @@
       }
     }
   },
+  "unknown/astra-for-law-6-2": {
+    "family_id": "unknown/astra-for-law-6-2",
+    "canonical_family_name": "Astra for Law 6.2",
+    "provider": null,
+    "version": "6.2",
+    "source_aliases": {
+      "artificial_analysis": [
+        "Astra for Law 6.2 Max"
+      ],
+      "llmstats": []
+    },
+    "source_ids": {},
+    "source_urls": {
+      "artificial_analysis": [
+        "https://artificialanalysis.ai/models/astra-for-law-6-2"
+      ]
+    },
+    "variants": {
+      "unknown/astra-for-law-6-2:max": {
+        "variant_id": "unknown/astra-for-law-6-2:max",
+        "deployment_profile_id": "unknown/astra-for-law-6-2:max:deployment",
+        "source_name": "Astra for Law 6.2 Max",
+        "reasoning_effort": "max",
+        "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": null
+      }
+    }
+  },
   "unknown/beam-1-0": {
     "family_id": "unknown/beam-1-0",
     "canonical_family_name": "Beam 1.0",
@@ -2953,40 +2945,6 @@
         "fallback_enabled": false,
         "parameter_count": {
           "total_billions": 1.2,
-          "active_billions": null
-        }
-      }
-    }
-  },
-  "unknown/exaone-4-0-32b": {
-    "family_id": "unknown/exaone-4-0-32b",
-    "canonical_family_name": "EXAONE 4.0 32B",
-    "provider": null,
-    "version": "4.0",
-    "source_aliases": {
-      "artificial_analysis": [
-        "EXAONE 4.0 32B Non-reasoning"
-      ],
-      "llmstats": []
-    },
-    "source_ids": {},
-    "source_urls": {
-      "artificial_analysis": [
-        "https://artificialanalysis.ai/models/exaone-4-0-32b"
-      ]
-    },
-    "variants": {
-      "unknown/exaone-4-0-32b:non-reasoning": {
-        "variant_id": "unknown/exaone-4-0-32b:non-reasoning",
-        "deployment_profile_id": "unknown/exaone-4-0-32b:non-reasoning:deployment",
-        "source_name": "EXAONE 4.0 32B Non-reasoning",
-        "reasoning_effort": null,
-        "deployment_profile": [
-          "non-reasoning"
-        ],
-        "fallback_enabled": false,
-        "parameter_count": {
-          "total_billions": 32.0,
           "active_billions": null
         }
       }
@@ -3363,35 +3321,6 @@
       }
     }
   },
-  "unknown/hy3": {
-    "family_id": "unknown/hy3",
-    "canonical_family_name": "Hy3",
-    "provider": null,
-    "version": null,
-    "source_aliases": {
-      "artificial_analysis": [
-        "Hy3"
-      ],
-      "llmstats": []
-    },
-    "source_ids": {},
-    "source_urls": {
-      "artificial_analysis": [
-        "https://artificialanalysis.ai/models/hy3"
-      ]
-    },
-    "variants": {
-      "unknown/hy3:default": {
-        "variant_id": "unknown/hy3:default",
-        "deployment_profile_id": "unknown/hy3:default:deployment",
-        "source_name": "Hy3",
-        "reasoning_effort": null,
-        "deployment_profile": [],
-        "fallback_enabled": false,
-        "parameter_count": null
-      }
-    }
-  },
   "unknown/hyperclova-x-seed-think-32b": {
     "family_id": "unknown/hyperclova-x-seed-think-32b",
     "canonical_family_name": "HyperCLOVA X SEED Think (32B)",
@@ -3475,35 +3404,6 @@
         "variant_id": "unknown/inkling-2-small:default",
         "deployment_profile_id": "unknown/inkling-2-small:default:deployment",
         "source_name": "Inkling 2 Small",
-        "reasoning_effort": null,
-        "deployment_profile": [],
-        "fallback_enabled": false,
-        "parameter_count": null
-      }
-    }
-  },
-  "unknown/inkling-small": {
-    "family_id": "unknown/inkling-small",
-    "canonical_family_name": "Inkling Small",
-    "provider": null,
-    "version": null,
-    "source_aliases": {
-      "artificial_analysis": [
-        "Inkling Small"
-      ],
-      "llmstats": []
-    },
-    "source_ids": {},
-    "source_urls": {
-      "artificial_analysis": [
-        "https://artificialanalysis.ai/models/inkling-small"
-      ]
-    },
-    "variants": {
-      "unknown/inkling-small:default": {
-        "variant_id": "unknown/inkling-small:default",
-        "deployment_profile_id": "unknown/inkling-small:default:deployment",
-        "source_name": "Inkling Small",
         "reasoning_effort": null,
         "deployment_profile": [],
         "fallback_enabled": false,
@@ -3887,64 +3787,6 @@
       }
     }
   },
-  "unknown/k2-think-v2": {
-    "family_id": "unknown/k2-think-v2",
-    "canonical_family_name": "K2 Think V2",
-    "provider": null,
-    "version": null,
-    "source_aliases": {
-      "artificial_analysis": [
-        "K2 Think V2"
-      ],
-      "llmstats": []
-    },
-    "source_ids": {},
-    "source_urls": {
-      "artificial_analysis": [
-        "https://artificialanalysis.ai/models/k2-think-v2"
-      ]
-    },
-    "variants": {
-      "unknown/k2-think-v2:default": {
-        "variant_id": "unknown/k2-think-v2:default",
-        "deployment_profile_id": "unknown/k2-think-v2:default:deployment",
-        "source_name": "K2 Think V2",
-        "reasoning_effort": null,
-        "deployment_profile": [],
-        "fallback_enabled": false,
-        "parameter_count": null
-      }
-    }
-  },
-  "unknown/k2-v2": {
-    "family_id": "unknown/k2-v2",
-    "canonical_family_name": "K2-V2",
-    "provider": null,
-    "version": null,
-    "source_aliases": {
-      "artificial_analysis": [
-        "K2-V2 High"
-      ],
-      "llmstats": []
-    },
-    "source_ids": {},
-    "source_urls": {
-      "artificial_analysis": [
-        "https://artificialanalysis.ai/models/k2-v2"
-      ]
-    },
-    "variants": {
-      "unknown/k2-v2:high": {
-        "variant_id": "unknown/k2-v2:high",
-        "deployment_profile_id": "unknown/k2-v2:high:deployment",
-        "source_name": "K2-V2 High",
-        "reasoning_effort": "high",
-        "deployment_profile": [],
-        "fallback_enabled": false,
-        "parameter_count": null
-      }
-    }
-  },
   "unknown/kat-coder-pro-v2": {
     "family_id": "unknown/kat-coder-pro-v2",
     "canonical_family_name": "KAT Coder Pro V2",
@@ -4248,35 +4090,6 @@
         "variant_id": "unknown/ling-3-0-tiny:default",
         "deployment_profile_id": "unknown/ling-3-0-tiny:default:deployment",
         "source_name": "Ling 3.0 Tiny",
-        "reasoning_effort": null,
-        "deployment_profile": [],
-        "fallback_enabled": false,
-        "parameter_count": null
-      }
-    }
-  },
-  "unknown/ling-3-1-flash": {
-    "family_id": "unknown/ling-3-1-flash",
-    "canonical_family_name": "Ling 3.1 Flash",
-    "provider": null,
-    "version": "3.1",
-    "source_aliases": {
-      "artificial_analysis": [
-        "Ling 3.1 Flash"
-      ],
-      "llmstats": []
-    },
-    "source_ids": {},
-    "source_urls": {
-      "artificial_analysis": [
-        "https://artificialanalysis.ai/models/ling-3-1-flash-1001"
-      ]
-    },
-    "variants": {
-      "unknown/ling-3-1-flash:default": {
-        "variant_id": "unknown/ling-3-1-flash:default",
-        "deployment_profile_id": "unknown/ling-3-1-flash:default:deployment",
-        "source_name": "Ling 3.1 Flash",
         "reasoning_effort": null,
         "deployment_profile": [],
         "fallback_enabled": false,

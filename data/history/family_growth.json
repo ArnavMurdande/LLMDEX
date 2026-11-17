@@ -494,7 +494,7 @@
     {
       "name": "Claude Opus 5.5 Max, Default Fallback",
       "performance": 59.0,
-      "rank": 3.0,
+      "rank": 4.0,
       "provider": "Anthropic",
       "model_url": "https://artificialanalysis.ai/models/claude-opus-5-5",
       "release_date": "2026-09-22",
@@ -663,6 +663,38 @@
       "improvement_abs": 0.0,
       "improvement_pct": 0.0,
       "predecessor": "Claude Sonnet 5.5"
+    }
+  ],
+  "Cohere Command": [
+    {
+      "name": "Command A",
+      "performance": 18.46,
+      "rank": 72,
+      "provider": "Cohere",
+      "model_url": "https://artificialanalysis.ai/models/command-a",
+      "release_date": "2025-03-13",
+      "variants": [
+        "Command A"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 0.0,
+      "improvement_pct": 0.0,
+      "predecessor": null
+    },
+    {
+      "name": "Command A+",
+      "performance": 6.0,
+      "rank": 48.0,
+      "provider": "Cohere",
+      "model_url": "https://artificialanalysis.ai/models/command-a-plus",
+      "release_date": "2026-05-20",
+      "variants": [
+        "Command A+"
+      ],
+      "variant_count": 1,
+      "improvement_abs": -12.46,
+      "improvement_pct": -67.5,
+      "predecessor": "Command A"
     }
   ],
   "DeepSeek": [
@@ -915,7 +947,7 @@
     {
       "name": "DeepSeek V4 Pro 0813 Max",
       "performance": 23.0,
-      "rank": 33.0,
+      "rank": 32.0,
       "provider": "DeepSeek",
       "model_url": "https://artificialanalysis.ai/models/deepseek-v4-pro",
       "release_date": "2026-04-24",
@@ -1231,7 +1263,7 @@
     {
       "name": "GLM-5.3-Flash",
       "performance": 28.0,
-      "rank": 28.0,
+      "rank": 27.0,
       "provider": "Zhipu AI",
       "model_url": "https://artificialanalysis.ai/models/glm-5-3-flash",
       "release_date": "2026-08-26",
@@ -1549,19 +1581,37 @@
       "predecessor": "GPT-5.5"
     },
     {
-      "name": "GPT-6 Astra Max",
-      "performance": 57.0,
-      "rank": 4.0,
+      "name": "GPT-6.2 Astra",
+      "performance": 62.1387990593969,
+      "rank": null,
       "provider": "OpenAI",
-      "model_url": "https://artificialanalysis.ai/models/gpt-6-astra",
-      "release_date": "2026-09-03",
+      "model_url": "https://artificialanalysis.ai/models/gpt-6-2-astra",
+      "release_date": "2026-11-17",
       "variants": [
-        "GPT-6 Astra Max"
+        "GPT-6.2 Astra (Max)",
+        "GPT-6.2 Astra (Xhigh)",
+        "GPT-6.2 Astra (High)",
+        "GPT-6.2 Astra (Medium)"
+      ],
+      "variant_count": 4,
+      "improvement_abs": 1.14,
+      "improvement_pct": 1.87,
+      "predecessor": "GPT-6 Astra"
+    },
+    {
+      "name": "GPT-6.2 Astra Max",
+      "performance": 62.0,
+      "rank": 2.0,
+      "provider": "OpenAI",
+      "model_url": "https://artificialanalysis.ai/models/gpt-6-2-astra",
+      "release_date": "2026-11-17",
+      "variants": [
+        "GPT-6.2 Astra Max"
       ],
       "variant_count": 1,
-      "improvement_abs": -4.0,
-      "improvement_pct": -6.56,
-      "predecessor": "GPT-6 Astra"
+      "improvement_abs": -0.14,
+      "improvement_pct": -0.22,
+      "predecessor": "GPT-6.2 Astra"
     }
   ],
   "GPT Codex": [
@@ -1691,7 +1741,7 @@
     {
       "name": "GPT-6 Luna Max",
       "performance": 28.0,
-      "rank": 27.0,
+      "rank": 26.0,
       "provider": "OpenAI",
       "model_url": "https://artificialanalysis.ai/models/gpt-6-luna",
       "release_date": "2026-09-22",
@@ -1865,19 +1915,37 @@
       "predecessor": "GPT-6 Sol"
     },
     {
-      "name": "GPT-6.1 Sol Max",
-      "performance": 55.0,
+      "name": "GPT-6.2 Sol",
+      "performance": 57.2576209885477,
+      "rank": null,
+      "provider": "OpenAI",
+      "model_url": "https://artificialanalysis.ai/models/gpt-6-2-sol",
+      "release_date": "2026-11-17",
+      "variants": [
+        "GPT-6.2 Sol (Max)",
+        "GPT-6.2 Sol (Xhigh)",
+        "GPT-6.2 Sol (High)",
+        "GPT-6.2 Sol (Medium)"
+      ],
+      "variant_count": 4,
+      "improvement_abs": 2.26,
+      "improvement_pct": 4.1,
+      "predecessor": "GPT-6.1 Sol"
+    },
+    {
+      "name": "GPT-6.2 Sol Max",
+      "performance": 57.0,
       "rank": 5.0,
       "provider": "OpenAI",
-      "model_url": "https://artificialanalysis.ai/models/gpt-6-1-sol",
-      "release_date": "2026-09-29",
+      "model_url": "https://artificialanalysis.ai/models/gpt-6-2-sol",
+      "release_date": "2026-11-17",
       "variants": [
-        "GPT-6.1 Sol Max"
+        "GPT-6.2 Sol Max"
       ],
       "variant_count": 1,
-      "improvement_abs": 0.0,
-      "improvement_pct": 0.0,
-      "predecessor": "GPT-6.1 Sol"
+      "improvement_abs": -0.26,
+      "improvement_pct": -0.45,
+      "predecessor": "GPT-6.2 Sol"
     }
   ],
   "GPT Terra": [
@@ -2044,6 +2112,21 @@
       "predecessor": "Gemma 4 31B Reasoning"
     },
     {
+      "name": "Gemma 4 E4B Reasoning",
+      "performance": 5.0,
+      "rank": 51.0,
+      "provider": "Google",
+      "model_url": "https://artificialanalysis.ai/models/gemma-4-e4b",
+      "release_date": "2026-04-03",
+      "variants": [
+        "Gemma 4 E4B Reasoning"
+      ],
+      "variant_count": 1,
+      "improvement_abs": -7.0,
+      "improvement_pct": -58.33,
+      "predecessor": "Gemma 4 E4B"
+    },
+    {
       "name": "Gemma 4 12B",
       "performance": 22.0,
       "rank": 118,
@@ -2056,9 +2139,9 @@
         "Gemma 4 12B (non-reasoning)"
       ],
       "variant_count": 3,
-      "improvement_abs": 10.0,
-      "improvement_pct": 83.33,
-      "predecessor": "Gemma 4 E4B"
+      "improvement_abs": 17.0,
+      "improvement_pct": 340.0,
+      "predecessor": "Gemma 4 E4B Reasoning"
     },
     {
       "name": "Gemini 4 Argon",
@@ -2115,7 +2198,7 @@
     {
       "name": "Gemini 4 Carbon High",
       "performance": 60.0,
-      "rank": 2.0,
+      "rank": 3.0,
       "provider": "Google",
       "model_url": "https://artificialanalysis.ai/models/gemini-4-carbon",
       "release_date": "2026-10-28",
@@ -2259,7 +2342,7 @@
     {
       "name": "Gemini 3.5 Flash-Lite",
       "performance": 12.0,
-      "rank": 46.0,
+      "rank": 44.0,
       "provider": "Google",
       "model_url": "https://artificialanalysis.ai/models/gemini-3-5-flash-lite",
       "release_date": "2026-07-21",
@@ -2322,21 +2405,6 @@
       "improvement_abs": 3.0,
       "improvement_pct": 5.36,
       "predecessor": "Gemini 3.7 Flash"
-    },
-    {
-      "name": "Gemini 3.8 Flash High",
-      "performance": 31.0,
-      "rank": 20.0,
-      "provider": "Google",
-      "model_url": "https://artificialanalysis.ai/models/gemini-3-8-flash",
-      "release_date": "2026-09-02",
-      "variants": [
-        "Gemini 3.8 Flash High"
-      ],
-      "variant_count": 1,
-      "improvement_abs": -28.0,
-      "improvement_pct": -47.46,
-      "predecessor": "Gemini 3.8 Flash"
     }
   ],
   "Gemini Pro": [
@@ -2422,7 +2490,7 @@
     {
       "name": "Granite 4.2 8B",
       "performance": 5.0,
-      "rank": 51.0,
+      "rank": 50.0,
       "provider": null,
       "model_url": "https://artificialanalysis.ai/models/granite-4-2-8b",
       "release_date": "2026-08-25",
@@ -2750,13 +2818,28 @@
       "improvement_abs": 0.0,
       "improvement_pct": 0.0,
       "predecessor": "Ling 3.0 Flash"
+    },
+    {
+      "name": "Ling 3.1 Flash",
+      "performance": 41.0,
+      "rank": 34,
+      "provider": "InclusionAI",
+      "model_url": "https://artificialanalysis.ai/models/ling-3-1-flash",
+      "release_date": "2026-10-01",
+      "variants": [
+        "Ling 3.1 Flash"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 3.0,
+      "improvement_pct": 7.89,
+      "predecessor": "Ling-3.0-flash"
     }
   ],
   "Inkling": [
     {
       "name": "Inkling Xhigh",
       "performance": 12.0,
-      "rank": 44.0,
+      "rank": 42.0,
       "provider": null,
       "model_url": "https://artificialanalysis.ai/models/inkling",
       "release_date": "2026-07-15",
@@ -2769,24 +2852,9 @@
       "predecessor": null
     },
     {
-      "name": "Inkling Small",
-      "performance": 13.0,
-      "rank": 43.0,
-      "provider": null,
-      "model_url": "https://artificialanalysis.ai/models/inkling-small",
-      "release_date": "2026-07-30",
-      "variants": [
-        "Inkling Small"
-      ],
-      "variant_count": 1,
-      "improvement_abs": 1.0,
-      "improvement_pct": 8.33,
-      "predecessor": "Inkling Xhigh"
-    },
-    {
       "name": "Inkling 2 Small",
       "performance": 31.0,
-      "rank": 21.0,
+      "rank": 20.0,
       "provider": null,
       "model_url": "https://artificialanalysis.ai/models/inkling-2-small",
       "release_date": "2026-11-05",
@@ -2794,9 +2862,9 @@
         "Inkling 2 Small"
       ],
       "variant_count": 1,
-      "improvement_abs": 18.0,
-      "improvement_pct": 138.46,
-      "predecessor": "Inkling Small"
+      "improvement_abs": 19.0,
+      "improvement_pct": 158.33,
+      "predecessor": "Inkling Xhigh"
     }
   ],
   "Jamba": [
@@ -3290,6 +3358,40 @@
       "predecessor": "Llama 3.1 Nemotron Ultra 253B v1"
     }
   ],
+  "MBZUAI Institute of Foundation Models": [
+    {
+      "name": "K2-V2",
+      "performance": 14.0,
+      "rank": 161,
+      "provider": "MBZUAI Institute of Foundation Models",
+      "model_url": "https://artificialanalysis.ai/models/k2-v2",
+      "release_date": "2025-12-05",
+      "variants": [
+        "K2-V2 (medium)",
+        "K2-V2 (high)",
+        "K2-V2 (low)"
+      ],
+      "variant_count": 3,
+      "improvement_abs": 0.0,
+      "improvement_pct": 0.0,
+      "predecessor": null
+    },
+    {
+      "name": "K2 Think V2",
+      "performance": 17.0,
+      "rank": 143,
+      "provider": "MBZUAI Institute of Foundation Models",
+      "model_url": "https://artificialanalysis.ai/models/k2-think-v2",
+      "release_date": "2025-12-15",
+      "variants": [
+        "K2 Think V2"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 3.0,
+      "improvement_pct": 21.43,
+      "predecessor": "K2-V2"
+    }
+  ],
   "Meta": [
     {
       "name": "Muse Spark",
@@ -3562,7 +3664,7 @@
     {
       "name": "MiniMax-M3",
       "performance": 19.0,
-      "rank": 37.0,
+      "rank": 36.0,
       "provider": "MiniMax",
       "model_url": "https://artificialanalysis.ai/models/minimax-m3",
       "release_date": "2026-06-01",
@@ -3577,7 +3679,7 @@
     {
       "name": "MiniMax-M3.1-Flash",
       "performance": 29.0,
-      "rank": 24.0,
+      "rank": 23.0,
       "provider": "MiniMax",
       "model_url": "https://artificialanalysis.ai/models/minimax-m3-1-flash",
       "release_date": "2026-10-19",
@@ -3900,7 +4002,7 @@
     {
       "name": "Mistral Large 4 High",
       "performance": 26.0,
-      "rank": 30.0,
+      "rank": 29.0,
       "provider": "Mistral AI",
       "model_url": "https://artificialanalysis.ai/models/mistral-large-4",
       "release_date": "2026-10-06",
@@ -3964,7 +4066,7 @@
     {
       "name": "Muse Glimmer High",
       "performance": 6.0,
-      "rank": 48.0,
+      "rank": 47.0,
       "provider": null,
       "model_url": "https://artificialanalysis.ai/models/muse-glimmer",
       "release_date": "2026-08-10",
@@ -4009,7 +4111,7 @@
     {
       "name": "Muse Spark Open Xhigh",
       "performance": 25.0,
-      "rank": 31.0,
+      "rank": 30.0,
       "provider": null,
       "model_url": "https://artificialanalysis.ai/models/muse-spark-open",
       "release_date": "2026-10-15",
@@ -4140,7 +4242,7 @@
     {
       "name": "Nemotron 3 Ultra 550B A55B Reasoning",
       "performance": 12.0,
-      "rank": 45.0,
+      "rank": 43.0,
       "provider": null,
       "model_url": "https://artificialanalysis.ai/models/nemotron-3-ultra-550b-a55b",
       "release_date": "2026-06-04",
@@ -4155,7 +4257,7 @@
     {
       "name": "Nemotron 3.5 Lightning",
       "performance": 6.0,
-      "rank": 50.0,
+      "rank": 49.0,
       "provider": null,
       "model_url": "https://artificialanalysis.ai/models/nemotron-3-5-lightning",
       "release_date": "2026-08-11",
@@ -4170,7 +4272,7 @@
     {
       "name": "Nemotron 3.5 Super VL",
       "performance": 14.0,
-      "rank": 42.0,
+      "rank": 41.0,
       "provider": null,
       "model_url": "https://artificialanalysis.ai/models/nemotron-3-5-super-vl",
       "release_date": "2026-10-15",
@@ -4863,7 +4965,7 @@
     {
       "name": "Qwen3.8 27B Xhigh",
       "performance": 20.0,
-      "rank": 35.0,
+      "rank": 34.0,
       "provider": "Alibaba",
       "model_url": "https://artificialanalysis.ai/models/qwen3-8-27b",
       "release_date": "2026-08-14",
@@ -4878,7 +4980,7 @@
     {
       "name": "Qwen3.8-Flash-Next",
       "performance": 29.0,
-      "rank": 25.0,
+      "rank": 24.0,
       "provider": "Alibaba",
       "model_url": "https://artificialanalysis.ai/models/qwen3-8-flash-next",
       "release_date": "2026-08-26",
@@ -5019,7 +5121,7 @@
     {
       "name": "Solar Pro 4",
       "performance": 14.0,
-      "rank": 40.0,
+      "rank": 39.0,
       "provider": null,
       "model_url": "https://artificialanalysis.ai/models/solar-pro-4",
       "release_date": "2026-08-06",
@@ -5112,6 +5214,21 @@
       "predecessor": null
     },
     {
+      "name": "Hy3",
+      "performance": 42.0,
+      "rank": 43,
+      "provider": "Tencent",
+      "model_url": "https://artificialanalysis.ai/models/hy3",
+      "release_date": "2026-07-06",
+      "variants": [
+        "Hy3"
+      ],
+      "variant_count": 1,
+      "improvement_abs": 8.0,
+      "improvement_pct": 23.53,
+      "predecessor": "Hy3-preview"
+    },
+    {
       "name": "Tencent Hy4",
       "performance": 35.0,
       "rank": 17.0,
@@ -5122,9 +5239,43 @@
         "Tencent Hy4"
       ],
       "variant_count": 1,
-      "improvement_abs": 1.0,
-      "improvement_pct": 2.94,
-      "predecessor": "Hy3-preview"
+      "improvement_abs": -7.0,
+      "improvement_pct": -16.67,
+      "predecessor": "Hy3"
+    }
+  ],
+  "Thinking Machines": [
+    {
+      "name": "Inkling",
+      "performance": 42.0,
+      "rank": 42,
+      "provider": "Thinking Machines",
+      "model_url": "https://artificialanalysis.ai/models/inkling",
+      "release_date": "2026-07-15",
+      "variants": [
+        "Inkling",
+        "Inkling (xhigh)",
+        "Inkling (Xhigh)"
+      ],
+      "variant_count": 3,
+      "improvement_abs": 0.0,
+      "improvement_pct": 0.0,
+      "predecessor": null
+    },
+    {
+      "name": "Inkling Small",
+      "performance": 12.9101620926084,
+      "rank": null,
+      "provider": "Thinking Machines",
+      "model_url": "https://artificialanalysis.ai/models/inkling-small",
+      "release_date": "2026-07-30",
+      "variants": [
+        "Inkling Small"
+      ],
+      "variant_count": 1,
+      "improvement_abs": -29.09,
+      "improvement_pct": -69.26,
+      "predecessor": "Inkling"
     }
   ],
   "Upstage": [
