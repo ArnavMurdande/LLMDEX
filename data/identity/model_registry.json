@@ -2290,7 +2290,9 @@
       "artificial_analysis": [
         "GPT-6.2 Astra Max"
       ],
-      "llmstats": []
+      "llmstats": [
+        "GPT-6.2 Astra"
+      ]
     },
     "source_ids": {},
     "source_urls": {
@@ -2319,7 +2321,9 @@
       "artificial_analysis": [
         "GPT-6.2 Sol Max"
       ],
-      "llmstats": []
+      "llmstats": [
+        "GPT-6.2 Sol"
+      ]
     },
     "source_ids": {},
     "source_urls": {
@@ -3503,6 +3507,37 @@
       }
     }
   },
+  "unknown/joyai-vl-preview": {
+    "family_id": "unknown/joyai-vl-preview",
+    "canonical_family_name": "JoyAI-VL-Preview",
+    "provider": null,
+    "version": null,
+    "source_aliases": {
+      "artificial_analysis": [
+        "JoyAI-VL-Preview"
+      ],
+      "llmstats": []
+    },
+    "source_ids": {},
+    "source_urls": {
+      "artificial_analysis": [
+        "https://artificialanalysis.ai/models/joyvl2_v27"
+      ]
+    },
+    "variants": {
+      "unknown/joyai-vl-preview:preview": {
+        "variant_id": "unknown/joyai-vl-preview:preview",
+        "deployment_profile_id": "unknown/joyai-vl-preview:preview:deployment",
+        "source_name": "JoyAI-VL-Preview",
+        "reasoning_effort": null,
+        "deployment_profile": [
+          "preview"
+        ],
+        "fallback_enabled": false,
+        "parameter_count": null
+      }
+    }
+  },
   "unknown/jt-35b-flash": {
     "family_id": "unknown/jt-35b-flash",
     "canonical_family_name": "JT-35B-Flash",
@@ -3684,6 +3719,38 @@
         "fallback_enabled": false,
         "parameter_count": {
           "total_billions": 3.7,
+          "active_billions": null
+        }
+      }
+    }
+  },
+  "unknown/k2-horizon-32b": {
+    "family_id": "unknown/k2-horizon-32b",
+    "canonical_family_name": "K2 Horizon 32B",
+    "provider": null,
+    "version": null,
+    "source_aliases": {
+      "artificial_analysis": [
+        "K2 Horizon 32B"
+      ],
+      "llmstats": []
+    },
+    "source_ids": {},
+    "source_urls": {
+      "artificial_analysis": [
+        "https://artificialanalysis.ai/models/k2-horizon-32b"
+      ]
+    },
+    "variants": {
+      "unknown/k2-horizon-32b:default": {
+        "variant_id": "unknown/k2-horizon-32b:default",
+        "deployment_profile_id": "unknown/k2-horizon-32b:default:deployment",
+        "source_name": "K2 Horizon 32B",
+        "reasoning_effort": null,
+        "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": {
+          "total_billions": 32.0,
           "active_billions": null
         }
       }
@@ -4005,6 +4072,70 @@
         "fallback_enabled": false,
         "parameter_count": {
           "total_billions": 1.6,
+          "active_billions": null
+        }
+      }
+    }
+  },
+  "unknown/lfm3-1-7b": {
+    "family_id": "unknown/lfm3-1-7b",
+    "canonical_family_name": "LFM3-1.7B",
+    "provider": null,
+    "version": "1.7",
+    "source_aliases": {
+      "artificial_analysis": [
+        "LFM3-1.7B"
+      ],
+      "llmstats": []
+    },
+    "source_ids": {},
+    "source_urls": {
+      "artificial_analysis": [
+        "https://artificialanalysis.ai/models/lfm3-1-7b"
+      ]
+    },
+    "variants": {
+      "unknown/lfm3-1-7b:default": {
+        "variant_id": "unknown/lfm3-1-7b:default",
+        "deployment_profile_id": "unknown/lfm3-1-7b:default:deployment",
+        "source_name": "LFM3-1.7B",
+        "reasoning_effort": null,
+        "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": {
+          "total_billions": 1.7,
+          "active_billions": null
+        }
+      }
+    }
+  },
+  "unknown/lfm3-vl-2b": {
+    "family_id": "unknown/lfm3-vl-2b",
+    "canonical_family_name": "LFM3-VL-2B",
+    "provider": null,
+    "version": null,
+    "source_aliases": {
+      "artificial_analysis": [
+        "LFM3-VL-2B"
+      ],
+      "llmstats": []
+    },
+    "source_ids": {},
+    "source_urls": {
+      "artificial_analysis": [
+        "https://artificialanalysis.ai/models/lfm3-vl-2b"
+      ]
+    },
+    "variants": {
+      "unknown/lfm3-vl-2b:default": {
+        "variant_id": "unknown/lfm3-vl-2b:default",
+        "deployment_profile_id": "unknown/lfm3-vl-2b:default:deployment",
+        "source_name": "LFM3-VL-2B",
+        "reasoning_effort": null,
+        "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": {
+          "total_billions": 2.0,
           "active_billions": null
         }
       }

@@ -29,6 +29,20 @@
   },
   {
     "source": "llmstats",
+    "source_name": "GPT-6.2 Astra",
+    "source_model_id": "gpt-6.2-astra",
+    "source_model_url": "https://llm-stats.com/models/gpt-6.2-astra",
+    "provider": "OpenAI",
+    "candidate_family_id": "openai/gpt-6-2-astra",
+    "candidate_family_name": "GPT-6.2 Astra",
+    "match_status": "matched_family",
+    "match_confidence": 0.95,
+    "match_method": "exact_provider_family_version",
+    "review_reason": null,
+    "competing_candidates": []
+  },
+  {
+    "source": "llmstats",
     "source_name": "Claude Opus 5.5",
     "source_model_id": "claude-opus-5-5",
     "source_model_url": "https://llm-stats.com/models/claude-opus-5-5",
@@ -99,6 +113,20 @@
         "similarity": 0.75
       }
     ]
+  },
+  {
+    "source": "llmstats",
+    "source_name": "GPT-6.2 Sol",
+    "source_model_id": "gpt-6.2-sol",
+    "source_model_url": "https://llm-stats.com/models/gpt-6.2-sol",
+    "provider": "OpenAI",
+    "candidate_family_id": "openai/gpt-6-2-sol",
+    "candidate_family_name": "GPT-6.2 Sol",
+    "match_status": "matched_family",
+    "match_confidence": 0.95,
+    "match_method": "exact_provider_family_version",
+    "review_reason": null,
+    "competing_candidates": []
   },
   {
     "source": "llmstats",
@@ -396,10 +424,10 @@
   },
   {
     "source": "llmstats",
-    "source_name": "Muse Wonder",
-    "source_model_id": "muse-wonder",
-    "source_model_url": "https://llm-stats.com/models/muse-wonder",
-    "provider": "Meta",
+    "source_name": "Claude Opus 4.8",
+    "source_model_id": "claude-opus-4-8",
+    "source_model_url": "https://llm-stats.com/models/claude-opus-4-8",
+    "provider": "Anthropic",
     "candidate_family_id": null,
     "candidate_family_name": null,
     "match_status": "source_missing",
@@ -410,10 +438,10 @@
   },
   {
     "source": "llmstats",
-    "source_name": "Claude Opus 4.8",
-    "source_model_id": "claude-opus-4-8",
-    "source_model_url": "https://llm-stats.com/models/claude-opus-4-8",
-    "provider": "Anthropic",
+    "source_name": "Muse Wonder",
+    "source_model_id": "muse-wonder",
+    "source_model_url": "https://llm-stats.com/models/muse-wonder",
+    "provider": "Meta",
     "candidate_family_id": null,
     "candidate_family_name": null,
     "match_status": "source_missing",
@@ -430,20 +458,6 @@
     "provider": "Anthropic",
     "candidate_family_id": "anthropic/claude-haiku-5-5",
     "candidate_family_name": "Claude Haiku 5.5",
-    "match_status": "matched_family",
-    "match_confidence": 0.95,
-    "match_method": "exact_provider_family_version",
-    "review_reason": null,
-    "competing_candidates": []
-  },
-  {
-    "source": "llmstats",
-    "source_name": "Gemini 4 Hydrogen",
-    "source_model_id": "gemini-4-hydrogen",
-    "source_model_url": "https://llm-stats.com/models/gemini-4-hydrogen",
-    "provider": "Google",
-    "candidate_family_id": "google/gemini-4-hydrogen",
-    "candidate_family_name": "Gemini 4 Hydrogen",
     "match_status": "matched_family",
     "match_confidence": 0.95,
     "match_method": "exact_provider_family_version",
@@ -847,20 +861,6 @@
   },
   {
     "source": "llmstats",
-    "source_name": "GPT-6.1 Terra",
-    "source_model_id": "gpt-6.1-terra",
-    "source_model_url": "https://llm-stats.com/models/gpt-6.1-terra",
-    "provider": "OpenAI",
-    "candidate_family_id": "openai/gpt-6-1-terra",
-    "candidate_family_name": "GPT-6.1 Terra",
-    "match_status": "matched_family",
-    "match_confidence": 0.95,
-    "match_method": "exact_provider_family_version",
-    "review_reason": null,
-    "competing_candidates": []
-  },
-  {
-    "source": "llmstats",
     "source_name": "Qwen3.8-Flash-Next",
     "source_model_id": "qwen3.8-flash-next",
     "source_model_url": "https://llm-stats.com/models/qwen3.8-flash-next",
@@ -916,6 +916,20 @@
         "similarity": 0.72
       }
     ]
+  },
+  {
+    "source": "llmstats",
+    "source_name": "GPT-6.1 Terra",
+    "source_model_id": "gpt-6.1-terra",
+    "source_model_url": "https://llm-stats.com/models/gpt-6.1-terra",
+    "provider": "OpenAI",
+    "candidate_family_id": "openai/gpt-6-1-terra",
+    "candidate_family_name": "GPT-6.1 Terra",
+    "match_status": "matched_family",
+    "match_confidence": 0.95,
+    "match_method": "exact_provider_family_version",
+    "review_reason": null,
+    "competing_candidates": []
   },
   {
     "source": "llmstats",
@@ -1765,16 +1779,16 @@
   },
   {
     "source": "llmstats",
-    "source_name": "GLM-5.3-Flash",
-    "source_model_id": "glm-5.3-flash",
-    "source_model_url": "https://llm-stats.com/models/glm-5.3-flash",
-    "provider": "Z AI",
-    "candidate_family_id": null,
-    "candidate_family_name": null,
-    "match_status": "source_missing",
-    "match_confidence": 0.0,
-    "match_method": "no_candidate",
-    "review_reason": "No corresponding family exists in the current AA population.",
+    "source_name": "Gemini 4 Hydrogen",
+    "source_model_id": "gemini-4-hydrogen",
+    "source_model_url": "https://llm-stats.com/models/gemini-4-hydrogen",
+    "provider": "Google",
+    "candidate_family_id": "google/gemini-4-hydrogen",
+    "candidate_family_name": "Gemini 4 Hydrogen",
+    "match_status": "matched_family",
+    "match_confidence": 0.95,
+    "match_method": "exact_provider_family_version",
+    "review_reason": null,
     "competing_candidates": []
   }
 ]
