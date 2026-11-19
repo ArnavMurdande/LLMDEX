@@ -1280,6 +1280,37 @@
       }
     }
   },
+  "google/gemini-4-neon": {
+    "family_id": "google/gemini-4-neon",
+    "canonical_family_name": "Gemini 4 Neon",
+    "provider": "Google",
+    "version": null,
+    "source_aliases": {
+      "artificial_analysis": [
+        "Gemini 4 Neon Xhigh"
+      ],
+      "llmstats": [
+        "Gemini 4 Neon"
+      ]
+    },
+    "source_ids": {},
+    "source_urls": {
+      "artificial_analysis": [
+        "https://artificialanalysis.ai/models/gemini-4-neon"
+      ]
+    },
+    "variants": {
+      "google/gemini-4-neon:xhigh": {
+        "variant_id": "google/gemini-4-neon:xhigh",
+        "deployment_profile_id": "google/gemini-4-neon:xhigh:deployment",
+        "source_name": "Gemini 4 Neon Xhigh",
+        "reasoning_effort": "xhigh",
+        "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": null
+      }
+    }
+  },
   "google/gemma-3-270m": {
     "family_id": "google/gemma-3-270m",
     "canonical_family_name": "Gemma 3 270M",

@@ -1,22 +1,22 @@
 {
-  "generated_at": "2026-11-18T18:59:34.170912+00:00",
+  "generated_at": "2026-11-19T19:07:59.925837+00:00",
   "methodology_version": "LLMStats source-native current",
   "source": "LLMStats",
-  "source_updated_at": "2026-11-18T19:00:02.432754+00:00",
+  "source_updated_at": "2026-11-19T19:08:31.347105+00:00",
   "source_health": {
     "source": "LLMStats",
-    "rows_scraped": 110,
+    "rows_scraped": 111,
     "expected_range": [
       20,
       250
     ],
     "status": "healthy",
     "error_message": null,
-    "duration_seconds": 28.257,
-    "timestamp": "2026-11-18T19:00:02.432754+00:00",
+    "duration_seconds": 31.414,
+    "timestamp": "2026-11-19T19:08:31.347105+00:00",
     "parse_warning_count": 0,
     "warnings": [],
-    "last_successful_update": "2026-11-18T19:00:02.432754+00:00",
+    "last_successful_update": "2026-11-19T19:08:31.347105+00:00",
     "schema_changes": []
   },
   "capability": "writing",
@@ -59,7 +59,7 @@
       "version": null,
       "source_name": "Multi-IF",
       "source_url": "https://llm-stats.com/benchmarks/multi-if",
-      "source_population": 26
+      "source_population": 27
     },
     {
       "benchmark_id": "llmstats__tau-bench-retail",
@@ -1227,7 +1227,7 @@
     },
     {
       "category_rank": 18.0,
-      "category_score": 20.0,
+      "category_score": 20.1,
       "source_name": "Claude Opus 4",
       "provider": "Anthropic",
       "source_model_id": "claude-opus-4-20250514",
@@ -1323,6 +1323,45 @@
     {
       "category_rank": 20.0,
       "category_score": 19.8,
+      "source_name": "LFM3-1.7B",
+      "provider": "Liquid AI",
+      "source_model_id": "lfm3-1.7b",
+      "source_model_url": "https://llm-stats.com/models/lfm3-1.7b",
+      "license": "Open Source",
+      "family_id": "liquid-ai/lfm3-1-7b",
+      "matched_aa_family_id": null,
+      "match_status": "source_missing",
+      "match_confidence": 0.0,
+      "score_status": "llmstats_only",
+      "score_status_label": "LLMStats only",
+      "availability_class": "unknown",
+      "is_sota": false,
+      "is_open_sota": false,
+      "rank_evidence": "source_rendered_table_order",
+      "benchmark_observations": {
+        "llmstats__multi-if": {
+          "benchmark_id": "llmstats__multi-if",
+          "canonical_name": "Multi-IF",
+          "source_name": "Multi-IF",
+          "value": 89.1,
+          "raw_value": "89.1%",
+          "version": null,
+          "provenance": "LLMStats public capability leaderboard",
+          "source_url": "https://llm-stats.com/benchmarks/multi-if",
+          "capabilities": [
+            "writing"
+          ],
+          "source_column_indices": {
+            "writing": 11
+          },
+          "source_population": 27
+        }
+      },
+      "source_updated_at": null
+    },
+    {
+      "category_rank": 21.0,
+      "category_score": 19.8,
       "source_name": "Claude Haiku 4.5",
       "provider": "Anthropic",
       "source_model_id": "claude-haiku-4-5-20251001",
@@ -1394,7 +1433,7 @@
       "source_updated_at": null
     },
     {
-      "category_rank": 21.0,
+      "category_rank": 22.0,
       "category_score": 19.7,
       "source_name": "MiMo-V2-Pro",
       "provider": "Xiaomi",
@@ -1428,45 +1467,6 @@
             "writing": 7
           },
           "source_population": 37
-        }
-      },
-      "source_updated_at": null
-    },
-    {
-      "category_rank": 22.0,
-      "category_score": 19.6,
-      "source_name": "LFM3-1.7B",
-      "provider": "Liquid AI",
-      "source_model_id": "lfm3-1.7b",
-      "source_model_url": "https://llm-stats.com/models/lfm3-1.7b",
-      "license": "Open Source",
-      "family_id": "liquid-ai/lfm3-1-7b",
-      "matched_aa_family_id": null,
-      "match_status": "source_missing",
-      "match_confidence": 0.0,
-      "score_status": "llmstats_only",
-      "score_status_label": "LLMStats only",
-      "availability_class": "unknown",
-      "is_sota": false,
-      "is_open_sota": false,
-      "rank_evidence": "source_rendered_table_order",
-      "benchmark_observations": {
-        "llmstats__multi-if": {
-          "benchmark_id": "llmstats__multi-if",
-          "canonical_name": "Multi-IF",
-          "source_name": "Multi-IF",
-          "value": 89.1,
-          "raw_value": "89.1%",
-          "version": null,
-          "provenance": "LLMStats public capability leaderboard",
-          "source_url": "https://llm-stats.com/benchmarks/multi-if",
-          "capabilities": [
-            "writing"
-          ],
-          "source_column_indices": {
-            "writing": 11
-          },
-          "source_population": 26
         }
       },
       "source_updated_at": null
@@ -1529,7 +1529,7 @@
     },
     {
       "category_rank": 24.0,
-      "category_score": 19.4,
+      "category_score": 19.5,
       "source_name": "GLM-4.5",
       "provider": "Z AI",
       "source_model_id": "glm-4.5",
@@ -1585,7 +1585,7 @@
     },
     {
       "category_rank": 25.0,
-      "category_score": 19.3,
+      "category_score": 19.4,
       "source_name": "Claude Sonnet 4",
       "provider": "Anthropic",
       "source_model_id": "claude-sonnet-4-20250514",
@@ -1641,7 +1641,7 @@
     },
     {
       "category_rank": 26.0,
-      "category_score": 19.1,
+      "category_score": 19.2,
       "source_name": "Claude Opus 4.1",
       "provider": "Anthropic",
       "source_model_id": "claude-opus-4-1-20250805",
@@ -1697,7 +1697,7 @@
     },
     {
       "category_rank": 27.0,
-      "category_score": 18.7,
+      "category_score": 18.8,
       "source_name": "Claude 3.7 Sonnet",
       "provider": "Anthropic",
       "source_model_id": "claude-3-7-sonnet-20250219",
@@ -1792,7 +1792,7 @@
     },
     {
       "category_rank": 29.0,
-      "category_score": 18.1,
+      "category_score": 18.4,
       "source_name": "Qwen3 VL 235B A22B Thinking",
       "provider": "Alibaba",
       "source_model_id": "qwen3-vl-235b-a22b-thinking",
@@ -1824,7 +1824,7 @@
           "source_column_indices": {
             "writing": 11
           },
-          "source_population": 26
+          "source_population": 27
         },
         "llmstats__mm-mt-bench": {
           "benchmark_id": "llmstats__mm-mt-bench",
@@ -1866,12 +1866,12 @@
     {
       "category_rank": 30.0,
       "category_score": 18.1,
-      "source_name": "LongCat-Flash-Thinking",
-      "provider": "Meituan",
-      "source_model_id": "longcat-flash-thinking",
-      "source_model_url": "https://llm-stats.com/models/longcat-flash-thinking",
-      "license": "Open Source",
-      "family_id": "meituan/longcat-flash",
+      "source_name": "Ling 3.0 Flash",
+      "provider": "InclusionAI",
+      "source_model_id": "ling-3.0-flash",
+      "source_model_url": "https://llm-stats.com/models/ling-3.0-flash",
+      "license": "— License unknown",
+      "family_id": "inclusionai/ling-3-0-flash",
       "matched_aa_family_id": null,
       "match_status": "source_missing",
       "match_confidence": 0.0,
@@ -1882,56 +1882,22 @@
       "is_open_sota": false,
       "rank_evidence": "source_rendered_table_order",
       "benchmark_observations": {
-        "llmstats__tau2-telecom": {
-          "benchmark_id": "llmstats__tau2-telecom",
-          "canonical_name": "Tau2 Telecom",
-          "source_name": "Tau2 Telecom",
-          "value": 83.1,
-          "raw_value": "83.1%",
+        "llmstats__multi-if": {
+          "benchmark_id": "llmstats__multi-if",
+          "canonical_name": "Multi-IF",
+          "source_name": "Multi-IF",
+          "value": 87.7,
+          "raw_value": "87.7%",
           "version": null,
           "provenance": "LLMStats public capability leaderboard",
-          "source_url": "https://llm-stats.com/benchmarks/tau2-telecom",
+          "source_url": "https://llm-stats.com/benchmarks/multi-if",
           "capabilities": [
             "writing"
           ],
           "source_column_indices": {
-            "writing": 7
+            "writing": 11
           },
-          "source_population": 37
-        },
-        "llmstats__tau2-airline": {
-          "benchmark_id": "llmstats__tau2-airline",
-          "canonical_name": "Tau2 Airline",
-          "source_name": "Tau2 Airline",
-          "value": 67.5,
-          "raw_value": "67.5%",
-          "version": null,
-          "provenance": "LLMStats public capability leaderboard",
-          "source_url": "https://llm-stats.com/benchmarks/tau2-airline",
-          "capabilities": [
-            "writing"
-          ],
-          "source_column_indices": {
-            "writing": 8
-          },
-          "source_population": 26
-        },
-        "llmstats__tau2-retail": {
-          "benchmark_id": "llmstats__tau2-retail",
-          "canonical_name": "Tau2 Retail",
-          "source_name": "Tau2 Retail",
-          "value": 71.5,
-          "raw_value": "71.5%",
-          "version": null,
-          "provenance": "LLMStats public capability leaderboard",
-          "source_url": "https://llm-stats.com/benchmarks/tau2-retail",
-          "capabilities": [
-            "writing"
-          ],
-          "source_column_indices": {
-            "writing": 10
-          },
-          "source_population": 28
+          "source_population": 27
         }
       },
       "source_updated_at": null

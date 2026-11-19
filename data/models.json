@@ -62,10 +62,10 @@
       "Output Price USD\/1M Tokens":"$40.00",
       "Cache Hit Price USD\/1M Tokens":"$0.20",
       "Cache Write Price USD\/1M Tokens":"$10.00",
-      "Time per Task Minutes":"41.1",
-      "Average tok\/s":"111",
-      "First Answer Token (s)":"214.30",
-      "First Token (s)":"214.30",
+      "Time per Task Minutes":"41.6",
+      "Average tok\/s":"110",
+      "First Answer Token (s)":"221.54",
+      "First Token (s)":"221.54",
       "Context Window":"1M",
       "License":"Proprietary",
       "Further Analysis":"Model Providers"
@@ -140,14 +140,14 @@
     "adjusted_performance":65.0,
     "composite_index":70.32,
     "raw_efficiency":3.125,
-    "efficiency_score":3.45,
+    "efficiency_score":3.33,
     "performance_rank":1.0,
-    "value_rank":4.0,
-    "efficiency_rank":29.0,
-    "global_rank":4.0,
+    "value_rank":5.0,
+    "efficiency_rank":30.0,
+    "global_rank":5.0,
     "model_family":"Claude Fable",
     "family_order":50002,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -170,7 +170,7 @@
       "Model":"GPT-6.2 Astra Max",
       "Artificial Analysis Intelligence Index":"62",
       "AA-Omniscience Net Score":"50",
-      "AA-Briefcase v1.1 Agentic knowledge work, Elo":"1644",
+      "AA-Briefcase v1.1 Agentic knowledge work, Elo":"1643",
       "AA-Omniscience v1.1 Accuracy Knowledge":"68.57%",
       "AA-Omniscience v1.1 Non-Hallucination Rate 1 - hallucination rate":"40.93%",
       "AutomationBench-AA Agentic SaaS workflows":"77.2%",
@@ -192,8 +192,8 @@
       "FrontierCode 1.1 Agentic software engineering in open-source repositories":"--",
       "HealthBench Health conversations, length-adjusted":"53.5%",
       "HealthBench Professional Clinician conversations, length-adjusted":"--",
-      "VIALS-AA Scientific image reasoning, pass^3":"--",
-      "MKA Multimodal agentic knowledge work, Climb WSR":"--",
+      "VIALS-AA Scientific image reasoning, pass^3":"66%",
+      "MKA Multimodal agentic knowledge work, Climb WSR":"53%",
       "Humanity's Last Exam Reasoning & knowledge":"--",
       "AA-LCR v1.1 Long context reasoning":"--",
       "SciCode Coding":"--",
@@ -212,10 +212,10 @@
       "Output Price USD\/1M Tokens":"$40.00",
       "Cache Hit Price USD\/1M Tokens":"$0.40",
       "Cache Write Price USD\/1M Tokens":"$10.00",
-      "Time per Task Minutes":"12.9",
-      "Average tok\/s":"53",
-      "First Answer Token (s)":"170.99",
-      "First Token (s)":"170.99",
+      "Time per Task Minutes":"13.8",
+      "Average tok\/s":"50",
+      "First Answer Token (s)":"207.07",
+      "First Token (s)":"207.07",
       "Context Window":"1M",
       "License":"Proprietary",
       "Further Analysis":"Model Providers"
@@ -287,12 +287,157 @@
     "raw_efficiency":2.9807692308,
     "efficiency_score":0.0,
     "performance_rank":2.0,
-    "value_rank":7.0,
-    "efficiency_rank":30.0,
-    "global_rank":7.0,
+    "value_rank":8.0,
+    "efficiency_rank":31.0,
+    "global_rank":8.0,
     "model_family":"GPT",
     "family_order":60002,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
+  },
+  {
+    "model_id":null,
+    "model_slug":"gemini-4-neon-xhigh",
+    "canonical_name":"Gemini 4 Neon Xhigh",
+    "model_name":"Gemini 4 Neon Xhigh",
+    "aliases":[
+      "Gemini 4 Neon Xhigh"
+    ],
+    "provider":"Google",
+    "context_window":1000000,
+    "open_source":false,
+    "arena_votes":null,
+    "license_type":"Proprietary",
+    "creator":null,
+    "source_rank":3,
+    "model_url":"https:\/\/artificialanalysis.ai\/models\/gemini-4-neon",
+    "providers_url":"https:\/\/artificialanalysis.ai\/models\/gemini-4-neon\/providers",
+    "source_details":{
+      "Model":"Gemini 4 Neon Xhigh",
+      "Artificial Analysis Intelligence Index":"61",
+      "AA-Omniscience Net Score":"55",
+      "AA-Briefcase v1.1 Agentic knowledge work, Elo":"1699",
+      "AA-Omniscience v1.1 Accuracy Knowledge":"60.47%",
+      "AA-Omniscience v1.1 Non-Hallucination Rate 1 - hallucination rate":"85.58%",
+      "AutomationBench-AA Agentic SaaS workflows":"79.3%",
+      "Terminal-Bench-Science 0.1 Agentic scientific research workflows in a terminal":"70.0%",
+      "FrontierCode-AA 2.0 Agentic software engineering in open-source repositories":"44.4%",
+      "HLE-Diamond Reasoning & knowledge":"71.3%",
+      "GDP.pdf Professional document reasoning, All-pass":"28.0%",
+      "Terminal-Bench 4.0 Agentic coding & terminal use":"63.6%",
+      "CritPt v2 (Hard Subset) Physics reasoning":"60.5%",
+      "AA-AnalystAgent Quantitative analysis on spreadsheets & documents":"--",
+      "Harvey LAB-AA v1.1 Legal agentic work, Hallucination-Gated All-Pass Rate":"--",
+      "EnterpriseOps-Gym-AA Agentic business operations":"--",
+      "GDPval-AA v2.1 Agentic real-world work tasks, Elo":"--",
+      "AA-3D Agentic interactive 3D experiences, Elo":"--",
+      "Code2Video-AA Product and brand videos designed in code, Elo":"--",
+      "ITBench-AA Kubernetes incident root-cause analysis":"--",
+      "MLCR-AA Medical long context reasoning":"30.6%",
+      "MMMU-Pro Visual reasoning":"--",
+      "FrontierCode 1.1 Agentic software engineering in open-source repositories":"--",
+      "HealthBench Health conversations, length-adjusted":"--",
+      "HealthBench Professional Clinician conversations, length-adjusted":"--",
+      "VIALS-AA Scientific image reasoning, pass^3":"--",
+      "MKA Multimodal agentic knowledge work, Climb WSR":"56%",
+      "Humanity's Last Exam Reasoning & knowledge":"--",
+      "AA-LCR v1.1 Long context reasoning":"--",
+      "SciCode Coding":"--",
+      "CritPt Physics reasoning":"--",
+      "Terminal-Bench Hard Agentic coding & terminal use":"--",
+      "Terminal-Bench 2.1 Agentic coding & terminal use":"--",
+      "\ud835\udf0f\u00b2-Bench Telecom Agentic tool use":"--",
+      "GPQA Diamond Scientific reasoning":"--",
+      "IFBench Instruction following":"--",
+      "\ud835\udf0f\u00b3-Banking Agentic tool use":"--",
+      "APEX-Agents-AA Long-horizon agentic tasks":"--",
+      "LiveCodeBench Coding":"--",
+      "AIME 2025 Competition math":"--",
+      "Cost per Task USD":"$6.44",
+      "Input Price USD\/1M Tokens":"$3.00",
+      "Output Price USD\/1M Tokens":"$15.00",
+      "Cache Hit Price USD\/1M Tokens":"$0.15",
+      "Cache Write Price USD\/1M Tokens":"$3.00",
+      "Time per Task Minutes":"21.5",
+      "Average tok\/s":"110",
+      "First Answer Token (s)":"56.51",
+      "First Token (s)":"56.51",
+      "Context Window":"1M",
+      "License":"Proprietary",
+      "Further Analysis":"Model Providers"
+    },
+    "input_cost_per_1m":3.0,
+    "output_cost_per_1m":15.0,
+    "blended_cost_per_1m":7.8,
+    "latency_seconds":null,
+    "latency_first_token":null,
+    "latency_p5":null,
+    "latency_p25":null,
+    "latency_p75":null,
+    "latency_p95":null,
+    "total_response_time":null,
+    "reasoning_time":null,
+    "tokens_per_second":null,
+    "speed_p5":null,
+    "speed_p25":null,
+    "speed_p75":null,
+    "speed_p95":null,
+    "cache_read_cost_per_1m":null,
+    "cache_write_cost_per_1m":null,
+    "intelligence_score":61.0,
+    "coding_score":null,
+    "aa_official_coding_index":null,
+    "reasoning_score":null,
+    "multimodal_score":null,
+    "arena_elo":null,
+    "gdpval":null,
+    "terminalbench_hard":null,
+    "tau2":null,
+    "lcr":null,
+    "omniscience":null,
+    "omniscience_hallucination":null,
+    "hle":null,
+    "gpqa":null,
+    "scicode":null,
+    "ifbench":null,
+    "aime25":null,
+    "critpt":60.5,
+    "mmmu_pro":null,
+    "livecodebench":null,
+    "omniscience_index":null,
+    "terminalbench_v21":null,
+    "tau3_banking":null,
+    "apex_agents":null,
+    "itbench":null,
+    "sources":[
+      "Artificial Analysis"
+    ],
+    "source_count":1,
+    "data_tier":1,
+    "aggregation_method":"single_source",
+    "benchmark_breakdown":{
+      "Artificial Analysis":{
+        "intelligence_score":61.0,
+        "critpt":60.5
+      }
+    },
+    "confidence_score":0.7,
+    "performance_index":61.0,
+    "cost_index":92.2,
+    "speed_index":null,
+    "coverage_score":15.6,
+    "perf_source_count":3,
+    "confidence_factor":0.75,
+    "adjusted_performance":61.0,
+    "composite_index":72.7,
+    "raw_efficiency":7.8205128205,
+    "efficiency_score":16.67,
+    "performance_rank":3.0,
+    "value_rank":1.0,
+    "efficiency_rank":26.0,
+    "global_rank":1.0,
+    "model_family":"Gemini",
+    "family_order":4,
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -308,7 +453,7 @@
     "arena_votes":null,
     "license_type":"Proprietary",
     "creator":null,
-    "source_rank":3,
+    "source_rank":4,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/gemini-4-carbon",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/gemini-4-carbon\/providers",
     "source_details":{
@@ -357,10 +502,10 @@
       "Output Price USD\/1M Tokens":"$20.00",
       "Cache Hit Price USD\/1M Tokens":"$0.20",
       "Cache Write Price USD\/1M Tokens":"$4.00",
-      "Time per Task Minutes":"34.5",
-      "Average tok\/s":"59",
-      "First Answer Token (s)":"74.86",
-      "First Token (s)":"74.86",
+      "Time per Task Minutes":"36.6",
+      "Average tok\/s":"56",
+      "First Answer Token (s)":"72.86",
+      "First Token (s)":"72.86",
       "Context Window":"1M",
       "License":"Proprietary",
       "Further Analysis":"Model Providers"
@@ -432,14 +577,14 @@
     "adjusted_performance":60.0,
     "composite_index":71.1,
     "raw_efficiency":5.7692307692,
-    "efficiency_score":13.79,
-    "performance_rank":3.0,
-    "value_rank":2.0,
-    "efficiency_rank":26.0,
-    "global_rank":2.0,
+    "efficiency_score":13.33,
+    "performance_rank":4.0,
+    "value_rank":3.0,
+    "efficiency_rank":27.0,
+    "global_rank":3.0,
     "model_family":"Gemini",
     "family_order":4,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -455,7 +600,7 @@
     "arena_votes":null,
     "license_type":"Proprietary",
     "creator":null,
-    "source_rank":4,
+    "source_rank":5,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/claude-opus-5-5",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/claude-opus-5-5\/providers",
     "source_details":{
@@ -504,10 +649,10 @@
       "Output Price USD\/1M Tokens":"$20.00",
       "Cache Hit Price USD\/1M Tokens":"$0.20",
       "Cache Write Price USD\/1M Tokens":"$5.00",
-      "Time per Task Minutes":"24.6",
-      "Average tok\/s":"117",
-      "First Answer Token (s)":"353.86",
-      "First Token (s)":"353.86",
+      "Time per Task Minutes":"25.1",
+      "Average tok\/s":"115",
+      "First Answer Token (s)":"338.61",
+      "First Token (s)":"338.61",
       "Context Window":"1M",
       "License":"Proprietary",
       "Further Analysis":"Model Providers"
@@ -583,14 +728,14 @@
     "adjusted_performance":59.0,
     "composite_index":70.47,
     "raw_efficiency":5.6730769231,
-    "efficiency_score":10.34,
-    "performance_rank":4.0,
-    "value_rank":3.0,
-    "efficiency_rank":27.0,
-    "global_rank":3.0,
+    "efficiency_score":10.0,
+    "performance_rank":5.0,
+    "value_rank":4.0,
+    "efficiency_rank":28.0,
+    "global_rank":4.0,
     "model_family":"Claude Opus",
     "family_order":50005,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -606,7 +751,7 @@
     "arena_votes":null,
     "license_type":"Proprietary",
     "creator":null,
-    "source_rank":5,
+    "source_rank":6,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/gpt-6-2-sol",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/gpt-6-2-sol\/providers",
     "source_details":{
@@ -635,7 +780,7 @@
       "FrontierCode 1.1 Agentic software engineering in open-source repositories":"--",
       "HealthBench Health conversations, length-adjusted":"53.9%",
       "HealthBench Professional Clinician conversations, length-adjusted":"--",
-      "VIALS-AA Scientific image reasoning, pass^3":"--",
+      "VIALS-AA Scientific image reasoning, pass^3":"63%",
       "MKA Multimodal agentic knowledge work, Climb WSR":"--",
       "Humanity's Last Exam Reasoning & knowledge":"--",
       "AA-LCR v1.1 Long context reasoning":"--",
@@ -655,10 +800,10 @@
       "Output Price USD\/1M Tokens":"$10.00",
       "Cache Hit Price USD\/1M Tokens":"$0.10",
       "Cache Write Price USD\/1M Tokens":"$2.50",
-      "Time per Task Minutes":"8.0",
-      "Average tok\/s":"85",
-      "First Answer Token (s)":"66.70",
-      "First Token (s)":"66.70",
+      "Time per Task Minutes":"8.9",
+      "Average tok\/s":"75",
+      "First Answer Token (s)":"78.57",
+      "First Token (s)":"78.57",
       "Context Window":"1M",
       "License":"Proprietary",
       "Further Analysis":"Model Providers"
@@ -728,14 +873,14 @@
     "adjusted_performance":57.0,
     "composite_index":71.17,
     "raw_efficiency":10.9615384615,
-    "efficiency_score":34.48,
-    "performance_rank":5.0,
-    "value_rank":1.0,
+    "efficiency_score":36.67,
+    "performance_rank":6.0,
+    "value_rank":2.0,
     "efficiency_rank":20.0,
-    "global_rank":1.0,
+    "global_rank":2.0,
     "model_family":"GPT Sol",
     "family_order":60002,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -751,7 +896,7 @@
     "arena_votes":null,
     "license_type":"Proprietary",
     "creator":null,
-    "source_rank":6,
+    "source_rank":7,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/claude-sonnet-5-5",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/claude-sonnet-5-5\/providers",
     "source_details":{
@@ -800,10 +945,10 @@
       "Output Price USD\/1M Tokens":"$10.00",
       "Cache Hit Price USD\/1M Tokens":"$0.10",
       "Cache Write Price USD\/1M Tokens":"$2.50",
-      "Time per Task Minutes":"32.2",
-      "Average tok\/s":"148",
-      "First Answer Token (s)":"289.77",
-      "First Token (s)":"289.77",
+      "Time per Task Minutes":"32.7",
+      "Average tok\/s":"145",
+      "First Answer Token (s)":"261.50",
+      "First Token (s)":"261.50",
       "Context Window":"1M",
       "License":"Proprietary",
       "Further Analysis":"Model Providers"
@@ -878,14 +1023,14 @@
     "adjusted_performance":55.0,
     "composite_index":69.92,
     "raw_efficiency":10.5769230769,
-    "efficiency_score":31.03,
-    "performance_rank":6.0,
-    "value_rank":5.0,
+    "efficiency_score":33.33,
+    "performance_rank":7.0,
+    "value_rank":6.0,
     "efficiency_rank":21.0,
-    "global_rank":5.0,
+    "global_rank":6.0,
     "model_family":"Claude Sonnet",
     "family_order":50005,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -901,7 +1046,7 @@
     "arena_votes":null,
     "license_type":"Proprietary",
     "creator":null,
-    "source_rank":7,
+    "source_rank":8,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/gemini-4-hydrogen",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/gemini-4-hydrogen\/providers",
     "source_details":{
@@ -950,10 +1095,10 @@
       "Output Price USD\/1M Tokens":"$7.50",
       "Cache Hit Price USD\/1M Tokens":"$0.075",
       "Cache Write Price USD\/1M Tokens":"--",
-      "Time per Task Minutes":"15.0",
-      "Average tok\/s":"171",
-      "First Answer Token (s)":"42.56",
-      "First Token (s)":"42.56",
+      "Time per Task Minutes":"15.2",
+      "Average tok\/s":"170",
+      "First Answer Token (s)":"45.22",
+      "First Token (s)":"45.22",
       "Context Window":"1M",
       "License":"Proprietary",
       "Further Analysis":"Model Providers"
@@ -1023,14 +1168,14 @@
     "adjusted_performance":54.0,
     "composite_index":69.79,
     "raw_efficiency":13.8461538462,
-    "efficiency_score":41.38,
-    "performance_rank":7.0,
-    "value_rank":6.0,
+    "efficiency_score":43.33,
+    "performance_rank":8.0,
+    "value_rank":7.0,
     "efficiency_rank":18.0,
-    "global_rank":6.0,
+    "global_rank":7.0,
     "model_family":"Gemini",
     "family_order":4,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -1046,7 +1191,7 @@
     "arena_votes":null,
     "license_type":"Proprietary",
     "creator":null,
-    "source_rank":8,
+    "source_rank":9,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/gpt-6-1-terra",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/gpt-6-1-terra\/providers",
     "source_details":{
@@ -1095,10 +1240,10 @@
       "Output Price USD\/1M Tokens":"$5.00",
       "Cache Hit Price USD\/1M Tokens":"$0.05",
       "Cache Write Price USD\/1M Tokens":"$1.25",
-      "Time per Task Minutes":"14.5",
-      "Average tok\/s":"69",
-      "First Answer Token (s)":"146.49",
-      "First Token (s)":"146.49",
+      "Time per Task Minutes":"15.2",
+      "Average tok\/s":"66",
+      "First Answer Token (s)":"154.42",
+      "First Token (s)":"154.42",
       "Context Window":"1M",
       "License":"Proprietary",
       "Further Analysis":"Model Providers"
@@ -1173,14 +1318,14 @@
     "adjusted_performance":51.0,
     "composite_index":68.4,
     "raw_efficiency":19.6153846154,
-    "efficiency_score":51.72,
-    "performance_rank":8.0,
-    "value_rank":8.0,
+    "efficiency_score":53.33,
+    "performance_rank":9.0,
+    "value_rank":9.0,
     "efficiency_rank":15.0,
-    "global_rank":8.0,
+    "global_rank":9.0,
     "model_family":"GPT Terra",
     "family_order":60001,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -1196,7 +1341,7 @@
     "arena_votes":null,
     "license_type":"Proprietary",
     "creator":null,
-    "source_rank":9,
+    "source_rank":10,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/gemini-4-argon",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/gemini-4-argon\/providers",
     "source_details":{
@@ -1245,10 +1390,10 @@
       "Output Price USD\/1M Tokens":"$10.00",
       "Cache Hit Price USD\/1M Tokens":"$0.10",
       "Cache Write Price USD\/1M Tokens":"--",
-      "Time per Task Minutes":"29.3",
+      "Time per Task Minutes":"29.5",
       "Average tok\/s":"66",
-      "First Answer Token (s)":"47.96",
-      "First Token (s)":"47.96",
+      "First Answer Token (s)":"48.55",
+      "First Token (s)":"48.55",
       "Context Window":"1M",
       "License":"Proprietary",
       "Further Analysis":"Model Providers"
@@ -1323,14 +1468,14 @@
     "adjusted_performance":50.0,
     "composite_index":66.8,
     "raw_efficiency":9.6153846154,
-    "efficiency_score":20.69,
-    "performance_rank":9.0,
-    "value_rank":9.0,
+    "efficiency_score":23.33,
+    "performance_rank":10.0,
+    "value_rank":10.0,
     "efficiency_rank":24.0,
-    "global_rank":9.0,
+    "global_rank":10.0,
     "model_family":"Gemini",
     "family_order":4,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -1346,7 +1491,7 @@
     "arena_votes":null,
     "license_type":"Proprietary",
     "creator":null,
-    "source_rank":10,
+    "source_rank":11,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/muse-wonder-full",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/muse-wonder-full\/providers",
     "source_details":{
@@ -1474,13 +1619,13 @@
     "composite_index":null,
     "raw_efficiency":null,
     "efficiency_score":null,
-    "performance_rank":10.0,
+    "performance_rank":11.0,
     "value_rank":null,
     "efficiency_rank":null,
     "global_rank":null,
     "model_family":"Muse",
     "family_order":1,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -1496,7 +1641,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":11,
+    "source_rank":12,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/kimi-k3-1-pro",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/kimi-k3-1-pro\/providers",
     "source_details":{
@@ -1545,10 +1690,10 @@
       "Output Price USD\/1M Tokens":"$10.00",
       "Cache Hit Price USD\/1M Tokens":"$0.20",
       "Cache Write Price USD\/1M Tokens":"--",
-      "Time per Task Minutes":"38.4",
+      "Time per Task Minutes":"38.8",
       "Average tok\/s":"31",
-      "First Answer Token (s)":"155.75",
-      "First Token (s)":"3.37",
+      "First Answer Token (s)":"157.31",
+      "First Token (s)":"3.56",
       "Context Window":"1M",
       "License":"Open",
       "Further Analysis":"Model Providers"
@@ -1623,14 +1768,14 @@
     "adjusted_performance":46.0,
     "composite_index":64.3,
     "raw_efficiency":8.8461538462,
-    "efficiency_score":17.24,
-    "performance_rank":11.0,
-    "value_rank":10.0,
+    "efficiency_score":20.0,
+    "performance_rank":12.0,
+    "value_rank":11.0,
     "efficiency_rank":25.0,
-    "global_rank":10.0,
+    "global_rank":11.0,
     "model_family":"Kimi",
     "family_order":30001,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -1646,7 +1791,7 @@
     "arena_votes":null,
     "license_type":"Proprietary",
     "creator":null,
-    "source_rank":12,
+    "source_rank":13,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/muse-wonder",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/muse-wonder\/providers",
     "source_details":{
@@ -1695,10 +1840,10 @@
       "Output Price USD\/1M Tokens":"$20.00",
       "Cache Hit Price USD\/1M Tokens":"$0.20",
       "Cache Write Price USD\/1M Tokens":"--",
-      "Time per Task Minutes":"13.3",
-      "Average tok\/s":"120",
-      "First Answer Token (s)":"19.74",
-      "First Token (s)":"19.74",
+      "Time per Task Minutes":"13.7",
+      "Average tok\/s":"117",
+      "First Answer Token (s)":"20.22",
+      "First Token (s)":"20.22",
       "Context Window":"1M",
       "License":"Proprietary",
       "Further Analysis":"Model Providers"
@@ -1773,14 +1918,14 @@
     "adjusted_performance":44.0,
     "composite_index":61.1,
     "raw_efficiency":4.2307692308,
-    "efficiency_score":6.9,
-    "performance_rank":12.0,
-    "value_rank":12.0,
-    "efficiency_rank":28.0,
-    "global_rank":12.0,
+    "efficiency_score":6.67,
+    "performance_rank":13.0,
+    "value_rank":13.0,
+    "efficiency_rank":29.0,
+    "global_rank":13.0,
     "model_family":"Muse",
     "family_order":1,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -1796,7 +1941,7 @@
     "arena_votes":null,
     "license_type":"Proprietary",
     "creator":null,
-    "source_rank":13,
+    "source_rank":14,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/qwen4-max",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/qwen4-max\/providers",
     "source_details":{
@@ -1845,10 +1990,10 @@
       "Output Price USD\/1M Tokens":"$4.50",
       "Cache Hit Price USD\/1M Tokens":"$0.075",
       "Cache Write Price USD\/1M Tokens":"--",
-      "Time per Task Minutes":"32.3",
-      "Average tok\/s":"54",
-      "First Answer Token (s)":"148.57",
-      "First Token (s)":"6.93",
+      "Time per Task Minutes":"30.8",
+      "Average tok\/s":"57",
+      "First Answer Token (s)":"145.97",
+      "First Token (s)":"6.17",
       "Context Window":"984k",
       "License":"Proprietary",
       "Further Analysis":"Model Providers"
@@ -1920,14 +2065,14 @@
     "adjusted_performance":43.0,
     "composite_index":63.36,
     "raw_efficiency":15.9259259259,
-    "efficiency_score":44.83,
-    "performance_rank":13.0,
-    "value_rank":11.0,
+    "efficiency_score":46.67,
+    "performance_rank":14.0,
+    "value_rank":12.0,
     "efficiency_rank":17.0,
-    "global_rank":11.0,
+    "global_rank":12.0,
     "model_family":"Qwen",
     "family_order":4,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -1943,7 +2088,7 @@
     "arena_votes":null,
     "license_type":"Proprietary",
     "creator":null,
-    "source_rank":14,
+    "source_rank":15,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/claude-haiku-5-5",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/claude-haiku-5-5\/providers",
     "source_details":{
@@ -1992,10 +2137,10 @@
       "Output Price USD\/1M Tokens":"$0.50",
       "Cache Hit Price USD\/1M Tokens":"$0.01",
       "Cache Write Price USD\/1M Tokens":"$0.13",
-      "Time per Task Minutes":"14.7",
-      "Average tok\/s":"255",
-      "First Answer Token (s)":"188.41",
-      "First Token (s)":"188.41",
+      "Time per Task Minutes":"14.8",
+      "Average tok\/s":"254",
+      "First Answer Token (s)":"182.27",
+      "First Token (s)":"182.27",
       "Context Window":"1M",
       "License":"Proprietary",
       "Further Analysis":"Model Providers"
@@ -2070,14 +2215,14 @@
     "adjusted_performance":36.0,
     "composite_index":59.9,
     "raw_efficiency":138.4615384615,
-    "efficiency_score":94.83,
-    "performance_rank":14.0,
-    "value_rank":13.0,
+    "efficiency_score":95.0,
+    "performance_rank":15.0,
+    "value_rank":14.0,
     "efficiency_rank":2.0,
-    "global_rank":13.0,
+    "global_rank":14.0,
     "model_family":"Claude Haiku",
     "family_order":50005,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -2093,7 +2238,7 @@
     "arena_votes":null,
     "license_type":"Proprietary",
     "creator":null,
-    "source_rank":15,
+    "source_rank":16,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/muse-ember",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/muse-ember\/providers",
     "source_details":{
@@ -2142,10 +2287,10 @@
       "Output Price USD\/1M Tokens":"$0.50",
       "Cache Hit Price USD\/1M Tokens":"$0.004",
       "Cache Write Price USD\/1M Tokens":"--",
-      "Time per Task Minutes":"3.1",
-      "Average tok\/s":"459",
-      "First Answer Token (s)":"4.94",
-      "First Token (s)":"4.94",
+      "Time per Task Minutes":"3.0",
+      "Average tok\/s":"468",
+      "First Answer Token (s)":"5.20",
+      "First Token (s)":"5.20",
       "Context Window":"1M",
       "License":"Proprietary",
       "Further Analysis":"Model Providers"
@@ -2215,14 +2360,14 @@
     "adjusted_performance":36.0,
     "composite_index":59.9,
     "raw_efficiency":138.4615384615,
-    "efficiency_score":94.83,
-    "performance_rank":15.0,
-    "value_rank":14.0,
+    "efficiency_score":95.0,
+    "performance_rank":16.0,
+    "value_rank":15.0,
     "efficiency_rank":3.0,
-    "global_rank":14.0,
+    "global_rank":15.0,
     "model_family":"Muse",
     "family_order":1,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -2238,7 +2383,7 @@
     "arena_votes":null,
     "license_type":"Proprietary",
     "creator":null,
-    "source_rank":16,
+    "source_rank":17,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/grok-4-7",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/grok-4-7\/providers",
     "source_details":{
@@ -2287,10 +2432,10 @@
       "Output Price USD\/1M Tokens":"$6.00",
       "Cache Hit Price USD\/1M Tokens":"$0.50",
       "Cache Write Price USD\/1M Tokens":"--",
-      "Time per Task Minutes":"24.4",
-      "Average tok\/s":"71",
-      "First Answer Token (s)":"49.31",
-      "First Token (s)":"49.31",
+      "Time per Task Minutes":"24.9",
+      "Average tok\/s":"70",
+      "First Answer Token (s)":"51.54",
+      "First Token (s)":"51.54",
       "Context Window":"500k",
       "License":"Proprietary",
       "Further Analysis":"Model Providers"
@@ -2366,14 +2511,14 @@
     "adjusted_performance":35.0,
     "composite_index":58.02,
     "raw_efficiency":9.7222222222,
-    "efficiency_score":24.14,
-    "performance_rank":16.0,
-    "value_rank":16.0,
+    "efficiency_score":26.67,
+    "performance_rank":17.0,
+    "value_rank":17.0,
     "efficiency_rank":23.0,
-    "global_rank":16.0,
+    "global_rank":17.0,
     "model_family":"Grok",
     "family_order":40007,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -2389,7 +2534,7 @@
     "arena_votes":null,
     "license_type":"Proprietary",
     "creator":null,
-    "source_rank":17,
+    "source_rank":18,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/tencent-hy4",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/tencent-hy4\/providers",
     "source_details":{
@@ -2438,10 +2583,10 @@
       "Output Price USD\/1M Tokens":"$2.50",
       "Cache Hit Price USD\/1M Tokens":"$0.042",
       "Cache Write Price USD\/1M Tokens":"--",
-      "Time per Task Minutes":"13.6",
-      "Average tok\/s":"96",
-      "First Answer Token (s)":"116.38",
-      "First Token (s)":"2.73",
+      "Time per Task Minutes":"13.7",
+      "Average tok\/s":"95",
+      "First Answer Token (s)":"107.82",
+      "First Token (s)":"2.62",
       "Context Window":"1M",
       "License":"Proprietary",
       "Further Analysis":"Model Providers"
@@ -2511,14 +2656,14 @@
     "adjusted_performance":35.0,
     "composite_index":58.81,
     "raw_efficiency":23.3644859813,
-    "efficiency_score":58.62,
-    "performance_rank":17.0,
-    "value_rank":15.0,
+    "efficiency_score":60.0,
+    "performance_rank":18.0,
+    "value_rank":16.0,
     "efficiency_rank":13.0,
-    "global_rank":15.0,
+    "global_rank":16.0,
     "model_family":"Tencent",
     "family_order":4,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -2534,7 +2679,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":18,
+    "source_rank":19,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/deepseek-v4-1-flash-1017",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/deepseek-v4-1-flash-1017\/providers",
     "source_details":{
@@ -2583,10 +2728,10 @@
       "Output Price USD\/1M Tokens":"$1.20",
       "Cache Hit Price USD\/1M Tokens":"$0.006",
       "Cache Write Price USD\/1M Tokens":"--",
-      "Time per Task Minutes":"13.2",
-      "Average tok\/s":"175",
-      "First Answer Token (s)":"38.92",
-      "First Token (s)":"1.26",
+      "Time per Task Minutes":"14.0",
+      "Average tok\/s":"165",
+      "First Answer Token (s)":"43.84",
+      "First Token (s)":"1.28",
       "Context Window":"1M",
       "License":"Open",
       "Further Analysis":"Model Providers"
@@ -2661,14 +2806,14 @@
     "adjusted_performance":33.0,
     "composite_index":57.88,
     "raw_efficiency":50.0,
-    "efficiency_score":65.52,
-    "performance_rank":18.0,
-    "value_rank":17.0,
+    "efficiency_score":66.67,
+    "performance_rank":19.0,
+    "value_rank":18.0,
     "efficiency_rank":11.0,
-    "global_rank":17.0,
+    "global_rank":18.0,
     "model_family":"DeepSeek",
     "family_order":400011017,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -2684,7 +2829,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":19,
+    "source_rank":20,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/glm-5-3",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/glm-5-3\/providers",
     "source_details":{
@@ -2733,10 +2878,10 @@
       "Output Price USD\/1M Tokens":"$4.40",
       "Cache Hit Price USD\/1M Tokens":"$0.26",
       "Cache Write Price USD\/1M Tokens":"--",
-      "Time per Task Minutes":"22.3",
-      "Average tok\/s":"89",
-      "First Answer Token (s)":"67.63",
-      "First Token (s)":"2.59",
+      "Time per Task Minutes":"24.4",
+      "Average tok\/s":"81",
+      "First Answer Token (s)":"71.52",
+      "First Token (s)":"2.79",
       "Context Window":"1M",
       "License":"Open",
       "Further Analysis":"Model Providers"
@@ -2814,14 +2959,14 @@
     "adjusted_performance":32.0,
     "composite_index":56.52,
     "raw_efficiency":12.3076923077,
-    "efficiency_score":37.93,
-    "performance_rank":19.0,
-    "value_rank":19.0,
+    "efficiency_score":40.0,
+    "performance_rank":20.0,
+    "value_rank":20.0,
     "efficiency_rank":19.0,
-    "global_rank":19.0,
+    "global_rank":20.0,
     "model_family":"GLM",
     "family_order":50003,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -2837,7 +2982,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":20,
+    "source_rank":21,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/inkling-2-small",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/inkling-2-small\/providers",
     "source_details":{
@@ -2886,10 +3031,10 @@
       "Output Price USD\/1M Tokens":"$1.00",
       "Cache Hit Price USD\/1M Tokens":"$0.03",
       "Cache Write Price USD\/1M Tokens":"--",
-      "Time per Task Minutes":"21.4",
-      "Average tok\/s":"117",
-      "First Answer Token (s)":"40.61",
-      "First Token (s)":"2.77",
+      "Time per Task Minutes":"21.2",
+      "Average tok\/s":"118",
+      "First Answer Token (s)":"38.98",
+      "First Token (s)":"2.67",
       "Context Window":"1M",
       "License":"Open",
       "Further Analysis":"Model Providers"
@@ -2965,14 +3110,14 @@
     "adjusted_performance":31.0,
     "composite_index":56.66,
     "raw_efficiency":53.4482758621,
-    "efficiency_score":68.97,
-    "performance_rank":20.0,
-    "value_rank":18.0,
+    "efficiency_score":70.0,
+    "performance_rank":21.0,
+    "value_rank":19.0,
     "efficiency_rank":10.0,
-    "global_rank":18.0,
+    "global_rank":19.0,
     "model_family":"Inkling",
     "family_order":2,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -2988,7 +3133,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":21,
+    "source_rank":22,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/mimo-v2-6-pro",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/mimo-v2-6-pro\/providers",
     "source_details":{
@@ -3037,10 +3182,10 @@
       "Output Price USD\/1M Tokens":"$0.87",
       "Cache Hit Price USD\/1M Tokens":"$0.0036",
       "Cache Write Price USD\/1M Tokens":"--",
-      "Time per Task Minutes":"34.5",
-      "Average tok\/s":"58",
-      "First Answer Token (s)":"41.52",
-      "First Token (s)":"3.95",
+      "Time per Task Minutes":"36.1",
+      "Average tok\/s":"56",
+      "First Answer Token (s)":"42.88",
+      "First Token (s)":"3.89",
       "Context Window":"1M",
       "License":"Open",
       "Further Analysis":"Model Providers"
@@ -3115,14 +3260,14 @@
     "adjusted_performance":30.0,
     "composite_index":56.02,
     "raw_efficiency":49.504950495,
-    "efficiency_score":62.07,
-    "performance_rank":21.0,
-    "value_rank":21.0,
+    "efficiency_score":63.33,
+    "performance_rank":22.0,
+    "value_rank":22.0,
     "efficiency_rank":12.0,
-    "global_rank":21.0,
+    "global_rank":22.0,
     "model_family":"MiMo-V2.6-Pro",
     "family_order":20006,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -3138,7 +3283,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":22,
+    "source_rank":23,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/ling-3-1-flash",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/ling-3-1-flash\/providers",
     "source_details":{
@@ -3265,14 +3410,14 @@
     "adjusted_performance":30.0,
     "composite_index":56.05,
     "raw_efficiency":55.5555555556,
-    "efficiency_score":72.41,
-    "performance_rank":22.0,
-    "value_rank":20.0,
+    "efficiency_score":73.33,
+    "performance_rank":23.0,
+    "value_rank":21.0,
     "efficiency_rank":9.0,
-    "global_rank":20.0,
+    "global_rank":21.0,
     "model_family":"Ling",
     "family_order":300011019,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -3288,7 +3433,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":23,
+    "source_rank":24,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/minimax-m3-1-flash",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/minimax-m3-1-flash\/providers",
     "source_details":{
@@ -3337,10 +3482,10 @@
       "Output Price USD\/1M Tokens":"$0.60",
       "Cache Hit Price USD\/1M Tokens":"$0.015",
       "Cache Write Price USD\/1M Tokens":"--",
-      "Time per Task Minutes":"17.2",
-      "Average tok\/s":"134",
-      "First Answer Token (s)":"48.81",
-      "First Token (s)":"1.29",
+      "Time per Task Minutes":"18.4",
+      "Average tok\/s":"125",
+      "First Answer Token (s)":"52.80",
+      "First Token (s)":"1.35",
       "Context Window":"1M",
       "License":"Open",
       "Further Analysis":"Model Providers"
@@ -3415,14 +3560,14 @@
     "adjusted_performance":29.0,
     "composite_index":55.5,
     "raw_efficiency":87.8787878788,
-    "efficiency_score":75.86,
-    "performance_rank":23.0,
-    "value_rank":23.0,
+    "efficiency_score":76.67,
+    "performance_rank":24.0,
+    "value_rank":24.0,
     "efficiency_rank":8.0,
-    "global_rank":23.0,
+    "global_rank":24.0,
     "model_family":"MiniMax",
     "family_order":30001,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -3438,7 +3583,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":24,
+    "source_rank":25,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/qwen3-8-flash-next",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/qwen3-8-flash-next\/providers",
     "source_details":{
@@ -3487,10 +3632,10 @@
       "Output Price USD\/1M Tokens":"$0.47",
       "Cache Hit Price USD\/1M Tokens":"$0.016",
       "Cache Write Price USD\/1M Tokens":"--",
-      "Time per Task Minutes":"29.7",
-      "Average tok\/s":"83",
-      "First Answer Token (s)":"66.91",
-      "First Token (s)":"2.49",
+      "Time per Task Minutes":"31.8",
+      "Average tok\/s":"78",
+      "First Answer Token (s)":"79.46",
+      "First Token (s)":"2.45",
       "Context Window":"256k",
       "License":"Open",
       "Further Analysis":"Model Providers"
@@ -3567,14 +3712,14 @@
     "adjusted_performance":29.0,
     "composite_index":55.52,
     "raw_efficiency":104.3165467626,
-    "efficiency_score":82.76,
-    "performance_rank":24.0,
-    "value_rank":22.0,
+    "efficiency_score":83.33,
+    "performance_rank":25.0,
+    "value_rank":23.0,
     "efficiency_rank":6.0,
-    "global_rank":22.0,
+    "global_rank":23.0,
     "model_family":"Qwen",
     "family_order":30008,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -3590,7 +3735,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":25,
+    "source_rank":26,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/step-5-preview",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/step-5-preview\/providers",
     "source_details":{
@@ -3639,9 +3784,9 @@
       "Output Price USD\/1M Tokens":"$2.70",
       "Cache Hit Price USD\/1M Tokens":"$0.10",
       "Cache Write Price USD\/1M Tokens":"--",
-      "Time per Task Minutes":"12.9",
-      "Average tok\/s":"147",
-      "First Answer Token (s)":"21.36",
+      "Time per Task Minutes":"12.1",
+      "Average tok\/s":"156",
+      "First Answer Token (s)":"20.44",
       "First Token (s)":"0.87",
       "Context Window":"1M",
       "License":"Open",
@@ -3719,14 +3864,14 @@
     "adjusted_performance":29.0,
     "composite_index":54.99,
     "raw_efficiency":17.2619047619,
-    "efficiency_score":48.28,
-    "performance_rank":25.0,
-    "value_rank":25.0,
+    "efficiency_score":50.0,
+    "performance_rank":26.0,
+    "value_rank":26.0,
     "efficiency_rank":16.0,
-    "global_rank":25.0,
+    "global_rank":26.0,
     "model_family":"Step",
     "family_order":5,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -3742,7 +3887,7 @@
     "arena_votes":null,
     "license_type":"Proprietary",
     "creator":null,
-    "source_rank":26,
+    "source_rank":27,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/joyvl2_v27",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/joyvl2_v27\/providers",
     "source_details":{
@@ -3865,13 +4010,13 @@
     "composite_index":55.0,
     "raw_efficiency":9999.0,
     "efficiency_score":100.0,
-    "performance_rank":26.0,
-    "value_rank":24.0,
+    "performance_rank":27.0,
+    "value_rank":25.0,
     "efficiency_rank":1.0,
-    "global_rank":24.0,
+    "global_rank":25.0,
     "model_family":"JoyAI-VL-Preview",
     "family_order":1,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -3887,7 +4032,7 @@
     "arena_votes":null,
     "license_type":"Proprietary",
     "creator":null,
-    "source_rank":27,
+    "source_rank":28,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/gpt-6-luna",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/gpt-6-luna\/providers",
     "source_details":{
@@ -3937,9 +4082,9 @@
       "Cache Hit Price USD\/1M Tokens":"$0.01",
       "Cache Write Price USD\/1M Tokens":"$0.13",
       "Time per Task Minutes":"12.1",
-      "Average tok\/s":"103",
-      "First Answer Token (s)":"67.60",
-      "First Token (s)":"67.60",
+      "Average tok\/s":"104",
+      "First Answer Token (s)":"64.37",
+      "First Token (s)":"64.37",
       "Context Window":"1M",
       "License":"Proprietary",
       "Further Analysis":"Model Providers"
@@ -4014,14 +4159,14 @@
     "adjusted_performance":28.0,
     "composite_index":54.9,
     "raw_efficiency":107.6923076923,
-    "efficiency_score":86.21,
-    "performance_rank":27.0,
-    "value_rank":26.0,
+    "efficiency_score":86.67,
+    "performance_rank":28.0,
+    "value_rank":27.0,
     "efficiency_rank":5.0,
-    "global_rank":26.0,
+    "global_rank":27.0,
     "model_family":"GPT Luna",
     "family_order":6,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -4037,7 +4182,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":28,
+    "source_rank":29,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/glm-5-3-flash",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/glm-5-3-flash\/providers",
     "source_details":{
@@ -4086,10 +4231,10 @@
       "Output Price USD\/1M Tokens":"$0.50",
       "Cache Hit Price USD\/1M Tokens":"$0.03",
       "Cache Write Price USD\/1M Tokens":"--",
-      "Time per Task Minutes":"39.1",
-      "Average tok\/s":"57",
-      "First Answer Token (s)":"85.11",
-      "First Token (s)":"3.16",
+      "Time per Task Minutes":"39.7",
+      "Average tok\/s":"56",
+      "First Answer Token (s)":"90.16",
+      "First Token (s)":"3.27",
       "Context Window":"1M",
       "License":"Open",
       "Further Analysis":"Model Providers"
@@ -4167,14 +4312,14 @@
     "adjusted_performance":28.0,
     "composite_index":54.89,
     "raw_efficiency":96.5517241379,
-    "efficiency_score":79.31,
-    "performance_rank":28.0,
-    "value_rank":27.0,
+    "efficiency_score":80.0,
+    "performance_rank":29.0,
+    "value_rank":28.0,
     "efficiency_rank":7.0,
-    "global_rank":27.0,
+    "global_rank":28.0,
     "model_family":"GLM",
     "family_order":50003,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -4190,7 +4335,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":29,
+    "source_rank":30,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/mimo-v2-6-flash",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/mimo-v2-6-flash\/providers",
     "source_details":{
@@ -4239,10 +4384,10 @@
       "Output Price USD\/1M Tokens":"$0.28",
       "Cache Hit Price USD\/1M Tokens":"$0.0028",
       "Cache Write Price USD\/1M Tokens":"--",
-      "Time per Task Minutes":"55.3",
-      "Average tok\/s":"40",
-      "First Answer Token (s)":"31.44",
-      "First Token (s)":"5.27",
+      "Time per Task Minutes":"53.7",
+      "Average tok\/s":"41",
+      "First Answer Token (s)":"32.89",
+      "First Token (s)":"4.85",
       "Context Window":"1M",
       "License":"Open",
       "Further Analysis":"Model Providers"
@@ -4317,14 +4462,14 @@
     "adjusted_performance":27.0,
     "composite_index":54.3,
     "raw_efficiency":137.7551020408,
-    "efficiency_score":89.66,
-    "performance_rank":29.0,
-    "value_rank":28.0,
+    "efficiency_score":90.0,
+    "performance_rank":30.0,
+    "value_rank":29.0,
     "efficiency_rank":4.0,
-    "global_rank":28.0,
+    "global_rank":29.0,
     "model_family":"MiMo-V2.6-Flash",
     "family_order":20006,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -4340,7 +4485,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":30,
+    "source_rank":31,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/mistral-large-4",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/mistral-large-4\/providers",
     "source_details":{
@@ -4389,10 +4534,10 @@
       "Output Price USD\/1M Tokens":"$2.10",
       "Cache Hit Price USD\/1M Tokens":"$0.07",
       "Cache Write Price USD\/1M Tokens":"$0.70",
-      "Time per Task Minutes":"20.0",
-      "Average tok\/s":"68",
-      "First Answer Token (s)":"70.52",
-      "First Token (s)":"3.24",
+      "Time per Task Minutes":"22.5",
+      "Average tok\/s":"61",
+      "First Answer Token (s)":"79.70",
+      "First Token (s)":"3.40",
       "Context Window":"1M",
       "License":"Open",
       "Further Analysis":"Model Providers"
@@ -4462,14 +4607,14 @@
     "adjusted_performance":26.0,
     "composite_index":53.28,
     "raw_efficiency":20.6349206349,
-    "efficiency_score":55.17,
-    "performance_rank":30.0,
-    "value_rank":29.0,
+    "efficiency_score":56.67,
+    "performance_rank":31.0,
+    "value_rank":30.0,
     "efficiency_rank":14.0,
-    "global_rank":29.0,
+    "global_rank":30.0,
     "model_family":"Mistral",
     "family_order":4,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -4485,7 +4630,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":31,
+    "source_rank":32,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/muse-spark-open",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/muse-spark-open\/providers",
     "source_details":{
@@ -4534,10 +4679,10 @@
       "Output Price USD\/1M Tokens":"$4.25",
       "Cache Hit Price USD\/1M Tokens":"$0.15",
       "Cache Write Price USD\/1M Tokens":"--",
-      "Time per Task Minutes":"6.1",
-      "Average tok\/s":"182",
-      "First Answer Token (s)":"10.35",
-      "First Token (s)":"1.01",
+      "Time per Task Minutes":"6.0",
+      "Average tok\/s":"185",
+      "First Answer Token (s)":"9.76",
+      "First Token (s)":"1.02",
       "Context Window":"1M",
       "License":"Open",
       "Further Analysis":"Model Providers"
@@ -4613,14 +4758,14 @@
     "adjusted_performance":25.0,
     "composite_index":52.21,
     "raw_efficiency":10.2040816327,
-    "efficiency_score":27.59,
-    "performance_rank":31.0,
-    "value_rank":31.0,
+    "efficiency_score":30.0,
+    "performance_rank":32.0,
+    "value_rank":32.0,
     "efficiency_rank":22.0,
-    "global_rank":31.0,
+    "global_rank":32.0,
     "model_family":"Muse",
     "family_order":1,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -4636,7 +4781,7 @@
     "arena_votes":null,
     "license_type":"Proprietary",
     "creator":null,
-    "source_rank":32,
+    "source_rank":33,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/agnes-2-5-pro-theta",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/agnes-2-5-pro-theta\/providers",
     "source_details":{
@@ -4685,10 +4830,10 @@
       "Output Price USD\/1M Tokens":"$0.30",
       "Cache Hit Price USD\/1M Tokens":"$0.01",
       "Cache Write Price USD\/1M Tokens":"--",
-      "Time per Task Minutes":"22.7",
-      "Average tok\/s":"204",
-      "First Answer Token (s)":"8.14",
-      "First Token (s)":"3.93",
+      "Time per Task Minutes":"24.1",
+      "Average tok\/s":"192",
+      "First Answer Token (s)":"8.28",
+      "First Token (s)":"3.99",
       "Context Window":"1M",
       "License":"Proprietary",
       "Further Analysis":"Model Providers"
@@ -4764,13 +4909,13 @@
     "composite_index":52.43,
     "raw_efficiency":133.3333333333,
     "efficiency_score":null,
-    "performance_rank":32.0,
-    "value_rank":30.0,
+    "performance_rank":33.0,
+    "value_rank":31.0,
     "efficiency_rank":null,
-    "global_rank":30.0,
+    "global_rank":31.0,
     "model_family":"Agnes",
     "family_order":20005,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -4786,7 +4931,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":33,
+    "source_rank":34,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/deepseek-v4-pro",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/deepseek-v4-pro\/providers",
     "source_details":{
@@ -4835,10 +4980,10 @@
       "Output Price USD\/1M Tokens":"$3.96",
       "Cache Hit Price USD\/1M Tokens":"$0.044",
       "Cache Write Price USD\/1M Tokens":"--",
-      "Time per Task Minutes":"17.4",
-      "Average tok\/s":"95",
-      "First Answer Token (s)":"54.98",
-      "First Token (s)":"2.47",
+      "Time per Task Minutes":"19.3",
+      "Average tok\/s":"85",
+      "First Answer Token (s)":"59.17",
+      "First Token (s)":"2.44",
       "Context Window":"1M",
       "License":"Open",
       "Further Analysis":"Model Providers"
@@ -4916,13 +5061,13 @@
     "composite_index":50.98,
     "raw_efficiency":9.6801346801,
     "efficiency_score":null,
-    "performance_rank":33.0,
-    "value_rank":32.0,
+    "performance_rank":34.0,
+    "value_rank":33.0,
     "efficiency_rank":null,
-    "global_rank":32.0,
+    "global_rank":33.0,
     "model_family":"DeepSeek",
     "family_order":40813,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -4938,7 +5083,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":34,
+    "source_rank":35,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/nanbeige4-3-33b",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/nanbeige4-3-33b\/providers",
     "source_details":{
@@ -5061,13 +5206,13 @@
     "composite_index":null,
     "raw_efficiency":null,
     "efficiency_score":null,
-    "performance_rank":34.0,
+    "performance_rank":35.0,
     "value_rank":null,
     "efficiency_rank":null,
     "global_rank":null,
     "model_family":"Nanbeige4.3-33B",
     "family_order":400030033,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -5083,7 +5228,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":35,
+    "source_rank":36,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/qwen3-8-27b",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/qwen3-8-27b\/providers",
     "source_details":{
@@ -5134,8 +5279,8 @@
       "Cache Write Price USD\/1M Tokens":"--",
       "Time per Task Minutes":"38.7",
       "Average tok\/s":"47",
-      "First Answer Token (s)":"129.14",
-      "First Token (s)":"5.54",
+      "First Answer Token (s)":"127.93",
+      "First Token (s)":"5.71",
       "Context Window":"256k",
       "License":"Open",
       "Further Analysis":"Model Providers"
@@ -5213,13 +5358,13 @@
     "composite_index":49.44,
     "raw_efficiency":13.3333333333,
     "efficiency_score":null,
-    "performance_rank":35.0,
-    "value_rank":33.0,
+    "performance_rank":36.0,
+    "value_rank":34.0,
     "efficiency_rank":null,
-    "global_rank":33.0,
+    "global_rank":34.0,
     "model_family":"Qwen",
     "family_order":300080027,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -5235,7 +5380,7 @@
     "arena_votes":null,
     "license_type":"Proprietary",
     "creator":null,
-    "source_rank":36,
+    "source_rank":37,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/jt-4-1-flash-236b-a21b",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/jt-4-1-flash-236b-a21b\/providers",
     "source_details":{
@@ -5358,13 +5503,13 @@
     "composite_index":null,
     "raw_efficiency":null,
     "efficiency_score":null,
-    "performance_rank":36.0,
+    "performance_rank":37.0,
     "value_rank":null,
     "efficiency_rank":null,
     "global_rank":null,
     "model_family":"JT-4.1",
     "family_order":4000102360021,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -5380,7 +5525,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":37,
+    "source_rank":38,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/minimax-m3",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/minimax-m3\/providers",
     "source_details":{
@@ -5429,10 +5574,10 @@
       "Output Price USD\/1M Tokens":"$1.20",
       "Cache Hit Price USD\/1M Tokens":"$0.06",
       "Cache Write Price USD\/1M Tokens":"$0.38",
-      "Time per Task Minutes":"14.6",
-      "Average tok\/s":"104",
-      "First Answer Token (s)":"84.31",
-      "First Token (s)":"2.07",
+      "Time per Task Minutes":"16.9",
+      "Average tok\/s":"90",
+      "First Answer Token (s)":"91.43",
+      "First Token (s)":"2.40",
       "Context Window":"1M",
       "License":"Open",
       "Further Analysis":"Model Providers"
@@ -5512,13 +5657,13 @@
     "composite_index":49.13,
     "raw_efficiency":28.7878787879,
     "efficiency_score":null,
-    "performance_rank":37.0,
-    "value_rank":34.0,
+    "performance_rank":38.0,
+    "value_rank":35.0,
     "efficiency_rank":null,
-    "global_rank":34.0,
+    "global_rank":35.0,
     "model_family":"MiniMax",
     "family_order":3,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -5534,7 +5679,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":38,
+    "source_rank":39,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/k2-horizon-375b-a23b",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/k2-horizon-375b-a23b\/providers",
     "source_details":{
@@ -5583,10 +5728,10 @@
       "Output Price USD\/1M Tokens":"$0.00",
       "Cache Hit Price USD\/1M Tokens":"--",
       "Cache Write Price USD\/1M Tokens":"--",
-      "Time per Task Minutes":"4.6",
-      "Average tok\/s":"229",
-      "First Answer Token (s)":"17.73",
-      "First Token (s)":"7.10",
+      "Time per Task Minutes":"4.3",
+      "Average tok\/s":"247",
+      "First Answer Token (s)":"14.39",
+      "First Token (s)":"6.18",
       "Context Window":"524k",
       "License":"Open",
       "Further Analysis":"Model Providers"
@@ -5664,13 +5809,13 @@
     "composite_index":48.75,
     "raw_efficiency":9999.0,
     "efficiency_score":null,
-    "performance_rank":38.0,
-    "value_rank":35.0,
+    "performance_rank":39.0,
+    "value_rank":36.0,
     "efficiency_rank":null,
-    "global_rank":35.0,
+    "global_rank":36.0,
     "model_family":"K2",
     "family_order":203750023,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -5686,7 +5831,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":39,
+    "source_rank":40,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/reflection-beam",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/reflection-beam\/providers",
     "source_details":{
@@ -5735,9 +5880,9 @@
       "Output Price USD\/1M Tokens":"$1.20",
       "Cache Hit Price USD\/1M Tokens":"$0.04",
       "Cache Write Price USD\/1M Tokens":"--",
-      "Time per Task Minutes":"2.2",
-      "Average tok\/s":"263",
-      "First Answer Token (s)":"7.85",
+      "Time per Task Minutes":"2.1",
+      "Average tok\/s":"270",
+      "First Answer Token (s)":"7.27",
       "First Token (s)":"0.74",
       "Context Window":"1M",
       "License":"Open",
@@ -5814,13 +5959,13 @@
     "composite_index":48.48,
     "raw_efficiency":25.0,
     "efficiency_score":null,
-    "performance_rank":39.0,
-    "value_rank":36.0,
+    "performance_rank":40.0,
+    "value_rank":37.0,
     "efficiency_rank":null,
-    "global_rank":36.0,
+    "global_rank":37.0,
     "model_family":"Beam",
     "family_order":10000,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -5836,7 +5981,7 @@
     "arena_votes":null,
     "license_type":"Proprietary",
     "creator":null,
-    "source_rank":40,
+    "source_rank":41,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/solar-pro-4",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/solar-pro-4\/providers",
     "source_details":{
@@ -5885,10 +6030,10 @@
       "Output Price USD\/1M Tokens":"$1.20",
       "Cache Hit Price USD\/1M Tokens":"$0.06",
       "Cache Write Price USD\/1M Tokens":"--",
-      "Time per Task Minutes":"71.7",
+      "Time per Task Minutes":"72.3",
       "Average tok\/s":"72",
-      "First Answer Token (s)":"32.80",
-      "First Token (s)":"2.33",
+      "First Answer Token (s)":"31.85",
+      "First Token (s)":"2.38",
       "Context Window":"512k",
       "License":"Proprietary",
       "Further Analysis":"Model Providers"
@@ -5966,13 +6111,13 @@
     "composite_index":46.0,
     "raw_efficiency":21.2121212121,
     "efficiency_score":null,
-    "performance_rank":40.0,
-    "value_rank":38.0,
+    "performance_rank":41.0,
+    "value_rank":39.0,
     "efficiency_rank":null,
-    "global_rank":38.0,
+    "global_rank":39.0,
     "model_family":"Solar",
     "family_order":4,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -5988,7 +6133,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":41,
+    "source_rank":42,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/k2-horizon-32b",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/k2-horizon-32b\/providers",
     "source_details":{
@@ -6111,13 +6256,13 @@
     "composite_index":null,
     "raw_efficiency":null,
     "efficiency_score":null,
-    "performance_rank":41.0,
+    "performance_rank":42.0,
     "value_rank":null,
     "efficiency_rank":null,
     "global_rank":null,
     "model_family":"K2",
     "family_order":20032,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -6133,7 +6278,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":42,
+    "source_rank":43,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/k2-horizon-mova-36b-a4b",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/k2-horizon-mova-36b-a4b\/providers",
     "source_details":{
@@ -6263,13 +6408,13 @@
     "composite_index":null,
     "raw_efficiency":null,
     "efficiency_score":null,
-    "performance_rank":42.0,
+    "performance_rank":43.0,
     "value_rank":null,
     "efficiency_rank":null,
     "global_rank":null,
     "model_family":"K2",
     "family_order":200360004,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -6285,7 +6430,7 @@
     "arena_votes":null,
     "license_type":"Proprietary",
     "creator":null,
-    "source_rank":43,
+    "source_rank":44,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/apodex-1-1",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/apodex-1-1\/providers",
     "source_details":{
@@ -6416,13 +6561,13 @@
     "composite_index":45.73,
     "raw_efficiency":10.1449275362,
     "efficiency_score":null,
-    "performance_rank":43.0,
-    "value_rank":39.0,
+    "performance_rank":44.0,
+    "value_rank":40.0,
     "efficiency_rank":null,
-    "global_rank":39.0,
+    "global_rank":40.0,
     "model_family":"Apodex",
     "family_order":10001,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -6438,7 +6583,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":44,
+    "source_rank":45,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/nemotron-3-5-super-vl",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/nemotron-3-5-super-vl\/providers",
     "source_details":{
@@ -6487,10 +6632,10 @@
       "Output Price USD\/1M Tokens":"$0.50",
       "Cache Hit Price USD\/1M Tokens":"$0.05",
       "Cache Write Price USD\/1M Tokens":"--",
-      "Time per Task Minutes":"4.4",
-      "Average tok\/s":"306",
-      "First Answer Token (s)":"13.97",
-      "First Token (s)":"1.13",
+      "Time per Task Minutes":"4.5",
+      "Average tok\/s":"303",
+      "First Answer Token (s)":"12.58",
+      "First Token (s)":"1.14",
       "Context Window":"1M",
       "License":"Open",
       "Further Analysis":"Model Providers"
@@ -6566,13 +6711,13 @@
     "composite_index":46.14,
     "raw_efficiency":48.275862069,
     "efficiency_score":null,
-    "performance_rank":44.0,
-    "value_rank":37.0,
+    "performance_rank":45.0,
+    "value_rank":38.0,
     "efficiency_rank":null,
-    "global_rank":37.0,
+    "global_rank":38.0,
     "model_family":"Nemotron",
     "family_order":30005,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -6588,7 +6733,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":45,
+    "source_rank":46,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/inkling",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/inkling\/providers",
     "source_details":{
@@ -6637,10 +6782,10 @@
       "Output Price USD\/1M Tokens":"$4.05",
       "Cache Hit Price USD\/1M Tokens":"$0.17",
       "Cache Write Price USD\/1M Tokens":"--",
-      "Time per Task Minutes":"8.2",
-      "Average tok\/s":"104",
-      "First Answer Token (s)":"15.16",
-      "First Token (s)":"1.58",
+      "Time per Task Minutes":"8.0",
+      "Average tok\/s":"107",
+      "First Answer Token (s)":"14.31",
+      "First Token (s)":"1.49",
       "Context Window":"1M",
       "License":"Open",
       "Further Analysis":"Model Providers"
@@ -6718,13 +6863,13 @@
     "composite_index":44.17,
     "raw_efficiency":5.4054054054,
     "efficiency_score":null,
-    "performance_rank":45.0,
-    "value_rank":42.0,
+    "performance_rank":46.0,
+    "value_rank":43.0,
     "efficiency_rank":null,
-    "global_rank":42.0,
+    "global_rank":43.0,
     "model_family":"Inkling",
     "family_order":1,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -6740,7 +6885,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":46,
+    "source_rank":47,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/nemotron-3-ultra-550b-a55b",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/nemotron-3-ultra-550b-a55b\/providers",
     "source_details":{
@@ -6790,9 +6935,9 @@
       "Cache Hit Price USD\/1M Tokens":"$0.12",
       "Cache Write Price USD\/1M Tokens":"--",
       "Time per Task Minutes":"4.4",
-      "Average tok\/s":"196",
-      "First Answer Token (s)":"3.74",
-      "First Token (s)":"1.97",
+      "Average tok\/s":"195",
+      "First Answer Token (s)":"7.79",
+      "First Token (s)":"1.91",
       "Context Window":"262k",
       "License":"Open",
       "Further Analysis":"Model Providers"
@@ -6872,13 +7017,13 @@
     "composite_index":44.5,
     "raw_efficiency":9.0909090909,
     "efficiency_score":null,
-    "performance_rank":46.0,
-    "value_rank":41.0,
+    "performance_rank":47.0,
+    "value_rank":42.0,
     "efficiency_rank":null,
-    "global_rank":41.0,
+    "global_rank":42.0,
     "model_family":"Nemotron",
     "family_order":305500055,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -6894,7 +7039,7 @@
     "arena_votes":null,
     "license_type":"Proprietary",
     "creator":null,
-    "source_rank":47,
+    "source_rank":48,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/gemini-3-5-flash-lite",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/gemini-3-5-flash-lite\/providers",
     "source_details":{
@@ -6943,10 +7088,10 @@
       "Output Price USD\/1M Tokens":"$2.50",
       "Cache Hit Price USD\/1M Tokens":"$0.03",
       "Cache Write Price USD\/1M Tokens":"--",
-      "Time per Task Minutes":"1.5",
-      "Average tok\/s":"327",
-      "First Answer Token (s)":"4.78",
-      "First Token (s)":"4.78",
+      "Time per Task Minutes":"1.6",
+      "Average tok\/s":"314",
+      "First Answer Token (s)":"4.73",
+      "First Token (s)":"4.73",
       "Context Window":"1M",
       "License":"Proprietary",
       "Further Analysis":"Model Providers"
@@ -7024,13 +7169,13 @@
     "composite_index":44.56,
     "raw_efficiency":10.1694915254,
     "efficiency_score":null,
-    "performance_rank":47.0,
-    "value_rank":40.0,
+    "performance_rank":48.0,
+    "value_rank":41.0,
     "efficiency_rank":null,
-    "global_rank":40.0,
+    "global_rank":41.0,
     "model_family":"Gemini Flash",
     "family_order":30005,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -7046,7 +7191,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":48,
+    "source_rank":49,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/k2-horizon-7b",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/k2-horizon-7b\/providers",
     "source_details":{
@@ -7176,13 +7321,13 @@
     "composite_index":null,
     "raw_efficiency":null,
     "efficiency_score":null,
-    "performance_rank":48.0,
+    "performance_rank":49.0,
     "value_rank":null,
     "efficiency_rank":null,
     "global_rank":null,
     "model_family":"K2",
     "family_order":20007,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -7198,7 +7343,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":49,
+    "source_rank":50,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/a-x-k2",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/a-x-k2\/providers",
     "source_details":{
@@ -7328,13 +7473,13 @@
     "composite_index":null,
     "raw_efficiency":null,
     "efficiency_score":null,
-    "performance_rank":49.0,
+    "performance_rank":50.0,
     "value_rank":null,
     "efficiency_rank":null,
     "global_rank":null,
     "model_family":"A.X-K2",
     "family_order":2,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -7350,7 +7495,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":50,
+    "source_rank":51,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/k2-horizon-3-7b",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/k2-horizon-3-7b\/providers",
     "source_details":{
@@ -7480,13 +7625,13 @@
     "composite_index":null,
     "raw_efficiency":null,
     "efficiency_score":null,
-    "performance_rank":50.0,
+    "performance_rank":51.0,
     "value_rank":null,
     "efficiency_rank":null,
     "global_rank":null,
     "model_family":"K2",
     "family_order":200030007,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -7502,7 +7647,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":51,
+    "source_rank":52,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/k-exaone-2-0",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/k-exaone-2-0\/providers",
     "source_details":{
@@ -7632,13 +7777,13 @@
     "composite_index":null,
     "raw_efficiency":null,
     "efficiency_score":null,
-    "performance_rank":51.0,
+    "performance_rank":52.0,
     "value_rank":null,
     "efficiency_rank":null,
     "global_rank":null,
     "model_family":"K-EXAONE",
     "family_order":20000,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -7654,7 +7799,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":52,
+    "source_rank":53,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/muse-glimmer",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/muse-glimmer\/providers",
     "source_details":{
@@ -7703,10 +7848,10 @@
       "Output Price USD\/1M Tokens":"$1.35",
       "Cache Hit Price USD\/1M Tokens":"$0.04",
       "Cache Write Price USD\/1M Tokens":"--",
-      "Time per Task Minutes":"4.7",
-      "Average tok\/s":"93",
-      "First Answer Token (s)":"18.85",
-      "First Token (s)":"1.62",
+      "Time per Task Minutes":"4.9",
+      "Average tok\/s":"88",
+      "First Answer Token (s)":"19.23",
+      "First Token (s)":"1.65",
       "Context Window":"131k",
       "License":"Open",
       "Further Analysis":"Model Providers"
@@ -7784,13 +7929,13 @@
     "composite_index":40.98,
     "raw_efficiency":8.1967213115,
     "efficiency_score":null,
-    "performance_rank":52.0,
-    "value_rank":46.0,
+    "performance_rank":53.0,
+    "value_rank":47.0,
     "efficiency_rank":null,
-    "global_rank":46.0,
+    "global_rank":47.0,
     "model_family":"Muse",
     "family_order":1,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -7806,7 +7951,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":53,
+    "source_rank":54,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/command-a-plus",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/command-a-plus\/providers",
     "source_details":{
@@ -7855,9 +8000,9 @@
       "Output Price USD\/1M Tokens":"$0.00",
       "Cache Hit Price USD\/1M Tokens":"--",
       "Cache Write Price USD\/1M Tokens":"--",
-      "Time per Task Minutes":"3.5",
-      "Average tok\/s":"169",
-      "First Answer Token (s)":"26.73",
+      "Time per Task Minutes":"3.3",
+      "Average tok\/s":"180",
+      "First Answer Token (s)":"22.71",
       "First Token (s)":"0.97",
       "Context Window":"192k",
       "License":"Open",
@@ -7938,13 +8083,13 @@
     "composite_index":41.25,
     "raw_efficiency":9999.0,
     "efficiency_score":null,
-    "performance_rank":53.0,
-    "value_rank":43.0,
+    "performance_rank":54.0,
+    "value_rank":44.0,
     "efficiency_rank":null,
-    "global_rank":43.0,
+    "global_rank":44.0,
     "model_family":"Cohere Command",
     "family_order":1,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -7960,7 +8105,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":54,
+    "source_rank":55,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/lfm3-1-7b",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/lfm3-1-7b\/providers",
     "source_details":{
@@ -8009,10 +8154,10 @@
       "Output Price USD\/1M Tokens":"$0.20",
       "Cache Hit Price USD\/1M Tokens":"$0.02",
       "Cache Write Price USD\/1M Tokens":"--",
-      "Time per Task Minutes":"11.1",
-      "Average tok\/s":"146",
-      "First Answer Token (s)":"20.21",
-      "First Token (s)":"0.33",
+      "Time per Task Minutes":"11.0",
+      "Average tok\/s":"148",
+      "First Answer Token (s)":"15.09",
+      "First Token (s)":"0.68",
       "Context Window":"262k",
       "License":"Open",
       "Further Analysis":"Model Providers"
@@ -8083,13 +8228,165 @@
     "composite_index":41.2,
     "raw_efficiency":46.875,
     "efficiency_score":null,
-    "performance_rank":54.0,
-    "value_rank":44.0,
+    "performance_rank":55.0,
+    "value_rank":45.0,
     "efficiency_rank":null,
-    "global_rank":44.0,
+    "global_rank":45.0,
     "model_family":"LFM3-1.7B",
     "family_order":300010007,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
+  },
+  {
+    "model_id":null,
+    "model_slug":"granite-4-2-30b",
+    "canonical_name":"Granite 4.2 30B",
+    "model_name":"Granite 4.2 30B",
+    "aliases":[
+      "Granite 4.2 30B"
+    ],
+    "provider":null,
+    "context_window":131000,
+    "open_source":false,
+    "arena_votes":null,
+    "license_type":"Open",
+    "creator":null,
+    "source_rank":56,
+    "model_url":"https:\/\/artificialanalysis.ai\/models\/granite-4-2-30b",
+    "providers_url":"https:\/\/artificialanalysis.ai\/models\/granite-4-2-30b\/providers",
+    "source_details":{
+      "Model":"Granite 4.2 30B",
+      "Artificial Analysis Intelligence Index":"6",
+      "AA-Omniscience Net Score":"\u221212",
+      "AA-Briefcase v1.1 Agentic knowledge work, Elo":"397",
+      "AA-Omniscience v1.1 Accuracy Knowledge":"11.23%",
+      "AA-Omniscience v1.1 Non-Hallucination Rate 1 - hallucination rate":"73.34%",
+      "AutomationBench-AA Agentic SaaS workflows":"1.5%",
+      "Terminal-Bench-Science 0.1 Agentic scientific research workflows in a terminal":"0.0%",
+      "FrontierCode-AA 2.0 Agentic software engineering in open-source repositories":"0.0%",
+      "HLE-Diamond Reasoning & knowledge":"4.3%",
+      "GDP.pdf Professional document reasoning, All-pass":"1.8%",
+      "Terminal-Bench 4.0 Agentic coding & terminal use":"0.0%",
+      "CritPt v2 (Hard Subset) Physics reasoning":"1.5%",
+      "AA-AnalystAgent Quantitative analysis on spreadsheets & documents":"--",
+      "Harvey LAB-AA v1.1 Legal agentic work, Hallucination-Gated All-Pass Rate":"--",
+      "EnterpriseOps-Gym-AA Agentic business operations":"--",
+      "GDPval-AA v2.1 Agentic real-world work tasks, Elo":"583",
+      "AA-3D Agentic interactive 3D experiences, Elo":"--",
+      "Code2Video-AA Product and brand videos designed in code, Elo":"--",
+      "ITBench-AA Kubernetes incident root-cause analysis":"--",
+      "MLCR-AA Medical long context reasoning":"--",
+      "MMMU-Pro Visual reasoning":"--",
+      "FrontierCode 1.1 Agentic software engineering in open-source repositories":"--",
+      "HealthBench Health conversations, length-adjusted":"--",
+      "HealthBench Professional Clinician conversations, length-adjusted":"--",
+      "VIALS-AA Scientific image reasoning, pass^3":"--",
+      "MKA Multimodal agentic knowledge work, Climb WSR":"--",
+      "Humanity's Last Exam Reasoning & knowledge":"11.2%",
+      "AA-LCR v1.1 Long context reasoning":"49.0%",
+      "SciCode Coding":"37.8%",
+      "CritPt Physics reasoning":"0.3%",
+      "Terminal-Bench Hard Agentic coding & terminal use":"--",
+      "Terminal-Bench 2.1 Agentic coding & terminal use":"26.6%",
+      "\ud835\udf0f\u00b2-Bench Telecom Agentic tool use":"--",
+      "GPQA Diamond Scientific reasoning":"64.4%",
+      "IFBench Instruction following":"--",
+      "\ud835\udf0f\u00b3-Banking Agentic tool use":"14.4%",
+      "APEX-Agents-AA Long-horizon agentic tasks":"--",
+      "LiveCodeBench Coding":"--",
+      "AIME 2025 Competition math":"--",
+      "Cost per Task USD":"--",
+      "Input Price USD\/1M Tokens":"--",
+      "Output Price USD\/1M Tokens":"--",
+      "Cache Hit Price USD\/1M Tokens":"--",
+      "Cache Write Price USD\/1M Tokens":"--",
+      "Time per Task Minutes":"--",
+      "Average tok\/s":"--",
+      "First Answer Token (s)":"--",
+      "First Token (s)":"--",
+      "Context Window":"131k",
+      "License":"Open",
+      "Further Analysis":"Model Providers"
+    },
+    "input_cost_per_1m":null,
+    "output_cost_per_1m":null,
+    "blended_cost_per_1m":null,
+    "latency_seconds":null,
+    "latency_first_token":null,
+    "latency_p5":null,
+    "latency_p25":null,
+    "latency_p75":null,
+    "latency_p95":null,
+    "total_response_time":null,
+    "reasoning_time":null,
+    "tokens_per_second":null,
+    "speed_p5":null,
+    "speed_p25":null,
+    "speed_p75":null,
+    "speed_p95":null,
+    "cache_read_cost_per_1m":null,
+    "cache_write_cost_per_1m":null,
+    "intelligence_score":6.0,
+    "coding_score":37.8,
+    "aa_official_coding_index":37.8,
+    "reasoning_score":null,
+    "multimodal_score":null,
+    "arena_elo":null,
+    "gdpval":583.0,
+    "terminalbench_hard":null,
+    "tau2":null,
+    "lcr":49.0,
+    "omniscience":null,
+    "omniscience_hallucination":null,
+    "hle":11.2,
+    "gpqa":64.4,
+    "scicode":37.8,
+    "ifbench":null,
+    "aime25":null,
+    "critpt":1.5,
+    "mmmu_pro":null,
+    "livecodebench":null,
+    "omniscience_index":null,
+    "terminalbench_v21":null,
+    "tau3_banking":14.4,
+    "apex_agents":null,
+    "itbench":null,
+    "sources":[
+      "Artificial Analysis"
+    ],
+    "source_count":1,
+    "data_tier":1,
+    "aggregation_method":"single_source",
+    "benchmark_breakdown":{
+      "Artificial Analysis":{
+        "intelligence_score":6.0,
+        "coding_score":37.8,
+        "gdpval":583.0,
+        "lcr":49.0,
+        "hle":11.2,
+        "gpqa":64.4,
+        "scicode":37.8,
+        "critpt":1.5,
+        "tau3_banking":14.4
+      }
+    },
+    "confidence_score":0.75,
+    "performance_index":6.0,
+    "cost_index":null,
+    "speed_index":null,
+    "coverage_score":31.2,
+    "perf_source_count":2,
+    "confidence_factor":0.5,
+    "adjusted_performance":6.0,
+    "composite_index":null,
+    "raw_efficiency":null,
+    "efficiency_score":null,
+    "performance_rank":56.0,
+    "value_rank":null,
+    "efficiency_rank":null,
+    "global_rank":null,
+    "model_family":"Granite",
+    "family_order":400020030,
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -8105,7 +8402,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":55,
+    "source_rank":57,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/nemotron-3-5-lightning",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/nemotron-3-5-lightning\/providers",
     "source_details":{
@@ -8154,10 +8451,10 @@
       "Output Price USD\/1M Tokens":"$0.20",
       "Cache Hit Price USD\/1M Tokens":"$0.04",
       "Cache Write Price USD\/1M Tokens":"--",
-      "Time per Task Minutes":"3.9",
-      "Average tok\/s":"279",
-      "First Answer Token (s)":"15.59",
-      "First Token (s)":"0.74",
+      "Time per Task Minutes":"3.8",
+      "Average tok\/s":"287",
+      "First Answer Token (s)":"14.90",
+      "First Token (s)":"0.75",
       "Context Window":"1M",
       "License":"Open",
       "Further Analysis":"Model Providers"
@@ -8235,13 +8532,13 @@
     "composite_index":41.2,
     "raw_efficiency":51.724137931,
     "efficiency_score":null,
-    "performance_rank":55.0,
-    "value_rank":45.0,
+    "performance_rank":57.0,
+    "value_rank":46.0,
     "efficiency_rank":null,
-    "global_rank":45.0,
+    "global_rank":46.0,
     "model_family":"Nemotron",
     "family_order":30005,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -8257,7 +8554,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":56,
+    "source_rank":58,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/granite-4-2-8b",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/granite-4-2-8b\/providers",
     "source_details":{
@@ -8306,10 +8603,10 @@
       "Output Price USD\/1M Tokens":"$0.25",
       "Cache Hit Price USD\/1M Tokens":"$0.015",
       "Cache Write Price USD\/1M Tokens":"--",
-      "Time per Task Minutes":"11.5",
-      "Average tok\/s":"74",
-      "First Answer Token (s)":"47.36",
-      "First Token (s)":"2.01",
+      "Time per Task Minutes":"9.9",
+      "Average tok\/s":"87",
+      "First Answer Token (s)":"40.15",
+      "First Token (s)":"1.99",
       "Context Window":"131k",
       "License":"Open",
       "Further Analysis":"Model Providers"
@@ -8387,13 +8684,13 @@
     "composite_index":40.57,
     "raw_efficiency":36.7647058824,
     "efficiency_score":null,
-    "performance_rank":56.0,
-    "value_rank":48.0,
+    "performance_rank":58.0,
+    "value_rank":49.0,
     "efficiency_rank":null,
-    "global_rank":48.0,
+    "global_rank":49.0,
     "model_family":"Granite",
     "family_order":400020008,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -8409,7 +8706,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":57,
+    "source_rank":59,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/gemma-4-e4b",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/gemma-4-e4b\/providers",
     "source_details":{
@@ -8458,10 +8755,10 @@
       "Output Price USD\/1M Tokens":"$0.10",
       "Cache Hit Price USD\/1M Tokens":"--",
       "Cache Write Price USD\/1M Tokens":"--",
-      "Time per Task Minutes":"4.1",
-      "Average tok\/s":"66",
-      "First Answer Token (s)":"40.48",
-      "First Token (s)":"1.82",
+      "Time per Task Minutes":"4.3",
+      "Average tok\/s":"63",
+      "First Answer Token (s)":"38.65",
+      "First Token (s)":"1.67",
       "Context Window":"128k",
       "License":"Open",
       "Further Analysis":"Model Providers"
@@ -8540,13 +8837,13 @@
     "composite_index":40.61,
     "raw_efficiency":96.1538461538,
     "efficiency_score":null,
-    "performance_rank":57.0,
-    "value_rank":47.0,
+    "performance_rank":59.0,
+    "value_rank":48.0,
     "efficiency_rank":null,
-    "global_rank":47.0,
+    "global_rank":48.0,
     "model_family":"Gemini",
     "family_order":40004,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -8562,7 +8859,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":58,
+    "source_rank":60,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/granite-4-2-3b",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/granite-4-2-3b\/providers",
     "source_details":{
@@ -8692,13 +8989,13 @@
     "composite_index":null,
     "raw_efficiency":null,
     "efficiency_score":null,
-    "performance_rank":58.0,
+    "performance_rank":60.0,
     "value_rank":null,
     "efficiency_rank":null,
     "global_rank":null,
     "model_family":"Granite",
     "family_order":400020003,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -8714,7 +9011,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":59,
+    "source_rank":61,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/mistral-medium-3-5",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/mistral-medium-3-5\/providers",
     "source_details":{
@@ -8763,10 +9060,10 @@
       "Output Price USD\/1M Tokens":"$7.50",
       "Cache Hit Price USD\/1M Tokens":"$0.15",
       "Cache Write Price USD\/1M Tokens":"--",
-      "Time per Task Minutes":"4.5",
-      "Average tok\/s":"145",
-      "First Answer Token (s)":"25.12",
-      "First Token (s)":"7.23",
+      "Time per Task Minutes":"4.6",
+      "Average tok\/s":"143",
+      "First Answer Token (s)":"25.16",
+      "First Token (s)":"7.21",
       "Context Window":"256k",
       "License":"Open",
       "Further Analysis":"Model Providers"
@@ -8846,13 +9143,13 @@
     "composite_index":39.16,
     "raw_efficiency":1.2820512821,
     "efficiency_score":null,
-    "performance_rank":59.0,
-    "value_rank":53.0,
+    "performance_rank":61.0,
+    "value_rank":54.0,
     "efficiency_rank":null,
-    "global_rank":53.0,
+    "global_rank":54.0,
     "model_family":"Mistral",
     "family_order":30005,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -8868,7 +9165,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":60,
+    "source_rank":62,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/gemma-4-31b",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/gemma-4-31b\/providers",
     "source_details":{
@@ -8919,7 +9216,7 @@
       "Cache Write Price USD\/1M Tokens":"--",
       "Time per Task Minutes":"--",
       "Average tok\/s":"36",
-      "First Answer Token (s)":"78.97",
+      "First Answer Token (s)":"78.73",
       "First Token (s)":"0.96",
       "Context Window":"256k",
       "License":"Open",
@@ -9001,13 +9298,13 @@
     "composite_index":40.0,
     "raw_efficiency":9999.0,
     "efficiency_score":null,
-    "performance_rank":60.0,
-    "value_rank":49.0,
+    "performance_rank":62.0,
+    "value_rank":50.0,
     "efficiency_rank":null,
-    "global_rank":49.0,
+    "global_rank":50.0,
     "model_family":"Gemini",
     "family_order":40031,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -9023,7 +9320,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":61,
+    "source_rank":63,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/mistral-small-4",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/mistral-small-4\/providers",
     "source_details":{
@@ -9073,9 +9370,9 @@
       "Cache Hit Price USD\/1M Tokens":"$0.015",
       "Cache Write Price USD\/1M Tokens":"--",
       "Time per Task Minutes":"1.7",
-      "Average tok\/s":"144",
-      "First Answer Token (s)":"15.70",
-      "First Token (s)":"1.69",
+      "Average tok\/s":"145",
+      "First Answer Token (s)":"13.32",
+      "First Token (s)":"1.70",
       "Context Window":"256k",
       "License":"Open",
       "Further Analysis":"Model Providers"
@@ -9155,13 +9452,13 @@
     "composite_index":39.88,
     "raw_efficiency":12.1212121212,
     "efficiency_score":null,
-    "performance_rank":61.0,
-    "value_rank":50.0,
+    "performance_rank":63.0,
+    "value_rank":51.0,
     "efficiency_rank":null,
-    "global_rank":50.0,
+    "global_rank":51.0,
     "model_family":"Mistral",
     "family_order":4,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -9177,7 +9474,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":62,
+    "source_rank":64,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/gpt-oss-120b",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/gpt-oss-120b\/providers",
     "source_details":{
@@ -9226,9 +9523,9 @@
       "Output Price USD\/1M Tokens":"$0.60",
       "Cache Hit Price USD\/1M Tokens":"$0.13",
       "Cache Write Price USD\/1M Tokens":"--",
-      "Time per Task Minutes":"6.5",
-      "Average tok\/s":"189",
-      "First Answer Token (s)":"11.89",
+      "Time per Task Minutes":"6.3",
+      "Average tok\/s":"195",
+      "First Answer Token (s)":"9.83",
       "First Token (s)":"1.38",
       "Context Window":"131k",
       "License":"Open",
@@ -9311,13 +9608,13 @@
     "composite_index":39.88,
     "raw_efficiency":12.1212121212,
     "efficiency_score":null,
-    "performance_rank":62.0,
-    "value_rank":51.0,
+    "performance_rank":64.0,
+    "value_rank":52.0,
     "efficiency_rank":null,
-    "global_rank":51.0,
+    "global_rank":52.0,
     "model_family":"GPT",
     "family_order":120,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -9333,7 +9630,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":63,
+    "source_rank":65,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/north-mini-code",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/north-mini-code\/providers",
     "source_details":{
@@ -9382,10 +9679,10 @@
       "Output Price USD\/1M Tokens":"$0.00",
       "Cache Hit Price USD\/1M Tokens":"--",
       "Cache Write Price USD\/1M Tokens":"--",
-      "Time per Task Minutes":"2.8",
-      "Average tok\/s":"176",
-      "First Answer Token (s)":"4.85",
-      "First Token (s)":"0.60",
+      "Time per Task Minutes":"2.7",
+      "Average tok\/s":"184",
+      "First Answer Token (s)":"5.46",
+      "First Token (s)":"0.61",
       "Context Window":"256k",
       "License":"Open",
       "Further Analysis":"Model Providers"
@@ -9465,13 +9762,13 @@
     "composite_index":39.37,
     "raw_efficiency":9999.0,
     "efficiency_score":null,
-    "performance_rank":63.0,
-    "value_rank":52.0,
+    "performance_rank":65.0,
+    "value_rank":53.0,
     "efficiency_rank":null,
-    "global_rank":52.0,
+    "global_rank":53.0,
     "model_family":"North",
     "family_order":1,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -9487,7 +9784,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":64,
+    "source_rank":66,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/k2-horizon-0-9b",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/k2-horizon-0-9b\/providers",
     "source_details":{
@@ -9617,13 +9914,13 @@
     "composite_index":null,
     "raw_efficiency":null,
     "efficiency_score":null,
-    "performance_rank":64.0,
+    "performance_rank":66.0,
     "value_rank":null,
     "efficiency_rank":null,
     "global_rank":null,
     "model_family":"K2",
     "family_order":200000009,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -9639,7 +9936,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":65,
+    "source_rank":67,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/nvidia-nemotron-3-nano-4b",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/nvidia-nemotron-3-nano-4b\/providers",
     "source_details":{
@@ -9770,13 +10067,13 @@
     "composite_index":null,
     "raw_efficiency":null,
     "efficiency_score":null,
-    "performance_rank":65.0,
+    "performance_rank":67.0,
     "value_rank":null,
     "efficiency_rank":null,
     "global_rank":null,
     "model_family":"NVIDIA",
     "family_order":30004,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -9792,7 +10089,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":66,
+    "source_rank":68,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/lfm3-vl-2b",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/lfm3-vl-2b\/providers",
     "source_details":{
@@ -9841,10 +10138,10 @@
       "Output Price USD\/1M Tokens":"$0.50",
       "Cache Hit Price USD\/1M Tokens":"$0.02",
       "Cache Write Price USD\/1M Tokens":"--",
-      "Time per Task Minutes":"1.8",
-      "Average tok\/s":"388",
-      "First Answer Token (s)":"7.79",
-      "First Token (s)":"0.20",
+      "Time per Task Minutes":"2.0",
+      "Average tok\/s":"338",
+      "First Answer Token (s)":"6.17",
+      "First Token (s)":"0.56",
       "Context Window":"128k",
       "License":"Open",
       "Further Analysis":"Model Providers"
@@ -9915,13 +10212,13 @@
     "composite_index":38.65,
     "raw_efficiency":7.6923076923,
     "efficiency_score":null,
-    "performance_rank":66.0,
-    "value_rank":54.0,
+    "performance_rank":68.0,
+    "value_rank":55.0,
     "efficiency_rank":null,
-    "global_rank":54.0,
+    "global_rank":55.0,
     "model_family":"LFM3-VL-2B",
     "family_order":30002,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -9937,7 +10234,7 @@
     "arena_votes":null,
     "license_type":"Proprietary",
     "creator":null,
-    "source_rank":194,
+    "source_rank":195,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/agnes-2-5-pro-beta",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/agnes-2-5-pro-beta\/providers",
     "source_details":{
@@ -10071,7 +10368,7 @@
     "global_rank":null,
     "model_family":"Agnes",
     "family_order":20005,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -10087,7 +10384,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":107,
+    "source_rank":108,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/apertus-70b-instruct",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/apertus-70b-instruct\/providers",
     "source_details":{
@@ -10220,7 +10517,7 @@
     "global_rank":null,
     "model_family":"Apertus",
     "family_order":70,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -10236,7 +10533,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":148,
+    "source_rank":149,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/apertus-8b-instruct",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/apertus-8b-instruct\/providers",
     "source_details":{
@@ -10369,7 +10666,7 @@
     "global_rank":null,
     "model_family":"Apertus",
     "family_order":8,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -10385,7 +10682,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":165,
+    "source_rank":166,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/apriel-v1-6-15b-thinker",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/apriel-v1-6-15b-thinker\/providers",
     "source_details":{
@@ -10517,7 +10814,7 @@
     "global_rank":null,
     "model_family":"Apriel-v1.6-15B-Thinker",
     "family_order":100060015,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -10533,7 +10830,7 @@
     "arena_votes":null,
     "license_type":"Proprietary",
     "creator":null,
-    "source_rank":110,
+    "source_rank":111,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/astra-for-law-6-2",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/astra-for-law-6-2\/providers",
     "source_details":{
@@ -10659,7 +10956,7 @@
     "global_rank":null,
     "model_family":"Astra",
     "family_order":60002,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -10675,7 +10972,7 @@
     "arena_votes":null,
     "license_type":"Proprietary",
     "creator":null,
-    "source_rank":143,
+    "source_rank":144,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/celeris-1",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/celeris-1\/providers",
     "source_details":{
@@ -10725,9 +11022,9 @@
       "Cache Hit Price USD\/1M Tokens":"$0.02",
       "Cache Write Price USD\/1M Tokens":"--",
       "Time per Task Minutes":"--",
-      "Average tok\/s":"759",
-      "First Answer Token (s)":"1.29",
-      "First Token (s)":"1.29",
+      "Average tok\/s":"715",
+      "First Answer Token (s)":"1.27",
+      "First Token (s)":"1.27",
       "Context Window":"131k",
       "License":"Proprietary",
       "Further Analysis":"Model Providers"
@@ -10809,7 +11106,7 @@
     "global_rank":null,
     "model_family":"Celeris-1",
     "family_order":1,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -10825,7 +11122,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":191,
+    "source_rank":192,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/cogito-v2-1",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/cogito-v2-1\/providers",
     "source_details":{
@@ -10958,7 +11255,7 @@
     "global_rank":null,
     "model_family":"Cogito",
     "family_order":20001,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -10974,7 +11271,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":175,
+    "source_rank":176,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/deephermes-3-llama-3-1-8b-preview",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/deephermes-3-llama-3-1-8b-preview\/providers",
     "source_details":{
@@ -11103,7 +11400,7 @@
     "global_rank":null,
     "model_family":"Llama",
     "family_order":3000300010008,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -11119,7 +11416,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":167,
+    "source_rank":168,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/deephermes-3-mistral-24b-preview",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/deephermes-3-mistral-24b-preview\/providers",
     "source_details":{
@@ -11248,7 +11545,7 @@
     "global_rank":null,
     "model_family":"Mistral",
     "family_order":30024,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -11264,7 +11561,7 @@
     "arena_votes":null,
     "license_type":"Proprietary",
     "creator":null,
-    "source_rank":136,
+    "source_rank":137,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/deepseek-v4-flash-vision",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/deepseek-v4-flash-vision\/providers",
     "source_details":{
@@ -11314,9 +11611,9 @@
       "Cache Hit Price USD\/1M Tokens":"$0.014",
       "Cache Write Price USD\/1M Tokens":"--",
       "Time per Task Minutes":"--",
-      "Average tok\/s":"168",
-      "First Answer Token (s)":"41.91",
-      "First Token (s)":"1.47",
+      "Average tok\/s":"164",
+      "First Answer Token (s)":"40.36",
+      "First Token (s)":"1.53",
       "Context Window":"1M",
       "License":"Proprietary",
       "Further Analysis":"Model Providers"
@@ -11398,7 +11695,7 @@
     "global_rank":null,
     "model_family":"DeepSeek",
     "family_order":4,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -11414,7 +11711,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":179,
+    "source_rank":180,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/diffusiongemma-26b-a4b",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/diffusiongemma-26b-a4b\/providers",
     "source_details":{
@@ -11546,7 +11843,7 @@
     "global_rank":null,
     "model_family":"Gemini",
     "family_order":260004,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -11562,7 +11859,7 @@
     "arena_votes":null,
     "license_type":"Proprietary",
     "creator":null,
-    "source_rank":108,
+    "source_rank":109,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/doubao-seed-code",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/doubao-seed-code\/providers",
     "source_details":{
@@ -11695,7 +11992,7 @@
     "global_rank":null,
     "model_family":"Doubao",
     "family_order":1,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -11711,7 +12008,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":170,
+    "source_rank":171,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/ernie-4-5-300b-a47b",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/ernie-4-5-300b-a47b\/providers",
     "source_details":{
@@ -11843,7 +12140,7 @@
     "global_rank":null,
     "model_family":"ERNIE",
     "family_order":4000503000047,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -11859,7 +12156,7 @@
     "arena_votes":null,
     "license_type":"Proprietary",
     "creator":null,
-    "source_rank":163,
+    "source_rank":164,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/ernie-5-0-thinking-preview",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/ernie-5-0-thinking-preview\/providers",
     "source_details":{
@@ -11991,7 +12288,7 @@
     "global_rank":null,
     "model_family":"ERNIE",
     "family_order":50000,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -12007,7 +12304,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":93,
+    "source_rank":94,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/exaone-4-5-33b",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/exaone-4-5-33b\/providers",
     "source_details":{
@@ -12133,7 +12430,7 @@
     "global_rank":null,
     "model_family":"EXAONE",
     "family_order":400050033,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -12149,7 +12446,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":145,
+    "source_rank":146,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/exaone-4-0-1-2b",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/exaone-4-0-1-2b\/providers",
     "source_details":{
@@ -12282,7 +12579,7 @@
     "global_rank":null,
     "model_family":"Exaone",
     "family_order":4000000010002,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -12298,7 +12595,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":181,
+    "source_rank":182,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/falcon-h1r-7b",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/falcon-h1r-7b\/providers",
     "source_details":{
@@ -12431,7 +12728,7 @@
     "global_rank":null,
     "model_family":"Falcon-H1R-7B",
     "family_order":10007,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -12447,7 +12744,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":178,
+    "source_rank":179,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/g9v3-39a5b",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/g9v3-39a5b\/providers",
     "source_details":{
@@ -12581,7 +12878,7 @@
     "global_rank":null,
     "model_family":"G9v3-39A5B",
     "family_order":9000300390005,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -12597,7 +12894,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":87,
+    "source_rank":88,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/g9v3-3b",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/g9v3-3b\/providers",
     "source_details":{
@@ -12727,7 +13024,7 @@
     "global_rank":null,
     "model_family":"G9v3-3B",
     "family_order":900030003,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -12743,7 +13040,7 @@
     "arena_votes":null,
     "license_type":"Proprietary",
     "creator":null,
-    "source_rank":113,
+    "source_rank":114,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/gpt-5-3-codex",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/gpt-5-3-codex\/providers",
     "source_details":{
@@ -12793,9 +13090,9 @@
       "Cache Hit Price USD\/1M Tokens":"$0.17",
       "Cache Write Price USD\/1M Tokens":"--",
       "Time per Task Minutes":"--",
-      "Average tok\/s":"92",
-      "First Answer Token (s)":"37.59",
-      "First Token (s)":"37.59",
+      "Average tok\/s":"82",
+      "First Answer Token (s)":"38.35",
+      "First Token (s)":"38.35",
       "Context Window":"400k",
       "License":"Proprietary",
       "Further Analysis":"Model Providers"
@@ -12876,7 +13173,7 @@
     "global_rank":null,
     "model_family":"GPT Codex",
     "family_order":50003,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -12892,7 +13189,7 @@
     "arena_votes":null,
     "license_type":"Proprietary",
     "creator":null,
-    "source_rank":180,
+    "source_rank":181,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/gpt-5-5-instant-06-26",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/gpt-5-5-instant-06-26\/providers",
     "source_details":{
@@ -12942,7 +13239,7 @@
       "Cache Hit Price USD\/1M Tokens":"$0.50",
       "Cache Write Price USD\/1M Tokens":"--",
       "Time per Task Minutes":"--",
-      "Average tok\/s":"129",
+      "Average tok\/s":"123",
       "First Answer Token (s)":"1.76",
       "First Token (s)":"1.76",
       "Context Window":"400k",
@@ -13026,7 +13323,7 @@
     "global_rank":null,
     "model_family":"GPT",
     "family_order":500052026,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -13042,7 +13339,7 @@
     "arena_votes":null,
     "license_type":"Proprietary",
     "creator":null,
-    "source_rank":189,
+    "source_rank":190,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/gpt-5-5-pro",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/gpt-5-5-pro\/providers",
     "source_details":{
@@ -13168,7 +13465,7 @@
     "global_rank":null,
     "model_family":"GPT",
     "family_order":50005,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -13184,7 +13481,7 @@
     "arena_votes":null,
     "license_type":"Proprietary",
     "creator":null,
-    "source_rank":154,
+    "source_rank":155,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/gpt-6-sol-daybreak-blue",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/gpt-6-sol-daybreak-blue\/providers",
     "source_details":{
@@ -13310,7 +13607,7 @@
     "global_rank":null,
     "model_family":"GPT Sol",
     "family_order":6,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -13326,7 +13623,7 @@
     "arena_votes":null,
     "license_type":"Proprietary",
     "creator":null,
-    "source_rank":162,
+    "source_rank":163,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/gemini-3-deep-think",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/gemini-3-deep-think\/providers",
     "source_details":{
@@ -13452,7 +13749,7 @@
     "global_rank":null,
     "model_family":"Gemini",
     "family_order":3,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -13468,7 +13765,7 @@
     "arena_votes":null,
     "license_type":"Proprietary",
     "creator":null,
-    "source_rank":177,
+    "source_rank":178,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/gemini-3-1-pro-preview",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/gemini-3-1-pro-preview\/providers",
     "source_details":{
@@ -13518,9 +13815,9 @@
       "Cache Hit Price USD\/1M Tokens":"$0.20",
       "Cache Write Price USD\/1M Tokens":"--",
       "Time per Task Minutes":"--",
-      "Average tok\/s":"117",
-      "First Answer Token (s)":"15.48",
-      "First Token (s)":"15.48",
+      "Average tok\/s":"111",
+      "First Answer Token (s)":"14.95",
+      "First Token (s)":"14.95",
       "Context Window":"1M",
       "License":"Proprietary",
       "Further Analysis":"Model Providers"
@@ -13606,7 +13903,7 @@
     "global_rank":null,
     "model_family":"Gemini Pro",
     "family_order":30001,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -13622,7 +13919,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":72,
+    "source_rank":74,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/gemma-3-270m",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/gemma-3-270m\/providers",
     "source_details":{
@@ -13755,7 +14052,7 @@
     "global_rank":null,
     "model_family":"Gemini",
     "family_order":30270,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -13771,7 +14068,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":71,
+    "source_rank":73,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/gemma-4-12b",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/gemma-4-12b\/providers",
     "source_details":{
@@ -13904,7 +14201,7 @@
     "global_rank":null,
     "model_family":"Gemini",
     "family_order":40012,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -13920,7 +14217,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":128,
+    "source_rank":129,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/gemma-4-26b-a4b",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/gemma-4-26b-a4b\/providers",
     "source_details":{
@@ -13971,8 +14268,8 @@
       "Cache Write Price USD\/1M Tokens":"--",
       "Time per Task Minutes":"--",
       "Average tok\/s":"66",
-      "First Answer Token (s)":"31.87",
-      "First Token (s)":"1.39",
+      "First Answer Token (s)":"31.29",
+      "First Token (s)":"1.33",
       "Context Window":"256k",
       "License":"Open",
       "Further Analysis":"Model Providers"
@@ -14057,7 +14354,7 @@
     "global_rank":null,
     "model_family":"Gemini",
     "family_order":400260004,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -14073,7 +14370,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":133,
+    "source_rank":134,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/gemma-4-e2b",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/gemma-4-e2b\/providers",
     "source_details":{
@@ -14206,7 +14503,7 @@
     "global_rank":null,
     "model_family":"Gemini",
     "family_order":40002,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -14222,7 +14519,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":109,
+    "source_rank":110,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/granite-4-0-350m",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/granite-4-0-350m\/providers",
     "source_details":{
@@ -14355,7 +14652,7 @@
     "global_rank":null,
     "model_family":"Granite",
     "family_order":400000350,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -14371,7 +14668,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":184,
+    "source_rank":185,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/granite-4-0-h-nano-1b",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/granite-4-0-h-nano-1b\/providers",
     "source_details":{
@@ -14504,7 +14801,7 @@
     "global_rank":null,
     "model_family":"Granite",
     "family_order":400000001,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -14520,7 +14817,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":164,
+    "source_rank":165,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/granite-4-0-h-350m",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/granite-4-0-h-350m\/providers",
     "source_details":{
@@ -14653,7 +14950,7 @@
     "global_rank":null,
     "model_family":"Granite",
     "family_order":400000350,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -14669,7 +14966,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":117,
+    "source_rank":118,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/granite-4-0-h-small",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/granite-4-0-h-small\/providers",
     "source_details":{
@@ -14802,7 +15099,7 @@
     "global_rank":null,
     "model_family":"Granite",
     "family_order":40000,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -14818,7 +15115,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":80,
+    "source_rank":81,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/granite-4-0-micro",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/granite-4-0-micro\/providers",
     "source_details":{
@@ -14951,158 +15248,7 @@
     "global_rank":null,
     "model_family":"Granite",
     "family_order":40000,
-    "last_updated":"2026-11-18"
-  },
-  {
-    "model_id":null,
-    "model_slug":"granite-4-2-30b",
-    "canonical_name":"Granite 4.2 30B",
-    "model_name":"Granite 4.2 30B",
-    "aliases":[
-      "Granite 4.2 30B"
-    ],
-    "provider":null,
-    "context_window":131000,
-    "open_source":false,
-    "arena_votes":null,
-    "license_type":"Open",
-    "creator":null,
-    "source_rank":77,
-    "model_url":"https:\/\/artificialanalysis.ai\/models\/granite-4-2-30b",
-    "providers_url":"https:\/\/artificialanalysis.ai\/models\/granite-4-2-30b\/providers",
-    "source_details":{
-      "Model":"Granite 4.2 30B",
-      "Artificial Analysis Intelligence Index":"--",
-      "AA-Omniscience Net Score":"\u221212",
-      "AA-Briefcase v1.1 Agentic knowledge work, Elo":"395",
-      "AA-Omniscience v1.1 Accuracy Knowledge":"11.23%",
-      "AA-Omniscience v1.1 Non-Hallucination Rate 1 - hallucination rate":"73.34%",
-      "AutomationBench-AA Agentic SaaS workflows":"1.5%",
-      "Terminal-Bench-Science 0.1 Agentic scientific research workflows in a terminal":"0.0%",
-      "FrontierCode-AA 2.0 Agentic software engineering in open-source repositories":"--",
-      "HLE-Diamond Reasoning & knowledge":"4.3%",
-      "GDP.pdf Professional document reasoning, All-pass":"1.8%",
-      "Terminal-Bench 4.0 Agentic coding & terminal use":"0.0%",
-      "CritPt v2 (Hard Subset) Physics reasoning":"1.5%",
-      "AA-AnalystAgent Quantitative analysis on spreadsheets & documents":"--",
-      "Harvey LAB-AA v1.1 Legal agentic work, Hallucination-Gated All-Pass Rate":"--",
-      "EnterpriseOps-Gym-AA Agentic business operations":"--",
-      "GDPval-AA v2.1 Agentic real-world work tasks, Elo":"583",
-      "AA-3D Agentic interactive 3D experiences, Elo":"--",
-      "Code2Video-AA Product and brand videos designed in code, Elo":"--",
-      "ITBench-AA Kubernetes incident root-cause analysis":"--",
-      "MLCR-AA Medical long context reasoning":"--",
-      "MMMU-Pro Visual reasoning":"--",
-      "FrontierCode 1.1 Agentic software engineering in open-source repositories":"--",
-      "HealthBench Health conversations, length-adjusted":"--",
-      "HealthBench Professional Clinician conversations, length-adjusted":"--",
-      "VIALS-AA Scientific image reasoning, pass^3":"--",
-      "MKA Multimodal agentic knowledge work, Climb WSR":"--",
-      "Humanity's Last Exam Reasoning & knowledge":"11.2%",
-      "AA-LCR v1.1 Long context reasoning":"49.0%",
-      "SciCode Coding":"37.8%",
-      "CritPt Physics reasoning":"0.3%",
-      "Terminal-Bench Hard Agentic coding & terminal use":"--",
-      "Terminal-Bench 2.1 Agentic coding & terminal use":"26.6%",
-      "\ud835\udf0f\u00b2-Bench Telecom Agentic tool use":"--",
-      "GPQA Diamond Scientific reasoning":"64.4%",
-      "IFBench Instruction following":"--",
-      "\ud835\udf0f\u00b3-Banking Agentic tool use":"14.4%",
-      "APEX-Agents-AA Long-horizon agentic tasks":"--",
-      "LiveCodeBench Coding":"--",
-      "AIME 2025 Competition math":"--",
-      "Cost per Task USD":"--",
-      "Input Price USD\/1M Tokens":"--",
-      "Output Price USD\/1M Tokens":"--",
-      "Cache Hit Price USD\/1M Tokens":"--",
-      "Cache Write Price USD\/1M Tokens":"--",
-      "Time per Task Minutes":"--",
-      "Average tok\/s":"--",
-      "First Answer Token (s)":"--",
-      "First Token (s)":"--",
-      "Context Window":"131k",
-      "License":"Open",
-      "Further Analysis":"Model Providers"
-    },
-    "input_cost_per_1m":null,
-    "output_cost_per_1m":null,
-    "blended_cost_per_1m":null,
-    "latency_seconds":null,
-    "latency_first_token":null,
-    "latency_p5":null,
-    "latency_p25":null,
-    "latency_p75":null,
-    "latency_p95":null,
-    "total_response_time":null,
-    "reasoning_time":null,
-    "tokens_per_second":null,
-    "speed_p5":null,
-    "speed_p25":null,
-    "speed_p75":null,
-    "speed_p95":null,
-    "cache_read_cost_per_1m":null,
-    "cache_write_cost_per_1m":null,
-    "intelligence_score":null,
-    "coding_score":37.8,
-    "aa_official_coding_index":37.8,
-    "reasoning_score":null,
-    "multimodal_score":null,
-    "arena_elo":null,
-    "gdpval":583.0,
-    "terminalbench_hard":null,
-    "tau2":null,
-    "lcr":49.0,
-    "omniscience":null,
-    "omniscience_hallucination":null,
-    "hle":11.2,
-    "gpqa":64.4,
-    "scicode":37.8,
-    "ifbench":null,
-    "aime25":null,
-    "critpt":1.5,
-    "mmmu_pro":null,
-    "livecodebench":null,
-    "omniscience_index":null,
-    "terminalbench_v21":null,
-    "tau3_banking":14.4,
-    "apex_agents":null,
-    "itbench":null,
-    "sources":[
-      "Artificial Analysis"
-    ],
-    "source_count":1,
-    "data_tier":1,
-    "aggregation_method":"single_source",
-    "benchmark_breakdown":{
-      "Artificial Analysis":{
-        "coding_score":37.8,
-        "gdpval":583.0,
-        "lcr":49.0,
-        "hle":11.2,
-        "gpqa":64.4,
-        "scicode":37.8,
-        "critpt":1.5,
-        "tau3_banking":14.4
-      }
-    },
-    "confidence_score":0.738,
-    "performance_index":null,
-    "cost_index":null,
-    "speed_index":null,
-    "coverage_score":28.1,
-    "perf_source_count":1,
-    "confidence_factor":0.25,
-    "adjusted_performance":null,
-    "composite_index":null,
-    "raw_efficiency":null,
-    "efficiency_score":null,
-    "performance_rank":null,
-    "value_rank":null,
-    "efficiency_rank":null,
-    "global_rank":null,
-    "model_family":"Granite",
-    "family_order":400020030,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -15118,7 +15264,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":146,
+    "source_rank":147,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/hermes-4-llama-3-1-405b",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/hermes-4-llama-3-1-405b\/providers",
     "source_details":{
@@ -15169,8 +15315,8 @@
       "Cache Write Price USD\/1M Tokens":"--",
       "Time per Task Minutes":"--",
       "Average tok\/s":"36",
-      "First Answer Token (s)":"24.37",
-      "First Token (s)":"5.12",
+      "First Answer Token (s)":"24.69",
+      "First Token (s)":"5.13",
       "Context Window":"128k",
       "License":"Open",
       "Further Analysis":"Model Providers"
@@ -15251,7 +15397,7 @@
     "global_rank":null,
     "model_family":"Llama",
     "family_order":4000300010405,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -15267,7 +15413,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":82,
+    "source_rank":83,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/hermes-4-llama-3-1-70b",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/hermes-4-llama-3-1-70b\/providers",
     "source_details":{
@@ -15400,7 +15546,7 @@
     "global_rank":null,
     "model_family":"Llama",
     "family_order":4000300010070,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -15416,7 +15562,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":90,
+    "source_rank":91,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/hyperclova-x-seed-think-32b",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/hyperclova-x-seed-think-32b\/providers",
     "source_details":{
@@ -15549,7 +15695,7 @@
     "global_rank":null,
     "model_family":"HyperCLOVA",
     "family_order":32,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -15565,7 +15711,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":91,
+    "source_rank":92,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/hypernova-60b",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/hypernova-60b\/providers",
     "source_details":{
@@ -15700,7 +15846,7 @@
     "global_rank":null,
     "model_family":"GPT",
     "family_order":6026050120,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -15716,7 +15862,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":94,
+    "source_rank":95,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/intellect-3",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/intellect-3\/providers",
     "source_details":{
@@ -15849,7 +15995,7 @@
     "global_rank":null,
     "model_family":"GLM",
     "family_order":300040005,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -15865,7 +16011,7 @@
     "arena_votes":null,
     "license_type":"Proprietary",
     "creator":null,
-    "source_rank":67,
+    "source_rank":69,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/jt-35b-flash",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/jt-35b-flash\/providers",
     "source_details":{
@@ -15998,7 +16144,7 @@
     "global_rank":null,
     "model_family":"JT-35B-Flash",
     "family_order":35,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -16014,7 +16160,7 @@
     "arena_votes":null,
     "license_type":"Proprietary",
     "creator":null,
-    "source_rank":98,
+    "source_rank":99,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/jt-mini",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/jt-mini\/providers",
     "source_details":{
@@ -16147,7 +16293,7 @@
     "global_rank":null,
     "model_family":"JT-MINI",
     "family_order":1,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -16163,7 +16309,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":138,
+    "source_rank":139,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/jamba-1-7-large",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/jamba-1-7-large\/providers",
     "source_details":{
@@ -16296,7 +16442,7 @@
     "global_rank":null,
     "model_family":"Jamba",
     "family_order":10007,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -16312,7 +16458,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":173,
+    "source_rank":174,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/jamba-1-7-mini",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/jamba-1-7-mini\/providers",
     "source_details":{
@@ -16445,7 +16591,7 @@
     "global_rank":null,
     "model_family":"Jamba",
     "family_order":10007,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -16461,7 +16607,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":195,
+    "source_rank":196,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/jamba-reasoning-3b",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/jamba-reasoning-3b\/providers",
     "source_details":{
@@ -16594,7 +16740,7 @@
     "global_rank":null,
     "model_family":"Jamba",
     "family_order":3,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -16610,7 +16756,7 @@
     "arena_votes":null,
     "license_type":"Proprietary",
     "creator":null,
-    "source_rank":198,
+    "source_rank":199,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/kat-coder-pro-v2",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/kat-coder-pro-v2\/providers",
     "source_details":{
@@ -16745,7 +16891,7 @@
     "global_rank":null,
     "model_family":"KAT",
     "family_order":2,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -16761,7 +16907,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":150,
+    "source_rank":151,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/kimi-k2-7-code",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/kimi-k2-7-code\/providers",
     "source_details":{
@@ -16811,9 +16957,9 @@
       "Cache Hit Price USD\/1M Tokens":"$0.19",
       "Cache Write Price USD\/1M Tokens":"--",
       "Time per Task Minutes":"--",
-      "Average tok\/s":"57",
-      "First Answer Token (s)":"35.26",
-      "First Token (s)":"6.23",
+      "Average tok\/s":"55",
+      "First Answer Token (s)":"34.25",
+      "First Token (s)":"6.26",
       "Context Window":"256k",
       "License":"Open",
       "Further Analysis":"Model Providers"
@@ -16897,7 +17043,7 @@
     "global_rank":null,
     "model_family":"Kimi",
     "family_order":20007,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -16913,7 +17059,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":111,
+    "source_rank":112,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/kimi-linear-48b-a3b-instruct",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/kimi-linear-48b-a3b-instruct\/providers",
     "source_details":{
@@ -17046,7 +17192,7 @@
     "global_rank":null,
     "model_family":"Kimi",
     "family_order":480003,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -17062,7 +17208,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":197,
+    "source_rank":198,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/lfm2-24b-a2b",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/lfm2-24b-a2b\/providers",
     "source_details":{
@@ -17195,7 +17341,7 @@
     "global_rank":null,
     "model_family":"LFM2",
     "family_order":200240002,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -17211,7 +17357,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":106,
+    "source_rank":107,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/lfm2-5-1-2b-instruct",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/lfm2-5-1-2b-instruct\/providers",
     "source_details":{
@@ -17344,7 +17490,7 @@
     "global_rank":null,
     "model_family":"LFM2.5-1.2B-Instruct",
     "family_order":2000500010002,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -17360,7 +17506,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":114,
+    "source_rank":115,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/lfm2-5-1-2b-thinking",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/lfm2-5-1-2b-thinking\/providers",
     "source_details":{
@@ -17493,7 +17639,7 @@
     "global_rank":null,
     "model_family":"LFM2.5-1.2B-Thinking",
     "family_order":2000500010002,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -17509,7 +17655,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":187,
+    "source_rank":188,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/lfm2-5-2-6b",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/lfm2-5-2-6b\/providers",
     "source_details":{
@@ -17643,7 +17789,7 @@
     "global_rank":null,
     "model_family":"LFM2.5-2.6B",
     "family_order":2000500020006,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -17659,7 +17805,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":188,
+    "source_rank":189,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/lfm2-5-8b-a1b",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/lfm2-5-8b-a1b\/providers",
     "source_details":{
@@ -17792,7 +17938,7 @@
     "global_rank":null,
     "model_family":"LFM2.5-8B-A1B",
     "family_order":2000500080001,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -17808,7 +17954,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":97,
+    "source_rank":98,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/lfm2-5-vl-1-6b",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/lfm2-5-vl-1-6b\/providers",
     "source_details":{
@@ -17941,7 +18087,7 @@
     "global_rank":null,
     "model_family":"LFM2.5-VL-1.6B",
     "family_order":2000500010006,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -17957,7 +18103,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":142,
+    "source_rank":143,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/ling-3-0-tiny",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/ling-3-0-tiny\/providers",
     "source_details":{
@@ -18008,8 +18154,8 @@
       "Cache Write Price USD\/1M Tokens":"--",
       "Time per Task Minutes":"--",
       "Average tok\/s":"163",
-      "First Answer Token (s)":"14.67",
-      "First Token (s)":"5.93",
+      "First Answer Token (s)":"14.44",
+      "First Token (s)":"4.67",
       "Context Window":"262k",
       "License":"Open",
       "Further Analysis":"Model Providers"
@@ -18091,7 +18237,7 @@
     "global_rank":null,
     "model_family":"Ling",
     "family_order":30000,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -18107,7 +18253,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":127,
+    "source_rank":128,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/ling-3-0-flash-fin",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/ling-3-0-flash-fin\/providers",
     "source_details":{
@@ -18241,7 +18387,7 @@
     "global_rank":null,
     "model_family":"Ling-3.0-flash-Fin",
     "family_order":30000,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -18257,7 +18403,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":101,
+    "source_rank":102,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/ling-3-0-flash-vl",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/ling-3-0-flash-vl\/providers",
     "source_details":{
@@ -18391,7 +18537,7 @@
     "global_rank":null,
     "model_family":"Ling-3.0-flash-VL",
     "family_order":30000,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -18407,7 +18553,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":104,
+    "source_rank":105,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/llama-3-1-instruct-405b",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/llama-3-1-instruct-405b\/providers",
     "source_details":{
@@ -18540,7 +18686,7 @@
     "global_rank":null,
     "model_family":"Llama",
     "family_order":300010405,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -18556,7 +18702,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":183,
+    "source_rank":184,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/llama-3-1-nemotron-ultra-253b-v1",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/llama-3-1-nemotron-ultra-253b-v1\/providers",
     "source_details":{
@@ -18688,7 +18834,7 @@
     "global_rank":null,
     "model_family":"Llama",
     "family_order":3000102530001,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -18704,7 +18850,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":118,
+    "source_rank":119,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/llama-3-2-instruct-11b-vision",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/llama-3-2-instruct-11b-vision\/providers",
     "source_details":{
@@ -18755,8 +18901,8 @@
       "Cache Write Price USD\/1M Tokens":"--",
       "Time per Task Minutes":"--",
       "Average tok\/s":"22",
-      "First Answer Token (s)":"5.37",
-      "First Token (s)":"5.37",
+      "First Answer Token (s)":"5.63",
+      "First Token (s)":"5.63",
       "Context Window":"128k",
       "License":"Open",
       "Further Analysis":"Model Providers"
@@ -18837,7 +18983,7 @@
     "global_rank":null,
     "model_family":"Llama",
     "family_order":300020011,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -18853,7 +18999,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":160,
+    "source_rank":161,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/llama-3-2-instruct-90b-vision",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/llama-3-2-instruct-90b-vision\/providers",
     "source_details":{
@@ -18982,7 +19128,7 @@
     "global_rank":null,
     "model_family":"Llama",
     "family_order":300020090,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -18998,7 +19144,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":157,
+    "source_rank":158,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/llama-3-3-instruct-70b",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/llama-3-3-instruct-70b\/providers",
     "source_details":{
@@ -19048,9 +19194,9 @@
       "Cache Hit Price USD\/1M Tokens":"$0.65",
       "Cache Write Price USD\/1M Tokens":"--",
       "Time per Task Minutes":"--",
-      "Average tok\/s":"70",
-      "First Answer Token (s)":"2.16",
-      "First Token (s)":"2.16",
+      "Average tok\/s":"69",
+      "First Answer Token (s)":"2.19",
+      "First Token (s)":"2.19",
       "Context Window":"128k",
       "License":"Open",
       "Further Analysis":"Model Providers"
@@ -19133,7 +19279,7 @@
     "global_rank":null,
     "model_family":"Llama",
     "family_order":300030070,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -19149,7 +19295,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":153,
+    "source_rank":154,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/llama-4-maverick",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/llama-4-maverick\/providers",
     "source_details":{
@@ -19199,9 +19345,9 @@
       "Cache Hit Price USD\/1M Tokens":"$0.24",
       "Cache Write Price USD\/1M Tokens":"--",
       "Time per Task Minutes":"--",
-      "Average tok\/s":"68",
-      "First Answer Token (s)":"1.28",
-      "First Token (s)":"1.28",
+      "Average tok\/s":"66",
+      "First Answer Token (s)":"1.29",
+      "First Token (s)":"1.29",
       "Context Window":"1M",
       "License":"Open",
       "Further Analysis":"Model Providers"
@@ -19285,7 +19431,7 @@
     "global_rank":null,
     "model_family":"Llama",
     "family_order":4,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -19301,7 +19447,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":169,
+    "source_rank":170,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/llama-4-scout",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/llama-4-scout\/providers",
     "source_details":{
@@ -19352,8 +19498,8 @@
       "Cache Write Price USD\/1M Tokens":"--",
       "Time per Task Minutes":"--",
       "Average tok\/s":"95",
-      "First Answer Token (s)":"1.12",
-      "First Token (s)":"1.12",
+      "First Answer Token (s)":"1.13",
+      "First Token (s)":"1.13",
       "Context Window":"10M",
       "License":"Open",
       "Further Analysis":"Model Providers"
@@ -19437,7 +19583,7 @@
     "global_rank":null,
     "model_family":"Llama",
     "family_order":4,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -19453,7 +19599,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":115,
+    "source_rank":116,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/longcat-2-0",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/longcat-2-0\/providers",
     "source_details":{
@@ -19503,9 +19649,9 @@
       "Cache Hit Price USD\/1M Tokens":"$0.015",
       "Cache Write Price USD\/1M Tokens":"--",
       "Time per Task Minutes":"--",
-      "Average tok\/s":"61",
-      "First Answer Token (s)":"50.31",
-      "First Token (s)":"3.26",
+      "Average tok\/s":"57",
+      "First Answer Token (s)":"48.31",
+      "First Token (s)":"3.23",
       "Context Window":"1M",
       "License":"Open",
       "Further Analysis":"Model Providers"
@@ -19587,7 +19733,7 @@
     "global_rank":null,
     "model_family":"LongCat",
     "family_order":20000,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -19603,7 +19749,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":119,
+    "source_rank":120,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/longcat-flash-lite",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/longcat-flash-lite\/providers",
     "source_details":{
@@ -19736,7 +19882,7 @@
     "global_rank":null,
     "model_family":"LongCat",
     "family_order":1,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -19752,7 +19898,7 @@
     "arena_votes":null,
     "license_type":"Proprietary",
     "creator":null,
-    "source_rank":147,
+    "source_rank":148,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/magistral-medium-2509",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/magistral-medium-2509\/providers",
     "source_details":{
@@ -19887,7 +20033,7 @@
     "global_rank":null,
     "model_family":"Magistral",
     "family_order":10002,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -19903,7 +20049,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":131,
+    "source_rank":132,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/magistral-small-2509",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/magistral-small-2509\/providers",
     "source_details":{
@@ -19953,9 +20099,9 @@
       "Cache Hit Price USD\/1M Tokens":"--",
       "Cache Write Price USD\/1M Tokens":"--",
       "Time per Task Minutes":"--",
-      "Average tok\/s":"60",
-      "First Answer Token (s)":"3.06",
-      "First Token (s)":"3.00",
+      "Average tok\/s":"54",
+      "First Answer Token (s)":"4.92",
+      "First Token (s)":"4.82",
       "Context Window":"128k",
       "License":"Open",
       "Further Analysis":"Model Providers"
@@ -20038,7 +20184,7 @@
     "global_rank":null,
     "model_family":"Magistral",
     "family_order":10002,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -20054,7 +20200,7 @@
     "arena_votes":null,
     "license_type":"Proprietary",
     "creator":null,
-    "source_rank":135,
+    "source_rank":136,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/mercury-2-5",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/mercury-2-5\/providers",
     "source_details":{
@@ -20104,7 +20250,7 @@
       "Cache Hit Price USD\/1M Tokens":"$0.02",
       "Cache Write Price USD\/1M Tokens":"--",
       "Time per Task Minutes":"--",
-      "Average tok\/s":"532",
+      "Average tok\/s":"520",
       "First Answer Token (s)":"2.31",
       "First Token (s)":"2.31",
       "Context Window":"260k",
@@ -20186,7 +20332,7 @@
     "global_rank":null,
     "model_family":"Mercury",
     "family_order":20005,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -20202,7 +20348,7 @@
     "arena_votes":null,
     "license_type":"Proprietary",
     "creator":null,
-    "source_rank":186,
+    "source_rank":187,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/mi-dm-k-2-5-pro-dec28",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/mi-dm-k-2-5-pro-dec28\/providers",
     "source_details":{
@@ -20335,7 +20481,7 @@
     "global_rank":null,
     "model_family":"Mi:dm",
     "family_order":20005,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -20351,7 +20497,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":102,
+    "source_rank":103,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/minicpm-v-4-6-1-3b",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/minicpm-v-4-6-1-3b\/providers",
     "source_details":{
@@ -20485,7 +20631,7 @@
     "global_rank":null,
     "model_family":"MiniCPM-V",
     "family_order":4000600010003,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -20501,7 +20647,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":137,
+    "source_rank":138,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/minicpm5-1b",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/minicpm5-1b\/providers",
     "source_details":{
@@ -20634,7 +20780,7 @@
     "global_rank":null,
     "model_family":"MiniCPM5-1B",
     "family_order":50001,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -20650,7 +20796,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":123,
+    "source_rank":124,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/minicpm5-2b",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/minicpm5-2b\/providers",
     "source_details":{
@@ -20784,7 +20930,7 @@
     "global_rank":null,
     "model_family":"MiniCPM5-2B",
     "family_order":50002,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -20800,7 +20946,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":132,
+    "source_rank":133,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/ministral-3-14b",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/ministral-3-14b\/providers",
     "source_details":{
@@ -20850,9 +20996,9 @@
       "Cache Hit Price USD\/1M Tokens":"$0.02",
       "Cache Write Price USD\/1M Tokens":"--",
       "Time per Task Minutes":"--",
-      "Average tok\/s":"80",
-      "First Answer Token (s)":"2.37",
-      "First Token (s)":"2.37",
+      "Average tok\/s":"75",
+      "First Answer Token (s)":"2.39",
+      "First Token (s)":"2.39",
       "Context Window":"256k",
       "License":"Open",
       "Further Analysis":"Model Providers"
@@ -20936,7 +21082,7 @@
     "global_rank":null,
     "model_family":"Ministral",
     "family_order":30014,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -20952,7 +21098,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":126,
+    "source_rank":127,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/ministral-3-3b",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/ministral-3-3b\/providers",
     "source_details":{
@@ -21002,9 +21148,9 @@
       "Cache Hit Price USD\/1M Tokens":"$0.01",
       "Cache Write Price USD\/1M Tokens":"--",
       "Time per Task Minutes":"--",
-      "Average tok\/s":"150",
-      "First Answer Token (s)":"1.74",
-      "First Token (s)":"1.74",
+      "Average tok\/s":"155",
+      "First Answer Token (s)":"1.83",
+      "First Token (s)":"1.83",
       "Context Window":"256k",
       "License":"Open",
       "Further Analysis":"Model Providers"
@@ -21088,7 +21234,7 @@
     "global_rank":null,
     "model_family":"Ministral",
     "family_order":30003,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -21104,7 +21250,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":156,
+    "source_rank":157,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/ministral-3-8b",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/ministral-3-8b\/providers",
     "source_details":{
@@ -21154,9 +21300,9 @@
       "Cache Hit Price USD\/1M Tokens":"$0.015",
       "Cache Write Price USD\/1M Tokens":"--",
       "Time per Task Minutes":"--",
-      "Average tok\/s":"86",
-      "First Answer Token (s)":"1.92",
-      "First Token (s)":"1.92",
+      "Average tok\/s":"88",
+      "First Answer Token (s)":"1.93",
+      "First Token (s)":"1.93",
       "Context Window":"256k",
       "License":"Open",
       "Further Analysis":"Model Providers"
@@ -21240,7 +21386,7 @@
     "global_rank":null,
     "model_family":"Ministral",
     "family_order":30008,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -21256,7 +21402,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":171,
+    "source_rank":172,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/molmo-7b-d",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/molmo-7b-d\/providers",
     "source_details":{
@@ -21389,7 +21535,7 @@
     "global_rank":null,
     "model_family":"Molmo",
     "family_order":7,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -21405,7 +21551,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":99,
+    "source_rank":100,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/molmo2-8b",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/molmo2-8b\/providers",
     "source_details":{
@@ -21538,7 +21684,7 @@
     "global_rank":null,
     "model_family":"Molmo2-8B",
     "family_order":20008,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -21554,7 +21700,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":172,
+    "source_rank":173,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/motif-3",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/motif-3\/providers",
     "source_details":{
@@ -21688,7 +21834,7 @@
     "global_rank":null,
     "model_family":"Motif",
     "family_order":3,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -21704,7 +21850,7 @@
     "arena_votes":null,
     "license_type":"Proprietary",
     "creator":null,
-    "source_rank":124,
+    "source_rank":125,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/motif-2-12-7b-reasoning",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/motif-2-12-7b-reasoning\/providers",
     "source_details":{
@@ -21837,7 +21983,7 @@
     "global_rank":null,
     "model_family":"Motif-2-12.7B-Reasoning",
     "family_order":200120007,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -21853,7 +21999,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":83,
+    "source_rank":84,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/nvidia-nemotron-3-nano-30b-a3b",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/nvidia-nemotron-3-nano-30b-a3b\/providers",
     "source_details":{
@@ -21903,9 +22049,9 @@
       "Cache Hit Price USD\/1M Tokens":"$0.05",
       "Cache Write Price USD\/1M Tokens":"--",
       "Time per Task Minutes":"--",
-      "Average tok\/s":"161",
-      "First Answer Token (s)":"0.86",
-      "First Token (s)":"0.86",
+      "Average tok\/s":"156",
+      "First Answer Token (s)":"0.87",
+      "First Token (s)":"0.87",
       "Context Window":"1M",
       "License":"Open",
       "Further Analysis":"Model Providers"
@@ -21987,7 +22133,7 @@
     "global_rank":null,
     "model_family":"NVIDIA",
     "family_order":300300003,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -22003,7 +22149,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":129,
+    "source_rank":130,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/nvidia-nemotron-nano-12b-v2-vl",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/nvidia-nemotron-nano-12b-v2-vl\/providers",
     "source_details":{
@@ -22136,7 +22282,7 @@
     "global_rank":null,
     "model_family":"NVIDIA",
     "family_order":120002,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -22152,7 +22298,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":86,
+    "source_rank":87,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/nvidia-nemotron-nano-9b-v2",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/nvidia-nemotron-nano-9b-v2\/providers",
     "source_details":{
@@ -22202,9 +22348,9 @@
       "Cache Hit Price USD\/1M Tokens":"--",
       "Cache Write Price USD\/1M Tokens":"--",
       "Time per Task Minutes":"--",
-      "Average tok\/s":"178",
-      "First Answer Token (s)":"1.12",
-      "First Token (s)":"1.12",
+      "Average tok\/s":"175",
+      "First Answer Token (s)":"1.13",
+      "First Token (s)":"1.13",
       "Context Window":"131k",
       "License":"Open",
       "Further Analysis":"Model Providers"
@@ -22285,7 +22431,7 @@
     "global_rank":null,
     "model_family":"NVIDIA",
     "family_order":90002,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -22301,7 +22447,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":140,
+    "source_rank":141,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/nanbeige4-1-3b",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/nanbeige4-1-3b\/providers",
     "source_details":{
@@ -22435,7 +22581,7 @@
     "global_rank":null,
     "model_family":"Nanbeige4.1-3B",
     "family_order":400010003,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -22451,7 +22597,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":149,
+    "source_rank":150,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/nemotron-3-nano-omni-30b-a3b",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/nemotron-3-nano-omni-30b-a3b\/providers",
     "source_details":{
@@ -22585,7 +22731,7 @@
     "global_rank":null,
     "model_family":"Nemotron",
     "family_order":300300003,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -22601,7 +22747,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":139,
+    "source_rank":140,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/nemotron-3-5-bolt-74b-a9b",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/nemotron-3-5-bolt-74b-a9b\/providers",
     "source_details":{
@@ -22733,7 +22879,7 @@
     "global_rank":null,
     "model_family":"Nemotron",
     "family_order":3000500740009,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -22749,7 +22895,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":120,
+    "source_rank":121,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/nemotron-3-5-bolt-e4b-4gb",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/nemotron-3-5-bolt-e4b-4gb\/providers",
     "source_details":{
@@ -22877,7 +23023,7 @@
     "global_rank":null,
     "model_family":"Nemotron",
     "family_order":3000500040004,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -22893,7 +23039,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":158,
+    "source_rank":159,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/nemotron-cascade-2-30b-a3b",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/nemotron-cascade-2-30b-a3b\/providers",
     "source_details":{
@@ -23027,7 +23173,7 @@
     "global_rank":null,
     "model_family":"Nemotron",
     "family_order":200300003,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -23043,7 +23189,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":96,
+    "source_rank":97,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/nex-n2-pro",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/nex-n2-pro\/providers",
     "source_details":{
@@ -23178,7 +23324,7 @@
     "global_rank":null,
     "model_family":"Qwen",
     "family_order":2000300050397,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -23194,7 +23340,7 @@
     "arena_votes":null,
     "license_type":"Proprietary",
     "creator":null,
-    "source_rank":121,
+    "source_rank":122,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/nova-2-0-lite",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/nova-2-0-lite\/providers",
     "source_details":{
@@ -23244,9 +23390,9 @@
       "Cache Hit Price USD\/1M Tokens":"--",
       "Cache Write Price USD\/1M Tokens":"--",
       "Time per Task Minutes":"--",
-      "Average tok\/s":"157",
-      "First Answer Token (s)":"25.65",
-      "First Token (s)":"25.65",
+      "Average tok\/s":"146",
+      "First Answer Token (s)":"27.07",
+      "First Token (s)":"27.07",
       "Context Window":"1M",
       "License":"Proprietary",
       "Further Analysis":"Model Providers"
@@ -23328,7 +23474,7 @@
     "global_rank":null,
     "model_family":"Amazon Nova",
     "family_order":20000,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -23344,7 +23490,7 @@
     "arena_votes":null,
     "license_type":"Proprietary",
     "creator":null,
-    "source_rank":69,
+    "source_rank":71,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/nova-2-0-omni",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/nova-2-0-omni\/providers",
     "source_details":{
@@ -23477,7 +23623,7 @@
     "global_rank":null,
     "model_family":"Amazon Nova",
     "family_order":20000,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -23493,7 +23639,7 @@
     "arena_votes":null,
     "license_type":"Proprietary",
     "creator":null,
-    "source_rank":75,
+    "source_rank":77,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/nova-2-0-pro-preview",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/nova-2-0-pro-preview\/providers",
     "source_details":{
@@ -23544,8 +23690,8 @@
       "Cache Write Price USD\/1M Tokens":"--",
       "Time per Task Minutes":"--",
       "Average tok\/s":"100",
-      "First Answer Token (s)":"16.85",
-      "First Token (s)":"16.85",
+      "First Answer Token (s)":"16.78",
+      "First Token (s)":"16.78",
       "Context Window":"256k",
       "License":"Proprietary",
       "Further Analysis":"Model Providers"
@@ -23627,7 +23773,7 @@
     "global_rank":null,
     "model_family":"Amazon Nova",
     "family_order":20000,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -23643,7 +23789,7 @@
     "arena_votes":null,
     "license_type":"Proprietary",
     "creator":null,
-    "source_rank":92,
+    "source_rank":93,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/nova-micro",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/nova-micro\/providers",
     "source_details":{
@@ -23693,9 +23839,9 @@
       "Cache Hit Price USD\/1M Tokens":"$0.0088",
       "Cache Write Price USD\/1M Tokens":"--",
       "Time per Task Minutes":"--",
-      "Average tok\/s":"220",
-      "First Answer Token (s)":"1.25",
-      "First Token (s)":"1.25",
+      "Average tok\/s":"223",
+      "First Answer Token (s)":"1.26",
+      "First Token (s)":"1.26",
       "Context Window":"130k",
       "License":"Proprietary",
       "Further Analysis":"Model Providers"
@@ -23776,7 +23922,7 @@
     "global_rank":null,
     "model_family":"Amazon Nova",
     "family_order":1,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -23792,7 +23938,7 @@
     "arena_votes":null,
     "license_type":"Proprietary",
     "creator":null,
-    "source_rank":190,
+    "source_rank":191,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/nova-premier",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/nova-premier\/providers",
     "source_details":{
@@ -23925,7 +24071,7 @@
     "global_rank":null,
     "model_family":"Amazon Nova",
     "family_order":1,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -23941,7 +24087,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":152,
+    "source_rank":153,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/olmo-3-7b-instruct",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/olmo-3-7b-instruct\/providers",
     "source_details":{
@@ -24074,7 +24220,7 @@
     "global_rank":null,
     "model_family":"Olmo",
     "family_order":30007,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -24090,7 +24236,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":89,
+    "source_rank":90,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/olmo-3-7b-think",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/olmo-3-7b-think\/providers",
     "source_details":{
@@ -24223,7 +24369,7 @@
     "global_rank":null,
     "model_family":"Olmo",
     "family_order":30007,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -24239,7 +24385,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":155,
+    "source_rank":156,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/olmo-3-1-32b-instruct",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/olmo-3-1-32b-instruct\/providers",
     "source_details":{
@@ -24372,7 +24518,7 @@
     "global_rank":null,
     "model_family":"Olmo",
     "family_order":300010032,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -24388,7 +24534,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":95,
+    "source_rank":96,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/olmo-3-1-32b-think",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/olmo-3-1-32b-think\/providers",
     "source_details":{
@@ -24521,7 +24667,7 @@
     "global_rank":null,
     "model_family":"Olmo",
     "family_order":300010032,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -24537,7 +24683,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":193,
+    "source_rank":194,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/phi-4",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/phi-4\/providers",
     "source_details":{
@@ -24670,7 +24816,7 @@
     "global_rank":null,
     "model_family":"Microsoft",
     "family_order":4,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -24686,7 +24832,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":161,
+    "source_rank":162,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/phi-4-mini",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/phi-4-mini\/providers",
     "source_details":{
@@ -24736,9 +24882,9 @@
       "Cache Hit Price USD\/1M Tokens":"--",
       "Cache Write Price USD\/1M Tokens":"--",
       "Time per Task Minutes":"--",
-      "Average tok\/s":"15",
-      "First Answer Token (s)":"4.60",
-      "First Token (s)":"4.60",
+      "Average tok\/s":"14",
+      "First Answer Token (s)":"4.67",
+      "First Token (s)":"4.67",
       "Context Window":"128k",
       "License":"Open",
       "Further Analysis":"Model Providers"
@@ -24820,7 +24966,7 @@
     "global_rank":null,
     "model_family":"Microsoft",
     "family_order":4,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -24836,7 +24982,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":85,
+    "source_rank":86,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/phi-4-multimodal",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/phi-4-multimodal\/providers",
     "source_details":{
@@ -24886,9 +25032,9 @@
       "Cache Hit Price USD\/1M Tokens":"--",
       "Cache Write Price USD\/1M Tokens":"--",
       "Time per Task Minutes":"--",
-      "Average tok\/s":"22",
-      "First Answer Token (s)":"0.50",
-      "First Token (s)":"0.50",
+      "Average tok\/s":"21",
+      "First Answer Token (s)":"0.62",
+      "First Token (s)":"0.62",
       "Context Window":"128k",
       "License":"Open",
       "Further Analysis":"Model Providers"
@@ -24965,7 +25111,7 @@
     "global_rank":null,
     "model_family":"Microsoft",
     "family_order":4,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -24981,7 +25127,7 @@
     "arena_votes":null,
     "license_type":"Proprietary",
     "creator":null,
-    "source_rank":196,
+    "source_rank":197,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/quasar-438b",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/quasar-438b\/providers",
     "source_details":{
@@ -25115,7 +25261,7 @@
     "global_rank":null,
     "model_family":"GLM",
     "family_order":43800050002,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -25131,7 +25277,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":199,
+    "source_rank":200,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/qwen3-coder-next",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/qwen3-coder-next\/providers",
     "source_details":{
@@ -25181,9 +25327,9 @@
       "Cache Hit Price USD\/1M Tokens":"$0.29",
       "Cache Write Price USD\/1M Tokens":"--",
       "Time per Task Minutes":"--",
-      "Average tok\/s":"65",
-      "First Answer Token (s)":"1.52",
-      "First Token (s)":"1.52",
+      "Average tok\/s":"62",
+      "First Answer Token (s)":"1.56",
+      "First Token (s)":"1.56",
       "Context Window":"256k",
       "License":"Open",
       "Further Analysis":"Model Providers"
@@ -25267,7 +25413,7 @@
     "global_rank":null,
     "model_family":"Qwen",
     "family_order":3,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -25283,7 +25429,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":182,
+    "source_rank":183,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/qwen3-next-80b-a3b",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/qwen3-next-80b-a3b\/providers",
     "source_details":{
@@ -25418,7 +25564,7 @@
     "global_rank":null,
     "model_family":"Qwen",
     "family_order":300800003,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -25434,7 +25580,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":84,
+    "source_rank":85,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/qwen3-next-80b-a3b-instruct",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/qwen3-next-80b-a3b-instruct\/providers",
     "source_details":{
@@ -25484,7 +25630,7 @@
       "Cache Hit Price USD\/1M Tokens":"$0.09",
       "Cache Write Price USD\/1M Tokens":"--",
       "Time per Task Minutes":"--",
-      "Average tok\/s":"109",
+      "Average tok\/s":"94",
       "First Answer Token (s)":"1.20",
       "First Token (s)":"1.20",
       "Context Window":"262k",
@@ -25567,7 +25713,7 @@
     "global_rank":null,
     "model_family":"Qwen",
     "family_order":300800003,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -25583,7 +25729,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":176,
+    "source_rank":177,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/qwen3-omni-30b-a3b",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/qwen3-omni-30b-a3b\/providers",
     "source_details":{
@@ -25633,9 +25779,9 @@
       "Cache Hit Price USD\/1M Tokens":"--",
       "Cache Write Price USD\/1M Tokens":"--",
       "Time per Task Minutes":"--",
-      "Average tok\/s":"85",
-      "First Answer Token (s)":"28.10",
-      "First Token (s)":"1.16",
+      "Average tok\/s":"84",
+      "First Answer Token (s)":"28.42",
+      "First Token (s)":"1.18",
       "Context Window":"66k",
       "License":"Open",
       "Further Analysis":"Model Providers"
@@ -25716,7 +25862,7 @@
     "global_rank":null,
     "model_family":"Qwen",
     "family_order":300300003,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -25732,7 +25878,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":74,
+    "source_rank":76,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/qwen3-omni-30b-a3b-instruct",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/qwen3-omni-30b-a3b-instruct\/providers",
     "source_details":{
@@ -25865,7 +26011,7 @@
     "global_rank":null,
     "model_family":"Qwen",
     "family_order":300300003,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -25881,7 +26027,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":100,
+    "source_rank":101,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/qwen3-5-0-8b",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/qwen3-5-0-8b\/providers",
     "source_details":{
@@ -26015,7 +26161,7 @@
     "global_rank":null,
     "model_family":"Qwen",
     "family_order":3000500000008,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -26031,7 +26177,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":70,
+    "source_rank":72,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/qwen3-5-122b-a10b",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/qwen3-5-122b-a10b\/providers",
     "source_details":{
@@ -26081,7 +26227,7 @@
       "Cache Hit Price USD\/1M Tokens":"--",
       "Cache Write Price USD\/1M Tokens":"--",
       "Time per Task Minutes":"--",
-      "Average tok\/s":"92",
+      "Average tok\/s":"94",
       "First Answer Token (s)":"4.51",
       "First Token (s)":"4.51",
       "Context Window":"262k",
@@ -26166,7 +26312,7 @@
     "global_rank":null,
     "model_family":"Qwen",
     "family_order":3000501220010,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -26182,7 +26328,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":73,
+    "source_rank":75,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/qwen3-5-2b",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/qwen3-5-2b\/providers",
     "source_details":{
@@ -26316,7 +26462,7 @@
     "global_rank":null,
     "model_family":"Qwen",
     "family_order":300050002,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -26332,7 +26478,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":76,
+    "source_rank":78,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/qwen3-5-397b-a17b",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/qwen3-5-397b-a17b\/providers",
     "source_details":{
@@ -26382,9 +26528,9 @@
       "Cache Hit Price USD\/1M Tokens":"--",
       "Cache Write Price USD\/1M Tokens":"--",
       "Time per Task Minutes":"--",
-      "Average tok\/s":"52",
-      "First Answer Token (s)":"36.80",
-      "First Token (s)":"2.48",
+      "Average tok\/s":"51",
+      "First Answer Token (s)":"39.85",
+      "First Token (s)":"2.51",
       "Context Window":"262k",
       "License":"Open",
       "Further Analysis":"Model Providers"
@@ -26470,7 +26616,7 @@
     "global_rank":null,
     "model_family":"Qwen",
     "family_order":3000503970017,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -26486,7 +26632,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":88,
+    "source_rank":89,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/qwen3-5-4b",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/qwen3-5-4b\/providers",
     "source_details":{
@@ -26536,9 +26682,9 @@
       "Cache Hit Price USD\/1M Tokens":"--",
       "Cache Write Price USD\/1M Tokens":"--",
       "Time per Task Minutes":"--",
-      "Average tok\/s":"35",
-      "First Answer Token (s)":"1.49",
-      "First Token (s)":"1.49",
+      "Average tok\/s":"32",
+      "First Answer Token (s)":"1.54",
+      "First Token (s)":"1.54",
       "Context Window":"262k",
       "License":"Open",
       "Further Analysis":"Model Providers"
@@ -26620,7 +26766,7 @@
     "global_rank":null,
     "model_family":"Qwen",
     "family_order":300050004,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -26636,7 +26782,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":81,
+    "source_rank":82,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/qwen3-5-9b",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/qwen3-5-9b\/providers",
     "source_details":{
@@ -26686,9 +26832,9 @@
       "Cache Hit Price USD\/1M Tokens":"--",
       "Cache Write Price USD\/1M Tokens":"--",
       "Time per Task Minutes":"--",
-      "Average tok\/s":"115",
-      "First Answer Token (s)":"1.06",
-      "First Token (s)":"1.06",
+      "Average tok\/s":"114",
+      "First Answer Token (s)":"2.01",
+      "First Token (s)":"2.01",
       "Context Window":"262k",
       "License":"Open",
       "Further Analysis":"Model Providers"
@@ -26769,7 +26915,7 @@
     "global_rank":null,
     "model_family":"Qwen",
     "family_order":300050009,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -26785,7 +26931,7 @@
     "arena_votes":null,
     "license_type":"Proprietary",
     "creator":null,
-    "source_rank":130,
+    "source_rank":131,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/qwen3-5-omni-flash",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/qwen3-5-omni-flash\/providers",
     "source_details":{
@@ -26835,9 +26981,9 @@
       "Cache Hit Price USD\/1M Tokens":"--",
       "Cache Write Price USD\/1M Tokens":"--",
       "Time per Task Minutes":"--",
-      "Average tok\/s":"128",
-      "First Answer Token (s)":"2.88",
-      "First Token (s)":"2.88",
+      "Average tok\/s":"106",
+      "First Answer Token (s)":"2.92",
+      "First Token (s)":"2.92",
       "Context Window":"256k",
       "License":"Proprietary",
       "Further Analysis":"Model Providers"
@@ -26918,7 +27064,7 @@
     "global_rank":null,
     "model_family":"Qwen",
     "family_order":30005,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -26934,7 +27080,7 @@
     "arena_votes":null,
     "license_type":"Proprietary",
     "creator":null,
-    "source_rank":68,
+    "source_rank":70,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/qwen3-5-omni-plus",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/qwen3-5-omni-plus\/providers",
     "source_details":{
@@ -26984,9 +27130,9 @@
       "Cache Hit Price USD\/1M Tokens":"--",
       "Cache Write Price USD\/1M Tokens":"--",
       "Time per Task Minutes":"--",
-      "Average tok\/s":"72",
-      "First Answer Token (s)":"2.72",
-      "First Token (s)":"2.72",
+      "Average tok\/s":"68",
+      "First Answer Token (s)":"2.77",
+      "First Token (s)":"2.77",
       "Context Window":"256k",
       "License":"Proprietary",
       "Further Analysis":"Model Providers"
@@ -27067,7 +27213,7 @@
     "global_rank":null,
     "model_family":"Qwen",
     "family_order":30005,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -27083,7 +27229,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":125,
+    "source_rank":126,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/qwen3-6-35b-a3b",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/qwen3-6-35b-a3b\/providers",
     "source_details":{
@@ -27133,9 +27279,9 @@
       "Cache Hit Price USD\/1M Tokens":"--",
       "Cache Write Price USD\/1M Tokens":"--",
       "Time per Task Minutes":"--",
-      "Average tok\/s":"97",
-      "First Answer Token (s)":"3.20",
-      "First Token (s)":"3.20",
+      "Average tok\/s":"90",
+      "First Answer Token (s)":"3.24",
+      "First Token (s)":"3.24",
       "Context Window":"262k",
       "License":"Open",
       "Further Analysis":"Model Providers"
@@ -27218,7 +27364,7 @@
     "global_rank":null,
     "model_family":"Qwen",
     "family_order":3000600350003,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -27234,7 +27380,7 @@
     "arena_votes":null,
     "license_type":"Proprietary",
     "creator":null,
-    "source_rank":166,
+    "source_rank":167,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/qwen3-7-plus",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/qwen3-7-plus\/providers",
     "source_details":{
@@ -27285,8 +27431,8 @@
       "Cache Write Price USD\/1M Tokens":"--",
       "Time per Task Minutes":"--",
       "Average tok\/s":"56",
-      "First Answer Token (s)":"45.57",
-      "First Token (s)":"2.75",
+      "First Answer Token (s)":"46.74",
+      "First Token (s)":"2.78",
       "Context Window":"1M",
       "License":"Proprietary",
       "Further Analysis":"Model Providers"
@@ -27371,7 +27517,7 @@
     "global_rank":null,
     "model_family":"Qwen",
     "family_order":30007,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -27387,7 +27533,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":151,
+    "source_rank":152,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/qwen3-8-2-4t-a95b",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/qwen3-8-2-4t-a95b\/providers",
     "source_details":{
@@ -27437,9 +27583,9 @@
       "Cache Hit Price USD\/1M Tokens":"$0.25",
       "Cache Write Price USD\/1M Tokens":"--",
       "Time per Task Minutes":"--",
-      "Average tok\/s":"41",
-      "First Answer Token (s)":"115.72",
-      "First Token (s)":"5.03",
+      "Average tok\/s":"40",
+      "First Answer Token (s)":"111.47",
+      "First Token (s)":"5.15",
       "Context Window":"262k",
       "License":"Open",
       "Further Analysis":"Model Providers"
@@ -27521,7 +27667,7 @@
     "global_rank":null,
     "model_family":"Qwen",
     "family_order":3000800020004,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -27537,7 +27683,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":159,
+    "source_rank":160,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/r1-1776",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/r1-1776\/providers",
     "source_details":{
@@ -27663,7 +27809,7 @@
     "global_rank":null,
     "model_family":"DeepSeek",
     "family_order":11776,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -27679,7 +27825,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":185,
+    "source_rank":186,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/reka-flash-3",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/reka-flash-3\/providers",
     "source_details":{
@@ -27730,8 +27876,8 @@
       "Cache Write Price USD\/1M Tokens":"--",
       "Time per Task Minutes":"--",
       "Average tok\/s":"58",
-      "First Answer Token (s)":"8.07",
-      "First Token (s)":"0.92",
+      "First Answer Token (s)":"9.55",
+      "First Token (s)":"0.95",
       "Context Window":"128k",
       "License":"Open",
       "Further Analysis":"Model Providers"
@@ -27812,7 +27958,7 @@
     "global_rank":null,
     "model_family":"Reka",
     "family_order":3,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -27828,7 +27974,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":192,
+    "source_rank":193,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/ring-2-6-1t",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/ring-2-6-1t\/providers",
     "source_details":{
@@ -27964,7 +28110,7 @@
     "global_rank":null,
     "model_family":"Ring-2.6-1T",
     "family_order":200060001,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -27980,7 +28126,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":105,
+    "source_rank":106,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/ring-flash-2-0",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/ring-flash-2-0\/providers",
     "source_details":{
@@ -28113,7 +28259,7 @@
     "global_rank":null,
     "model_family":"Ring-flash-2.0",
     "family_order":20000,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -28129,7 +28275,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":103,
+    "source_rank":104,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/sarvam-105b",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/sarvam-105b\/providers",
     "source_details":{
@@ -28179,9 +28325,9 @@
       "Cache Hit Price USD\/1M Tokens":"$0.026",
       "Cache Write Price USD\/1M Tokens":"--",
       "Time per Task Minutes":"--",
-      "Average tok\/s":"181",
-      "First Answer Token (s)":"9.60",
-      "First Token (s)":"2.43",
+      "Average tok\/s":"209",
+      "First Answer Token (s)":"9.54",
+      "First Token (s)":"2.46",
       "Context Window":"128k",
       "License":"Open",
       "Further Analysis":"Model Providers"
@@ -28262,7 +28408,7 @@
     "global_rank":null,
     "model_family":"Sarvam",
     "family_order":105,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -28278,7 +28424,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":134,
+    "source_rank":135,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/sarvam-30b",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/sarvam-30b\/providers",
     "source_details":{
@@ -28411,7 +28557,7 @@
     "global_rank":null,
     "model_family":"Sarvam",
     "family_order":30,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -28427,7 +28573,7 @@
     "arena_votes":null,
     "license_type":"Proprietary",
     "creator":null,
-    "source_rank":122,
+    "source_rank":123,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/solar-mini4",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/solar-mini4\/providers",
     "source_details":{
@@ -28477,9 +28623,9 @@
       "Cache Hit Price USD\/1M Tokens":"$0.01",
       "Cache Write Price USD\/1M Tokens":"--",
       "Time per Task Minutes":"--",
-      "Average tok\/s":"135",
-      "First Answer Token (s)":"31.80",
-      "First Token (s)":"2.17",
+      "Average tok\/s":"132",
+      "First Answer Token (s)":"32.40",
+      "First Token (s)":"2.19",
       "Context Window":"1M",
       "License":"Proprietary",
       "Further Analysis":"Model Providers"
@@ -28559,7 +28705,7 @@
     "global_rank":null,
     "model_family":"Solar",
     "family_order":4,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -28575,7 +28721,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":112,
+    "source_rank":113,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/solar-open-100b",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/solar-open-100b\/providers",
     "source_details":{
@@ -28708,7 +28854,7 @@
     "global_rank":null,
     "model_family":"Solar",
     "family_order":100,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -28724,7 +28870,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":141,
+    "source_rank":142,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/solar-open2-250b",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/solar-open2-250b\/providers",
     "source_details":{
@@ -28858,7 +29004,7 @@
     "global_rank":null,
     "model_family":"Solar",
     "family_order":20250,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -28874,7 +29020,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":168,
+    "source_rank":169,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/step3-vl-10b",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/step3-vl-10b\/providers",
     "source_details":{
@@ -29007,7 +29153,7 @@
     "global_rank":null,
     "model_family":"Step3",
     "family_order":30010,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -29023,7 +29169,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":144,
+    "source_rank":145,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/tiny-aya-global",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/tiny-aya-global\/providers",
     "source_details":{
@@ -29073,9 +29219,9 @@
       "Cache Hit Price USD\/1M Tokens":"--",
       "Cache Write Price USD\/1M Tokens":"--",
       "Time per Task Minutes":"--",
-      "Average tok\/s":"131",
-      "First Answer Token (s)":"0.18",
-      "First Token (s)":"0.18",
+      "Average tok\/s":"132",
+      "First Answer Token (s)":"0.19",
+      "First Token (s)":"0.19",
       "Context Window":"8k",
       "License":"Open",
       "Further Analysis":"Model Providers"
@@ -29156,7 +29302,7 @@
     "global_rank":null,
     "model_family":"Tiny",
     "family_order":1,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -29172,7 +29318,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":116,
+    "source_rank":117,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/tri-21b-think-v0-5",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/tri-21b-think-v0-5\/providers",
     "source_details":{
@@ -29305,7 +29451,7 @@
     "global_rank":null,
     "model_family":"Tri-21B-Think",
     "family_order":21,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -29321,7 +29467,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":174,
+    "source_rank":175,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/trinity-large-thinking",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/trinity-large-thinking\/providers",
     "source_details":{
@@ -29457,7 +29603,7 @@
     "global_rank":null,
     "model_family":"Trinity",
     "family_order":1,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -29473,7 +29619,7 @@
     "arena_votes":null,
     "license_type":"Open",
     "creator":null,
-    "source_rank":78,
+    "source_rank":79,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/gpt-oss-20b",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/gpt-oss-20b\/providers",
     "source_details":{
@@ -29523,9 +29669,9 @@
       "Cache Hit Price USD\/1M Tokens":"--",
       "Cache Write Price USD\/1M Tokens":"--",
       "Time per Task Minutes":"--",
-      "Average tok\/s":"142",
-      "First Answer Token (s)":"1.30",
-      "First Token (s)":"1.24",
+      "Average tok\/s":"126",
+      "First Answer Token (s)":"2.36",
+      "First Token (s)":"1.27",
       "Context Window":"131k",
       "License":"Open",
       "Further Analysis":"Model Providers"
@@ -29606,7 +29752,7 @@
     "global_rank":null,
     "model_family":"GPT",
     "family_order":20,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   },
   {
     "model_id":null,
@@ -29622,7 +29768,7 @@
     "arena_votes":null,
     "license_type":"Proprietary",
     "creator":null,
-    "source_rank":79,
+    "source_rank":80,
     "model_url":"https:\/\/artificialanalysis.ai\/models\/o3",
     "providers_url":"https:\/\/artificialanalysis.ai\/models\/o3\/providers",
     "source_details":{
@@ -29672,9 +29818,9 @@
       "Cache Hit Price USD\/1M Tokens":"$0.50",
       "Cache Write Price USD\/1M Tokens":"--",
       "Time per Task Minutes":"--",
-      "Average tok\/s":"125",
-      "First Answer Token (s)":"5.37",
-      "First Token (s)":"5.37",
+      "Average tok\/s":"113",
+      "First Answer Token (s)":"5.56",
+      "First Token (s)":"5.56",
       "Context Window":"200k",
       "License":"Proprietary",
       "Further Analysis":"Model Providers"
@@ -29755,6 +29901,6 @@
     "global_rank":null,
     "model_family":"o3",
     "family_order":3,
-    "last_updated":"2026-11-18"
+    "last_updated":"2026-11-19"
   }
 ]
