@@ -1,21 +1,21 @@
 {
   "schema_version": "powerbi-v2-wide",
   "source_snapshot_dates": {
-    "artificial_analysis": "2026-11-20",
-    "llmstats": "2026-11-20"
+    "artificial_analysis": "2026-11-21",
+    "llmstats": "2026-11-21"
   },
   "earliest_catalog_event_date": "2026-03-16",
   "earliest_observed_snapshot_date": "2026-07-23",
-  "latest_observed_snapshot_date": "2026-11-20",
+  "latest_observed_snapshot_date": "2026-11-21",
   "catalog_event_row_count": 113,
-  "observed_snapshot_row_count": 31188,
+  "observed_snapshot_row_count": 31477,
   "historical_coverage_limitations": "Pre-LLMDEX historical rows represent repository-supported catalogue or release events and must not be interpreted as daily historical benchmark measurements.",
   "row_counts": {
-    "artificial_analysis_benchmarks": 200,
-    "llmstats_benchmarks": 319,
+    "artificial_analysis_benchmarks": 201,
+    "llmstats_benchmarks": 318,
     "combined_latest": 1,
-    "model_family_history": 31301,
-    "provider_metadata": 34,
+    "model_family_history": 31590,
+    "provider_metadata": 35,
     "data_dictionary": 205
   },
   "column_counts": {
@@ -24,8 +24,8 @@
     "model_family_history": 36,
     "provider_metadata": 21
   },
-  "providers_discovered": 34,
-  "providers_fully_enriched": 24,
+  "providers_discovered": 35,
+  "providers_fully_enriched": 25,
   "providers_requiring_metadata": 10,
   "unresolved_provider_ids": [
     "hy4",
@@ -40,17 +40,17 @@
     "stepfun"
   ],
   "number_of_benchmark_columns": 57,
-  "llmstats_general_row_count": 111,
-  "llmstats_general_missing_score_count": 81,
-  "llmstats_general_missing_rank_count": 81,
+  "llmstats_general_row_count": 110,
+  "llmstats_general_missing_score_count": 80,
+  "llmstats_general_missing_rank_count": 80,
   "llmstats_general_missing_provider_count": 0,
-  "llmstats_provider_populated_count": 319,
+  "llmstats_provider_populated_count": 318,
   "llmstats_provider_missing_count": 0,
-  "llmstats_availability_unknown_count": 258,
+  "llmstats_availability_unknown_count": 257,
   "malformed_name_count_detected": 0,
   "malformed_name_count_corrected": 0,
   "unresolved_malformed_name_count": 0,
-  "consensus_family_count": 8,
+  "consensus_family_count": 9,
   "empty_reserved_columns": [
     "aa_aime25",
     "aa_livecodebench",
@@ -61,19 +61,19 @@
     "aa_cache_read_cost_usd_per_1m",
     "aa_cache_write_cost_usd_per_1m"
   ],
-  "corrected_open_weight_inconsistency_count": 146,
+  "corrected_open_weight_inconsistency_count": 148,
   "sha256_hashes": {
-    "artificial_analysis_benchmarks.csv": "78aacef01443e7b628caa1bcb87a66501d3cb64b4b4398d2209b04d568a6d011",
-    "llmstats_benchmarks.csv": "7b620ce080515e952a80d0b61da8ffa1c9361b136c3c717e430b02229499bdf6",
-    "combined_latest.json": "493ddaab6a69717695b633f82320b153dbed1986a98f6ff32591e578da3ae78e",
-    "model_family_history.csv": "3de87a23183e1570c4364e1c78f12812023f5ce3fa18cf3a6c8f616f9af3ce46",
-    "provider_metadata.csv": "fa7a137326d7caf48fb7e8d6edcb7fc101ccb00e8428d749c342b947230ffbe2",
-    "provider_metadata_validation.json": "acf643a21e67df68b35b1e810d1bc9f5fff2a61019621b383c89eb850b9ccaf8",
-    "data_dictionary.csv": "2960d610cd0cd98e984f01b2eb0e75688f89cf7a6f3f5cc551a58ac29733696a"
+    "artificial_analysis_benchmarks.csv": "7710dbe8b321d5c2c1bd873d926e750da14d4bef95c4f225d3dfee7ce43a52f8",
+    "llmstats_benchmarks.csv": "4753767e301222f467ba392c561a37b032851672da4d05791efd4992e6bdaadf",
+    "combined_latest.json": "ef8a4a5ff6407f6b71909d44e132a75aea8f13ec7ad53c18764c92f6737cf836",
+    "model_family_history.csv": "0af7dcc4d1036a069c1be402b5af0f1015836f15f4c6a58b2c649b305197fe21",
+    "provider_metadata.csv": "4a95f645a4d4b2265e0eba283f8d14f02ffa57e2e92608dbdb4203f22a8ab394",
+    "provider_metadata_validation.json": "2d682d8112e2eff5207610a8c10834721a8af768f4e8d7bddcb9499682785b03",
+    "data_dictionary.csv": "88b9f157923d401174afa33e8b639cf7c76a5c601be3c0a3ae7808a085be0070"
   },
   "validation_status": "valid",
   "warnings": [
     "Provider metadata required: hy4, inception, inclusionai, institute-of-foundation-models, k2, liquid-ai, nous-research, openbmb, reflection, stepfun"
   ],
-  "generated_from_commit": "187b956b1e4f68669ef61e63a1f08720e4e63eba"
+  "generated_from_commit": "a3c0a502d8b7a9be00be1bd003aa2cb599947cba"
 }
