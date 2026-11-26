@@ -1,20 +1,20 @@
 {
   "schema_version": "powerbi-v2-wide",
   "source_snapshot_dates": {
-    "artificial_analysis": "2026-11-25",
-    "llmstats": "2026-11-25"
+    "artificial_analysis": "2026-11-26",
+    "llmstats": "2026-11-26"
   },
   "earliest_catalog_event_date": "2026-03-16",
   "earliest_observed_snapshot_date": "2026-07-23",
-  "latest_observed_snapshot_date": "2026-11-25",
+  "latest_observed_snapshot_date": "2026-11-26",
   "catalog_event_row_count": 113,
-  "observed_snapshot_row_count": 32640,
+  "observed_snapshot_row_count": 32931,
   "historical_coverage_limitations": "Pre-LLMDEX historical rows represent repository-supported catalogue or release events and must not be interpreted as daily historical benchmark measurements.",
   "row_counts": {
     "artificial_analysis_benchmarks": 203,
     "llmstats_benchmarks": 318,
     "combined_latest": 1,
-    "model_family_history": 32753,
+    "model_family_history": 33044,
     "provider_metadata": 35,
     "data_dictionary": 205
   },
@@ -63,17 +63,17 @@
   ],
   "corrected_open_weight_inconsistency_count": 150,
   "sha256_hashes": {
-    "artificial_analysis_benchmarks.csv": "78ae4313f29bf96a06bb96eb2c0b31cb2bb95f4cb7cd31d02ae119dcd6a6b241",
-    "llmstats_benchmarks.csv": "4b8d6070f75c728101e316cc8b03a9b3c4fd757f5732aaecf4da773e874a0612",
-    "combined_latest.json": "245481a1a68f30b722b46660863c3770570c35ce93dcb1d07e42177f81700df9",
-    "model_family_history.csv": "a968759126bb53380802e53589c7f3ca54db38fac9cf857516f520482c4014ea",
-    "provider_metadata.csv": "9e8bd825af0daf1adf37f8ab06d7964f0d68c61f99af9a48f89b1d47983b827d",
-    "provider_metadata_validation.json": "e40e77169a2b235fd5a4d18373ceae98b69818a7cd8685873cd167f56a0731a6",
-    "data_dictionary.csv": "9dca5da51fb8b9d100c0fa55179344467f1b378ac595791e95dad80482757488"
+    "artificial_analysis_benchmarks.csv": "bf773f57eafb601901fb0554f4c984acedb3f387a07a8e08afe1b0c8e86729d5",
+    "llmstats_benchmarks.csv": "d69e4b02558d4ea33741cb612d9163cb67146084505589ce4ec5e4f131d73bbb",
+    "combined_latest.json": "a6459d9d38b6da4f0af47e7015cdba7767992e59e0d4fd8df14362dc2538e876",
+    "model_family_history.csv": "d0c92b017fd01b9b24c2c8c676ceb9bdbc61b4de08008d718454985595c2d376",
+    "provider_metadata.csv": "6b6da1bce855cbb9c1c17d2b79e64ec18305aab6629b13c610bd8e1aec6d9fb2",
+    "provider_metadata_validation.json": "9edc3de6af238445c82d145689901b252e26e2ddba12661e4421bfe3a6117843",
+    "data_dictionary.csv": "430811c69f97312846509197b38ba3c797c3552d38722e16e4fed768f45178f1"
   },
   "validation_status": "valid",
   "warnings": [
     "Provider metadata required: hy4, inception, inclusionai, institute-of-foundation-models, k2, liquid-ai, nous-research, openbmb, reflection, stepfun"
   ],
-  "generated_from_commit": "c27a0eda069a2943a53472791779fc323fdb9a2e"
+  "generated_from_commit": "4b1771a16f06b3dcd9167ecae4401a3af81f0262"
 }
