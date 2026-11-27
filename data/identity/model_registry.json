@@ -2951,6 +2951,37 @@
       }
     }
   },
+  "unknown/ernie-5-5-flash-preview": {
+    "family_id": "unknown/ernie-5-5-flash-preview",
+    "canonical_family_name": "ERNIE 5.5 Flash Preview",
+    "provider": null,
+    "version": "5.5",
+    "source_aliases": {
+      "artificial_analysis": [
+        "ERNIE 5.5 Flash Preview"
+      ],
+      "llmstats": []
+    },
+    "source_ids": {},
+    "source_urls": {
+      "artificial_analysis": [
+        "https://artificialanalysis.ai/models/ernie-5-5-flash"
+      ]
+    },
+    "variants": {
+      "unknown/ernie-5-5-flash-preview:preview": {
+        "variant_id": "unknown/ernie-5-5-flash-preview:preview",
+        "deployment_profile_id": "unknown/ernie-5-5-flash-preview:preview:deployment",
+        "source_name": "ERNIE 5.5 Flash Preview",
+        "reasoning_effort": null,
+        "deployment_profile": [
+          "preview"
+        ],
+        "fallback_enabled": false,
+        "parameter_count": null
+      }
+    }
+  },
   "unknown/exaone-4-0-1-2b": {
     "family_id": "unknown/exaone-4-0-1-2b",
     "canonical_family_name": "Exaone 4.0 1.2B",
@@ -6250,6 +6281,38 @@
         "deployment_profile": [],
         "fallback_enabled": false,
         "parameter_count": null
+      }
+    }
+  },
+  "zhipu-ai/quasar-1-2-358b-max-based-on-glm-5-3": {
+    "family_id": "zhipu-ai/quasar-1-2-358b-max-based-on-glm-5-3",
+    "canonical_family_name": "Quasar 1.2 358B Max, Based on GLM-5.3",
+    "provider": "Zhipu AI",
+    "version": "1.2",
+    "source_aliases": {
+      "artificial_analysis": [
+        "Quasar 1.2 358B Max, Based on GLM-5.3"
+      ],
+      "llmstats": []
+    },
+    "source_ids": {},
+    "source_urls": {
+      "artificial_analysis": [
+        "https://artificialanalysis.ai/models/quasar-1-2-358b"
+      ]
+    },
+    "variants": {
+      "zhipu-ai/quasar-1-2-358b-max-based-on-glm-5-3:max": {
+        "variant_id": "zhipu-ai/quasar-1-2-358b-max-based-on-glm-5-3:max",
+        "deployment_profile_id": "zhipu-ai/quasar-1-2-358b-max-based-on-glm-5-3:max:deployment",
+        "source_name": "Quasar 1.2 358B Max, Based on GLM-5.3",
+        "reasoning_effort": "max",
+        "deployment_profile": [],
+        "fallback_enabled": false,
+        "parameter_count": {
+          "total_billions": 358.0,
+          "active_billions": null
+        }
       }
     }
   },
